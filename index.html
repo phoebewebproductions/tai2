@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo de Informática</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TAI 2.0: Bloque I</h1>
+        <h2>Curso Interactivo de TAI</h2>
+    </header>
+    
+    <main id="contenido-principal">
+        <section class="tema">
+            <button class="tema-btn">
+                Bloque I: Organización del Estado y Administración Pública
+            </button>
+            <div class="contenido">
+                <!-- Punto 1.1 -->
+                <div class="punto">
+                    <button class="punto-btn" data-punto="101001">
+                        Punto 1.1: La constitución española de 1978.
+                    </button>
+                    <div class="punto-contenido oculto">
+                        <div class="teoria">
+                            <h3><strong>CARACTERÍSTICAS.</strong></h3>
+                            <article>
+                                
+                                <p>La Constitución Española (CE) de 1978, de 27 de diciembre, es la norma suprema y fundamental de nuestro ordenamiento jurídico actual.</p>
+                                <p>Las <strong>CARACTERÍSTICAS</strong> esenciales de la misma son:</p>
+                                <ul>
+                                  <li id="101001001"><strong >Es una Constitución escrita.</strong> Sigue el modelo de las Constituciones de EEUU y Francia, frente al carácter preferentemente consuetudinario del constitucionalismo inglés.</li>
+                                  <li><strong>Es una Constitución rígida.</strong> Esto significa que únicamente podrá ser reformada de acuerdo con los procedimientos de reforma previstos en ella. Estos mecanismos se explicarán en el punto 2.3.</li>
+                                  <li id="101001002"><strong>Constitución democrática:</strong> Se define a España como “Estado Social y Democrático de Derecho” (art 1.1) “La soberanía nacional reside en el pueblo español del que emanan los poderes del Estado” (art. 1.2.)</li>
+                                  <li id="101001003"><strong>Constitución monárquica:</strong> “La forma política del Estado español es la Monarquía Parlamentaria” (art. 1.3)</li>
+                                  <li><strong>Constitución autonomista:</strong> Frente al modelo centralista que imperaba en España, se configura un Estado territorialmente descentralizado (art. 2 y Título VIII)</li>
+                                  <li id="101001004"><strong>Constitución garantista:</strong>
+                                    <ul>
+                                      <li>Reconoce un conjunto de derechos (y deberes) fundamentales (Título I)
+                                         con un amplio sistema de garantías ante los Tribunales ordinarios y ante
+                                          el Tribunal Constitucional.</li>
+                                      <li>Se asegura la efectividad de la propia CE con procedimientos de control 
+                                        de constitucionalidad de las leyes y de resolución de los conflictos 
+                                        constitucionales, asegurando así la primacía de la Constitución y el 
+                                        reparto territorial del poder entre el Estado y las Comunidades 
+                                        Autónomas.</li>
+                                    </ul>
+                                  </li>
+                                  <li><strong>Constitución de consenso:</strong>
+                                    <ul>
+                                      <li>La amplitud de materias objeto de regulación constitucional.</li>
+                                      <li>La diversa precisión de la regulación contenida en la Constitución, 
+                                        más detallada en aquellas materias sobre las que existía mayor acuerdo 
+                                        y señalando sólo los principios o directrices en otras materias 
+                                        más conflictivas con remisión a un desarrollo legislativo posterior.</li>
+                                    </ul>
+                                  </li>
+                                  <li id="101001005"><strong>La Constitución es verdadera norma jurídica, suprema y superior, 
+                                    fuente de derecho y creadora de fuentes del derecho.</strong> Como tal norma 
+                                    jurídica es de aplicación efectiva y directa, como resulta de lo dispuesto 
+                                    en el art. 9.1 CE: “los ciudadanos y los poderes públicos están sujetos a 
+                                    la Constitución y al resto del ordenamiento jurídico”.</li>
+                                </ul>
+                              </article>
+                        <button class="mini-examen-btn" id="101001">Realizar Mini Examen</button>
+                    </div>
+                </div>
+
+                <!-- Punto 1.2 -->
+                <div class="punto">
+                    <button class="punto-btn" data-punto="201002" disabled>
+                        Punto 1.2: Representación de la Información
+                    </button>
+                    <div class="punto-contenido oculto">
+                        <div class="teoria">
+                            <h3>Sistemas de numeración</h3>
+                            <p id="201002001">El sistema binario es la base de la representación de información en los ordenadores, utilizando únicamente dos dígitos: 0 y 1.</p>
+                            
+                            <p id="201002002">El sistema decimal es el que usamos habitualmente, basado en diez dígitos del 0 al 9.</p>
+                        </div>
+                        <button class="mini-examen-btn" id="201002">Realizar Mini Examen</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Examen -->
+    <div id="modal-examen" class="modal oculto">
+        <div class="modal-contenido">
+            <h3 id="pregunta-texto"></h3>
+            <div id="opciones"></div>
+            <div class="modal-buttons">
+                <button id="btn-siguiente">Siguiente Pregunta</button>
+                <button id="btn-cerrar">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para respuestas -->
+    <div id="modal" class="modal oculto">
+        <div class="modal-contenido">
+            <p id="modal-text"></p>
+            <button class="close">Entendido</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
