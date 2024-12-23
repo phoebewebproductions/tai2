@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Interactivo de Informática</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Curso Interactivo de Informática</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Add React and ReactDOM scripts -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    </head>
 <body>
+        <!-- Sección de autenticación -->
+        
     <header>
         <h1>TAI 2.0: Bloque I</h1>
-        <h2>Curso Interactivo de TAI</h2>
+        <h2>Organización del Estado y Administración Pública</h2>
+       
     </header>
-    
+    <div id="progress-display"></div>
     <main id="contenido-principal">
+
         <section class="tema">
             <button class="tema-btn">
-                Bloque I: Organización del Estado y Administración Pública
+                Tema I: La constitución española de 1978
             </button>
             <div class="contenido">
                 <!-- Punto 1.1 -->
@@ -57,11 +64,6 @@
                                         más conflictivas con remisión a un desarrollo legislativo posterior.</li>
                                     </ul>
                                   </li>
-                                  <li id="101001005"><strong>La Constitución es verdadera norma jurídica, suprema y superior, 
-                                    fuente de derecho y creadora de fuentes del derecho.</strong> Como tal norma 
-                                    jurídica es de aplicación efectiva y directa, como resulta de lo dispuesto 
-                                    en el art. 9.1 CE: “los ciudadanos y los poderes públicos están sujetos a 
-                                    la Constitución y al resto del ordenamiento jurídico”.</li>
                                 </ul>
                               </article>
                         <button class="mini-examen-btn" id="101001">Realizar Mini Examen</button>
@@ -70,34 +72,124 @@
 
                 <!-- Punto 1.2 -->
                 <div class="punto">
-                    <button class="punto-btn" data-punto="201002" disabled>
-                        Punto 1.2: Representación de la Información
+                    <button class="punto-btn" data-punto="101002" disabled>
+                        Punto 1.2:Estructura
                     </button>
                     <div class="punto-contenido oculto">
                         <div class="teoria">
-                            <h3>Sistemas de numeración</h3>
-                            <p id="201002001">El sistema binario es la base de la representación de información en los ordenadores, utilizando únicamente dos dígitos: 0 y 1.</p>
-                            
-                            <p id="201002002">El sistema decimal es el que usamos habitualmente, basado en diez dígitos del 0 al 9.</p>
+                            <p><strong>La Constitución es verdadera norma jurídica, suprema y superior, 
+                                fuente de derecho y creadora de fuentes del derecho.</strong> Como tal norma 
+                                jurídica es de aplicación efectiva y directa, como resulta de lo dispuesto 
+                                en <span id=101002001>el art. 9.1 CE: “los ciudadanos y los poderes públicos están sujetos a 
+                                la Constitución y al resto del ordenamiento jurídico”.</span></p>
+                                <article>
+                                    <p id="101002002">Los <strong>169 artículos</strong> de la Constitución Española (CE) están divididos 
+                                        en <strong>11 Títulos</strong> (Título Preliminar y Títulos I a X), en razón de las
+                                         materias que tratan cada uno de ellos.</p>
+                                    <p>Los Títulos se estructuran de la siguiente manera:</p>
+                                    <ul>
+                                      <li id="101002003"><strong>TÍTULO PRELIMINAR</strong> (arts. 1 a 9): establece los principios fundamentales.</li>
+                                      <li><strong>TÍTULO I</strong> “De los derechos y deberes fundamentales” (arts. 10 a 55).</li>
+                                      <li><strong>TÍTULO II</strong> “De la Corona” (arts. 56 a 65).</li>
+                                      <li><strong>TÍTULO III</strong> “De las Cortes Generales” (arts. 66 a 96).</li>
+                                      <li><strong>TÍTULO IV</strong> “Del Gobierno y de la Administración” (arts. 97 a 107).</li>
+                                      <li><strong>TÍTULO V</strong> “De las relaciones entre el Gobierno y las Cortes Generales” 
+                                        (arts. 108 a 116).</li>
+                                      <li id="101002005"><strong>TÍTULO VI</strong> “Del Poder Judicial” (arts. 117 a 127).</li>
+                                      <li><strong>TÍTULO VII</strong> “Economía y Hacienda” (arts. 128 a 136).</li>
+                                      <li id="101002004"><strong>TÍTULO VIII</strong> “De la Organización Territorial del Estado” (arts. 137 a 158).</li>
+                                      <li><strong>TÍTULO IX</strong> “Del Tribunal Constitucional” (arts. 159 a 165).</li>
+                                      <li><strong>TÍTULO X</strong> “De la reforma constitucional” (arts. 166 a 169).</li>
+                                    </ul>
+                                  </article>
+                                  
                         </div>
-                        <button class="mini-examen-btn" id="201002">Realizar Mini Examen</button>
+                        <button class="mini-examen-btn" id="101002">Realizar Mini Examen</button>
                     </div>
                 </div>
+
+                 <!-- Punto 1.3 -->
+                 <div class="punto">
+                    <button class="punto-btn" data-punto="101003" disabled>
+                        Punto 1.3:Procedimientos de reforma
+                    </button>
+                    <div class="punto-contenido oculto">
+                        <div class="teoria">
+                            <article>
+                                
+                                <p id="101003001">La reforma constitucional se regula en el <strong>Título X</strong> de la Constitución Española.</p>
+                                
+                                <p><strong>2.3.1 INICIATIVA</strong></p>
+                                <span id="101003002"><p>De acuerdo con el <strong>art. 166 CE</strong>, la iniciativa de reforma constitucional se ejercerá en los términos previstos en los apartados 1 y 2 del artículo 87, por lo que corresponde a:</p>
+                                <ul>
+                                  <li>Gobierno</li>
+                                  <li>Congreso de los Diputados</li>
+                                  <li>Senado</li>
+                                  <li>Asambleas legislativas de las Comunidades Autónomas (CCAA)</li>
+                                </ul>
+                                <p>Se <strong>EXCLUYE</strong> la iniciativa legislativa popular (apartado 3 del artículo 87, al que <strong>NO</strong> se remite el artículo 166).</p>
+                            </span>
+                                <p><strong>2.3.2 PROCEDIMIENTOS</strong></p>
+                                <p>La Constitución prevé dos procedimientos de reforma:</p>
+                                <ul>
+                                  <li><strong>Procedimiento ordinario (art. 167 CE)</strong></li>
+                                  <p>Resulta de aplicación para la reforma de aquellos preceptos constitucionales para los que no se exija el procedimiento agravado. En este caso:</p>
+                                  <ul>
+                                    <span id="101003004"><li>Los proyectos de reforma deben ser aprobados por una mayoría de <strong>3/5</strong> de cada una de las Cámaras.</li>
+                                    <li>Si no hubiera acuerdo, se creará una Comisión de composición paritaria de Diputados y Senadores.</li>
+                                    <li>De no lograrse acuerdo, el Congreso podrá aprobar la reforma por mayoría de <strong>2/3</strong>.</li>
+                                    <li>La reforma puede ser sometida a referéndum si lo solicita <strong>1/10</strong> de los miembros de cualquiera de las Cámaras.</li>
+                                  </ul></span>
+                                  <span id="101003003"><li><strong>Procedimiento agravado (art. 168 CE)</strong></li>
+                                  <p>Será aplicable si la reforma afecta a:</p>
+                                  <ul>
+                                    <li><strong>Título Preliminar</strong></li>
+                                    <li>Capítulo segundo, Sección primera, del <strong>Título I</strong> (“De los derechos fundamentales y de las libertades públicas”)</li>
+                                    <li><strong>Título II</strong> (“De la Corona”)</li>
+                                  </ul>
+                                </span>
+                                  <p>En este caso, se requiere:</p>
+                                  <ul>
+                                    <li>Aprobación inicial por mayoría de <strong>2/3</strong> de cada Cámara.</li>
+                                    <li>Disolución de las Cortes.</li>
+                                    <li>Ratificación por las nuevas Cámaras elegidas con mayoría de <strong>2/3</strong>.</li>
+                                    <li>Referéndum para su ratificación.</li>
+                                  </ul>
+                                </ul>
+                                
+                                <p><strong>2.3.4 LÍMITES</strong></p>
+                                <p>El <strong>art. 169 CE</strong> establece que <strong>no podrá iniciarse</strong> la reforma constitucional en tiempo de guerra o durante la vigencia de alguno de los estados previstos en el <strong>art. 116</strong> (estados de alarma, excepción y sitio).</p>
+                                
+                                <p><strong>2.3.5 REFORMAS DE LA CE HASTA LA ACTUALIDAD</strong></p>
+                                <span id="101003005"><p>Nuestra CE ha sido reformada en tres ocasiones:</p>
+                                <ul>
+                                  <li><strong>1992:</strong> Modificación del <strong>art. 13.2 CE</strong> para reconocer el derecho de sufragio activo y pasivo a ciudadanos de la Unión Europea en elecciones municipales.</li>
+                                  <li><strong>2011:</strong> Reforma del <strong>art. 135 CE</strong> para garantizar el principio de estabilidad presupuestaria.</li>
+                                  <li><strong>2024:</strong> Reforma del <strong>art. 49 CE</strong> para adaptar su terminología a la Convención sobre los derechos de las personas con discapacidad.</li>
+                                </ul></span>
+                              </article>
+                                
+                                  
+                        </div>
+                        <button class="mini-examen-btn" id="101003">Realizar Mini Examen</button>
+                    </div>
+                </div>
+
+
             </div>
         </section>
     </main>
 
     <!-- Modal para Examen -->
-    <div id="modal-examen" class="modal oculto">
+    <div id="modal-examen" class="modal">
         <div class="modal-contenido">
-            <h3 id="pregunta-texto"></h3>
-            <div id="opciones"></div>
-            <div class="modal-buttons">
-                <button id="btn-siguiente">Siguiente Pregunta</button>
-                <button id="btn-cerrar">Finalizar</button>
-            </div>
+          <h2 id="pregunta-texto"></h2>
+          <div id="opciones"></div>
+          <button id="btn-siguiente" style="display: none;">Siguiente</button>
+          <button id="btn-finalizar" style="display: none;">Finalizar</button>
+         
         </div>
-    </div>
+      </div>
 
     <!-- Modal para respuestas -->
     <div id="modal" class="modal oculto">
@@ -107,7 +199,11 @@
         </div>
     </div>
 
+   
+
+
     <script type="module" src="script.js"></script>
+</body>
 </body>
 </html>
 

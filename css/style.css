@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-secondary: #22c55e;
+    --color-secondary-dark: #16a34a;
+    --color-background: #f8fafc;
+    --color-text: #1e293b;
+    --color-text-light: #475569;
+    --color-border: #e2e8f0;
+    --color-white: #ffffff;
+    --color-overlay: rgba(59, 130, 246, 0.7);
+    --color-correct: #d1fae5;
+    --color-incorrect: #fee2e2;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+header {
+    position: relative;
+    background-image: url("../assets/congreso_dip.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-overlay) 0%, rgba(37, 99, 235, 0.7) 100%);
+    z-index: 1;
+}
+
+header h1, header h2 {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+header h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+}
+
+/* Contenido Principal */
+#contenido-principal {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Teoría */
+.teoria {
+    background-color: var(--color-white);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.teoria h3 {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.teoria p {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+}
+
+/* Botones de Tema */
+.tema-btn {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Botones de Punto */
+.punto-btn {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0.75rem 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.punto-btn:disabled {
+    background-color: var(--color-border);
+    color: var(--color-text-light);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.punto-btn.disponible {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.punto-btn.disponible::after {
+    content: '✓';
+    position: absolute;
+    right: 1rem;
+    color: var(--color-white);
+}
+
+/* Estilos para puntos completados */
+.punto-btn.completado {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.punto-btn.completado::after {
+    content: '✓';
+    position: absolute;
+    right: 1rem;
+    color: var(--color-white);
+}
+
+/* Contenido de los Puntos */
+.punto-contenido {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.punto-contenido:not(.oculto) {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+.punto-contenido.oculto {
+    display: none;
+}
+
+/* Mini-Examen Botón */
+.mini-examen-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mini-examen-btn::before {
+    content: '📝';
+    font-size: 1.25rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-contenido {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Opciones del examen */
+#opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+#opciones button {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-align: left;
+}
+
+#opciones button:hover {
+    background-color: var(--color-border);
+    border-color: var(--color-text-light);
+    color: var(--color-text);
+}
+
+#opciones button.correcta {
+    background-color: var(--color-correct);
+    border-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+#opciones button.incorrecta {
+    background-color: var(--color-incorrect);
+    border-color: #ef4444;
+    color: var(--color-text);
+}
+
+/* Estilos para las respuestas */
+.respuesta-correcta {
+    background-color: var(--color-correct);
+    border: 2px solid var(--color-secondary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.respuesta-correcta::after {
+    content: '✓';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.respuesta-incorrecta {
+    background-color: var(--color-incorrect);
+    border: 2px solid #ef4444;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.respuesta-incorrecta::after {
+    content: '✗';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #ef4444;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    header {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .modal-contenido {
+        padding: 1.5rem;
+        width: 95%;
+    }
+}
+
+/* Estilos para la sección de autenticación */
+#auth-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+#loginForm, #registerForm {
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 45%;
+}
+
+#loginForm h3, #registerForm h3 {
+    margin-top: 0;
+    color: var(--color-text);
+}
+
+#loginForm input, #registerForm input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+}
+
+#loginForm button, #registerForm button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#loginForm button:hover, #registerForm button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Estilos para la sección de información del usuario */
+#user-info {
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+#user-info h3 {
+    margin-top: 0;
+    color: var(--color-text);
+}
+
+#logoutBtn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#logoutBtn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+#progress-display {
+    margin-top: 1rem;
+}
+
+#progress-display div {
+   
+    color: var(--color-white);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Estilos para la visualización del progreso */
+.progress-visualization {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.progress-item {
+    text-align: center;
+}
+
+.progress-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+#modal .close,
+#cerrar-examen {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+#modal .close:hover,
+#cerrar-examen:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-reset-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-reset-float:hover {
+    background-color: var(--color-secondary-dark);
+    transform: scale(1.05);
+}
+
+#btn-siguiente {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-siguiente:hover {
+    background-color: var(--color-primary-dark);
+}
+
+
+
