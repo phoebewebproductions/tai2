@@ -169,7 +169,131 @@ export const preguntas = {
         }
     ],
     "minimoParaAprobar": 3
+},
+"101004": { // Bloque 1, Tema 01, Punto 04
+    "preguntas": [
+        {
+            "id": "1010401",
+            "pregunta": "¿Qué valores superiores del ordenamiento jurídico propugna el Estado social y democrático de Derecho según el artículo 1 de la CE?",
+            "opciones": [
+                "Libertad, justicia, igualdad y pluralismo político",
+                "Igualdad, solidaridad, independencia y seguridad jurídica",
+                "Democracia, legalidad, jerarquía normativa y separación de poderes"
+            ],
+            "correcta": 0,
+            "explicacionId": "101004001"
+        },
+        {
+            "id": "1010402",
+            "pregunta": "¿Cuál de las siguientes no es una característica del Estado de Derecho según la Constitución Española?",
+            "opciones": [
+                "Primacía de la ley",
+                "Separación de poderes",
+                "Intervención militar en la política"
+            ],
+            "correcta": 2,
+            "explicacionId": "101004002"
+        },
+        {
+            "id": "1010403",
+            "pregunta": "¿En qué artículo se garantiza la igualdad formal en la Constitución Española?",
+            "opciones": [
+                "Artículo 9.2",
+                "Artículo 14",
+                "Artículo 33"
+            ],
+            "correcta": 1,
+            "explicacionId": "101004003"
+        },
+        {
+            "id": "1010404",
+            "pregunta": "¿Qué artículo establece que la Constitución garantiza el principio de legalidad y jerarquía normativa?",
+            "opciones": [
+                "Artículo 8",
+                "Artículo 9.3",
+                "Artículo 1.2"
+            ],
+            "correcta": 1,
+            "explicacionId": "101004004"
+        },
+        {
+            "id": "1010405",
+            "pregunta": "¿Cuál de los siguientes elementos forma parte de la 'Constitución económica' según el texto?",
+            "opciones": [
+                "El derecho a la igualdad formal",
+                "El principio de jerarquía normativa",
+                "El crecimiento de la renta y su justa distribución"
+            ],
+            "correcta": 2,
+            "explicacionId": "101004005"
+        },
+        
+    ],
+    
+    "minimoParaAprobar": 3
+},
+"101005": { // Bloque 1, Tema 01, Punto 05
+    "preguntas": [
+        {
+            "id": "1010501",
+            "pregunta": "¿En qué Título de la Constitución Española se regulan los derechos y deberes fundamentales?",
+            "opciones": [
+                "Título Preliminar",
+                "Título I",
+                "Título III"
+            ],
+            "correcta": 1,
+            "explicacionId": "101005001"
+        },
+        {
+            "id": "1010502",
+            "pregunta": "¿Qué derechos están protegidos por el artículo 53.2 de la CE con tutela judicial preferente y sumariedad?",
+            "opciones": [
+                "Los derechos recogidos en el Capítulo Tercero del Título I",
+                "Los derechos recogidos en los artículos 15 a 29",
+                "Los derechos recogidos en el artículo 14"
+            ],
+            "correcta": 1,
+            "explicacionId": "101005002"
+        },
+        {
+            "id": "1010503",
+            "pregunta": "¿Cuál de los siguientes derechos pertenece a los derechos de protección máxima?",
+            "opciones": [
+                "Derecho a la propiedad privada (art. 33)",
+                "Derecho al honor, intimidad personal y familiar (art. 18)",
+                "Derecho a la vivienda digna (art. 47)"
+            ],
+            "correcta": 1,
+            "explicacionId": "101005003"
+        },
+        {
+            "id": "1010504",
+            "pregunta": "¿En qué artículo se reconoce el derecho a la Seguridad Social?",
+            "opciones": [
+                "Artículo 35",
+                "Artículo 41",
+                "Artículo 47"
+            ],
+            "correcta": 1,
+            "explicacionId": "101005004"
+        },
+        {
+            "id": "1010505",
+            "pregunta": "¿Cuál es el órgano encargado de supervisar la actividad de la Administración en defensa de los derechos fundamentales?",
+            "opciones": [
+                "El Tribunal Constitucional",
+                "El Ministerio Fiscal",
+                "El Defensor del Pueblo"
+            ],
+            "correcta": 2,
+            "explicacionId": "101005005"
+        }
+    ],
+    "minimoParaAprobar": 3
 }
+
+
 
 
    

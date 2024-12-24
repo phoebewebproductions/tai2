@@ -68,6 +68,7 @@ header h2 {
     opacity: 0.9;
 }
 
+
 /* Contenido Principal */
 #contenido-principal {
     max-width: 1200px;
@@ -176,7 +177,7 @@ header h2 {
 }
 
 .punto-contenido:not(.oculto) {
-    max-height: 2000px;
+    max-height: fit-content;
     opacity: 1;
 }
 
