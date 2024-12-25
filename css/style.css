@@ -37,8 +37,97 @@ header {
     padding: 2rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+.grid-container{
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap:15px;
 
-header::before {
+}
+
+.bloque-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#bloque1{
+    background-image: url("../assets/congreso_dip.jpg");
+}
+#bloque2{
+    background-image: url("../assets/0201.png");
+}
+#bloque3{
+    background-image: url("../assets/bloque3.png");
+}
+#bloque4{
+    background-image: url("../assets/bloque4.png");
+}
+#bloque1, #bloque2, #bloque3, #bloque4{
+    background-position: center;
+    background-size: cover;
+    height: 20vh;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.bloque-content{
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.bloque-content h1,h2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+.bloque-card {
+    position: relative;
+    height: 200px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative; /* Update 1 */
+    overflow: hidden; /* Update 1 */
+}
+
+.bloque-card:hover {
+    transform: scale(1.05);
+}
+
+.bloque-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-overlay) 0%, rgba(37, 100, 235, 0.295) 100%);
+    z-index: 1;
+}
+
+#bloque1::before, #bloque2::before, #bloque3::before, #bloque4::before { /* Update 2 */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-overlay) 0%, rgba(37, 100, 235, 0.247) 100%);
+    z-index: 1;
+}
+header::before{
     content: "";
     position: absolute;
     top: 0;
@@ -67,6 +156,7 @@ header h2 {
     margin: 0.5rem 0 0;
     opacity: 0.9;
 }
+
 
 
 /* Contenido Principal */
@@ -111,6 +201,10 @@ header h2 {
     font-size: 1.125rem;
     font-weight: 600;
     transition: all 0.2s ease;
+}
+.tema-btn:hover{
+    background-color: var(--color-text);
+    color: var(--color-white);
 }
 
 /* Botones de Punto */

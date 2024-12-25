@@ -1,6 +1,6 @@
 import { ExamenManager } from './examLogic.js';
 import { mostrarModal, ocultarModal, inicializarEventosTema, desbloquearSiguientePunto } from './uiLogic.js';
-import { CircularProgress } from './components/CircularProgress.js';
+import { CircularProgress } from '../components/CircularProgress.js';
 import { cargarProgreso, actualizarProgreso, resetearProgreso } from './progresoLocal.js';
 import { calculateCourseStructure } from './courseStructure.js';
 import { preguntas } from './preguntas.js';

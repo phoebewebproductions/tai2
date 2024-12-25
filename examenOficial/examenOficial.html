@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    </style>
+    <title>Examen de Oposición</title>
+    <link rel="icon" href="logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- Remove the preload link for service-worker.js -->
+</head>
+<body>
+        <header>
+        <h1>TAI 2.0</h1>
+        <h2>Examen oficial</h2>
+        <a href="../index.html"><button class="tema-btn volver ">
+            Volver a selección
+        </button></a>
+      
+       
+    </header>
+   
+   
+    <div class="container">
+       
+        <div class="app" style="display:none;">
+            <button class="close-button" onclick="location.reload()">X</button>
+            <div class="app-header">
+                <div class="score">
+                    <p>Puntuación: <span id="scoreDisplay">0</span></p>
+                    <p>Preguntas restantes: <span id="questionsRemaining">0</span></p>
+                </div>
+            </div>
+            <div class="pregunta">
+                <h2></h2>
+            </div>
+            <div class="respuesta"></div>
+           
+            <div id="argumento" style="display:none;"></div>
+            <button id="nextButton" style="display:none;">Siguiente</button>
+        </div>
+
+        <div id="studyNotesContainer" style="display: none;">
+            <button class="close-button" onclick="location.reload()">X</button>
+            <h2>Notas de Estudio</h2>
+            <div id="studyNotesList"></div>
+        </div>
+        
+        <div id="statsContainer" style="display:none;">
+            <button class="close-button" onclick="location.reload()">X</button>
+        </div>
+
+        <div id="allStatsContainer" style="display:none;">
+            <button class="close-button" onclick="location.reload()">X</button>
+            <div id="allStatsList"></div>
+        </div>
+       
+        <form id="menu-exam-form">
+         
+            
+           
+           
+            <label for="menu-exam-length">Número de preguntas:</label>
+            <select id="menu-exam-length" required>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="all">Todas</option>
+            </select>
+            <div class="checking">
+                <input type="checkbox" id="block1" value="Bloque I">
+                <label for="block1">Bloque I</label><br>
+                
+                <input type="checkbox" id="block2" value="Bloque II">
+                <label for="block2">Bloque II</label><br>
+                
+                <input type="checkbox" id="block3" value="Bloque III">
+                <label for="block3">Bloque III</label><br>
+                
+                <input type="checkbox" id="block4" value="Bloque IV">
+                <label for="block4">Bloque IV</label><br>
+            </div>
+            
+            <button type="submit">Iniciar Examen</button>
+            
+            <button type="button" id="viewStudyNotesButton">Ver Notas de Estudio</button>
+            <button type="button" id="startRecoveryButton">Iniciar Examen de Recuperación</button>
+            <button type="button" id="viewStatsButton">Ver Estadísticas</button>
+        </form>
+    </div>
+    <!---->
+    
+
+   
+    <script type="module" src="main.js"></script>
+</body>
+</html>
