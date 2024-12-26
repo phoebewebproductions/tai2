@@ -162,27 +162,30 @@ export function showResults(total, correct, questions) {
         // Apply styles to block-results and pregunta-fallada
         const blockResults = statsContainer.querySelectorAll('.block-results');
         blockResults.forEach(block => {
-            block.style.border = '3px solid var(--option-bg-color)';
-            block.style.backgroundColor = 'var(--option-hover-color)';
+            block.style.border = '3px solid var( --color-primary)';
+            block.style.backgroundColor = 'var(--color-primary-dark)';
             block.style.borderRadius = '15px';
             block.style.padding = '5%';
             block.style.margin = '1%';
-            block.style.color = 'var(--card-bg-color)';
+            block.style.color = 'var(--color-background)';
             block.style.display = 'block';
             block.style.width = '100%';
             block.style.boxSizing = 'border-box';
+
         });
 
         const preguntasFalladas = statsContainer.querySelectorAll('.pregunta-fallada');
         preguntasFalladas.forEach(pregunta => {
             pregunta.style.borderRadius = '15px';
-            pregunta.style.border = '3px solid var(--option-bg-color)';
-            pregunta.style.backgroundColor = 'var(--card-bg-color)';
+            pregunta.style.border = '3px solid var(--color-primary)';
+            pregunta.style.backgroundColor = 'var(--color-incorrect)';
             pregunta.style.padding = '5%';
             pregunta.style.display = 'block';
             pregunta.style.width = '100%';
             pregunta.style.boxSizing = 'border-box';
             pregunta.style.marginBottom = '10px';
+
+
         });
     }
     

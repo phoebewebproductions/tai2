@@ -29,11 +29,13 @@ body, html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+   
+
 }
 
 header {
     position: relative;
-    background-image: url("../assets/congreso_dip.jpg");
+    background-image: url("../assets/tai.png");
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -42,6 +44,7 @@ header {
     text-align: center;
     padding: 2rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    height: 15vh;
 }
 .volver{
     z-index:2;
@@ -86,6 +89,7 @@ header h2 {
     margin-bottom: 20px;
 }
 
+
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -107,6 +111,10 @@ header h2 {
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    width: 100%;
+    text-align: end;
+    
+
 }
 
 .close-button:hover {
@@ -115,6 +123,9 @@ header h2 {
 
 .pregunta {
     margin-bottom: 20px;
+}
+.pregunta-fallada{
+    background-color: var(--color-incorrect);
 }
 
 .respuesta {
@@ -264,5 +275,64 @@ flex-direction: row;
     .option-button, #nextButton, #menu-exam-form button, .tema-btn, .punto-btn {
         font-size: 14px;
     }
+    .checking {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+        gap: 10px; /* Espacio entre elementos */
+        align-items: center; /* Alinea los elementos verticalmente */
+        justify-items: start; /* Alinea los elementos al inicio horizontalmente */
+    }
+    
+    .check-item {
+        display: flex;
+        
+        align-items: center; /* Alinea checkbox y label verticalmente */
+        gap: 8px; /* Espacio entre checkbox y label */
+        padding: 5px;
+        border: 1px solid #ddd; /* Borde ligero para visualización */
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+    }
+    
+
+}
+#allStatsContainer{
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#allStatsList{
+    width: 100%;
 }
 
+#menu-exam-length{
+    height: 50px;
+    font-size: xx-large;
+}
+
+
+.checking {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+    gap: 10px; /* Espacio entre elementos */
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-items: start; /* Alinea los elementos al inicio horizontalmente */
+}
+
+.check-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+   
+    align-items: center; /* Alinea checkbox y label verticalmente */
+    gap: 8px; /* Espacio entre checkbox y label */
+    padding: 5px;
+    border: 1px solid #ddd; /* Borde ligero para visualización */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+}
+#menu-exam-form{
+    height: 70vh;
+}
