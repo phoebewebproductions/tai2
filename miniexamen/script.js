@@ -10,7 +10,12 @@ let courseStructure = null;
 document.addEventListener("DOMContentLoaded", () => {
     courseStructure = calculateCourseStructure();
     console.log("Course Structure:", courseStructure);
-    
+    const alertas = document.querySelectorAll(".enconstruccion");
+    alertas.forEach(alerta => {
+        alerta.addEventListener('click', () => {
+            alert("Sitio en construcción, ya llegaremos a esa sección");
+        });
+    });
     inicializarEventosTema();
     cargarProgresoGuardado();
 

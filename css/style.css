@@ -24,7 +24,26 @@ body {
     color: var(--color-text);
     line-height: 1.5;
 }
+.volver {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    cursor: pointer;
 
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    z-index: 2;
+    position: relative;
+}
+.volver:hover{
+    background-color: var(--color-text);
+    color: var(--color-white);
+}
 header {
     position: relative;
     background-image: url("../assets/tai.png");
@@ -36,7 +55,7 @@ header {
     text-align: center;
     padding: 2rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    height: 15vh;
+    min-height: 15vh;
 }
 .grid-container{
     display: grid;
@@ -420,6 +439,68 @@ header h2 {
     .modal-contenido {
         padding: 1.5rem;
         width: 95%;
+    }
+    .grid-container{
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr /1fr;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        gap:15px;
+    
+    }
+    
+    .bloque-card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    #bloque1, #bloque2, #bloque3, #bloque4{
+        background-position: center;
+        background-size: cover;
+        height: 15vh;
+        text-decoration: none;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .bloque-content{
+        
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      
+    }
+    .bloque-content h1,h2{
+        text-justify:auto;
+        text-align: center;
+        z-index: 2;
+        margin: 0%;
+    }
+    .bloque-content h1{
+        text-decoration: underline;
+    }
+    .bloque-card {
+        position: relative;
+        height: 15vh;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        position: relative; /* Update 1 */
+        overflow: hidden; /* Update 1 */
+        justify-content: center;
+        align-items: center;
     }
 }
 

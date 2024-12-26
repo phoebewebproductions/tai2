@@ -46,9 +46,25 @@ header {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     height: 15vh;
 }
-.volver{
-    z-index:2;
+.volver {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    cursor: pointer;
+
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    z-index: 2;
     position: relative;
+}
+.volver:hover{
+    background-color: var(--color-text);
+    color: var(--color-white);
 }
 
 header::before {

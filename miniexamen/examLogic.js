@@ -1,5 +1,5 @@
 import { handleActualizarProgreso } from './script.js';
-import { mostrarModal, ocultarModal } from './uiLogic.js';
+import { mostrarModal, ocultarModal, desbloquearSiguientePunto } from './uiLogic.js';
 
 export class ExamenManager {
     constructor(preguntas, puntoActual) {
@@ -22,9 +22,13 @@ export class ExamenManager {
     
     iniciarExamen() {
         console.log('Iniciando examen');
-        this.preguntasActuales = this.preguntas[this.puntoActual].preguntas;
-        this.mezclarPreguntas();
-        this.mostrarPregunta();
+        if (this.preguntas[this.puntoActual]) {
+            this.preguntasActuales = this.preguntas[this.puntoActual].preguntas;
+            this.mezclarPreguntas();
+            this.mostrarPregunta();
+        } else {
+            console.error(`No se encontraron preguntas para el punto ${this.puntoActual}`);
+        }
     }
     
     mezclarPreguntas() {
@@ -135,6 +139,7 @@ export class ExamenManager {
         
         if (aprobado) {
             handleActualizarProgreso(this.puntoActual, true);
+            desbloquearSiguientePunto(this.puntoActual, true, true);
         }
         
         document.getElementById('cerrar-examen').addEventListener('click', () => {

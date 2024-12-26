@@ -43,7 +43,15 @@ export function desbloquearSiguientePunto(puntoActual, shouldScroll = true, upda
 
     // Encontrar el siguiente punto basado en el ID
     const puntoActualId = parseInt(puntoActual);
-    const siguientePuntoId = (puntoActualId + 1).toString().padStart(6, '0');
+    let siguientePuntoId;
+
+    // Check if we're moving from section 1 to section 2
+    if (puntoActualId === 101006) {
+        siguientePuntoId = '101020';
+    } else {
+        siguientePuntoId = (puntoActualId + 1).toString().padStart(6, '0');
+    }
+
     const siguienteBtn = document.querySelector(`[data-punto="${siguientePuntoId}"]`);
     
     if (siguienteBtn) {
