@@ -25,10 +25,62 @@ export function inicializarEventosTema() {
     });
 }
 
+function getNextPuntoId(currentId) {
+    const puntoId = currentId.endsWith('e') ? currentId.slice(0, -1) : currentId;
+    
+    if (puntoId.length !== 10) {
+        console.error(`Invalid punto ID format: ${puntoId}`);
+        return null;
+    }
+
+    let [bloque, tema, punto, subpunto] = [
+        parseInt(puntoId.slice(0, 1)),
+        parseInt(puntoId.slice(1, 3)),
+        parseInt(puntoId.slice(3, 5)),
+        parseInt(puntoId.slice(5, 7))
+    ];
+
+    const generateId = (b, t, p, s) => 
+        `${b.toString()}${t.toString().padStart(2, '0')}${p.toString().padStart(2, '0')}${s.toString().padStart(2, '0')}000`;
+
+    const checkNextId = (id) => document.querySelector(`[data-punto="${id}"]`) !== null;
+
+    // Try incrementing subpunto
+    let nextId = generateId(bloque, tema, punto, subpunto + 1);
+    if (checkNextId(nextId)) return nextId;
+
+    // Try incrementing punto
+    nextId = generateId(bloque, tema, punto + 1, 1);
+    if (checkNextId(nextId)) return nextId;
+
+    // Try incrementing tema
+    nextId = generateId(bloque, tema + 1, 1, 1);
+    if (checkNextId(nextId)) return nextId;
+
+    // Try incrementing bloque
+    nextId = generateId(bloque + 1, 1, 1, 1);
+    if (checkNextId(nextId)) return nextId;
+
+    console.error(`No se encontró un siguiente punto válido para ${puntoId}`);
+    return null;
+}
+
 export function desbloquearSiguientePunto(puntoActual, shouldScroll = true, updateProgress = true) {
-    const puntoActualBtn = document.querySelector(`[data-punto="${puntoActual}"]`);
+    console.log(`Intentando desbloquear siguiente punto. Punto actual: ${puntoActual}`);
+    
+    const puntoId = puntoActual.endsWith('e') ? puntoActual.slice(0, -1) : puntoActual;
+    
+    const siguientePuntoId = getNextPuntoId(puntoId);
+    if (!siguientePuntoId) {
+        console.log(`No se encontró un siguiente punto para ${puntoId}. Este podría ser el último punto del tema o curso.`);
+        return;
+    }
+
+    console.log(`Siguiente punto ID calculado: ${siguientePuntoId}`);
+
+    const puntoActualBtn = document.querySelector(`[data-punto="${puntoId}"]`);
     if (!puntoActualBtn) {
-        console.error(`No se encontró el botón para el punto ${puntoActual}`);
+        console.error(`No se encontró el botón para el punto ${puntoId}`);
         return;
     }
 
@@ -41,20 +93,11 @@ export function desbloquearSiguientePunto(puntoActual, shouldScroll = true, upda
         contenidoActual.classList.add('oculto');
     }
 
-    // Encontrar el siguiente punto basado en el ID
-    const puntoActualId = parseInt(puntoActual);
-    let siguientePuntoId;
-
-    // Check if we're moving from section 1 to section 2
-    if (puntoActualId === 101006) {
-        siguientePuntoId = '101020';
-    } else {
-        siguientePuntoId = (puntoActualId + 1).toString().padStart(6, '0');
-    }
-
+    console.log(`Buscando el siguiente punto con ID: ${siguientePuntoId}`);
     const siguienteBtn = document.querySelector(`[data-punto="${siguientePuntoId}"]`);
     
     if (siguienteBtn) {
+        console.log(`Desbloqueando punto ${siguientePuntoId}`);
         siguienteBtn.disabled = false;
         siguienteBtn.classList.add('disponible');
 
@@ -77,4 +120,5 @@ export function desbloquearSiguientePunto(puntoActual, shouldScroll = true, upda
         handleActualizarProgreso(puntoActual, true);
     }
 }
+
 

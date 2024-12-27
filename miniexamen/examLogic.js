@@ -138,8 +138,12 @@ export class ExamenManager {
         `;
         
         if (aprobado) {
-            handleActualizarProgreso(this.puntoActual, true);
-            desbloquearSiguientePunto(this.puntoActual, true, true);
+            const puntoId = this.puntoActual.endsWith('e') ? this.puntoActual.slice(0, -1) : this.puntoActual;
+            console.log(`Examen aprobado para el punto ${puntoId}. Desbloqueando siguiente punto.`);
+            handleActualizarProgreso(puntoId, true);
+            desbloquearSiguientePunto(puntoId, true, true);
+        } else {
+            console.log(`Examen no aprobado para el punto ${this.puntoActual}. No se desbloquea el siguiente punto.`);
         }
         
         document.getElementById('cerrar-examen').addEventListener('click', () => {
@@ -148,4 +152,5 @@ export class ExamenManager {
         });
     }
 }
+
 
