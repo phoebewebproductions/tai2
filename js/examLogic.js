@@ -192,15 +192,13 @@ export class ExamenManager {
         const mensajeResultado = `Has completado el examen. Acertaste ${this.respuestasCorrectas} de ${this.preguntas.length} preguntas.`;
         const mensajeAprobado = aprobado ? '¡Has aprobado! 🎉🎊' : 'No has alcanzado el mínimo para aprobar.';
 
-        const porcentajeCompletado = (1 / 9) * 100; // 11.11% for each completed exam
-        console.log(`Examen finalizado. Porcentaje de puntos desbloqueados: ${porcentajeCompletado.toFixed(2)}%`);
-
-        const mensajePorcentaje = `Has desbloqueado el ${porcentajeCompletado.toFixed(2)}% de los puntos de este examen.`;
+        
+        
         mostrarSubpuntosCompletados();
         preguntaContenedor.innerHTML = `
             <p class="resultado-examen">${mensajeResultado}</p>
             <p class="mensaje-aprobado ${aprobado ? 'aprobado' : 'no-aprobado'}">${mensajeAprobado}</p>
-            <p class="mensaje-porcentaje">${mensajePorcentaje}</p>
+           
         `;
 
         const botonesContenedor = document.createElement('div');
