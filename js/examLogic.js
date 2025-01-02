@@ -61,7 +61,7 @@ export class ExamenManager {
         try {
             // Load HTML content
             const temaFormatted = this.tema < 10 ? this.tema= this.tema/1 : `0${this.tema}`;
-            const response = await fetch(`./temas/tema${temaFormatted}/${this.examId}.html`);
+            const response = await fetch(`/temas/tema${temaFormatted}/${this.examId}.html`);
             if (!response.ok) {
                 throw new Error(`Failed to fetch HTML content: ${response.statusText}`);
             }

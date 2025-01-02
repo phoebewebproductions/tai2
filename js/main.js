@@ -27,17 +27,3 @@ window.addEventListener('progresoActualizado', () => {
     console.log('Evento progresoActualizado recibido');
 });
 
-function iniciarExamenCompleto(tema) {
-    const bloque = Math.floor((tema - 1) / 100) + 1;
-    const temaFormatted = tema.toString().padStart(2, '0');
-    const questionsUrl = `./temas/tema${temaFormatted}/preguntas.js`;
-    fetch(questionsUrl)
-        .then(response => response.text())
-        .then(questionsText => {
-            iniciarExamen(bloque, temaFormatted, 'completo', 'completo', `examen_completo_tema_${tema}`, questionsText);
-        })
-        .catch(error => {
-            console.error('Error loading questions for complete exam:', error);
-            alert('Error al cargar las preguntas para el examen completo. Por favor, inténtelo de nuevo.');
-        });
-}
