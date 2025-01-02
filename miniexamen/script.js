@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertas = document.querySelectorAll(".enconstruccion");
     alertas.forEach(alerta => {
         alerta.addEventListener('click', () => {
-            alert("Sitio en construcción, ya llegaremos a esa sección");
+            alert("Sitio en construcción, ya llegaremos a esa secciónes");
         });
     });
 });
