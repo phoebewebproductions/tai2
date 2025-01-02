@@ -82,9 +82,7 @@ export async function cargarPreguntasExamen(bloque, tema, examId, explicacionesH
     
     try {
         const response = await fetch(questionPath);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+     
         const jsContent = await response.text();
         
         console.log('Fetched content:', jsContent.substring(0, 200) + '...');
