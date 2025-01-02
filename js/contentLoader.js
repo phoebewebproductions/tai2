@@ -74,9 +74,14 @@ export async function cargarContenidoPunto(tema, punto, id, puntoElement) {
 }
 
 export async function cargarPreguntasExamen(bloque, tema, examId, explicacionesHtml) {
-    const temaFormatted = parseInt(tema) < 10 ? tema.toString() : tema.toString().padStart(2, '0');
+    var temaFormatted =  tema.toString();
+    if (tema < 10){
+        var temaMenor= tema/1;
+        temaFormatted=temaMenor;
+
+    }
     const temaPath = parseInt(tema).toString();
-    const questionPath = `/tai2/bloques/bloque${bloque}/temas/tema${temaPath}/preguntas.js`;
+    const questionPath = `./temas/tema${temaFormatted}/preguntas.js`;
     
     console.log(`Attempting to load questions from: ${questionPath}`);
     

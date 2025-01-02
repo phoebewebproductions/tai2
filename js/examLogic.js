@@ -60,8 +60,14 @@ export class ExamenManager {
         console.log('Iniciando examen');
         try {
             // Load HTML content
-            const temaFormatted = this.tema < 10 ? this.tema= this.tema/1 : `0${this.tema}`;
-            const response = await fetch(`/temas/tema${temaFormatted}/${this.examId}.html`);
+            var temaFormatted = this.tema;
+            var temaMenor= this.tema/1;
+            if (this.tema <10){
+                temaFormatted = temaMenor;
+            }
+            const filePath = `./temas/tema${temaFormatted}/${this.examId}.html`;
+            console.log(`Attempting to fetch HTML content from: ${filePath}`);
+            const response = await fetch(filePath);
             if (!response.ok) {
                 throw new Error(`Failed to fetch HTML content: ${response.statusText}`);
             }
@@ -186,14 +192,15 @@ export class ExamenManager {
         const mensajeResultado = `Has completado el examen. Acertaste ${this.respuestasCorrectas} de ${this.preguntas.length} preguntas.`;
         const mensajeAprobado = aprobado ? '¡Has aprobado! 🎉🎊' : 'No has alcanzado el mínimo para aprobar.';
 
-     
+        const porcentajeCompletado = (1 / 9) * 100; // 11.11% for each completed exam
+        console.log(`Examen finalizado. Porcentaje de puntos desbloqueados: ${porcentajeCompletado.toFixed(2)}%`);
 
-        
+        const mensajePorcentaje = `Has desbloqueado el ${porcentajeCompletado.toFixed(2)}% de los puntos de este examen.`;
         mostrarSubpuntosCompletados();
         preguntaContenedor.innerHTML = `
             <p class="resultado-examen">${mensajeResultado}</p>
             <p class="mensaje-aprobado ${aprobado ? 'aprobado' : 'no-aprobado'}">${mensajeAprobado}</p>
-         
+            <p class="mensaje-porcentaje">${mensajePorcentaje}</p>
         `;
 
         const botonesContenedor = document.createElement('div');
@@ -209,7 +216,7 @@ export class ExamenManager {
         btnCerrar.className = 'btn-examen btn-cerrar';
         btnCerrar.addEventListener('click', () => {
             ocultarModal(modalExamen);
-         
+            console.log(`Examen cerrado. Porcentaje final de puntos desbloqueados: ${porcentajeCompletado.toFixed(2)}%`);
             if (aprobado) {
                 if (this.examId.startsWith('examen_completo_tema_')) {
                     const tema = parseInt(this.examId.split('_').pop());
@@ -246,13 +253,12 @@ export class ExamenManager {
         }
 
         if (aprobado) {
-          
+            this.mostrarConfeti(); // Añadir esta línea
             // Pass the full ID to actualizarProgresoCompleto
             actualizarProgresoCompleto(this.examId.replace(/e$/, ''));
             window.dispatchEvent(new Event('progresoActualizado'));
             actualizarEstadoPuntos();
             calcularProgresoBloque(this.bloque);
-          
         }
     }
 
@@ -308,9 +314,25 @@ export class ExamenManager {
         return allSubpuntos[currentIndex + 1] || null;
     }
 
- 
+    mostrarConfeti() {
+        console.log('Intentando mostrar confeti');
+        if (typeof window.confetti === 'function') {
+            try {
+                window.confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#ff0000', '#00ff00', '#0000ff']
+                });
+                console.log('Confeti mostrado con éxito');
+            } catch (error) {
+                console.error('Error al mostrar confeti:', error);
+            }
+        } else {
+            console.warn('La función confetti no está disponible. Asegúrate de que la librería esté correctamente cargada.');
+        }
+    }
 }
-
 
 export function iniciarExamen(bloque, tema, punto, subpunto, examId, preguntas, minimoParaAprobar) {
     const examenManager = new ExamenManager(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar);
