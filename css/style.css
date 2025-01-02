@@ -176,6 +176,10 @@ header h2 {
     margin: 0.5rem 0 0;
     opacity: 0.9;
 }
+header #progress-container{
+    position:relative;
+    z-index: 2;
+}
 
 
 
@@ -208,7 +212,7 @@ header h2 {
 }
 
 /* Botones de Tema */
-.tema-btn {
+.tema-btn,.btn-examen {
     background-color: var(--color-white);
     color: var(--color-text);
     border: 1px solid var(--color-border);
@@ -243,6 +247,7 @@ header h2 {
     transition: all 0.2s ease;
 }
 
+
 .punto-btn:disabled {
     background-color: var(--color-border);
     color: var(--color-text-light);
@@ -261,6 +266,20 @@ header h2 {
     position: absolute;
     right: 1rem;
     color: var(--color-white);
+}
+.subpunto-btn.bloqueado {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.subpunto-btn.disponible {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.subpunto-btn.completado {
+    background-color: #008CBA;
+    color: white;
 }
 
 /* Estilos para puntos completados */
@@ -297,6 +316,32 @@ header h2 {
 
 .punto-contenido.oculto {
     display: none;
+}
+.modal.oculto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 /* Mini-Examen Botón */
@@ -341,15 +386,7 @@ header h2 {
     visibility: visible;
 }
 
-.modal-contenido {
-    background-color: var(--color-white);
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 600px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Opciones del examen */
 #opciones {
@@ -504,85 +541,6 @@ header h2 {
     }
 }
 
-/* Estilos para la sección de autenticación */
-#auth-section {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-
-#loginForm, #registerForm {
-    background-color: var(--color-white);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    width: 45%;
-}
-
-#loginForm h3, #registerForm h3 {
-    margin-top: 0;
-    color: var(--color-text);
-}
-
-#loginForm input, #registerForm input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.25rem;
-}
-
-#loginForm button, #registerForm button {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#loginForm button:hover, #registerForm button:hover {
-    background-color: var(--color-primary-dark);
-}
-
-/* Estilos para la sección de información del usuario */
-#user-info {
-    background-color: var(--color-white);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 2rem;
-}
-
-#user-info h3 {
-    margin-top: 0;
-    color: var(--color-text);
-}
-
-#logoutBtn {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#logoutBtn:hover {
-    background-color: var(--color-primary-dark);
-}
-
-#progress-display {
-    margin-top: 1rem;
-}
-
-#progress-display div {
-   
-    color: var(--color-white);
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-radius: 0.25rem;
-}
 
 /* Estilos para la visualización del progreso */
 .progress-visualization {

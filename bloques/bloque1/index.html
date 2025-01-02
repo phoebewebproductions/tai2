@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloque 1 - Curso Interactivo</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exam-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+</head>
+<body>
+    <header id="bloque-header">
+        <h1>Bloque I: Organización del Estado y Administración Electrónica</h1>
+        <a href="../../index.html"><button class=" volver ">
+            Volver a selección
+        </button></a>
+      
+    </header>
+ 
+    <main id="contenido-principal">
+        <!-- Los temas y puntos se generarán dinámicamente aquí -->
+    </main>
+
+    <!-- Modal para exámenes -->
+    <div id="modal-examen" class="modal oculto">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <h2 id="examen-titulo"></h2>
+            <p id="contador-preguntas"></p>
+            <div id="pregunta-contenedor"></div>
+            <div id="opciones-contenedor"></div>
+            
+        </div>
+    </div>
+
+    <!-- Modal para explicaciones -->
+    <div id="modal-explicacion" class="modal oculto">
+        <div class="modal-contenido">
+            <h3 id="explicacion-titulo"></h3>
+            <div id="explicacion-contenido"></div>
+            <button id="btn-entendido">Entendido</button>
+        </div>
+    </div>
+   
+
+    <script src="../../js/main.js" type="module"></script>
+    <script>
+        function confetti() {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+A reparar
+Mini examen:
+-No se desbloquean los puntos, no está funcionando .V
+-Algunas respuestas no cargan bien, a checkear.
+-Crear funcionalidad de revisar respuestas.
+
+Examen completo:
+-No cargan las respuestas.
+-Comprobar si desbloquea todo lo anterior...
+
+UI
+Los círculos de progrso no se ven afectados. V
+-Crear nuevo sistema....
+-Botón que te devuelva al index principal desde el bloque...
+
+idFinder
+-Asegurarse que toda la app entiende que lo que estamos desbloqueando son subpuntos y no temas...
+Info
+Seguir metiendo temas y puntos...
+
