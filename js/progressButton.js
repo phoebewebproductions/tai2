@@ -1,9 +1,9 @@
-import { calcularProgresoBloque } from './progressTracker.js';
+import { calcularProgresoBloque, inicializarProgresoBloque } from './progressTracker.js';
 import { CircularProgress, getColorForBlock } from './../components/CircularProgress.js';
 
 let progressDisplayVisible = false;
 
-export function initializeProgressButton() {
+export async function initializeProgressButton() {
     let progressButton = document.getElementById('progress-button');
     
     // If the button doesn't exist, create it
@@ -39,9 +39,12 @@ export function initializeProgressButton() {
 
     progressButton.addEventListener('click', toggleProgressDisplay);
     console.log('Progress button initialized');
+
+    // Inicializar el progreso de los bloques
+    await inicializarProgresoBloque();
 }
 
-async function toggleProgressDisplay() {
+function toggleProgressDisplay() {
     const progressDisplay = document.getElementById('progress-display');
     
     if (progressDisplayVisible) {
@@ -52,19 +55,20 @@ async function toggleProgressDisplay() {
         progressDisplay.style.display = 'flex';
         progressDisplay.style.flexWrap = 'wrap';
         progressDisplay.style.justifyContent = 'center';
+        progressDisplay.style.alignItems='center';
         progressDisplay.style.gap = '10px';
         
         for (let i = 1; i <= 4; i++) {
-            await updateProgress(i);
+            updateProgress(i);
         }
         
         progressDisplayVisible = true;
     }
 }
 
-async function updateProgress(blockNumber) {
+function updateProgress(blockNumber) {
     try {
-        const progress = await calcularProgresoBloque(blockNumber);
+        const progress = calcularProgresoBloque(blockNumber.toString());
         const color = getColorForBlock(blockNumber);
         const circularProgress = CircularProgress({ 
             progress, 

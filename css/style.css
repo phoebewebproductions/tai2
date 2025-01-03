@@ -56,6 +56,10 @@ header {
     padding: 2rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .grid-container{
     display: grid;
@@ -331,17 +335,20 @@ header #progress-container{
     visibility: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(4px);
+   
 }
 
 .modal.visible {
     opacity: 1;
     visibility: visible;
+    overflow-y: scroll;
 }
 
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
+  overflow-y: scroll;
 }
 
 /* Mini-Examen Botón */
@@ -379,6 +386,7 @@ header #progress-container{
     visibility: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(4px);
+    overflow-y: scroll;
 }
 
 .modal.visible {
@@ -503,6 +511,7 @@ header #progress-container{
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: xx-small;
         
     }
     .bloque-content{
