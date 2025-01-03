@@ -42,8 +42,68 @@
         ]
       },
       {
-        "titulo": "Tema II: Las Cortes",
+        "titulo": "Tema II: Las Cortes Generales, Congreso de los diputados y el Senado",
         "puntos": [
+          {
+            "titulo": "Punto 1.1: Las Cortes Generales :Características",
+            "id": "1020101000"
+          },
+          {
+            "titulo": "Punto 1.2: Estructura",
+            "id": "1020102000"
+          },
+          {
+            "titulo": "Punto 1.3: Composición",
+            "id": "1020103000"
+          },
+          {
+            "titulo": "Punto 1.4: Funciones",
+            "id": "1020104000"
+          },
+          {
+            "titulo": "Punto 1.5: Funcionamiento",
+            "id": "1020105000"
+          },
+          {
+            "titulo": "Punto 1.6: Organización",
+            "id": "1020106000"
+          },
+          {
+            "titulo": "Punto 1.7: Disolición",
+            "id": "1020107000"
+          },
+          {
+            "titulo": "Punto 1.8: Estatuto de diputados y senadores. Incompatibilidades",
+            "id": "1020108000"
+          },
+          {
+            "titulo": "Punto 2.1: El tribunal Constitucional :Naturaleza",
+            "id": "1020201000"
+          },
+          {
+            "titulo": "Punto 2.2: Definición y Regulación",
+            "id": "1020202000"
+          },
+          {
+            "titulo": "Punto 2.3: Características",
+            "id": "1020203000"
+          },
+          {
+            "titulo": "Punto 2.4: Organización",
+            "id": "1020204000"
+          },
+          {
+            "titulo": "Punto 2.5: Competencias",
+            "id": "1020205000"
+          },
+          {
+            "titulo": "Punto 3.1: Los Órganos Constitucionales de control del Gobierno :El tribunal de Cuentas",
+            "id": "1020301000"
+          },
+          {
+            "titulo": "Punto 3.2: El defensor del Pueblo",
+            "id": "1020302000"
+          }
           
         ]
       }
