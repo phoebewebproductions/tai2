@@ -1,190 +1,154 @@
-import { CircularProgress } from '../components/CircularProgress.js';
-import { cargarEstructuraBloque } from './structureLoader.js';
-const PROGRESS_KEY = 'progreso_curso';
-const LAST_EXAM_KEY = 'ultimo_examen_aprobado';
-const BLOCK_PROGRESS_KEY = 'progreso_bloques';
 
+import { contarSubpuntosCompletados, contarSubpuntosTotales } from './contadorSubpuntos.js';
 
-export function cargarProgreso() {
-    const progressJSON = localStorage.getItem(PROGRESS_KEY);
-    let progreso = [];
-    
-    if (progressJSON) {
-        try {
-            progreso = JSON.parse(progressJSON);
-            progreso = progreso.map(item => ({
-                bloque: item.bloque,
-                tema: item.tema,
-                punto: item.punto,
-                subpunto: item.subpunto,
-                completado: item.completado === true
-            }));
-        } catch (error) {
-            console.error('Error al cargar el progreso:', error);
+// Define separate keys for each block
+const PROGRESS_KEYS = {
+    1: 'courseProgress_block1',
+    2: 'courseProgress_block2',
+    3: 'courseProgress_block3',
+    4: 'courseProgress_block4'
+};
+
+// Keep track of last completed points
+const lastCompletedPoints = {
+    1: null,
+    2: null,
+    3: null,
+    4: null
+};
+
+export function saveProgress(bloqueId, lastCompletedIndex) {
+    try {
+        const key = PROGRESS_KEYS[bloqueId];
+        if (!key) {
+            throw new Error(`Invalid bloqueId: ${bloqueId}`);
         }
-    }
-    
-    console.log('Progreso cargado:', progreso);
-    return progreso;
-}
 
-export function guardarProgreso(progreso) {
-    try {
-        localStorage.setItem(PROGRESS_KEY, JSON.stringify(progreso));
-        console.log('Progreso guardado:', progreso);
+        // Find the point that was completed
+        const punto = estructuraGlobal.puntosLineales[lastCompletedIndex];
+        if (!punto) {
+            throw new Error(`Invalid point index: ${lastCompletedIndex}`);
+        }
+
+        // Save both the index and the point ID
+        const progressData = {
+            index: lastCompletedIndex,
+            pointId: punto.id
+        };
+
+        localStorage.setItem(key, JSON.stringify(progressData));
+        lastCompletedPoints[bloqueId] = punto.id;
+
+        console.log(`Progress saved for bloque ${bloqueId}:`, progressData);
     } catch (error) {
-        console.error('Error al guardar el progreso:', error);
+        console.error('Error saving progress:', error);
     }
 }
 
-export function guardarProgresoBloque(bloque, totalSubpuntos, subpuntosCompletados) {
-    let progresoBloque = JSON.parse(localStorage.getItem(BLOCK_PROGRESS_KEY) || '{}');
-    progresoBloque[bloque] = { totalSubpuntos, subpuntosCompletados };
-    localStorage.setItem(BLOCK_PROGRESS_KEY, JSON.stringify(progresoBloque));
-}
-
-export function cargarProgresoBloque(bloque) {
-    const progresoBloque = JSON.parse(localStorage.getItem(BLOCK_PROGRESS_KEY) || '{}');
-    return progresoBloque[bloque] || null;
-}
-
-export function actualizarProgresoCompleto(bloque, tema, punto, subpunto) {
-    let progreso = cargarProgreso();
-    
-    // If we receive a full ID (like from an exam completion), parse it
-    if (arguments.length === 1 && typeof bloque === 'string' && bloque.length === 10) {
-        const id = bloque;
-        bloque = id.substring(0, 1);
-        tema = id.substring(1, 3);
-        punto = id.substring(3, 5);
-        subpunto = id.substring(5, 8);
-    }
-    
-    // Ensure all values are strings
-    const nuevoProgreso = {
-        bloque: String(bloque),
-        tema: String(tema).padStart(2, '0'),
-        punto: String(punto).padStart(2, '0'),
-        subpunto: String(subpunto).padStart(3, '0'),
-        completado: true
-    };
-    
-    console.log('Guardando progreso:', nuevoProgreso);
-    
-    // Remove any existing progress for this specific point
-    progreso = progreso.filter(p => 
-        !(p.bloque === nuevoProgreso.bloque && 
-          p.tema === nuevoProgreso.tema && 
-          p.punto === nuevoProgreso.punto && 
-          p.subpunto === nuevoProgreso.subpunto)
-    );
-    
-    // Add the new progress
-    progreso.push(nuevoProgreso);
-    
-    guardarProgreso(progreso);
-    guardarUltimoExamenAprobado(`${nuevoProgreso.bloque}${nuevoProgreso.tema}${nuevoProgreso.punto}${nuevoProgreso.subpunto}e`);
-    // Actualizar el progreso del bloque
-    actualizarProgresoBloque(nuevoProgreso.bloque);
-    
-    window.dispatchEvent(new Event('progresoActualizado'));
-}
-
-export function guardarUltimoExamenAprobado(examenId) {
-    localStorage.setItem(LAST_EXAM_KEY, examenId);
-}
-
-export function obtenerUltimoExamenAprobado() {
-    return localStorage.getItem(LAST_EXAM_KEY);
-}
-
-export async function calcularEstadisticas() {
+export function loadProgress(bloqueId) {
     try {
-        const estructura = await cargarEstructuraBloque();
-        const progreso = cargarProgreso();
+        const key = PROGRESS_KEYS[bloqueId];
+        if (!key) {
+            return -1;
+        }
 
-        let totalSubpuntos = 0;
-        let subpuntosCompletados = 0;
+        const savedProgress = localStorage.getItem(key);
+        if (!savedProgress) {
+            return -1;
+        }
 
-        estructura.temas.forEach(tema => {
-            if (tema.puntos && Array.isArray(tema.puntos)) {
-                tema.puntos.forEach(punto => {
-                    if (punto.id) {
-                        totalSubpuntos++;
-                        const bloque = punto.id.substring(0, 1);
-                        const temaId = punto.id.substring(1, 3);
-                        const puntoId = punto.id.substring(3, 5);
-                        const subpuntoId = punto.id.substring(5, 8);
-                        
-                        if (progreso.some(p => 
-                            p.bloque === bloque &&
-                            p.tema === temaId &&
-                            p.punto === puntoId &&
-                            p.subpunto === subpuntoId &&
-                            p.completado
-                        )) {
-                            subpuntosCompletados++;
-                        }
-                    }
-                });
-            }
-        });
-
-        const porcentaje = totalSubpuntos > 0 ? Math.round((subpuntosCompletados / totalSubpuntos) * 100) : 0;
-        return { totalSubpuntos, subpuntosCompletados, porcentaje };
+        const progressData = JSON.parse(savedProgress);
+        return progressData.index;
     } catch (error) {
-        console.error('Error al calcular estadísticas:', error);
-        return { totalSubpuntos: 0, subpuntosCompletados: 0, porcentaje: 0 };
+        console.error('Error loading progress:', error);
+        return -1;
     }
 }
-export async function actualizarProgresoBloque(bloque) {
-    const estructura = await cargarEstructuraBloque();
-    const progreso = cargarProgreso();
 
-    let totalSubpuntos = 0;
-    let subpuntosCompletados = 0;
+export function updateProgress(bloqueId, newCompletedIndex) {
+    if (bloqueId < 1 || bloqueId > 4) {
+        console.error('ID de bloque inválido. Debe ser entre 1 y 4.');
+        return;
+    }
 
-    estructura.temas.forEach(tema => {
-        if (tema.puntos && Array.isArray(tema.puntos)) {
-            tema.puntos.forEach(punto => {
-                if (punto.id && punto.id.startsWith(bloque.toString())) {
-                    totalSubpuntos++;
-                    const temaId = punto.id.substring(1, 3);
-                    const puntoId = punto.id.substring(3, 5);
-                    const subpuntoId = punto.id.substring(5, 8);
-                    
-                    if (progreso.some(p => 
-                        p.bloque === bloque.toString() &&
-                        p.tema === temaId &&
-                        p.punto === puntoId &&
-                        p.subpunto === subpuntoId &&
-                        p.completado
-                    )) {
-                        subpuntosCompletados++;
-                    }
-                }
-            });
+    const punto = estructuraGlobal.puntosLineales[newCompletedIndex];
+    if (!punto) {
+        console.error('Invalid point index:', newCompletedIndex);
+        return;
+    }
+
+    saveProgress(bloqueId, newCompletedIndex);
+    
+    alert(`Guardando progreso:
+    Bloque: ${bloqueId}
+    Índice del punto: ${newCompletedIndex}
+    ID del punto: ${punto.id}
+    Título del punto: ${punto.titulo}
+    Tema: ${estructuraGlobal.temas[punto.temaIndex].titulo}
+    `);
+}
+
+export function getLastCompletedIndex(bloqueId) {
+    return loadProgress(bloqueId);
+}
+
+export function isPointCompleted(bloqueId, puntoIndex) {
+    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+    return puntoIndex <= lastCompletedIndex;
+}
+
+export function isPointUnlocked(bloqueId, puntoIndex) {
+    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+    return puntoIndex <= lastCompletedIndex + 1;
+}
+
+export function updateEstructuraGlobal() {
+    if (!estructuraGlobal || !estructuraGlobal.puntosLineales) {
+        console.error('estructuraGlobal not properly initialized');
+        return;
+    }
+
+    estructuraGlobal.puntosLineales.forEach((punto, index) => {
+        const bloqueId = getBloqueId(punto.id);
+        if (bloqueId) {
+            const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+            punto.completado = index <= lastCompletedIndex;
         }
     });
-
-    guardarProgresoBloque(bloque, totalSubpuntos, subpuntosCompletados);
 }
 
-export function calcularProgresoBloque(bloque) {
-    const progresoBloque = cargarProgresoBloque(bloque);
-    if (progresoBloque) {
-        const { totalSubpuntos, subpuntosCompletados } = progresoBloque;
-        const porcentaje = totalSubpuntos > 0 ? (subpuntosCompletados / totalSubpuntos) * 100 : 0;
-        console.log(`Progreso del bloque ${bloque}: ${porcentaje.toFixed(2)}%`);
-        return porcentaje;
-    } else {
-        console.error(`No se encontró progreso para el bloque ${bloque}`);
+export function getBloqueId(puntoId) {
+    if (!puntoId) return null;
+    const primerDigito = parseInt(puntoId.toString()[0]);
+    return primerDigito >= 1 && primerDigito <= 4 ? primerDigito : null;
+}
+
+export async function countSubpuntosInBloque(bloqueId) {
+    const totalSubpuntos = await contarSubpuntosTotales();
+    console.log(`Total subpuntos in all blocks: ${totalSubpuntos}`);
+    // For now, we're assuming all subpuntos are in one block. 
+    // You may need to adjust this if subpuntos are distributed across multiple blocks.
+    return totalSubpuntos;
+}
+
+export async function calculateBlockProgress(bloqueId) {
+    if (bloqueId < 1 || bloqueId > 4) {
+        console.error('ID de bloque inválido. Debe ser entre 1 y 4.');
         return 0;
     }
+
+    const totalSubpuntos = await countSubpuntosInBloque(bloqueId);
+    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+    const completedSubpuntos = lastCompletedIndex + 1;
+    const progressPercentage = (completedSubpuntos / totalSubpuntos) * 100;
+
+    console.log(`Progreso del Bloque ${bloqueId}: ${completedSubpuntos}/${totalSubpuntos} = ${progressPercentage.toFixed(2)}%`);
+
+    return Math.min(progressPercentage, 100);
 }
 
-export async function inicializarProgresoBloque() {
-    for (let i = 1; i <= 4; i++) {
-        await actualizarProgresoBloque(i.toString());
-    }
+export function countUnlockedPoints(bloqueId) {
+    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+    return lastCompletedIndex + 2; // El último completado más el siguiente disponible
 }
+

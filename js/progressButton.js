@@ -1,12 +1,12 @@
-import { calcularProgresoBloque, inicializarProgresoBloque } from './progressTracker.js';
+import { calculateBlockProgress } from './structureLoader.js';
 import { CircularProgress, getColorForBlock } from './../components/CircularProgress.js';
+import { estructuraGlobal } from './structureLoader.js';
 
 let progressDisplayVisible = false;
 
-export async function initializeProgressButton() {
+export function initializeProgressButton() {
     let progressButton = document.getElementById('progress-button');
     
-    // If the button doesn't exist, create it
     if (!progressButton) {
         progressButton = document.createElement('button');
         progressButton.id = 'progress-button';
@@ -39,12 +39,9 @@ export async function initializeProgressButton() {
 
     progressButton.addEventListener('click', toggleProgressDisplay);
     console.log('Progress button initialized');
-
-    // Inicializar el progreso de los bloques
-    await inicializarProgresoBloque();
 }
 
-function toggleProgressDisplay() {
+async function toggleProgressDisplay() {
     const progressDisplay = document.getElementById('progress-display');
     
     if (progressDisplayVisible) {
@@ -55,20 +52,19 @@ function toggleProgressDisplay() {
         progressDisplay.style.display = 'flex';
         progressDisplay.style.flexWrap = 'wrap';
         progressDisplay.style.justifyContent = 'center';
-        progressDisplay.style.alignItems='center';
         progressDisplay.style.gap = '10px';
         
-        for (let i = 1; i <= 4; i++) {
-            updateProgress(i);
+        for (let blockNumber = 1; blockNumber <= 4; blockNumber++) {
+            await updateProgress(blockNumber);
         }
         
         progressDisplayVisible = true;
     }
 }
 
-function updateProgress(blockNumber) {
+async function updateProgress(blockNumber) {
     try {
-        const progress = calcularProgresoBloque(blockNumber.toString());
+        const progress = await calculateBlockProgress(blockNumber);
         const color = getColorForBlock(blockNumber);
         const circularProgress = CircularProgress({ 
             progress, 

@@ -25,6 +25,7 @@ export async function contarSubpuntosTotales() {
     }
 }
 
+
 export function contarSubpuntosCompletados() {
     try {
         const subpuntosCompletados = document.querySelectorAll('.punto-btn.subpunto-btn.completado');
@@ -36,6 +37,13 @@ export function contarSubpuntosCompletados() {
         console.error('Error al contar los subpuntos completados:', error);
         return 0;
     }
+}
+
+export async function calcularPorcentajeCompletado() {
+    const total = await contarSubpuntosTotales();
+    const completados = contarSubpuntosCompletados();
+    const porcentaje = (completados / total) * 100;
+    return Math.round(porcentaje);
 }
 
 // Función para mostrar el resultado en un alert
@@ -61,12 +69,7 @@ export async function mostrarEstadisticasSubpuntos() {
 // Ejemplo de uso
 // mostrarEstadisticasSubpuntos();
 
-function calcularPorcentajeCompletado() {
-    const total = contarSubpuntosTotales();
-    const completados = contarSubpuntosCompletados();
-    const porcentaje = (completados / total) * 100;
-    return Math.round(porcentaje);
-}
+
 
 export function mostrarPorcentajeCompletado() {
     const porcentaje = calcularPorcentajeCompletado();

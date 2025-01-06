@@ -1,32 +1,31 @@
-import { mostrarModal, ocultarModal, actualizarEstadoPuntos } from './uiManager.js';
-import { actualizarProgresoCompleto, guardarUltimoExamenAprobado, calcularProgresoBloque } from './progressTracker.js';
 import { mostrarSubpuntosCompletados } from './contadorSubpuntos.js';
+import { updateProgress, getBloqueId, updateEstructuraGlobal } from './structureLoader.js';
 
 function extractExplanations(htmlContent) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlContent, 'text/html');
-    const explanations = {};
-
-    const elements = doc.querySelectorAll('[id]');
-    elements.forEach((element) => {
-        const id = element.id;
+    return Array.from(doc.querySelectorAll('[id]')).reduce((acc, element) => {
         const content = element.innerHTML.trim();
         if (content) {
-            explanations[id] = content;
+            acc[element.id] = content;
         }
-    });
+        return acc;
+    }, {});
+}
 
-    return explanations;
+export function mostrarModal(elemento) {
+    elemento.classList.remove('oculto');
+    elemento.classList.add('visible');
+}
+
+export function ocultarModal(elemento) {
+    elemento.classList.add('oculto');
+    elemento.classList.remove('visible');
 }
 
 export class ExamenManager {
-    constructor(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar) {
+    constructor(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar, estructuraGlobal) {
         this.preguntas = Array.isArray(preguntas) ? preguntas : [];
-        if (this.preguntas.length === 0) {
-            console.error('No se han cargado preguntas válidas:', preguntas);
-        }
-        console.log(`Número de preguntas cargadas: ${this.preguntas.length}`);
-        
         this.examId = examId;
         this.bloque = bloque;
         this.tema = tema;
@@ -38,14 +37,46 @@ export class ExamenManager {
         this.minimoParaAprobar = minimoParaAprobar || Math.ceil(this.preguntas.length * 0.7);
         this.explicaciones = {};
         
-        console.log(`Mínimo para aprobar: ${this.minimoParaAprobar}`);
-        
         this.preguntas.forEach(pregunta => {
             if (pregunta.explicacion) {
                 this.explicaciones[pregunta.id] = pregunta.explicacion;
             }
         });
 
+        this.estructuraGlobal = estructuraGlobal;
+        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+            console.error('estructuraGlobal or puntosLineales is undefined:', this.estructuraGlobal);
+        } else {
+            console.log('estructuraGlobal initialized successfully:', JSON.stringify(this.estructuraGlobal, null, 2));
+        }
+        this.bloqueId = this.getBloqueId();
+
+        this.initializeDOMElements();
+        this.logInitialInfo();
+    }
+
+    findSubpuntoIndex() {
+        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+            console.error('estructuraGlobal or puntosLineales is undefined');
+            return -1;
+        }
+        
+        const subpuntoId = this.examId.replace('e', '');
+        console.log('Searching for subpunto with ID:', subpuntoId);
+        console.log('puntosLineales:', JSON.stringify(this.estructuraGlobal.puntosLineales, null, 2));
+        
+        const index = this.estructuraGlobal.puntosLineales.findIndex(punto => punto.id === subpuntoId);
+        
+        if (index === -1) {
+            console.error(`Subpunto with ID ${subpuntoId} not found in puntosLineales`);
+        } else {
+            console.log(`Subpunto found at index ${index}`);
+        }
+        
+        return index;
+    }
+
+    initializeDOMElements() {
         this.modalExamen = document.getElementById('modal-examen');
         this.contadorPreguntas = document.getElementById('contador-preguntas');
         this.preguntaContenedor = document.getElementById('pregunta-contenedor');
@@ -56,24 +87,20 @@ export class ExamenManager {
         }
     }
 
+    logInitialInfo() {
+        console.log(`Número de preguntas cargadas: ${this.preguntas.length}`);
+        console.log(`Mínimo para aprobar: ${this.minimoParaAprobar}`);
+        console.log(`ExamId: ${this.examId}`);
+        console.log(`Bloque: ${this.bloque}, BloqueId: ${this.bloqueId}, Tema: ${this.tema}, Punto: ${this.punto}, Subpunto: ${this.subpunto}`);
+    }
+
     async iniciarExamen() {
         console.log('Iniciando examen');
         try {
-            // Load HTML content
-            var temaFormatted = this.tema;
-            var temaMenor= this.tema/1;
-            if (this.tema <10){
-                temaFormatted = temaMenor;
-            }
-            const filePath = `./temas/tema${temaFormatted}/${this.examId}.html`;
-            console.log(`Attempting to fetch HTML content from: ${filePath}`);
-            const response = await fetch(filePath);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch HTML content: ${response.statusText}`);
-            }
-            const htmlContent = await response.text();
+            const subpuntoIndex = this.findSubpuntoIndex();
+            alert(`Índice del subpunto en el array: ${subpuntoIndex}`);
 
-            // Extract explanations
+            const htmlContent = await this.fetchHtmlContent();
             this.explicaciones = extractExplanations(htmlContent);
             console.log('Extracted explanations:', this.explicaciones);
 
@@ -86,27 +113,40 @@ export class ExamenManager {
         }
     }
 
+    async fetchHtmlContent() {
+        const temaFormatted = this.tema < 10 ? this.tema / 1 : this.tema;
+        const filePath = `./temas/tema${temaFormatted}/${this.examId}.html`;
+        console.log(`Attempting to fetch HTML content from: ${filePath}`);
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch HTML content: ${response.statusText}`);
+        }
+        return await response.text();
+    }
+
     mostrarPregunta() {
         console.log(`[Modal] Intentando mostrar pregunta ${this.preguntaActual + 1} de ${this.preguntas.length}`);
         if (this.preguntaActual < this.preguntas.length) {
             const pregunta = this.preguntas[this.preguntaActual];
             this.actualizarContadorPreguntas();
             this.preguntaContenedor.textContent = pregunta.pregunta;
-            this.opcionesContenedor.innerHTML = '';
-
-            pregunta.opciones.forEach((opcion, index) => {
-                const boton = document.createElement('button');
-                boton.textContent = opcion;
-                boton.className = 'btn-opcion';
-                boton.addEventListener('click', () => this.verificarRespuesta(index));
-                this.opcionesContenedor.appendChild(boton);
-            });
-
+            this.renderizarOpciones(pregunta);
             console.log(`[Modal] Pregunta ${this.preguntaActual + 1} mostrada: ${pregunta.pregunta}`);
         } else {
             console.log(`[Modal] Todas las preguntas mostradas, finalizando examen`);
             this.finalizarExamen();
         }
+    }
+
+    renderizarOpciones(pregunta) {
+        this.opcionesContenedor.innerHTML = '';
+        pregunta.opciones.forEach((opcion, index) => {
+            const boton = document.createElement('button');
+            boton.textContent = opcion;
+            boton.className = 'btn-opcion';
+            boton.addEventListener('click', () => this.verificarRespuesta(index));
+            this.opcionesContenedor.appendChild(boton);
+        });
     }
 
     verificarRespuesta(respuestaIndex) {
@@ -119,19 +159,22 @@ export class ExamenManager {
             this.respuestasCorrectas++;
         }
 
+        this.marcarRespuestas(respuestaIndex, pregunta.correcta);
+        console.log(`[Modal] Respuesta ${esCorrecta ? 'correcta' : 'incorrecta'}, mostrando explicación`);
+        this.mostrarExplicacion(esCorrecta, pregunta.id);
+    }
+
+    marcarRespuestas(respuestaIndex, respuestaCorrecta) {
         const opciones = this.opcionesContenedor.querySelectorAll('.btn-opcion');
         opciones.forEach((opcion, index) => {
             if (index === respuestaIndex) {
-                opcion.classList.add(esCorrecta ? 'correcta' : 'incorrecta');
+                opcion.classList.add(index === respuestaCorrecta ? 'correcta' : 'incorrecta');
             }
-            if (index === pregunta.correcta) {
+            if (index === respuestaCorrecta) {
                 opcion.classList.add('correcta');
             }
             opcion.disabled = true;
         });
-
-        console.log(`[Modal] Respuesta ${esCorrecta ? 'correcta' : 'incorrecta'}, mostrando explicación`);
-        this.mostrarExplicacion(esCorrecta, pregunta.id);
     }
 
     mostrarExplicacion(esCorrecta, preguntaId) {
@@ -146,28 +189,15 @@ export class ExamenManager {
         }
 
         explicacionTitulo.textContent = esCorrecta ? '¡Correcto!' : 'Incorrecto';
-
-        const pregunta = this.preguntas[this.preguntaActual];
-        console.log(`[Modal] Pregunta actual:`, pregunta);
-        if (this.explicaciones[preguntaId]) {
-            console.log(`[Modal] Explicación encontrada:`, this.explicaciones[preguntaId]);
-            explicacionContenido.innerHTML = this.explicaciones[preguntaId];
-        } else {
-            console.log(`[Modal] No se encontró explicación para la pregunta ${this.preguntaActual + 1}`);
-            explicacionContenido.textContent = 'No se encontró una explicación para esta pregunta.';
-        }
+        explicacionContenido.innerHTML = this.explicaciones[preguntaId] || 'No se encontró una explicación para esta pregunta.';
 
         mostrarModal(modalExplicacion);
 
         const btnEntendido = document.getElementById('btn-entendido');
-        btnEntendido.onclick = null; // Remove any existing event listeners
-        const handleEntendidoClick = () => {
-            console.log(`[Modal] Botón "Entendido" clickeado para pregunta ${this.preguntaActual + 1}`);
-            btnEntendido.removeEventListener('click', handleEntendidoClick);
+        btnEntendido.onclick = () => {
             ocultarModal(modalExplicacion);
             this.siguientePregunta();
         };
-        btnEntendido.addEventListener('click', handleEntendidoClick, { once: true });
     }
 
     siguientePregunta() {
@@ -175,89 +205,119 @@ export class ExamenManager {
         if (this.preguntaActual >= this.preguntas.length - 1) {
             console.log(`[Modal] Ya estamos en la última pregunta, finalizando examen`);
             this.finalizarExamen();
-            return;
+        } else {
+            this.preguntaActual++;
+            console.log(`[Modal] Nueva pregunta actual: ${this.preguntaActual + 1}`);
+            this.mostrarPregunta();
         }
-        this.preguntaActual++;
-        console.log(`[Modal] Nueva pregunta actual: ${this.preguntaActual + 1}`);
-        this.mostrarPregunta();
     }
 
-    finalizarExamen() {
+    async finalizarExamen() {
         console.log(`Finalizando examen. Respuestas correctas: ${this.respuestasCorrectas} de ${this.preguntas.length}`);
-        const modalExamen = document.getElementById('modal-examen');
-        const preguntaContenedor = document.getElementById('pregunta-contenedor');
-        const opcionesContenedor = document.getElementById('opciones-contenedor');
-
         const aprobado = this.respuestasCorrectas >= this.minimoParaAprobar;
-        const mensajeResultado = `Has completado el examen. Acertaste ${this.respuestasCorrectas} de ${this.preguntas.length} preguntas.`;
-        const mensajeAprobado = aprobado ? '¡Has aprobado! 🎉🎊' : 'No has alcanzado el mínimo para aprobar.';
-
         
-        
-        mostrarSubpuntosCompletados();
-        preguntaContenedor.innerHTML = `
-            <p class="resultado-examen">${mensajeResultado}</p>
-            <p class="mensaje-aprobado ${aprobado ? 'aprobado' : 'no-aprobado'}">${mensajeAprobado}</p>
-           
-        `;
+        await mostrarSubpuntosCompletados();
+        this.mostrarResultadoExamen(aprobado);
 
-        const botonesContenedor = document.createElement('div');
-        botonesContenedor.className = 'botones-examen';
+        if (aprobado) {
+            this.mostrarConfeti();
+            
+            if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+                console.error('estructuraGlobal or puntosLineales is undefined in finalizarExamen');
+                return;
+            }
 
-        const btnReview = document.createElement('button');
-        btnReview.textContent = 'Revisar respuestas';
-        btnReview.className = 'btn-examen btn-review';
-        btnReview.addEventListener('click', () => this.revisarRespuestas());
+            const currentPointId = this.examId.replace('e', '');
+            const currentPointIndex = this.estructuraGlobal.puntosLineales.findIndex(punto => punto.id === currentPointId);
+            
+            if (currentPointIndex !== -1) {
+                const currentPoint = this.estructuraGlobal.puntosLineales[currentPointIndex];
+                const bloqueId = getBloqueId(currentPoint.id);
 
-        const btnCerrar = document.createElement('button');
-        btnCerrar.textContent = 'Cerrar';
-        btnCerrar.className = 'btn-examen btn-cerrar';
-        btnCerrar.addEventListener('click', () => {
-            ocultarModal(modalExamen);
-            console.log(`Examen cerrado. Porcentaje final de puntos desbloqueados: ${porcentajeCompletado.toFixed(2)}%`);
-            if (aprobado) {
-                if (this.examId.startsWith('examen_completo_tema_')) {
-                    const tema = parseInt(this.examId.split('_').pop());
-                    actualizarProgresoCompleto(this.bloque, tema);
-                } else {
-                    actualizarProgresoCompleto(this.bloque, this.tema);
+                if (!bloqueId) {
+                    console.error('Invalid bloqueId for point:', currentPoint);
+                    return;
                 }
-                guardarUltimoExamenAprobado(this.examId);
-                window.dispatchEvent(new Event('progresoActualizado'));
-                actualizarEstadoPuntos();
-                calcularProgresoBloque(this.bloque);
+
+                // Update progress
+                await updateProgress(bloqueId, currentPointIndex);
+            
+                // Update estructuraGlobal
+                updateEstructuraGlobal();
+
+                // Update UI elements
+                this.actualizarUITrasExamen(bloqueId, currentPointIndex);
+
+                console.log(`Exam completed. Current point: ${currentPointId}, Next point: ${this.estructuraGlobal.puntosLineales[currentPointIndex + 1]?.id || 'No next point'}`);
+            } else {
+                console.error(`Current point with ID ${currentPointId} not found in puntosLineales.`);
+            }
+        }
+    }
+
+    actualizarUITrasExamen(bloqueId, currentPointIndex) {
+        document.querySelectorAll('.punto-btn').forEach(btn => {
+            const btnId = btn.getAttribute('data-id');
+            const btnIndex = this.estructuraGlobal.puntosLineales.findIndex(p => p.id === btnId);
+            
+            if (btnIndex <= currentPointIndex) {
+                btn.classList.add('completado');
+                btn.classList.remove('disponible', 'bloqueado');
+            } else if (btnIndex === currentPointIndex + 1) {
+                btn.classList.add('disponible');
+                btn.classList.remove('completado', 'bloqueado');
+                btn.disabled = false;
+            } else {
+                btn.classList.add('bloqueado');
+                btn.classList.remove('completado', 'disponible');
+                btn.disabled = true;
             }
         });
 
-        const btnReintentar = document.createElement('button');
-        btnReintentar.textContent = 'Reintentar';
-        btnReintentar.className = 'btn-examen btn-reintentar';
-        btnReintentar.addEventListener('click', () => {
+        // Trigger progress update in UI
+        const event = new CustomEvent('examCompleted', { detail: { bloqueId, currentPointIndex } });
+        document.dispatchEvent(event);
+    }
+
+    mostrarResultadoExamen(aprobado) {
+        const mensajeResultado = `Has completado el examen. Acertaste ${this.respuestasCorrectas} de ${this.preguntas.length} preguntas.`;
+        const mensajeAprobado = aprobado ? '¡Has aprobado! 🎉🎊' : 'No has alcanzado el mínimo para aprobar.';
+
+        this.preguntaContenedor.innerHTML = `
+            <p class="resultado-examen">${mensajeResultado}</p>
+            <p class="mensaje-aprobado ${aprobado ? 'aprobado' : 'no-aprobado'}">${mensajeAprobado}</p>
+        `;
+
+        this.renderizarBotonesFinales(aprobado);
+    }
+
+    renderizarBotonesFinales(aprobado) {
+        const botonesContenedor = document.createElement('div');
+        botonesContenedor.className = 'botones-examen';
+
+        const btnReview = this.crearBoton('Revisar respuestas', 'btn-review', () => this.revisarRespuestas());
+        const btnCerrar = this.crearBoton('Cerrar', 'btn-cerrar', () => this.cerrarExamen(aprobado));
+        const btnReintentar = this.crearBoton('Reintentar', 'btn-reintentar', () => {
             this.resetExamen();
             this.mostrarPregunta();
         });
 
-        botonesContenedor.appendChild(btnReview);
-        botonesContenedor.appendChild(btnCerrar);
-        botonesContenedor.appendChild(btnReintentar);
+        botonesContenedor.append(btnReview, btnCerrar, btnReintentar);
+        this.opcionesContenedor.innerHTML = '';
+        this.opcionesContenedor.appendChild(botonesContenedor);
 
-        opcionesContenedor.innerHTML = '';
-        opcionesContenedor.appendChild(botonesContenedor);
-
-        // Remove the close button
-        const closeButton = modalExamen.querySelector('.cerrar');
+        const closeButton = this.modalExamen.querySelector('.cerrar');
         if (closeButton) {
             closeButton.remove();
         }
+    }
 
-        if (aprobado) {
-            this.mostrarConfeti(); // Añadir esta línea
-            // Pass the full ID to actualizarProgresoCompleto
-            actualizarProgresoCompleto(this.examId.replace(/e$/, ''));
-            window.dispatchEvent(new Event('progresoActualizado'));
-            actualizarEstadoPuntos();
-            calcularProgresoBloque(this.bloque);
-        }
+    crearBoton(texto, clase, onClick) {
+        const boton = document.createElement('button');
+        boton.textContent = texto;
+        boton.className = `btn-examen ${clase}`;
+        boton.addEventListener('click', onClick);
+        return boton;
     }
 
     revisarRespuestas() {
@@ -283,10 +343,52 @@ export class ExamenManager {
         mostrarModal(modalReview);
     }
 
-    cerrarExamen() {
-        const modalExamen = document.getElementById('modal-examen');
-        ocultarModal(modalExamen);
-        // Aquí puedes añadir cualquier limpieza adicional necesaria
+    cerrarExamen(aprobado) {
+        ocultarModal(this.modalExamen);
+        if (aprobado) {
+            this.actualizarProgreso();
+        }
+    }
+
+    actualizarProgreso() {
+        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+            console.error('estructuraGlobal or puntosLineales is undefined in actualizarProgreso');
+            return;
+        }
+
+        const puntoActual = this.estructuraGlobal.puntosLineales.find(p => p.id === this.examId.replace('e', ''));
+        if (puntoActual) {
+            puntoActual.completado = true;
+            const indicePuntoActual = this.estructuraGlobal.puntosLineales.indexOf(puntoActual);
+        
+            const bloqueId = getBloqueId(puntoActual.id);
+            updateProgress(bloqueId, indicePuntoActual);
+
+            const siguientePunto = this.estructuraGlobal.puntosLineales[indicePuntoActual + 1];
+
+            // Actualizar UI para el punto actual
+            const puntoActualElement = document.querySelector(`[data-id="${puntoActual.id}"]`);
+            if (puntoActualElement) {
+                puntoActualElement.classList.add("completado");
+                puntoActualElement.classList.remove("disponible");
+            }
+
+            // Desbloquear el siguiente punto si existe
+            if (siguientePunto) {
+                const siguientePuntoElement = document.querySelector(`[data-id="${siguientePunto.id}"]`);
+                if (siguientePuntoElement) {
+                    siguientePuntoElement.classList.add("disponible");
+                    siguientePuntoElement.classList.remove("bloqueado");
+                    siguientePuntoElement.disabled = false;
+                }
+            }
+
+            console.log(`Exam completed. Current point: ${puntoActual.id}, Next point: ${siguientePunto ? siguientePunto.id : 'None'}`);
+        }
+    }
+
+    getBloqueId() {
+        return Math.floor(this.tema / 3) + 1;
     }
 
     actualizarContadorPreguntas() {
@@ -300,16 +402,6 @@ export class ExamenManager {
         this.respuestasCorrectas = 0;
         this.respuestasUsuario = [];
         console.log('Examen reseteado. Listo para un nuevo intento.');
-    }
-
-    findCurrentSubpunto() {
-        return document.querySelector(`[data-id="${this.examId.slice(0, -1)}"]`);
-    }
-
-    findNextSubpunto(currentSubpunto) {
-        const allSubpuntos = Array.from(document.querySelectorAll('.subpunto-btn'));
-        const currentIndex = allSubpuntos.indexOf(currentSubpunto);
-        return allSubpuntos[currentIndex + 1] || null;
     }
 
     mostrarConfeti() {
@@ -332,8 +424,9 @@ export class ExamenManager {
     }
 }
 
-export function iniciarExamen(bloque, tema, punto, subpunto, examId, preguntas, minimoParaAprobar) {
-    const examenManager = new ExamenManager(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar);
+export function iniciarExamen(bloque, tema, punto, subpunto, examId, preguntas, minimoParaAprobar, estructuraGlobal) {
+    console.log('Initializing exam with estructuraGlobal:', JSON.stringify(estructuraGlobal, null, 2));
+    const examenManager = new ExamenManager(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar, estructuraGlobal);
     examenManager.iniciarExamen();
 }
 

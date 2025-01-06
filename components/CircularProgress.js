@@ -9,7 +9,7 @@ export function CircularProgress({ progress, size = 80, strokeWidth = 8, color =
     try {
         const radius = (size - strokeWidth) / 2;
         const circumference = radius * 2 * Math.PI;
-        const strokeDashoffset = circumference - (progress / 100) * circumference;
+        const strokeDashoffset = circumference - ((progress || 0) / 100) * circumference;
 
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("width", size.toString());
@@ -47,7 +47,7 @@ export function CircularProgress({ progress, size = 80, strokeWidth = 8, color =
         text.setAttribute("font-size", "20");
         text.setAttribute("font-weight", "bold");
         text.setAttribute("fill", color);
-        text.textContent = `${Math.round(progress)}%`;
+        text.textContent = `${Math.round(progress || 0)}%`;
 
         svg.appendChild(backgroundCircle);
         svg.appendChild(progressCircle);
