@@ -13,10 +13,10 @@ export function initializeProgressButton() {
         progressButton.textContent = 'Ver Progreso';
         progressButton.style.position = 'fixed';
         progressButton.style.top = '20px';
-        progressButton.style.right = '20px';
+        progressButton.style.left = '20px';
         progressButton.style.zIndex = '1000';
         progressButton.style.padding = '10px 15px';
-        progressButton.style.backgroundColor = '#4CAF50';
+        progressButton.style.backgroundColor = 'var(--color-secondary)';
         progressButton.style.color = 'white';
         progressButton.style.border = 'none';
         progressButton.style.borderRadius = '5px';
@@ -29,12 +29,12 @@ export function initializeProgressButton() {
     progressDisplay.style.display = 'none';
     progressDisplay.style.position = 'fixed';
     progressDisplay.style.top = '60px';
-    progressDisplay.style.right = '20px';
-    progressDisplay.style.backgroundColor = 'white';
+    progressDisplay.style.left= '20px';
+    progressDisplay.style.backgroundColor = ' var(--color-background)';
     progressDisplay.style.padding = '10px';
     progressDisplay.style.borderRadius = '10px';
     progressDisplay.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
-    progressDisplay.style.zIndex = '2';
+    progressDisplay.style.zIndex = '3';
     document.body.appendChild(progressDisplay);
 
     progressButton.addEventListener('click', toggleProgressDisplay);

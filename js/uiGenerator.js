@@ -1,6 +1,19 @@
 import { getLastCompletedIndex, isPointCompleted, isPointUnlocked, updateEstructuraGlobal, estructuraGlobal } from './structureLoader.js';
 import { findId } from './idfinder.js';
-import { iniciarExamen } from './examLogic.js';
+import { iniciarExamen, ocultarModal } from './examLogic.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.querySelector("#modal-examen");
+    const btncerrar = document.querySelector(".cerrar");
+    
+    if (btncerrar && modal) {
+        btncerrar.addEventListener("click", () => {
+            ocultarModal(modal);    
+        });
+    } else {
+        console.error("Modal or close button not found");
+    }
+});
 
 export function cargarBloque(bloqueId) {
     if (isNaN(bloqueId) || bloqueId < 1 || bloqueId > 4) {
@@ -52,7 +65,7 @@ export function generarEstructuraBloque(estructura) {
         temaElement.id = `tema${indexTema + 1}`;
         temaElement.innerHTML = `
             <button class="tema-btn">${tema.titulo}</button>
-            <div class="puntos-container ${indexTema === 0 ? '' : 'oculto'}"></div>
+            <div class="puntos-container oculto"></div>
         `;
 
         const temaBtn = temaElement.querySelector('.tema-btn');
@@ -60,19 +73,20 @@ export function generarEstructuraBloque(estructura) {
 
         temaBtn.addEventListener('click', () => {
             puntosContainer.classList.toggle('oculto');
-            if (!puntosContainer.hasChildNodes()) {
+            if (puntosContainer.classList.contains('oculto')) {
+                // Si está oculto, vaciamos el contenedor
+                puntosContainer.innerHTML = '';
+            } else if (!puntosContainer.hasChildNodes()) {
+                // Si no está oculto y no tiene nodos hijos, cargamos los puntos
                 cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId);
             }
         });
 
         contenidoPrincipal.appendChild(temaElement);
 
-        if (indexTema === 0) {
-            cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId);
-        }
+        // Ya no cargamos los puntos del primer tema automáticamente
     });
 }
-
 function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId) {
     if (!estructuraGlobal || !estructuraGlobal.puntosLineales) {
         console.error('estructuraGlobal or puntosLineales is not initialized');

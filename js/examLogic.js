@@ -1,5 +1,5 @@
 import { mostrarSubpuntosCompletados } from './contadorSubpuntos.js';
-import { updateProgress, getBloqueId, updateEstructuraGlobal } from './structureLoader.js';
+import { updateProgress, getBloqueId, updateEstructuraGlobal, getLastCompletedIndex } from './structureLoader.js';
 
 function extractExplanations(htmlContent) {
     const parser = new DOMParser();
@@ -37,6 +37,7 @@ export class ExamenManager {
         this.minimoParaAprobar = minimoParaAprobar || Math.ceil(this.preguntas.length * 0.7);
         this.explicaciones = {};
         
+        
         this.preguntas.forEach(pregunta => {
             if (pregunta.explicacion) {
                 this.explicaciones[pregunta.id] = pregunta.explicacion;
@@ -53,7 +54,9 @@ export class ExamenManager {
 
         this.initializeDOMElements();
         this.logInitialInfo();
+        this.setupCloseButton();
     }
+    
 
     findSubpuntoIndex() {
         if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
@@ -96,13 +99,14 @@ export class ExamenManager {
 
     async iniciarExamen() {
         console.log('Iniciando examen');
+        
         try {
             const subpuntoIndex = this.findSubpuntoIndex();
-            alert(`Índice del subpunto en el array: ${subpuntoIndex}`);
+           /* alert(`Índice del subpunto en el array: ${subpuntoIndex}`);*/
 
             const htmlContent = await this.fetchHtmlContent();
             this.explicaciones = extractExplanations(htmlContent);
-            console.log('Extracted explanations:', this.explicaciones);
+          /*  console.log('Extracted explanations:', this.explicaciones);*/
 
             this.resetExamen();
             mostrarModal(this.modalExamen);
@@ -137,46 +141,66 @@ export class ExamenManager {
             this.finalizarExamen();
         }
     }
-
     renderizarOpciones(pregunta) {
         this.opcionesContenedor.innerHTML = '';
-        pregunta.opciones.forEach((opcion, index) => {
+    
+        // Crear un array de opciones con su índice original
+        let opcionesConIndices = pregunta.opciones.map((opcion, index) => ({
+            texto: opcion,
+            indiceOriginal: index
+        }));
+    
+        // Barajar las opciones
+        for (let i = opcionesConIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opcionesConIndices[i], opcionesConIndices[j]] = [opcionesConIndices[j], opcionesConIndices[i]];
+        }
+    
+        // Guardar las opciones barajadas y sus índices originales para referencia
+        this.opcionesBarajadas = opcionesConIndices;
+    
+        // Renderizar botones con las opciones barajadas
+        opcionesConIndices.forEach((opcionBarajada, index) => {
             const boton = document.createElement('button');
-            boton.textContent = opcion;
+            boton.textContent = opcionBarajada.texto;
             boton.className = 'btn-opcion';
             boton.addEventListener('click', () => this.verificarRespuesta(index));
             this.opcionesContenedor.appendChild(boton);
         });
     }
-
+    
     verificarRespuesta(respuestaIndex) {
         console.log(`[Modal] Verificando respuesta para pregunta ${this.preguntaActual + 1}: ${respuestaIndex}`);
         const pregunta = this.preguntas[this.preguntaActual];
-        const esCorrecta = respuestaIndex === pregunta.correcta;
-        this.respuestasUsuario[this.preguntaActual] = respuestaIndex;
-
+    
+        // Obtener el índice original de la respuesta seleccionada
+        const indiceOriginal = this.opcionesBarajadas[respuestaIndex].indiceOriginal;
+        const esCorrecta = indiceOriginal === pregunta.correcta;
+        this.respuestasUsuario[this.preguntaActual] = indiceOriginal;
+    
         if (esCorrecta) {
             this.respuestasCorrectas++;
         }
-
+    
         this.marcarRespuestas(respuestaIndex, pregunta.correcta);
         console.log(`[Modal] Respuesta ${esCorrecta ? 'correcta' : 'incorrecta'}, mostrando explicación`);
         this.mostrarExplicacion(esCorrecta, pregunta.id);
     }
-
+    
     marcarRespuestas(respuestaIndex, respuestaCorrecta) {
         const opciones = this.opcionesContenedor.querySelectorAll('.btn-opcion');
         opciones.forEach((opcion, index) => {
+            const indiceOriginal = this.opcionesBarajadas[index].indiceOriginal;
             if (index === respuestaIndex) {
-                opcion.classList.add(index === respuestaCorrecta ? 'correcta' : 'incorrecta');
+                opcion.classList.add(indiceOriginal === respuestaCorrecta ? 'correcta' : 'incorrecta');
             }
-            if (index === respuestaCorrecta) {
+            if (indiceOriginal === respuestaCorrecta) {
                 opcion.classList.add('correcta');
             }
             opcion.disabled = true;
         });
     }
-
+    
     mostrarExplicacion(esCorrecta, preguntaId) {
         console.log(`[Modal] Mostrando explicación para pregunta ${this.preguntaActual + 1}`);
         const modalExplicacion = document.getElementById('modal-explicacion');
@@ -239,14 +263,20 @@ export class ExamenManager {
                     return;
                 }
 
-                // Update progress
-                await updateProgress(bloqueId, currentPointIndex);
-            
-                // Update estructuraGlobal
-                updateEstructuraGlobal();
+                // Check if the current point index is higher than the saved progress
+                const savedProgress = await getLastCompletedIndex(bloqueId);
+                if (currentPointIndex > savedProgress) {
+                    // Update progress
+                    await updateProgress(bloqueId, currentPointIndex);
 
-                // Update UI elements
-                this.actualizarUITrasExamen(bloqueId, currentPointIndex);
+                    // Update estructuraGlobal
+                    updateEstructuraGlobal();
+
+                    // Update UI elements
+                    this.actualizarUITrasExamen(bloqueId, currentPointIndex);
+                } else {
+                    console.log(`No se actualizó el progreso. Índice actual (${currentPointIndex}) no es mayor que el guardado (${savedProgress})`);
+                }
 
                 console.log(`Exam completed. Current point: ${currentPointId}, Next point: ${this.estructuraGlobal.puntosLineales[currentPointIndex + 1]?.id || 'No next point'}`);
             } else {
@@ -254,7 +284,16 @@ export class ExamenManager {
             }
         }
     }
-
+    setupCloseButton() {
+        const btncerrar = document.querySelector(".cerrar");
+        if (btncerrar) {
+          btncerrar.addEventListener("click", () => {
+            this.finalizarExamen();
+          });
+        } else {
+          console.error("Close button not found");
+        }
+      }
     actualizarUITrasExamen(bloqueId, currentPointIndex) {
         document.querySelectorAll('.punto-btn').forEach(btn => {
             const btnId = btn.getAttribute('data-id');
@@ -344,13 +383,14 @@ export class ExamenManager {
     }
 
     cerrarExamen(aprobado) {
+
         ocultarModal(this.modalExamen);
         if (aprobado) {
             this.actualizarProgreso();
         }
     }
 
-    actualizarProgreso() {
+    async actualizarProgreso() {
         if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
             console.error('estructuraGlobal or puntosLineales is undefined in actualizarProgreso');
             return;
@@ -362,7 +402,13 @@ export class ExamenManager {
             const indicePuntoActual = this.estructuraGlobal.puntosLineales.indexOf(puntoActual);
         
             const bloqueId = getBloqueId(puntoActual.id);
-            updateProgress(bloqueId, indicePuntoActual);
+            const savedProgress = await getLastCompletedIndex(bloqueId);
+            if (indicePuntoActual > savedProgress) {
+                updateProgress(bloqueId, indicePuntoActual);
+                console.log(`Progreso actualizado. Nuevo índice: ${indicePuntoActual}`);
+            } else {
+                console.log(`No se actualizó el progreso. Índice actual (${indicePuntoActual}) no es mayor que el guardado (${savedProgress})`);
+            }
 
             const siguientePunto = this.estructuraGlobal.puntosLineales[indicePuntoActual + 1];
 

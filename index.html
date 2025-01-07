@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Curso Interactivo de Informática</title>
+       
         <link rel="stylesheet" href="css/style.css">
+       
+       
         <!-- Add React and ReactDOM scripts -->
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
@@ -16,9 +19,10 @@
             <div class="header-content">
                 <h1>TAI 2.0</h1>
                 <h2>Academia Phoebe</h2>
+               
             </div>
         </header>
-    
+        <button id="darkModeToggle" class="dark-mode-toggle">Dark</button>
         <main id="contenido-principal">
             <section class="tema">
                 <div class="grid-container">
@@ -50,7 +54,7 @@
                 <button class="tema-btn enconstruccion">
                     Examen por temas
                 </button>
-                <a href="examenOficial/examenOficial.html">
+                <a id= "tema-btn"href="examenOficial/examenOficial.html">
                     <button class="tema-btn">
                         Examen oficial
                     </button>

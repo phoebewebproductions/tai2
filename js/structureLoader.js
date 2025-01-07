@@ -23,7 +23,7 @@ export function saveProgress(bloqueId, lastCompletedIndex) {
 }
 
 export function loadProgress(bloqueId) {
-    console.log(`Attempting to load progress for bloque ${bloqueId}`);
+    /*console.log(`Attempting to load progress for bloque ${bloqueId}`);*/
     try {
         const key = PROGRESS_KEYS[bloqueId];
         if (!key) {
@@ -32,7 +32,7 @@ export function loadProgress(bloqueId) {
         const savedProgress = localStorage.getItem(key);
         if (savedProgress !== null) {
             const progress = JSON.parse(savedProgress);
-            console.log(`Progress loaded for bloque ${bloqueId}: ${progress}`);
+            /*console.log(`Progress loaded for bloque ${bloqueId}: ${progress}`);*/
             return progress;
         } else {
             console.log(`No saved progress found for bloque ${bloqueId}`);

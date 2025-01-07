@@ -352,66 +352,66 @@ export const preguntas = {
    ],
    minimoParaAprobar: 3
  },
- "1010201000e": {
-     preguntas: [
-       {
-         id: "1010201001",
-         pregunta: "Según el artículo 56.1 de la Constitución Española, ¿cuál es el título del Rey?",
-         opciones: [
-           "Rey de la Monarquía Parlamentaria",
-           "Rey de España",
-           "Jefe del Estado Español"
-         ],
-         correcta: 1,
-         explicacionId: "1010201001"
-       },
-       {
-         id: "1010201002",
-         pregunta: "¿Qué significa la inviolabilidad del Rey?",
-         opciones: [
-           "El Rey puede actuar sin refrendo",
-           "El Rey no tiene responsabilidad política",
-           "El Rey no puede ser juzgado por sus actos personales"
-         ],
-         correcta: 1,
-         explicacionId: "1010201002"
-       },
-       {
-         id: "1010201003",
-         pregunta: "¿Cuál de los siguientes actos del Rey NO necesita refrendo?",
-         opciones: [
-           "El nombramiento del Presidente del Gobierno",
-           "La sanción de las leyes",
-           "El nombramiento de los miembros de su Casa"
-         ],
-         correcta: 2,
-         explicacionId: "1010201003"
-       },
-       {
-         id: "1010201004",
-         pregunta: "¿Quién refrenda el nombramiento del Presidente del Gobierno?",
-         opciones: [
-           "El Presidente del Congreso",
-           "El Presidente del Senado",
-           "El Presidente saliente del Gobierno"
-         ],
-         correcta: 0,
-         explicacionId: "1010201004"
-       },
-       {
-         id: "1010201005",
-         pregunta: "Según la Constitución, la Reina consorte o el consorte de la Reina...",
-         opciones: [
-           "Pueden asumir todas las funciones constitucionales del Rey",
-           "No pueden asumir funciones constitucionales, salvo lo dispuesto para la Regencia",
-           "Tienen las mismas funciones constitucionales que el Rey"
-         ],
-         correcta: 1,
-         explicacionId: "1010201005"
-       }
-     ],
-     minimoParaAprobar: 3
-   },
+"1010201000e": {
+    preguntas: [
+        {
+            id: "1010201001",
+            pregunta: "Según el artículo 56.1 de la Constitución Española, ¿cuál es el título del Rey?",
+            opciones: [
+                "Rey de la Monarquía Parlamentaria",
+                "Rey de España",
+                "Jefe del Estado Español"
+            ],
+            correcta: 1,
+            explicacionId: "1010201004"
+        },
+        {
+            id: "1010201002",
+            pregunta: "¿Qué significa la inviolabilidad del Rey?",
+            opciones: [
+                "El Rey puede actuar sin refrendo",
+                "El Rey no tiene responsabilidad política",
+                "El Rey no puede ser juzgado por sus actos personales"
+            ],
+            correcta: 1,
+            explicacionId: "1010201005"
+        },
+        {
+            id: "1010201003",
+            pregunta: "¿Cuál de los siguientes actos del Rey NO necesita refrendo?",
+            opciones: [
+                "El nombramiento del Presidente del Gobierno",
+                "La sanción de las leyes",
+                "El nombramiento de los miembros de su Casa"
+            ],
+            correcta: 2,
+            explicacionId: "1010201006"
+        },
+        {
+            id: "1010201004",
+            pregunta: "¿Quién refrenda el nombramiento del Presidente del Gobierno?",
+            opciones: [
+                "El Presidente del Congreso",
+                "El Presidente del Senado",
+                "El Presidente saliente del Gobierno"
+            ],
+            correcta: 0,
+            explicacionId: "1010201007"
+        },
+        {
+            id: "1010201005",
+            pregunta: "Según la Constitución, la Reina consorte o el consorte de la Reina...",
+            opciones: [
+                "Pueden asumir todas las funciones constitucionales del Rey",
+                "No pueden asumir funciones constitucionales, salvo lo dispuesto para la Regencia",
+                "Tienen las mismas funciones constitucionales que el Rey"
+            ],
+            correcta: 1,
+            explicacionId: "1010201009"
+        }
+    ],
+    minimoParaAprobar: 3
+},
    "1010202000e": {
     preguntas: [
         {
@@ -855,61 +855,61 @@ export const preguntas = {
             correcta: 0,
             explicacionId: "1010106005"
           },
-        {
+          {
             id: "1010201001",
             pregunta: "Según el artículo 56.1 de la Constitución Española, ¿cuál es el título del Rey?",
             opciones: [
-              "Rey de la Monarquía Parlamentaria",
-              "Rey de España",
-              "Jefe del Estado Español"
+                "Rey de la Monarquía Parlamentaria",
+                "Rey de España",
+                "Jefe del Estado Español"
             ],
             correcta: 1,
-            explicacionId: "1010201001"
-          },
-          {
+            explicacionId: "1010201004"
+        },
+        {
             id: "1010201002",
             pregunta: "¿Qué significa la inviolabilidad del Rey?",
             opciones: [
-              "El Rey puede actuar sin refrendo",
-              "El Rey no tiene responsabilidad política",
-              "El Rey no puede ser juzgado por sus actos personales"
-            ],
-            correcta: 1,
-            explicacionId: "1010201002"
-          },
-          {
-            id: "1010201003",
-            pregunta: "¿Cuál de los siguientes actos del Rey NO necesita refrendo?",
-            opciones: [
-              "El nombramiento del Presidente del Gobierno",
-              "La sanción de las leyes",
-              "El nombramiento de los miembros de su Casa"
-            ],
-            correcta: 2,
-            explicacionId: "1010201003"
-          },
-          {
-            id: "1010201004",
-            pregunta: "¿Quién refrenda el nombramiento del Presidente del Gobierno?",
-            opciones: [
-              "El Presidente del Congreso",
-              "El Presidente del Senado",
-              "El Presidente saliente del Gobierno"
-            ],
-            correcta: 0,
-            explicacionId: "1010201004"
-          },
-          {
-            id: "1010201005",
-            pregunta: "Según la Constitución, la Reina consorte o el consorte de la Reina...",
-            opciones: [
-              "Pueden asumir todas las funciones constitucionales del Rey",
-              "No pueden asumir funciones constitucionales, salvo lo dispuesto para la Regencia",
-              "Tienen las mismas funciones constitucionales que el Rey"
+                "El Rey puede actuar sin refrendo",
+                "El Rey no tiene responsabilidad política",
+                "El Rey no puede ser juzgado por sus actos personales"
             ],
             correcta: 1,
             explicacionId: "1010201005"
-          },
+        },
+        {
+            id: "1010201003",
+            pregunta: "¿Cuál de los siguientes actos del Rey NO necesita refrendo?",
+            opciones: [
+                "El nombramiento del Presidente del Gobierno",
+                "La sanción de las leyes",
+                "El nombramiento de los miembros de su Casa"
+            ],
+            correcta: 2,
+            explicacionId: "1010201006"
+        },
+        {
+            id: "1010201004",
+            pregunta: "¿Quién refrenda el nombramiento del Presidente del Gobierno?",
+            opciones: [
+                "El Presidente del Congreso",
+                "El Presidente del Senado",
+                "El Presidente saliente del Gobierno"
+            ],
+            correcta: 0,
+            explicacionId: "1010201007"
+        },
+        {
+            id: "1010201005",
+            pregunta: "Según la Constitución, la Reina consorte o el consorte de la Reina...",
+            opciones: [
+                "Pueden asumir todas las funciones constitucionales del Rey",
+                "No pueden asumir funciones constitucionales, salvo lo dispuesto para la Regencia",
+                "Tienen las mismas funciones constitucionales que el Rey"
+            ],
+            correcta: 1,
+            explicacionId: "1010201009"
+        },
         {
             id: "1010202001",
             pregunta: "Según el artículo 57 de la Constitución Española, ¿cómo se determina la sucesión al trono?",

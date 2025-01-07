@@ -1,3 +1,4 @@
+
 .modal-examen {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -11,7 +12,7 @@
 }
 
 .modal-contenido {
-    background-color: white;
+    background-color: var(--color-background);
     padding: 2rem;
     border-radius: 8px;
     max-width: 600px;
@@ -31,7 +32,7 @@
 }
 
 .btn-opcion {
-    background-color: #f0f0f0;
+    background-color: var(--color-border);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -41,11 +42,12 @@
     text-align: left;
     min-height: 5rem;
     margin-block: 0.2rem;
+    color: var(--color-text);
    
 }
 
 .btn-opcion:hover {
-    background-color: #e0e0e0;
+    background-color: var(--color-primary-dark);
 }
 
 .btn-opcion.correcta {
