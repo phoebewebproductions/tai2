@@ -334,14 +334,14 @@ export class ExamenManager {
         const botonesContenedor = document.createElement('div');
         botonesContenedor.className = 'botones-examen';
 
-        const btnReview = this.crearBoton('Revisar respuestas', 'btn-review', () => this.revisarRespuestas());
+      
         const btnCerrar = this.crearBoton('Cerrar', 'btn-cerrar', () => this.cerrarExamen(aprobado));
         const btnReintentar = this.crearBoton('Reintentar', 'btn-reintentar', () => {
             this.resetExamen();
             this.mostrarPregunta();
         });
 
-        botonesContenedor.append(btnReview, btnCerrar, btnReintentar);
+        botonesContenedor.append( btnReintentar,btnCerrar );
         this.opcionesContenedor.innerHTML = '';
         this.opcionesContenedor.appendChild(botonesContenedor);
 
@@ -359,28 +359,6 @@ export class ExamenManager {
         return boton;
     }
 
-    revisarRespuestas() {
-        const modalReview = document.getElementById('modal-review');
-        const reviewContainer = document.getElementById('review-container');
-        reviewContainer.innerHTML = '';
-
-        this.preguntas.forEach((pregunta, index) => {
-            const respuestaUsuario = this.respuestasUsuario[index];
-            const esCorrecta = respuestaUsuario === pregunta.correcta;
-
-            const preguntaElement = document.createElement('div');
-            preguntaElement.innerHTML = `
-                <p><strong>Pregunta ${index + 1}:</strong> ${pregunta.pregunta}</p>
-                <p>Tu respuesta: ${respuestaUsuario !== null ? pregunta.opciones[respuestaUsuario] : 'No contestada'}</p>
-                <p>Respuesta correcta: ${pregunta.opciones[pregunta.correcta]}</p>
-                <p style="color: ${esCorrecta ? 'green' : 'red'}">${esCorrecta ? 'Correcto' : 'Incorrecto'}</p>
-                <div class="explicacion">${this.explicaciones[pregunta.id] || 'No se encontró explicación para esta pregunta.'}</div>
-            `;
-            reviewContainer.appendChild(preguntaElement);
-        });
-
-        mostrarModal(modalReview);
-    }
 
     cerrarExamen(aprobado) {
 
