@@ -31,7 +31,7 @@
   width:48px;
   height: 48px;
   
-  color: white;
+  color: var(--color-text);
   margin: 0;
   font-size: 1.2rem;
   cursor: pointer;
@@ -52,6 +52,8 @@
 /* Botón de Progreso */
 #progress-button {
   transition: transform 0.2s, background-color 0.3s;
+  color: var(--color-text);
+  
 }
 
 #progress-button:hover {
@@ -62,6 +64,7 @@
 /* Ícono del Botón */
 #progress-icon {
   font-size: 1.5rem;
+  
 }
 
 
