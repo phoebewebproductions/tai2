@@ -6,11 +6,14 @@
         <title>Curso Interactivo de Informática</title>
        
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
        
        
         <!-- Add React and ReactDOM scripts -->
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        
+
     </head>
 <body>
         <!-- Sección de autenticación -->
@@ -22,7 +25,10 @@
                
             </div>
         </header>
-        <button id="darkModeToggle" class="dark-mode-toggle">Dark</button>
+        <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        
         <main id="contenido-principal">
             <section class="tema">
                 <div class="grid-container">

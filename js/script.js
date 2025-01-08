@@ -17,19 +17,24 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', isDarkMode);
 }
 
-// Función para actualizar el texto del botón de modo oscuro
+// Función para actualizar el ícono del botón de modo oscuro
 function updateDarkModeButton(isDarkMode) {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (darkModeToggle) {
-        darkModeToggle.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    if (darkModeIcon) {
+        if (isDarkMode) {
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun'); // Cambia a sol en modo oscuro
+        } else {
+            darkModeIcon.classList.replace('fa-sun', 'fa-moon'); // Cambia a luna en modo claro
+        }
     }
 }
+
 
 // Función para inicializar el modo oscuro basado en la preferencia guardada
 function initializeDarkMode() {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     applyDarkMode(isDarkMode);
-    updateDarkModeButton(isDarkMode);
+    updateDarkModeButton(isDarkMode); // Actualiza el ícono al cargar la página
 }
 
 // Función para observar cambios en el DOM

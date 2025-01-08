@@ -23,6 +23,48 @@
   --color-correct: #064e3b;
   --color-incorrect: #7f1d1d;
 }
+/* Botón de Modo Claro/Oscuro */
+#darkModeToggle {
+  outline: solid 2px var(--color-secondary);
+  background: none;
+  border: none;
+  width:48px;
+  height: 48px;
+  
+  color: white;
+  margin: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#darkModeToggle:hover {
+  transform: scale(1.1);
+}
+/* Botón de Progreso */
+#progress-button {
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+#progress-button:hover {
+  transform: scale(1.1);
+  background-color: var(--color-primary-hover, #0078D7);
+}
+
+/* Ícono del Botón */
+#progress-icon {
+  font-size: 1.5rem;
+}
+
+
 
 body {
   font-family: 'Inter', sans-serif;
@@ -31,26 +73,13 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  z-index: 1000;
-  transition: background-color 0.3s;
-}
 
-.dark-mode-toggle:hover {
-  background-color: var(--color-primary-dark);
-}
 
 header {
   position: relative;
@@ -64,6 +93,8 @@ header {
   padding: 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   min-height: 15vh;
+  width: 100vw;
+ 
 }
 
 header::before {
@@ -78,6 +109,7 @@ header::before {
 }
 
 header h1, header h2 {
+
   position: relative;
   z-index: 2;
 }
@@ -581,6 +613,7 @@ a{
 @media (max-width: 640px) {
   header {
     padding: 1.5rem;
+    width: 90%;
   }
 
   header h1 {

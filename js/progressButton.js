@@ -10,45 +10,60 @@ export function initializeProgressButton() {
     if (!progressButton) {
         progressButton = document.createElement('button');
         progressButton.id = 'progress-button';
-        progressButton.textContent = 'Ver Progreso';
         progressButton.style.position = 'fixed';
         progressButton.style.top = '20px';
         progressButton.style.left = '20px';
         progressButton.style.zIndex = '1000';
-        progressButton.style.padding = '10px 15px';
+        progressButton.style.padding = '10px';
         progressButton.style.backgroundColor = 'var(--color-secondary)';
         progressButton.style.color = 'white';
         progressButton.style.border = 'none';
-        progressButton.style.borderRadius = '5px';
+        progressButton.style.borderRadius = '50%';
         progressButton.style.cursor = 'pointer';
+        progressButton.style.width = '50px';
+        progressButton.style.height = '50px';
+        progressButton.style.display = 'flex';
+        progressButton.style.alignItems = 'center';
+        progressButton.style.justifyContent = 'center';
+        progressButton.style.fontSize = '1.2rem';
+        
+        // Agregar ícono de FontAwesome
+        const progressIcon = document.createElement('i');
+        progressIcon.id = 'progress-icon';
+        progressIcon.className = 'fa-solid fa-circle-check'; // Ícono de progreso
+        progressButton.appendChild(progressIcon);
+        
         document.body.appendChild(progressButton);
     }
 
+    // Crear contenedor de progreso
     const progressDisplay = document.createElement('div');
     progressDisplay.id = 'progress-display';
     progressDisplay.style.display = 'none';
     progressDisplay.style.position = 'fixed';
-    progressDisplay.style.top = '60px';
-    progressDisplay.style.left= '20px';
-    progressDisplay.style.backgroundColor = ' var(--color-background)';
+
+    progressDisplay.style.backgroundColor = 'var(--color-background)';
     progressDisplay.style.padding = '10px';
     progressDisplay.style.borderRadius = '10px';
     progressDisplay.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
-    progressDisplay.style.zIndex = '3';
+    progressDisplay.style.zIndex = '3000';
     document.body.appendChild(progressDisplay);
 
     progressButton.addEventListener('click', toggleProgressDisplay);
     console.log('Progress button initialized');
 }
 
+// Alternar la visualización de progreso
 async function toggleProgressDisplay() {
     const progressDisplay = document.getElementById('progress-display');
+    const progressIcon = document.getElementById('progress-icon');
     
     if (progressDisplayVisible) {
         progressDisplay.style.display = 'none';
         progressDisplayVisible = false;
+        progressIcon.className = 'fa-solid fa-circle-check';
     } else {
-        progressDisplay.innerHTML = ''; // Clear previous content
+        progressDisplay.innerHTML = ''; // Limpiar contenido anterior
         progressDisplay.style.display = 'flex';
         progressDisplay.style.flexWrap = 'wrap';
         progressDisplay.style.justifyContent = 'center';
@@ -59,9 +74,11 @@ async function toggleProgressDisplay() {
         }
         
         progressDisplayVisible = true;
+        progressIcon.className = 'fa-solid fa-circle-pause'; // Cambiar ícono al expandir
     }
 }
 
+// Actualizar progreso de cada bloque
 async function updateProgress(blockNumber) {
     try {
         const progress = await calculateBlockProgress(blockNumber);
@@ -90,4 +107,3 @@ async function updateProgress(blockNumber) {
         console.error(`Error updating progress for block ${blockNumber}:`, error);
     }
 }
-
