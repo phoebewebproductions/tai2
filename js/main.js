@@ -1,4 +1,4 @@
-import { cargarEstructuraBloque, estructuraGlobal, updateEstructuraGlobal } from './structureLoader.js';
+import { cargarTodasLasEstructuras, estructuraGlobal, updateEstructuraGlobal } from './structureLoader.js';
 import { generarEstructuraBloque } from './uiGenerator.js';
 import { initializeProgressButton } from './progressButton.js';
 
@@ -6,15 +6,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOMContentLoaded event fired');
     
     try {
-        // Load the structure
-        await cargarEstructuraBloque();
+        // Load all structures
+        await cargarTodasLasEstructuras();
         
-        if (!estructuraGlobal) {
-            throw new Error('Failed to load estructura');
+        if (Object.keys(estructuraGlobal).length === 0) {
+            throw new Error('Failed to load estructuras');
         }
 
-        // Generate UI with the structure
-        generarEstructuraBloque(estructuraGlobal);
+        // Determine the current block (you might need to implement this based on your navigation logic)
+        const currentBlockId = getCurrentBlockId();
+
+        // Generate UI only for the current block
+        if (estructuraGlobal[currentBlockId]) {
+            generarEstructuraBloque(estructuraGlobal[currentBlockId]);
+        } else {
+            console.error(`No structure found for block ${currentBlockId}`);
+        }
         
         // Initialize progress button after UI is generated
         initializeProgressButton();
@@ -27,6 +34,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error during initialization:', error);
     }
 });
+
+// Function to determine the current block ID (you need to implement this based on your navigation logic)
+function getCurrentBlockId() {
+    // This is a placeholder. You need to implement the logic to determine the current block.
+    // It could be based on URL parameters, local storage, or any other method you're using for navigation.
+    return 1; // Default to block 1 for now
+}
 
 // Listen for exam completion events
 document.addEventListener('examCompleted', async (event) => {

@@ -78,23 +78,22 @@ export function generarEstructuraBloque(estructura) {
                 puntosContainer.innerHTML = '';
             } else if (!puntosContainer.hasChildNodes()) {
                 // Si no está oculto y no tiene nodos hijos, cargamos los puntos
-                cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId);
+                cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura);
             }
         });
 
         contenidoPrincipal.appendChild(temaElement);
-
-        // Ya no cargamos los puntos del primer tema automáticamente
     });
 }
-function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId) {
-    if (!estructuraGlobal || !estructuraGlobal.puntosLineales) {
-        console.error('estructuraGlobal or puntosLineales is not initialized');
+
+function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura) {
+    if (!estructura || !estructura.puntosLineales) {
+        console.error('estructura or puntosLineales is not initialized');
         return;
     }
 
     tema.puntos.forEach((punto, indexPunto) => {
-        const puntoLinealIndex = estructuraGlobal.puntosLineales.findIndex(p => 
+        const puntoLinealIndex = estructura.puntosLineales.findIndex(p => 
             p.temaIndex === indexTema && p.puntoIndex === indexPunto
         );
         
@@ -120,6 +119,7 @@ function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId) {
         puntosContainer.appendChild(puntoElement);
     });
 }
+
 
 export async function cargarContenidoPunto(tema, punto, id, puntoElement) {
     const contenidoPunto = puntoElement.querySelector('.punto-contenido');
@@ -215,8 +215,13 @@ export function actualizarProgresoTrasExamen(bloqueId, puntoCompletadoIndex) {
     temaElements.forEach((temaElement, indexTema) => {
         const puntosContainer = temaElement.querySelector('.puntos-container');
         if (puntosContainer) {
-            const tema = estructuraGlobal.temas[indexTema];
-            cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId);
+            const estructura = estructuraGlobal[bloqueId];
+            if (estructura && estructura.temas) {
+                const tema = estructura.temas[indexTema];
+                cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura);
+            } else {
+                console.error(`Estructura not found for bloque ${bloqueId}`);
+            }
         }
     });
 }

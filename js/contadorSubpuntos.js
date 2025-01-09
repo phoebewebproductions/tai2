@@ -1,19 +1,23 @@
-import { cargarEstructuraBloque } from './structureLoader.js';
+import { cargarTodasLasEstructuras, estructuraGlobal } from './structureLoader.js';
 
 export async function contarSubpuntosTotales() {
     try {
-        const estructura = await cargarEstructuraBloque();
+        await cargarTodasLasEstructuras();
         
-        if (!estructura || !estructura.temas || !Array.isArray(estructura.temas)) {
-            console.error('La estructura no es válida o no contiene temas');
+        if (!estructuraGlobal || Object.keys(estructuraGlobal).length === 0) {
+            console.error('La estructura global no es válida o está vacía');
             return 0;
         }
 
         let totalSubpuntos = 0;
 
-        estructura.temas.forEach(tema => {
-            if (tema.puntos && Array.isArray(tema.puntos)) {
-                totalSubpuntos += tema.puntos.length;
+        Object.values(estructuraGlobal).forEach(estructura => {
+            if (estructura && estructura.temas && Array.isArray(estructura.temas)) {
+                estructura.temas.forEach(tema => {
+                    if (tema.puntos && Array.isArray(tema.puntos)) {
+                        totalSubpuntos += tema.puntos.length;
+                    }
+                });
             }
         });
 
@@ -24,6 +28,7 @@ export async function contarSubpuntosTotales() {
         return 0;
     }
 }
+
 
 
 export function contarSubpuntosCompletados() {

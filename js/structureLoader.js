@@ -7,7 +7,7 @@ const PROGRESS_KEYS = {
     4: 'courseProgress_block4'
 };
 
-export let estructuraGlobal;
+
 
 export function saveProgress(bloqueId, lastCompletedIndex) {
     try {
@@ -57,10 +57,7 @@ export function getLastCompletedIndex(bloqueId) {
     return loadProgress(bloqueId);
 }
 
-export function isPointCompleted(bloqueId, puntoIndex) {
-    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
-    return puntoIndex <= lastCompletedIndex;
-}
+
 
 export function isPointUnlocked(bloqueId, puntoIndex) {
     const lastCompletedIndex = getLastCompletedIndex(bloqueId);
@@ -73,12 +70,21 @@ export function getBloqueId(puntoId) {
     return primerDigito >= 1 && primerDigito <= 4 ? primerDigito : null;
 }
 
-export async function countSubpuntosInBloque(bloqueId) {
-    const totalSubpuntos = await contarSubpuntosTotales();
-    console.log(`Total subpuntos in all blocks: ${totalSubpuntos}`);
-    return totalSubpuntos;
+
+export function isPointCompleted(bloqueId, puntoIndex) {
+    const lastCompletedIndex = getLastCompletedIndex(bloqueId);
+    return puntoIndex <= lastCompletedIndex;
 }
 
+export async function countSubpuntosInBloque(bloqueId) {
+    if (!estructuraGlobal[bloqueId]) {
+        console.error(`Estructura no cargada para el bloque ${bloqueId}`);
+        return 0;
+    }
+    const totalSubpuntos = estructuraGlobal[bloqueId].puntosLineales.length;
+    console.log(`Total subpuntos in block ${bloqueId}: ${totalSubpuntos}`);
+    return totalSubpuntos;
+}
 export async function calculateBlockProgress(bloqueId) {
     if (bloqueId < 1 || bloqueId > 4) {
         console.error('ID de bloque inválido. Debe ser entre 1 y 4.');
@@ -95,30 +101,30 @@ export async function calculateBlockProgress(bloqueId) {
     return Math.min(progressPercentage, 100);
 }
 
+
 export function countUnlockedPoints(bloqueId) {
     const lastCompletedIndex = getLastCompletedIndex(bloqueId);
     return lastCompletedIndex + 2;
 }
+export let estructuraGlobal = {};
 
-
-
-export async function cargarEstructuraBloque() {
+export async function cargarEstructuraBloque(bloqueId) {
     try {
-        console.log('Iniciando carga de estructura');
-        const response = await fetch('./estructura.json');
+        console.log(`Iniciando carga de estructura para el bloque ${bloqueId}`);
+        const response = await fetch(`./../../bloques/bloque${bloqueId}/estructura.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         let estructura = await response.json();
-        console.log('Estructura cargada:', estructura);
+        console.log(`Estructura cargada para el bloque ${bloqueId}:`, estructura);
         
         if (!estructura || !estructura.temas || estructura.temas.length === 0) {
-            console.error('La estructura cargada está vacía o no tiene temas');
+            console.error(`La estructura cargada está vacía o no tiene temas para el bloque ${bloqueId}`);
             return null;
         }
         
         // Add an id property to the estructura object
-        estructura.id = 1; // Assuming this is for block 1, adjust as needed
+        estructura.id = bloqueId;
         
         // Create a linear array of all points
         estructura.puntosLineales = estructura.temas.flatMap((tema, temaIndex) => 
@@ -130,27 +136,38 @@ export async function cargarEstructuraBloque() {
             }))
         );
         
-        // Set the global structure
-        estructuraGlobal = estructura;
+        return estructura;
+    } catch (error) {
+        console.error(`Error loading estructura.json for bloque ${bloqueId}:`, error);
+        throw error;
+    }
+}
+
+export async function cargarTodasLasEstructuras() {
+    try {
+        console.log('Iniciando carga de todas las estructuras');
         
-        console.log('Estructura con puntos lineales:', estructuraGlobal);
+        for (let i = 1; i <= 4; i++) {
+            estructuraGlobal[i] = await cargarEstructuraBloque(i);
+        }
+        
+        console.log('Todas las estructuras cargadas:', estructuraGlobal);
         return estructuraGlobal;
     } catch (error) {
-        console.error('Error loading estructura.json:', error);
+        console.error('Error loading estructuras:', error);
         throw error;
     }
 }
 
 export function updateEstructuraGlobal() {
-    if (estructuraGlobal && estructuraGlobal.puntosLineales) {
-        estructuraGlobal.puntosLineales.forEach((punto, index) => {
-            const bloqueId = getBloqueId(punto.id);
-            if (bloqueId) {
-                punto.completado = isPointCompleted(bloqueId, index);
-            }
-        });
-    } else {
-        console.error('estructuraGlobal or puntosLineales is not initialized');
-    }
+    Object.values(estructuraGlobal).forEach(estructura => {
+        if (estructura && estructura.puntosLineales) {
+            estructura.puntosLineales.forEach((punto, index) => {
+                const bloqueId = getBloqueId(punto.id);
+                if (bloqueId) {
+                    punto.completado = isPointCompleted(bloqueId, index);
+                }
+            });
+        }
+    });
 }
-

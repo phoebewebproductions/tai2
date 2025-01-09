@@ -45,7 +45,7 @@ export class ExamenManager {
         });
 
         this.estructuraGlobal = estructuraGlobal;
-        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+        if (!this.estructuraGlobal || !this.estructuraGlobal[this.bloque] || !this.estructuraGlobal[this.bloque].puntosLineales) {
             console.error('estructuraGlobal or puntosLineales is undefined:', this.estructuraGlobal);
         } else {
             console.log('estructuraGlobal initialized successfully:', JSON.stringify(this.estructuraGlobal, null, 2));
@@ -59,16 +59,16 @@ export class ExamenManager {
     
 
     findSubpuntoIndex() {
-        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
-            console.error('estructuraGlobal or puntosLineales is undefined');
+        if (!this.estructuraGlobal || !this.estructuraGlobal[this.bloque] || !this.estructuraGlobal[this.bloque].puntosLineales) {
+            console.error('estructuraGlobal or puntosLineales is undefined for bloque', this.bloque);
             return -1;
         }
         
         const subpuntoId = this.examId.replace('e', '');
         console.log('Searching for subpunto with ID:', subpuntoId);
-        console.log('puntosLineales:', JSON.stringify(this.estructuraGlobal.puntosLineales, null, 2));
+        console.log('puntosLineales:', JSON.stringify(this.estructuraGlobal[this.bloque].puntosLineales, null, 2));
         
-        const index = this.estructuraGlobal.puntosLineales.findIndex(punto => punto.id === subpuntoId);
+        const index = this.estructuraGlobal[this.bloque].puntosLineales.findIndex(punto => punto.id === subpuntoId);
         
         if (index === -1) {
             console.error(`Subpunto with ID ${subpuntoId} not found in puntosLineales`);
@@ -78,6 +78,7 @@ export class ExamenManager {
         
         return index;
     }
+
 
     initializeDOMElements() {
         this.modalExamen = document.getElementById('modal-examen');
@@ -246,16 +247,16 @@ export class ExamenManager {
         if (aprobado) {
             this.mostrarConfeti();
             
-            if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+            if (!this.estructuraGlobal || !this.estructuraGlobal[this.bloque] || !this.estructuraGlobal[this.bloque].puntosLineales) {
                 console.error('estructuraGlobal or puntosLineales is undefined in finalizarExamen');
                 return;
             }
 
             const currentPointId = this.examId.replace('e', '');
-            const currentPointIndex = this.estructuraGlobal.puntosLineales.findIndex(punto => punto.id === currentPointId);
+            const currentPointIndex = this.estructuraGlobal[this.bloque].puntosLineales.findIndex(punto => punto.id === currentPointId);
             
             if (currentPointIndex !== -1) {
-                const currentPoint = this.estructuraGlobal.puntosLineales[currentPointIndex];
+                const currentPoint = this.estructuraGlobal[this.bloque].puntosLineales[currentPointIndex];
                 const bloqueId = getBloqueId(currentPoint.id);
 
                 if (!bloqueId) {
@@ -278,7 +279,7 @@ export class ExamenManager {
                     console.log(`No se actualizó el progreso. Índice actual (${currentPointIndex}) no es mayor que el guardado (${savedProgress})`);
                 }
 
-                console.log(`Exam completed. Current point: ${currentPointId}, Next point: ${this.estructuraGlobal.puntosLineales[currentPointIndex + 1]?.id || 'No next point'}`);
+                console.log(`Exam completed. Current point: ${currentPointId}, Next point: ${this.estructuraGlobal[this.bloque].puntosLineales[currentPointIndex + 1]?.id || 'No next point'}`);
             } else {
                 console.error(`Current point with ID ${currentPointId} not found in puntosLineales.`);
             }
@@ -294,10 +295,10 @@ export class ExamenManager {
           console.error("Close button not found");
         }
       }
-    actualizarUITrasExamen(bloqueId, currentPointIndex) {
+      actualizarUITrasExamen(bloqueId, currentPointIndex) {
         document.querySelectorAll('.punto-btn').forEach(btn => {
             const btnId = btn.getAttribute('data-id');
-            const btnIndex = this.estructuraGlobal.puntosLineales.findIndex(p => p.id === btnId);
+            const btnIndex = this.estructuraGlobal[this.bloque].puntosLineales.findIndex(p => p.id === btnId);
             
             if (btnIndex <= currentPointIndex) {
                 btn.classList.add('completado');
@@ -369,26 +370,25 @@ export class ExamenManager {
     }
 
     async actualizarProgreso() {
-        if (!this.estructuraGlobal || !this.estructuraGlobal.puntosLineales) {
+        if (!this.estructuraGlobal || !this.estructuraGlobal[this.bloque] || !this.estructuraGlobal[this.bloque].puntosLineales) {
             console.error('estructuraGlobal or puntosLineales is undefined in actualizarProgreso');
             return;
         }
-
-        const puntoActual = this.estructuraGlobal.puntosLineales.find(p => p.id === this.examId.replace('e', ''));
+        const puntoActual = this.estructuraGlobal[this.bloque].puntosLineales.find(p => p.id === this.examId.replace('e', ''));
         if (puntoActual) {
             puntoActual.completado = true;
-            const indicePuntoActual = this.estructuraGlobal.puntosLineales.indexOf(puntoActual);
-        
+            const indicePuntoActual = this.estructuraGlobal[this.bloque].puntosLineales.indexOf(puntoActual);
+    
             const bloqueId = getBloqueId(puntoActual.id);
             const savedProgress = await getLastCompletedIndex(bloqueId);
             if (indicePuntoActual > savedProgress) {
-                updateProgress(bloqueId, indicePuntoActual);
+                await updateProgress(bloqueId, indicePuntoActual);
                 console.log(`Progreso actualizado. Nuevo índice: ${indicePuntoActual}`);
             } else {
                 console.log(`No se actualizó el progreso. Índice actual (${indicePuntoActual}) no es mayor que el guardado (${savedProgress})`);
             }
 
-            const siguientePunto = this.estructuraGlobal.puntosLineales[indicePuntoActual + 1];
+            const siguientePunto = this.estructuraGlobal[this.bloque].puntosLineales[indicePuntoActual + 1];
 
             // Actualizar UI para el punto actual
             const puntoActualElement = document.querySelector(`[data-id="${puntoActual.id}"]`);
@@ -453,4 +453,3 @@ export function iniciarExamen(bloque, tema, punto, subpunto, examId, preguntas, 
     const examenManager = new ExamenManager(preguntas, examId, bloque, tema, punto, subpunto, minimoParaAprobar, estructuraGlobal);
     examenManager.iniciarExamen();
 }
-
