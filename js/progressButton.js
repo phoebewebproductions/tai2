@@ -26,6 +26,7 @@ export function initializeProgressButton() {
         progressButton.style.alignItems = 'center';
         progressButton.style.justifyContent = 'center';
         progressButton.style.fontSize = '1.2rem';
+        progressButton.style.zIndex = '4000000';
         
         // Agregar ícono de FontAwesome
         const progressIcon = document.createElement('i');
@@ -40,13 +41,7 @@ export function initializeProgressButton() {
     const progressDisplay = document.createElement('div');
     progressDisplay.id = 'progress-display';
     progressDisplay.style.display = 'none';
-    progressDisplay.style.position = 'fixed';
 
-    progressDisplay.style.backgroundColor = 'var(--color-background)';
-    progressDisplay.style.padding = '10px';
-    progressDisplay.style.borderRadius = '10px';
-    progressDisplay.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
-    progressDisplay.style.zIndex = '3000';
     document.body.appendChild(progressDisplay);
 
     progressButton.addEventListener('click', toggleProgressDisplay);
