@@ -1,5 +1,5 @@
 export function getColorForBlock(blockNumber) {
-    const colors = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444'];
+    const colors = ['#22c55e', '#00235ab3', '#f59e0b', '#ef4444'];
     return colors[(blockNumber - 1) % colors.length];
 }
 
