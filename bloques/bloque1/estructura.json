@@ -260,6 +260,211 @@
             "id": "1050302000"
           }
         ]
+      },
+      {
+        "titulo": "Tema VI: La sociedad de la información; La agenda digital para España",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Ley34/2002, de servicios de la sociedad de información y de comercio electrónico: objeto",
+            "id": "1060101000"
+          },
+          {
+            "titulo": "Punto 1.2: Sujetos obligados: Servicios de la sociedad de la información y servicios de intermediación",
+            "id": "1060102000"
+          },
+          {
+            "titulo": "Punto 1.3: Ámbitos de aplicación",
+            "id": "1060103000"
+          },
+          {
+            "titulo": "Punto 1.4: Principio de libre prestación de servicios y restricciones al principio",
+            "id": "1060104000"
+          },
+          {
+            "titulo": "Punto 1.5: Obligaciones generales de los prestadores de servicios de la sociedad de la información",
+            "id": "1060105000"
+          },
+          {
+            "titulo": "Punto 1.6: Obligaciones de los prestadores de servicios intermediarios",
+            "id": "1060106000"
+          },
+          {
+            "titulo": "Punto 1.7: Régimen de responsabilidad de los prestadores",
+            "id": "1060107000"
+          },
+          {
+            "titulo": "Punto 1.8:Códigos de conducta",
+            "id": "1060108000"
+          },
+          {
+            "titulo": "Punto 1.9: Comunicaciones comerciales",
+            "id": "1060109000"
+          },
+          {
+            "titulo": "Punto 1.10: Cookies",
+            "id": "1060110000"
+          },
+          {
+            "titulo": "Punto 1.11: Contratación por vía electrónica",
+            "id": "1060111000"
+          },
+          {
+            "titulo": "Punto 1.12: Régimen Sancionador",
+            "id": "1060112000"
+          },
+          {
+            "titulo": "Punto 1.13: Otras disposiciones",
+            "id": "1060113000"
+          },
+          {
+            "titulo": "Punto 2.1: Futura regulación de los servicios intermediarios: Reglamento de servicios digitales (UE 2022/2065)",
+            "id": "1060201000"
+          },
+          {
+            "titulo": "Punto 2.2: Reglamento de mercados digitales (UE 2022/1925)",
+            "id": "1060202000"
+          },
+          {
+            "titulo": "Punto 3.1: Propuesta de reglamento E-privacy",
+            "id": "1060301000"
+          },
+          {
+            "titulo": "Punto 4.1: Estrategias digitales en la UE: Estrategias digitales anteriores",
+            "id": "1060401000"
+          },
+          {
+            "titulo": "Punto 4.2: Estrategia 'Congigurar el futuro digital de Europa'. ",
+            "id": "1060402000"
+          },
+          {
+            "titulo": "Punto 5.1: Estrategias digitales en España: Estrategias digitales anteriores",
+            "id": "1060501000"
+          },
+          {
+            "titulo": "Punto 5.2:Plan de recuperación, transformación y resiliencia de la economía Española (PRTR)",
+            "id": "1060502000"
+          },
+          {
+            "titulo": "Punto 5.3: España Digital 2026",
+            "id": "1060503000"
+          },
+          {
+            "titulo": "Punto 5.4: Plan de digitalización de las Administraciones Públicas",
+            "id": "1060504000"
+          },
+          {
+            "titulo": "Punto 5.5: Plan de digitalización de PYMEs",
+            "id": "1060505000"
+          },
+          {
+            "titulo": "Punto 5.6: Plan para la conectividad y las infraestructuras digitales",
+            "id": "1060506000"
+          },
+          {
+            "titulo": "Punto 5.7:Estrategia de impulso al desarrollo de la tecnología 5g",
+            "id": "1060507000"
+          },
+          {
+            "titulo": "Punto 5.8:Estrategia nacional de inteligencia artificial (ENIA)",
+            "id": "1060508000"
+          },
+          {
+            "titulo": "Punto 5.9: Plan Nacional de Competencias Digitales",
+            "id": "1060509000"
+          },
+          {
+            "titulo": "Punto 5.10: Plan Nacional de Ciberseguridad",
+            "id": "1060510000"
+          },
+          {
+            "titulo": "Punto 5.11: Ejemplos de medidas en ejecución (Parte 1)",
+            "id": "1060511000"
+          },
+          {
+            "titulo": "Punto 5.12: Ejemplos de medidas en ejecución (Parte 2)",
+            "id": "1060512000"
+          },
+          {
+            "titulo": "Punto 5.13: Partes del PRTR con un componente digital",
+            "id": "1060513000"
+          },
+          {
+            "titulo": "Punto 5.14: Iniciativa RETECH (Resdes Territoriales de Especialización Tecnológica)",
+            "id": "1060514000"
+          },
+          {
+            "titulo": "Punto 6.1: Índice Europeo de Economía y Socidedad Digital (DESI)",
+            "id": "1060601000"
+          },
+          {
+            "titulo": "Punto 7.1: Identidad electrónica y firma Electrónica: Origen del mercado único digital de la UE",
+            "id": "1060701000"
+          },
+          {
+            "titulo": "Punto 7.2:Listas de prestadores de servicios electrónicos de confianza TSL",
+            "id": "1060702000"
+          },
+          {
+            "titulo": "Punto 8.1: Ley 6/2020 Sobre servicios electrónicos de  confianza. Orden ETD 465/2021 para identificación a distancia por videoconferencia",
+            "id": "1060801000"
+          },
+          {
+            "titulo": "Punto 9.1:DNI y normativa DNI4.0: Concepto de DNI, Real decreto 1553/2005 regulador del DNI",
+            "id": "1060901000"
+          },
+          {
+            "titulo": "Punto 9.2: DNI Electrónico, Real Decreoto 2019/1157 de refuerzo de la seguridad de los documentos de identidad, DNI4.0 VS DNI3.0",
+            "id": "1060902000"
+          }
+        ]
+      },
+      {
+        "titulo": "Tema VII: La protección de datos personales y su régimen jurídico: Principios, derechos y obligaciones. Derechos digitales",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Reglamento (UE) 2019/679: Ámbito de aplicación (arts.2 y 3)",
+            "id": "1070101000"
+          },
+          {
+            "titulo": "Punto 1.2: Principios Relativos al tratamiento (arts. 5 y 6)",
+            "id": "1070102000"
+          },
+          {
+            "titulo": "Punto 1.3: Condiciones para el consentimiento del interesado (arts. 7 y 8)",
+            "id": "1070103000"
+          },
+          {
+            "titulo": "Punto 1.4: Tratamiento de categorías especiales de datos personales (art. 9)",
+            "id": "1070104000"
+          },
+          {
+            "titulo": "Punto 1.5: Derechos de los interesados",
+            "id": "1070105000"
+          },
+          {
+            "titulo": "Punto 1.6: Responsable y encargado del tratamiento",
+            "id": "1070106000"
+          },
+          {
+            "titulo": "Punto 1.7: Seguridad de los datos personales",
+            "id": "1070107000"
+          },
+          {
+            "titulo": "Punto 1.8: Evaluación de impacto y consulta previa",
+            "id": "1070108000"
+          },
+          {
+            "titulo": "Punto 1.9: Delegado de protección de datos",
+            "id": "1070109000"
+          },
+          {
+            "titulo": "Punto 1.10: Título X- Garantía de derechos digitales",
+            "id": "1070110000"
+          },{
+            "titulo": "Punto 1.11: Disposiciones adicionales",
+            "id": "1070111000"
+          }
+        ]
       }
     ]
   }

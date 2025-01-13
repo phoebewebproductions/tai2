@@ -1,0 +1,58 @@
+<div class="teoria">
+    <!-- punto 7.2 : LISTAS DE PRESTADORES DE SERVICIOS ELECTRÓNICOS DE CONFIANZA TSL -->
+        <article>
+            <h2>7.2. LISTAS DE PRESTADORES DE SERVICIOS ELECTRÓNICOS DE CONFIANZA TSL</h2>
+            
+            <p id="1060702001">Las listas de prestadores de servicios electrónicos de confianza (Trusted Services List, TSL) son mecanismos de reconocimiento mutuo de los EEMM de la UE para la autenticación e identificación electrónicas. Contienen la relación de prestadores de servicios de confianza cualificados y los servicios de confianza que le han sido cualificados por el órgano supervisor (MAETD en el caso español con atribución de competencias a la SEDIA).</p>
+    
+            <p id="1060702002">Estas listas se publican por el órgano supervisor de cada EEMM (MAETD-SEDIA en España) en una web accesible desde Internet bajo dos formatos, uno procesable por máquina (xml) y otro comprensible por el ser humano. Además, los EEMM están obligados a comunicar a la Comisión Europea la ubicación de los ficheros de la TSL. De esta manera, cualquier prestador de servicios de confianza que opera dentro de la UE está localizado e identificado.</p>
+    
+            <p id="1060702003">Cualquier persona física o jurídica residente en la UE puede utilizar los servicios disponibles en las TSL y serán admitidos y reconocidos en toda la UE con independencia de su ubicación geográfica o país de origen.</p>
+    
+            <h3>Apuntes sobre TSL</h3>
+    
+            <h4>Cuestiones legislativas:</h4>
+            <ul>
+                <li id="1060702004">Las TSL se regulan en el artículo 22 del Reglamento eIDAS.</li>
+                <li id="1060702005">La SEDIA del MAETD es el órgano de supervisión del Reglamento eIDAS en España. Es competente para establecer, mantener y publicar en la página web oficial la TSL con la info relativa a los PSC cualificados de los que sea responsable y relativa a los servicios de confianza cualificados prestados por ellos.</li>
+                <li id="1060702006">SEDIA es la encargada de cualificar los PSEC tras la supervisión del informe de evaluación expedido por un organismo de evaluación de conformidad.</li>
+                <li id="1060702007">Conforme art 22.5 eIDAS: La Decisión de Ejecución 2015/1505 de la Comisión establece las especificaciones técnicas y los formatos relacionados con las TSL.</li>
+                <li id="1060702008">Conforme art 21.3 eIDAS: Los PSEC cualificados sólo pueden comenzar a prestar el SEC si la cualificación ha sido indicada en la TSL.</li>
+            </ul>
+    
+            <h4>Cuestiones técnicas:</h4>
+            <ul>
+                <li id="1060702009">La TSL debe ajustarse a la norma ETSI TS 119 612.</li>
+                <li id="1060702010">La TSL en España se publica en dos formatos:
+                    <ul>
+                        <li>Formato procesable por máquinas obligatorio en XML firmado-en formato XAdES BES con un certificado para este propósito.</li>
+                        <li>Formato legible por personas en PDF y firmado-e con perfil básico de firma PAdES con un certificado para este propósito.</li>
+                    </ul>
+                </li>
+                <li id="1060702011">La TSL contiene información sobre los PSEC cualificados y SEC cualificados (excluyendo los no cualificados, componentes de firma u otras), mediante una estructura común para todos los EEMM.</li>
+                <li id="1060702012">Para la validación de un certificado europeo, la plataforma @firma utiliza dos campos que se toman de los certificados y de la TSL:
+                    <ul>
+                        <li>certQualified:
+                            <ul>
+                                <li>NO: El certificado no es cualificado.</li>
+                                <li>YES: El certificado es cualificado.</li>
+                                <li>UNKNOWN: Se desconoce (se considera no cualificado a menos que se indique lo contrario en certClasification).</li>
+                            </ul>
+                        </li>
+                        <li>CertClassification:
+                            <ul>
+                                <li>ESEAL: Certificado de sello electrónico. Pertenece a una persona jurídica pero NO incluye un custodio.</li>
+                                <li>ESIG: Certificado para firma electrónica (persona física).</li>
+                                <li>WSA: Certificado para autenticación de servidor web.</li>
+                                <li>UNKNOWN: Se desconoce el tipo del certificado (se considera no cualificado a menos que se indique lo contrario en certQualified).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <p id="1060702013">La CE publica una lista completa LoTL que aglutina las TSL de todos los EEMM. Se refuerza así el MUD y se da cumplimiento a la obligación de reconocimiento mutuo de certificados cualificados por parte de las AAPP de todos los EEMM. Junto con la «trust mark», la etiqueta de confianza «UE» para SEC cualificados, todos los usuarios y empresas pueden identificar a los PSEC de cualquier EEMM posibilitando la identificación y autenticación transfronteriza.</p>
+        </article>
+    </div>
+    
+    
