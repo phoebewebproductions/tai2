@@ -465,6 +465,261 @@
             "id": "1070111000"
           }
         ]
+      },
+      {
+        "titulo": "Tema VIII: Acceso electrónico de los ciudadanos a los servicios públicos y normativa de desarrollo",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Ley 39/2015, del procedimiento administrativo común de las AAPP",
+            "id": "1080101000"
+          },
+          {
+            "titulo": "Punto 1.2: RD 203/2021, de 30 de Marzo, por el que se aprueba el reglamento de actuación y funcionamiento del sector público por medios electrónicos",
+            "id": "1080102000"
+          },
+          {
+            "titulo": "Punto 1.3: Derechos del interesado en el procedimiento administrativo (l39 art.53",
+            "id": "1080103000"
+          },
+          {
+            "titulo": "Punto 1.4: Ejercicio del derecho de acceso al expediente electrónico y obtención de copias de los documentos electrónicos (RD 301/2021 Art.52)",
+            "id": "1080104000"
+          },
+          {
+            "titulo": "Punto 1.5: Identificación y firma de los interesados en el precedimiento administrativo (l39 art.53)",
+            "id": "1080105000"
+          },
+          {
+            "titulo": "Punto 1.6: Sistemas para el acceso electrónico de lso ciudadanos a los servicios públicos",
+            "id": "1080106000"
+          },
+          {
+            "titulo": "Punto 2.1: Gestión electrónica de los procedimientos administrativo: Representación",
+            "id": "1080201000"
+          },
+          {
+            "titulo": "Punto 2.2: Registros ",
+            "id": "1080202000"
+          },
+          {
+            "titulo": "Punto 2.3: Tramitación",
+            "id": "1080203000"
+          },
+          {
+            "titulo": "Punto 2.4: Documentos",
+            "id": "1080204000"
+          },
+          {
+            "titulo": "Punto 3.1: Esquema Nacional de Seguridad (ENS): Objetivo y ámbito de aplicación (art. 1 y art. 2)",
+            "id": "1080301000"
+          },
+          {
+            "titulo": "Punto 3.2: Principios Básicos (art. 5 a 11) ",
+            "id": "1080302000"
+          },
+          {
+            "titulo": "Punto 3.3: Requisitos mínimos (art. 12 a 27)",
+            "id": "1080303000"
+          },
+          {
+            "titulo": "Punto 3.4: Seguridad de los sistemas: Auditoría, informe e incidentes de seguridad",
+            "id": "1080304000"
+          },{
+            "titulo": "Punto 3.5: Normas de conformidad (art. 35 - 38)",
+            "id": "1080305000"
+          },{
+            "titulo": "Punto 3.6: Formación (Disposición adicional 1º)",
+            "id": "1080306000"
+          },{
+            "titulo": "Punto 3.7: Desarrollo del ENS (disposición adicional 2º)",
+            "id": "1080307000"
+          },{
+            "titulo": "Punto 3.8: Adecuación de sistemas (disposición transitoria única)",
+            "id": "1080308000"
+          },{
+            "titulo": "Punto 3.9: Categorización de los sistemas de información (art.40, art. 41 y anexo I)",
+            "id": "1080309000"
+          },{
+            "titulo": "Punto 3.10: Medidas de seguridad (anexo  II)",
+            "id": "1080310000"
+          },{
+            "titulo": "Punto 3.11: Definiciones (anexo III)",
+            "id": "1080311000"
+          },
+          {
+            "titulo": "Punto 4.1: Esquema Nacional de Interoperabilidad (ENI): Objetivo y ámbito de aplicación (art.1 y art.3)",
+            "id": "1080401000"
+          },
+          {
+            "titulo": "Punto 4.2: Principios Básicos (art. 4 a 7) ",
+            "id": "1080402000"
+          },
+          {
+            "titulo": "Punto 4.3: Dimensiones de la interoperabilidad (art. 8 a 11)",
+            "id": "1080403000"
+          },
+          {
+            "titulo": "Punto 4.4: Uso de infraestructuras y servicios comunes y herramientas genéricas (art. 12)",
+            "id": "1080404000"
+          },{
+            "titulo": "Punto 4.5: Comunicaciones de las AAPP",
+            "id": "1080405000"
+          },{
+            "titulo": "Punto 4.6: Reutilización y transferencia de tecnología",
+            "id": "1080406000"
+          },{
+            "titulo": "Punto 4.7: Firma electrónica y certificados",
+            "id": "1080407000"
+          },{
+            "titulo": "Punto 4.8: Recuperación y conservación del documento elctrónico",
+            "id": "1080408000"
+          },{
+            "titulo": "Punto 4.9: Normas de conformidad",
+            "id": "1080409000"
+          },{
+            "titulo": "Punto 4.10: Actualización",
+            "id": "1080410000"
+          },{
+            "titulo": "Punto 4.11: Disposición adicional primera. Desarrollo del ENI",
+            "id": "1080411000"
+          },
+          {
+            "titulo": "Punto 5.1: Normas técnicas de interoperabilidad(NTIS): NTI de catálogo de estándares",
+            "id": "1080501000"
+          },
+          {
+            "titulo": "Punto 5.2: NTI de catálogo electrónico",
+            "id": "1080502000"
+          },
+          {
+            "titulo": "Punto 5.3: NTI de digitalización de documentos",
+            "id": "1080503000"
+          },
+          {
+            "titulo": "Punto 5.4: NTI de expediente electrónico",
+            "id": "1080504000"
+          },{
+            "titulo": "Punto 5.5: NTI de política de firma y sello electrónicos y de certificados de la administración",
+            "id": "1080505000"
+          },{
+            "titulo": "Punto 5.6: NTI de protocolos de intermediación de datos",
+            "id": "1080506000"
+          },{
+            "titulo": "Punto 5.7: NTI de relación de modelos de datos",
+            "id": "1080507000"
+          },{
+            "titulo": "Punto 5.8: NTI de política  de gestión de documentos electrónicos",
+            "id": "1080508000"
+          },{
+            "titulo": "Punto 5.9: NTI de requisitos de conexión a la red de comunicaciones de las AAPP españolas",
+            "id": "1080509000"
+          },{
+            "titulo": "Punto 5.10: NTI de procedimientos de copiado auténtico y conversión entre documentos electrónicos",
+            "id": "1080510000"
+          },
+          {
+            "titulo": "Punto 5.11: NTI de modelo de datos para el intercambio de asientos entre entidades registrales (SICRES4)",
+            "id": "1080511000"
+          },
+          {
+            "titulo": "Punto 5.12: NTI de reutilización de recursos de información",
+            "id": "1080512000"
+          },
+          {
+            "titulo": "Punto 5.13: NTI de inventario y codificación de objetos administrativos",
+            "id": "1080513000"
+          },
+          {
+            "titulo": "Punto 5.14: NTI de Transferencia e ingreso de documentos y expedientes electrónicos",
+            "id": "1080514000"
+          },{
+            "titulo": "Punto 5.15: NTI de valoración y eliminación de documentos y expedientes electrónicos",
+            "id": "1080515000"
+          },{
+            "titulo": "Punto 5.16: NTI de preservación de documentación electrónica",
+            "id": "1080516000"
+          },{
+            "titulo": "Punto 5.17: NTI de tratamiento y preservación de bases de datos",
+            "id": "1080517000"
+          },{
+            "titulo": "Punto 5.18: NTI de plan de direccionamiento",
+            "id": "1080518000"
+          },{
+            "titulo": "Punto 5.19: NTI de reutilización de activos en modo producto y en modo servicio",
+            "id": "1080519000"
+          },{
+            "titulo": "Punto 5.20: NTI de modelado de datos y condiciones de interoperabilidad de los registros de funcionarios habilitados",
+            "id": "10805200000"
+          },{
+            "titulo": "Punto 5.21: NTI de modelado de datos y condiciones de interoperabilidad de los registros electrónicos de apoderamientos",
+            "id": "10805211000"
+          },
+          {
+            "titulo": "Punto 5.22: NTI de sistema de referencia de documentos y repositorios de confianza ",
+            "id": "1080522000"
+          },
+          {
+            "titulo": "Punto 5.23: NTI de política de firma electrónica y de certificados en el ámbito estatal",
+            "id": "1080523000"
+          },
+          {
+            "titulo": "Punto 6.1: Guías CCN-STIC serie 800",
+            "id": "1080601000"
+          },
+          {
+            "titulo": "Punto 7.1: Herramientas CCN",
+            "id": "1080701000"
+          }
+
+        ]
+      },
+      {
+        "titulo": "Tema IX: La protección de datos personales y su régimen jurídico: Principios, derechos y obligaciones. Derechos digitales",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Reglamento (UE) 2019/679: Ámbito de aplicación (arts.2 y 3)",
+            "id": "1090101000"
+          },
+          {
+            "titulo": "Punto 1.2: Principios Relativos al tratamiento (arts. 5 y 6)",
+            "id": "1090102000"
+          },
+          {
+            "titulo": "Punto 1.3: Condiciones para el consentimiento del interesado (arts. 7 y 8)",
+            "id": "1090103000"
+          },
+          {
+            "titulo": "Punto 1.4: Tratamiento de categorías especiales de datos personales (art. 9)",
+            "id": "1090104000"
+          },
+          {
+            "titulo": "Punto 1.5: Derechos de los interesados",
+            "id": "1090105000"
+          },
+          {
+            "titulo": "Punto 1.6: Responsable y encargado del tratamiento",
+            "id": "1090106000"
+          },
+          {
+            "titulo": "Punto 1.7: Seguridad de los datos personales",
+            "id": "1090107000"
+          },
+          {
+            "titulo": "Punto 1.8: Evaluación de impacto y consulta previa",
+            "id": "1090108000"
+          },
+          {
+            "titulo": "Punto 1.9: Delegado de protección de datos",
+            "id": "1090109000"
+          },
+          {
+            "titulo": "Punto 1.10: Título X- Garantía de derechos digitales",
+            "id": "1090110000"
+          },{
+            "titulo": "Punto 1.11: Disposiciones adicionales",
+            "id": "1090111000"
+          }
+        ]
       }
     ]
   }
