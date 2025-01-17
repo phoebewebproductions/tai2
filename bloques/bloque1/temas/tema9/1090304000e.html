@@ -1,0 +1,57 @@
+<div class="teoria">
+    <article id="1090304000">
+    <h2>3.4. INTERCAMBIO DE INFORMACIÓN ENTRE AAPP</h2>
+    
+    <section id="1090304001">
+    <h3>3.4.1. PID – PLATAFORMA DE INTERMEDIACIÓN DE DATOS</h3>
+    
+    <p>El objetivo de los servicios de verificación y consulta de datos de la Plataforma de Intermediación es permitir que la Administración valide o consulte los datos necesarios en la tramitación de procedimientos, evitando que el ciudadano tenga que aportar documentos acreditativos o fotocopias, haciendo efectivo el derecho de los ciudadanos a no aportar documentos que hayan sido generados por cualquier Administración.</p>
+    
+    <h4>Ventajas:</h4>
+    <ul>
+      <li>Para el ciudadano:
+        <ul>
+          <li>Simplificación del papeleo</li>
+          <li>Ahorro de tiempo</li>
+        </ul>
+      </li>
+      <li>Para la Administración:
+        <ul>
+          <li>Dispone de datos correctos</li>
+          <li>Controla posibles falsificaciones</li>
+          <li>Disminuye el volumen de papel gestionado</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <p>La plataforma permite consultar una creciente cantidad de datos distintos (identidad, residencia, desempleo, titulaciones, datos catastrales, registros civiles, prestaciones, etc.). El catálogo completo está disponible en el área de descargas: <a href="http://administracionelectronica.gob.es/ctt/svd/descargas">http://administracionelectronica.gob.es/ctt/svd/descargas</a>.</p>
+    
+    <h4>Características técnicas:</h4>
+    <ul>
+      <li>Ofrece servicios web de verificación y consulta de datos bajo el protocolo SCSPv3</li>
+      <li>La consulta puede realizarse de manera síncrona o asíncrona</li>
+      <li>La SGAD pone a disposición de los organismos el Portfolio SCSPv3 para consultar dichos servicios</li>
+    </ul>
+    
+    <h4>Flujo de procesamiento de las solicitudes de datos:</h4>
+    <ol>
+      <li>Solicitud por una aplicación, o empleado público, de los datos de un ciudadano.
+        <ul>
+          <li>Se debe recabar previamente el consentimiento explícito del ciudadano</li>
+          <li>Se debe indicar la finalidad (trámite administrativo que la origina)</li>
+          <li>La petición debe ir firmada</li>
+        </ul>
+      </li>
+      <li>Verificación del certificado de autenticación (contra @firma) y control de accesos</li>
+      <li>Validación de la firma de la petición realizada (contra @firma)</li>
+      <li>Registro de la petición al sistema (sellada en tiempo y firmada)</li>
+      <li>Petición de datos según el caso (firmada)</li>
+      <li>Recepción de la respuesta generada por el Organismo dueño de los datos y procesamiento de la misma (verificación de firma contra @firma)</li>
+      <li>Generación de la respuesta al organismo solicitante de la consulta (firmada)</li>
+      <li>Registro de la respuesta generada (sellada en tiempo y firmada)</li>
+      <li>Envío de la respuesta al organismo</li>
+    </ol>
+    
+    </section>
+    </article>
+    </div>

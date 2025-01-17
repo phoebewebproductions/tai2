@@ -1439,6 +1439,1800 @@ export const preguntas = {
       ],
       minimoParaAprobar: 6
     },
+    "1080303000e": {
+      preguntas: [
+        {
+          id: "1080303001",
+          pregunta: "¿Qué es la política de seguridad de la información según el ENS?",
+          opciones: [
+            "Un conjunto de reglas técnicas para proteger los sistemas informáticos",
+            "Un documento que solo describe los riesgos de seguridad",
+            "El conjunto de directrices que rigen cómo una organización gestiona y protege la información y los servicios",
+            "Un manual de instrucciones para el uso de software de seguridad"
+          ],
+          correcta: 2,
+          explicacionId: "1080303001"
+        },
+        {
+          id: "1080303002",
+          pregunta: "¿Cuál de los siguientes NO es un elemento mínimo que debe incluir la política de seguridad?",
+          opciones: [
+            "Los objetivos o misión de la organización",
+            "El marco regulatorio en el que se desarrollarán las actividades",
+            "Los roles o funciones de seguridad",
+            "El presupuesto anual para seguridad informática"
+          ],
+          correcta: 3,
+          explicacionId: "1080303002"
+        },
+        {
+          id: "1080303003",
+          pregunta: "En la Administración General del Estado (AGE), ¿quién aprueba la política de seguridad de cada ministerio?",
+          opciones: [
+            "El Consejo de Ministros",
+            "La persona titular del Departamento",
+            "El responsable de seguridad",
+            "La SGAD del MAETD"
+          ],
+          correcta: 1,
+          explicacionId: "1080303009"
+        },
+        {
+          id: "1080303004",
+          pregunta: "¿Qué principio se aplica en el diseño y configuración de los sistemas según el ENS?",
+          opciones: [
+            "Máximo privilegio",
+            "Privilegio medio",
+            "Mínimo privilegio",
+            "Privilegio adaptativo"
+          ],
+          correcta: 2,
+          explicacionId: "1080303042"
+        },
+        {
+          id: "1080303005",
+          pregunta: "¿Qué documento formaliza la relación de medidas de seguridad seleccionadas del Anexo II?",
+          opciones: [
+            "Plan de Seguridad",
+            "Informe de Riesgos",
+            "Declaración de Aplicabilidad",
+            "Memoria Anual de Seguridad"
+          ],
+          correcta: 2,
+          explicacionId: "1080303062"
+        },
+        {
+          id: "1080303006",
+          pregunta: "¿Qué organismo valida y publica los perfiles de cumplimiento específicos y los esquemas de acreditación?",
+          opciones: [
+            "La SGAD del MAETD",
+            "El Consejo de Ministros",
+            "El CCN",
+            "La Agencia Española de Protección de Datos"
+          ],
+          correcta: 2,
+          explicacionId: "1080303068"
+        },
+        {
+          id: "1080303007",
+          pregunta: "¿Qué aspecto se debe tener en cuenta para el cumplimiento de los requisitos mínimos según el artículo 28?",
+          opciones: [
+            "El presupuesto disponible para seguridad",
+            "La antigüedad de los sistemas de información",
+            "La categoría del sistema",
+            "El número de empleados de la organización"
+          ],
+          correcta: 2,
+          explicacionId: "1080303059"
+        },
+        {
+          id: "1080303008",
+          pregunta: "¿Qué característica define el principio de 'mejora continua del proceso de seguridad'?",
+          opciones: [
+            "Se realiza una única vez al año",
+            "Solo se aplica después de incidentes de seguridad",
+            "El proceso de seguridad debe ser actualizado y mejorado de forma continua",
+            "Se enfoca exclusivamente en la actualización de software"
+          ],
+          correcta: 2,
+          explicacionId: "1080303055"
+        },
+        {
+          id: "1080303009",
+          pregunta: "Según el ENS, ¿cómo debe ser la gestión de riesgos?",
+          opciones: [
+            "Un proceso puntual que se realiza una vez al año",
+            "Una actividad continua y permanentemente actualizada",
+            "Un análisis que solo se realiza en sistemas críticos",
+            "Una tarea exclusiva del departamento de TI"
+          ],
+          correcta: 1,
+          explicacionId: "1080303031"
+        },
+        {
+          id: "1080303010",
+          pregunta: "¿Qué establece el ENS respecto a la protección de la información en soporte no electrónico?",
+          opciones: [
+            "No es necesario protegerla",
+            "Debe ser protegida con un grado menor que la información electrónica",
+            "Debe ser protegida con el mismo grado de seguridad que la información electrónica",
+            "Solo se protege si contiene datos personales"
+          ],
+          correcta: 2,
+          explicacionId: "1080303047"
+        }
+      ],
+      minimoParaAprobar: 6
+    },
+  "1080304000e": {
+    preguntas: [
+      {
+        id: "1080304001",
+        pregunta: "¿Con qué frecuencia deben realizarse las auditorías regulares ordinarias de los sistemas de información según el ENS?",
+        opciones: [
+          "Cada año",
+          "Al menos cada dos años",
+          "Cada tres años",
+          "Cada cinco años"
+        ],
+        correcta: 1,
+        explicacionId: "1080304001"
+      },
+      {
+        id: "1080304002",
+        pregunta: "¿En qué circunstancias se debe realizar una auditoría extraordinaria?",
+        opciones: [
+          "Cuando cambie el responsable de seguridad",
+          "Anualmente",
+          "Cuando se produzcan modificaciones sustanciales en el sistema de información",
+          "Cada vez que se actualice el software"
+        ],
+        correcta: 2,
+        explicacionId: "1080304002"
+      },
+      {
+        id: "1080304003",
+        pregunta: "¿Qué tipo de auditoría se requiere para sistemas de categoría Media o Alta?",
+        opciones: [
+          "Autoevaluación",
+          "Auditoría parcial",
+          "Auditoría completa",
+          "No se requiere auditoría"
+        ],
+        correcta: 2,
+        explicacionId: "1080304006"
+      },
+      {
+        id: "1080304004",
+        pregunta: "¿Quién analiza los informes de auditoría en sistemas de categoría Básica?",
+        opciones: [
+          "El responsable del sistema",
+          "El responsable de seguridad",
+          "El auditor externo",
+          "El Comité de Seguridad"
+        ],
+        correcta: 1,
+        explicacionId: "1080304005"
+      },
+      {
+        id: "1080304005",
+        pregunta: "¿Qué acción puede tomar el responsable del sistema para categoría ALTA tras ver el dictamen de auditoría?",
+        opciones: [
+          "Ignorar el informe",
+          "Suspender temporalmente el tratamiento de informaciones o servicios",
+          "Cambiar la categoría del sistema a Media",
+          "Realizar una nueva auditoría inmediatamente"
+        ],
+        correcta: 1,
+        explicacionId: "1080304007"
+      },
+      {
+        id: "1080304006",
+        pregunta: "¿Qué organismo articula la respuesta a los incidentes de seguridad según el ENS?",
+        opciones: [
+          "INCIBE",
+          "CCN-CERT",
+          "CSAE",
+          "SGAD"
+        ],
+        correcta: 1,
+        explicacionId: "1080304027"
+      },
+      {
+        id: "1080304007",
+        pregunta: "¿A quién deben notificar las entidades del sector público los incidentes con impacto significativo?",
+        opciones: [
+          "Al Ministerio del Interior",
+          "Al CCN",
+          "A la SGAD",
+          "Al INCIBE-CERT"
+        ],
+        correcta: 1,
+        explicacionId: "1080304028"
+      },
+      {
+        id: "1080304008",
+        pregunta: "¿Qué organismo determina el riesgo de reconexión del sistema tras un incidente de seguridad?",
+        opciones: [
+          "SGAD",
+          "CCN-CERT",
+          "INCIBE",
+          "CSAE"
+        ],
+        correcta: 1,
+        explicacionId: "1080304032"
+      },
+      {
+        id: "1080304009",
+        pregunta: "¿Qué entidad autoriza la reconexión a los medios y servicios comunes tras un incidente de seguridad?",
+        opciones: [
+          "CCN",
+          "SGAD",
+          "INCIBE",
+          "Ministerio del Interior"
+        ],
+        correcta: 1,
+        explicacionId: "1080304033"
+      },
+      {
+        id: "1080304010",
+        pregunta: "¿Cuál de los siguientes NO es un servicio que el CCN-CERT presta a las AAPP?",
+        opciones: [
+          "Soporte y coordinación para el tratamiento de vulnerabilidades",
+          "Investigación y divulgación de mejores prácticas sobre seguridad",
+          "Formación destinada al personal del sector público",
+          "Desarrollo de software de seguridad personalizado"
+        ],
+        correcta: 3,
+        explicacionId: "1080304036"
+      }
+    ],
+    minimoParaAprobar: 6
+  },
+  "1080305000e": {
+    preguntas: [
+      {
+        id: "1080305001",
+        pregunta: "¿Qué organismo es competente para garantizar la interoperabilidad en materia de ciberseguridad y criptografía en relación con el ENI?",
+        opciones: [
+          "La SGAD",
+          "El CCN",
+          "El INCIBE",
+          "El Ministerio del Interior"
+        ],
+        correcta: 1,
+        explicacionId: "1080305001"
+      },
+      {
+        id: "1080305002",
+        pregunta: "¿Dónde se deben incluir las especificaciones de seguridad según las normas de conformidad?",
+        opciones: [
+          "Solo en la fase de diseño de los sistemas",
+          "Únicamente en la fase de implementación",
+          "En el ciclo de vida de los servicios y sistemas",
+          "Exclusivamente en la fase de mantenimiento"
+        ],
+        correcta: 2,
+        explicacionId: "1080305002"
+      },
+      {
+        id: "1080305003",
+        pregunta: "¿Quién establece los mecanismos de control para garantizar el ENS?",
+        opciones: [
+          "El CCN",
+          "La SGAD",
+          "Cada órgano titular de los sistemas de información",
+          "El Ministerio de Administraciones Públicas"
+        ],
+        correcta: 2,
+        explicacionId: "1080305003"
+      },
+      {
+        id: "1080305004",
+        pregunta: "¿Qué proceso se requiere para determinar la conformidad con el ENS en sistemas de categoría MEDIA o ALTA?",
+        opciones: [
+          "Una autoevaluación",
+          "Una auditoría para la certificación",
+          "Una revisión interna",
+          "Un informe del responsable de seguridad"
+        ],
+        correcta: 1,
+        explicacionId: "1080305004"
+      },
+      {
+        id: "1080305005",
+        pregunta: "Para los sistemas de categoría BÁSICA, ¿qué se requiere para la declaración de conformidad con el ENS?",
+        opciones: [
+          "Una auditoría externa",
+          "Una certificación del CCN",
+          "Una autoevaluación",
+          "Un informe del Comité de Seguridad"
+        ],
+        correcta: 2,
+        explicacionId: "1080305004"
+      },
+      {
+        id: "1080305006",
+        pregunta: "¿Dónde deben publicarse las declaraciones y certificaciones de conformidad con el ENS?",
+        opciones: [
+          "En el Boletín Oficial del Estado",
+          "En los portales de internet o sedes electrónicas correspondientes",
+          "En la intranet de la organización",
+          "En el registro del CCN"
+        ],
+        correcta: 1,
+        explicacionId: "1080305004"
+      },
+      {
+        id: "1080305007",
+        pregunta: "¿Qué normativa rige la seguridad de los sistemas de información que sustentan la administración digital?",
+        opciones: [
+          "La Ley de Procedimiento Administrativo Común",
+          "El Esquema Nacional de Interoperabilidad",
+          "El Real Decreto que establece el ENS",
+          "La Ley de Servicios de la Sociedad de la Información"
+        ],
+        correcta: 2,
+        explicacionId: "1080305001"
+      },
+      {
+        id: "1080305008",
+        pregunta: "¿Según qué artículo y anexo se realizarán los procedimientos de autoevaluación y auditoría de certificación?",
+        opciones: [
+          "Artículo 30 y Anexo II",
+          "Artículo 31 y Anexo III",
+          "Artículo 32 y Anexo IV",
+          "Artículo 33 y Anexo V"
+        ],
+        correcta: 1,
+        explicacionId: "1080305004"
+      },
+      {
+        id: "1080305009",
+        pregunta: "¿Qué documento adicional guía los procedimientos de autoevaluación y auditoría de certificación?",
+        opciones: [
+          "El Manual de Usuario del ENS",
+          "La Guía de Seguridad de las TIC",
+          "La correspondiente Instrucción Técnica de Seguridad",
+          "El Plan Director de Seguridad"
+        ],
+        correcta: 2,
+        explicacionId: "1080305004"
+      },
+      {
+        id: "1080305010",
+        pregunta: "¿Pueden los sistemas de categoría BÁSICA someterse a una auditoría de certificación?",
+        opciones: [
+          "No, solo requieren autoevaluación",
+          "Sí, es obligatorio",
+          "Sí, aunque no es obligatorio",
+          "Solo si lo ordena el CCN"
+        ],
+        correcta: 2,
+        explicacionId: "1080305004"
+      }
+    ],
+    minimoParaAprobar: 6
+  },
+  "1080306000e": {
+    preguntas: [
+      {
+        id: "1080306001",
+        pregunta: "¿Qué organismos son responsables de desarrollar programas de sensibilización, concienciación y formación sobre el ENS?",
+        opciones: [
+          "La SGAD y el INAP",
+          "El CCN y el INAP",
+          "El Ministerio del Interior y el CCN",
+          "La CSAE y la Secretaría de Estado de Digitalización"
+        ],
+        correcta: 1,
+        explicacionId: "1080306001"
+      },
+      {
+        id: "1080306002",
+        pregunta: "¿Quién aprueba las instrucciones técnicas de seguridad de obligado cumplimiento del ENS?",
+        opciones: [
+          "El CCN",
+          "La CSAE",
+          "La Secretaría de Estado de Digitalización e Inteligencia Artificial",
+          "El INAP"
+        ],
+        correcta: 2,
+        explicacionId: "1080306002"
+      },
+      {
+        id: "1080306003",
+        pregunta: "¿Cuánto tiempo tienen los sistemas de información preexistentes para alcanzar su plena adecuación al ENS?",
+        opciones: [
+          "12 meses",
+          "18 meses",
+          "24 meses",
+          "36 meses"
+        ],
+        correcta: 2,
+        explicacionId: "1080306004"
+      },
+      {
+        id: "1080306004",
+        pregunta: "¿Quién es responsable de efectuar las valoraciones y modificaciones posteriores en la categorización de los sistemas de información?",
+        opciones: [
+          "El CCN",
+          "El responsable de cada información o servicio",
+          "La CSAE",
+          "El responsable de seguridad"
+        ],
+        correcta: 1,
+        explicacionId: "1080306008"
+      },
+      {
+        id: "1080306005",
+        pregunta: "¿Cuáles son las dimensiones de seguridad que se consideran al determinar el impacto de un incidente?",
+        opciones: [
+          "Autenticidad, Confidencialidad, Integridad, Disponibilidad, Trazabilidad",
+          "Autenticidad, Confidencialidad, Integridad, Disponibilidad, Resiliencia",
+          "Autenticidad, Confidencialidad, Integridad, Escalabilidad, Trazabilidad",
+          "Autenticidad, Consistencia, Integridad, Disponibilidad, Trazabilidad"
+        ],
+        correcta: 0,
+        explicacionId: "1080306015"
+      },
+      {
+        id: "1080306006",
+        pregunta: "¿Cuáles son los niveles de impacto que se pueden asignar a cada dimensión de seguridad?",
+        opciones: [
+          "Mínimo, Medio, Máximo",
+          "Bajo, Medio, Alto",
+          "Pequeño, Mediano, Grande",
+          "Leve, Moderado, Severo"
+        ],
+        correcta: 1,
+        explicacionId: "1080306016"
+      },
+      {
+        id: "1080306007",
+        pregunta: "¿Qué categoría se asigna a un sistema de información si alguna de sus dimensiones de seguridad alcanza el nivel ALTO?",
+        opciones: [
+          "BÁSICA",
+          "MEDIA",
+          "ALTA",
+          "CRÍTICA"
+        ],
+        correcta: 2,
+        explicacionId: "1080306022"
+      },
+      {
+        id: "1080306008",
+        pregunta: "¿Con qué frecuencia debe re-evaluarse la categoría de seguridad de los sistemas de información?",
+        opciones: [
+          "Mensualmente",
+          "Trimestralmente",
+          "Semestralmente",
+          "Anualmente o cuando haya modificaciones significativas"
+        ],
+        correcta: 3,
+        explicacionId: "1080306014"
+      },
+      {
+        id: "1080306009",
+        pregunta: "¿Qué documento del CCN precisa los criterios para una adecuada categorización de seguridad de los sistemas de información?",
+        opciones: [
+          "Las guías CCN-STIC",
+          "El Esquema Nacional de Interoperabilidad",
+          "El Real Decreto 3/2010",
+          "La Instrucción Técnica de Seguridad"
+        ],
+        correcta: 0,
+        explicacionId: "1080306026"
+      },
+      {
+        id: "1080306010",
+        pregunta: "¿Qué se aplica según la categoría del sistema de información?",
+        opciones: [
+          "Los programas de formación",
+          "Las medidas de seguridad del anexo II",
+          "Los criterios de valoración",
+          "Los distintivos de conformidad"
+        ],
+        correcta: 1,
+        explicacionId: "1080306025"
+      }
+    ],
+    minimoParaAprobar: 6
+  },
+  "1080307000e": {
+    preguntas: [
+      {
+        id: "1080307001",
+        pregunta: "¿A qué deben ser proporcionales las medidas de seguridad según el Anexo II del ENS?",
+        opciones: [
+          "Solo a las dimensiones de seguridad relevantes en el sistema a proteger",
+          "Solo a la categoría del sistema de información a proteger",
+          "A las dimensiones de seguridad relevantes y a la categoría del sistema de información",
+          "Al presupuesto disponible para seguridad"
+        ],
+        correcta: 2,
+        explicacionId: "1080307001"
+      },
+      {
+        id: "1080307002",
+        pregunta: "¿Cuáles son los tres grupos en los que se dividen las medidas de seguridad?",
+        opciones: [
+          "Técnico, Jurídico y Organizativo",
+          "Marco organizativo, Marco operacional y Medidas de protección",
+          "Prevención, Detección y Respuesta",
+          "Confidencialidad, Integridad y Disponibilidad"
+        ],
+        correcta: 1,
+        explicacionId: "1080307004"
+      },
+      {
+        id: "1080307003",
+        pregunta: "¿Qué documento formaliza la relación de medidas de seguridad seleccionadas?",
+        opciones: [
+          "Política de Seguridad",
+          "Análisis de Riesgos",
+          "Declaración de Aplicabilidad",
+          "Plan de Seguridad"
+        ],
+        correcta: 2,
+        explicacionId: "1080307015"
+      },
+      {
+        id: "1080307004",
+        pregunta: "¿Qué significa 'n.a.' en la tabla de correspondencia entre niveles de seguridad y medidas de seguridad?",
+        opciones: [
+          "Nueva Aplicación",
+          "No Aplica",
+          "Nivel Alto",
+          "Necesita Autorización"
+        ],
+        correcta: 1,
+        explicacionId: "1080307021"
+      },
+      {
+        id: "1080307005",
+        pregunta: "¿Qué indican los refuerzos de seguridad (R) en la tabla?",
+        opciones: [
+          "Requisitos opcionales",
+          "Recomendaciones adicionales",
+          "Una mayor exigencia que se suma a los requisitos base",
+          "Riesgos potenciales"
+        ],
+        correcta: 2,
+        explicacionId: "1080307022"
+      },
+      {
+        id: "1080307006",
+        pregunta: "¿Qué color se usa para indicar medidas que se aplican en sistemas de categoría BÁSICA o superior?",
+        opciones: [
+          "Rojo",
+          "Amarillo",
+          "Verde",
+          "Azul"
+        ],
+        correcta: 2,
+        explicacionId: "1080307024"
+      },
+      {
+        id: "1080307007",
+        pregunta: "¿Qué organismo puede establecer perfiles de cumplimiento específicos para entidades o sectores concretos?",
+        opciones: [
+          "La SGAD",
+          "El CCN a través de las guías CCN-STIC",
+          "El Ministerio del Interior",
+          "La Agencia Española de Protección de Datos"
+        ],
+        correcta: 1,
+        explicacionId: "1080307016"
+      },
+      {
+        id: "1080307008",
+        pregunta: "¿Qué se debe hacer cuando existen subsistemas que requieren un nivel de medidas de seguridad diferente al del sistema principal?",
+        opciones: [
+          "Aplicar siempre el nivel más alto a todo el sistema",
+          "Ignorar las diferencias y aplicar un nivel medio",
+          "Segregar los subsistemas y aplicar el nivel correspondiente a cada uno",
+          "Consultar siempre con el CCN antes de tomar una decisión"
+        ],
+        correcta: 2,
+        explicacionId: "1080307014"
+      },
+      {
+        id: "1080307009",
+        pregunta: "¿Cuál es el primer paso para la selección de las medidas de seguridad?",
+        opciones: [
+          "Determinación de la categoría del sistema",
+          "Identificación de los tipos de activos presentes",
+          "Selección de las medidas de seguridad",
+          "Determinación de las dimensiones de seguridad relevantes"
+        ],
+        correcta: 1,
+        explicacionId: "1080307009"
+      },
+      {
+        id: "1080307010",
+        pregunta: "¿Qué indica el color rojo en la tabla de medidas de seguridad?",
+        opciones: [
+          "Medidas que se aplican en sistemas de categoría BÁSICA",
+          "Medidas que empiezan a aplicar en categoría MEDIA",
+          "Medidas solo de aplicación en categoría ALTA o que requieren un esfuerzo superior al de categoría MEDIA",
+          "Medidas opcionales para todas las categorías"
+        ],
+        correcta: 2,
+        explicacionId: "1080307024"
+      }
+    ],
+    minimoParaAprobar: 6
+  },
+"1080308000e": {
+  preguntas: [
+    {
+      id: "1080308001",
+      pregunta: "¿Qué es un activo según el ENS?",
+      opciones: [
+        "Un componente físico del sistema de información",
+        "Un componente o funcionalidad del sistema de información susceptible de ser atacado deliberada o accidentalmente con consecuencias para la organización",
+        "Un software de seguridad",
+        "Un documento de políticas de seguridad"
+      ],
+      correcta: 1,
+      explicacionId: "1080308002"
+    },
+    {
+      id: "1080308002",
+      pregunta: "¿Qué es el análisis de riesgos en el contexto del ENS?",
+      opciones: [
+        "Un estudio financiero de la organización",
+        "Un estudio de las consecuencias previsibles de un posible incidente de seguridad",
+        "Un análisis de la competencia en el mercado",
+        "Un informe sobre el rendimiento del personal"
+      ],
+      correcta: 1,
+      explicacionId: "1080308003"
+    },
+    {
+      id: "1080308003",
+      pregunta: "¿Qué es la autenticación multifactor?",
+      opciones: [
+        "Un tipo de contraseña compleja",
+        "La exigencia de dos o más factores de autenticación para ratificar una autenticación como válida",
+        "Un sistema de reconocimiento facial",
+        "Un método de encriptación de datos"
+      ],
+      correcta: 1,
+      explicacionId: "1080308008"
+    },
+    {
+      id: "1080308004",
+      pregunta: "¿Qué es el ciberespacio según la definición del ENS?",
+      opciones: [
+        "Un juego de realidad virtual",
+        "Una red social en línea",
+        "Un dominio global y dinámico compuesto por infraestructuras de tecnología de la información",
+        "Un software de seguridad informática"
+      ],
+      correcta: 2,
+      explicacionId: "1080308015"
+    },
+    {
+      id: "1080308005",
+      pregunta: "¿Qué es la confidencialidad en el contexto del ENS?",
+      opciones: [
+        "La capacidad de un sistema para resistir ataques",
+        "La propiedad de que la información no se revela a individuos, entidades o procesos no autorizados",
+        "La capacidad de rastrear las acciones de un usuario en el sistema",
+        "La garantía de que el sistema estará siempre disponible"
+      ],
+      correcta: 1,
+      explicacionId: "1080308019"
+    },
+    {
+      id: "1080308006",
+      pregunta: "¿Qué es el principio de mínimo privilegio?",
+      opciones: [
+        "Otorgar todos los permisos posibles a los usuarios",
+        "Restringir el acceso a todos los usuarios por igual",
+        "Garantizar que el diseño de la arquitectura de seguridad de un sistema use los servicios y permisos mínimos necesarios para su correcto funcionamiento",
+        "Permitir que cada usuario defina sus propios privilegios"
+      ],
+      correcta: 2,
+      explicacionId: "1080308034"
+    },
+    {
+      id: "1080308007",
+      pregunta: "¿Qué es TEMPEST en el contexto del ENS?",
+      opciones: [
+        "Un tipo de virus informático",
+        "Un protocolo de seguridad en redes",
+        "Investigaciones y estudios de emanaciones comprometedoras y medidas de protección contra ellas",
+        "Un software de monitorización de redes"
+      ],
+      correcta: 2,
+      explicacionId: "1080308046"
+    },
+    {
+      id: "1080308008",
+      pregunta: "¿Qué es la trazabilidad según el ENS?",
+      opciones: [
+        "La capacidad de rastrear productos físicos",
+        "La propiedad de que las actuaciones de una entidad pueden ser trazadas de forma indiscutible hasta dicha entidad",
+        "Un método de encriptación de datos",
+        "La habilidad de un sistema para recuperarse de fallos"
+      ],
+      correcta: 1,
+      explicacionId: "1080308047"
+    },
+    {
+      id: "1080308009",
+      pregunta: "¿Qué es un ciberincidente según el ENS?",
+      opciones: [
+        "Una actualización de software",
+        "Un ataque físico a un centro de datos",
+        "Un incidente relacionado con la seguridad de las tecnologías de la información y las comunicaciones que se produce en el ciberespacio",
+        "Una falla en el suministro eléctrico"
+      ],
+      correcta: 2,
+      explicacionId: "1080308016"
+    },
+    {
+      id: "1080308010",
+      pregunta: "¿Qué es la gestión de riesgos según el ENS?",
+      opciones: [
+        "El proceso de compra de seguros para la empresa",
+        "La planificación financiera de la organización",
+        "Actividades coordinadas para dirigir y controlar a una organización con respecto a los riesgos",
+        "El proceso de contratación de personal de seguridad"
+      ],
+      correcta: 2,
+      explicacionId: "1080308029"
+    }
+  ],
+  minimoParaAprobar: 7
+},
+"1080401000e": {
+  preguntas: [
+    {
+      id: "1080401001",
+      pregunta: "¿Qué es la interoperabilidad según el ENI?",
+      opciones: [
+        "La capacidad de los sistemas de información de funcionar de manera aislada",
+        "La capacidad de los sistemas de información y procedimientos de compartir datos e intercambiar información y conocimiento entre ellos",
+        "La capacidad de los sistemas de información de resistir ataques cibernéticos",
+        "La capacidad de los sistemas de información de operar sin conexión a internet"
+      ],
+      correcta: 1,
+      explicacionId: "1080401001"
+    },
+    {
+      id: "1080401002",
+      pregunta: "¿Cuál es la finalidad del Esquema Nacional de Interoperabilidad (ENI)?",
+      opciones: [
+        "Garantizar la seguridad de los sistemas informáticos de las AAPP",
+        "Crear condiciones para garantizar el adecuado nivel de interoperabilidad técnica, semántica y organizativa de los sistemas y aplicaciones empleados por las AAPP",
+        "Establecer un sistema único de software para todas las AAPP",
+        "Promover el uso de software propietario en las AAPP"
+      ],
+      correcta: 1,
+      explicacionId: "1080401004"
+    },
+    {
+      id: "1080401003",
+      pregunta: "¿Qué norma crea el Esquema Nacional de Interoperabilidad?",
+      opciones: [
+        "Ley 11/2007, de 22 de junio",
+        "RD 4/2010",
+        "Ley 40/2015",
+        "RD 203/2021"
+      ],
+      correcta: 0,
+      explicacionId: "1080401003"
+    },
+    {
+      id: "1080401004",
+      pregunta: "¿Qué comprende el ENI según su definición?",
+      opciones: [
+        "Solo criterios de seguridad",
+        "Criterios y recomendaciones de seguridad, normalización y conservación de la información, formatos y aplicaciones",
+        "Únicamente recomendaciones sobre formatos de archivos",
+        "Exclusivamente normas sobre conservación de datos"
+      ],
+      correcta: 1,
+      explicacionId: "1080401009"
+    },
+    {
+      id: "1080401005",
+      pregunta: "¿Qué entidades están incluidas en el ámbito de aplicación del ENI?",
+      opciones: [
+        "Solo la Administración General del Estado",
+        "AGE, Administraciones de las CCAA y Entidades de la Administración Local",
+        "Únicamente las entidades privadas que trabajan con la administración",
+        "Solamente los ciudadanos en sus relaciones entre sí"
+      ],
+      correcta: 1,
+      explicacionId: "1080401011"
+    },
+    {
+      id: "1080401006",
+      pregunta: "¿Qué sistemas están exentos del ámbito de aplicación del ENI?",
+      opciones: [
+        "Todos los sistemas de las AAPP",
+        "Los sistemas que tratan información clasificada regulada por la Ley de Secretos Oficiales",
+        "Los sistemas de las entidades locales",
+        "Los sistemas de atención al ciudadano"
+      ],
+      correcta: 1,
+      explicacionId: "1080401016"
+    },
+    {
+      id: "1080401007",
+      pregunta: "¿Qué principio se garantiza con la adaptabilidad al progreso de las tecnologías de la información y las comunicaciones?",
+      opciones: [
+        "Principio de eficiencia administrativa",
+        "Principio de neutralidad tecnológica",
+        "Principio de transparencia",
+        "Principio de economía procesal"
+      ],
+      correcta: 1,
+      explicacionId: "1080401002"
+    },
+    {
+      id: "1080401008",
+      pregunta: "¿Qué tipo de interoperabilidad busca garantizar el ENI?",
+      opciones: [
+        "Solo interoperabilidad técnica",
+        "Interoperabilidad técnica, semántica y organizativa",
+        "Únicamente interoperabilidad semántica",
+        "Solamente interoperabilidad organizativa"
+      ],
+      correcta: 1,
+      explicacionId: "1080401004"
+    },
+    {
+      id: "1080401009",
+      pregunta: "¿Qué ley reconoce el protagonismo de la interoperabilidad en el ámbito de las AAPP?",
+      opciones: [
+        "Ley 40/2015",
+        "RD 4/2010",
+        "Ley 11/2007",
+        "RD 203/2021"
+      ],
+      correcta: 2,
+      explicacionId: "1080401003"
+    },
+    {
+      id: "1080401010",
+      pregunta: "¿Qué actividades de las AAPP están exentas del ámbito de aplicación del ENI?",
+      opciones: [
+        "Todas las actividades de las AAPP",
+        "Las actividades que desarrollen en régimen de derecho público",
+        "Las actividades que desarrollen en régimen de derecho privado",
+        "Ninguna actividad está exenta"
+      ],
+      correcta: 2,
+      explicacionId: "1080401015"
+    }
+  ],
+  minimoParaAprobar: 7
+},
+"1080402000e": {
+  preguntas: [
+    {
+      id: "1080402001",
+      pregunta: "¿Cuál es uno de los principios básicos de la interoperabilidad según el ENI?",
+      opciones: [
+        "La interoperabilidad como cualidad final",
+        "La interoperabilidad como cualidad integral",
+        "La interoperabilidad como proceso aislado",
+        "La interoperabilidad como elemento opcional"
+      ],
+      correcta: 1,
+      explicacionId: "1080402002"
+    },
+    {
+      id: "1080402002",
+      pregunta: "¿Qué dimensiones de la interoperabilidad se contemplan en el ENI?",
+      opciones: [
+        "Técnica, económica y social",
+        "Organizativa, semántica y técnica",
+        "Legal, operativa y funcional",
+        "Estructural, procesal y tecnológica"
+      ],
+      correcta: 1,
+      explicacionId: "1080402003"
+    },
+    {
+      id: "1080402003",
+      pregunta: "¿Qué red se utilizará preferentemente para la comunicación entre las AAPP españolas?",
+      opciones: [
+        "Internet",
+        "Red SARA",
+        "Red privada de cada administración",
+        "Red europea de administraciones"
+      ],
+      correcta: 1,
+      explicacionId: "1080402010"
+    },
+    {
+      id: "1080402004",
+      pregunta: "¿Con qué se sincronizará la hora oficial en los sistemas de las AAPP?",
+      opciones: [
+        "Con el reloj atómico de cada comunidad autónoma",
+        "Con el Real Instituto y Observatorio de la Armada (ROA)",
+        "Con el servidor de tiempo de cada administración",
+        "Con el reloj del Ministerio del Interior"
+      ],
+      correcta: 1,
+      explicacionId: "1080402013"
+    },
+    {
+      id: "1080402005",
+      pregunta: "¿Qué tipo de licencias se utilizarán preferentemente para las aplicaciones de fuentes abiertas en las AAPP?",
+      opciones: [
+        "Licencias propietarias",
+        "Licencia Pública de la Unión Europea (EUPL)",
+        "Licencias de código cerrado",
+        "Licencias comerciales"
+      ],
+      correcta: 1,
+      explicacionId: "1080402026"
+    },
+    {
+      id: "1080402006",
+      pregunta: "¿Qué entidad mantendrá el Directorio general de aplicaciones para su libre reutilización?",
+      opciones: [
+        "Cada Comunidad Autónoma",
+        "La Administración General del Estado (AGE)",
+        "El Ministerio de Hacienda",
+        "Las entidades locales"
+      ],
+      correcta: 1,
+      explicacionId: "1080402027"
+    },
+    {
+      id: "1080402007",
+      pregunta: "¿Quién definirá la política de firma electrónica y de certificados que servirá de marco general de interoperabilidad?",
+      opciones: [
+        "Cada Comunidad Autónoma",
+        "La Administración General del Estado (AGE)",
+        "El Ministerio de Hacienda",
+        "Las entidades locales"
+      ],
+      correcta: 1,
+      explicacionId: "1080402035"
+    },
+    {
+      id: "1080402008",
+      pregunta: "¿Qué proporcionarán las plataformas de validación de certificados electrónicos y de firma electrónica?",
+      opciones: [
+        "Servicios de almacenamiento de datos",
+        "Servicios de confianza a las aplicaciones usuarias",
+        "Servicios de desarrollo de software",
+        "Servicios de mantenimiento de hardware"
+      ],
+      correcta: 1,
+      explicacionId: "1080402041"
+    },
+    {
+      id: "1080402009",
+      pregunta: "¿Qué enfoque se favorecerá en las soluciones de interoperabilidad según el ENI?",
+      opciones: [
+        "Enfoque unilateral",
+        "Enfoque bilateral",
+        "Enfoque multilateral",
+        "Enfoque centralizado"
+      ],
+      correcta: 2,
+      explicacionId: "1080402004"
+    },
+    {
+      id: "1080402010",
+      pregunta: "¿Qué tipo de estándares usarán preferentemente las AAPP según el ENI?",
+      opciones: [
+        "Estándares propietarios",
+        "Estándares abiertos",
+        "Estándares cerrados",
+        "Estándares exclusivos"
+      ],
+      correcta: 1,
+      explicacionId: "1080402007"
+    }
+  ],
+  minimoParaAprobar: 7
+},
+"1080403000e": {
+  preguntas: [
+    {
+      id: "1080403001",
+      pregunta: "¿Qué deben adoptar las AAPP para garantizar la interoperabilidad en la recuperación y conservación de documentos electrónicos?",
+      opciones: [
+        "Solo medidas organizativas",
+        "Solo medidas técnicas",
+        "Medidas organizativas y técnicas",
+        "Ninguna medida específica"
+      ],
+      correcta: 2,
+      explicacionId: "1080403001"
+    },
+    {
+      id: "1080403002",
+      pregunta: "¿Qué debe incluirse en los expedientes para garantizar la integridad del expediente electrónico?",
+      opciones: [
+        "Un resumen del contenido",
+        "Un índice electrónico firmado",
+        "Una copia de seguridad",
+        "Un sello de tiempo"
+      ],
+      correcta: 1,
+      explicacionId: "1080403003"
+    },
+    {
+      id: "1080403003",
+      pregunta: "¿Qué se aplicará para asegurar la conservación de los documentos electrónicos?",
+      opciones: [
+        "El Esquema Nacional de Interoperabilidad (ENI)",
+        "El Esquema Nacional de Seguridad (ENS)",
+        "La Ley de Procedimiento Administrativo Común",
+        "El Reglamento General de Protección de Datos"
+      ],
+      correcta: 1,
+      explicacionId: "1080403016"
+    },
+    {
+      id: "1080403004",
+      pregunta: "¿En qué formato se conservará preferentemente un documento electrónico?",
+      opciones: [
+        "En cualquier formato propietario",
+        "En un formato correspondiente a un estándar abierto",
+        "Siempre en formato PDF",
+        "En el formato más reciente disponible"
+      ],
+      correcta: 1,
+      explicacionId: "1080403020"
+    },
+    {
+      id: "1080403005",
+      pregunta: "¿Qué se hará cuando exista riesgo de obsolescencia del formato de un documento?",
+      opciones: [
+        "Se eliminará el documento",
+        "Se imprimirá en papel",
+        "Se aplicarán procedimientos normalizados de copiado auténtico con cambio de formato",
+        "Se ignorará el riesgo"
+      ],
+      correcta: 2,
+      explicacionId: "1080403021"
+    },
+    {
+      id: "1080403006",
+      pregunta: "¿De acuerdo con qué se realizará la digitalización de documentos en soporte papel por parte de las AAPP?",
+      opciones: [
+        "Con las normas ISO",
+        "Con lo indicado en la Norma Técnica de Interoperabilidad correspondiente",
+        "Con los criterios de cada administración",
+        "Con las recomendaciones de la Unión Europea"
+      ],
+      correcta: 1,
+      explicacionId: "1080403022"
+    },
+    {
+      id: "1080403007",
+      pregunta: "¿Qué crearán las AAPP para cubrir el ciclo de vida de los documentos electrónicos?",
+      opciones: [
+        "Bases de datos centralizadas",
+        "Archivos físicos",
+        "Repositorios electrónicos",
+        "Sistemas de backup en la nube"
+      ],
+      correcta: 2,
+      explicacionId: "1080403015"
+    },
+    {
+      id: "1080403008",
+      pregunta: "¿Qué se utilizará para preservar la conservación de las firmas a lo largo del tiempo?",
+      opciones: [
+        "Sellos de tiempo",
+        "Formatos de firma longeva",
+        "Certificados digitales estándar",
+        "Firmas manuscritas digitalizadas"
+      ],
+      correcta: 1,
+      explicacionId: "1080403018"
+    },
+    {
+      id: "1080403009",
+      pregunta: "¿Qué aspectos se considerarán en la digitalización de documentos en soporte papel según la NTI?",
+      opciones: [
+        "Solo el formato de digitalización",
+        "Únicamente el nivel de resolución",
+        "Formatos, resolución, garantía de imagen fiel e íntegra, y metadatos",
+        "Exclusivamente la técnica de compresión"
+      ],
+      correcta: 2,
+      explicacionId: "1080403022"
+    },
+    {
+      id: "1080403010",
+      pregunta: "¿Qué se aplicará cuando los documentos electrónicos contengan datos de carácter personal?",
+      opciones: [
+        "Las normas de protección de datos",
+        "El Esquema Nacional de Seguridad",
+        "La Ley de Procedimiento Administrativo Común",
+        "El Reglamento de Archivos Públicos"
+      ],
+      correcta: 0,
+      explicacionId: "1080403017"
+    }
+  ],
+  minimoParaAprobar: 7
+},
+"1080404000e": {
+  preguntas: [
+    {
+      id: "1080404001",
+      pregunta: "¿Qué regirá la interoperabilidad de las sedes y registros electrónicos?",
+      opciones: [
+        "El Esquema Nacional de Seguridad",
+        "El Esquema Nacional de Interoperabilidad",
+        "La Ley de Procedimiento Administrativo Común",
+        "El Reglamento General de Protección de Datos"
+      ],
+      correcta: 1,
+      explicacionId: "1080404001"
+    },
+    {
+      id: "1080404002",
+      pregunta: "¿Dónde se incluirá la conformidad con el ENI?",
+      opciones: [
+        "Solo en la fase de diseño de los servicios y sistemas",
+        "Únicamente en la fase de implementación",
+        "En el ciclo de vida de los servicios y sistemas",
+        "Solamente en la fase de pruebas"
+      ],
+      correcta: 2,
+      explicacionId: "1080404002"
+    },
+    {
+      id: "1080404003",
+      pregunta: "¿Quién establecerá los mecanismos de control para garantizar el cumplimiento del ENI?",
+      opciones: [
+        "El Ministerio de Hacienda",
+        "La Comisión Europea",
+        "Cada órgano o Entidad de Derecho Público",
+        "Un organismo externo de auditoría"
+      ],
+      correcta: 2,
+      explicacionId: "1080404003"
+    },
+    {
+      id: "1080404004",
+      pregunta: "¿Dónde se dará publicidad a las declaraciones de conformidad con el ENI?",
+      opciones: [
+        "En el Boletín Oficial del Estado",
+        "En las correspondientes sedes electrónicas",
+        "En los periódicos oficiales de cada Comunidad Autónoma",
+        "En un registro central del Ministerio de Administraciones Públicas"
+      ],
+      correcta: 1,
+      explicacionId: "1080404004"
+    },
+    {
+      id: "1080404005",
+      pregunta: "¿Cómo debe mantenerse el ENI?",
+      opciones: [
+        "Con actualizaciones anuales",
+        "Con revisiones cada cinco años",
+        "De manera permanente",
+        "Sin necesidad de actualizaciones"
+      ],
+      correcta: 2,
+      explicacionId: "1080404005"
+    },
+    {
+      id: "1080404006",
+      pregunta: "¿Quién aprobará las normas técnicas de interoperabilidad?",
+      opciones: [
+        "El Consejo de Ministros",
+        "El Ministerio de Asuntos Económicos y Transformación Digital",
+        "La Comisión Sectorial de Administración Electrónica",
+        "El Centro Criptológico Nacional"
+      ],
+      correcta: 1,
+      explicacionId: "1080404006"
+    },
+    {
+      id: "1080404007",
+      pregunta: "¿Qué organismo será competente en materia de ciberseguridad y criptografía para el ENI?",
+      opciones: [
+        "La Agencia Española de Protección de Datos",
+        "El Instituto Nacional de Ciberseguridad",
+        "El Centro Criptológico Nacional",
+        "La Secretaría de Estado de Digitalización e Inteligencia Artificial"
+      ],
+      correcta: 2,
+      explicacionId: "1080404007"
+    },
+    {
+      id: "1080404008",
+      pregunta: "¿Qué instrumento se desarrollará para inventariar los procedimientos administrativos y servicios prestados?",
+      opciones: [
+        "El Catálogo de Estándares",
+        "El Sistema de Información Administrativa (SIA)",
+        "El Directorio Común de Unidades Orgánicas y Oficinas",
+        "El Centro de Transferencia de Tecnología"
+      ],
+      correcta: 1,
+      explicacionId: "1080404009"
+    },
+    {
+      id: "1080404009",
+      pregunta: "¿Qué almacenará y publicará el Centro de Interoperabilidad Semántica de la Administración?",
+      opciones: [
+        "Los códigos fuente de las aplicaciones",
+        "Los modelos de datos de los servicios de interoperabilidad",
+        "Las declaraciones de conformidad con el ENI",
+        "Los certificados de seguridad de las AAPP"
+      ],
+      correcta: 1,
+      explicacionId: "1080404010"
+    },
+    {
+      id: "1080404010",
+      pregunta: "¿Qué contendrá el Directorio de aplicaciones para su libre reutilización?",
+      opciones: [
+        "Solo aplicaciones de código abierto",
+        "Únicamente aplicaciones desarrolladas por la AGE",
+        "La relación de aplicaciones para su libre reutilización",
+        "Exclusivamente aplicaciones comerciales"
+      ],
+      correcta: 2,
+      explicacionId: "1080404011"
+    }
+  ],
+  minimoParaAprobar: 7
+},
+  "1080501000e": {
+    preguntas: [
+      {
+        id: "1080501001",
+        pregunta: "¿Qué son las Normas Técnicas de Interoperabilidad (NTIs)?",
+        opciones: [
+          "Leyes que regulan el uso de internet en la administración pública",
+          "Un conjunto de estándares que desarrollan aspectos concretos del ENI",
+          "Guías de buenas prácticas para el desarrollo de software",
+          "Regulaciones sobre la seguridad informática en las empresas"
+        ],
+        correcta: 1,
+        explicacionId: "1080501001"
+      },
+      {
+        id: "1080501002",
+        pregunta: "¿Cuál es el objeto de la NTI de Catálogo de Estándares?",
+        opciones: [
+          "Establecer un conjunto de estándares que satisfagan el ENI",
+          "Definir los formatos de documentos electrónicos",
+          "Regular la digitalización de documentos",
+          "Establecer los requisitos de conexión a la Red SARA"
+        ],
+        correcta: 0,
+        explicacionId: "1080501003"
+      },
+      {
+        id: "1080501003",
+        pregunta: "¿Qué componentes debe tener un documento electrónico según la NTI correspondiente?",
+        opciones: [
+          "Solo el contenido del documento",
+          "Contenido y firma electrónica",
+          "Contenido, firma electrónica y metadatos",
+          "Contenido y metadatos, sin necesidad de firma"
+        ],
+        correcta: 2,
+        explicacionId: "1080501018"
+      },
+      {
+        id: "1080501004",
+        pregunta: "¿Qué establece la NTI de Digitalización de Documentos?",
+        opciones: [
+          "Los formatos de archivos permitidos en la administración",
+          "Los requisitos para la digitalización de documentos en soporte papel",
+          "Las normas de seguridad para el almacenamiento de documentos",
+          "Los procedimientos para la eliminación de documentos físicos"
+        ],
+        correcta: 1,
+        explicacionId: "1080501047"
+      },
+      {
+        id: "1080501005",
+        pregunta: "¿Qué elementos componen un expediente electrónico según la NTI correspondiente?",
+        opciones: [
+          "Solo documentos electrónicos",
+          "Documentos electrónicos y metadatos",
+          "Documentos electrónicos, índice electrónico, firma del índice y metadatos",
+          "Índice electrónico y firma digital"
+        ],
+        correcta: 2,
+        explicacionId: "1080501071"
+      },
+      {
+        id: "1080501006",
+        pregunta: "¿Cuál es el objetivo principal de la NTI de Política de Firma y Sello Electrónicos?",
+        opciones: [
+          "Establecer los tipos de firmas electrónicas permitidas",
+          "Definir los criterios para la validación de certificados",
+          "Establecer criterios comunes para la autenticación y reconocimiento mutuo de firmas electrónicas",
+          "Regular el uso de sellos de tiempo en documentos electrónicos"
+        ],
+        correcta: 2,
+        explicacionId: "1080501090"
+      },
+      {
+        id: "1080501007",
+        pregunta: "¿Qué establece la NTI de Protocolos de Intermediación de Datos?",
+        opciones: [
+          "Las normas para el intercambio de datos entre ciudadanos",
+          "Los protocolos de seguridad para el almacenamiento de datos",
+          "Las especificaciones para el intercambio intermediado de datos entre AAPP",
+          "Los formatos de datos permitidos en la administración electrónica"
+        ],
+        correcta: 2,
+        explicacionId: "1080501115"
+      },
+      {
+        id: "1080501008",
+        pregunta: "¿Cuál es el propósito de la NTI de Relación de Modelos de Datos?",
+        opciones: [
+          "Establecer un modelo de datos único para todas las AAPP",
+          "Definir las condiciones para establecer y publicar modelos de datos comunes",
+          "Regular el intercambio de datos entre administraciones",
+          "Estandarizar los formatos de bases de datos en la administración"
+        ],
+        correcta: 1,
+        explicacionId: "1080501168"
+      },
+      {
+        id: "1080501009",
+        pregunta: "¿Qué aspectos cubre la NTI de Política de Gestión de Documentos Electrónicos?",
+        opciones: [
+          "Solo la creación de documentos electrónicos",
+          "Únicamente el almacenamiento de documentos electrónicos",
+          "Las directrices para la definición de políticas de gestión de documentos electrónicos",
+          "Exclusivamente la eliminación de documentos electrónicos"
+        ],
+        correcta: 2,
+        explicacionId: "1080501183"
+      },
+      {
+        id: "1080501010",
+        pregunta: "¿Qué establece la NTI de Requisitos de Conexión a la Red de Comunicaciones de las AAPP Españolas?",
+        opciones: [
+          "Los requisitos técnicos para el desarrollo de aplicaciones web",
+          "Las condiciones para el acceso de los ciudadanos a los servicios electrónicos",
+          "Las condiciones en las que cualquier organismo público accederá a la Red SARA",
+          "Los protocolos de seguridad para las redes internas de las AAPP"
+        ],
+        correcta: 2,
+        explicacionId: "1080501209"
+      }
+    ],
+    minimoParaAprobar: 7
+  },
+  "1080502000e": {
+    "preguntas": [
+      {
+        "id": "1080502001",
+        "pregunta": "¿Cuál es el objeto principal de la NTI de Procedimientos de Copiado Auténtico y Conversión entre Documentos Electrónicos?",
+        "opciones": [
+          "Establecer formatos de documentos electrónicos",
+          "Definir procesos de digitalización",
+          "Establecer reglas para la generación de copias electrónicas auténticas y conversión de formato",
+          "Regular el almacenamiento de documentos electrónicos"
+        ],
+        "correcta": 2,
+        "explicacionId": "1080502001"
+      },
+      {
+        "id": "1080502002",
+        "pregunta": "¿Qué característica NO es propia de las copias electrónicas auténticas según la NTI?",
+        "opciones": [
+          "Tienen la eficacia jurídica de documento electrónico original si son idénticas",
+          "Se expiden a partir de documentos originales o copias auténticas",
+          "No requieren ser firmadas electrónicamente",
+          "Incluyen el metadato 'Identificador del documento origen'"
+        ],
+        "correcta": 2,
+        "explicacionId": "1080502002"
+      },
+      {
+        "id": "1080502003",
+        "pregunta": "¿Qué valor se asigna en el metadato 'Estado de elaboración' para una copia electrónica auténtica con cambio de formato?",
+        "opciones": [
+          "Copia electrónica auténtica",
+          "Copia electrónica auténtica con cambio de formato",
+          "Copia electrónica parcial auténtica",
+          "Copia electrónica auténtica de documento papel"
+        ],
+        "correcta": 1,
+        "explicacionId": "1080502003"
+      },
+      {
+        "id": "1080502004",
+        "pregunta": "¿Cómo se obtienen las copias electrónicas auténticas de documentos en soporte papel?",
+        "opciones": [
+          "Mediante transcripción manual",
+          "A través de la digitalización del documento origen",
+          "Por conversión automática de formato",
+          "Mediante copia certificada por un funcionario"
+        ],
+        "correcta": 1,
+        "explicacionId": "1080502004"
+      },
+      {
+        "id": "1080502005",
+        "pregunta": "En la conversión entre documentos electrónicos, ¿qué aspecto es fundamental según la NTI?",
+        "opciones": [
+          "Eliminar el documento original después de la conversión",
+          "Cambiar siempre el formato del documento",
+          "Conservar el contenido, contexto y estructura del documento origen",
+          "Utilizar únicamente formatos propietarios"
+        ],
+        "correcta": 2,
+        "explicacionId": "1080502005"
+      },
+      {
+        "id": "1080502006",
+        "pregunta": "¿Cuál es el objetivo principal de la NTI de Modelo de Datos para el Intercambio de Asientos entre las Entidades Registrales (SICRES4)?",
+        "opciones": [
+          "Establecer formatos de documentos electrónicos",
+          "Definir condiciones para la interconexión de registros de las AAPP",
+          "Regular el almacenamiento de documentos electrónicos",
+          "Establecer procesos de digitalización"
+        ],
+        "correcta": 1,
+        "explicacionId": "1080502006"
+      },
+      {
+        "id": "1080502007",
+        "pregunta": "¿Cuál es una característica clave del modelo SICRES4?",
+        "opciones": [
+          "Elimina la compatibilidad con versiones anteriores de SICRES",
+          "Aumenta el intercambio de ficheros de documentos electrónicos",
+          "Sustituye el intercambio de ficheros por referencias a documentos electrónicos",
+          "Reduce la cantidad de metadatos en el intercambio registral"
+        ],
+        "correcta": 2,
+        "explicacionId": "1080502007"
+      },
+      {
+        "id": "1080502008",
+        "pregunta": "¿Cuál es el propósito principal de la NTI de Reutilización de Recursos de Información?",
+        "opciones": [
+          "Establecer pautas para la reutilización de documentos y recursos de información del sector público",
+          "Definir formatos de documentos electrónicos",
+          "Regular el intercambio de información entre administraciones",
+          "Establecer medidas de seguridad para documentos electrónicos"
+        ],
+        "correcta": 0,
+        "explicacionId": "1080502008"
+      },
+      {
+        "id": "1080502009",
+        "pregunta": "¿A qué se aplica la NTI de Reutilización de Recursos de Información?",
+        "opciones": [
+          "Solo a documentos clasificados",
+          "A todos los recursos de información de carácter privado",
+          "A recursos de información de carácter público de organismos conforme al ámbito del ENI",
+          "Únicamente a bases de datos gubernamentales"
+        ],
+        "correcta": 2,
+        "explicacionId": "1080502009"
+      },
+      {
+        "id": "1080502010",
+        "pregunta": "¿Cuál de las siguientes es una NTI pendiente de desarrollo normativo según el RD 203/2021?",
+        "opciones": [
+          "NTI de Procedimientos de Copiado Auténtico y Conversión entre Documentos Electrónicos",
+          "NTI de Modelo de Datos para el Intercambio de Asientos entre las Entidades Registrales (SICRES4)",
+          "NTI de Reutilización de Recursos de Información",
+          "NTI de Preservación de Documentación Electrónica"
+        ],
+        "correcta": 3,
+        "explicacionId": "1080502010"
+      }
+    ],
+    "minimoParaAprobar": 7
+  },
+  "1080601000e": {
+  "preguntas": [
+    {
+      "id": "1080601001",
+      "pregunta": "¿Cuál es la principal característica de la herramienta ADA?",
+      "opciones": [
+        "Es un sistema de auditoría continua",
+        "Es una plataforma de análisis avanzado de malware",
+        "Es una solución para la gobernanza de la ciberseguridad",
+        "Es una herramienta de gestión de incidentes"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601001"
+    },
+    {
+      "id": "1080601002",
+      "pregunta": "¿Qué función principal cumple AMPARO?",
+      "opciones": [
+        "Análisis de malware",
+        "Auditoría continua",
+        "Gobernanza de la ciberseguridad",
+        "Protección de datos"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601002"
+    },
+    {
+      "id": "1080601003",
+      "pregunta": "¿Con qué otras herramientas está integrado ANA?",
+      "opciones": [
+        "CARMEN, REYES y LUCÍA",
+        "PILAR, LUCÍA y CLARA",
+        "ADA, AMPARO y ATENEA",
+        "CARLA, CLAUDIA y GLORIA"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601003"
+    },
+    {
+      "id": "1080601004",
+      "pregunta": "¿Cuál es uno de los principales objetivos de ATENEA?",
+      "opciones": [
+        "Analizar malware",
+        "Auditar sistemas",
+        "Concienciar al personal TIC sobre riesgos de ciberseguridad",
+        "Gestionar incidentes de seguridad"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601004"
+    },
+    {
+      "id": "1080601005",
+      "pregunta": "¿Qué tipo de protección ofrece CARLA?",
+      "opciones": [
+        "Protección de redes",
+        "Protección de endpoints",
+        "Protección centrada en los datos",
+        "Protección contra malware"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601005"
+    },
+    {
+      "id": "1080601006",
+      "pregunta": "¿Qué significa el acrónimo CARMEN?",
+      "opciones": [
+        "Centro de Análisis de Redes y Monitoreo de Eventos Nocivos",
+        "Centro de Análisis de Registros y Minería de EveNtos",
+        "Control de Acceso y Registro de Movimientos en Entornos de Red",
+        "Coordinación de Alertas y Respuesta a Malware en Entornos Nacionales"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601006"
+    },
+    {
+      "id": "1080601007",
+      "pregunta": "¿Para qué sistema operativo están desarrolladas las herramientas CCNDroid?",
+      "opciones": [
+        "iOS",
+        "Windows",
+        "Linux",
+        "Android"
+      ],
+      "correcta": 3,
+      "explicacionId": "1080601007"
+    },
+    {
+      "id": "1080601008",
+      "pregunta": "¿Qué analiza principalmente la herramienta CLARA?",
+      "opciones": [
+        "Características de seguridad técnicas definidas en el ENS",
+        "Tráfico de red",
+        "Código malicioso",
+        "Vulnerabilidades en aplicaciones web"
+      ],
+      "correcta": 0,
+      "explicacionId": "1080601008"
+    },
+    {
+      "id": "1080601009",
+      "pregunta": "¿Cuál es el objetivo principal de CLAUDIA?",
+      "opciones": [
+        "Análisis de vulnerabilidades",
+        "Gestión de incidentes",
+        "Detección de malware complejo y movimiento lateral relacionado con APT",
+        "Auditoría de cumplimiento normativo"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601009"
+    },
+    {
+      "id": "1080601010",
+      "pregunta": "¿Contra qué tipo de amenaza está diseñada específicamente microCLAUDIA?",
+      "opciones": [
+        "Phishing",
+        "Ransomware",
+        "DDoS",
+        "Malware genérico"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601010"
+    },
+    {
+      "id": "1080601011",
+      "pregunta": "¿Qué permite hacer la herramienta ELENA?",
+      "opciones": [
+        "Análisis de malware",
+        "Gestión de incidentes",
+        "Simulación de técnicas de cibervigilancia",
+        "Auditoría de sistemas"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601011"
+    },
+    {
+      "id": "1080601012",
+      "pregunta": "¿Cuál es la principal función de EMMA?",
+      "opciones": [
+        "Análisis de vulnerabilidades",
+        "Control de acceso a las infraestructuras de red",
+        "Gestión de logs",
+        "Análisis de malware"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601012"
+    },
+    {
+      "id": "1080601013",
+      "pregunta": "¿Qué tipo de sistema es GLORIA?",
+      "opciones": [
+        "Sistema de análisis de malware",
+        "Sistema de gestión de incidentes y amenazas",
+        "Sistema de auditoría continua",
+        "Sistema de control de acceso"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601013"
+    },
+    {
+      "id": "1080601014",
+      "pregunta": "¿Cuál es el propósito principal de INES?",
+      "opciones": [
+        "Análisis de malware",
+        "Gestión de incidentes",
+        "Elaboración del Informe de Estado de la Seguridad",
+        "Simulación de ataques"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601014"
+    },
+    {
+      "id": "1080601015",
+      "pregunta": "¿Qué función cumple la plataforma IRIS?",
+      "opciones": [
+        "Análisis de vulnerabilidades",
+        "Gestión de incidentes",
+        "Monitorización del estado de la ciberseguridad en tiempo real",
+        "Auditoría de sistemas"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601015"
+    },
+    {
+      "id": "1080601016",
+      "pregunta": "¿Qué tipo de herramienta es LORETO?",
+      "opciones": [
+        "Análisis de malware",
+        "Gestión de incidentes",
+        "Almacenamiento en la nube",
+        "Auditoría de sistemas"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601016"
+    },
+    {
+      "id": "1080601017",
+      "pregunta": "¿Qué significa el acrónimo LUCIA?",
+      "opciones": [
+        "Listado Unificado de Coordinación de Incidentes y Amenazas",
+        "Laboratorio Unificado de Ciberseguridad e Inteligencia Artificial",
+        "Línea Única de Comunicación de Incidentes Avanzados",
+        "Listado Urgente de Ciberataques e Incidentes Activos"
+      ],
+      "correcta": 0,
+      "explicacionId": "1080601017"
+    },
+    {
+      "id": "1080601018",
+      "pregunta": "¿Qué tipo de análisis realiza la herramienta MARIA?",
+      "opciones": [
+        "Análisis dinámico de malware",
+        "Análisis estático de código dañino",
+        "Análisis de tráfico de red",
+        "Análisis de vulnerabilidades"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601018"
+    },
+    {
+      "id": "1080601019",
+      "pregunta": "¿Qué característica principal tiene MARTA?",
+      "opciones": [
+        "Es un sistema de gestión de incidentes",
+        "Es una plataforma de multi-sandboxing",
+        "Es un sistema de análisis de vulnerabilidades",
+        "Es una herramienta de auditoría continua"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601019"
+    },
+    {
+      "id": "1080601020",
+      "pregunta": "¿Cuál es la principal función de MONICA?",
+      "opciones": [
+        "Análisis de malware",
+        "Gestión automatizada de información y eventos de seguridad",
+        "Auditoría de sistemas",
+        "Simulación de ataques"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601020"
+    },
+    {
+      "id": "1080601021",
+      "pregunta": "¿Qué metodología sigue PILAR para el análisis y gestión de riesgos?",
+      "opciones": [
+        "OWASP",
+        "NIST",
+        "Magerit",
+        "ISO 27001"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601021"
+    },
+    {
+      "id": "1080601022",
+      "pregunta": "¿En qué tecnología está basado REYES?",
+      "opciones": [
+        "SIEM",
+        "MISP",
+        "SOAR",
+        "EDR"
+      ],
+      "correcta": 1,
+      "explicacionId": "1080601022"
+    },
+    {
+      "id": "1080601023",
+      "pregunta": "¿Qué tipo de equipos audita principalmente ROCIO?",
+      "opciones": [
+        "Servidores",
+        "Estaciones de trabajo",
+        "Dispositivos móviles",
+        "Equipos de comunicaciones"
+      ],
+      "correcta": 3,
+      "explicacionId": "1080601023"
+    },
+    {
+      "id": "1080601024",
+      "pregunta": "¿Cuál es el propósito principal de VANESA?",
+      "opciones": [
+        "Análisis de vulnerabilidades",
+        "Gestión de incidentes",
+        "Retransmisión de vídeo en directo para formación",
+        "Auditoría de sistemas"
+      ],
+      "correcta": 2,
+      "explicacionId": "1080601024"
+    }
+  ],
+  "minimoParaAprobar": 16
+},
+  
   
   
 
@@ -1449,6 +3243,1733 @@ export const preguntas = {
 
     "1080000000e": {
         preguntas: [
+          {
+            "id": "1080601001",
+            "pregunta": "¿Cuál es la principal característica de la herramienta ADA?",
+            "opciones": [
+              "Es un sistema de auditoría continua",
+              "Es una plataforma de análisis avanzado de malware",
+              "Es una solución para la gobernanza de la ciberseguridad",
+              "Es una herramienta de gestión de incidentes"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601001"
+          },
+          {
+            "id": "1080601002",
+            "pregunta": "¿Qué función principal cumple AMPARO?",
+            "opciones": [
+              "Análisis de malware",
+              "Auditoría continua",
+              "Gobernanza de la ciberseguridad",
+              "Protección de datos"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601002"
+          },
+          {
+            "id": "1080601003",
+            "pregunta": "¿Con qué otras herramientas está integrado ANA?",
+            "opciones": [
+              "CARMEN, REYES y LUCÍA",
+              "PILAR, LUCÍA y CLARA",
+              "ADA, AMPARO y ATENEA",
+              "CARLA, CLAUDIA y GLORIA"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601003"
+          },
+          {
+            "id": "1080601004",
+            "pregunta": "¿Cuál es uno de los principales objetivos de ATENEA?",
+            "opciones": [
+              "Analizar malware",
+              "Auditar sistemas",
+              "Concienciar al personal TIC sobre riesgos de ciberseguridad",
+              "Gestionar incidentes de seguridad"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601004"
+          },
+          {
+            "id": "1080601005",
+            "pregunta": "¿Qué tipo de protección ofrece CARLA?",
+            "opciones": [
+              "Protección de redes",
+              "Protección de endpoints",
+              "Protección centrada en los datos",
+              "Protección contra malware"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601005"
+          },
+          {
+            "id": "1080601006",
+            "pregunta": "¿Qué significa el acrónimo CARMEN?",
+            "opciones": [
+              "Centro de Análisis de Redes y Monitoreo de Eventos Nocivos",
+              "Centro de Análisis de Registros y Minería de EveNtos",
+              "Control de Acceso y Registro de Movimientos en Entornos de Red",
+              "Coordinación de Alertas y Respuesta a Malware en Entornos Nacionales"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601006"
+          },
+          {
+            "id": "1080601007",
+            "pregunta": "¿Para qué sistema operativo están desarrolladas las herramientas CCNDroid?",
+            "opciones": [
+              "iOS",
+              "Windows",
+              "Linux",
+              "Android"
+            ],
+            "correcta": 3,
+            "explicacionId": "1080601007"
+          },
+          {
+            "id": "1080601008",
+            "pregunta": "¿Qué analiza principalmente la herramienta CLARA?",
+            "opciones": [
+              "Características de seguridad técnicas definidas en el ENS",
+              "Tráfico de red",
+              "Código malicioso",
+              "Vulnerabilidades en aplicaciones web"
+            ],
+            "correcta": 0,
+            "explicacionId": "1080601008"
+          },
+          {
+            "id": "1080601009",
+            "pregunta": "¿Cuál es el objetivo principal de CLAUDIA?",
+            "opciones": [
+              "Análisis de vulnerabilidades",
+              "Gestión de incidentes",
+              "Detección de malware complejo y movimiento lateral relacionado con APT",
+              "Auditoría de cumplimiento normativo"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601009"
+          },
+          {
+            "id": "1080601010",
+            "pregunta": "¿Contra qué tipo de amenaza está diseñada específicamente microCLAUDIA?",
+            "opciones": [
+              "Phishing",
+              "Ransomware",
+              "DDoS",
+              "Malware genérico"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601010"
+          },
+          {
+            "id": "1080601011",
+            "pregunta": "¿Qué permite hacer la herramienta ELENA?",
+            "opciones": [
+              "Análisis de malware",
+              "Gestión de incidentes",
+              "Simulación de técnicas de cibervigilancia",
+              "Auditoría de sistemas"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601011"
+          },
+          {
+            "id": "1080601012",
+            "pregunta": "¿Cuál es la principal función de EMMA?",
+            "opciones": [
+              "Análisis de vulnerabilidades",
+              "Control de acceso a las infraestructuras de red",
+              "Gestión de logs",
+              "Análisis de malware"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601012"
+          },
+          {
+            "id": "1080601013",
+            "pregunta": "¿Qué tipo de sistema es GLORIA?",
+            "opciones": [
+              "Sistema de análisis de malware",
+              "Sistema de gestión de incidentes y amenazas",
+              "Sistema de auditoría continua",
+              "Sistema de control de acceso"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601013"
+          },
+          {
+            "id": "1080601014",
+            "pregunta": "¿Cuál es el propósito principal de INES?",
+            "opciones": [
+              "Análisis de malware",
+              "Gestión de incidentes",
+              "Elaboración del Informe de Estado de la Seguridad",
+              "Simulación de ataques"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601014"
+          },
+          {
+            "id": "1080601015",
+            "pregunta": "¿Qué función cumple la plataforma IRIS?",
+            "opciones": [
+              "Análisis de vulnerabilidades",
+              "Gestión de incidentes",
+              "Monitorización del estado de la ciberseguridad en tiempo real",
+              "Auditoría de sistemas"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601015"
+          },
+          {
+            "id": "1080601016",
+            "pregunta": "¿Qué tipo de herramienta es LORETO?",
+            "opciones": [
+              "Análisis de malware",
+              "Gestión de incidentes",
+              "Almacenamiento en la nube",
+              "Auditoría de sistemas"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601016"
+          },
+          {
+            "id": "1080601017",
+            "pregunta": "¿Qué significa el acrónimo LUCIA?",
+            "opciones": [
+              "Listado Unificado de Coordinación de Incidentes y Amenazas",
+              "Laboratorio Unificado de Ciberseguridad e Inteligencia Artificial",
+              "Línea Única de Comunicación de Incidentes Avanzados",
+              "Listado Urgente de Ciberataques e Incidentes Activos"
+            ],
+            "correcta": 0,
+            "explicacionId": "1080601017"
+          },
+          {
+            "id": "1080601018",
+            "pregunta": "¿Qué tipo de análisis realiza la herramienta MARIA?",
+            "opciones": [
+              "Análisis dinámico de malware",
+              "Análisis estático de código dañino",
+              "Análisis de tráfico de red",
+              "Análisis de vulnerabilidades"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601018"
+          },
+          {
+            "id": "1080601019",
+            "pregunta": "¿Qué característica principal tiene MARTA?",
+            "opciones": [
+              "Es un sistema de gestión de incidentes",
+              "Es una plataforma de multi-sandboxing",
+              "Es un sistema de análisis de vulnerabilidades",
+              "Es una herramienta de auditoría continua"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601019"
+          },
+          {
+            "id": "1080601020",
+            "pregunta": "¿Cuál es la principal función de MONICA?",
+            "opciones": [
+              "Análisis de malware",
+              "Gestión automatizada de información y eventos de seguridad",
+              "Auditoría de sistemas",
+              "Simulación de ataques"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601020"
+          },
+          {
+            "id": "1080601021",
+            "pregunta": "¿Qué metodología sigue PILAR para el análisis y gestión de riesgos?",
+            "opciones": [
+              "OWASP",
+              "NIST",
+              "Magerit",
+              "ISO 27001"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601021"
+          },
+          {
+            "id": "1080601022",
+            "pregunta": "¿En qué tecnología está basado REYES?",
+            "opciones": [
+              "SIEM",
+              "MISP",
+              "SOAR",
+              "EDR"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080601022"
+          },
+          {
+            "id": "1080601023",
+            "pregunta": "¿Qué tipo de equipos audita principalmente ROCIO?",
+            "opciones": [
+              "Servidores",
+              "Estaciones de trabajo",
+              "Dispositivos móviles",
+              "Equipos de comunicaciones"
+            ],
+            "correcta": 3,
+            "explicacionId": "1080601023"
+          },
+          {
+            "id": "1080601024",
+            "pregunta": "¿Cuál es el propósito principal de VANESA?",
+            "opciones": [
+              "Análisis de vulnerabilidades",
+              "Gestión de incidentes",
+              "Retransmisión de vídeo en directo para formación",
+              "Auditoría de sistemas"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080601024"
+          },
+          {
+            "id": "1080502001",
+            "pregunta": "¿Cuál es el objeto principal de la NTI de Procedimientos de Copiado Auténtico y Conversión entre Documentos Electrónicos?",
+            "opciones": [
+              "Establecer formatos de documentos electrónicos",
+              "Definir procesos de digitalización",
+              "Establecer reglas para la generación de copias electrónicas auténticas y conversión de formato",
+              "Regular el almacenamiento de documentos electrónicos"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080502001"
+          },
+          {
+            "id": "1080502002",
+            "pregunta": "¿Qué característica NO es propia de las copias electrónicas auténticas según la NTI?",
+            "opciones": [
+              "Tienen la eficacia jurídica de documento electrónico original si son idénticas",
+              "Se expiden a partir de documentos originales o copias auténticas",
+              "No requieren ser firmadas electrónicamente",
+              "Incluyen el metadato 'Identificador del documento origen'"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080502002"
+          },
+          {
+            "id": "1080502003",
+            "pregunta": "¿Qué valor se asigna en el metadato 'Estado de elaboración' para una copia electrónica auténtica con cambio de formato?",
+            "opciones": [
+              "Copia electrónica auténtica",
+              "Copia electrónica auténtica con cambio de formato",
+              "Copia electrónica parcial auténtica",
+              "Copia electrónica auténtica de documento papel"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080502003"
+          },
+          {
+            "id": "1080502004",
+            "pregunta": "¿Cómo se obtienen las copias electrónicas auténticas de documentos en soporte papel?",
+            "opciones": [
+              "Mediante transcripción manual",
+              "A través de la digitalización del documento origen",
+              "Por conversión automática de formato",
+              "Mediante copia certificada por un funcionario"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080502004"
+          },
+          {
+            "id": "1080502005",
+            "pregunta": "En la conversión entre documentos electrónicos, ¿qué aspecto es fundamental según la NTI?",
+            "opciones": [
+              "Eliminar el documento original después de la conversión",
+              "Cambiar siempre el formato del documento",
+              "Conservar el contenido, contexto y estructura del documento origen",
+              "Utilizar únicamente formatos propietarios"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080502005"
+          },
+          {
+            "id": "1080502006",
+            "pregunta": "¿Cuál es el objetivo principal de la NTI de Modelo de Datos para el Intercambio de Asientos entre las Entidades Registrales (SICRES4)?",
+            "opciones": [
+              "Establecer formatos de documentos electrónicos",
+              "Definir condiciones para la interconexión de registros de las AAPP",
+              "Regular el almacenamiento de documentos electrónicos",
+              "Establecer procesos de digitalización"
+            ],
+            "correcta": 1,
+            "explicacionId": "1080502006"
+          },
+          {
+            "id": "1080502007",
+            "pregunta": "¿Cuál es una característica clave del modelo SICRES4?",
+            "opciones": [
+              "Elimina la compatibilidad con versiones anteriores de SICRES",
+              "Aumenta el intercambio de ficheros de documentos electrónicos",
+              "Sustituye el intercambio de ficheros por referencias a documentos electrónicos",
+              "Reduce la cantidad de metadatos en el intercambio registral"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080502007"
+          },
+          {
+            "id": "1080502008",
+            "pregunta": "¿Cuál es el propósito principal de la NTI de Reutilización de Recursos de Información?",
+            "opciones": [
+              "Establecer pautas para la reutilización de documentos y recursos de información del sector público",
+              "Definir formatos de documentos electrónicos",
+              "Regular el intercambio de información entre administraciones",
+              "Establecer medidas de seguridad para documentos electrónicos"
+            ],
+            "correcta": 0,
+            "explicacionId": "1080502008"
+          },
+          {
+            "id": "1080502009",
+            "pregunta": "¿A qué se aplica la NTI de Reutilización de Recursos de Información?",
+            "opciones": [
+              "Solo a documentos clasificados",
+              "A todos los recursos de información de carácter privado",
+              "A recursos de información de carácter público de organismos conforme al ámbito del ENI",
+              "Únicamente a bases de datos gubernamentales"
+            ],
+            "correcta": 2,
+            "explicacionId": "1080502009"
+          },
+          {
+            "id": "1080502010",
+            "pregunta": "¿Cuál de las siguientes es una NTI pendiente de desarrollo normativo según el RD 203/2021?",
+            "opciones": [
+              "NTI de Procedimientos de Copiado Auténtico y Conversión entre Documentos Electrónicos",
+              "NTI de Modelo de Datos para el Intercambio de Asientos entre las Entidades Registrales (SICRES4)",
+              "NTI de Reutilización de Recursos de Información",
+              "NTI de Preservación de Documentación Electrónica"
+            ],
+            "correcta": 3,
+            "explicacionId": "1080502010"
+          },
+          {
+            id: "1080501001",
+            pregunta: "¿Qué son las Normas Técnicas de Interoperabilidad (NTIs)?",
+            opciones: [
+              "Leyes que regulan el uso de internet en la administración pública",
+              "Un conjunto de estándares que desarrollan aspectos concretos del ENI",
+              "Guías de buenas prácticas para el desarrollo de software",
+              "Regulaciones sobre la seguridad informática en las empresas"
+            ],
+            correcta: 1,
+            explicacionId: "1080501001"
+          },
+          {
+            id: "1080501002",
+            pregunta: "¿Cuál es el objeto de la NTI de Catálogo de Estándares?",
+            opciones: [
+              "Establecer un conjunto de estándares que satisfagan el ENI",
+              "Definir los formatos de documentos electrónicos",
+              "Regular la digitalización de documentos",
+              "Establecer los requisitos de conexión a la Red SARA"
+            ],
+            correcta: 0,
+            explicacionId: "1080501003"
+          },
+          {
+            id: "1080501003",
+            pregunta: "¿Qué componentes debe tener un documento electrónico según la NTI correspondiente?",
+            opciones: [
+              "Solo el contenido del documento",
+              "Contenido y firma electrónica",
+              "Contenido, firma electrónica y metadatos",
+              "Contenido y metadatos, sin necesidad de firma"
+            ],
+            correcta: 2,
+            explicacionId: "1080501018"
+          },
+          {
+            id: "1080501004",
+            pregunta: "¿Qué establece la NTI de Digitalización de Documentos?",
+            opciones: [
+              "Los formatos de archivos permitidos en la administración",
+              "Los requisitos para la digitalización de documentos en soporte papel",
+              "Las normas de seguridad para el almacenamiento de documentos",
+              "Los procedimientos para la eliminación de documentos físicos"
+            ],
+            correcta: 1,
+            explicacionId: "1080501047"
+          },
+          {
+            id: "1080501005",
+            pregunta: "¿Qué elementos componen un expediente electrónico según la NTI correspondiente?",
+            opciones: [
+              "Solo documentos electrónicos",
+              "Documentos electrónicos y metadatos",
+              "Documentos electrónicos, índice electrónico, firma del índice y metadatos",
+              "Índice electrónico y firma digital"
+            ],
+            correcta: 2,
+            explicacionId: "1080501071"
+          },
+          {
+            id: "1080501006",
+            pregunta: "¿Cuál es el objetivo principal de la NTI de Política de Firma y Sello Electrónicos?",
+            opciones: [
+              "Establecer los tipos de firmas electrónicas permitidas",
+              "Definir los criterios para la validación de certificados",
+              "Establecer criterios comunes para la autenticación y reconocimiento mutuo de firmas electrónicas",
+              "Regular el uso de sellos de tiempo en documentos electrónicos"
+            ],
+            correcta: 2,
+            explicacionId: "1080501090"
+          },
+          {
+            id: "1080501007",
+            pregunta: "¿Qué establece la NTI de Protocolos de Intermediación de Datos?",
+            opciones: [
+              "Las normas para el intercambio de datos entre ciudadanos",
+              "Los protocolos de seguridad para el almacenamiento de datos",
+              "Las especificaciones para el intercambio intermediado de datos entre AAPP",
+              "Los formatos de datos permitidos en la administración electrónica"
+            ],
+            correcta: 2,
+            explicacionId: "1080501115"
+          },
+          {
+            id: "1080501008",
+            pregunta: "¿Cuál es el propósito de la NTI de Relación de Modelos de Datos?",
+            opciones: [
+              "Establecer un modelo de datos único para todas las AAPP",
+              "Definir las condiciones para establecer y publicar modelos de datos comunes",
+              "Regular el intercambio de datos entre administraciones",
+              "Estandarizar los formatos de bases de datos en la administración"
+            ],
+            correcta: 1,
+            explicacionId: "1080501168"
+          },
+          {
+            id: "1080501009",
+            pregunta: "¿Qué aspectos cubre la NTI de Política de Gestión de Documentos Electrónicos?",
+            opciones: [
+              "Solo la creación de documentos electrónicos",
+              "Únicamente el almacenamiento de documentos electrónicos",
+              "Las directrices para la definición de políticas de gestión de documentos electrónicos",
+              "Exclusivamente la eliminación de documentos electrónicos"
+            ],
+            correcta: 2,
+            explicacionId: "1080501183"
+          },
+          {
+            id: "1080501010",
+            pregunta: "¿Qué establece la NTI de Requisitos de Conexión a la Red de Comunicaciones de las AAPP Españolas?",
+            opciones: [
+              "Los requisitos técnicos para el desarrollo de aplicaciones web",
+              "Las condiciones para el acceso de los ciudadanos a los servicios electrónicos",
+              "Las condiciones en las que cualquier organismo público accederá a la Red SARA",
+              "Los protocolos de seguridad para las redes internas de las AAPP"
+            ],
+            correcta: 2,
+            explicacionId: "1080501209"
+          },
+          {
+            id: "1080404001",
+            pregunta: "¿Qué regirá la interoperabilidad de las sedes y registros electrónicos?",
+            opciones: [
+              "El Esquema Nacional de Seguridad",
+              "El Esquema Nacional de Interoperabilidad",
+              "La Ley de Procedimiento Administrativo Común",
+              "El Reglamento General de Protección de Datos"
+            ],
+            correcta: 1,
+            explicacionId: "1080404001"
+          },
+          {
+            id: "1080404002",
+            pregunta: "¿Dónde se incluirá la conformidad con el ENI?",
+            opciones: [
+              "Solo en la fase de diseño de los servicios y sistemas",
+              "Únicamente en la fase de implementación",
+              "En el ciclo de vida de los servicios y sistemas",
+              "Solamente en la fase de pruebas"
+            ],
+            correcta: 2,
+            explicacionId: "1080404002"
+          },
+          {
+            id: "1080404003",
+            pregunta: "¿Quién establecerá los mecanismos de control para garantizar el cumplimiento del ENI?",
+            opciones: [
+              "El Ministerio de Hacienda",
+              "La Comisión Europea",
+              "Cada órgano o Entidad de Derecho Público",
+              "Un organismo externo de auditoría"
+            ],
+            correcta: 2,
+            explicacionId: "1080404003"
+          },
+          {
+            id: "1080404004",
+            pregunta: "¿Dónde se dará publicidad a las declaraciones de conformidad con el ENI?",
+            opciones: [
+              "En el Boletín Oficial del Estado",
+              "En las correspondientes sedes electrónicas",
+              "En los periódicos oficiales de cada Comunidad Autónoma",
+              "En un registro central del Ministerio de Administraciones Públicas"
+            ],
+            correcta: 1,
+            explicacionId: "1080404004"
+          },
+          {
+            id: "1080404005",
+            pregunta: "¿Cómo debe mantenerse el ENI?",
+            opciones: [
+              "Con actualizaciones anuales",
+              "Con revisiones cada cinco años",
+              "De manera permanente",
+              "Sin necesidad de actualizaciones"
+            ],
+            correcta: 2,
+            explicacionId: "1080404005"
+          },
+          {
+            id: "1080404006",
+            pregunta: "¿Quién aprobará las normas técnicas de interoperabilidad?",
+            opciones: [
+              "El Consejo de Ministros",
+              "El Ministerio de Asuntos Económicos y Transformación Digital",
+              "La Comisión Sectorial de Administración Electrónica",
+              "El Centro Criptológico Nacional"
+            ],
+            correcta: 1,
+            explicacionId: "1080404006"
+          },
+          {
+            id: "1080404007",
+            pregunta: "¿Qué organismo será competente en materia de ciberseguridad y criptografía para el ENI?",
+            opciones: [
+              "La Agencia Española de Protección de Datos",
+              "El Instituto Nacional de Ciberseguridad",
+              "El Centro Criptológico Nacional",
+              "La Secretaría de Estado de Digitalización e Inteligencia Artificial"
+            ],
+            correcta: 2,
+            explicacionId: "1080404007"
+          },
+          {
+            id: "1080404008",
+            pregunta: "¿Qué instrumento se desarrollará para inventariar los procedimientos administrativos y servicios prestados?",
+            opciones: [
+              "El Catálogo de Estándares",
+              "El Sistema de Información Administrativa (SIA)",
+              "El Directorio Común de Unidades Orgánicas y Oficinas",
+              "El Centro de Transferencia de Tecnología"
+            ],
+            correcta: 1,
+            explicacionId: "1080404009"
+          },
+          {
+            id: "1080404009",
+            pregunta: "¿Qué almacenará y publicará el Centro de Interoperabilidad Semántica de la Administración?",
+            opciones: [
+              "Los códigos fuente de las aplicaciones",
+              "Los modelos de datos de los servicios de interoperabilidad",
+              "Las declaraciones de conformidad con el ENI",
+              "Los certificados de seguridad de las AAPP"
+            ],
+            correcta: 1,
+            explicacionId: "1080404010"
+          },
+          {
+            id: "1080404010",
+            pregunta: "¿Qué contendrá el Directorio de aplicaciones para su libre reutilización?",
+            opciones: [
+              "Solo aplicaciones de código abierto",
+              "Únicamente aplicaciones desarrolladas por la AGE",
+              "La relación de aplicaciones para su libre reutilización",
+              "Exclusivamente aplicaciones comerciales"
+            ],
+            correcta: 2,
+            explicacionId: "1080404011"
+          },{
+            id: "1080403001",
+            pregunta: "¿Qué deben adoptar las AAPP para garantizar la interoperabilidad en la recuperación y conservación de documentos electrónicos?",
+            opciones: [
+              "Solo medidas organizativas",
+              "Solo medidas técnicas",
+              "Medidas organizativas y técnicas",
+              "Ninguna medida específica"
+            ],
+            correcta: 2,
+            explicacionId: "1080403001"
+          },
+          {
+            id: "1080403002",
+            pregunta: "¿Qué debe incluirse en los expedientes para garantizar la integridad del expediente electrónico?",
+            opciones: [
+              "Un resumen del contenido",
+              "Un índice electrónico firmado",
+              "Una copia de seguridad",
+              "Un sello de tiempo"
+            ],
+            correcta: 1,
+            explicacionId: "1080403003"
+          },
+          {
+            id: "1080403003",
+            pregunta: "¿Qué se aplicará para asegurar la conservación de los documentos electrónicos?",
+            opciones: [
+              "El Esquema Nacional de Interoperabilidad (ENI)",
+              "El Esquema Nacional de Seguridad (ENS)",
+              "La Ley de Procedimiento Administrativo Común",
+              "El Reglamento General de Protección de Datos"
+            ],
+            correcta: 1,
+            explicacionId: "1080403016"
+          },
+          {
+            id: "1080403004",
+            pregunta: "¿En qué formato se conservará preferentemente un documento electrónico?",
+            opciones: [
+              "En cualquier formato propietario",
+              "En un formato correspondiente a un estándar abierto",
+              "Siempre en formato PDF",
+              "En el formato más reciente disponible"
+            ],
+            correcta: 1,
+            explicacionId: "1080403020"
+          },
+          {
+            id: "1080403005",
+            pregunta: "¿Qué se hará cuando exista riesgo de obsolescencia del formato de un documento?",
+            opciones: [
+              "Se eliminará el documento",
+              "Se imprimirá en papel",
+              "Se aplicarán procedimientos normalizados de copiado auténtico con cambio de formato",
+              "Se ignorará el riesgo"
+            ],
+            correcta: 2,
+            explicacionId: "1080403021"
+          },
+          {
+            id: "1080403006",
+            pregunta: "¿De acuerdo con qué se realizará la digitalización de documentos en soporte papel por parte de las AAPP?",
+            opciones: [
+              "Con las normas ISO",
+              "Con lo indicado en la Norma Técnica de Interoperabilidad correspondiente",
+              "Con los criterios de cada administración",
+              "Con las recomendaciones de la Unión Europea"
+            ],
+            correcta: 1,
+            explicacionId: "1080403022"
+          },
+          {
+            id: "1080403007",
+            pregunta: "¿Qué crearán las AAPP para cubrir el ciclo de vida de los documentos electrónicos?",
+            opciones: [
+              "Bases de datos centralizadas",
+              "Archivos físicos",
+              "Repositorios electrónicos",
+              "Sistemas de backup en la nube"
+            ],
+            correcta: 2,
+            explicacionId: "1080403015"
+          },
+          {
+            id: "1080403008",
+            pregunta: "¿Qué se utilizará para preservar la conservación de las firmas a lo largo del tiempo?",
+            opciones: [
+              "Sellos de tiempo",
+              "Formatos de firma longeva",
+              "Certificados digitales estándar",
+              "Firmas manuscritas digitalizadas"
+            ],
+            correcta: 1,
+            explicacionId: "1080403018"
+          },
+          {
+            id: "1080403009",
+            pregunta: "¿Qué aspectos se considerarán en la digitalización de documentos en soporte papel según la NTI?",
+            opciones: [
+              "Solo el formato de digitalización",
+              "Únicamente el nivel de resolución",
+              "Formatos, resolución, garantía de imagen fiel e íntegra, y metadatos",
+              "Exclusivamente la técnica de compresión"
+            ],
+            correcta: 2,
+            explicacionId: "1080403022"
+          },
+          {
+            id: "1080403010",
+            pregunta: "¿Qué se aplicará cuando los documentos electrónicos contengan datos de carácter personal?",
+            opciones: [
+              "Las normas de protección de datos",
+              "El Esquema Nacional de Seguridad",
+              "La Ley de Procedimiento Administrativo Común",
+              "El Reglamento de Archivos Públicos"
+            ],
+            correcta: 0,
+            explicacionId: "1080403017"
+          },
+          {
+            id: "1080402001",
+            pregunta: "¿Cuál es uno de los principios básicos de la interoperabilidad según el ENI?",
+            opciones: [
+              "La interoperabilidad como cualidad final",
+              "La interoperabilidad como cualidad integral",
+              "La interoperabilidad como proceso aislado",
+              "La interoperabilidad como elemento opcional"
+            ],
+            correcta: 1,
+            explicacionId: "1080402002"
+          },
+          {
+            id: "1080402002",
+            pregunta: "¿Qué dimensiones de la interoperabilidad se contemplan en el ENI?",
+            opciones: [
+              "Técnica, económica y social",
+              "Organizativa, semántica y técnica",
+              "Legal, operativa y funcional",
+              "Estructural, procesal y tecnológica"
+            ],
+            correcta: 1,
+            explicacionId: "1080402003"
+          },
+          {
+            id: "1080402003",
+            pregunta: "¿Qué red se utilizará preferentemente para la comunicación entre las AAPP españolas?",
+            opciones: [
+              "Internet",
+              "Red SARA",
+              "Red privada de cada administración",
+              "Red europea de administraciones"
+            ],
+            correcta: 1,
+            explicacionId: "1080402010"
+          },
+          {
+            id: "1080402004",
+            pregunta: "¿Con qué se sincronizará la hora oficial en los sistemas de las AAPP?",
+            opciones: [
+              "Con el reloj atómico de cada comunidad autónoma",
+              "Con el Real Instituto y Observatorio de la Armada (ROA)",
+              "Con el servidor de tiempo de cada administración",
+              "Con el reloj del Ministerio del Interior"
+            ],
+            correcta: 1,
+            explicacionId: "1080402013"
+          },
+          {
+            id: "1080402005",
+            pregunta: "¿Qué tipo de licencias se utilizarán preferentemente para las aplicaciones de fuentes abiertas en las AAPP?",
+            opciones: [
+              "Licencias propietarias",
+              "Licencia Pública de la Unión Europea (EUPL)",
+              "Licencias de código cerrado",
+              "Licencias comerciales"
+            ],
+            correcta: 1,
+            explicacionId: "1080402026"
+          },
+          {
+            id: "1080402006",
+            pregunta: "¿Qué entidad mantendrá el Directorio general de aplicaciones para su libre reutilización?",
+            opciones: [
+              "Cada Comunidad Autónoma",
+              "La Administración General del Estado (AGE)",
+              "El Ministerio de Hacienda",
+              "Las entidades locales"
+            ],
+            correcta: 1,
+            explicacionId: "1080402027"
+          },
+          {
+            id: "1080402007",
+            pregunta: "¿Quién definirá la política de firma electrónica y de certificados que servirá de marco general de interoperabilidad?",
+            opciones: [
+              "Cada Comunidad Autónoma",
+              "La Administración General del Estado (AGE)",
+              "El Ministerio de Hacienda",
+              "Las entidades locales"
+            ],
+            correcta: 1,
+            explicacionId: "1080402035"
+          },
+          {
+            id: "1080402008",
+            pregunta: "¿Qué proporcionarán las plataformas de validación de certificados electrónicos y de firma electrónica?",
+            opciones: [
+              "Servicios de almacenamiento de datos",
+              "Servicios de confianza a las aplicaciones usuarias",
+              "Servicios de desarrollo de software",
+              "Servicios de mantenimiento de hardware"
+            ],
+            correcta: 1,
+            explicacionId: "1080402041"
+          },
+          {
+            id: "1080402009",
+            pregunta: "¿Qué enfoque se favorecerá en las soluciones de interoperabilidad según el ENI?",
+            opciones: [
+              "Enfoque unilateral",
+              "Enfoque bilateral",
+              "Enfoque multilateral",
+              "Enfoque centralizado"
+            ],
+            correcta: 2,
+            explicacionId: "1080402004"
+          },
+          {
+            id: "1080402010",
+            pregunta: "¿Qué tipo de estándares usarán preferentemente las AAPP según el ENI?",
+            opciones: [
+              "Estándares propietarios",
+              "Estándares abiertos",
+              "Estándares cerrados",
+              "Estándares exclusivos"
+            ],
+            correcta: 1,
+            explicacionId: "1080402007"
+          },
+          {
+            id: "1080401001",
+            pregunta: "¿Qué es la interoperabilidad según el ENI?",
+            opciones: [
+              "La capacidad de los sistemas de información de funcionar de manera aislada",
+              "La capacidad de los sistemas de información y procedimientos de compartir datos e intercambiar información y conocimiento entre ellos",
+              "La capacidad de los sistemas de información de resistir ataques cibernéticos",
+              "La capacidad de los sistemas de información de operar sin conexión a internet"
+            ],
+            correcta: 1,
+            explicacionId: "1080401001"
+          },
+          {
+            id: "1080401002",
+            pregunta: "¿Cuál es la finalidad del Esquema Nacional de Interoperabilidad (ENI)?",
+            opciones: [
+              "Garantizar la seguridad de los sistemas informáticos de las AAPP",
+              "Crear condiciones para garantizar el adecuado nivel de interoperabilidad técnica, semántica y organizativa de los sistemas y aplicaciones empleados por las AAPP",
+              "Establecer un sistema único de software para todas las AAPP",
+              "Promover el uso de software propietario en las AAPP"
+            ],
+            correcta: 1,
+            explicacionId: "1080401004"
+          },
+          {
+            id: "1080401003",
+            pregunta: "¿Qué norma crea el Esquema Nacional de Interoperabilidad?",
+            opciones: [
+              "Ley 11/2007, de 22 de junio",
+              "RD 4/2010",
+              "Ley 40/2015",
+              "RD 203/2021"
+            ],
+            correcta: 0,
+            explicacionId: "1080401003"
+          },
+          {
+            id: "1080401004",
+            pregunta: "¿Qué comprende el ENI según su definición?",
+            opciones: [
+              "Solo criterios de seguridad",
+              "Criterios y recomendaciones de seguridad, normalización y conservación de la información, formatos y aplicaciones",
+              "Únicamente recomendaciones sobre formatos de archivos",
+              "Exclusivamente normas sobre conservación de datos"
+            ],
+            correcta: 1,
+            explicacionId: "1080401009"
+          },
+          {
+            id: "1080401005",
+            pregunta: "¿Qué entidades están incluidas en el ámbito de aplicación del ENI?",
+            opciones: [
+              "Solo la Administración General del Estado",
+              "AGE, Administraciones de las CCAA y Entidades de la Administración Local",
+              "Únicamente las entidades privadas que trabajan con la administración",
+              "Solamente los ciudadanos en sus relaciones entre sí"
+            ],
+            correcta: 1,
+            explicacionId: "1080401011"
+          },
+          {
+            id: "1080401006",
+            pregunta: "¿Qué sistemas están exentos del ámbito de aplicación del ENI?",
+            opciones: [
+              "Todos los sistemas de las AAPP",
+              "Los sistemas que tratan información clasificada regulada por la Ley de Secretos Oficiales",
+              "Los sistemas de las entidades locales",
+              "Los sistemas de atención al ciudadano"
+            ],
+            correcta: 1,
+            explicacionId: "1080401016"
+          },
+          {
+            id: "1080401007",
+            pregunta: "¿Qué principio se garantiza con la adaptabilidad al progreso de las tecnologías de la información y las comunicaciones?",
+            opciones: [
+              "Principio de eficiencia administrativa",
+              "Principio de neutralidad tecnológica",
+              "Principio de transparencia",
+              "Principio de economía procesal"
+            ],
+            correcta: 1,
+            explicacionId: "1080401002"
+          },
+          {
+            id: "1080401008",
+            pregunta: "¿Qué tipo de interoperabilidad busca garantizar el ENI?",
+            opciones: [
+              "Solo interoperabilidad técnica",
+              "Interoperabilidad técnica, semántica y organizativa",
+              "Únicamente interoperabilidad semántica",
+              "Solamente interoperabilidad organizativa"
+            ],
+            correcta: 1,
+            explicacionId: "1080401004"
+          },
+          {
+            id: "1080401009",
+            pregunta: "¿Qué ley reconoce el protagonismo de la interoperabilidad en el ámbito de las AAPP?",
+            opciones: [
+              "Ley 40/2015",
+              "RD 4/2010",
+              "Ley 11/2007",
+              "RD 203/2021"
+            ],
+            correcta: 2,
+            explicacionId: "1080401003"
+          },
+          {
+            id: "1080401010",
+            pregunta: "¿Qué actividades de las AAPP están exentas del ámbito de aplicación del ENI?",
+            opciones: [
+              "Todas las actividades de las AAPP",
+              "Las actividades que desarrollen en régimen de derecho público",
+              "Las actividades que desarrollen en régimen de derecho privado",
+              "Ninguna actividad está exenta"
+            ],
+            correcta: 2,
+            explicacionId: "1080401015"
+          },
+          {
+            id: "1080308001",
+            pregunta: "¿Qué es un activo según el ENS?",
+            opciones: [
+              "Un componente físico del sistema de información",
+              "Un componente o funcionalidad del sistema de información susceptible de ser atacado deliberada o accidentalmente con consecuencias para la organización",
+              "Un software de seguridad",
+              "Un documento de políticas de seguridad"
+            ],
+            correcta: 1,
+            explicacionId: "1080308002"
+          },
+          {
+            id: "1080308002",
+            pregunta: "¿Qué es el análisis de riesgos en el contexto del ENS?",
+            opciones: [
+              "Un estudio financiero de la organización",
+              "Un estudio de las consecuencias previsibles de un posible incidente de seguridad",
+              "Un análisis de la competencia en el mercado",
+              "Un informe sobre el rendimiento del personal"
+            ],
+            correcta: 1,
+            explicacionId: "1080308003"
+          },
+          {
+            id: "1080308003",
+            pregunta: "¿Qué es la autenticación multifactor?",
+            opciones: [
+              "Un tipo de contraseña compleja",
+              "La exigencia de dos o más factores de autenticación para ratificar una autenticación como válida",
+              "Un sistema de reconocimiento facial",
+              "Un método de encriptación de datos"
+            ],
+            correcta: 1,
+            explicacionId: "1080308008"
+          },
+          {
+            id: "1080308004",
+            pregunta: "¿Qué es el ciberespacio según la definición del ENS?",
+            opciones: [
+              "Un juego de realidad virtual",
+              "Una red social en línea",
+              "Un dominio global y dinámico compuesto por infraestructuras de tecnología de la información",
+              "Un software de seguridad informática"
+            ],
+            correcta: 2,
+            explicacionId: "1080308015"
+          },
+          {
+            id: "1080308005",
+            pregunta: "¿Qué es la confidencialidad en el contexto del ENS?",
+            opciones: [
+              "La capacidad de un sistema para resistir ataques",
+              "La propiedad de que la información no se revela a individuos, entidades o procesos no autorizados",
+              "La capacidad de rastrear las acciones de un usuario en el sistema",
+              "La garantía de que el sistema estará siempre disponible"
+            ],
+            correcta: 1,
+            explicacionId: "1080308019"
+          },
+          {
+            id: "1080308006",
+            pregunta: "¿Qué es el principio de mínimo privilegio?",
+            opciones: [
+              "Otorgar todos los permisos posibles a los usuarios",
+              "Restringir el acceso a todos los usuarios por igual",
+              "Garantizar que el diseño de la arquitectura de seguridad de un sistema use los servicios y permisos mínimos necesarios para su correcto funcionamiento",
+              "Permitir que cada usuario defina sus propios privilegios"
+            ],
+            correcta: 2,
+            explicacionId: "1080308034"
+          },
+          {
+            id: "1080308007",
+            pregunta: "¿Qué es TEMPEST en el contexto del ENS?",
+            opciones: [
+              "Un tipo de virus informático",
+              "Un protocolo de seguridad en redes",
+              "Investigaciones y estudios de emanaciones comprometedoras y medidas de protección contra ellas",
+              "Un software de monitorización de redes"
+            ],
+            correcta: 2,
+            explicacionId: "1080308046"
+          },
+          {
+            id: "1080308008",
+            pregunta: "¿Qué es la trazabilidad según el ENS?",
+            opciones: [
+              "La capacidad de rastrear productos físicos",
+              "La propiedad de que las actuaciones de una entidad pueden ser trazadas de forma indiscutible hasta dicha entidad",
+              "Un método de encriptación de datos",
+              "La habilidad de un sistema para recuperarse de fallos"
+            ],
+            correcta: 1,
+            explicacionId: "1080308047"
+          },
+          {
+            id: "1080308009",
+            pregunta: "¿Qué es un ciberincidente según el ENS?",
+            opciones: [
+              "Una actualización de software",
+              "Un ataque físico a un centro de datos",
+              "Un incidente relacionado con la seguridad de las tecnologías de la información y las comunicaciones que se produce en el ciberespacio",
+              "Una falla en el suministro eléctrico"
+            ],
+            correcta: 2,
+            explicacionId: "1080308016"
+          },
+          {
+            id: "1080308010",
+            pregunta: "¿Qué es la gestión de riesgos según el ENS?",
+            opciones: [
+              "El proceso de compra de seguros para la empresa",
+              "La planificación financiera de la organización",
+              "Actividades coordinadas para dirigir y controlar a una organización con respecto a los riesgos",
+              "El proceso de contratación de personal de seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080308029"
+          },
+          {
+            id: "1080307001",
+            pregunta: "¿A qué deben ser proporcionales las medidas de seguridad según el Anexo II del ENS?",
+            opciones: [
+              "Solo a las dimensiones de seguridad relevantes en el sistema a proteger",
+              "Solo a la categoría del sistema de información a proteger",
+              "A las dimensiones de seguridad relevantes y a la categoría del sistema de información",
+              "Al presupuesto disponible para seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080307001"
+          },
+          {
+            id: "1080307002",
+            pregunta: "¿Cuáles son los tres grupos en los que se dividen las medidas de seguridad?",
+            opciones: [
+              "Técnico, Jurídico y Organizativo",
+              "Marco organizativo, Marco operacional y Medidas de protección",
+              "Prevención, Detección y Respuesta",
+              "Confidencialidad, Integridad y Disponibilidad"
+            ],
+            correcta: 1,
+            explicacionId: "1080307004"
+          },
+          {
+            id: "1080307003",
+            pregunta: "¿Qué documento formaliza la relación de medidas de seguridad seleccionadas?",
+            opciones: [
+              "Política de Seguridad",
+              "Análisis de Riesgos",
+              "Declaración de Aplicabilidad",
+              "Plan de Seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080307015"
+          },
+          {
+            id: "1080307004",
+            pregunta: "¿Qué significa 'n.a.' en la tabla de correspondencia entre niveles de seguridad y medidas de seguridad?",
+            opciones: [
+              "Nueva Aplicación",
+              "No Aplica",
+              "Nivel Alto",
+              "Necesita Autorización"
+            ],
+            correcta: 1,
+            explicacionId: "1080307021"
+          },
+          {
+            id: "1080307005",
+            pregunta: "¿Qué indican los refuerzos de seguridad (R) en la tabla?",
+            opciones: [
+              "Requisitos opcionales",
+              "Recomendaciones adicionales",
+              "Una mayor exigencia que se suma a los requisitos base",
+              "Riesgos potenciales"
+            ],
+            correcta: 2,
+            explicacionId: "1080307022"
+          },
+          {
+            id: "1080307006",
+            pregunta: "¿Qué color se usa para indicar medidas que se aplican en sistemas de categoría BÁSICA o superior?",
+            opciones: [
+              "Rojo",
+              "Amarillo",
+              "Verde",
+              "Azul"
+            ],
+            correcta: 2,
+            explicacionId: "1080307024"
+          },
+          {
+            id: "1080307007",
+            pregunta: "¿Qué organismo puede establecer perfiles de cumplimiento específicos para entidades o sectores concretos?",
+            opciones: [
+              "La SGAD",
+              "El CCN a través de las guías CCN-STIC",
+              "El Ministerio del Interior",
+              "La Agencia Española de Protección de Datos"
+            ],
+            correcta: 1,
+            explicacionId: "1080307016"
+          },
+          {
+            id: "1080307008",
+            pregunta: "¿Qué se debe hacer cuando existen subsistemas que requieren un nivel de medidas de seguridad diferente al del sistema principal?",
+            opciones: [
+              "Aplicar siempre el nivel más alto a todo el sistema",
+              "Ignorar las diferencias y aplicar un nivel medio",
+              "Segregar los subsistemas y aplicar el nivel correspondiente a cada uno",
+              "Consultar siempre con el CCN antes de tomar una decisión"
+            ],
+            correcta: 2,
+            explicacionId: "1080307014"
+          },
+          {
+            id: "1080307009",
+            pregunta: "¿Cuál es el primer paso para la selección de las medidas de seguridad?",
+            opciones: [
+              "Determinación de la categoría del sistema",
+              "Identificación de los tipos de activos presentes",
+              "Selección de las medidas de seguridad",
+              "Determinación de las dimensiones de seguridad relevantes"
+            ],
+            correcta: 1,
+            explicacionId: "1080307009"
+          },
+          {
+            id: "1080307010",
+            pregunta: "¿Qué indica el color rojo en la tabla de medidas de seguridad?",
+            opciones: [
+              "Medidas que se aplican en sistemas de categoría BÁSICA",
+              "Medidas que empiezan a aplicar en categoría MEDIA",
+              "Medidas solo de aplicación en categoría ALTA o que requieren un esfuerzo superior al de categoría MEDIA",
+              "Medidas opcionales para todas las categorías"
+            ],
+            correcta: 2,
+            explicacionId: "1080307024"
+          },
+          {
+            id: "1080306001",
+            pregunta: "¿Qué organismos son responsables de desarrollar programas de sensibilización, concienciación y formación sobre el ENS?",
+            opciones: [
+              "La SGAD y el INAP",
+              "El CCN y el INAP",
+              "El Ministerio del Interior y el CCN",
+              "La CSAE y la Secretaría de Estado de Digitalización"
+            ],
+            correcta: 1,
+            explicacionId: "1080306001"
+          },
+          {
+            id: "1080306002",
+            pregunta: "¿Quién aprueba las instrucciones técnicas de seguridad de obligado cumplimiento del ENS?",
+            opciones: [
+              "El CCN",
+              "La CSAE",
+              "La Secretaría de Estado de Digitalización e Inteligencia Artificial",
+              "El INAP"
+            ],
+            correcta: 2,
+            explicacionId: "1080306002"
+          },
+          {
+            id: "1080306003",
+            pregunta: "¿Cuánto tiempo tienen los sistemas de información preexistentes para alcanzar su plena adecuación al ENS?",
+            opciones: [
+              "12 meses",
+              "18 meses",
+              "24 meses",
+              "36 meses"
+            ],
+            correcta: 2,
+            explicacionId: "1080306004"
+          },
+          {
+            id: "1080306004",
+            pregunta: "¿Quién es responsable de efectuar las valoraciones y modificaciones posteriores en la categorización de los sistemas de información?",
+            opciones: [
+              "El CCN",
+              "El responsable de cada información o servicio",
+              "La CSAE",
+              "El responsable de seguridad"
+            ],
+            correcta: 1,
+            explicacionId: "1080306008"
+          },
+          {
+            id: "1080306005",
+            pregunta: "¿Cuáles son las dimensiones de seguridad que se consideran al determinar el impacto de un incidente?",
+            opciones: [
+              "Autenticidad, Confidencialidad, Integridad, Disponibilidad, Trazabilidad",
+              "Autenticidad, Confidencialidad, Integridad, Disponibilidad, Resiliencia",
+              "Autenticidad, Confidencialidad, Integridad, Escalabilidad, Trazabilidad",
+              "Autenticidad, Consistencia, Integridad, Disponibilidad, Trazabilidad"
+            ],
+            correcta: 0,
+            explicacionId: "1080306015"
+          },
+          {
+            id: "1080306006",
+            pregunta: "¿Cuáles son los niveles de impacto que se pueden asignar a cada dimensión de seguridad?",
+            opciones: [
+              "Mínimo, Medio, Máximo",
+              "Bajo, Medio, Alto",
+              "Pequeño, Mediano, Grande",
+              "Leve, Moderado, Severo"
+            ],
+            correcta: 1,
+            explicacionId: "1080306016"
+          },
+          {
+            id: "1080306007",
+            pregunta: "¿Qué categoría se asigna a un sistema de información si alguna de sus dimensiones de seguridad alcanza el nivel ALTO?",
+            opciones: [
+              "BÁSICA",
+              "MEDIA",
+              "ALTA",
+              "CRÍTICA"
+            ],
+            correcta: 2,
+            explicacionId: "1080306022"
+          },
+          {
+            id: "1080306008",
+            pregunta: "¿Con qué frecuencia debe re-evaluarse la categoría de seguridad de los sistemas de información?",
+            opciones: [
+              "Mensualmente",
+              "Trimestralmente",
+              "Semestralmente",
+              "Anualmente o cuando haya modificaciones significativas"
+            ],
+            correcta: 3,
+            explicacionId: "1080306014"
+          },
+          {
+            id: "1080306009",
+            pregunta: "¿Qué documento del CCN precisa los criterios para una adecuada categorización de seguridad de los sistemas de información?",
+            opciones: [
+              "Las guías CCN-STIC",
+              "El Esquema Nacional de Interoperabilidad",
+              "El Real Decreto 3/2010",
+              "La Instrucción Técnica de Seguridad"
+            ],
+            correcta: 0,
+            explicacionId: "1080306026"
+          },
+          {
+            id: "1080306010",
+            pregunta: "¿Qué se aplica según la categoría del sistema de información?",
+            opciones: [
+              "Los programas de formación",
+              "Las medidas de seguridad del anexo II",
+              "Los criterios de valoración",
+              "Los distintivos de conformidad"
+            ],
+            correcta: 1,
+            explicacionId: "1080306025"
+          },
+          {
+            id: "1080305001",
+            pregunta: "¿Qué organismo es competente para garantizar la interoperabilidad en materia de ciberseguridad y criptografía en relación con el ENI?",
+            opciones: [
+              "La SGAD",
+              "El CCN",
+              "El INCIBE",
+              "El Ministerio del Interior"
+            ],
+            correcta: 1,
+            explicacionId: "1080305001"
+          },
+          {
+            id: "1080305002",
+            pregunta: "¿Dónde se deben incluir las especificaciones de seguridad según las normas de conformidad?",
+            opciones: [
+              "Solo en la fase de diseño de los sistemas",
+              "Únicamente en la fase de implementación",
+              "En el ciclo de vida de los servicios y sistemas",
+              "Exclusivamente en la fase de mantenimiento"
+            ],
+            correcta: 2,
+            explicacionId: "1080305002"
+          },
+          {
+            id: "1080305003",
+            pregunta: "¿Quién establece los mecanismos de control para garantizar el ENS?",
+            opciones: [
+              "El CCN",
+              "La SGAD",
+              "Cada órgano titular de los sistemas de información",
+              "El Ministerio de Administraciones Públicas"
+            ],
+            correcta: 2,
+            explicacionId: "1080305003"
+          },
+          {
+            id: "1080305004",
+            pregunta: "¿Qué proceso se requiere para determinar la conformidad con el ENS en sistemas de categoría MEDIA o ALTA?",
+            opciones: [
+              "Una autoevaluación",
+              "Una auditoría para la certificación",
+              "Una revisión interna",
+              "Un informe del responsable de seguridad"
+            ],
+            correcta: 1,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080305005",
+            pregunta: "Para los sistemas de categoría BÁSICA, ¿qué se requiere para la declaración de conformidad con el ENS?",
+            opciones: [
+              "Una auditoría externa",
+              "Una certificación del CCN",
+              "Una autoevaluación",
+              "Un informe del Comité de Seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080305006",
+            pregunta: "¿Dónde deben publicarse las declaraciones y certificaciones de conformidad con el ENS?",
+            opciones: [
+              "En el Boletín Oficial del Estado",
+              "En los portales de internet o sedes electrónicas correspondientes",
+              "En la intranet de la organización",
+              "En el registro del CCN"
+            ],
+            correcta: 1,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080305007",
+            pregunta: "¿Qué normativa rige la seguridad de los sistemas de información que sustentan la administración digital?",
+            opciones: [
+              "La Ley de Procedimiento Administrativo Común",
+              "El Esquema Nacional de Interoperabilidad",
+              "El Real Decreto que establece el ENS",
+              "La Ley de Servicios de la Sociedad de la Información"
+            ],
+            correcta: 2,
+            explicacionId: "1080305001"
+          },
+          {
+            id: "1080305008",
+            pregunta: "¿Según qué artículo y anexo se realizarán los procedimientos de autoevaluación y auditoría de certificación?",
+            opciones: [
+              "Artículo 30 y Anexo II",
+              "Artículo 31 y Anexo III",
+              "Artículo 32 y Anexo IV",
+              "Artículo 33 y Anexo V"
+            ],
+            correcta: 1,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080305009",
+            pregunta: "¿Qué documento adicional guía los procedimientos de autoevaluación y auditoría de certificación?",
+            opciones: [
+              "El Manual de Usuario del ENS",
+              "La Guía de Seguridad de las TIC",
+              "La correspondiente Instrucción Técnica de Seguridad",
+              "El Plan Director de Seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080305010",
+            pregunta: "¿Pueden los sistemas de categoría BÁSICA someterse a una auditoría de certificación?",
+            opciones: [
+              "No, solo requieren autoevaluación",
+              "Sí, es obligatorio",
+              "Sí, aunque no es obligatorio",
+              "Solo si lo ordena el CCN"
+            ],
+            correcta: 2,
+            explicacionId: "1080305004"
+          },
+          {
+            id: "1080304001",
+            pregunta: "¿Con qué frecuencia deben realizarse las auditorías regulares ordinarias de los sistemas de información según el ENS?",
+            opciones: [
+              "Cada año",
+              "Al menos cada dos años",
+              "Cada tres años",
+              "Cada cinco años"
+            ],
+            correcta: 1,
+            explicacionId: "1080304001"
+          },
+          {
+            id: "1080304002",
+            pregunta: "¿En qué circunstancias se debe realizar una auditoría extraordinaria?",
+            opciones: [
+              "Cuando cambie el responsable de seguridad",
+              "Anualmente",
+              "Cuando se produzcan modificaciones sustanciales en el sistema de información",
+              "Cada vez que se actualice el software"
+            ],
+            correcta: 2,
+            explicacionId: "1080304002"
+          },
+          {
+            id: "1080304003",
+            pregunta: "¿Qué tipo de auditoría se requiere para sistemas de categoría Media o Alta?",
+            opciones: [
+              "Autoevaluación",
+              "Auditoría parcial",
+              "Auditoría completa",
+              "No se requiere auditoría"
+            ],
+            correcta: 2,
+            explicacionId: "1080304006"
+          },
+          {
+            id: "1080304004",
+            pregunta: "¿Quién analiza los informes de auditoría en sistemas de categoría Básica?",
+            opciones: [
+              "El responsable del sistema",
+              "El responsable de seguridad",
+              "El auditor externo",
+              "El Comité de Seguridad"
+            ],
+            correcta: 1,
+            explicacionId: "1080304005"
+          },
+          {
+            id: "1080304005",
+            pregunta: "¿Qué acción puede tomar el responsable del sistema para categoría ALTA tras ver el dictamen de auditoría?",
+            opciones: [
+              "Ignorar el informe",
+              "Suspender temporalmente el tratamiento de informaciones o servicios",
+              "Cambiar la categoría del sistema a Media",
+              "Realizar una nueva auditoría inmediatamente"
+            ],
+            correcta: 1,
+            explicacionId: "1080304007"
+          },
+          {
+            id: "1080304006",
+            pregunta: "¿Qué organismo articula la respuesta a los incidentes de seguridad según el ENS?",
+            opciones: [
+              "INCIBE",
+              "CCN-CERT",
+              "CSAE",
+              "SGAD"
+            ],
+            correcta: 1,
+            explicacionId: "1080304027"
+          },
+          {
+            id: "1080304007",
+            pregunta: "¿A quién deben notificar las entidades del sector público los incidentes con impacto significativo?",
+            opciones: [
+              "Al Ministerio del Interior",
+              "Al CCN",
+              "A la SGAD",
+              "Al INCIBE-CERT"
+            ],
+            correcta: 1,
+            explicacionId: "1080304028"
+          },
+          {
+            id: "1080304008",
+            pregunta: "¿Qué organismo determina el riesgo de reconexión del sistema tras un incidente de seguridad?",
+            opciones: [
+              "SGAD",
+              "CCN-CERT",
+              "INCIBE",
+              "CSAE"
+            ],
+            correcta: 1,
+            explicacionId: "1080304032"
+          },
+          {
+            id: "1080304009",
+            pregunta: "¿Qué entidad autoriza la reconexión a los medios y servicios comunes tras un incidente de seguridad?",
+            opciones: [
+              "CCN",
+              "SGAD",
+              "INCIBE",
+              "Ministerio del Interior"
+            ],
+            correcta: 1,
+            explicacionId: "1080304033"
+          },
+          {
+            id: "1080304010",
+            pregunta: "¿Cuál de los siguientes NO es un servicio que el CCN-CERT presta a las AAPP?",
+            opciones: [
+              "Soporte y coordinación para el tratamiento de vulnerabilidades",
+              "Investigación y divulgación de mejores prácticas sobre seguridad",
+              "Formación destinada al personal del sector público",
+              "Desarrollo de software de seguridad personalizado"
+            ],
+            correcta: 3,
+            explicacionId: "1080304036"
+          },
+          {
+            id: "1080303001",
+            pregunta: "¿Qué es la política de seguridad de la información según el ENS?",
+            opciones: [
+              "Un conjunto de reglas técnicas para proteger los sistemas informáticos",
+              "Un documento que solo describe los riesgos de seguridad",
+              "El conjunto de directrices que rigen cómo una organización gestiona y protege la información y los servicios",
+              "Un manual de instrucciones para el uso de software de seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080303001"
+          },
+          {
+            id: "1080303002",
+            pregunta: "¿Cuál de los siguientes NO es un elemento mínimo que debe incluir la política de seguridad?",
+            opciones: [
+              "Los objetivos o misión de la organización",
+              "El marco regulatorio en el que se desarrollarán las actividades",
+              "Los roles o funciones de seguridad",
+              "El presupuesto anual para seguridad informática"
+            ],
+            correcta: 3,
+            explicacionId: "1080303002"
+          },
+          {
+            id: "1080303003",
+            pregunta: "En la Administración General del Estado (AGE), ¿quién aprueba la política de seguridad de cada ministerio?",
+            opciones: [
+              "El Consejo de Ministros",
+              "La persona titular del Departamento",
+              "El responsable de seguridad",
+              "La SGAD del MAETD"
+            ],
+            correcta: 1,
+            explicacionId: "1080303009"
+          },
+          {
+            id: "1080303004",
+            pregunta: "¿Qué principio se aplica en el diseño y configuración de los sistemas según el ENS?",
+            opciones: [
+              "Máximo privilegio",
+              "Privilegio medio",
+              "Mínimo privilegio",
+              "Privilegio adaptativo"
+            ],
+            correcta: 2,
+            explicacionId: "1080303042"
+          },
+          {
+            id: "1080303005",
+            pregunta: "¿Qué documento formaliza la relación de medidas de seguridad seleccionadas del Anexo II?",
+            opciones: [
+              "Plan de Seguridad",
+              "Informe de Riesgos",
+              "Declaración de Aplicabilidad",
+              "Memoria Anual de Seguridad"
+            ],
+            correcta: 2,
+            explicacionId: "1080303062"
+          },
+          {
+            id: "1080303006",
+            pregunta: "¿Qué organismo valida y publica los perfiles de cumplimiento específicos y los esquemas de acreditación?",
+            opciones: [
+              "La SGAD del MAETD",
+              "El Consejo de Ministros",
+              "El CCN",
+              "La Agencia Española de Protección de Datos"
+            ],
+            correcta: 2,
+            explicacionId: "1080303068"
+          },
+          {
+            id: "1080303007",
+            pregunta: "¿Qué aspecto se debe tener en cuenta para el cumplimiento de los requisitos mínimos según el artículo 28?",
+            opciones: [
+              "El presupuesto disponible para seguridad",
+              "La antigüedad de los sistemas de información",
+              "La categoría del sistema",
+              "El número de empleados de la organización"
+            ],
+            correcta: 2,
+            explicacionId: "1080303059"
+          },
+          {
+            id: "1080303008",
+            pregunta: "¿Qué característica define el principio de 'mejora continua del proceso de seguridad'?",
+            opciones: [
+              "Se realiza una única vez al año",
+              "Solo se aplica después de incidentes de seguridad",
+              "El proceso de seguridad debe ser actualizado y mejorado de forma continua",
+              "Se enfoca exclusivamente en la actualización de software"
+            ],
+            correcta: 2,
+            explicacionId: "1080303055"
+          },
+          {
+            id: "1080303009",
+            pregunta: "Según el ENS, ¿cómo debe ser la gestión de riesgos?",
+            opciones: [
+              "Un proceso puntual que se realiza una vez al año",
+              "Una actividad continua y permanentemente actualizada",
+              "Un análisis que solo se realiza en sistemas críticos",
+              "Una tarea exclusiva del departamento de TI"
+            ],
+            correcta: 1,
+            explicacionId: "1080303031"
+          },
+          {
+            id: "1080303010",
+            pregunta: "¿Qué establece el ENS respecto a la protección de la información en soporte no electrónico?",
+            opciones: [
+              "No es necesario protegerla",
+              "Debe ser protegida con un grado menor que la información electrónica",
+              "Debe ser protegida con el mismo grado de seguridad que la información electrónica",
+              "Solo se protege si contiene datos personales"
+            ],
+            correcta: 2,
+            explicacionId: "1080303047"
+          },
           {
             id: "1080302001",
             pregunta: "¿Cuál es el objeto último de la seguridad de la información según el ENS?",
