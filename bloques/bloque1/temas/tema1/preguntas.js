@@ -355,7 +355,7 @@ export const preguntas = {
 "1010201000e": {
     preguntas: [
         {
-            id: "1010201001",
+            id: "1010201004",
             pregunta: "Según el artículo 56.1 de la Constitución Española, ¿cuál es el título del Rey?",
             opciones: [
                 "Rey de la Monarquía Parlamentaria",
@@ -366,7 +366,7 @@ export const preguntas = {
             explicacionId: "1010201004"
         },
         {
-            id: "1010201002",
+            id: "1010201005",
             pregunta: "¿Qué significa la inviolabilidad del Rey?",
             opciones: [
                 "El Rey puede actuar sin refrendo",
@@ -377,7 +377,7 @@ export const preguntas = {
             explicacionId: "1010201005"
         },
         {
-            id: "1010201003",
+            id: "1010201006",
             pregunta: "¿Cuál de los siguientes actos del Rey NO necesita refrendo?",
             opciones: [
                 "El nombramiento del Presidente del Gobierno",
@@ -388,7 +388,7 @@ export const preguntas = {
             explicacionId: "1010201006"
         },
         {
-            id: "1010201004",
+            id: "1010201007",
             pregunta: "¿Quién refrenda el nombramiento del Presidente del Gobierno?",
             opciones: [
                 "El Presidente del Congreso",
@@ -399,7 +399,7 @@ export const preguntas = {
             explicacionId: "1010201007"
         },
         {
-            id: "1010201005",
+            id: "1010201009",
             pregunta: "Según la Constitución, la Reina consorte o el consorte de la Reina...",
             opciones: [
                 "Pueden asumir todas las funciones constitucionales del Rey",

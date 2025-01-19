@@ -260,7 +260,7 @@ export const preguntas = {
             explicacionId: "1020104007"
         },
         {
-            id: "1020104008",
+            id: "1020104002",
             pregunta: "¿Qué función tienen las Cortes Generales en relación con los decretos-leyes?",
             opciones: [
                 "Aprobarlos antes de su promulgación",
@@ -279,10 +279,10 @@ export const preguntas = {
                 "A través de manifestaciones ciudadanas"
             ],
             correcta: 0,
-            explicacionId: "1020104004"
+            explicacionId: "1020104009"
         },
         {
-            id: "1020104010",
+            id: "1020104006",
             pregunta: "¿Quién nombra al Defensor del Pueblo?",
             opciones: [
                 "El Rey",
@@ -451,7 +451,7 @@ export const preguntas = {
             explicacionId: "1020107002"
         },
         {
-            id: "1020107003",
+            id: "1020107002",
             pregunta: "¿Qué órgano debe deliberar antes de que el Presidente del Gobierno proponga la disolución?",
             opciones: [
                 "El Consejo de Ministros",
@@ -462,7 +462,7 @@ export const preguntas = {
             explicacionId: "1020107002"
         },
         {
-            id: "1020107004",
+            id: "1020107002",
             pregunta: "¿Quién decreta oficialmente la disolución de las Cortes Generales?",
             opciones: [
                 "El Presidente del Gobierno",
@@ -473,7 +473,7 @@ export const preguntas = {
             explicacionId: "1020107002"
         },
         {
-            id: "1020107005",
+            id: "1020107002",
             pregunta: "¿Qué debe fijar el decreto de disolución?",
             opciones: [
                 "La fecha de las elecciones",
@@ -484,7 +484,7 @@ export const preguntas = {
             explicacionId: "1020107002"
         },
         {
-            id: "1020107006",
+            id: "1020107003",
             pregunta: "¿En qué situación no se puede presentar una propuesta de disolución?",
             opciones: [
                 "Durante el estado de alarma",
@@ -533,7 +533,7 @@ export const preguntas = {
             explicacionId: "1020108003"
         },
         {
-            id: "1020108004",
+            id: "1020108003",
             pregunta: "¿En qué circunstancia pueden ser detenidos los Diputados y Senadores durante su mandato?",
             opciones: [
                 "En ninguna circunstancia",
@@ -544,7 +544,7 @@ export const preguntas = {
             explicacionId: "1020108003"
         },
         {
-            id: "1020108005",
+            id: "1020108003",
             pregunta: "¿Qué órgano es competente para juzgar a los Diputados y Senadores?",
             opciones: [
                 "El Tribunal Constitucional",
@@ -555,7 +555,7 @@ export const preguntas = {
             explicacionId: "1020108003"
         },
         {
-            id: "1020108006",
+            id: "1020108004",
             pregunta: "¿Quién fija la asignación que perciben los Diputados y Senadores?",
             opciones: [
                 "El Gobierno",
@@ -848,7 +848,7 @@ export const preguntas = {
             explicacionId: "1020205003"
         },
         {
-            id: "1020205004",
+            id: "1020205003",
             pregunta: "¿Quién puede interponer un recurso de inconstitucionalidad?",
             opciones: [
                 "Cualquier ciudadano",
@@ -869,10 +869,10 @@ export const preguntas = {
                 "Cualquier tipo de reglamento"
             ],
             correcta: 2,
-            explicacionId: "1020205003"
+            explicacionId: "1020205005"
         },
         {
-            id: "1020205006",
+            id: "1020205003",
             pregunta: "¿Qué es una cuestión de constitucionalidad?",
             opciones: [
                 "Un recurso interpuesto por los ciudadanos",
@@ -1278,7 +1278,7 @@ export const preguntas = {
             explicacionId: "1020302013"
         },
         {
-            id: "1020302014",
+            id: "1020302006",
             pregunta: "¿Cómo se elige al Defensor del Pueblo?",
             opciones: [
                 "Por designación directa del Rey",
@@ -1290,7 +1290,7 @@ export const preguntas = {
             explicacionId: "1020302006"
         },
         {
-            id: "1020302015",
+            id: "1020302006",
             pregunta: "¿Qué ocurre si no se alcanzan las mayorías necesarias para elegir al Defensor del Pueblo en la primera votación?",
             opciones: [
                 "Se elige automáticamente al candidato propuesto",

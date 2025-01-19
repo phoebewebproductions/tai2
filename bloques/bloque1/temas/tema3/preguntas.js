@@ -211,7 +211,7 @@ export const preguntas = {
             explicacionId: "1030102005"
         },
         {
-            id: "1030102006",
+            id: "1030102005",
             pregunta: "Si no se alcanza la mayoría necesaria en la primera votación, ¿cuándo se realiza la segunda votación?",
             opciones: [
                 "Inmediatamente después",
@@ -259,7 +259,7 @@ export const preguntas = {
             explicacionId: "1030102009"
         },
         {
-            id: "1030102010",
+            id: "1030102009",
             pregunta: "¿Qué ley regula los requisitos de idoneidad para ser miembro del Gobierno?",
             opciones: [
                 "Ley Orgánica del Poder Judicial",
@@ -521,7 +521,7 @@ export const preguntas = {
             explicacionId: "1030104007"
         },
         {
-            id: "1030104008",
+            id: "1030104004",
             pregunta: "¿En qué casos puede el Gobierno en funciones adoptar medidas extraordinarias?",
             opciones: [
                 "En cualquier momento que lo considere necesario",
@@ -533,7 +533,7 @@ export const preguntas = {
             explicacionId: "1030104004"
         },
         {
-            id: "1030104009",
+            id: "1030104005",
             pregunta: "¿Puede el Presidente del Gobierno en funciones plantear una cuestión de confianza?",
             opciones: [
                 "Sí, en cualquier momento",
@@ -545,7 +545,7 @@ export const preguntas = {
             explicacionId: "1030104005"
         },
         {
-            id: "1030104010",
+            id: "1030104006",
             pregunta: "¿Puede el Gobierno en funciones presentar proyectos de ley al Congreso o al Senado?",
             opciones: [
                 "Sí, sin restricciones",
@@ -670,7 +670,7 @@ export const preguntas = {
             explicacionId: "1030105009"
         },
         {
-            id: "1030105010",
+            id: "1030105009",
             pregunta: "¿Cómo deben indicar las disposiciones y resoluciones su relación con el dictamen del Consejo de Estado?",
             opciones: [
                 "No es necesario indicarlo",
@@ -783,7 +783,7 @@ export const preguntas = {
             explicacionId: "1030201008"
         },
         {
-            id: "1030201009",
+            id: "1030201007",
             pregunta: "¿Qué carácter tienen las conclusiones de las Comisiones de Investigación parlamentarias?",
             opciones: [
                 "Son vinculantes para los tribunales",
@@ -795,7 +795,7 @@ export const preguntas = {
             explicacionId: "1030201007"
         },
         {
-            id: "1030201010",
+            id: "1030201002",
             pregunta: "¿Ante quién responde solidariamente el Gobierno en su gestión política?",
             opciones: [
                 "Ante el Rey",
@@ -836,7 +836,7 @@ export const preguntas = {
             explicacionId: "1030202002"
         },
         {
-            id: "1030202003",
+            id: "1030202002",
             pregunta: "¿Qué mayoría se requiere para que se entienda otorgada la confianza en una cuestión de confianza?",
             opciones: [
                 "Mayoría absoluta",
@@ -848,7 +848,7 @@ export const preguntas = {
             explicacionId: "1030202002"
         },
         {
-            id: "1030202004",
+            id: "1030202003",
             pregunta: "Si el Congreso niega su confianza al Gobierno en una cuestión de confianza, ¿qué ocurre según el artículo 114.1 CE?",
             opciones: [
                 "Se convocan nuevas elecciones automáticamente",
@@ -884,7 +884,7 @@ export const preguntas = {
             explicacionId: "1030202006"
         },
         {
-            id: "1030202007",
+            id: "1030202006",
             pregunta: "¿Qué característica especial debe incluir una moción de censura en España?",
             opciones: [
                 "Una lista completa de nuevos ministros",
@@ -896,7 +896,7 @@ export const preguntas = {
             explicacionId: "1030202006"
         },
         {
-            id: "1030202008",
+            id: "1030202007",
             pregunta: "¿Cuánto tiempo debe transcurrir como mínimo desde la presentación de una moción de censura hasta su votación?",
             opciones: [
                 "24 horas",
@@ -908,7 +908,7 @@ export const preguntas = {
             explicacionId: "1030202007"
         },
         {
-            id: "1030202009",
+            id: "1030202008",
             pregunta: "Si una moción de censura no es aprobada, ¿qué restricción se impone a sus signatarios?",
             opciones: [
                 "No pueden presentar otra durante el mismo periodo de sesiones",
@@ -920,7 +920,7 @@ export const preguntas = {
             explicacionId: "1030202008"
         },
         {
-            id: "1030202010",
+            id: "1030202009",
             pregunta: "Según el artículo 114.2 CE, si se aprueba una moción de censura, ¿qué ocurre con el candidato propuesto en ella?",
             opciones: [
                 "Debe someterse a una nueva votación de investidura",
