@@ -286,9 +286,9 @@ export class ExamenManager {
         }
     }
     setupCloseButton() {
-        const btncerrar = document.querySelector(".cerrar");
-        if (btncerrar) {
-          btncerrar.addEventListener("click", () => {
+        const btncerrare = document.querySelector(".cerrar");
+        if (btncerrare) {
+          btncerrare.addEventListener("click", () => {
             this.finalizarExamen();
           });
         } else {
@@ -347,9 +347,7 @@ export class ExamenManager {
         this.opcionesContenedor.appendChild(botonesContenedor);
 
         const closeButton = this.modalExamen.querySelector('.cerrar');
-        if (closeButton) {
-            closeButton.remove();
-        }
+ 
     }
 
     crearBoton(texto, clase, onClick) {
@@ -366,6 +364,7 @@ export class ExamenManager {
         ocultarModal(this.modalExamen);
         if (aprobado) {
             this.actualizarProgreso();
+            this.mostrarConfeti();
         }
     }
 

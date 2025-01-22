@@ -136,7 +136,7 @@ export const preguntas = {
                 "Elimina los permisos por nacimiento"
             ],
             correcta: 2,
-            explicacionId: "1050102002"
+            explicacionId: "1050102001"
         },
         {
             id: "1050102002",
@@ -148,7 +148,7 @@ export const preguntas = {
                 "Establecer cuotas de género en las empresas"
             ],
             correcta: 1,
-            explicacionId: "1050102003"
+            explicacionId: "1050102002"
         },
         {
             id: "1050102003",
@@ -160,7 +160,7 @@ export const preguntas = {
                 "Solo las empresas públicas"
             ],
             correcta: 2,
-            explicacionId: "1050102004"
+            explicacionId: "1050102003"
         },
         {
             id: "1050102004",
@@ -172,7 +172,7 @@ export const preguntas = {
                 "La violencia económica"
             ],
             correcta: 2,
-            explicacionId: "1050102005"
+            explicacionId: "1050102004"
         },
         {
             id: "1050102005",
@@ -184,7 +184,7 @@ export const preguntas = {
                 "Ley de Paridad"
             ],
             correcta: 1,
-            explicacionId: "1050102006"
+            explicacionId: "1050102005"
         },
         {
             id: "1050102006",
@@ -196,7 +196,7 @@ export const preguntas = {
                 "Exclusivamente la situación socioeconómica"
             ],
             correcta: 2,
-            explicacionId: "1050102008"
+            explicacionId: "1050102006"
         },
         {
             id: "1050102007",
@@ -208,7 +208,7 @@ export const preguntas = {
                 "No introduce nuevos tipos de discriminación"
             ],
             correcta: 2,
-            explicacionId: "1050102009"
+            explicacionId: "1050102007"
         },
         {
             id: "1050102008",
@@ -220,7 +220,7 @@ export const preguntas = {
                 "Crear un registro nacional de personas LGTBI"
             ],
             correcta: 1,
-            explicacionId: "1050102010"
+            explicacionId: "1050102008"
         },
         {
             id: "1050102009",
@@ -232,10 +232,10 @@ export const preguntas = {
                 "Establecimiento de un salario máximo"
             ],
             correcta: 1,
-            explicacionId: "1050102003"
+            explicacionId: "1050102009"
         },
         {
-            id: "1050102010",
+            id: "1050102007",
             pregunta: "Según la Ley 15/2022, ¿en qué ámbitos se busca prevenir y erradicar la discriminación?",
             opciones: [
                 "Solo en el ámbito laboral",
@@ -288,7 +288,7 @@ export const preguntas = {
             explicacionId: "1050103003"
         },
         {
-            id: "1050103004",
+            id: "1050103006",
             pregunta: "¿Cuál es el ámbito de aplicación del III Plan de Igualdad?",
             opciones: [
                 "Toda la administración pública española",
@@ -300,7 +300,7 @@ export const preguntas = {
             explicacionId: "1050103006"
         },
         {
-            id: "1050103005",
+            id: "1050103007",
             pregunta: "¿Con qué frecuencia se evalúa el Plan de Igualdad?",
             opciones: [
                 "Mensualmente",
@@ -312,7 +312,7 @@ export const preguntas = {
             explicacionId: "1050103007"
         },
         {
-            id: "1050103006",
+            id: "1050103008",
             pregunta: "¿Cuál es el objetivo principal del III Plan de Igualdad de la AGE?",
             opciones: [
                 "Aumentar el número de mujeres en puestos directivos",
@@ -324,7 +324,7 @@ export const preguntas = {
             explicacionId: "1050103008"
         },
         {
-            id: "1050103007",
+            id: "1050103009",
             pregunta: "¿Cuál de las siguientes NO es una de las metas del III Plan de Igualdad?",
             opciones: [
                 "Creación de indicadores de seguimiento y rendimiento",
@@ -336,7 +336,7 @@ export const preguntas = {
             explicacionId: "1050103009"
         },
         {
-            id: "1050103008",
+            id: "1050103012",
             pregunta: "¿Cuántos ejes principales de acción tiene el III Plan de Igualdad de la AGE?",
             opciones: [
                 "Cuatro",
@@ -348,7 +348,7 @@ export const preguntas = {
             explicacionId: "1050103012"
         },
         {
-            id: "1050103009",
+            id: "1050103016",
             pregunta: "¿Qué eje del Plan se refiere específicamente a la violencia contra las mujeres?",
             opciones: [
                 "Eje 3",
@@ -360,7 +360,7 @@ export const preguntas = {
             explicacionId: "1050103016"
         },
         {
-            id: "1050103010",
+            id: "1050103018",
             pregunta: "¿Qué elementos incluye cada eje del Plan?",
             opciones: [
                 "Solo objetivos y medidas",
@@ -485,7 +485,7 @@ export const preguntas = {
             explicacionId: "1050104009"
         },
         {
-            id: "1050104010",
+            id: "1050104009",
             pregunta: "¿Qué porcentaje del PIB representa el presupuesto del actual PEIEMH en comparación con el Plan anterior?",
             opciones: [
                 "0,1% frente a 0,05%",
@@ -574,7 +574,7 @@ export const preguntas = {
             explicacionId: "1050105006"
         },
         {
-            id: "1050105007",
+            id: "1050105004",
             pregunta: "¿Cuál de los siguientes NO es uno de los 4 ejes transversales del Plan?",
             opciones: [
                 "Transición ecológica",
@@ -586,7 +586,7 @@ export const preguntas = {
             explicacionId: "1050105004"
         },
         {
-            id: "1050105008",
+            id: "1050105005",
             pregunta: "¿Qué aspecto específico de la formación se menciona en las medidas específicas del Plan?",
             opciones: [
                 "Formación en tecnologías de la información",
@@ -598,7 +598,7 @@ export const preguntas = {
             explicacionId: "1050105005"
         },
         {
-            id: "1050105009",
+            id: "1050105006",
             pregunta: "¿Cuál es el número total de Medidas en las que se desglosa el plan de recuperación?",
             opciones: [
                 "4",
@@ -610,7 +610,7 @@ export const preguntas = {
             explicacionId: "1050105006"
         },
         {
-            id: "1050105010",
+            id: "1050105005",
             pregunta: "¿Qué significa IMV en el contexto de las medidas específicas del Plan?",
             opciones: [
                 "Índice de Mejora de Vida",
@@ -651,7 +651,7 @@ export const preguntas = {
             explicacionId: "1050106002"
         },
         {
-            id: "1050106003",
+            id: "1050106002",
             pregunta: "¿Cuántas áreas principales de actuación (ODS) tiene la Agenda 2030?",
             opciones: [
                 "10",
@@ -711,7 +711,7 @@ export const preguntas = {
             explicacionId: "1050106007"
         },
         {
-            id: "1050106008",
+            id: "1050106002",
             pregunta: "¿Cuántas metas específicas están asociadas a las áreas principales de la Agenda 2030?",
             opciones: [
                 "17",
@@ -723,7 +723,7 @@ export const preguntas = {
             explicacionId: "1050106002"
         },
         {
-            id: "1050106009",
+            id: "1050106002",
             pregunta: "¿Cuál es el horizonte temporal fijado para alcanzar las metas de la Agenda 2030?",
             opciones: [
                 "2025",
@@ -735,7 +735,7 @@ export const preguntas = {
             explicacionId: "1050106002"
         },
         {
-            id: "1050106010",
+            id: "1050106001",
             pregunta: "¿Cuántos años se establecieron para alcanzar las metas específicas de cada objetivo desde su adopción?",
             opciones: [
                 "10 años",
@@ -764,7 +764,7 @@ export const preguntas = {
             explicacionId: "1050201001"
         },
         {
-            id: "1050201002",
+            id: "1050201001",
             pregunta: "¿Cuál es la ley que materializa la acción normativa dirigida a garantizar el derecho fundamental a la vida y a la integridad física y moral en relación con la violencia de género?",
             opciones: [
                 "Ley Orgánica 1/2004, de 28 de diciembre",
@@ -812,7 +812,7 @@ export const preguntas = {
             explicacionId: "1050201005"
         },
         {
-            id: "1050201006",
+            id: "1050201011",
             pregunta: "¿Qué órgano administrativo se crea para formular las políticas públicas en relación con la violencia de género?",
             opciones: [
                 "El Observatorio Estatal de Violencia sobre la Mujer",
@@ -824,7 +824,7 @@ export const preguntas = {
             explicacionId: "1050201011"
         },
         {
-            id: "1050201007",
+            id: "1050201017",
             pregunta: "¿Cuál es el objetivo principal del 'Plan España te protege contra la violencia machista'?",
             opciones: [
                 "Crear nuevos juzgados especializados",
@@ -836,7 +836,7 @@ export const preguntas = {
             explicacionId: "1050201017"
         },
         {
-            id: "1050201008",
+            id: "1050201021",
             pregunta: "¿Cuántos ejes de trabajo tiene el Pacto de Estado contra la Violencia de Género?",
             opciones: [
                 "5",
@@ -848,7 +848,7 @@ export const preguntas = {
             explicacionId: "1050201021"
         },
         {
-            id: "1050201009",
+            id: "1050201032",
             pregunta: "¿Qué porcentaje de las medidas del Pacto de Estado contra la violencia de género se habían cumplido en 2020?",
             opciones: [
                 "15%",
@@ -860,7 +860,7 @@ export const preguntas = {
             explicacionId: "1050201032"
         },
         {
-            id: "1050201010",
+            id: "1050201038",
             pregunta: "¿Cuál es el objetivo principal del Sistema VioGén?",
             opciones: [
                 "Proporcionar asistencia jurídica a las víctimas",
@@ -901,7 +901,7 @@ export const preguntas = {
             explicacionId: "1050301002"
         },
         {
-            id: "1050301003",
+            id: "1050301004",
             pregunta: "¿En qué año se aprobó la Convención Internacional sobre los Derechos de las Personas con Discapacidad?",
             opciones: [
                 "2004",
@@ -913,7 +913,7 @@ export const preguntas = {
             explicacionId: "1050301004"
         },
         {
-            id: "1050301004",
+            id: "1050301012",
             pregunta: "¿Cuál es el período de la Estrategia Española sobre Discapacidad?",
             opciones: [
                 "2020-2028",
@@ -925,7 +925,7 @@ export const preguntas = {
             explicacionId: "1050301012"
         },
         {
-            id: "1050301005",
+            id: "1050301010",
             pregunta: "¿Qué tipo de discriminación se da cuando una persona es objeto de trato discriminatorio por su relación con una persona con discapacidad?",
             opciones: [
                 "Discriminación directa",
@@ -937,7 +937,7 @@ export const preguntas = {
             explicacionId: "1050301010"
         },
         {
-            id: "1050301006",
+            id: "1050301013",
             pregunta: "¿Cuál es la función principal de la Oficina de Atención a la Discapacidad (OADIS)?",
             opciones: [
                 "Proporcionar ayudas económicas",
@@ -949,7 +949,7 @@ export const preguntas = {
             explicacionId: "1050301013"
         },
         {
-            id: "1050301007",
+            id: "1050301006",
             pregunta: "¿En qué fecha se modificó el artículo 49 de la Constitución española en relación a las personas con discapacidad?",
             opciones: [
                 "15 de febrero de 2022",
@@ -961,7 +961,7 @@ export const preguntas = {
             explicacionId: "1050301006"
         },
         {
-            id: "1050301008",
+            id: "1050301007",
             pregunta: "¿Qué norma aprueba el Texto Refundido de la Ley general de derechos de las personas con discapacidad y su inclusión social?",
             opciones: [
                 "Ley Orgánica 1/2004",
@@ -973,7 +973,7 @@ export const preguntas = {
             explicacionId: "1050301007"
         },
         {
-            id: "1050301009",
+            id: "1050301012",
             pregunta: "¿Qué enfoque adopta la Estrategia Española sobre Discapacidad 2022-2030?",
             opciones: [
                 "Enfoque únicamente económico",
@@ -985,7 +985,7 @@ export const preguntas = {
             explicacionId: "1050301012"
         },
         {
-            id: "1050301010",
+            id: "1050301009",
             pregunta: "¿Qué tipo de discriminación se produce cuando una disposición legal aparentemente neutra puede ocasionar una desventaja a una persona por razón de su discapacidad?",
             opciones: [
                 "Discriminación directa",
@@ -1038,7 +1038,7 @@ export const preguntas = {
             explicacionId: "1050302003"
         },
         {
-            id: "1050302004",
+            id: "1050302011",
             pregunta: "Según la investigación «La base del Iceberg» del CSIC, ¿qué porcentaje de responsables de hogar dedica al menos cinco horas diarias a cuidar a un familiar enfermo o dependiente?",
             opciones: [
                 "3%",
@@ -1050,7 +1050,7 @@ export const preguntas = {
             explicacionId: "1050302011"
         },
         {
-            id: "1050302005",
+            id: "1050302012",
             pregunta: "¿Cuál de los siguientes NO es uno de los modelos de atención a la dependencia aplicados en Europa?",
             opciones: [
                 "De protección universal para todos los ciudadanos",
@@ -1062,7 +1062,7 @@ export const preguntas = {
             explicacionId: "1050302012"
         },
         {
-            id: "1050302006",
+            id: "1050302016",
             pregunta: "¿Qué ley española regula las condiciones básicas de promoción de la autonomía personal y la atención a las personas en situación de dependencia?",
             opciones: [
                 "Ley 38/2006",
@@ -1074,7 +1074,7 @@ export const preguntas = {
             explicacionId: "1050302016"
         },
         {
-            id: "1050302007",
+            id: "1050302017",
             pregunta: "¿Cuántos grados de dependencia establece la Ley de Dependencia?",
             opciones: [
                 "2",
@@ -1086,7 +1086,7 @@ export const preguntas = {
             explicacionId: "1050302017"
         },
         {
-            id: "1050302008",
+            id: "1050302021",
             pregunta: "¿Cuál de los siguientes NO es un servicio incluido en el Catálogo de Servicios de la Ley de Dependencia?",
             opciones: [
                 "Servicio de Teleasistencia",
@@ -1098,7 +1098,7 @@ export const preguntas = {
             explicacionId: "1050302021"
         },
         {
-            id: "1050302009",
+            id: "1050302031",
             pregunta: "¿Cuál es el principal órgano del Sistema para la Autonomía y la Atención a la Dependencia (SAAD)?",
             opciones: [
                 "El Consejo Nacional de Dependencia",
@@ -1110,7 +1110,7 @@ export const preguntas = {
             explicacionId: "1050302031"
         },
         {
-            id: "1050302010",
+            id: "1050302034",
             pregunta: "¿Qué porcentaje de la población española era mayor de 65 años en 2020?",
             opciones: [
                 "15,58%",

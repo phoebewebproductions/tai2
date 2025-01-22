@@ -4,7 +4,7 @@
   --color-primary: #3b82f6;
   --color-primary-dark: #2563eb;
   --color-secondary: #22c55e;
-  --color-secondary-dark: #16a34a;
+  --color-secondary-dark: #16a34a9f;
   --color-background: #ececea;
   --color-text: #333333;
   --color-text-light: #666666;
@@ -256,7 +256,7 @@ a{
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 0.75rem 0;
+  margin: 0 0;
   width: 100%;
   text-align: left;
   cursor: pointer;
@@ -276,7 +276,7 @@ a{
 }
 
 .punto-btn.completado {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary-dark);
   color: var(--color-white);
 }
 
@@ -298,11 +298,34 @@ a{
   overflow: hidden;
   transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
   opacity: 0;
+  width: 97%;
 }
 
 .punto-contenido:not(.oculto) {
   max-height: fit-content;
   opacity: 1;
+}
+.punto{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.subpunto-btn{
+  height: 100%;
+  
+}
+.punto-contenido.oculto{
+  display: none;
+}
+.puntos-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
@@ -375,10 +398,11 @@ a{
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  font-size: large;
   transition:all ease-in-out 0.3s;
   background-color: var(--color-primary);
   color: var(--color-background);
+  margin: 3%;
 }
 .mini-examen-btn:hover, .volver:hover{
     background-color: var(--color-secondary);
