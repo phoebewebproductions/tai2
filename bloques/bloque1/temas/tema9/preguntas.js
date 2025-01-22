@@ -2,7 +2,7 @@ const preguntas = {
     "1090101000e": {
         preguntas: [
             {
-                id: "1090101002",
+                explicacionId: "1090101002",
                 pregunta: "¿Qué establece y regula la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público?",
                 opciones: [
                     "Solo la organización de la AGE",
@@ -11,10 +11,10 @@ const preguntas = {
                     "Exclusivamente la potestad sancionadora de las AAPP"
                 ],
                 correcta: 1,
-                explicacionId: "1090101002"
+                id: "1090101002"
             },
             {
-                id: "1090101003",
+                explicacionId: "1090101003",
                 pregunta: "¿A qué entidades se aplica la Ley 40/2015?",
                 opciones: [
                     "Solo a la AGE",
@@ -23,10 +23,10 @@ const preguntas = {
                     "Únicamente al sector público institucional"
                 ],
                 correcta: 2,
-                explicacionId: "1090101003"
+                id: "1090101003"
             },
             {
-                id: "1090101004",
+                explicacionId: "1090101004",
                 pregunta: "¿Qué entidades forman parte del sector público institucional según la Ley 40/2015?",
                 opciones: [
                     "Solo las entidades de derecho público",
@@ -35,10 +35,10 @@ const preguntas = {
                     "Solamente las entidades de derecho privado vinculadas a las AAPP"
                 ],
                 correcta: 1,
-                explicacionId: "1090101004"
+                id: "1090101004"
             },
             {
-                id: "1090101006",
+                explicacionId: "1090101006",
                 pregunta: "¿De acuerdo con qué principios actúan las AAPP según la Ley 40/2015?",
                 opciones: [
                     "Eficacia, jerarquía y centralización",
@@ -47,10 +47,10 @@ const preguntas = {
                     "Únicamente eficiencia y economía"
                 ],
                 correcta: 2,
-                explicacionId: "1090101006"
+                id: "1090101006"
             },
             {
-                id: "1090101007",
+                explicacionId: "1090101007",
                 pregunta: "¿Cuál de los siguientes NO es un principio que las AAPP deben respetar en su actuación y relaciones?",
                 opciones: [
                     "Servicio efectivo a los ciudadanos",
@@ -59,10 +59,10 @@ const preguntas = {
                     "Cooperación, colaboración y coordinación entre las AAPP"
                 ],
                 correcta: 2,
-                explicacionId: "1090101007"
+                id: "1090101007"
             },
             {
-                id: "1090101008",
+                explicacionId: "1090101008",
                 pregunta: "Según la Ley 40/2015, ¿cómo se relacionarán las AAPP entre sí y con sus órganos?",
                 opciones: [
                     "Exclusivamente a través de medios tradicionales en papel",
@@ -71,7 +71,7 @@ const preguntas = {
                     "A través de intermediarios designados"
                 ],
                 correcta: 1,
-                explicacionId: "1090101008"
+                id: "1090101008"
             }
         ],
         minimoParaAprobar: 4
@@ -79,7 +79,7 @@ const preguntas = {
     "1090102000": {
         preguntas: [
             {
-                id: "1090102001",
+                explicacionId: "1090102001",
                 pregunta: "¿Cuál es el objeto del RD 203/2021?",
                 opciones: [
                     "Desarrollar únicamente la Ley 39/2015",
@@ -88,10 +88,10 @@ const preguntas = {
                     "Establecer nuevas leyes para el sector público"
                 ],
                 correcta: 2,
-                explicacionId: "1090102001"
+                id: "1090102001"
             },
             {
-                id: "1090102002",
+                explicacionId: "1090102002",
                 pregunta: "¿Dónde se establece el ámbito de aplicación del RD 203/2021?",
                 opciones: [
                     "En el art. 1 de la Ley 39/2015",
@@ -100,10 +100,10 @@ const preguntas = {
                     "En el art. 3 de la Ley 40/2015"
                 ],
                 correcta: 1,
-                explicacionId: "1090102002"
+                id: "1090102002"
             },
             {
-                id: "1090102003",
+                explicacionId: "1090102003",
                 pregunta: "¿En qué deben basarse las actuaciones y relaciones electrónicas del sector público?",
                 opciones: [
                     "En normas internas de cada organismo",
@@ -112,10 +112,10 @@ const preguntas = {
                     "No se establecen bases específicas"
                 ],
                 correcta: 1,
-                explicacionId: "1090102003"
+                id: "1090102003"
             },
             {
-                id: "1090102004",
+                explicacionId: "1090102004",
                 pregunta: "¿Qué garantizan los principios de neutralidad tecnológica y adaptabilidad?",
                 opciones: [
                     "El uso exclusivo de software propietario",
@@ -124,10 +124,10 @@ const preguntas = {
                     "La prohibición de usar estándares abiertos"
                 ],
                 correcta: 1,
-                explicacionId: "1090102004"
+                id: "1090102004"
             },
             {
-                id: "1090102005",
+                explicacionId: "1090102005",
                 pregunta: "¿Qué busca garantizar el principio de accesibilidad?",
                 opciones: [
                     "El acceso exclusivo a funcionarios públicos",
@@ -136,10 +136,10 @@ const preguntas = {
                     "La complejidad en el uso de servicios electrónicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090102005"
+                id: "1090102005"
             },
             {
-                id: "1090102006",
+                explicacionId: "1090102006",
                 pregunta: "¿En qué se centra el principio de facilidad de uso?",
                 opciones: [
                     "En la complejidad de los servicios",
@@ -148,10 +148,10 @@ const preguntas = {
                     "En el uso de tecnologías avanzadas"
                 ],
                 correcta: 2,
-                explicacionId: "1090102006"
+                id: "1090102006"
             },
             {
-                id: "1090102007",
+                explicacionId: "1090102007",
                 pregunta: "¿Qué define el principio de interoperabilidad?",
                 opciones: [
                     "La capacidad de los sistemas de información de funcionar de forma aislada",
@@ -160,10 +160,10 @@ const preguntas = {
                     "La obligación de usar un único sistema en toda la administración"
                 ],
                 correcta: 1,
-                explicacionId: "1090102007"
+                id: "1090102007"
             },
             {
-                id: "1090102008",
+                explicacionId: "1090102008",
                 pregunta: "Según el principio de proporcionalidad, ¿qué se exigirá en los trámites y actuaciones electrónicos?",
                 opciones: [
                     "Siempre las máximas medidas de seguridad posibles",
@@ -172,10 +172,10 @@ const preguntas = {
                     "Medidas de seguridad estándar para todos los trámites"
                 ],
                 correcta: 2,
-                explicacionId: "1090102008"
+                id: "1090102008"
             },
             {
-                id: "1090102009",
+                explicacionId: "1090102009",
                 pregunta: "¿Qué implica el principio de personalización y proactividad?",
                 opciones: [
                     "Que las AAPP ignoren las necesidades de los usuarios",
@@ -184,10 +184,10 @@ const preguntas = {
                     "Que se elimine toda personalización en los servicios"
                 ],
                 correcta: 2,
-                explicacionId: "1090102009"
+                id: "1090102009"
             },
             {
-                id: "1090102004",
+                explicacionId: "1090102004",
                 pregunta: "¿Qué tipo de estándares utilizará principalmente el sector público según el principio de neutralidad tecnológica?",
                 opciones: [
                     "Estándares propietarios exclusivamente",
@@ -196,7 +196,7 @@ const preguntas = {
                     "No se especifica el uso de estándares"
                 ],
                 correcta: 1,
-                explicacionId: "1090102004"
+                id: "1090102004"
             }
         ],
         minimoParaAprobar: 7
@@ -204,7 +204,7 @@ const preguntas = {
     "1090103000": {
         preguntas: [
             {
-                id: "1090103001",
+                explicacionId: "1090103001",
                 pregunta: "¿Qué es la sede electrónica?",
                 opciones: [
                     "Un portal de noticias de la Administración Pública",
@@ -213,10 +213,10 @@ const preguntas = {
                     "Un catálogo de servicios públicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090103001"
+                id: "1090103001"
             },
             {
-                id: "1090103002",
+                explicacionId: "1090103002",
                 pregunta: "¿Qué responsabilidad conlleva el establecimiento de una sede electrónica?",
                 opciones: [
                     "Solo la integridad de la información",
@@ -225,10 +225,10 @@ const preguntas = {
                     "Únicamente la disponibilidad del sitio web"
                 ],
                 correcta: 2,
-                explicacionId: "1090103002"
+                id: "1090103002"
             },
             {
-                id: "1090103003",
+                explicacionId: "1090103003",
                 pregunta: "¿A qué principios están sujetas las condiciones de creación de las sedes electrónicas?",
                 opciones: [
                     "Solo a principios de seguridad",
@@ -237,10 +237,10 @@ const preguntas = {
                     "Solo a principios de eficiencia económica"
                 ],
                 correcta: 2,
-                explicacionId: "1090103003"
+                id: "1090103003"
             },
             {
-                id: "1090103005",
+                explicacionId: "1090103005",
                 pregunta: "¿Qué deben permitir los sistemas de las sedes electrónicas?",
                 opciones: [
                     "El establecimiento de comunicaciones seguras",
@@ -249,10 +249,10 @@ const preguntas = {
                     "La modificación de información por cualquier usuario"
                 ],
                 correcta: 0,
-                explicacionId: "1090103005"
+                id: "1090103005"
             },
             {
-                id: "1090103006",
+                explicacionId: "1090103006",
                 pregunta: "¿Qué principios debe respetar la publicación en las sedes electrónicas?",
                 opciones: [
                     "Solo el principio de accesibilidad",
@@ -261,10 +261,10 @@ const preguntas = {
                     "Solo los principios de uso exclusivo por funcionarios"
                 ],
                 correcta: 2,
-                explicacionId: "1090103006"
+                id: "1090103006"
             },
             {
-                id: "1090103007",
+                explicacionId: "1090103007",
                 pregunta: "¿Qué utilizarán las sedes electrónicas para identificarse y garantizar una comunicación segura?",
                 opciones: [
                     "Contraseñas simples",
@@ -273,10 +273,10 @@ const preguntas = {
                     "Únicamente la dirección IP del servidor"
                 ],
                 correcta: 1,
-                explicacionId: "1090103007"
+                id: "1090103007"
             },
             {
-                id: "1090103008",
+                explicacionId: "1090103008",
                 pregunta: "¿Qué es un portal de internet según la ley?",
                 opciones: [
                     "Una red social de la Administración Pública",
@@ -285,10 +285,10 @@ const preguntas = {
                     "Un sistema de almacenamiento en la nube para funcionarios"
                 ],
                 correcta: 1,
-                explicacionId: "1090103008"
+                id: "1090103008"
             },
             {
-                id: "1090103009",
+                explicacionId: "1090103009",
                 pregunta: "¿Qué puede determinar cada Administración respecto a sus portales?",
                 opciones: [
                     "Solo el diseño gráfico",
@@ -297,10 +297,10 @@ const preguntas = {
                     "Solamente el horario de funcionamiento del portal"
                 ],
                 correcta: 2,
-                explicacionId: "1090103009"
+                id: "1090103009"
             },
             {
-                id: "1090103010",
+                explicacionId: "1090103010",
                 pregunta: "¿Cómo se rige la supresión de los portales de internet creados en el ámbito estatal antes de la entrada en vigor del RD 203/2021?",
                 opciones: [
                     "Por las nuevas reglas establecidas en el RD 203/2021",
@@ -309,10 +309,10 @@ const preguntas = {
                     "Se suprimen automáticamente todos los portales antiguos"
                 ],
                 correcta: 1,
-                explicacionId: "1090103010"
+                id: "1090103010"
             },
             {
-                id: "1090103004",
+                explicacionId: "1090103004",
                 pregunta: "¿Qué debe garantizarse en todo caso en una sede electrónica?",
                 opciones: [
                     "Solo la identificación del órgano titular",
@@ -321,7 +321,7 @@ const preguntas = {
                     "Solamente el acceso a todos los servicios sin restricciones"
                 ],
                 correcta: 2,
-                explicacionId: "1090103004"
+                id: "1090103004"
             }
         ],
         minimoParaAprobar: 7
@@ -329,7 +329,7 @@ const preguntas = {
     "1090104000": {
     preguntas: [
         {
-            id: "1090104001",
+            explicacionId: "1090104001",
             pregunta: "¿Cómo pueden identificarse las AAPP según la Ley 40/2015?",
             opciones: [
                 "Mediante un nombre de usuario y contraseña",
@@ -338,10 +338,10 @@ const preguntas = {
                 "Por medio de un código QR"
             ],
             correcta: 1,
-            explicacionId: "1090104001"
+            id: "1090104001"
         },
         {
-            id: "1090104004",
+            explicacionId: "1090104004",
             pregunta: "¿Qué se entiende por actuación administrativa automatizada?",
             opciones: [
                 "Cualquier acto realizado por un empleado público",
@@ -350,10 +350,10 @@ const preguntas = {
                 "Una actuación realizada manualmente pero registrada electrónicamente"
             ],
             correcta: 2,
-            explicacionId: "1090104004"
+            id: "1090104004"
         },
         {
-            id: "1090104008",
+            explicacionId: "1090104008",
             pregunta: "¿Qué sistemas de firma pueden utilizarse para la actuación administrativa automatizada?",
             opciones: [
                 "Únicamente firma manuscrita digitalizada",
@@ -362,10 +362,10 @@ const preguntas = {
                 "Exclusivamente firma electrónica del titular del órgano"
             ],
             correcta: 2,
-            explicacionId: "1090104008"
+            id: "1090104008"
         },
         {
-            id: "1090104012",
+            explicacionId: "1090104012",
             pregunta: "¿Cómo se realiza la actuación de una AP cuando utiliza medios electrónicos?",
             opciones: [
                 "Mediante firma manuscrita",
@@ -374,10 +374,10 @@ const preguntas = {
                 "Utilizando un código alfanumérico"
             ],
             correcta: 2,
-            explicacionId: "1090104012"
+            id: "1090104012"
         },
         {
-            id: "1090104018",
+            explicacionId: "1090104018",
             pregunta: "¿Cómo deben almacenarse los documentos utilizados en las actuaciones administrativas?",
             opciones: [
                 "Siempre en papel",
@@ -386,10 +386,10 @@ const preguntas = {
                 "Siempre en formato físico y digital"
             ],
             correcta: 1,
-            explicacionId: "1090104018"
+            id: "1090104018"
         },
         {
-            id: "1090104023",
+            explicacionId: "1090104023",
             pregunta: "¿Qué organismo es responsable de la plataforma de verificación de certificados cualificados en el sector público de la AGE?",
             opciones: [
                 "El Ministerio de Hacienda",
@@ -398,10 +398,10 @@ const preguntas = {
                 "El Centro Criptológico Nacional"
             ],
             correcta: 2,
-            explicacionId: "1090104023"
+            id: "1090104023"
         },
         {
-            id: "1090104033",
+            explicacionId: "1090104033",
             pregunta: "¿Qué deben utilizar las sedes electrónicas y sedes electrónicas asociadas para identificarse y garantizar una comunicación segura?",
             opciones: [
                 "Firmas manuscritas digitalizadas",
@@ -410,10 +410,10 @@ const preguntas = {
                 "Sellos de tiempo"
             ],
             correcta: 1,
-            explicacionId: "1090104033"
+            id: "1090104033"
         },
         {
-            id: "1090104047",
+            explicacionId: "1090104047",
             pregunta: "¿Qué deben garantizar los sistemas de código seguro de verificación?",
             opciones: [
                 "La confidencialidad del documento",
@@ -422,10 +422,10 @@ const preguntas = {
                 "La posibilidad de eliminar el documento después de su verificación"
             ],
             correcta: 2,
-            explicacionId: "1090104047"
+            id: "1090104047"
         },
         {
-            id: "1090104063",
+            explicacionId: "1090104063",
             pregunta: "¿En qué situaciones se puede consignar un número de identificación profesional en el certificado electrónico de empleado público?",
             opciones: [
                 "En todas las actuaciones del empleado público",
@@ -434,10 +434,10 @@ const preguntas = {
                 "Únicamente en comunicaciones con otras administraciones"
             ],
             correcta: 2,
-            explicacionId: "1090104063"
+            id: "1090104063"
         },
         {
-            id: "1090104073",
+            explicacionId: "1090104073",
             pregunta: "¿Qué se requiere para la habilitación de personas físicas o jurídicas para realizar determinadas transacciones electrónicas en representación de los interesados?",
             opciones: [
                 "Una autorización verbal del interesado",
@@ -446,7 +446,7 @@ const preguntas = {
                 "Una declaración jurada del representante"
             ],
             correcta: 2,
-            explicacionId: "1090104073"
+            id: "1090104073"
         }
     ],
     minimoParaAprobar: 7
@@ -454,7 +454,7 @@ const preguntas = {
 "1090105000": {
     preguntas: [
         {
-            id: "1090105001",
+            explicacionId: "1090105001",
             pregunta: "¿Qué debe incluir la norma de creación de los Organismos Públicos del sector público estatal?",
             opciones: [
                 "La gestión individual de todos los servicios",
@@ -463,10 +463,10 @@ const preguntas = {
                 "La eliminación de servicios comunes"
             ],
             correcta: 1,
-            explicacionId: "1090105001"
+            id: "1090105001"
         },
         {
-            id: "1090105002",
+            explicacionId: "1090105002",
             pregunta: "¿Cuál de los siguientes NO se considera un servicio común de los Organismos Públicos?",
             opciones: [
                 "Gestión de bienes inmuebles",
@@ -475,10 +475,10 @@ const preguntas = {
                 "Gestión de recursos humanos"
             ],
             correcta: 3,
-            explicacionId: "1090105002"
+            id: "1090105002"
         },
         {
-            id: "1090105003",
+            explicacionId: "1090105003",
             pregunta: "¿Cuál de las siguientes NO es una técnica para hacer efectivas las obligaciones derivadas del deber de colaboración?",
             opciones: [
                 "El suministro de información, datos, documentos o medios probatorios",
@@ -487,10 +487,10 @@ const preguntas = {
                 "La implementación de un sistema de votación electrónica"
             ],
             correcta: 3,
-            explicacionId: "1090105003"
+            id: "1090105003"
         },
         {
-            id: "1090105004",
+            explicacionId: "1090105004",
             pregunta: "¿Cómo deben relacionarse las Administraciones Públicas entre sí y con sus órganos?",
             opciones: [
                 "A través de medios electrónicos",
@@ -499,10 +499,10 @@ const preguntas = {
                 "Por medio de intermediarios"
             ],
             correcta: 0,
-            explicacionId: "1090105004"
+            id: "1090105004"
         },
         {
-            id: "1090105005",
+            explicacionId: "1090105005",
             pregunta: "¿A través de qué medio deben efectuarse las comunicaciones en la Administración General del Estado?",
             opciones: [
                 "Correo postal certificado",
@@ -511,10 +511,10 @@ const preguntas = {
                 "Mensajería instantánea"
             ],
             correcta: 2,
-            explicacionId: "1090105005"
+            id: "1090105005"
         },
         {
-            id: "1090105006",
+            explicacionId: "1090105006",
             pregunta: "¿Qué es necesario para la adhesión a sedes electrónicas o sedes electrónicas asociadas?",
             opciones: [
                 "Un decreto ley",
@@ -523,10 +523,10 @@ const preguntas = {
                 "La aprobación del Consejo de Ministros"
             ],
             correcta: 1,
-            explicacionId: "1090105006"
+            id: "1090105006"
         },
         {
-            id: "1090105007",
+            explicacionId: "1090105007",
             pregunta: "¿A través de qué sistema deben realizarse las interconexiones entre Registros de las Administraciones Públicas?",
             opciones: [
                 "Sistema de Interconexión de Registros (SIR)",
@@ -535,10 +535,10 @@ const preguntas = {
                 "Plataforma de Intermediación de Datos"
             ],
             correcta: 0,
-            explicacionId: "1090105007"
+            id: "1090105007"
         },
         {
-            id: "1090105008",
+            explicacionId: "1090105008",
             pregunta: "¿Qué consideración tienen las transmisiones de datos realizadas a través de redes corporativas de las AAPP?",
             opciones: [
                 "Meras comunicaciones internas",
@@ -547,10 +547,10 @@ const preguntas = {
                 "Borradores de trabajo"
             ],
             correcta: 1,
-            explicacionId: "1090105008"
+            id: "1090105008"
         },
         {
-            id: "1090105009",
+            explicacionId: "1090105009",
             pregunta: "¿Quién gestiona la Plataforma de Intermediación de la AGE y sus Organismos Públicos?",
             opciones: [
                 "El Ministerio de Hacienda",
@@ -559,10 +559,10 @@ const preguntas = {
                 "La Agencia Estatal de Administración Tributaria"
             ],
             correcta: 1,
-            explicacionId: "1090105009"
+            id: "1090105009"
         },
         {
-            id: "1090105010",
+            explicacionId: "1090105010",
             pregunta: "En la remisión electrónica de expedientes administrativos entre Administraciones Públicas, ¿qué se considera equivalente a la remisión del expediente?",
             opciones: [
                 "El envío de un resumen del expediente",
@@ -571,7 +571,7 @@ const preguntas = {
                 "La notificación de que el expediente está en trámite"
             ],
             correcta: 1,
-            explicacionId: "1090105010"
+            id: "1090105010"
         }
     ],
     minimoParaAprobar: 7
@@ -579,7 +579,7 @@ const preguntas = {
 "1090106000": {
     preguntas: [
         {
-            id: "1090106001",
+            explicacionId: "1090106001",
             pregunta: "¿En qué condiciones se consideran válidos los documentos electrónicos transmitidos en entornos cerrados de comunicaciones entre AAPP, órganos, OOPP y entidades de derecho público?",
             opciones: [
                 "Siempre que estén firmados digitalmente",
@@ -588,10 +588,10 @@ const preguntas = {
                 "Solo cuando se utilizan plataformas de intercambio específicas"
             ],
             correcta: 2,
-            explicacionId: "1090106001"
+            id: "1090106001"
         },
         {
-            id: "1090106002",
+            explicacionId: "1090106002",
             pregunta: "Cuando los participantes en las comunicaciones pertenecen a una misma AP, ¿quién determina las condiciones y garantías?",
             opciones: [
                 "El Ministerio de Administraciones Públicas",
@@ -600,10 +600,10 @@ const preguntas = {
                 "La Agencia Española de Protección de Datos"
             ],
             correcta: 1,
-            explicacionId: "1090106002"
+            id: "1090106002"
         },
         {
-            id: "1090106003",
+            explicacionId: "1090106003",
             pregunta: "¿Cómo se establecen las condiciones y garantías cuando los participantes pertenecen a distintas AAPP?",
             opciones: [
                 "Por decisión unilateral de la AP de mayor rango",
@@ -612,10 +612,10 @@ const preguntas = {
                 "No es necesario establecer condiciones en este caso"
             ],
             correcta: 1,
-            explicacionId: "1090106003"
+            id: "1090106003"
         },
         {
-            id: "1090106004",
+            explicacionId: "1090106004",
             pregunta: "¿Qué debe garantizarse en todo caso en el intercambio de datos en entornos cerrados?",
             opciones: [
                 "La velocidad de transmisión de los datos",
@@ -624,10 +624,10 @@ const preguntas = {
                 "La duplicación de los datos en múltiples servidores"
             ],
             correcta: 1,
-            explicacionId: "1090106004"
+            id: "1090106004"
         },
         {
-            id: "1090106005",
+            explicacionId: "1090106005",
             pregunta: "En el ámbito estatal, ¿quién establece las condiciones y garantías para el intercambio de datos en entornos cerrados?",
             opciones: [
                 "El Ministerio de Hacienda",
@@ -636,10 +636,10 @@ const preguntas = {
                 "El Consejo de Ministros"
             ],
             correcta: 2,
-            explicacionId: "1090106005"
+            id: "1090106005"
         },
         {
-            id: "1090106006",
+            explicacionId: "1090106006",
             pregunta: "Según el Reglamento (UE) 2016/679 y la Ley Orgánica 3/2018, ¿qué deben hacer las Administraciones Públicas respecto a los datos de los interesados?",
             opciones: [
                 "Mantenerlos en secreto",
@@ -648,10 +648,10 @@ const preguntas = {
                 "Eliminarlos después de cada uso"
             ],
             correcta: 2,
-            explicacionId: "1090106006"
+            id: "1090106006"
         },
         {
-            id: "1090106007",
+            explicacionId: "1090106007",
             pregunta: "¿Qué tratamiento ulterior de datos personales NO se considera incompatible con los fines iniciales?",
             opciones: [
                 "Fines comerciales",
@@ -660,10 +660,10 @@ const preguntas = {
                 "Fines de marketing directo"
             ],
             correcta: 1,
-            explicacionId: "1090106007"
+            id: "1090106007"
         },
         {
-            id: "1090106008",
+            explicacionId: "1090106008",
             pregunta: "Cuando una AP cesionaria pretende dar un tratamiento ulterior a los datos para una finalidad compatible con el fin inicial, ¿qué debe hacer?",
             opciones: [
                 "Proceder directamente con el nuevo tratamiento",
@@ -672,10 +672,10 @@ const preguntas = {
                 "Publicar un anuncio en el Boletín Oficial"
             ],
             correcta: 2,
-            explicacionId: "1090106008"
+            id: "1090106008"
         },
         {
-            id: "1090106008",
+            explicacionId: "1090106008",
             pregunta: "¿En qué plazo puede la AP cedente oponerse al tratamiento ulterior de los datos comunicado por la AP cesionaria?",
             opciones: [
                 "5 días",
@@ -684,10 +684,10 @@ const preguntas = {
                 "30 días"
             ],
             correcta: 1,
-            explicacionId: "1090106008"
+            id: "1090106008"
         },
         {
-            id: "1090106009",
+            explicacionId: "1090106009",
             pregunta: "¿En qué caso se exceptúa la necesidad de comunicación previa para el tratamiento ulterior de datos con una finalidad distinta?",
             opciones: [
                 "Cuando lo autorice el interesado",
@@ -696,7 +696,7 @@ const preguntas = {
                 "Cuando hayan pasado más de 5 años desde la recogida inicial de los datos"
             ],
             correcta: 2,
-            explicacionId: "1090106009"
+            id: "1090106009"
         }
     ],
     minimoParaAprobar: 7
@@ -704,7 +704,7 @@ const preguntas = {
 "1090107000": {
     preguntas: [
         {
-            id: "1090107001",
+            explicacionId: "1090107001",
             pregunta: "¿Qué aspectos comprende el Esquema Nacional de Interoperabilidad (ENI)?",
             opciones: [
                 "Solo criterios de seguridad",
@@ -713,10 +713,10 @@ const preguntas = {
                 "Exclusivamente políticas de conservación de datos"
             ],
             correcta: 2,
-            explicacionId: "1090107001"
+            id: "1090107001"
         },
         {
-            id: "1090107003",
+            explicacionId: "1090107003",
             pregunta: "¿Qué deben hacer las Administraciones con las aplicaciones de las que son titulares de los derechos de propiedad intelectual?",
             opciones: [
                 "Mantenerlas en secreto",
@@ -725,10 +725,10 @@ const preguntas = {
                 "Eliminarlas después de su uso"
             ],
             correcta: 2,
-            explicacionId: "1090107003"
+            id: "1090107003"
         },
         {
-            id: "1090107005",
+            explicacionId: "1090107005",
             pregunta: "¿Qué deben hacer las AAPP antes de adquirir, desarrollar o mantener una aplicación?",
             opciones: [
                 "Solicitar permiso al Ministerio de Hacienda",
@@ -737,10 +737,10 @@ const preguntas = {
                 "Contratar a una empresa externa"
             ],
             correcta: 1,
-            explicacionId: "1090107005"
+            id: "1090107005"
         },
         {
-            id: "1090107008",
+            explicacionId: "1090107008",
             pregunta: "Si existe una solución disponible para su reutilización, ¿qué deben hacer las AAPP?",
             opciones: [
                 "Ignorarla y desarrollar su propia solución",
@@ -749,10 +749,10 @@ const preguntas = {
                 "Pagar por su uso en todos los casos"
             ],
             correcta: 1,
-            explicacionId: "1090107008"
+            id: "1090107008"
         },
         {
-            id: "1090107010",
+            explicacionId: "1090107010",
             pregunta: "¿Qué característica deben tener los directorios de aplicaciones mantenidos por las AAPP?",
             opciones: [
                 "Ser de acceso restringido",
@@ -761,10 +761,10 @@ const preguntas = {
                 "Contener solo aplicaciones de pago"
             ],
             correcta: 2,
-            explicacionId: "1090107010"
+            id: "1090107010"
         },
         {
-            id: "1090107014",
+            explicacionId: "1090107014",
             pregunta: "¿Qué funciones tiene la AGE respecto a la reutilización de aplicaciones?",
             opciones: [
                 "Prohibir la reutilización de aplicaciones",
@@ -773,10 +773,10 @@ const preguntas = {
                 "Desarrollar aplicaciones solo para su uso interno"
             ],
             correcta: 1,
-            explicacionId: "1090107014"
+            id: "1090107014"
         },
         {
-            id: "1090107015",
+            explicacionId: "1090107015",
             pregunta: "¿Cómo se realiza la adhesión a las plataformas de la AGE?",
             opciones: [
                 "De forma automática",
@@ -785,10 +785,10 @@ const preguntas = {
                 "No es posible adherirse a las plataformas de la AGE"
             ],
             correcta: 1,
-            explicacionId: "1090107015"
+            id: "1090107015"
         },
         {
-            id: "1090107017",
+            explicacionId: "1090107017",
             pregunta: "¿Qué implica la adhesión a una plataforma, registro o servicio electrónico de la AGE en cuanto a la titularidad de las actuaciones administrativas?",
             opciones: [
                 "Un cambio de titularidad a favor de la AGE",
@@ -797,10 +797,10 @@ const preguntas = {
                 "La pérdida de titularidad por parte de la Administración adherida"
             ],
             correcta: 1,
-            explicacionId: "1090107017"
+            id: "1090107017"
         },
         {
-            id: "1090107019",
+            explicacionId: "1090107019",
             pregunta: "¿Cómo es la adhesión de las comunidades autónomas o entidades locales a las plataformas estatales o registros?",
             opciones: [
                 "Obligatoria en todos los casos",
@@ -809,10 +809,10 @@ const preguntas = {
                 "Obligatoria solo para comunidades autónomas"
             ],
             correcta: 1,
-            explicacionId: "1090107019"
+            id: "1090107019"
         },
         {
-            id: "1090107020",
+            explicacionId: "1090107020",
             pregunta: "¿Cuál es el propósito del nodo de interoperabilidad de identificación electrónica del Reino de España?",
             opciones: [
                 "Bloquear identidades electrónicas extranjeras",
@@ -821,7 +821,7 @@ const preguntas = {
                 "Eliminar la necesidad de identificación electrónica"
             ],
             correcta: 1,
-            explicacionId: "1090107020"
+            id: "1090107020"
         }
     ],
     minimoParaAprobar: 7
@@ -829,7 +829,7 @@ const preguntas = {
 "1090108000": {
     preguntas: [
         {
-            id: "1090108001",
+            explicacionId: "1090108001",
             pregunta: "¿Qué es la Comisión Sectorial de Administración Electrónica (CSAE)?",
             opciones: [
                 "Un órgano legislativo de la AGE",
@@ -838,10 +838,10 @@ const preguntas = {
                 "Un departamento de desarrollo de software de la AGE"
             ],
             correcta: 1,
-            explicacionId: "1090108001"
+            id: "1090108001"
         },
         {
-            id: "1090108003",
+            explicacionId: "1090108003",
             pregunta: "¿Cuál de las siguientes NO es una función de la CSAE?",
             opciones: [
                 "Asegurar la compatibilidad e interoperabilidad de los sistemas y aplicaciones de las AAPP",
@@ -850,10 +850,10 @@ const preguntas = {
                 "Desarrollar software para las Administraciones Públicas"
             ],
             correcta: 3,
-            explicacionId: "1090108002"
+            id: "1090108002"
         },
         {
-            id: "1090108007",
+            explicacionId: "1090108007",
             pregunta: "¿A qué deben adherirse las entidades de derecho privado vinculadas a la AGE cuando ejercen potestades administrativas?",
             opciones: [
                 "A la sede electrónica asociada del ministerio con el que mantengan la vinculación o dependencia",
@@ -862,10 +862,10 @@ const preguntas = {
                 "A la sede electrónica del Ministerio de Hacienda exclusivamente"
             ],
             correcta: 0,
-            explicacionId: "1090108007"
+            id: "1090108007"
         },
         {
-            id: "1090108008",
+            explicacionId: "1090108008",
             pregunta: "¿Quién determina los medios admitidos para la firma electrónica en los procedimientos tramitados por entidades de derecho privado en el ejercicio de potestades administrativas?",
             opciones: [
                 "El Ministerio de Hacienda",
@@ -874,10 +874,10 @@ const preguntas = {
                 "El Consejo de Ministros"
             ],
             correcta: 2,
-            explicacionId: "1090108008"
+            id: "1090108008"
         },
         {
-            id: "1090108010",
+            explicacionId: "1090108010",
             pregunta: "¿Pueden los órganos constitucionales adherirse al uso de las plataformas, registros o servicios electrónicos de la AGE?",
             opciones: [
                 "No, está prohibido por ley",
@@ -886,10 +886,10 @@ const preguntas = {
                 "Solo si lo autoriza el Tribunal Constitucional"
             ],
             correcta: 2,
-            explicacionId: "1090108010"
+            id: "1090108010"
         },
         {
-            id: "1090108012",
+            explicacionId: "1090108012",
             pregunta: "¿Qué debe remitir un órgano constitucional para el estudio de viabilidad de su adhesión a una plataforma de la AGE?",
             opciones: [
                 "Una solicitud formal al Presidente del Gobierno",
@@ -898,10 +898,10 @@ const preguntas = {
                 "Una autorización del Congreso de los Diputados"
             ],
             correcta: 2,
-            explicacionId: "1090108012"
+            id: "1090108012"
         },
         {
-            id: "1090108013",
+            explicacionId: "1090108013",
             pregunta: "La adhesión a una plataforma de la AGE por parte de un órgano constitucional, ¿supone un cambio en la titularidad de las actuaciones administrativas?",
             opciones: [
                 "Sí, la titularidad pasa a la AGE",
@@ -910,10 +910,10 @@ const preguntas = {
                 "Depende del tipo de procedimiento administrativo"
             ],
             correcta: 1,
-            explicacionId: "1090108013"
+            id: "1090108013"
         },
         {
-            id: "1090108014",
+            explicacionId: "1090108014",
             pregunta: "En el intercambio de información entre entidades usuarias de una plataforma de la AGE, ¿cómo puede acreditarse la autenticación de la entidad solicitante?",
             opciones: [
                 "Mediante un certificado digital personal",
@@ -922,10 +922,10 @@ const preguntas = {
                 "No es necesaria la autenticación en estos casos"
             ],
             correcta: 1,
-            explicacionId: "1090108014"
+            id: "1090108014"
         },
         {
-            id: "1090108015",
+            explicacionId: "1090108015",
             pregunta: "En caso de una incidencia técnica que imposibilite el funcionamiento ordinario del sistema, ¿quién es responsable de la continuación de la tramitación de los procedimientos administrativos?",
             opciones: [
                 "La AGE en todos los casos",
@@ -934,10 +934,10 @@ const preguntas = {
                 "Se suspenden todos los procedimientos hasta que se resuelva la incidencia"
             ],
             correcta: 2,
-            explicacionId: "1090108015"
+            id: "1090108015"
         },
         {
-            id: "1090108016",
+            explicacionId: "1090108016",
             pregunta: "Tras la entrada en vigor del RD 203/2021, ¿qué naturaleza adquieren las sedes electrónicas existentes en la AGE?",
             opciones: [
                 "Mantienen su naturaleza original sin cambios",
@@ -946,7 +946,7 @@ const preguntas = {
                 "Dejan de existir y son reemplazadas por nuevas sedes"
             ],
             correcta: 1,
-            explicacionId: "1090108016"
+            id: "1090108016"
         }
     ],
     minimoParaAprobar: 7
@@ -954,7 +954,7 @@ const preguntas = {
 "1090201000": {
     preguntas: [
         {
-            id: "1090201001",
+            explicacionId: "1090201001",
             pregunta: "¿En qué marco se realiza la cooperación entre las diferentes AAPP a nivel nacional en materia de administración electrónica?",
             opciones: [
                 "En el marco del Consejo de Ministros",
@@ -963,10 +963,10 @@ const preguntas = {
                 "En el marco del Tribunal Constitucional"
             ],
             correcta: 1,
-            explicacionId: "1090201001"
+            id: "1090201001"
         },
         {
-            id: "1090201002",
+            explicacionId: "1090201002",
             pregunta: "¿A través de qué organismos se realiza la cooperación dentro de la AGE en materia de administración electrónica?",
             opciones: [
                 "A través del Congreso y el Senado",
@@ -975,10 +975,10 @@ const preguntas = {
                 "A través de las Comunidades Autónomas"
             ],
             correcta: 1,
-            explicacionId: "1090201002"
+            id: "1090201002"
         },
         {
-            id: "1090201004",
+            explicacionId: "1090201004",
             pregunta: "¿Qué norma regula el Esquema Nacional de Interoperabilidad (ENI) en el ámbito de la Administración Electrónica?",
             opciones: [
                 "Ley 39/2015",
@@ -987,10 +987,10 @@ const preguntas = {
                 "Ley 40/2015"
             ],
             correcta: 2,
-            explicacionId: "1090201004"
+            id: "1090201004"
         },
         {
-            id: "1090201005",
+            explicacionId: "1090201005",
             pregunta: "¿Qué siglas corresponden a las Normas Técnicas de Interoperabilidad?",
             opciones: [
                 "NTI",
@@ -999,10 +999,10 @@ const preguntas = {
                 "PAG"
             ],
             correcta: 0,
-            explicacionId: "1090201005"
+            id: "1090201005"
         },
         {
-            id: "1090201006",
+            explicacionId: "1090201006",
             pregunta: "¿Qué norma regula el Esquema Nacional de Seguridad (ENS)?",
             opciones: [
                 "RD 4/2010",
@@ -1011,10 +1011,10 @@ const preguntas = {
                 "RD 806/2014"
             ],
             correcta: 1,
-            explicacionId: "1090201006"
+            id: "1090201006"
         },
         {
-            id: "1090201007",
+            explicacionId: "1090201007",
             pregunta: "¿Qué establece la Orden HAP/1949/2014?",
             opciones: [
                 "El Esquema Nacional de Interoperabilidad",
@@ -1023,10 +1023,10 @@ const preguntas = {
                 "Las Normas Técnicas de Interoperabilidad"
             ],
             correcta: 2,
-            explicacionId: "1090201007"
+            id: "1090201007"
         },
         {
-            id: "1090201008",
+            explicacionId: "1090201008",
             pregunta: "¿Qué regula la Ley 39/2015?",
             opciones: [
                 "El Régimen Jurídico del Sector Público",
@@ -1035,10 +1035,10 @@ const preguntas = {
                 "El Esquema Nacional de Seguridad"
             ],
             correcta: 1,
-            explicacionId: "1090201008"
+            id: "1090201008"
         },
         {
-            id: "1090201009",
+            explicacionId: "1090201009",
             pregunta: "¿Qué norma regula el Régimen Jurídico del Sector Público?",
             opciones: [
                 "Ley 39/2015",
@@ -1047,10 +1047,10 @@ const preguntas = {
                 "RD 806/2014"
             ],
             correcta: 2,
-            explicacionId: "1090201009"
+            id: "1090201009"
         },
         {
-            id: "1090201010",
+            explicacionId: "1090201010",
             pregunta: "¿Qué aprueba el RD 203/2021?",
             opciones: [
                 "El Esquema Nacional de Interoperabilidad",
@@ -1059,10 +1059,10 @@ const preguntas = {
                 "El Reglamento de actuación y funcionamiento del sector público por medios electrónicos"
             ],
             correcta: 3,
-            explicacionId: "1090201010"
+            id: "1090201010"
         },
         {
-            id: "1090201011",
+            explicacionId: "1090201011",
             pregunta: "¿Qué regula el RD 806/2014?",
             opciones: [
                 "El Procedimiento Administrativo Común de las AAPP",
@@ -1071,7 +1071,7 @@ const preguntas = {
                 "El Punto de Acceso General (PAG)"
             ],
             correcta: 2,
-            explicacionId: "1090201011"
+            id: "1090201011"
         }
     ],
     minimoParaAprobar: 7
@@ -1079,7 +1079,7 @@ const preguntas = {
 "1090202000": {
     preguntas: [
         {
-            id: "1090202001",
+            explicacionId: "1090202001",
             pregunta: "¿En qué Real Decreto se refleja el modelo de gobernanza TIC en la AGE?",
             opciones: [
                 "RD 4/2010",
@@ -1088,10 +1088,10 @@ const preguntas = {
                 "RD 203/2021"
             ],
             correcta: 2,
-            explicacionId: "1090202001"
+            id: "1090202001"
         },
         {
-            id: "1090202002",
+            explicacionId: "1090202002",
             pregunta: "¿Quién preside la Comisión Sectorial de Administración Electrónica?",
             opciones: [
                 "El Ministro de Hacienda",
@@ -1100,10 +1100,10 @@ const preguntas = {
                 "El Director de Tecnologías de la Información y las Comunicaciones"
             ],
             correcta: 1,
-            explicacionId: "1090202002"
+            id: "1090202002"
         },
         {
-            id: "1090202003",
+            explicacionId: "1090202003",
             pregunta: "¿De qué organismo depende la Secretaría General de Administración Digital (SGAD)?",
             opciones: [
                 "Del Ministerio de Hacienda",
@@ -1112,10 +1112,10 @@ const preguntas = {
                 "De la Presidencia del Gobierno"
             ],
             correcta: 2,
-            explicacionId: "1090202003"
+            id: "1090202003"
         },
         {
-            id: "1090202004",
+            explicacionId: "1090202004",
             pregunta: "¿Cuál es el órgano máximo de gobernanza TIC en la AGE?",
             opciones: [
                 "La Comisión Sectorial de Administración Electrónica",
@@ -1124,10 +1124,10 @@ const preguntas = {
                 "El Comité de Dirección de las Tecnologías de Información y Comunicaciones"
             ],
             correcta: 2,
-            explicacionId: "1090202004"
+            id: "1090202004"
         },
         {
-            id: "1090202005",
+            explicacionId: "1090202005",
             pregunta: "¿Cuál de las siguientes NO es una función de la Comisión de Estrategia TIC?",
             opciones: [
                 "Fijar las líneas estratégicas",
@@ -1136,10 +1136,10 @@ const preguntas = {
                 "Desarrollar aplicativos informáticos"
             ],
             correcta: 3,
-            explicacionId: "1090202005"
+            id: "1090202005"
         },
         {
-            id: "1090202006",
+            explicacionId: "1090202006",
             pregunta: "¿Qué deben elaborar las Comisiones Ministeriales de Administración Digital (CMAD)?",
             opciones: [
                 "El presupuesto anual del Ministerio",
@@ -1148,10 +1148,10 @@ const preguntas = {
                 "Los proyectos de interés prioritario"
             ],
             correcta: 1,
-            explicacionId: "1090202006"
+            id: "1090202006"
         },
         {
-            id: "1090202007",
+            explicacionId: "1090202007",
             pregunta: "¿A qué organismo está adscrito el Comité de Dirección de las Tecnologías de Información y Comunicaciones?",
             opciones: [
                 "A la SGAD",
@@ -1160,10 +1160,10 @@ const preguntas = {
                 "Al Ministerio de Hacienda"
             ],
             correcta: 0,
-            explicacionId: "1090202007"
+            id: "1090202007"
         },
         {
-            id: "1090202008",
+            explicacionId: "1090202008",
             pregunta: "¿Qué son las Unidades TIC?",
             opciones: [
                 "Órganos de gobierno de la AGE",
@@ -1172,10 +1172,10 @@ const preguntas = {
                 "Empresas privadas que colaboran con la Administración"
             ],
             correcta: 2,
-            explicacionId: "1090202008"
+            id: "1090202008"
         },
         {
-            id: "1090202009",
+            explicacionId: "1090202009",
             pregunta: "¿Cuál de las siguientes NO es una función de provisión de servicios TIC?",
             opciones: [
                 "Soporte, operación, implementación y/o gestión de sistemas informáticos corporativos",
@@ -1184,10 +1184,10 @@ const preguntas = {
                 "Elaboración de leyes y normas de regulación en materia TIC"
             ],
             correcta: 3,
-            explicacionId: "1090202009"
+            id: "1090202009"
         },
         {
-            id: "1090202009",
+            explicacionId: "1090202009",
             pregunta: "¿Qué función relacionada con la adquisición de bienes o servicios realizan las Unidades TIC?",
             opciones: [
                 "Aprobar todas las compras de la AGE",
@@ -1196,7 +1196,7 @@ const preguntas = {
                 "Prohibir la adquisición de nuevas tecnologías"
             ],
             correcta: 1,
-            explicacionId: "1090202009"
+            id: "1090202009"
         }
     ],
     minimoParaAprobar: 7
@@ -1204,7 +1204,7 @@ const preguntas = {
 "1090301000": {
     preguntas: [
         {
-            id: "1090301001",
+            explicacionId: "1090301001",
             pregunta: "¿Qué es Cl@ve?",
             opciones: [
                 "Un sistema de firma electrónica",
@@ -1213,10 +1213,10 @@ const preguntas = {
                 "Un sistema de sellado de tiempo"
             ],
             correcta: 2,
-            explicacionId: "1090301001"
+            id: "1090301001"
         },
         {
-            id: "1090301002",
+            explicacionId: "1090301002",
             pregunta: "¿Cuál de los siguientes NO es un nivel de seguridad en Cl@ve?",
             opciones: [
                 "Nivel básico",
@@ -1225,10 +1225,10 @@ const preguntas = {
                 "Nivel supremo"
             ],
             correcta: 3,
-            explicacionId: "1090301002"
+            id: "1090301002"
         },
         {
-            id: "1090301003",
+            explicacionId: "1090301003",
             pregunta: "¿Qué tipo de certificados utiliza Cl@ve Firma?",
             opciones: [
                 "Certificados locales",
@@ -1237,10 +1237,10 @@ const preguntas = {
                 "Certificados temporales"
             ],
             correcta: 1,
-            explicacionId: "1090301003"
+            id: "1090301003"
         },
         {
-            id: "1090301004",
+            explicacionId: "1090301004",
             pregunta: "¿Qué es @firma?",
             opciones: [
                 "Un sistema de autenticación de empleados públicos",
@@ -1249,10 +1249,10 @@ const preguntas = {
                 "Una solución de firma electrónica para dispositivos móviles"
             ],
             correcta: 1,
-            explicacionId: "1090301004"
+            id: "1090301004"
         },
         {
-            id: "1090301005",
+            explicacionId: "1090301005",
             pregunta: "¿Qué permite FIRe?",
             opciones: [
                 "Sólo firmas con certificados locales",
@@ -1261,10 +1261,10 @@ const preguntas = {
                 "Únicamente validación de firmas"
             ],
             correcta: 2,
-            explicacionId: "1090301005"
+            id: "1090301005"
         },
         {
-            id: "1090301006",
+            explicacionId: "1090301006",
             pregunta: "¿Con qué está sincronizada la Plataforma de Sellado de Tiempo (TS@)?",
             opciones: [
                 "Con el reloj atómico internacional",
@@ -1273,10 +1273,10 @@ const preguntas = {
                 "Con el Observatorio Astronómico Nacional"
             ],
             correcta: 1,
-            explicacionId: "1090301006"
+            id: "1090301006"
         },
         {
-            id: "1090301007",
+            explicacionId: "1090301007",
             pregunta: "¿Qué es VALIDe?",
             opciones: [
                 "Un sistema de firma electrónica",
@@ -1285,10 +1285,10 @@ const preguntas = {
                 "Un sistema de sellado de tiempo"
             ],
             correcta: 2,
-            explicacionId: "1090301007"
+            id: "1090301007"
         },
         {
-            id: "1090301008",
+            explicacionId: "1090301008",
             pregunta: "¿Qué ley menciona el texto en relación con el Cliente de Firma de @firma?",
             opciones: [
                 "Ley 39/2015",
@@ -1297,10 +1297,10 @@ const preguntas = {
                 "Ley 59/2003"
             ],
             correcta: 0,
-            explicacionId: "1090301008"
+            id: "1090301008"
         },
         {
-            id: "1090301009",
+            explicacionId: "1090301009",
             pregunta: "¿Qué permite Port@firmas?",
             opciones: [
                 "Autenticación de empleados públicos",
@@ -1309,10 +1309,10 @@ const preguntas = {
                 "Sellado de tiempo"
             ],
             correcta: 2,
-            explicacionId: "1090301009"
+            id: "1090301009"
         },
         {
-            id: "1090301011",
+            explicacionId: "1090301011",
             pregunta: "¿Qué reglamento europeo se menciona en relación con el sistema de reconocimiento de identidades electrónicas?",
             opciones: [
                 "Reglamento (UE) 2016/679",
@@ -1321,7 +1321,7 @@ const preguntas = {
                 "Reglamento (UE) 2019/1150"
             ],
             correcta: 1,
-            explicacionId: "1090301011"
+            id: "1090301011"
         }
     ],
     minimoParaAprobar: 7
@@ -1329,7 +1329,7 @@ const preguntas = {
 "1090302000": {
     preguntas: [
         {
-            id: "1090302001",
+            explicacionId: "1090302001",
             pregunta: "¿Qué es el Sistema de Interconexión de Registros (SIR)?",
             opciones: [
                 "Una plataforma para el intercambio de correos electrónicos entre AAPP",
@@ -1338,10 +1338,10 @@ const preguntas = {
                 "Un software de videoconferencia para reuniones entre diferentes AAPP"
             ],
             correcta: 2,
-            explicacionId: "1090302001"
+            id: "1090302001"
         },
         {
-            id: "1090302002",
+            explicacionId: "1090302002",
             pregunta: "¿Qué norma técnica deben cumplir las aplicaciones o servicios de registro para integrarse con SIR?",
             opciones: [
                 "ISO 9001",
@@ -1350,10 +1350,10 @@ const preguntas = {
                 "LOPD 3.0"
             ],
             correcta: 1,
-            explicacionId: "1090302002"
+            id: "1090302002"
         },
         {
-            id: "1090302003",
+            explicacionId: "1090302003",
             pregunta: "¿Cuál es la principal ventaja de la integración en SIR?",
             opciones: [
                 "Aumenta el uso de papel en las Administraciones",
@@ -1362,10 +1362,10 @@ const preguntas = {
                 "Facilita la impresión de documentos en múltiples oficinas"
             ],
             correcta: 2,
-            explicacionId: "1090302003"
+            id: "1090302003"
         },
         {
-            id: "1090302004",
+            explicacionId: "1090302004",
             pregunta: "¿Qué es el Registro Electrónico General (REG) de la AGE?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -1374,10 +1374,10 @@ const preguntas = {
                 "Un sistema de videovigilancia para edificios públicos"
             ],
             correcta: 1,
-            explicacionId: "1090302004"
+            id: "1090302004"
         },
         {
-            id: "1090302005",
+            explicacionId: "1090302005",
             pregunta: "¿Qué es GEISER?",
             opciones: [
                 "Un sistema de geolocalización de oficinas públicas",
@@ -1386,10 +1386,10 @@ const preguntas = {
                 "Un sistema de inteligencia artificial para la toma de decisiones administrativas"
             ],
             correcta: 1,
-            explicacionId: "1090302005"
+            id: "1090302005"
         },
         {
-            id: "1090302006",
+            explicacionId: "1090302006",
             pregunta: "¿Cuál de las siguientes NO es una característica de GEISER?",
             opciones: [
                 "Se presta en modo servicio (en la nube)",
@@ -1398,10 +1398,10 @@ const preguntas = {
                 "Permite la distribución de los asientos registrales a las unidades de tramitación"
             ],
             correcta: 1,
-            explicacionId: "1090302006"
+            id: "1090302006"
         },
         {
-            id: "1090302007",
+            explicacionId: "1090302007",
             pregunta: "¿Qué es ORVE?",
             opciones: [
                 "Un sistema de gestión de citas previas",
@@ -1410,10 +1410,10 @@ const preguntas = {
                 "Un programa de formación para funcionarios públicos"
             ],
             correcta: 2,
-            explicacionId: "1090302007"
+            id: "1090302007"
         },
         {
-            id: "1090302008",
+            explicacionId: "1090302008",
             pregunta: "¿Qué permite hacer APODERA?",
             opciones: [
                 "Gestionar el presupuesto de las AAPP",
@@ -1422,10 +1422,10 @@ const preguntas = {
                 "Administrar las redes sociales de las instituciones públicas"
             ],
             correcta: 1,
-            explicacionId: "1090302008"
+            id: "1090302008"
         },
         {
-            id: "1090302009",
+            explicacionId: "1090302009",
             pregunta: "¿Cuál es la función principal de Habilit@?",
             opciones: [
                 "Gestionar las nóminas de los funcionarios",
@@ -1434,10 +1434,10 @@ const preguntas = {
                 "Administrar las vacaciones del personal administrativo"
             ],
             correcta: 1,
-            explicacionId: "1090302009"
+            id: "1090302009"
         },
         {
-            id: "1090302010",
+            explicacionId: "1090302010",
             pregunta: "¿Qué ventaja ofrece el Servicio de Consulta de Poderes Notariales (Notaria)?",
             opciones: [
                 "Permite redactar poderes notariales en línea",
@@ -1446,7 +1446,7 @@ const preguntas = {
                 "Facilita la búsqueda de notarías cercanas"
             ],
             correcta: 2,
-            explicacionId: "1090302010"
+            id: "1090302010"
         }
     ],
     minimoParaAprobar: 7
@@ -1454,7 +1454,7 @@ const preguntas = {
 "1090303000": {
     preguntas: [
         {
-            id: "1090303001",
+            explicacionId: "1090303001",
             pregunta: "¿Qué es el PAGe?",
             opciones: [
                 "Un punto de acceso telefónico para ciudadanos",
@@ -1463,10 +1463,10 @@ const preguntas = {
                 "Una plataforma de transparencia para entidades locales"
             ],
             correcta: 1,
-            explicacionId: "1090303001"
+            id: "1090303001"
         },
         {
-            id: "1090303002",
+            explicacionId: "1090303002",
             pregunta: "¿Cuál de los siguientes NO es un servicio ofrecido en la sede del PAGe?",
             opciones: [
                 "Carpeta ciudadana",
@@ -1475,10 +1475,10 @@ const preguntas = {
                 "Gestión de nóminas de funcionarios"
             ],
             correcta: 3,
-            explicacionId: "1090303002"
+            id: "1090303002"
         },
         {
-            id: "1090303003",
+            explicacionId: "1090303003",
             pregunta: "¿Qué ofrece el teléfono 060?",
             opciones: [
                 "Únicamente información sobre trámites de la AGE",
@@ -1487,10 +1487,10 @@ const preguntas = {
                 "Exclusivamente servicios de emergencia"
             ],
             correcta: 2,
-            explicacionId: "1090303003"
+            id: "1090303003"
         },
         {
-            id: "1090303004",
+            explicacionId: "1090303004",
             pregunta: "¿Qué característica NO corresponde a la Carpeta Ciudadana?",
             opciones: [
                 "Requiere registro previo de usuario",
@@ -1499,10 +1499,10 @@ const preguntas = {
                 "Usa Cl@ve para la identificación"
             ],
             correcta: 0,
-            explicacionId: "1090303004"
+            id: "1090303004"
         },
         {
-            id: "1090303005",
+            explicacionId: "1090303005",
             pregunta: "¿Cuál es la función principal de FACe?",
             opciones: [
                 "Gestionar citas previas para atención presencial",
@@ -1511,10 +1511,10 @@ const preguntas = {
                 "Gestionar la transparencia de entidades locales"
             ],
             correcta: 1,
-            explicacionId: "1090303005"
+            id: "1090303005"
         },
         {
-            id: "1090303006",
+            explicacionId: "1090303006",
             pregunta: "¿Qué permite el servicio de Transparencia Local?",
             opciones: [
                 "Gestionar facturas electrónicas",
@@ -1523,10 +1523,10 @@ const preguntas = {
                 "Tramitar solicitudes de acceso a la información pública de la AGE"
             ],
             correcta: 2,
-            explicacionId: "1090303006"
+            id: "1090303006"
         },
         {
-            id: "1090303007",
+            explicacionId: "1090303007",
             pregunta: "¿Qué funcionalidad ofrece la aplicación de Cita Previa?",
             opciones: [
                 "Gestionar el acceso de los ciudadanos a oficinas de atención presencial",
@@ -1535,10 +1535,10 @@ const preguntas = {
                 "Gestionar la transparencia de entidades locales"
             ],
             correcta: 0,
-            explicacionId: "1090303007"
+            id: "1090303007"
         },
         {
-            id: "1090303008",
+            explicacionId: "1090303008",
             pregunta: "¿Qué ley establece el derecho de las personas a comunicarse con las administraciones a través del PAGe?",
             opciones: [
                 "Ley 40/2015",
@@ -1547,10 +1547,10 @@ const preguntas = {
                 "Ley 9/2017"
             ],
             correcta: 1,
-            explicacionId: "1090303008"
+            id: "1090303008"
         },
         {
-            id: "1090303009",
+            explicacionId: "1090303009",
             pregunta: "¿Qué formato de factura electrónica se utiliza en FACe?",
             opciones: [
                 "PDF",
@@ -1559,10 +1559,10 @@ const preguntas = {
                 "JSON"
             ],
             correcta: 2,
-            explicacionId: "1090303009"
+            id: "1090303009"
         },
         {
-            id: "1090303010",
+            explicacionId: "1090303010",
             pregunta: "¿Qué herramienta NO se menciona como parte del servicio de Transparencia Local?",
             opciones: [
                 "Gestor de Contenidos del Portal",
@@ -1571,7 +1571,7 @@ const preguntas = {
                 "Sistema de votación electrónica"
             ],
             correcta: 3,
-            explicacionId: "1090303010"
+            id: "1090303010"
         }
     ],
     minimoParaAprobar: 7
@@ -1579,7 +1579,7 @@ const preguntas = {
 "1090304000": {
     preguntas: [
         {
-            id: "1090304001",
+            explicacionId: "1090304001",
             pregunta: "¿Cuál es el objetivo principal de la Plataforma de Intermediación de Datos (PID)?",
             opciones: [
                 "Facilitar el intercambio de correos electrónicos entre AAPP",
@@ -1588,10 +1588,10 @@ const preguntas = {
                 "Gestionar el almacenamiento de documentos digitales de los ciudadanos"
             ],
             correcta: 1,
-            explicacionId: "1090304001"
+            id: "1090304001"
         },
         {
-            id: "1090304002",
+            explicacionId: "1090304002",
             pregunta: "¿Qué ventaja NO ofrece la PID para el ciudadano?",
             opciones: [
                 "Simplificación del papeleo",
@@ -1600,10 +1600,10 @@ const preguntas = {
                 "Evitar aportar documentos que ya posee la Administración"
             ],
             correcta: 2,
-            explicacionId: "1090304002"
+            id: "1090304002"
         },
         {
-            id: "1090304003",
+            explicacionId: "1090304003",
             pregunta: "¿Qué protocolo utiliza la PID para ofrecer servicios web de verificación y consulta de datos?",
             opciones: [
                 "HTTP",
@@ -1612,10 +1612,10 @@ const preguntas = {
                 "SMTP"
             ],
             correcta: 2,
-            explicacionId: "1090304003"
+            id: "1090304003"
         },
         {
-            id: "1090304004",
+            explicacionId: "1090304004",
             pregunta: "¿Qué debe hacer la Administración antes de solicitar los datos de un ciudadano a través de la PID?",
             opciones: [
                 "Notificar al ciudadano por correo certificado",
@@ -1624,10 +1624,10 @@ const preguntas = {
                 "Obtener autorización judicial"
             ],
             correcta: 1,
-            explicacionId: "1090304004"
+            id: "1090304004"
         },
         {
-            id: "1090304005",
+            explicacionId: "1090304005",
             pregunta: "¿Qué elemento se utiliza para verificar el certificado de autenticación y validar la firma de la petición en el flujo de la PID?",
             opciones: [
                 "@firma",
@@ -1636,10 +1636,10 @@ const preguntas = {
                 "FACe"
             ],
             correcta: 0,
-            explicacionId: "1090304005"
+            id: "1090304005"
         },
         {
-            id: "1090304006",
+            explicacionId: "1090304006",
             pregunta: "¿Qué característica NO es correcta sobre el flujo de procesamiento de solicitudes en la PID?",
             opciones: [
                 "La petición debe ir firmada",
@@ -1648,10 +1648,10 @@ const preguntas = {
                 "Se registra tanto la petición como la respuesta"
             ],
             correcta: 2,
-            explicacionId: "1090304006"
+            id: "1090304006"
         },
         {
-            id: "1090304007",
+            explicacionId: "1090304007",
             pregunta: "¿Dónde se puede consultar el catálogo completo de datos disponibles en la PID?",
             opciones: [
                 "En el Boletín Oficial del Estado",
@@ -1660,10 +1660,10 @@ const preguntas = {
                 "En el Portal de Transparencia"
             ],
             correcta: 2,
-            explicacionId: "1090304007"
+            id: "1090304007"
         },
         {
-            id: "1090304008",
+            explicacionId: "1090304008",
             pregunta: "¿Qué herramienta pone la SGAD a disposición de los organismos para consultar los servicios de la PID?",
             opciones: [
                 "FACe",
@@ -1672,10 +1672,10 @@ const preguntas = {
                 "GEISER"
             ],
             correcta: 1,
-            explicacionId: "1090304008"
+            id: "1090304008"
         },
         {
-            id: "1090304009",
+            explicacionId: "1090304009",
             pregunta: "¿Qué tipo de datos NO se menciona explícitamente como consultable a través de la PID?",
             opciones: [
                 "Identidad",
@@ -1684,10 +1684,10 @@ const preguntas = {
                 "Historial médico"
             ],
             correcta: 3,
-            explicacionId: "1090304009"
+            id: "1090304009"
         },
         {
-            id: "1090304010",
+            explicacionId: "1090304010",
             pregunta: "¿Qué característica de la consulta de datos en la PID es correcta?",
             opciones: [
                 "Solo se puede realizar de manera síncrona",
@@ -1696,7 +1696,7 @@ const preguntas = {
                 "No se especifica el modo de consulta"
             ],
             correcta: 2,
-            explicacionId: "1090304010"
+            id: "1090304010"
         }
     ],
     minimoParaAprobar: 7
@@ -1704,7 +1704,7 @@ const preguntas = {
 "1090305000": {
     preguntas: [
         {
-            id: "1090305001",
+            explicacionId: "1090305001",
             pregunta: "¿Qué es el Sistema de Información Administrativa (SIA)?",
             opciones: [
                 "Un sistema de gestión de recursos humanos de la AGE",
@@ -1713,10 +1713,10 @@ const preguntas = {
                 "Una base de datos de ciudadanos"
             ],
             correcta: 1,
-            explicacionId: "1090305001"
+            id: "1090305001"
         },
         {
-            id: "1090305002",
+            explicacionId: "1090305002",
             pregunta: "¿Qué NO incluye el SIA?",
             opciones: [
                 "Procedimientos administrativos",
@@ -1725,10 +1725,10 @@ const preguntas = {
                 "Datos personales de los funcionarios"
             ],
             correcta: 3,
-            explicacionId: "1090305002"
+            id: "1090305002"
         },
         {
-            id: "1090305003",
+            explicacionId: "1090305003",
             pregunta: "¿Qué artículo del ENI obliga a las AAPP a mantener actualizado un Inventario de Información Administrativa?",
             opciones: [
                 "Artículo 7",
@@ -1737,10 +1737,10 @@ const preguntas = {
                 "Artículo 10"
             ],
             correcta: 2,
-            explicacionId: "1090305003"
+            id: "1090305003"
         },
         {
-            id: "1090305004",
+            explicacionId: "1090305004",
             pregunta: "¿Qué proporciona el Directorio Común (DIR3)?",
             opciones: [
                 "Una lista de ciudadanos",
@@ -1749,10 +1749,10 @@ const preguntas = {
                 "Un catálogo de servicios web"
             ],
             correcta: 1,
-            explicacionId: "1090305004"
+            id: "1090305004"
         },
         {
-            id: "1090305005",
+            explicacionId: "1090305005",
             pregunta: "¿Cuál es la URL del directorio común de unidades DIR3?",
             opciones: [
                 "http://dir3.redsara.es",
@@ -1761,10 +1761,10 @@ const preguntas = {
                 "http://dir.redsara.es"
             ],
             correcta: 2,
-            explicacionId: "1090305005"
+            id: "1090305005"
         },
         {
-            id: "1090305006",
+            explicacionId: "1090305006",
             pregunta: "¿Qué NO es un campo de información en DIR3?",
             opciones: [
                 "Código DIR3 de la unidad",
@@ -1773,10 +1773,10 @@ const preguntas = {
                 "Presupuesto anual"
             ],
             correcta: 3,
-            explicacionId: "1090305006"
+            id: "1090305006"
         },
         {
-            id: "1090305007",
+            explicacionId: "1090305007",
             pregunta: "¿Qué es DIRe?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -1785,10 +1785,10 @@ const preguntas = {
                 "Un catálogo de procedimientos administrativos"
             ],
             correcta: 1,
-            explicacionId: "1090305007"
+            id: "1090305007"
         },
         {
-            id: "1090305008",
+            explicacionId: "1090305008",
             pregunta: "¿Cómo se identifica una empresa en DIRe?",
             opciones: [
                 "Mediante usuario y contraseña",
@@ -1797,10 +1797,10 @@ const preguntas = {
                 "Con el número de identificación fiscal"
             ],
             correcta: 2,
-            explicacionId: "1090305008"
+            id: "1090305008"
         },
         {
-            id: "1090305009",
+            explicacionId: "1090305009",
             pregunta: "¿Qué ley se menciona en relación con DIRe?",
             opciones: [
                 "Ley 39/2015",
@@ -1809,10 +1809,10 @@ const preguntas = {
                 "Ley 59/2003"
             ],
             correcta: 0,
-            explicacionId: "1090305009"
+            id: "1090305009"
         },
         {
-            id: "1090305010",
+            explicacionId: "1090305010",
             pregunta: "¿A través de qué plataforma se puede acceder al portal web de DIRe?",
             opciones: [
                 "Cl@ve",
@@ -1821,7 +1821,7 @@ const preguntas = {
                 "SIA"
             ],
             correcta: 2,
-            explicacionId: "1090305010"
+            id: "1090305010"
         }
     ],
     minimoParaAprobar: 7
@@ -1829,7 +1829,7 @@ const preguntas = {
 "1090306000": {
     preguntas: [
         {
-            id: "1090306001",
+            explicacionId: "1090306001",
             pregunta: "¿Qué es la DEHu?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -1838,10 +1838,10 @@ const preguntas = {
                 "Un sistema de gestión de expedientes"
             ],
             correcta: 1,
-            explicacionId: "1090306001"
+            id: "1090306001"
         },
         {
-            id: "1090306002",
+            explicacionId: "1090306002",
             pregunta: "¿Quién puede acceder al portal de notificaciones de la DEHú?",
             opciones: [
                 "Solo personas físicas",
@@ -1850,10 +1850,10 @@ const preguntas = {
                 "Únicamente funcionarios públicos"
             ],
             correcta: 2,
-            explicacionId: "1090306002"
+            id: "1090306002"
         },
         {
-            id: "1090306003",
+            explicacionId: "1090306003",
             pregunta: "¿Cuál es la URL del portal de la DEHú?",
             opciones: [
                 "https://dehu.gob.es/",
@@ -1862,10 +1862,10 @@ const preguntas = {
                 "https://sede.administracion.gob.es/dehu"
             ],
             correcta: 1,
-            explicacionId: "1090306003"
+            id: "1090306003"
         },
         {
-            id: "1090306004",
+            explicacionId: "1090306004",
             pregunta: "¿Qué es el PUC en el contexto de la DEHú?",
             opciones: [
                 "Punto Único de Comunicación",
@@ -1874,10 +1874,10 @@ const preguntas = {
                 "Plataforma Unificada de Consultas"
             ],
             correcta: 2,
-            explicacionId: "1090306004"
+            id: "1090306004"
         },
         {
-            id: "1090306005",
+            explicacionId: "1090306005",
             pregunta: "¿Desde qué año es Notifica un servicio de uso obligado?",
             opciones: [
                 "2015",
@@ -1886,10 +1886,10 @@ const preguntas = {
                 "2018"
             ],
             correcta: 2,
-            explicacionId: "1090306005"
+            id: "1090306005"
         },
         {
-            id: "1090306006",
+            explicacionId: "1090306006",
             pregunta: "¿Cuál de las siguientes NO es una vía de acceso a las notificaciones para el destinatario en Notifica?",
             opciones: [
                 "Comparecencia en sede",
@@ -1898,10 +1898,10 @@ const preguntas = {
                 "Aplicación móvil"
             ],
             correcta: 3,
-            explicacionId: "1090306006"
+            id: "1090306006"
         },
         {
-            id: "1090306007",
+            explicacionId: "1090306007",
             pregunta: "¿Cuál de las siguientes NO es una vía principal de entrega de notificaciones/comunicaciones en Notifica?",
             opciones: [
                 "En soporte papel",
@@ -1910,10 +1910,10 @@ const preguntas = {
                 "A través de redes sociales"
             ],
             correcta: 3,
-            explicacionId: "1090306007"
+            id: "1090306007"
         },
         {
-            id: "1090306008",
+            explicacionId: "1090306008",
             pregunta: "¿Cuál de las siguientes NO es una acción que realiza Notific@?",
             opciones: [
                 "Recibe las notificaciones/comunicaciones de los organismos emisores",
@@ -1922,10 +1922,10 @@ const preguntas = {
                 "Genera automáticamente el contenido de las notificaciones"
             ],
             correcta: 3,
-            explicacionId: "1090306008"
+            id: "1090306008"
         },
         {
-            id: "1090306009",
+            explicacionId: "1090306009",
             pregunta: "¿Cuáles son las dos posibles interfaces para la interacción de los Organismos Emisores con Notifica?",
             opciones: [
                 "Correo electrónico y fax",
@@ -1934,10 +1934,10 @@ const preguntas = {
                 "SMS y mensajería instantánea"
             ],
             correcta: 1,
-            explicacionId: "1090306009"
+            id: "1090306009"
         },
         {
-            id: "1090306010",
+            explicacionId: "1090306010",
             pregunta: "¿Qué es SIM?",
             opciones: [
                 "Sistema de Identificación Múltiple",
@@ -1946,7 +1946,7 @@ const preguntas = {
                 "Sistema Integrado de Monitorización"
             ],
             correcta: 2,
-            explicacionId: "1090306010"
+            id: "1090306010"
         }
     ],
     minimoParaAprobar: 7
@@ -1954,7 +1954,7 @@ const preguntas = {
 "1090307000": {
     preguntas: [
         {
-            id: "1090307001",
+            explicacionId: "1090307001",
             pregunta: "¿Qué es InSide?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -1963,10 +1963,10 @@ const preguntas = {
                 "Un sistema de gestión de bases de datos"
             ],
             correcta: 1,
-            explicacionId: "1090307001"
+            id: "1090307001"
         },
         {
-            id: "1090307002",
+            explicacionId: "1090307002",
             pregunta: "¿Con qué estándar es compatible InSide para almacenar y modificar documentos y expedientes electrónicos?",
             opciones: [
                 "XML",
@@ -1975,10 +1975,10 @@ const preguntas = {
                 "HTML5"
             ],
             correcta: 2,
-            explicacionId: "1090307002"
+            id: "1090307002"
         },
         {
-            id: "1090307003",
+            explicacionId: "1090307003",
             pregunta: "¿Cuál es la principal característica de G-Inside?",
             opciones: [
                 "Almacena permanentemente todos los documentos",
@@ -1987,10 +1987,10 @@ const preguntas = {
                 "Imprime físicamente los documentos electrónicos"
             ],
             correcta: 1,
-            explicacionId: "1090307003"
+            id: "1090307003"
         },
         {
-            id: "1090307004",
+            explicacionId: "1090307004",
             pregunta: "¿Qué funcionalidades añade la Suite CSV a InSide?",
             opciones: [
                 "Gestión de recursos humanos",
@@ -1999,10 +1999,10 @@ const preguntas = {
                 "Gestión de redes sociales"
             ],
             correcta: 1,
-            explicacionId: "1090307004"
+            id: "1090307004"
         },
         {
-            id: "1090307005",
+            explicacionId: "1090307005",
             pregunta: "¿Cuál de los siguientes NO es un componente de la Suite CSV?",
             opciones: [
                 "CSV Creator",
@@ -2011,10 +2011,10 @@ const preguntas = {
                 "CSV Analyzer"
             ],
             correcta: 3,
-            explicacionId: "1090307005"
+            id: "1090307005"
         },
         {
-            id: "1090307006",
+            explicacionId: "1090307006",
             pregunta: "¿Qué es Archive?",
             opciones: [
                 "Un sistema de gestión de correo electrónico",
@@ -2023,10 +2023,10 @@ const preguntas = {
                 "Un sistema de backup en la nube"
             ],
             correcta: 1,
-            explicacionId: "1090307006"
+            id: "1090307006"
         },
         {
-            id: "1090307007",
+            explicacionId: "1090307007",
             pregunta: "¿Qué permite generar Archive para cada Archivo y Serie Documental?",
             opciones: [
                 "Códigos QR",
@@ -2035,10 +2035,10 @@ const preguntas = {
                 "Copias físicas de los documentos"
             ],
             correcta: 1,
-            explicacionId: "1090307007"
+            id: "1090307007"
         },
         {
-            id: "1090307008",
+            explicacionId: "1090307008",
             pregunta: "¿Cuál de las siguientes NO es una Política de Conservación contemplada en Archive?",
             opciones: [
                 "Eliminación permanente",
@@ -2047,10 +2047,10 @@ const preguntas = {
                 "Actualización automática"
             ],
             correcta: 3,
-            explicacionId: "1090307008"
+            id: "1090307008"
         },
         {
-            id: "1090307009",
+            explicacionId: "1090307009",
             pregunta: "¿Qué tipos de paquetes de información establece Archive basándose en el modelo OAIS?",
             opciones: [
                 "SIP, AIP y DIP",
@@ -2059,10 +2059,10 @@ const preguntas = {
                 "HTTP, FTP y SMTP"
             ],
             correcta: 0,
-            explicacionId: "1090307009"
+            id: "1090307009"
         },
         {
-            id: "1090307010",
+            explicacionId: "1090307010",
             pregunta: "¿Qué funcionalidades están previstas para Archive en el futuro?",
             opciones: [
                 "Integración con redes sociales",
@@ -2071,7 +2071,7 @@ const preguntas = {
                 "Impresión 3D de documentos"
             ],
             correcta: 2,
-            explicacionId: "1090307010"
+            id: "1090307010"
         }
     ],
     minimoParaAprobar: 7
@@ -2079,7 +2079,7 @@ const preguntas = {
 "1090308000": {
     preguntas: [
         {
-            id: "1090308001",
+            explicacionId: "1090308001",
             pregunta: "¿Qué significa ACCEDA?",
             opciones: [
                 "Acceso Centralizado a Expedientes Digitales de la Administración",
@@ -2088,10 +2088,10 @@ const preguntas = {
                 "Automatización de Consultas Ciudadanas en Expedientes Digitales Administrativos"
             ],
             correcta: 1,
-            explicacionId: "1090308001"
+            id: "1090308001"
         },
         {
-            id: "1090308002",
+            explicacionId: "1090308002",
             pregunta: "¿Cuál de las siguientes NO es una característica principal de ACCEDA?",
             opciones: [
                 "Herramienta de administración de uso intuitivo",
@@ -2100,10 +2100,10 @@ const preguntas = {
                 "Generación automática de resoluciones administrativas"
             ],
             correcta: 3,
-            explicacionId: "1090308002"
+            id: "1090308002"
         },
         {
-            id: "1090308003",
+            explicacionId: "1090308003",
             pregunta: "¿Qué beneficios aporta el uso de ACCEDA?",
             opciones: [
                 "Complicación de los procedimientos administrativos",
@@ -2112,10 +2112,10 @@ const preguntas = {
                 "Aumento de la burocracia en la administración"
             ],
             correcta: 2,
-            explicacionId: "1090308003"
+            id: "1090308003"
         },
         {
-            id: "1090308004",
+            explicacionId: "1090308004",
             pregunta: "¿Cuál de los siguientes servicios NO se menciona como integrado con ACCEDA?",
             opciones: [
                 "Cl@ve",
@@ -2124,10 +2124,10 @@ const preguntas = {
                 "FACe"
             ],
             correcta: 3,
-            explicacionId: "1090308004"
+            id: "1090308004"
         },
         {
-            id: "1090308005",
+            explicacionId: "1090308005",
             pregunta: "¿Qué permite la pasarela de pagos?",
             opciones: [
                 "Sólo el pago de tasas",
@@ -2136,10 +2136,10 @@ const preguntas = {
                 "Únicamente la verificación del NRC"
             ],
             correcta: 2,
-            explicacionId: "1090308005"
+            id: "1090308005"
         },
         {
-            id: "1090308006",
+            explicacionId: "1090308006",
             pregunta: "¿Qué ventaja ofrece la pasarela de pagos al ciudadano?",
             opciones: [
                 "Realizar el pago de tasas sin necesidad de Internet",
@@ -2148,10 +2148,10 @@ const preguntas = {
                 "Obtener descuentos en el pago de tasas"
             ],
             correcta: 1,
-            explicacionId: "1090308006"
+            id: "1090308006"
         },
         {
-            id: "1090308007",
+            explicacionId: "1090308007",
             pregunta: "¿Cómo se ofrece el servicio de pasarela de pagos?",
             opciones: [
                 "Solo como un servicio web de pago centralizado",
@@ -2160,10 +2160,10 @@ const preguntas = {
                 "Como una aplicación que debe ser instalada en cada organismo"
             ],
             correcta: 2,
-            explicacionId: "1090308007"
+            id: "1090308007"
         },
         {
-            id: "1090308008",
+            explicacionId: "1090308008",
             pregunta: "¿Qué significa NRC en el contexto de la pasarela de pagos?",
             opciones: [
                 "Número de Registro Central",
@@ -2172,10 +2172,10 @@ const preguntas = {
                 "Número de Resolución de Cobro"
             ],
             correcta: 1,
-            explicacionId: "1090308005"
+            id: "1090308005"
         },
         {
-            id: "1090308009",
+            explicacionId: "1090308009",
             pregunta: "¿Qué servicio se utiliza para la autenticación del ciudadano en la Sede-e de ACCEDA?",
             opciones: [
                 "GEISER",
@@ -2184,10 +2184,10 @@ const preguntas = {
                 "INSIDE"
             ],
             correcta: 1,
-            explicacionId: "1090308004"
+            id: "1090308004"
         },
         {
-            id: "1090308010",
+            explicacionId: "1090308010",
             pregunta: "¿Qué nombre recibe el servicio web de pago centralizado de la pasarela de pagos?",
             opciones: [
                 "ePago",
@@ -2196,7 +2196,7 @@ const preguntas = {
                 "Pago-AEAT"
             ],
             correcta: 0,
-            explicacionId: "1090308007"
+            id: "1090308007"
         }
     ],
     minimoParaAprobar: 7
@@ -2204,7 +2204,7 @@ const preguntas = {
 "1090309000": {
     preguntas: [
         {
-            id: "1090309001",
+            explicacionId: "1090309001",
             pregunta: "¿Qué es el PAE?",
             opciones: [
                 "Un portal de empleo de la Administración",
@@ -2213,10 +2213,10 @@ const preguntas = {
                 "Una plataforma de formación para funcionarios"
             ],
             correcta: 1,
-            explicacionId: "1090309001"
+            id: "1090309001"
         },
         {
-            id: "1090309002",
+            explicacionId: "1090309002",
             pregunta: "¿Cuál es el objetivo principal del PAE?",
             opciones: [
                 "Ofrecer servicios electrónicos a los ciudadanos",
@@ -2225,10 +2225,10 @@ const preguntas = {
                 "Proporcionar soporte técnico a las AAPP"
             ],
             correcta: 1,
-            explicacionId: "1090309002"
+            id: "1090309002"
         },
         {
-            id: "1090309003",
+            explicacionId: "1090309003",
             pregunta: "¿Cuál de los siguientes NO es un servicio disponible en el PAE?",
             opciones: [
                 "Observatorio de Administración Electrónica (OBSAE)",
@@ -2237,10 +2237,10 @@ const preguntas = {
                 "Gestión de nóminas de funcionarios"
             ],
             correcta: 3,
-            explicacionId: "1090309004"
+            id: "1090309004"
         },
         {
-            id: "1090309004",
+            explicacionId: "1090309004",
             pregunta: "¿Cuál es la dirección de acceso al PAE?",
             opciones: [
                 "http://administracionelectronica.es",
@@ -2249,10 +2249,10 @@ const preguntas = {
                 "http://administracion.es"
             ],
             correcta: 1,
-            explicacionId: "1090309005"
+            id: "1090309005"
         },
         {
-            id: "1090309005",
+            explicacionId: "1090309005",
             pregunta: "¿Qué función tiene el OBSAE según el Real Decreto 806/2014?",
             opciones: [
                 "Gestionar los recursos humanos de la Administración",
@@ -2261,10 +2261,10 @@ const preguntas = {
                 "Desarrollar aplicaciones para la Administración"
             ],
             correcta: 1,
-            explicacionId: "1090309006"
+            id: "1090309006"
         },
         {
-            id: "1090309006",
+            explicacionId: "1090309006",
             pregunta: "¿Cuál de las siguientes NO es una actividad del OBSAE?",
             opciones: [
                 "Publicar indicadores de Administración electrónica",
@@ -2273,10 +2273,10 @@ const preguntas = {
                 "Gestionar las nóminas de los funcionarios públicos"
             ],
             correcta: 3,
-            explicacionId: "1090309007"
+            id: "1090309007"
         },
         {
-            id: "1090309007",
+            explicacionId: "1090309007",
             pregunta: "¿Qué es el CTT?",
             opciones: [
                 "Centro de Tramitación Telemática",
@@ -2285,10 +2285,10 @@ const preguntas = {
                 "Consejo Técnico de Telecomunicaciones"
             ],
             correcta: 1,
-            explicacionId: "1090309009"
+            id: "1090309009"
         },
         {
-            id: "1090309008",
+            explicacionId: "1090309008",
             pregunta: "¿A qué mandato responde la creación del CTT?",
             opciones: [
                 "Al artículo 158 de la ley 40/2015 y al artículo 17 del ENI",
@@ -2297,10 +2297,10 @@ const preguntas = {
                 "A la Ley Orgánica de Protección de Datos"
             ],
             correcta: 0,
-            explicacionId: "1090309011"
+            id: "1090309011"
         },
         {
-            id: "1090309009",
+            explicacionId: "1090309009",
             pregunta: "¿Qué es el CISE?",
             opciones: [
                 "Centro de Información sobre Servicios Electrónicos",
@@ -2309,10 +2309,10 @@ const preguntas = {
                 "Consejo de Innovación en Servicios Electrónicos"
             ],
             correcta: 2,
-            explicacionId: "1090309012"
+            id: "1090309012"
         },
         {
-            id: "1090309010",
+            explicacionId: "1090309010",
             pregunta: "¿Qué aloja el portal Datos.gob.es?",
             opciones: [
                 "El Catálogo Nacional de datos abiertos",
@@ -2321,7 +2321,7 @@ const preguntas = {
                 "El registro de empresas tecnológicas"
             ],
             correcta: 0,
-            explicacionId: "1090309015"
+            id: "1090309015"
         }
     ],
     minimoParaAprobar: 7
@@ -2329,7 +2329,7 @@ const preguntas = {
 "1090310000": {
     preguntas: [
         {
-            id: "1090310001",
+            explicacionId: "1090310001",
             pregunta: "¿Qué es PLATA?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -2338,10 +2338,10 @@ const preguntas = {
                 "Una plataforma de formación para funcionarios"
             ],
             correcta: 1,
-            explicacionId: "1090310001"
+            id: "1090310001"
         },
         {
-            id: "1090310002",
+            explicacionId: "1090310002",
             pregunta: "¿Qué motores de traducción utiliza PLATA?",
             opciones: [
                 "Google Translate y DeepL",
@@ -2350,10 +2350,10 @@ const preguntas = {
                 "Systran y Linguee"
             ],
             correcta: 1,
-            explicacionId: "1090310003"
+            id: "1090310003"
         },
         {
-            id: "1090310003",
+            explicacionId: "1090310003",
             pregunta: "¿Qué tipo de traducción utiliza PLATA para el euskera e inglés?",
             opciones: [
                 "Traducción basada en reglas",
@@ -2362,10 +2362,10 @@ const preguntas = {
                 "Traducción manual"
             ],
             correcta: 1,
-            explicacionId: "1090310004"
+            id: "1090310004"
         },
         {
-            id: "1090310004",
+            explicacionId: "1090310004",
             pregunta: "¿Qué es EGEO?",
             opciones: [
                 "Un sistema de gestión de expedientes",
@@ -2374,10 +2374,10 @@ const preguntas = {
                 "Un sistema de gestión de recursos naturales"
             ],
             correcta: 1,
-            explicacionId: "1090310006"
+            id: "1090310006"
         },
         {
-            id: "1090310005",
+            explicacionId: "1090310005",
             pregunta: "¿Qué tipos de mapas permite representar EGEO?",
             opciones: [
                 "Solo mapas temáticos",
@@ -2386,10 +2386,10 @@ const preguntas = {
                 "Ninguno de los anteriores"
             ],
             correcta: 2,
-            explicacionId: "1090310007"
+            id: "1090310007"
         },
         {
-            id: "1090310006",
+            explicacionId: "1090310006",
             pregunta: "¿Qué es OAW?",
             opciones: [
                 "Observatorio de Administración Web",
@@ -2398,10 +2398,10 @@ const preguntas = {
                 "Servicio de diagnóstico en línea de Accesibilidad Web"
             ],
             correcta: 3,
-            explicacionId: "1090310011"
+            id: "1090310011"
         },
         {
-            id: "1090310007",
+            explicacionId: "1090310007",
             pregunta: "¿En qué normas se basa el estudio del Observatorio de Accesibilidad?",
             opciones: [
                 "ISO 9001 y ISO 14001",
@@ -2410,10 +2410,10 @@ const preguntas = {
                 "EN 301 549 y EN 302 549"
             ],
             correcta: 1,
-            explicacionId: "1090310012"
+            id: "1090310012"
         },
         {
-            id: "1090310008",
+            explicacionId: "1090310008",
             pregunta: "¿Qué es FORMA?",
             opciones: [
                 "Un sistema de gestión de formación",
@@ -2422,10 +2422,10 @@ const preguntas = {
                 "Una aplicación de diseño gráfico"
             ],
             correcta: 1,
-            explicacionId: "1090310016"
+            id: "1090310016"
         },
         {
-            id: "1090310009",
+            explicacionId: "1090310009",
             pregunta: "¿Qué tipos de preguntas permite incluir FORMA en sus formularios?",
             opciones: [
                 "Solo preguntas abiertas",
@@ -2434,10 +2434,10 @@ const preguntas = {
                 "Solo preguntas de selección múltiple"
             ],
             correcta: 2,
-            explicacionId: "1090310018"
+            id: "1090310018"
         },
         {
-            id: "1090310010",
+            explicacionId: "1090310010",
             pregunta: "¿En qué está basado el BUSCADORAGE?",
             opciones: [
                 "En el motor de búsqueda de Bing",
@@ -2446,7 +2446,7 @@ const preguntas = {
                 "En el motor de búsqueda de Yahoo"
             ],
             correcta: 2,
-            explicacionId: "1090310023"
+            id: "1090310023"
         }
     ],
     minimoParaAprobar: 7
@@ -2454,7 +2454,7 @@ const preguntas = {
 "1090311000": {
     preguntas: [
         {
-            id: "1090311001",
+            explicacionId: "1090311001",
             pregunta: "¿Cuál es el objetivo principal de la solución de correo multidominio?",
             opciones: [
                 "Aumentar el número de dominios de correo",
@@ -2463,10 +2463,10 @@ const preguntas = {
                 "Centralizar todos los correos en un único dominio"
             ],
             correcta: 1,
-            explicacionId: "1090311001"
+            id: "1090311001"
         },
         {
-            id: "1090311002",
+            explicacionId: "1090311002",
             pregunta: "¿Qué servicio NO ofrece el correo electrónico multidominio?",
             opciones: [
                 "Correo electrónico sobre clientes pesados",
@@ -2475,10 +2475,10 @@ const preguntas = {
                 "Almacenamiento ilimitado para todos los usuarios"
             ],
             correcta: 3,
-            explicacionId: "1090311002"
+            id: "1090311002"
         },
         {
-            id: "1090311003",
+            explicacionId: "1090311003",
             pregunta: "¿Cuál es el principal objetivo de REÚNETE?",
             opciones: [
                 "Ofrecer servicios de correo electrónico",
@@ -2487,10 +2487,10 @@ const preguntas = {
                 "Proporcionar acceso a internet a todas las Administraciones Públicas"
             ],
             correcta: 1,
-            explicacionId: "1090311003"
+            id: "1090311003"
         },
         {
-            id: "1090311004",
+            explicacionId: "1090311004",
             pregunta: "¿Qué función principal realiza NEDAES?",
             opciones: [
                 "Gestión de reuniones virtuales",
@@ -2499,10 +2499,10 @@ const preguntas = {
                 "Tramitación de permisos e incidencias"
             ],
             correcta: 1,
-            explicacionId: "1090311004"
+            id: "1090311004"
         },
         {
-            id: "1090311005",
+            explicacionId: "1090311005",
             pregunta: "¿Qué permite el Sistema Integrado de Gestión de Personal (SIGP)?",
             opciones: [
                 "Solo la gestión de nóminas",
@@ -2511,10 +2511,10 @@ const preguntas = {
                 "La gestión de reuniones virtuales"
             ],
             correcta: 1,
-            explicacionId: "1090311005"
+            id: "1090311005"
         },
         {
-            id: "1090311006",
+            explicacionId: "1090311006",
             pregunta: "¿Qué es FUNCIONA?",
             opciones: [
                 "Un sistema de gestión de nóminas",
@@ -2523,10 +2523,10 @@ const preguntas = {
                 "Un sistema de control de presencia"
             ],
             correcta: 2,
-            explicacionId: "1090311006"
+            id: "1090311006"
         },
         {
-            id: "1090311007",
+            explicacionId: "1090311007",
             pregunta: "¿Cuál de los siguientes servicios NO se menciona como disponible en FUNCIONA?",
             opciones: [
                 "Consulta de nómina",
@@ -2535,10 +2535,10 @@ const preguntas = {
                 "Gestión de proyectos internos"
             ],
             correcta: 3,
-            explicacionId: "1090311007"
+            id: "1090311007"
         },
         {
-            id: "1090311008",
+            explicacionId: "1090311008",
             pregunta: "¿Cuáles son las dos funcionalidades principales de TRAMA?",
             opciones: [
                 "Gestión de nóminas y control de presencia",
@@ -2547,10 +2547,10 @@ const preguntas = {
                 "Control de presencia y gestión de expedientes electrónicos"
             ],
             correcta: 1,
-            explicacionId: "1090311008"
+            id: "1090311008"
         },
         {
-            id: "1090311009",
+            explicacionId: "1090311009",
             pregunta: "¿Qué es CIRCABC?",
             opciones: [
                 "Un sistema de control de presencia",
@@ -2559,10 +2559,10 @@ const preguntas = {
                 "Una plataforma de videoconferencias"
             ],
             correcta: 1,
-            explicacionId: "1090311010"
+            id: "1090311010"
         },
         {
-            id: "1090311010",
+            explicacionId: "1090311010",
             pregunta: "¿Qué es la Red SARA?",
             opciones: [
                 "Un sistema de gestión de recursos humanos",
@@ -2571,7 +2571,7 @@ const preguntas = {
                 "Un portal del empleado público"
             ],
             correcta: 2,
-            explicacionId: "1090311011"
+            id: "1090311011"
         }
     ],
     minimoParaAprobar: 7
@@ -2579,7 +2579,7 @@ const preguntas = {
 "1090312000": {
     preguntas: [
         {
-            id: "1090312001",
+            explicacionId: "1090312001",
             pregunta: "¿Cuántos servicios compartidos se incluyeron en la primera declaración de la Comisión de Estrategia TIC?",
             opciones: [
                 "10",
@@ -2588,10 +2588,10 @@ const preguntas = {
                 "16"
             ],
             correcta: 2,
-            explicacionId: "1090312001"
+            id: "1090312001"
         },
         {
-            id: "1090312002",
+            explicacionId: "1090312002",
             pregunta: "¿Qué NO incluye el Servicio Unificado de Telecomunicaciones?",
             opciones: [
                 "Red Corporativa Multiservicio",
@@ -2600,10 +2600,10 @@ const preguntas = {
                 "Gestión de Nóminas"
             ],
             correcta: 3,
-            explicacionId: "1090312002"
+            id: "1090312002"
         },
         {
-            id: "1090312003",
+            explicacionId: "1090312003",
             pregunta: "¿Qué tipo de nube proporciona el Servicio de Nube Híbrida (Nube SARA)?",
             opciones: [
                 "Solo nube privada",
@@ -2612,10 +2612,10 @@ const preguntas = {
                 "Nube comunitaria"
             ],
             correcta: 2,
-            explicacionId: "1090312005"
+            id: "1090312005"
         },
         {
-            id: "1090312004",
+            explicacionId: "1090312004",
             pregunta: "¿Qué dominio de correo único se utiliza en el Servicio de Correo Electrónico Unificado?",
             opciones: [
                 "gob.es",
@@ -2624,10 +2624,10 @@ const preguntas = {
                 "correo.es"
             ],
             correcta: 0,
-            explicacionId: "1090312006"
+            id: "1090312006"
         },
         {
-            id: "1090312005",
+            explicacionId: "1090312005",
             pregunta: "¿Qué servicios NO proporciona el Servicio de Gestión del Registro?",
             opciones: [
                 "Registro Electrónico",
@@ -2636,10 +2636,10 @@ const preguntas = {
                 "Gestión de Nóminas"
             ],
             correcta: 3,
-            explicacionId: "1090312008"
+            id: "1090312008"
         },
         {
-            id: "1090312006",
+            explicacionId: "1090312006",
             pregunta: "¿Cuál de las siguientes NO es una vía de entrega de notificaciones en el Servicio de Gestión de Notificaciones?",
             opciones: [
                 "En soporte papel",
@@ -2648,10 +2648,10 @@ const preguntas = {
                 "A través de redes sociales"
             ],
             correcta: 3,
-            explicacionId: "1090312009"
+            id: "1090312009"
         },
         {
-            id: "1090312007",
+            explicacionId: "1090312007",
             pregunta: "¿Qué aplicación se menciona para el Servicio de Gestión de Nómina?",
             opciones: [
                 "NEDAES",
@@ -2660,10 +2660,10 @@ const preguntas = {
                 "@firma"
             ],
             correcta: 0,
-            explicacionId: "1090312010"
+            id: "1090312010"
         },
         {
-            id: "1090312008",
+            explicacionId: "1090312008",
             pregunta: "¿Qué aplicación se utiliza en el Servicio Común de Gestión Económico Presupuestaria?",
             opciones: [
                 "NEDAES",
@@ -2672,10 +2672,10 @@ const preguntas = {
                 "@firma"
             ],
             correcta: 2,
-            explicacionId: "1090312012"
+            id: "1090312012"
         },
         {
-            id: "1090312009",
+            explicacionId: "1090312009",
             pregunta: "¿Qué aplicación se menciona para el Servicio Común de Generación y Validación de Firmas Electrónicas?",
             opciones: [
                 "NEDAES",
@@ -2684,10 +2684,10 @@ const preguntas = {
                 "@firma"
             ],
             correcta: 3,
-            explicacionId: "1090312013"
+            id: "1090312013"
         },
         {
-            id: "1090312010",
+            explicacionId: "1090312010",
             pregunta: "¿Qué normas técnicas cumple el Servicio de Gestión de Archivo Electrónico?",
             opciones: [
                 "Solo Normas Técnicas de Documento",
@@ -2696,7 +2696,7 @@ const preguntas = {
                 "Solo Normas Técnicas de Expediente"
             ],
             correcta: 2,
-            explicacionId: "1090312015"
+            id: "1090312015"
         }
     ],
     minimoParaAprobar: 7
@@ -2707,7 +2707,7 @@ const preguntas = {
     "1090000000e": {
         preguntas: [
             {
-                id: "1090312001",
+                explicacionId: "1090312001",
                 pregunta: "¿Cuántos servicios compartidos se incluyeron en la primera declaración de la Comisión de Estrategia TIC?",
                 opciones: [
                     "10",
@@ -2716,10 +2716,10 @@ const preguntas = {
                     "16"
                 ],
                 correcta: 2,
-                explicacionId: "1090312001"
+                id: "1090312001"
             },
             {
-                id: "1090312002",
+                explicacionId: "1090312002",
                 pregunta: "¿Qué NO incluye el Servicio Unificado de Telecomunicaciones?",
                 opciones: [
                     "Red Corporativa Multiservicio",
@@ -2728,10 +2728,10 @@ const preguntas = {
                     "Gestión de Nóminas"
                 ],
                 correcta: 3,
-                explicacionId: "1090312002"
+                id: "1090312002"
             },
             {
-                id: "1090312003",
+                explicacionId: "1090312003",
                 pregunta: "¿Qué tipo de nube proporciona el Servicio de Nube Híbrida (Nube SARA)?",
                 opciones: [
                     "Solo nube privada",
@@ -2740,10 +2740,10 @@ const preguntas = {
                     "Nube comunitaria"
                 ],
                 correcta: 2,
-                explicacionId: "1090312005"
+                id: "1090312005"
             },
             {
-                id: "1090312004",
+                explicacionId: "1090312004",
                 pregunta: "¿Qué dominio de correo único se utiliza en el Servicio de Correo Electrónico Unificado?",
                 opciones: [
                     "gob.es",
@@ -2752,10 +2752,10 @@ const preguntas = {
                     "correo.es"
                 ],
                 correcta: 0,
-                explicacionId: "1090312006"
+                id: "1090312006"
             },
             {
-                id: "1090312005",
+                explicacionId: "1090312005",
                 pregunta: "¿Qué servicios NO proporciona el Servicio de Gestión del Registro?",
                 opciones: [
                     "Registro Electrónico",
@@ -2764,10 +2764,10 @@ const preguntas = {
                     "Gestión de Nóminas"
                 ],
                 correcta: 3,
-                explicacionId: "1090312008"
+                id: "1090312008"
             },
             {
-                id: "1090312006",
+                explicacionId: "1090312006",
                 pregunta: "¿Cuál de las siguientes NO es una vía de entrega de notificaciones en el Servicio de Gestión de Notificaciones?",
                 opciones: [
                     "En soporte papel",
@@ -2776,10 +2776,10 @@ const preguntas = {
                     "A través de redes sociales"
                 ],
                 correcta: 3,
-                explicacionId: "1090312009"
+                id: "1090312009"
             },
             {
-                id: "1090312007",
+                explicacionId: "1090312007",
                 pregunta: "¿Qué aplicación se menciona para el Servicio de Gestión de Nómina?",
                 opciones: [
                     "NEDAES",
@@ -2788,10 +2788,10 @@ const preguntas = {
                     "@firma"
                 ],
                 correcta: 0,
-                explicacionId: "1090312010"
+                id: "1090312010"
             },
             {
-                id: "1090312008",
+                explicacionId: "1090312008",
                 pregunta: "¿Qué aplicación se utiliza en el Servicio Común de Gestión Económico Presupuestaria?",
                 opciones: [
                     "NEDAES",
@@ -2800,10 +2800,10 @@ const preguntas = {
                     "@firma"
                 ],
                 correcta: 2,
-                explicacionId: "1090312012"
+                id: "1090312012"
             },
             {
-                id: "1090312009",
+                explicacionId: "1090312009",
                 pregunta: "¿Qué aplicación se menciona para el Servicio Común de Generación y Validación de Firmas Electrónicas?",
                 opciones: [
                     "NEDAES",
@@ -2812,10 +2812,10 @@ const preguntas = {
                     "@firma"
                 ],
                 correcta: 3,
-                explicacionId: "1090312013"
+                id: "1090312013"
             },
             {
-                id: "1090312010",
+                explicacionId: "1090312010",
                 pregunta: "¿Qué normas técnicas cumple el Servicio de Gestión de Archivo Electrónico?",
                 opciones: [
                     "Solo Normas Técnicas de Documento",
@@ -2824,10 +2824,10 @@ const preguntas = {
                     "Solo Normas Técnicas de Expediente"
                 ],
                 correcta: 2,
-                explicacionId: "1090312015"
+                id: "1090312015"
             },
             {
-                id: "1090311001",
+                explicacionId: "1090311001",
                 pregunta: "¿Cuál es el objetivo principal de la solución de correo multidominio?",
                 opciones: [
                     "Aumentar el número de dominios de correo",
@@ -2836,10 +2836,10 @@ const preguntas = {
                     "Centralizar todos los correos en un único dominio"
                 ],
                 correcta: 1,
-                explicacionId: "1090311001"
+                id: "1090311001"
             },
             {
-                id: "1090311002",
+                explicacionId: "1090311002",
                 pregunta: "¿Qué servicio NO ofrece el correo electrónico multidominio?",
                 opciones: [
                     "Correo electrónico sobre clientes pesados",
@@ -2848,10 +2848,10 @@ const preguntas = {
                     "Almacenamiento ilimitado para todos los usuarios"
                 ],
                 correcta: 3,
-                explicacionId: "1090311002"
+                id: "1090311002"
             },
             {
-                id: "1090311003",
+                explicacionId: "1090311003",
                 pregunta: "¿Cuál es el principal objetivo de REÚNETE?",
                 opciones: [
                     "Ofrecer servicios de correo electrónico",
@@ -2860,10 +2860,10 @@ const preguntas = {
                     "Proporcionar acceso a internet a todas las Administraciones Públicas"
                 ],
                 correcta: 1,
-                explicacionId: "1090311003"
+                id: "1090311003"
             },
             {
-                id: "1090311004",
+                explicacionId: "1090311004",
                 pregunta: "¿Qué función principal realiza NEDAES?",
                 opciones: [
                     "Gestión de reuniones virtuales",
@@ -2872,10 +2872,10 @@ const preguntas = {
                     "Tramitación de permisos e incidencias"
                 ],
                 correcta: 1,
-                explicacionId: "1090311004"
+                id: "1090311004"
             },
             {
-                id: "1090311005",
+                explicacionId: "1090311005",
                 pregunta: "¿Qué permite el Sistema Integrado de Gestión de Personal (SIGP)?",
                 opciones: [
                     "Solo la gestión de nóminas",
@@ -2884,10 +2884,10 @@ const preguntas = {
                     "La gestión de reuniones virtuales"
                 ],
                 correcta: 1,
-                explicacionId: "1090311005"
+                id: "1090311005"
             },
             {
-                id: "1090311006",
+                explicacionId: "1090311006",
                 pregunta: "¿Qué es FUNCIONA?",
                 opciones: [
                     "Un sistema de gestión de nóminas",
@@ -2896,10 +2896,10 @@ const preguntas = {
                     "Un sistema de control de presencia"
                 ],
                 correcta: 2,
-                explicacionId: "1090311006"
+                id: "1090311006"
             },
             {
-                id: "1090311007",
+                explicacionId: "1090311007",
                 pregunta: "¿Cuál de los siguientes servicios NO se menciona como disponible en FUNCIONA?",
                 opciones: [
                     "Consulta de nómina",
@@ -2908,10 +2908,10 @@ const preguntas = {
                     "Gestión de proyectos internos"
                 ],
                 correcta: 3,
-                explicacionId: "1090311007"
+                id: "1090311007"
             },
             {
-                id: "1090311008",
+                explicacionId: "1090311008",
                 pregunta: "¿Cuáles son las dos funcionalidades principales de TRAMA?",
                 opciones: [
                     "Gestión de nóminas y control de presencia",
@@ -2920,10 +2920,10 @@ const preguntas = {
                     "Control de presencia y gestión de expedientes electrónicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090311008"
+                id: "1090311008"
             },
             {
-                id: "1090311009",
+                explicacionId: "1090311009",
                 pregunta: "¿Qué es CIRCABC?",
                 opciones: [
                     "Un sistema de control de presencia",
@@ -2932,10 +2932,10 @@ const preguntas = {
                     "Una plataforma de videoconferencias"
                 ],
                 correcta: 1,
-                explicacionId: "1090311010"
+                id: "1090311010"
             },
             {
-                id: "1090311010",
+                explicacionId: "1090311010",
                 pregunta: "¿Qué es la Red SARA?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -2944,10 +2944,10 @@ const preguntas = {
                     "Un portal del empleado público"
                 ],
                 correcta: 2,
-                explicacionId: "1090311011"
+                id: "1090311011"
             },
             {
-                id: "1090310001",
+                explicacionId: "1090310001",
                 pregunta: "¿Qué es PLATA?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -2956,10 +2956,10 @@ const preguntas = {
                     "Una plataforma de formación para funcionarios"
                 ],
                 correcta: 1,
-                explicacionId: "1090310001"
+                id: "1090310001"
             },
             {
-                id: "1090310002",
+                explicacionId: "1090310002",
                 pregunta: "¿Qué motores de traducción utiliza PLATA?",
                 opciones: [
                     "Google Translate y DeepL",
@@ -2968,10 +2968,10 @@ const preguntas = {
                     "Systran y Linguee"
                 ],
                 correcta: 1,
-                explicacionId: "1090310003"
+                id: "1090310003"
             },
             {
-                id: "1090310003",
+                explicacionId: "1090310003",
                 pregunta: "¿Qué tipo de traducción utiliza PLATA para el euskera e inglés?",
                 opciones: [
                     "Traducción basada en reglas",
@@ -2980,10 +2980,10 @@ const preguntas = {
                     "Traducción manual"
                 ],
                 correcta: 1,
-                explicacionId: "1090310004"
+                id: "1090310004"
             },
             {
-                id: "1090310004",
+                explicacionId: "1090310004",
                 pregunta: "¿Qué es EGEO?",
                 opciones: [
                     "Un sistema de gestión de expedientes",
@@ -2992,10 +2992,10 @@ const preguntas = {
                     "Un sistema de gestión de recursos naturales"
                 ],
                 correcta: 1,
-                explicacionId: "1090310006"
+                id: "1090310006"
             },
             {
-                id: "1090310005",
+                explicacionId: "1090310005",
                 pregunta: "¿Qué tipos de mapas permite representar EGEO?",
                 opciones: [
                     "Solo mapas temáticos",
@@ -3004,10 +3004,10 @@ const preguntas = {
                     "Ninguno de los anteriores"
                 ],
                 correcta: 2,
-                explicacionId: "1090310007"
+                id: "1090310007"
             },
             {
-                id: "1090310006",
+                explicacionId: "1090310006",
                 pregunta: "¿Qué es OAW?",
                 opciones: [
                     "Observatorio de Administración Web",
@@ -3016,10 +3016,10 @@ const preguntas = {
                     "Servicio de diagnóstico en línea de Accesibilidad Web"
                 ],
                 correcta: 3,
-                explicacionId: "1090310011"
+                id: "1090310011"
             },
             {
-                id: "1090310007",
+                explicacionId: "1090310007",
                 pregunta: "¿En qué normas se basa el estudio del Observatorio de Accesibilidad?",
                 opciones: [
                     "ISO 9001 y ISO 14001",
@@ -3028,10 +3028,10 @@ const preguntas = {
                     "EN 301 549 y EN 302 549"
                 ],
                 correcta: 1,
-                explicacionId: "1090310012"
+                id: "1090310012"
             },
             {
-                id: "1090310008",
+                explicacionId: "1090310008",
                 pregunta: "¿Qué es FORMA?",
                 opciones: [
                     "Un sistema de gestión de formación",
@@ -3040,10 +3040,10 @@ const preguntas = {
                     "Una aplicación de diseño gráfico"
                 ],
                 correcta: 1,
-                explicacionId: "1090310016"
+                id: "1090310016"
             },
             {
-                id: "1090310009",
+                explicacionId: "1090310009",
                 pregunta: "¿Qué tipos de preguntas permite incluir FORMA en sus formularios?",
                 opciones: [
                     "Solo preguntas abiertas",
@@ -3052,10 +3052,10 @@ const preguntas = {
                     "Solo preguntas de selección múltiple"
                 ],
                 correcta: 2,
-                explicacionId: "1090310018"
+                id: "1090310018"
             },
             {
-                id: "1090310010",
+                explicacionId: "1090310010",
                 pregunta: "¿En qué está basado el BUSCADORAGE?",
                 opciones: [
                     "En el motor de búsqueda de Bing",
@@ -3064,10 +3064,10 @@ const preguntas = {
                     "En el motor de búsqueda de Yahoo"
                 ],
                 correcta: 2,
-                explicacionId: "1090310023"
+                id: "1090310023"
             },
             {
-                id: "1090309001",
+                explicacionId: "1090309001",
                 pregunta: "¿Qué es InSide?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -3076,10 +3076,10 @@ const preguntas = {
                     "Un sistema de gestión de bases de datos"
                 ],
                 correcta: 1,
-                explicacionId: "1090309001"
+                id: "1090309001"
             },
             {
-                id: "1090309002",
+                explicacionId: "1090309002",
                 pregunta: "¿Con qué estándar es compatible InSide para almacenar y modificar documentos y expedientes electrónicos?",
                 opciones: [
                     "XML",
@@ -3088,10 +3088,10 @@ const preguntas = {
                     "HTML5"
                 ],
                 correcta: 2,
-                explicacionId: "1090309002"
+                id: "1090309002"
             },
             {
-                id: "1090309003",
+                explicacionId: "1090309003",
                 pregunta: "¿Cuál es la principal característica de G-Inside?",
                 opciones: [
                     "Almacena permanentemente todos los documentos",
@@ -3100,10 +3100,10 @@ const preguntas = {
                     "Imprime físicamente los documentos electrónicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090309003"
+                id: "1090309003"
             },
             {
-                id: "1090309004",
+                explicacionId: "1090309004",
                 pregunta: "¿Qué funcionalidades añade la Suite CSV a InSide?",
                 opciones: [
                     "Gestión de recursos humanos",
@@ -3112,10 +3112,10 @@ const preguntas = {
                     "Gestión de redes sociales"
                 ],
                 correcta: 1,
-                explicacionId: "1090309004"
+                id: "1090309004"
             },
             {
-                id: "1090309005",
+                explicacionId: "1090309005",
                 pregunta: "¿Cuál de los siguientes NO es un componente de la Suite CSV?",
                 opciones: [
                     "CSV Creator",
@@ -3124,10 +3124,10 @@ const preguntas = {
                     "CSV Analyzer"
                 ],
                 correcta: 3,
-                explicacionId: "1090309005"
+                id: "1090309005"
             },
             {
-                id: "1090309006",
+                explicacionId: "1090309006",
                 pregunta: "¿Qué es Archive?",
                 opciones: [
                     "Un sistema de gestión de correo electrónico",
@@ -3136,10 +3136,10 @@ const preguntas = {
                     "Un sistema de backup en la nube"
                 ],
                 correcta: 1,
-                explicacionId: "1090309006"
+                id: "1090309006"
             },
             {
-                id: "1090309007",
+                explicacionId: "1090309007",
                 pregunta: "¿Qué permite generar Archive para cada Archivo y Serie Documental?",
                 opciones: [
                     "Códigos QR",
@@ -3148,10 +3148,10 @@ const preguntas = {
                     "Copias físicas de los documentos"
                 ],
                 correcta: 1,
-                explicacionId: "1090309007"
+                id: "1090309007"
             },
             {
-                id: "1090309008",
+                explicacionId: "1090309008",
                 pregunta: "¿Cuál de las siguientes NO es una Política de Conservación contemplada en Archive?",
                 opciones: [
                     "Eliminación permanente",
@@ -3160,10 +3160,10 @@ const preguntas = {
                     "Actualización automática"
                 ],
                 correcta: 3,
-                explicacionId: "1090309008"
+                id: "1090309008"
             },
             {
-                id: "1090309009",
+                explicacionId: "1090309009",
                 pregunta: "¿Qué tipos de paquetes de información establece Archive basándose en el modelo OAIS?",
                 opciones: [
                     "SIP, AIP y DIP",
@@ -3172,10 +3172,10 @@ const preguntas = {
                     "HTTP, FTP y SMTP"
                 ],
                 correcta: 0,
-                explicacionId: "1090309009"
+                id: "1090309009"
             },
             {
-                id: "1090309010",
+                explicacionId: "1090309010",
                 pregunta: "¿Qué funcionalidades están previstas para Archive en el futuro?",
                 opciones: [
                     "Integración con redes sociales",
@@ -3184,10 +3184,10 @@ const preguntas = {
                     "Impresión 3D de documentos"
                 ],
                 correcta: 2,
-                explicacionId: "1090309010"
+                id: "1090309010"
             },
             {
-                id: "1090308001",
+                explicacionId: "1090308001",
                 pregunta: "¿Qué significa ACCEDA?",
                 opciones: [
                     "Acceso Centralizado a Expedientes Digitales de la Administración",
@@ -3196,10 +3196,10 @@ const preguntas = {
                     "Automatización de Consultas Ciudadanas en Expedientes Digitales Administrativos"
                 ],
                 correcta: 1,
-                explicacionId: "1090308001"
+                id: "1090308001"
             },
             {
-                id: "1090308002",
+                explicacionId: "1090308002",
                 pregunta: "¿Cuál de las siguientes NO es una característica principal de ACCEDA?",
                 opciones: [
                     "Herramienta de administración de uso intuitivo",
@@ -3208,10 +3208,10 @@ const preguntas = {
                     "Generación automática de resoluciones administrativas"
                 ],
                 correcta: 3,
-                explicacionId: "1090308002"
+                id: "1090308002"
             },
             {
-                id: "1090308003",
+                explicacionId: "1090308003",
                 pregunta: "¿Qué beneficios aporta el uso de ACCEDA?",
                 opciones: [
                     "Complicación de los procedimientos administrativos",
@@ -3220,10 +3220,10 @@ const preguntas = {
                     "Aumento de la burocracia en la administración"
                 ],
                 correcta: 2,
-                explicacionId: "1090308003"
+                id: "1090308003"
             },
             {
-                id: "1090308004",
+                explicacionId: "1090308004",
                 pregunta: "¿Cuál de los siguientes servicios NO se menciona como integrado con ACCEDA?",
                 opciones: [
                     "Cl@ve",
@@ -3232,10 +3232,10 @@ const preguntas = {
                     "FACe"
                 ],
                 correcta: 3,
-                explicacionId: "1090308004"
+                id: "1090308004"
             },
             {
-                id: "1090308005",
+                explicacionId: "1090308005",
                 pregunta: "¿Qué permite la pasarela de pagos?",
                 opciones: [
                     "Sólo el pago de tasas",
@@ -3244,10 +3244,10 @@ const preguntas = {
                     "Únicamente la verificación del NRC"
                 ],
                 correcta: 2,
-                explicacionId: "1090308005"
+                id: "1090308005"
             },
             {
-                id: "1090308006",
+                explicacionId: "1090308006",
                 pregunta: "¿Qué ventaja ofrece la pasarela de pagos al ciudadano?",
                 opciones: [
                     "Realizar el pago de tasas sin necesidad de Internet",
@@ -3256,10 +3256,10 @@ const preguntas = {
                     "Obtener descuentos en el pago de tasas"
                 ],
                 correcta: 1,
-                explicacionId: "1090308006"
+                id: "1090308006"
             },
             {
-                id: "1090308007",
+                explicacionId: "1090308007",
                 pregunta: "¿Cómo se ofrece el servicio de pasarela de pagos?",
                 opciones: [
                     "Solo como un servicio web de pago centralizado",
@@ -3268,10 +3268,10 @@ const preguntas = {
                     "Como una aplicación que debe ser instalada en cada organismo"
                 ],
                 correcta: 2,
-                explicacionId: "1090308007"
+                id: "1090308007"
             },
             {
-                id: "1090308008",
+                explicacionId: "1090308008",
                 pregunta: "¿Qué significa NRC en el contexto de la pasarela de pagos?",
                 opciones: [
                     "Número de Registro Central",
@@ -3280,10 +3280,10 @@ const preguntas = {
                     "Número de Resolución de Cobro"
                 ],
                 correcta: 1,
-                explicacionId: "1090308005"
+                id: "1090308005"
             },
             {
-                id: "1090308009",
+                explicacionId: "1090308009",
                 pregunta: "¿Qué servicio se utiliza para la autenticación del ciudadano en la Sede-e de ACCEDA?",
                 opciones: [
                     "GEISER",
@@ -3292,10 +3292,10 @@ const preguntas = {
                     "INSIDE"
                 ],
                 correcta: 1,
-                explicacionId: "1090308004"
+                id: "1090308004"
             },
             {
-                id: "1090308010",
+                explicacionId: "1090308010",
                 pregunta: "¿Qué nombre recibe el servicio web de pago centralizado de la pasarela de pagos?",
                 opciones: [
                     "ePago",
@@ -3304,10 +3304,10 @@ const preguntas = {
                     "Pago-AEAT"
                 ],
                 correcta: 0,
-                explicacionId: "1090308007"
+                id: "1090308007"
             },
             {
-                id: "1090307001",
+                explicacionId: "1090307001",
                 pregunta: "¿Qué es InSide?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -3316,10 +3316,10 @@ const preguntas = {
                     "Un sistema de gestión de bases de datos"
                 ],
                 correcta: 1,
-                explicacionId: "1090307001"
+                id: "1090307001"
             },
             {
-                id: "1090307002",
+                explicacionId: "1090307002",
                 pregunta: "¿Con qué estándar es compatible InSide para almacenar y modificar documentos y expedientes electrónicos?",
                 opciones: [
                     "XML",
@@ -3328,10 +3328,10 @@ const preguntas = {
                     "HTML5"
                 ],
                 correcta: 2,
-                explicacionId: "1090307002"
+                id: "1090307002"
             },
             {
-                id: "1090307003",
+                explicacionId: "1090307003",
                 pregunta: "¿Cuál es la principal característica de G-Inside?",
                 opciones: [
                     "Almacena permanentemente todos los documentos",
@@ -3340,10 +3340,10 @@ const preguntas = {
                     "Imprime físicamente los documentos electrónicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090307003"
+                id: "1090307003"
             },
             {
-                id: "1090307004",
+                explicacionId: "1090307004",
                 pregunta: "¿Qué funcionalidades añade la Suite CSV a InSide?",
                 opciones: [
                     "Gestión de recursos humanos",
@@ -3352,10 +3352,10 @@ const preguntas = {
                     "Gestión de redes sociales"
                 ],
                 correcta: 1,
-                explicacionId: "1090307004"
+                id: "1090307004"
             },
             {
-                id: "1090307005",
+                explicacionId: "1090307005",
                 pregunta: "¿Cuál de los siguientes NO es un componente de la Suite CSV?",
                 opciones: [
                     "CSV Creator",
@@ -3364,10 +3364,10 @@ const preguntas = {
                     "CSV Analyzer"
                 ],
                 correcta: 3,
-                explicacionId: "1090307005"
+                id: "1090307005"
             },
             {
-                id: "1090307006",
+                explicacionId: "1090307006",
                 pregunta: "¿Qué es Archive?",
                 opciones: [
                     "Un sistema de gestión de correo electrónico",
@@ -3376,10 +3376,10 @@ const preguntas = {
                     "Un sistema de backup en la nube"
                 ],
                 correcta: 1,
-                explicacionId: "1090307006"
+                id: "1090307006"
             },
             {
-                id: "1090307007",
+                explicacionId: "1090307007",
                 pregunta: "¿Qué permite generar Archive para cada Archivo y Serie Documental?",
                 opciones: [
                     "Códigos QR",
@@ -3388,10 +3388,10 @@ const preguntas = {
                     "Copias físicas de los documentos"
                 ],
                 correcta: 1,
-                explicacionId: "1090307007"
+                id: "1090307007"
             },
             {
-                id: "1090307008",
+                explicacionId: "1090307008",
                 pregunta: "¿Cuál de las siguientes NO es una Política de Conservación contemplada en Archive?",
                 opciones: [
                     "Eliminación permanente",
@@ -3400,10 +3400,10 @@ const preguntas = {
                     "Actualización automática"
                 ],
                 correcta: 3,
-                explicacionId: "1090307008"
+                id: "1090307008"
             },
             {
-                id: "1090307009",
+                explicacionId: "1090307009",
                 pregunta: "¿Qué tipos de paquetes de información establece Archive basándose en el modelo OAIS?",
                 opciones: [
                     "SIP, AIP y DIP",
@@ -3412,10 +3412,10 @@ const preguntas = {
                     "HTTP, FTP y SMTP"
                 ],
                 correcta: 0,
-                explicacionId: "1090307009"
+                id: "1090307009"
             },
             {
-                id: "1090307010",
+                explicacionId: "1090307010",
                 pregunta: "¿Qué funcionalidades están previstas para Archive en el futuro?",
                 opciones: [
                     "Integración con redes sociales",
@@ -3424,10 +3424,10 @@ const preguntas = {
                     "Impresión 3D de documentos"
                 ],
                 correcta: 2,
-                explicacionId: "1090307010"
+                id: "1090307010"
             },
             {
-                id: "1090306001",
+                explicacionId: "1090306001",
                 pregunta: "¿Qué es la DEHu?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -3436,10 +3436,10 @@ const preguntas = {
                     "Un sistema de gestión de expedientes"
                 ],
                 correcta: 1,
-                explicacionId: "1090306001"
+                id: "1090306001"
             },
             {
-                id: "1090306002",
+                explicacionId: "1090306002",
                 pregunta: "¿Quién puede acceder al portal de notificaciones de la DEHú?",
                 opciones: [
                     "Solo personas físicas",
@@ -3448,10 +3448,10 @@ const preguntas = {
                     "Únicamente funcionarios públicos"
                 ],
                 correcta: 2,
-                explicacionId: "1090306002"
+                id: "1090306002"
             },
             {
-                id: "1090306003",
+                explicacionId: "1090306003",
                 pregunta: "¿Cuál es la URL del portal de la DEHú?",
                 opciones: [
                     "https://dehu.gob.es/",
@@ -3460,10 +3460,10 @@ const preguntas = {
                     "https://sede.administracion.gob.es/dehu"
                 ],
                 correcta: 1,
-                explicacionId: "1090306003"
+                id: "1090306003"
             },
             {
-                id: "1090306004",
+                explicacionId: "1090306004",
                 pregunta: "¿Qué es el PUC en el contexto de la DEHú?",
                 opciones: [
                     "Punto Único de Comunicación",
@@ -3472,10 +3472,10 @@ const preguntas = {
                     "Plataforma Unificada de Consultas"
                 ],
                 correcta: 2,
-                explicacionId: "1090306004"
+                id: "1090306004"
             },
             {
-                id: "1090306005",
+                explicacionId: "1090306005",
                 pregunta: "¿Desde qué año es Notifica un servicio de uso obligado?",
                 opciones: [
                     "2015",
@@ -3484,10 +3484,10 @@ const preguntas = {
                     "2018"
                 ],
                 correcta: 2,
-                explicacionId: "1090306005"
+                id: "1090306005"
             },
             {
-                id: "1090306006",
+                explicacionId: "1090306006",
                 pregunta: "¿Cuál de las siguientes NO es una vía de acceso a las notificaciones para el destinatario en Notifica?",
                 opciones: [
                     "Comparecencia en sede",
@@ -3496,10 +3496,10 @@ const preguntas = {
                     "Aplicación móvil"
                 ],
                 correcta: 3,
-                explicacionId: "1090306006"
+                id: "1090306006"
             },
             {
-                id: "1090306007",
+                explicacionId: "1090306007",
                 pregunta: "¿Cuál de las siguientes NO es una vía principal de entrega de notificaciones/comunicaciones en Notifica?",
                 opciones: [
                     "En soporte papel",
@@ -3508,10 +3508,10 @@ const preguntas = {
                     "A través de redes sociales"
                 ],
                 correcta: 3,
-                explicacionId: "1090306007"
+                id: "1090306007"
             },
             {
-                id: "1090306008",
+                explicacionId: "1090306008",
                 pregunta: "¿Cuál de las siguientes NO es una acción que realiza Notific@?",
                 opciones: [
                     "Recibe las notificaciones/comunicaciones de los organismos emisores",
@@ -3520,10 +3520,10 @@ const preguntas = {
                     "Genera automáticamente el contenido de las notificaciones"
                 ],
                 correcta: 3,
-                explicacionId: "1090306008"
+                id: "1090306008"
             },
             {
-                id: "1090306009",
+                explicacionId: "1090306009",
                 pregunta: "¿Cuáles son las dos posibles interfaces para la interacción de los Organismos Emisores con Notifica?",
                 opciones: [
                     "Correo electrónico y fax",
@@ -3532,10 +3532,10 @@ const preguntas = {
                     "SMS y mensajería instantánea"
                 ],
                 correcta: 1,
-                explicacionId: "1090306009"
+                id: "1090306009"
             },
             {
-                id: "1090306010",
+                explicacionId: "1090306010",
                 pregunta: "¿Qué es SIM?",
                 opciones: [
                     "Sistema de Identificación Múltiple",
@@ -3544,10 +3544,10 @@ const preguntas = {
                     "Sistema Integrado de Monitorización"
                 ],
                 correcta: 2,
-                explicacionId: "1090306010"
+                id: "1090306010"
             },
             {
-                id: "1090305001",
+                explicacionId: "1090305001",
                 pregunta: "¿Qué es el Sistema de Información Administrativa (SIA)?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos de la AGE",
@@ -3556,10 +3556,10 @@ const preguntas = {
                     "Una base de datos de ciudadanos"
                 ],
                 correcta: 1,
-                explicacionId: "1090305001"
+                id: "1090305001"
             },
             {
-                id: "1090305002",
+                explicacionId: "1090305002",
                 pregunta: "¿Qué NO incluye el SIA?",
                 opciones: [
                     "Procedimientos administrativos",
@@ -3568,10 +3568,10 @@ const preguntas = {
                     "Datos personales de los funcionarios"
                 ],
                 correcta: 3,
-                explicacionId: "1090305002"
+                id: "1090305002"
             },
             {
-                id: "1090305003",
+                explicacionId: "1090305003",
                 pregunta: "¿Qué artículo del ENI obliga a las AAPP a mantener actualizado un Inventario de Información Administrativa?",
                 opciones: [
                     "Artículo 7",
@@ -3580,10 +3580,10 @@ const preguntas = {
                     "Artículo 10"
                 ],
                 correcta: 2,
-                explicacionId: "1090305003"
+                id: "1090305003"
             },
             {
-                id: "1090305004",
+                explicacionId: "1090305004",
                 pregunta: "¿Qué proporciona el Directorio Común (DIR3)?",
                 opciones: [
                     "Una lista de ciudadanos",
@@ -3592,10 +3592,10 @@ const preguntas = {
                     "Un catálogo de servicios web"
                 ],
                 correcta: 1,
-                explicacionId: "1090305004"
+                id: "1090305004"
             },
             {
-                id: "1090305005",
+                explicacionId: "1090305005",
                 pregunta: "¿Cuál es la URL del directorio común de unidades DIR3?",
                 opciones: [
                     "http://dir3.redsara.es",
@@ -3604,10 +3604,10 @@ const preguntas = {
                     "http://dir.redsara.es"
                 ],
                 correcta: 2,
-                explicacionId: "1090305005"
+                id: "1090305005"
             },
             {
-                id: "1090305006",
+                explicacionId: "1090305006",
                 pregunta: "¿Qué NO es un campo de información en DIR3?",
                 opciones: [
                     "Código DIR3 de la unidad",
@@ -3616,10 +3616,10 @@ const preguntas = {
                     "Presupuesto anual"
                 ],
                 correcta: 3,
-                explicacionId: "1090305006"
+                id: "1090305006"
             },
             {
-                id: "1090305007",
+                explicacionId: "1090305007",
                 pregunta: "¿Qué es DIRe?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -3628,10 +3628,10 @@ const preguntas = {
                     "Un catálogo de procedimientos administrativos"
                 ],
                 correcta: 1,
-                explicacionId: "1090305007"
+                id: "1090305007"
             },
             {
-                id: "1090305008",
+                explicacionId: "1090305008",
                 pregunta: "¿Cómo se identifica una empresa en DIRe?",
                 opciones: [
                     "Mediante usuario y contraseña",
@@ -3640,10 +3640,10 @@ const preguntas = {
                     "Con el número de identificación fiscal"
                 ],
                 correcta: 2,
-                explicacionId: "1090305008"
+                id: "1090305008"
             },
             {
-                id: "1090305009",
+                explicacionId: "1090305009",
                 pregunta: "¿Qué ley se menciona en relación con DIRe?",
                 opciones: [
                     "Ley 39/2015",
@@ -3652,10 +3652,10 @@ const preguntas = {
                     "Ley 59/2003"
                 ],
                 correcta: 0,
-                explicacionId: "1090305009"
+                id: "1090305009"
             },
             {
-                id: "1090305010",
+                explicacionId: "1090305010",
                 pregunta: "¿A través de qué plataforma se puede acceder al portal web de DIRe?",
                 opciones: [
                     "Cl@ve",
@@ -3664,10 +3664,10 @@ const preguntas = {
                     "SIA"
                 ],
                 correcta: 2,
-                explicacionId: "1090305010"
+                id: "1090305010"
             },
             {
-                id: "1090304001",
+                explicacionId: "1090304001",
                 pregunta: "¿Cuál es el objetivo principal de la Plataforma de Intermediación de Datos (PID)?",
                 opciones: [
                     "Facilitar el intercambio de correos electrónicos entre AAPP",
@@ -3676,10 +3676,10 @@ const preguntas = {
                     "Gestionar el almacenamiento de documentos digitales de los ciudadanos"
                 ],
                 correcta: 1,
-                explicacionId: "1090304001"
+                id: "1090304001"
             },
             {
-                id: "1090304002",
+                explicacionId: "1090304002",
                 pregunta: "¿Qué ventaja NO ofrece la PID para el ciudadano?",
                 opciones: [
                     "Simplificación del papeleo",
@@ -3688,10 +3688,10 @@ const preguntas = {
                     "Evitar aportar documentos que ya posee la Administración"
                 ],
                 correcta: 2,
-                explicacionId: "1090304002"
+                id: "1090304002"
             },
             {
-                id: "1090304003",
+                explicacionId: "1090304003",
                 pregunta: "¿Qué protocolo utiliza la PID para ofrecer servicios web de verificación y consulta de datos?",
                 opciones: [
                     "HTTP",
@@ -3700,10 +3700,10 @@ const preguntas = {
                     "SMTP"
                 ],
                 correcta: 2,
-                explicacionId: "1090304003"
+                id: "1090304003"
             },
             {
-                id: "1090304004",
+                explicacionId: "1090304004",
                 pregunta: "¿Qué debe hacer la Administración antes de solicitar los datos de un ciudadano a través de la PID?",
                 opciones: [
                     "Notificar al ciudadano por correo certificado",
@@ -3712,10 +3712,10 @@ const preguntas = {
                     "Obtener autorización judicial"
                 ],
                 correcta: 1,
-                explicacionId: "1090304004"
+                id: "1090304004"
             },
             {
-                id: "1090304005",
+                explicacionId: "1090304005",
                 pregunta: "¿Qué elemento se utiliza para verificar el certificado de autenticación y validar la firma de la petición en el flujo de la PID?",
                 opciones: [
                     "@firma",
@@ -3724,10 +3724,10 @@ const preguntas = {
                     "FACe"
                 ],
                 correcta: 0,
-                explicacionId: "1090304005"
+                id: "1090304005"
             },
             {
-                id: "1090304006",
+                explicacionId: "1090304006",
                 pregunta: "¿Qué característica NO es correcta sobre el flujo de procesamiento de solicitudes en la PID?",
                 opciones: [
                     "La petición debe ir firmada",
@@ -3736,10 +3736,10 @@ const preguntas = {
                     "Se registra tanto la petición como la respuesta"
                 ],
                 correcta: 2,
-                explicacionId: "1090304006"
+                id: "1090304006"
             },
             {
-                id: "1090304007",
+                explicacionId: "1090304007",
                 pregunta: "¿Dónde se puede consultar el catálogo completo de datos disponibles en la PID?",
                 opciones: [
                     "En el Boletín Oficial del Estado",
@@ -3748,10 +3748,10 @@ const preguntas = {
                     "En el Portal de Transparencia"
                 ],
                 correcta: 2,
-                explicacionId: "1090304007"
+                id: "1090304007"
             },
             {
-                id: "1090304008",
+                explicacionId: "1090304008",
                 pregunta: "¿Qué herramienta pone la SGAD a disposición de los organismos para consultar los servicios de la PID?",
                 opciones: [
                     "FACe",
@@ -3760,10 +3760,10 @@ const preguntas = {
                     "GEISER"
                 ],
                 correcta: 1,
-                explicacionId: "1090304008"
+                id: "1090304008"
             },
             {
-                id: "1090304009",
+                explicacionId: "1090304009",
                 pregunta: "¿Qué tipo de datos NO se menciona explícitamente como consultable a través de la PID?",
                 opciones: [
                     "Identidad",
@@ -3772,10 +3772,10 @@ const preguntas = {
                     "Historial médico"
                 ],
                 correcta: 3,
-                explicacionId: "1090304009"
+                id: "1090304009"
             },
             {
-                id: "1090304010",
+                explicacionId: "1090304010",
                 pregunta: "¿Qué característica de la consulta de datos en la PID es correcta?",
                 opciones: [
                     "Solo se puede realizar de manera síncrona",
@@ -3784,11 +3784,11 @@ const preguntas = {
                     "No se especifica el modo de consulta"
                 ],
                 correcta: 2,
-                explicacionId: "1090304010"
+                id: "1090304010"
             },
             {
                 
-                id: "1090303001",
+                explicacionId: "1090303001",
                 pregunta: "¿Qué es el PAGe?",
                 opciones: [
                     "Un punto de acceso telefónico para ciudadanos",
@@ -3797,10 +3797,10 @@ const preguntas = {
                     "Una plataforma de transparencia para entidades locales"
                 ],
                 correcta: 1,
-                explicacionId: "1090303001"
+                id: "1090303001"
             },
             {
-                id: "1090303002",
+                explicacionId: "1090303002",
                 pregunta: "¿Cuál de los siguientes NO es un servicio ofrecido en la sede del PAGe?",
                 opciones: [
                     "Carpeta ciudadana",
@@ -3809,10 +3809,10 @@ const preguntas = {
                     "Gestión de nóminas de funcionarios"
                 ],
                 correcta: 3,
-                explicacionId: "1090303002"
+                id: "1090303002"
             },
             {
-                id: "1090303003",
+                explicacionId: "1090303003",
                 pregunta: "¿Qué ofrece el teléfono 060?",
                 opciones: [
                     "Únicamente información sobre trámites de la AGE",
@@ -3821,10 +3821,10 @@ const preguntas = {
                     "Exclusivamente servicios de emergencia"
                 ],
                 correcta: 2,
-                explicacionId: "1090303003"
+                id: "1090303003"
             },
             {
-                id: "1090303004",
+                explicacionId: "1090303004",
                 pregunta: "¿Qué característica NO corresponde a la Carpeta Ciudadana?",
                 opciones: [
                     "Requiere registro previo de usuario",
@@ -3833,10 +3833,10 @@ const preguntas = {
                     "Usa Cl@ve para la identificación"
                 ],
                 correcta: 0,
-                explicacionId: "1090303004"
+                id: "1090303004"
             },
             {
-                id: "1090303005",
+                explicacionId: "1090303005",
                 pregunta: "¿Cuál es la función principal de FACe?",
                 opciones: [
                     "Gestionar citas previas para atención presencial",
@@ -3845,10 +3845,10 @@ const preguntas = {
                     "Gestionar la transparencia de entidades locales"
                 ],
                 correcta: 1,
-                explicacionId: "1090303005"
+                id: "1090303005"
             },
             {
-                id: "1090303006",
+                explicacionId: "1090303006",
                 pregunta: "¿Qué permite el servicio de Transparencia Local?",
                 opciones: [
                     "Gestionar facturas electrónicas",
@@ -3857,10 +3857,10 @@ const preguntas = {
                     "Tramitar solicitudes de acceso a la información pública de la AGE"
                 ],
                 correcta: 2,
-                explicacionId: "1090303006"
+                id: "1090303006"
             },
             {
-                id: "1090303007",
+                explicacionId: "1090303007",
                 pregunta: "¿Qué funcionalidad ofrece la aplicación de Cita Previa?",
                 opciones: [
                     "Gestionar el acceso de los ciudadanos a oficinas de atención presencial",
@@ -3869,10 +3869,10 @@ const preguntas = {
                     "Gestionar la transparencia de entidades locales"
                 ],
                 correcta: 0,
-                explicacionId: "1090303007"
+                id: "1090303007"
             },
             {
-                id: "1090303008",
+                explicacionId: "1090303008",
                 pregunta: "¿Qué ley establece el derecho de las personas a comunicarse con las administraciones a través del PAGe?",
                 opciones: [
                     "Ley 40/2015",
@@ -3881,10 +3881,10 @@ const preguntas = {
                     "Ley 9/2017"
                 ],
                 correcta: 1,
-                explicacionId: "1090303008"
+                id: "1090303008"
             },
             {
-                id: "1090303009",
+                explicacionId: "1090303009",
                 pregunta: "¿Qué formato de factura electrónica se utiliza en FACe?",
                 opciones: [
                     "PDF",
@@ -3893,10 +3893,10 @@ const preguntas = {
                     "JSON"
                 ],
                 correcta: 2,
-                explicacionId: "1090303009"
+                id: "1090303009"
             },
             {
-                id: "1090303010",
+                explicacionId: "1090303010",
                 pregunta: "¿Qué herramienta NO se menciona como parte del servicio de Transparencia Local?",
                 opciones: [
                     "Gestor de Contenidos del Portal",
@@ -3905,10 +3905,10 @@ const preguntas = {
                     "Sistema de votación electrónica"
                 ],
                 correcta: 3,
-                explicacionId: "1090303010"
+                id: "1090303010"
             },
             {
-                id: "1090302001",
+                explicacionId: "1090302001",
                 pregunta: "¿Qué es el Sistema de Interconexión de Registros (SIR)?",
                 opciones: [
                     "Una plataforma para el intercambio de correos electrónicos entre AAPP",
@@ -3917,10 +3917,10 @@ const preguntas = {
                     "Un software de videoconferencia para reuniones entre diferentes AAPP"
                 ],
                 correcta: 2,
-                explicacionId: "1090302001"
+                id: "1090302001"
             },
             {
-                id: "1090302002",
+                explicacionId: "1090302002",
                 pregunta: "¿Qué norma técnica deben cumplir las aplicaciones o servicios de registro para integrarse con SIR?",
                 opciones: [
                     "ISO 9001",
@@ -3929,10 +3929,10 @@ const preguntas = {
                     "LOPD 3.0"
                 ],
                 correcta: 1,
-                explicacionId: "1090302002"
+                id: "1090302002"
             },
             {
-                id: "1090302003",
+                explicacionId: "1090302003",
                 pregunta: "¿Cuál es la principal ventaja de la integración en SIR?",
                 opciones: [
                     "Aumenta el uso de papel en las Administraciones",
@@ -3941,10 +3941,10 @@ const preguntas = {
                     "Facilita la impresión de documentos en múltiples oficinas"
                 ],
                 correcta: 2,
-                explicacionId: "1090302003"
+                id: "1090302003"
             },
             {
-                id: "1090302004",
+                explicacionId: "1090302004",
                 pregunta: "¿Qué es el Registro Electrónico General (REG) de la AGE?",
                 opciones: [
                     "Un sistema de gestión de recursos humanos",
@@ -3953,10 +3953,10 @@ const preguntas = {
                     "Un sistema de videovigilancia para edificios públicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090302004"
+                id: "1090302004"
             },
             {
-                id: "1090302005",
+                explicacionId: "1090302005",
                 pregunta: "¿Qué es GEISER?",
                 opciones: [
                     "Un sistema de geolocalización de oficinas públicas",
@@ -3965,10 +3965,10 @@ const preguntas = {
                     "Un sistema de inteligencia artificial para la toma de decisiones administrativas"
                 ],
                 correcta: 1,
-                explicacionId: "1090302005"
+                id: "1090302005"
             },
             {
-                id: "1090302006",
+                explicacionId: "1090302006",
                 pregunta: "¿Cuál de las siguientes NO es una característica de GEISER?",
                 opciones: [
                     "Se presta en modo servicio (en la nube)",
@@ -3977,10 +3977,10 @@ const preguntas = {
                     "Permite la distribución de los asientos registrales a las unidades de tramitación"
                 ],
                 correcta: 1,
-                explicacionId: "1090302006"
+                id: "1090302006"
             },
             {
-                id: "1090302007",
+                explicacionId: "1090302007",
                 pregunta: "¿Qué es ORVE?",
                 opciones: [
                     "Un sistema de gestión de citas previas",
@@ -3989,10 +3989,10 @@ const preguntas = {
                     "Un programa de formación para funcionarios públicos"
                 ],
                 correcta: 2,
-                explicacionId: "1090302007"
+                id: "1090302007"
             },
             {
-                id: "1090302008",
+                explicacionId: "1090302008",
                 pregunta: "¿Qué permite hacer APODERA?",
                 opciones: [
                     "Gestionar el presupuesto de las AAPP",
@@ -4001,10 +4001,10 @@ const preguntas = {
                     "Administrar las redes sociales de las instituciones públicas"
                 ],
                 correcta: 1,
-                explicacionId: "1090302008"
+                id: "1090302008"
             },
             {
-                id: "1090302009",
+                explicacionId: "1090302009",
                 pregunta: "¿Cuál es la función principal de Habilit@?",
                 opciones: [
                     "Gestionar las nóminas de los funcionarios",
@@ -4013,10 +4013,10 @@ const preguntas = {
                     "Administrar las vacaciones del personal administrativo"
                 ],
                 correcta: 1,
-                explicacionId: "1090302009"
+                id: "1090302009"
             },
             {
-                id: "1090302010",
+                explicacionId: "1090302010",
                 pregunta: "¿Qué ventaja ofrece el Servicio de Consulta de Poderes Notariales (Notaria)?",
                 opciones: [
                     "Permite redactar poderes notariales en línea",
@@ -4025,10 +4025,10 @@ const preguntas = {
                     "Facilita la búsqueda de notarías cercanas"
                 ],
                 correcta: 2,
-                explicacionId: "1090302010"
+                id: "1090302010"
             },
             {
-                id: "1090301001",
+                explicacionId: "1090301001",
                 pregunta: "¿Qué es Cl@ve?",
                 opciones: [
                     "Un sistema de firma electrónica",
@@ -4037,10 +4037,10 @@ const preguntas = {
                     "Un sistema de sellado de tiempo"
                 ],
                 correcta: 2,
-                explicacionId: "1090301001"
+                id: "1090301001"
             },
             {
-                id: "1090301002",
+                explicacionId: "1090301002",
                 pregunta: "¿Cuál de los siguientes NO es un nivel de seguridad en Cl@ve?",
                 opciones: [
                     "Nivel básico",
@@ -4049,10 +4049,10 @@ const preguntas = {
                     "Nivel supremo"
                 ],
                 correcta: 3,
-                explicacionId: "1090301002"
+                id: "1090301002"
             },
             {
-                id: "1090301003",
+                explicacionId: "1090301003",
                 pregunta: "¿Qué tipo de certificados utiliza Cl@ve Firma?",
                 opciones: [
                     "Certificados locales",
@@ -4061,10 +4061,10 @@ const preguntas = {
                     "Certificados temporales"
                 ],
                 correcta: 1,
-                explicacionId: "1090301003"
+                id: "1090301003"
             },
             {
-                id: "1090301004",
+                explicacionId: "1090301004",
                 pregunta: "¿Qué es @firma?",
                 opciones: [
                     "Un sistema de autenticación de empleados públicos",
@@ -4073,10 +4073,10 @@ const preguntas = {
                     "Una solución de firma electrónica para dispositivos móviles"
                 ],
                 correcta: 1,
-                explicacionId: "1090301004"
+                id: "1090301004"
             },
             {
-                id: "1090301005",
+                explicacionId: "1090301005",
                 pregunta: "¿Qué permite FIRe?",
                 opciones: [
                     "Sólo firmas con certificados locales",
@@ -4085,10 +4085,10 @@ const preguntas = {
                     "Únicamente validación de firmas"
                 ],
                 correcta: 2,
-                explicacionId: "1090301005"
+                id: "1090301005"
             },
             {
-                id: "1090301006",
+                explicacionId: "1090301006",
                 pregunta: "¿Con qué está sincronizada la Plataforma de Sellado de Tiempo (TS@)?",
                 opciones: [
                     "Con el reloj atómico internacional",
@@ -4097,10 +4097,10 @@ const preguntas = {
                     "Con el Observatorio Astronómico Nacional"
                 ],
                 correcta: 1,
-                explicacionId: "1090301006"
+                id: "1090301006"
             },
             {
-                id: "1090301007",
+                explicacionId: "1090301007",
                 pregunta: "¿Qué es VALIDe?",
                 opciones: [
                     "Un sistema de firma electrónica",
@@ -4109,10 +4109,10 @@ const preguntas = {
                     "Un sistema de sellado de tiempo"
                 ],
                 correcta: 2,
-                explicacionId: "1090301007"
+                id: "1090301007"
             },
             {
-                id: "1090301008",
+                explicacionId: "1090301008",
                 pregunta: "¿Qué ley menciona el texto en relación con el Cliente de Firma de @firma?",
                 opciones: [
                     "Ley 39/2015",
@@ -4121,10 +4121,10 @@ const preguntas = {
                     "Ley 59/2003"
                 ],
                 correcta: 0,
-                explicacionId: "1090301008"
+                id: "1090301008"
             },
             {
-                id: "1090301009",
+                explicacionId: "1090301009",
                 pregunta: "¿Qué permite Port@firmas?",
                 opciones: [
                     "Autenticación de empleados públicos",
@@ -4133,10 +4133,10 @@ const preguntas = {
                     "Sellado de tiempo"
                 ],
                 correcta: 2,
-                explicacionId: "1090301009"
+                id: "1090301009"
             },
             {
-                id: "1090301011",
+                explicacionId: "1090301011",
                 pregunta: "¿Qué reglamento europeo se menciona en relación con el sistema de reconocimiento de identidades electrónicas?",
                 opciones: [
                     "Reglamento (UE) 2016/679",
@@ -4145,10 +4145,10 @@ const preguntas = {
                     "Reglamento (UE) 2019/1150"
                 ],
                 correcta: 1,
-                explicacionId: "1090301011"
+                id: "1090301011"
             },
             {
-                id: "1090202001",
+                explicacionId: "1090202001",
                 pregunta: "¿En qué Real Decreto se refleja el modelo de gobernanza TIC en la AGE?",
                 opciones: [
                     "RD 4/2010",
@@ -4157,10 +4157,10 @@ const preguntas = {
                     "RD 203/2021"
                 ],
                 correcta: 2,
-                explicacionId: "1090202001"
+                id: "1090202001"
             },
             {
-                id: "1090202002",
+                explicacionId: "1090202002",
                 pregunta: "¿Quién preside la Comisión Sectorial de Administración Electrónica?",
                 opciones: [
                     "El Ministro de Hacienda",
@@ -4169,10 +4169,10 @@ const preguntas = {
                     "El Director de Tecnologías de la Información y las Comunicaciones"
                 ],
                 correcta: 1,
-                explicacionId: "1090202002"
+                id: "1090202002"
             },
             {
-                id: "1090202003",
+                explicacionId: "1090202003",
                 pregunta: "¿De qué organismo depende la Secretaría General de Administración Digital (SGAD)?",
                 opciones: [
                     "Del Ministerio de Hacienda",
@@ -4181,10 +4181,10 @@ const preguntas = {
                     "De la Presidencia del Gobierno"
                 ],
                 correcta: 2,
-                explicacionId: "1090202003"
+                id: "1090202003"
             },
             {
-                id: "1090202004",
+                explicacionId: "1090202004",
                 pregunta: "¿Cuál es el órgano máximo de gobernanza TIC en la AGE?",
                 opciones: [
                     "La Comisión Sectorial de Administración Electrónica",
@@ -4193,10 +4193,10 @@ const preguntas = {
                     "El Comité de Dirección de las Tecnologías de Información y Comunicaciones"
                 ],
                 correcta: 2,
-                explicacionId: "1090202004"
+                id: "1090202004"
             },
             {
-                id: "1090202005",
+                explicacionId: "1090202005",
                 pregunta: "¿Cuál de las siguientes NO es una función de la Comisión de Estrategia TIC?",
                 opciones: [
                     "Fijar las líneas estratégicas",
@@ -4205,10 +4205,10 @@ const preguntas = {
                     "Desarrollar aplicativos informáticos"
                 ],
                 correcta: 3,
-                explicacionId: "1090202005"
+                id: "1090202005"
             },
             {
-                id: "1090202006",
+                explicacionId: "1090202006",
                 pregunta: "¿Qué deben elaborar las Comisiones Ministeriales de Administración Digital (CMAD)?",
                 opciones: [
                     "El presupuesto anual del Ministerio",
@@ -4217,10 +4217,10 @@ const preguntas = {
                     "Los proyectos de interés prioritario"
                 ],
                 correcta: 1,
-                explicacionId: "1090202006"
+                id: "1090202006"
             },
             {
-                id: "1090202007",
+                explicacionId: "1090202007",
                 pregunta: "¿A qué organismo está adscrito el Comité de Dirección de las Tecnologías de Información y Comunicaciones?",
                 opciones: [
                     "A la SGAD",
@@ -4229,10 +4229,10 @@ const preguntas = {
                     "Al Ministerio de Hacienda"
                 ],
                 correcta: 0,
-                explicacionId: "1090202007"
+                id: "1090202007"
             },
             {
-                id: "1090202008",
+                explicacionId: "1090202008",
                 pregunta: "¿Qué son las Unidades TIC?",
                 opciones: [
                     "Órganos de gobierno de la AGE",
@@ -4241,10 +4241,10 @@ const preguntas = {
                     "Empresas privadas que colaboran con la Administración"
                 ],
                 correcta: 2,
-                explicacionId: "1090202008"
+                id: "1090202008"
             },
             {
-                id: "1090202009",
+                explicacionId: "1090202009",
                 pregunta: "¿Cuál de las siguientes NO es una función de provisión de servicios TIC?",
                 opciones: [
                     "Soporte, operación, implementación y/o gestión de sistemas informáticos corporativos",
@@ -4253,10 +4253,10 @@ const preguntas = {
                     "Elaboración de leyes y normas de regulación en materia TIC"
                 ],
                 correcta: 3,
-                explicacionId: "1090202009"
+                id: "1090202009"
             },
             {
-                id: "1090202009",
+                explicacionId: "1090202009",
                 pregunta: "¿Qué función relacionada con la adquisición de bienes o servicios realizan las Unidades TIC?",
                 opciones: [
                     "Aprobar todas las compras de la AGE",
@@ -4265,10 +4265,10 @@ const preguntas = {
                     "Prohibir la adquisición de nuevas tecnologías"
                 ],
                 correcta: 1,
-                explicacionId: "1090202009"
+                id: "1090202009"
             },
             {
-                id: "1090201001",
+                explicacionId: "1090201001",
                 pregunta: "¿En qué marco se realiza la cooperación entre las diferentes AAPP a nivel nacional en materia de administración electrónica?",
                 opciones: [
                     "En el marco del Consejo de Ministros",
@@ -4277,10 +4277,10 @@ const preguntas = {
                     "En el marco del Tribunal Constitucional"
                 ],
                 correcta: 1,
-                explicacionId: "1090201001"
+                id: "1090201001"
             },
             {
-                id: "1090201002",
+                explicacionId: "1090201002",
                 pregunta: "¿A través de qué organismos se realiza la cooperación dentro de la AGE en materia de administración electrónica?",
                 opciones: [
                     "A través del Congreso y el Senado",
@@ -4289,10 +4289,10 @@ const preguntas = {
                     "A través de las Comunidades Autónomas"
                 ],
                 correcta: 1,
-                explicacionId: "1090201002"
+                id: "1090201002"
             },
             {
-                id: "1090201004",
+                explicacionId: "1090201004",
                 pregunta: "¿Qué norma regula el Esquema Nacional de Interoperabilidad (ENI) en el ámbito de la Administración Electrónica?",
                 opciones: [
                     "Ley 39/2015",
@@ -4301,10 +4301,10 @@ const preguntas = {
                     "Ley 40/2015"
                 ],
                 correcta: 2,
-                explicacionId: "1090201004"
+                id: "1090201004"
             },
             {
-                id: "1090201005",
+                explicacionId: "1090201005",
                 pregunta: "¿Qué siglas corresponden a las Normas Técnicas de Interoperabilidad?",
                 opciones: [
                     "NTI",
@@ -4313,10 +4313,10 @@ const preguntas = {
                     "PAG"
                 ],
                 correcta: 0,
-                explicacionId: "1090201005"
+                id: "1090201005"
             },
             {
-                id: "1090201006",
+                explicacionId: "1090201006",
                 pregunta: "¿Qué norma regula el Esquema Nacional de Seguridad (ENS)?",
                 opciones: [
                     "RD 4/2010",
@@ -4325,10 +4325,10 @@ const preguntas = {
                     "RD 806/2014"
                 ],
                 correcta: 1,
-                explicacionId: "1090201006"
+                id: "1090201006"
             },
             {
-                id: "1090201007",
+                explicacionId: "1090201007",
                 pregunta: "¿Qué establece la Orden HAP/1949/2014?",
                 opciones: [
                     "El Esquema Nacional de Interoperabilidad",
@@ -4337,10 +4337,10 @@ const preguntas = {
                     "Las Normas Técnicas de Interoperabilidad"
                 ],
                 correcta: 2,
-                explicacionId: "1090201007"
+                id: "1090201007"
             },
             {
-                id: "1090201008",
+                explicacionId: "1090201008",
                 pregunta: "¿Qué regula la Ley 39/2015?",
                 opciones: [
                     "El Régimen Jurídico del Sector Público",
@@ -4349,10 +4349,10 @@ const preguntas = {
                     "El Esquema Nacional de Seguridad"
                 ],
                 correcta: 1,
-                explicacionId: "1090201008"
+                id: "1090201008"
             },
             {
-                id: "1090201009",
+                explicacionId: "1090201009",
                 pregunta: "¿Qué norma regula el Régimen Jurídico del Sector Público?",
                 opciones: [
                     "Ley 39/2015",
@@ -4361,10 +4361,10 @@ const preguntas = {
                     "RD 806/2014"
                 ],
                 correcta: 2,
-                explicacionId: "1090201009"
+                id: "1090201009"
             },
             {
-                id: "1090201010",
+                explicacionId: "1090201010",
                 pregunta: "¿Qué aprueba el RD 203/2021?",
                 opciones: [
                     "El Esquema Nacional de Interoperabilidad",
@@ -4373,10 +4373,10 @@ const preguntas = {
                     "El Reglamento de actuación y funcionamiento del sector público por medios electrónicos"
                 ],
                 correcta: 3,
-                explicacionId: "1090201010"
+                id: "1090201010"
             },
             {
-                id: "1090201011",
+                explicacionId: "1090201011",
                 pregunta: "¿Qué regula el RD 806/2014?",
                 opciones: [
                     "El Procedimiento Administrativo Común de las AAPP",
@@ -4385,10 +4385,10 @@ const preguntas = {
                     "El Punto de Acceso General (PAG)"
                 ],
                 correcta: 2,
-                explicacionId: "1090201011"
+                id: "1090201011"
             },
             {
-                id: "1090108001",
+                explicacionId: "1090108001",
                 pregunta: "¿Qué es la Comisión Sectorial de Administración Electrónica (CSAE)?",
                 opciones: [
                     "Un órgano legislativo de la AGE",
@@ -4397,10 +4397,10 @@ const preguntas = {
                     "Un departamento de desarrollo de software de la AGE"
                 ],
                 correcta: 1,
-                explicacionId: "1090108001"
+                id: "1090108001"
             },
             {
-                id: "1090108003",
+                explicacionId: "1090108003",
                 pregunta: "¿Cuál de las siguientes NO es una función de la CSAE?",
                 opciones: [
                     "Asegurar la compatibilidad e interoperabilidad de los sistemas y aplicaciones de las AAPP",
@@ -4409,10 +4409,10 @@ const preguntas = {
                     "Desarrollar software para las Administraciones Públicas"
                 ],
                 correcta: 3,
-                explicacionId: "1090108002"
+                id: "1090108002"
             },
             {
-                id: "1090108007",
+                explicacionId: "1090108007",
                 pregunta: "¿A qué deben adherirse las entidades de derecho privado vinculadas a la AGE cuando ejercen potestades administrativas?",
                 opciones: [
                     "A la sede electrónica asociada del ministerio con el que mantengan la vinculación o dependencia",
@@ -4421,10 +4421,10 @@ const preguntas = {
                     "A la sede electrónica del Ministerio de Hacienda exclusivamente"
                 ],
                 correcta: 0,
-                explicacionId: "1090108007"
+                id: "1090108007"
             },
             {
-                id: "1090108008",
+                explicacionId: "1090108008",
                 pregunta: "¿Quién determina los medios admitidos para la firma electrónica en los procedimientos tramitados por entidades de derecho privado en el ejercicio de potestades administrativas?",
                 opciones: [
                     "El Ministerio de Hacienda",
@@ -4433,10 +4433,10 @@ const preguntas = {
                     "El Consejo de Ministros"
                 ],
                 correcta: 2,
-                explicacionId: "1090108008"
+                id: "1090108008"
             },
             {
-                id: "1090108010",
+                explicacionId: "1090108010",
                 pregunta: "¿Pueden los órganos constitucionales adherirse al uso de las plataformas, registros o servicios electrónicos de la AGE?",
                 opciones: [
                     "No, está prohibido por ley",
@@ -4445,10 +4445,10 @@ const preguntas = {
                     "Solo si lo autoriza el Tribunal Constitucional"
                 ],
                 correcta: 2,
-                explicacionId: "1090108010"
+                id: "1090108010"
             },
             {
-                id: "1090108012",
+                explicacionId: "1090108012",
                 pregunta: "¿Qué debe remitir un órgano constitucional para el estudio de viabilidad de su adhesión a una plataforma de la AGE?",
                 opciones: [
                     "Una solicitud formal al Presidente del Gobierno",
@@ -4457,10 +4457,10 @@ const preguntas = {
                     "Una autorización del Congreso de los Diputados"
                 ],
                 correcta: 2,
-                explicacionId: "1090108012"
+                id: "1090108012"
             },
             {
-                id: "1090108013",
+                explicacionId: "1090108013",
                 pregunta: "La adhesión a una plataforma de la AGE por parte de un órgano constitucional, ¿supone un cambio en la titularidad de las actuaciones administrativas?",
                 opciones: [
                     "Sí, la titularidad pasa a la AGE",
@@ -4469,10 +4469,10 @@ const preguntas = {
                     "Depende del tipo de procedimiento administrativo"
                 ],
                 correcta: 1,
-                explicacionId: "1090108013"
+                id: "1090108013"
             },
             {
-                id: "1090108014",
+                explicacionId: "1090108014",
                 pregunta: "En el intercambio de información entre entidades usuarias de una plataforma de la AGE, ¿cómo puede acreditarse la autenticación de la entidad solicitante?",
                 opciones: [
                     "Mediante un certificado digital personal",
@@ -4481,10 +4481,10 @@ const preguntas = {
                     "No es necesaria la autenticación en estos casos"
                 ],
                 correcta: 1,
-                explicacionId: "1090108014"
+                id: "1090108014"
             },
             {
-                id: "1090108015",
+                explicacionId: "1090108015",
                 pregunta: "En caso de una incidencia técnica que imposibilite el funcionamiento ordinario del sistema, ¿quién es responsable de la continuación de la tramitación de los procedimientos administrativos?",
                 opciones: [
                     "La AGE en todos los casos",
@@ -4493,10 +4493,10 @@ const preguntas = {
                     "Se suspenden todos los procedimientos hasta que se resuelva la incidencia"
                 ],
                 correcta: 2,
-                explicacionId: "1090108015"
+                id: "1090108015"
             },
             {
-                id: "1090108016",
+                explicacionId: "1090108016",
                 pregunta: "Tras la entrada en vigor del RD 203/2021, ¿qué naturaleza adquieren las sedes electrónicas existentes en la AGE?",
                 opciones: [
                     "Mantienen su naturaleza original sin cambios",
@@ -4505,10 +4505,10 @@ const preguntas = {
                     "Dejan de existir y son reemplazadas por nuevas sedes"
                 ],
                 correcta: 1,
-                explicacionId: "1090108016"
+                id: "1090108016"
             },
             {
-                id: "1090107001",
+                explicacionId: "1090107001",
                 pregunta: "¿Qué aspectos comprende el Esquema Nacional de Interoperabilidad (ENI)?",
                 opciones: [
                     "Solo criterios de seguridad",
@@ -4517,10 +4517,10 @@ const preguntas = {
                     "Exclusivamente políticas de conservación de datos"
                 ],
                 correcta: 2,
-                explicacionId: "1090107001"
+                id: "1090107001"
             },
             {
-                id: "1090107003",
+                explicacionId: "1090107003",
                 pregunta: "¿Qué deben hacer las Administraciones con las aplicaciones de las que son titulares de los derechos de propiedad intelectual?",
                 opciones: [
                     "Mantenerlas en secreto",
@@ -4529,10 +4529,10 @@ const preguntas = {
                     "Eliminarlas después de su uso"
                 ],
                 correcta: 2,
-                explicacionId: "1090107003"
+                id: "1090107003"
             },
             {
-                id: "1090107005",
+                explicacionId: "1090107005",
                 pregunta: "¿Qué deben hacer las AAPP antes de adquirir, desarrollar o mantener una aplicación?",
                 opciones: [
                     "Solicitar permiso al Ministerio de Hacienda",
@@ -4541,10 +4541,10 @@ const preguntas = {
                     "Contratar a una empresa externa"
                 ],
                 correcta: 1,
-                explicacionId: "1090107005"
+                id: "1090107005"
             },
             {
-                id: "1090107008",
+                explicacionId: "1090107008",
                 pregunta: "Si existe una solución disponible para su reutilización, ¿qué deben hacer las AAPP?",
                 opciones: [
                     "Ignorarla y desarrollar su propia solución",
@@ -4553,10 +4553,10 @@ const preguntas = {
                     "Pagar por su uso en todos los casos"
                 ],
                 correcta: 1,
-                explicacionId: "1090107008"
+                id: "1090107008"
             },
             {
-                id: "1090107010",
+                explicacionId: "1090107010",
                 pregunta: "¿Qué característica deben tener los directorios de aplicaciones mantenidos por las AAPP?",
                 opciones: [
                     "Ser de acceso restringido",
@@ -4565,10 +4565,10 @@ const preguntas = {
                     "Contener solo aplicaciones de pago"
                 ],
                 correcta: 2,
-                explicacionId: "1090107010"
+                id: "1090107010"
             },
             {
-                id: "1090107014",
+                explicacionId: "1090107014",
                 pregunta: "¿Qué funciones tiene la AGE respecto a la reutilización de aplicaciones?",
                 opciones: [
                     "Prohibir la reutilización de aplicaciones",
@@ -4577,10 +4577,10 @@ const preguntas = {
                     "Desarrollar aplicaciones solo para su uso interno"
                 ],
                 correcta: 1,
-                explicacionId: "1090107014"
+                id: "1090107014"
             },
             {
-                id: "1090107015",
+                explicacionId: "1090107015",
                 pregunta: "¿Cómo se realiza la adhesión a las plataformas de la AGE?",
                 opciones: [
                     "De forma automática",
@@ -4589,10 +4589,10 @@ const preguntas = {
                     "No es posible adherirse a las plataformas de la AGE"
                 ],
                 correcta: 1,
-                explicacionId: "1090107015"
+                id: "1090107015"
             },
             {
-                id: "1090107017",
+                explicacionId: "1090107017",
                 pregunta: "¿Qué implica la adhesión a una plataforma, registro o servicio electrónico de la AGE en cuanto a la titularidad de las actuaciones administrativas?",
                 opciones: [
                     "Un cambio de titularidad a favor de la AGE",
@@ -4601,10 +4601,10 @@ const preguntas = {
                     "La pérdida de titularidad por parte de la Administración adherida"
                 ],
                 correcta: 1,
-                explicacionId: "1090107017"
+                id: "1090107017"
             },
             {
-                id: "1090107019",
+                explicacionId: "1090107019",
                 pregunta: "¿Cómo es la adhesión de las comunidades autónomas o entidades locales a las plataformas estatales o registros?",
                 opciones: [
                     "Obligatoria en todos los casos",
@@ -4613,10 +4613,10 @@ const preguntas = {
                     "Obligatoria solo para comunidades autónomas"
                 ],
                 correcta: 1,
-                explicacionId: "1090107019"
+                id: "1090107019"
             },
             {
-                id: "1090107020",
+                explicacionId: "1090107020",
                 pregunta: "¿Cuál es el propósito del nodo de interoperabilidad de identificación electrónica del Reino de España?",
                 opciones: [
                     "Bloquear identidades electrónicas extranjeras",
@@ -4625,10 +4625,10 @@ const preguntas = {
                     "Eliminar la necesidad de identificación electrónica"
                 ],
                 correcta: 1,
-                explicacionId: "1090107020"
+                id: "1090107020"
             },
             {
-                id: "1090106001",
+                explicacionId: "1090106001",
                 pregunta: "¿En qué condiciones se consideran válidos los documentos electrónicos transmitidos en entornos cerrados de comunicaciones entre AAPP, órganos, OOPP y entidades de derecho público?",
                 opciones: [
                     "Siempre que estén firmados digitalmente",
@@ -4637,10 +4637,10 @@ const preguntas = {
                     "Solo cuando se utilizan plataformas de intercambio específicas"
                 ],
                 correcta: 2,
-                explicacionId: "1090106001"
+                id: "1090106001"
             },
             {
-                id: "1090106002",
+                explicacionId: "1090106002",
                 pregunta: "Cuando los participantes en las comunicaciones pertenecen a una misma AP, ¿quién determina las condiciones y garantías?",
                 opciones: [
                     "El Ministerio de Administraciones Públicas",
@@ -4649,10 +4649,10 @@ const preguntas = {
                     "La Agencia Española de Protección de Datos"
                 ],
                 correcta: 1,
-                explicacionId: "1090106002"
+                id: "1090106002"
             },
             {
-                id: "1090106003",
+                explicacionId: "1090106003",
                 pregunta: "¿Cómo se establecen las condiciones y garantías cuando los participantes pertenecen a distintas AAPP?",
                 opciones: [
                     "Por decisión unilateral de la AP de mayor rango",
@@ -4661,10 +4661,10 @@ const preguntas = {
                     "No es necesario establecer condiciones en este caso"
                 ],
                 correcta: 1,
-                explicacionId: "1090106003"
+                id: "1090106003"
             },
             {
-                id: "1090106004",
+                explicacionId: "1090106004",
                 pregunta: "¿Qué debe garantizarse en todo caso en el intercambio de datos en entornos cerrados?",
                 opciones: [
                     "La velocidad de transmisión de los datos",
@@ -4673,10 +4673,10 @@ const preguntas = {
                     "La duplicación de los datos en múltiples servidores"
                 ],
                 correcta: 1,
-                explicacionId: "1090106004"
+                id: "1090106004"
             },
             {
-                id: "1090106005",
+                explicacionId: "1090106005",
                 pregunta: "En el ámbito estatal, ¿quién establece las condiciones y garantías para el intercambio de datos en entornos cerrados?",
                 opciones: [
                     "El Ministerio de Hacienda",
@@ -4685,10 +4685,10 @@ const preguntas = {
                     "El Consejo de Ministros"
                 ],
                 correcta: 2,
-                explicacionId: "1090106005"
+                id: "1090106005"
             },
             {
-                id: "1090106006",
+                explicacionId: "1090106006",
                 pregunta: "Según el Reglamento (UE) 2016/679 y la Ley Orgánica 3/2018, ¿qué deben hacer las Administraciones Públicas respecto a los datos de los interesados?",
                 opciones: [
                     "Mantenerlos en secreto",
@@ -4697,10 +4697,10 @@ const preguntas = {
                     "Eliminarlos después de cada uso"
                 ],
                 correcta: 2,
-                explicacionId: "1090106006"
+                id: "1090106006"
             },
             {
-                id: "1090106007",
+                explicacionId: "1090106007",
                 pregunta: "¿Qué tratamiento ulterior de datos personales NO se considera incompatible con los fines iniciales?",
                 opciones: [
                     "Fines comerciales",
@@ -4709,10 +4709,10 @@ const preguntas = {
                     "Fines de marketing directo"
                 ],
                 correcta: 1,
-                explicacionId: "1090106007"
+                id: "1090106007"
             },
             {
-                id: "1090106008",
+                explicacionId: "1090106008",
                 pregunta: "Cuando una AP cesionaria pretende dar un tratamiento ulterior a los datos para una finalidad compatible con el fin inicial, ¿qué debe hacer?",
                 opciones: [
                     "Proceder directamente con el nuevo tratamiento",
@@ -4721,10 +4721,10 @@ const preguntas = {
                     "Publicar un anuncio en el Boletín Oficial"
                 ],
                 correcta: 2,
-                explicacionId: "1090106008"
+                id: "1090106008"
             },
             {
-                id: "1090106008",
+                explicacionId: "1090106008",
                 pregunta: "¿En qué plazo puede la AP cedente oponerse al tratamiento ulterior de los datos comunicado por la AP cesionaria?",
                 opciones: [
                     "5 días",
@@ -4733,10 +4733,10 @@ const preguntas = {
                     "30 días"
                 ],
                 correcta: 1,
-                explicacionId: "1090106008"
+                id: "1090106008"
             },
             {
-                id: "1090106009",
+                explicacionId: "1090106009",
                 pregunta: "¿En qué caso se exceptúa la necesidad de comunicación previa para el tratamiento ulterior de datos con una finalidad distinta?",
                 opciones: [
                     "Cuando lo autorice el interesado",
@@ -4745,10 +4745,10 @@ const preguntas = {
                     "Cuando hayan pasado más de 5 años desde la recogida inicial de los datos"
                 ],
                 correcta: 2,
-                explicacionId: "1090106009"
+                id: "1090106009"
             },
             {
-                id: "1090105001",
+                explicacionId: "1090105001",
                 pregunta: "¿Qué debe incluir la norma de creación de los Organismos Públicos del sector público estatal?",
                 opciones: [
                     "La gestión individual de todos los servicios",
@@ -4757,10 +4757,10 @@ const preguntas = {
                     "La eliminación de servicios comunes"
                 ],
                 correcta: 1,
-                explicacionId: "1090105001"
+                id: "1090105001"
             },
             {
-                id: "1090105002",
+                explicacionId: "1090105002",
                 pregunta: "¿Cuál de los siguientes NO se considera un servicio común de los Organismos Públicos?",
                 opciones: [
                     "Gestión de bienes inmuebles",
@@ -4769,10 +4769,10 @@ const preguntas = {
                     "Gestión de recursos humanos"
                 ],
                 correcta: 3,
-                explicacionId: "1090105002"
+                id: "1090105002"
             },
             {
-                id: "1090105003",
+                explicacionId: "1090105003",
                 pregunta: "¿Cuál de las siguientes NO es una técnica para hacer efectivas las obligaciones derivadas del deber de colaboración?",
                 opciones: [
                     "El suministro de información, datos, documentos o medios probatorios",
@@ -4781,10 +4781,10 @@ const preguntas = {
                     "La implementación de un sistema de votación electrónica"
                 ],
                 correcta: 3,
-                explicacionId: "1090105003"
+                id: "1090105003"
             },
             {
-                id: "1090105004",
+                explicacionId: "1090105004",
                 pregunta: "¿Cómo deben relacionarse las Administraciones Públicas entre sí y con sus órganos?",
                 opciones: [
                     "A través de medios electrónicos",
@@ -4793,10 +4793,10 @@ const preguntas = {
                     "Por medio de intermediarios"
                 ],
                 correcta: 0,
-                explicacionId: "1090105004"
+                id: "1090105004"
             },
             {
-                id: "1090105005",
+                explicacionId: "1090105005",
                 pregunta: "¿A través de qué medio deben efectuarse las comunicaciones en la Administración General del Estado?",
                 opciones: [
                     "Correo postal certificado",
@@ -4805,10 +4805,10 @@ const preguntas = {
                     "Mensajería instantánea"
                 ],
                 correcta: 2,
-                explicacionId: "1090105005"
+                id: "1090105005"
             },
             {
-                id: "1090105006",
+                explicacionId: "1090105006",
                 pregunta: "¿Qué es necesario para la adhesión a sedes electrónicas o sedes electrónicas asociadas?",
                 opciones: [
                     "Un decreto ley",
@@ -4817,10 +4817,10 @@ const preguntas = {
                     "La aprobación del Consejo de Ministros"
                 ],
                 correcta: 1,
-                explicacionId: "1090105006"
+                id: "1090105006"
             },
             {
-                id: "1090105007",
+                explicacionId: "1090105007",
                 pregunta: "¿A través de qué sistema deben realizarse las interconexiones entre Registros de las Administraciones Públicas?",
                 opciones: [
                     "Sistema de Interconexión de Registros (SIR)",
@@ -4829,10 +4829,10 @@ const preguntas = {
                     "Plataforma de Intermediación de Datos"
                 ],
                 correcta: 0,
-                explicacionId: "1090105007"
+                id: "1090105007"
             },
             {
-                id: "1090105008",
+                explicacionId: "1090105008",
                 pregunta: "¿Qué consideración tienen las transmisiones de datos realizadas a través de redes corporativas de las AAPP?",
                 opciones: [
                     "Meras comunicaciones internas",
@@ -4841,10 +4841,10 @@ const preguntas = {
                     "Borradores de trabajo"
                 ],
                 correcta: 1,
-                explicacionId: "1090105008"
+                id: "1090105008"
             },
             {
-                id: "1090105009",
+                explicacionId: "1090105009",
                 pregunta: "¿Quién gestiona la Plataforma de Intermediación de la AGE y sus Organismos Públicos?",
                 opciones: [
                     "El Ministerio de Hacienda",
@@ -4853,10 +4853,10 @@ const preguntas = {
                     "La Agencia Estatal de Administración Tributaria"
                 ],
                 correcta: 1,
-                explicacionId: "1090105009"
+                id: "1090105009"
             },
             {
-                id: "1090105010",
+                explicacionId: "1090105010",
                 pregunta: "En la remisión electrónica de expedientes administrativos entre Administraciones Públicas, ¿qué se considera equivalente a la remisión del expediente?",
                 opciones: [
                     "El envío de un resumen del expediente",
@@ -4865,10 +4865,10 @@ const preguntas = {
                     "La notificación de que el expediente está en trámite"
                 ],
                 correcta: 1,
-                explicacionId: "1090105010"
+                id: "1090105010"
             },
             {
-                id: "1090104001",
+                explicacionId: "1090104001",
                 pregunta: "¿Cómo pueden identificarse las AAPP según la Ley 40/2015?",
                 opciones: [
                     "Mediante un nombre de usuario y contraseña",
@@ -4877,10 +4877,10 @@ const preguntas = {
                     "Por medio de un código QR"
                 ],
                 correcta: 1,
-                explicacionId: "1090104001"
+                id: "1090104001"
             },
             {
-                id: "1090104004",
+                explicacionId: "1090104004",
                 pregunta: "¿Qué se entiende por actuación administrativa automatizada?",
                 opciones: [
                     "Cualquier acto realizado por un empleado público",
@@ -4889,10 +4889,10 @@ const preguntas = {
                     "Una actuación realizada manualmente pero registrada electrónicamente"
                 ],
                 correcta: 2,
-                explicacionId: "1090104004"
+                id: "1090104004"
             },
             {
-                id: "1090104008",
+                explicacionId: "1090104008",
                 pregunta: "¿Qué sistemas de firma pueden utilizarse para la actuación administrativa automatizada?",
                 opciones: [
                     "Únicamente firma manuscrita digitalizada",
@@ -4901,10 +4901,10 @@ const preguntas = {
                     "Exclusivamente firma electrónica del titular del órgano"
                 ],
                 correcta: 2,
-                explicacionId: "1090104008"
+                id: "1090104008"
             },
             {
-                id: "1090104012",
+                explicacionId: "1090104012",
                 pregunta: "¿Cómo se realiza la actuación de una AP cuando utiliza medios electrónicos?",
                 opciones: [
                     "Mediante firma manuscrita",
@@ -4913,10 +4913,10 @@ const preguntas = {
                     "Utilizando un código alfanumérico"
                 ],
                 correcta: 2,
-                explicacionId: "1090104012"
+                id: "1090104012"
             },
             {
-                id: "1090104018",
+                explicacionId: "1090104018",
                 pregunta: "¿Cómo deben almacenarse los documentos utilizados en las actuaciones administrativas?",
                 opciones: [
                     "Siempre en papel",
@@ -4925,10 +4925,10 @@ const preguntas = {
                     "Siempre en formato físico y digital"
                 ],
                 correcta: 1,
-                explicacionId: "1090104018"
+                id: "1090104018"
             },
             {
-                id: "1090104023",
+                explicacionId: "1090104023",
                 pregunta: "¿Qué organismo es responsable de la plataforma de verificación de certificados cualificados en el sector público de la AGE?",
                 opciones: [
                     "El Ministerio de Hacienda",
@@ -4937,10 +4937,10 @@ const preguntas = {
                     "El Centro Criptológico Nacional"
                 ],
                 correcta: 2,
-                explicacionId: "1090104023"
+                id: "1090104023"
             },
             {
-                id: "1090104033",
+                explicacionId: "1090104033",
                 pregunta: "¿Qué deben utilizar las sedes electrónicas y sedes electrónicas asociadas para identificarse y garantizar una comunicación segura?",
                 opciones: [
                     "Firmas manuscritas digitalizadas",
@@ -4949,10 +4949,10 @@ const preguntas = {
                     "Sellos de tiempo"
                 ],
                 correcta: 1,
-                explicacionId: "1090104033"
+                id: "1090104033"
             },
             {
-                id: "1090104047",
+                explicacionId: "1090104047",
                 pregunta: "¿Qué deben garantizar los sistemas de código seguro de verificación?",
                 opciones: [
                     "La confidencialidad del documento",
@@ -4961,10 +4961,10 @@ const preguntas = {
                     "La posibilidad de eliminar el documento después de su verificación"
                 ],
                 correcta: 2,
-                explicacionId: "1090104047"
+                id: "1090104047"
             },
             {
-                id: "1090104063",
+                explicacionId: "1090104063",
                 pregunta: "¿En qué situaciones se puede consignar un número de identificación profesional en el certificado electrónico de empleado público?",
                 opciones: [
                     "En todas las actuaciones del empleado público",
@@ -4973,10 +4973,10 @@ const preguntas = {
                     "Únicamente en comunicaciones con otras administraciones"
                 ],
                 correcta: 2,
-                explicacionId: "1090104063"
+                id: "1090104063"
             },
             {
-                id: "1090104073",
+                explicacionId: "1090104073",
                 pregunta: "¿Qué se requiere para la habilitación de personas físicas o jurídicas para realizar determinadas transacciones electrónicas en representación de los interesados?",
                 opciones: [
                     "Una autorización verbal del interesado",
@@ -4985,10 +4985,10 @@ const preguntas = {
                     "Una declaración jurada del representante"
                 ],
                 correcta: 2,
-                explicacionId: "1090104073"
+                id: "1090104073"
             },
             {
-                id: "1090103001",
+                explicacionId: "1090103001",
                 pregunta: "¿Qué es la sede electrónica?",
                 opciones: [
                     "Un portal de noticias de la Administración Pública",
@@ -4997,10 +4997,10 @@ const preguntas = {
                     "Un catálogo de servicios públicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090103001"
+                id: "1090103001"
             },
             {
-                id: "1090103002",
+                explicacionId: "1090103002",
                 pregunta: "¿Qué responsabilidad conlleva el establecimiento de una sede electrónica?",
                 opciones: [
                     "Solo la integridad de la información",
@@ -5009,10 +5009,10 @@ const preguntas = {
                     "Únicamente la disponibilidad del sitio web"
                 ],
                 correcta: 2,
-                explicacionId: "1090103002"
+                id: "1090103002"
             },
             {
-                id: "1090103003",
+                explicacionId: "1090103003",
                 pregunta: "¿A qué principios están sujetas las condiciones de creación de las sedes electrónicas?",
                 opciones: [
                     "Solo a principios de seguridad",
@@ -5021,10 +5021,10 @@ const preguntas = {
                     "Solo a principios de eficiencia económica"
                 ],
                 correcta: 2,
-                explicacionId: "1090103003"
+                id: "1090103003"
             },
             {
-                id: "1090103005",
+                explicacionId: "1090103005",
                 pregunta: "¿Qué deben permitir los sistemas de las sedes electrónicas?",
                 opciones: [
                     "El establecimiento de comunicaciones seguras",
@@ -5033,10 +5033,10 @@ const preguntas = {
                     "La modificación de información por cualquier usuario"
                 ],
                 correcta: 0,
-                explicacionId: "1090103005"
+                id: "1090103005"
             },
             {
-                id: "1090103006",
+                explicacionId: "1090103006",
                 pregunta: "¿Qué principios debe respetar la publicación en las sedes electrónicas?",
                 opciones: [
                     "Solo el principio de accesibilidad",
@@ -5045,10 +5045,10 @@ const preguntas = {
                     "Solo los principios de uso exclusivo por funcionarios"
                 ],
                 correcta: 2,
-                explicacionId: "1090103006"
+                id: "1090103006"
             },
             {
-                id: "1090103007",
+                explicacionId: "1090103007",
                 pregunta: "¿Qué utilizarán las sedes electrónicas para identificarse y garantizar una comunicación segura?",
                 opciones: [
                     "Contraseñas simples",
@@ -5057,10 +5057,10 @@ const preguntas = {
                     "Únicamente la dirección IP del servidor"
                 ],
                 correcta: 1,
-                explicacionId: "1090103007"
+                id: "1090103007"
             },
             {
-                id: "1090103008",
+                explicacionId: "1090103008",
                 pregunta: "¿Qué es un portal de internet según la ley?",
                 opciones: [
                     "Una red social de la Administración Pública",
@@ -5069,10 +5069,10 @@ const preguntas = {
                     "Un sistema de almacenamiento en la nube para funcionarios"
                 ],
                 correcta: 1,
-                explicacionId: "1090103008"
+                id: "1090103008"
             },
             {
-                id: "1090103009",
+                explicacionId: "1090103009",
                 pregunta: "¿Qué puede determinar cada Administración respecto a sus portales?",
                 opciones: [
                     "Solo el diseño gráfico",
@@ -5081,10 +5081,10 @@ const preguntas = {
                     "Solamente el horario de funcionamiento del portal"
                 ],
                 correcta: 2,
-                explicacionId: "1090103009"
+                id: "1090103009"
             },
             {
-                id: "1090103010",
+                explicacionId: "1090103010",
                 pregunta: "¿Cómo se rige la supresión de los portales de internet creados en el ámbito estatal antes de la entrada en vigor del RD 203/2021?",
                 opciones: [
                     "Por las nuevas reglas establecidas en el RD 203/2021",
@@ -5093,10 +5093,10 @@ const preguntas = {
                     "Se suprimen automáticamente todos los portales antiguos"
                 ],
                 correcta: 1,
-                explicacionId: "1090103010"
+                id: "1090103010"
             },
             {
-                id: "1090103004",
+                explicacionId: "1090103004",
                 pregunta: "¿Qué debe garantizarse en todo caso en una sede electrónica?",
                 opciones: [
                     "Solo la identificación del órgano titular",
@@ -5105,10 +5105,10 @@ const preguntas = {
                     "Solamente el acceso a todos los servicios sin restricciones"
                 ],
                 correcta: 2,
-                explicacionId: "1090103004"
+                id: "1090103004"
             },
             {
-                id: "1090102001",
+                explicacionId: "1090102001",
                 pregunta: "¿Cuál es el objeto del RD 203/2021?",
                 opciones: [
                     "Desarrollar únicamente la Ley 39/2015",
@@ -5117,10 +5117,10 @@ const preguntas = {
                     "Establecer nuevas leyes para el sector público"
                 ],
                 correcta: 2,
-                explicacionId: "1090102001"
+                id: "1090102001"
             },
             {
-                id: "1090102002",
+                explicacionId: "1090102002",
                 pregunta: "¿Dónde se establece el ámbito de aplicación del RD 203/2021?",
                 opciones: [
                     "En el art. 1 de la Ley 39/2015",
@@ -5129,10 +5129,10 @@ const preguntas = {
                     "En el art. 3 de la Ley 40/2015"
                 ],
                 correcta: 1,
-                explicacionId: "1090102002"
+                id: "1090102002"
             },
             {
-                id: "1090102003",
+                explicacionId: "1090102003",
                 pregunta: "¿En qué deben basarse las actuaciones y relaciones electrónicas del sector público?",
                 opciones: [
                     "En normas internas de cada organismo",
@@ -5141,10 +5141,10 @@ const preguntas = {
                     "No se establecen bases específicas"
                 ],
                 correcta: 1,
-                explicacionId: "1090102003"
+                id: "1090102003"
             },
             {
-                id: "1090102004",
+                explicacionId: "1090102004",
                 pregunta: "¿Qué garantizan los principios de neutralidad tecnológica y adaptabilidad?",
                 opciones: [
                     "El uso exclusivo de software propietario",
@@ -5153,10 +5153,10 @@ const preguntas = {
                     "La prohibición de usar estándares abiertos"
                 ],
                 correcta: 1,
-                explicacionId: "1090102004"
+                id: "1090102004"
             },
             {
-                id: "1090102005",
+                explicacionId: "1090102005",
                 pregunta: "¿Qué busca garantizar el principio de accesibilidad?",
                 opciones: [
                     "El acceso exclusivo a funcionarios públicos",
@@ -5165,10 +5165,10 @@ const preguntas = {
                     "La complejidad en el uso de servicios electrónicos"
                 ],
                 correcta: 1,
-                explicacionId: "1090102005"
+                id: "1090102005"
             },
             {
-                id: "1090102006",
+                explicacionId: "1090102006",
                 pregunta: "¿En qué se centra el principio de facilidad de uso?",
                 opciones: [
                     "En la complejidad de los servicios",
@@ -5177,10 +5177,10 @@ const preguntas = {
                     "En el uso de tecnologías avanzadas"
                 ],
                 correcta: 2,
-                explicacionId: "1090102006"
+                id: "1090102006"
             },
             {
-                id: "1090102007",
+                explicacionId: "1090102007",
                 pregunta: "¿Qué define el principio de interoperabilidad?",
                 opciones: [
                     "La capacidad de los sistemas de información de funcionar de forma aislada",
@@ -5189,10 +5189,10 @@ const preguntas = {
                     "La obligación de usar un único sistema en toda la administración"
                 ],
                 correcta: 1,
-                explicacionId: "1090102007"
+                id: "1090102007"
             },
             {
-                id: "1090102008",
+                explicacionId: "1090102008",
                 pregunta: "Según el principio de proporcionalidad, ¿qué se exigirá en los trámites y actuaciones electrónicos?",
                 opciones: [
                     "Siempre las máximas medidas de seguridad posibles",
@@ -5201,10 +5201,10 @@ const preguntas = {
                     "Medidas de seguridad estándar para todos los trámites"
                 ],
                 correcta: 2,
-                explicacionId: "1090102008"
+                id: "1090102008"
             },
             {
-                id: "1090102009",
+                explicacionId: "1090102009",
                 pregunta: "¿Qué implica el principio de personalización y proactividad?",
                 opciones: [
                     "Que las AAPP ignoren las necesidades de los usuarios",
@@ -5213,10 +5213,10 @@ const preguntas = {
                     "Que se elimine toda personalización en los servicios"
                 ],
                 correcta: 2,
-                explicacionId: "1090102009"
+                id: "1090102009"
             },
             {
-                id: "1090102004",
+                explicacionId: "1090102004",
                 pregunta: "¿Qué tipo de estándares utilizará principalmente el sector público según el principio de neutralidad tecnológica?",
                 opciones: [
                     "Estándares propietarios exclusivamente",
@@ -5225,10 +5225,10 @@ const preguntas = {
                     "No se especifica el uso de estándares"
                 ],
                 correcta: 1,
-                explicacionId: "1090102004"
+                id: "1090102004"
             },
             {
-                id: "1090101002",
+                explicacionId: "1090101002",
                 pregunta: "¿Qué establece y regula la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público?",
                 opciones: [
                     "Solo la organización de la AGE",
@@ -5237,10 +5237,10 @@ const preguntas = {
                     "Exclusivamente la potestad sancionadora de las AAPP"
                 ],
                 correcta: 1,
-                explicacionId: "1090101002"
+                id: "1090101002"
             },
             {
-                id: "1090101003",
+                explicacionId: "1090101003",
                 pregunta: "¿A qué entidades se aplica la Ley 40/2015?",
                 opciones: [
                     "Solo a la AGE",
@@ -5249,10 +5249,10 @@ const preguntas = {
                     "Únicamente al sector público institucional"
                 ],
                 correcta: 2,
-                explicacionId: "1090101003"
+                id: "1090101003"
             },
             {
-                id: "1090101004",
+                explicacionId: "1090101004",
                 pregunta: "¿Qué entidades forman parte del sector público institucional según la Ley 40/2015?",
                 opciones: [
                     "Solo las entidades de derecho público",
@@ -5261,10 +5261,10 @@ const preguntas = {
                     "Solamente las entidades de derecho privado vinculadas a las AAPP"
                 ],
                 correcta: 1,
-                explicacionId: "1090101004"
+                id: "1090101004"
             },
             {
-                id: "1090101006",
+                explicacionId: "1090101006",
                 pregunta: "¿De acuerdo con qué principios actúan las AAPP según la Ley 40/2015?",
                 opciones: [
                     "Eficacia, jerarquía y centralización",
@@ -5273,10 +5273,10 @@ const preguntas = {
                     "Únicamente eficiencia y economía"
                 ],
                 correcta: 2,
-                explicacionId: "1090101006"
+                id: "1090101006"
             },
             {
-                id: "1090101007",
+                explicacionId: "1090101007",
                 pregunta: "¿Cuál de los siguientes NO es un principio que las AAPP deben respetar en su actuación y relaciones?",
                 opciones: [
                     "Servicio efectivo a los ciudadanos",
@@ -5285,10 +5285,10 @@ const preguntas = {
                     "Cooperación, colaboración y coordinación entre las AAPP"
                 ],
                 correcta: 2,
-                explicacionId: "1090101007"
+                id: "1090101007"
             },
             {
-                id: "1090101008",
+                explicacionId: "1090101008",
                 pregunta: "Según la Ley 40/2015, ¿cómo se relacionarán las AAPP entre sí y con sus órganos?",
                 opciones: [
                     "Exclusivamente a través de medios tradicionales en papel",
@@ -5297,7 +5297,7 @@ const preguntas = {
                     "A través de intermediarios designados"
                 ],
                 correcta: 1,
-                explicacionId: "1090101008"
+                id: "1090101008"
             }
         ],
         minimoParaAprobar: 4
