@@ -414,12 +414,12 @@ export const preguntas = {
             },
             {
                 explicacionId: "1080104004",
-                pregunta: "¿Qué tipo de acceso se proporciona al expediente electrónico?",
+                pregunta: "¿Cómo se entiende satisfecho el derecho de acceso al expediente electrónico por parte de las personas interesadas que se relacionen electrónicamente con las Administraciones Públicas?",
                 opciones: [
-                    "Solo lectura",
-                    "Lectura y modificación",
-                    "Depende de cada caso particular",
-                    "No se especifica en el artículo"
+                    "Mediante la entrega física de una copia del expediente en la oficina administrativa correspondiente",
+                    " A través de una solicitud formal enviada por correo postal a la Administración competente",
+                    "Por medio de una llamada telefónica confirmada por la Administración",
+                    "Mediante la puesta a disposición del expediente en el Portal de Acceso General (PAGe) de la Administración competente o en la sede electrónica que corresponda"
                 ],
                 correcta: 3,
                 id: "1080104001"

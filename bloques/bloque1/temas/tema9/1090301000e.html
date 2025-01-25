@@ -15,12 +15,14 @@
     <h4>3.1.1.1. CL@VE – IDENTIDAD ELECTRÓNICA PARA LAS ADMINISTRACIONES</h4>
     <p id="1090301001">Cl@ve es la plataforma común del Sector Público Administrativo Estatal para la identificación, autenticación y firma electrónica mediante el uso de claves concertadas, abierta a su utilización por parte de todas las AAPP.</p>
     <p>Es un sistema orientado a unificar y simplificar el acceso electrónico de los ciudadanos a los servicios públicos. Su principal objetivo es que un ciudadano pueda identificarse ante un organismo público usando claves concertadas (usuario y contraseña), sin tener que recordar claves diferentes para acceder a distintos servicios.</p>
-    <p id="1090301002">Cl@ve permite que las aplicaciones de administración electrónica puedan definir el nivel de aseguramiento de autenticación que desean, en base a los niveles de seguridad establecidos por el Reglamento eIDAS:</p>
-    <ul>
-      <li>Nivel básico: usuario y contraseña. No se ofrece en Cl@ve.</li>
-      <li>Nivel sustancial: usuario y contraseña más clave de un solo uso (OTP, One-Time Password), obtenido con registro presencial o con certificado electrónico reconocido.</li>
-      <li>Nivel alto: certificado electrónico reconocido (software o tarjeta).</li>
-    </ul>
+    <span id="1090301002">
+      <p >Cl@ve permite que las aplicaciones de administración electrónica puedan definir el nivel de aseguramiento de autenticación que desean, en base a los niveles de seguridad establecidos por el Reglamento eIDAS:</p>
+      <ul>
+        <li>Nivel básico: usuario y contraseña. No se ofrece en Cl@ve.</li>
+        <li>Nivel sustancial: usuario y contraseña más clave de un solo uso (OTP, One-Time Password), obtenido con registro presencial o con certificado electrónico reconocido.</li>
+        <li>Nivel alto: certificado electrónico reconocido (software o tarjeta).</li>
+      </ul>
+    </span>
     <p>La plataforma Cl@ve permite comprobar la identidad de un ciudadano usuario, con gran garantía de confianza y proporcionalidad, en base a lo que soy (por ejemplo DNI que conocen previamente las AAPP), lo que tengo (por ejemplo dispositivo móvil que se declara en el acto de registro) y lo que sé (por ejemplo la clave OTP de un solo uso que se recibe en el momento de uso). Usa el protocolo SAML para el intercambio de información.</p>
     <p>Existen cuatro proveedores de identidad:</p>
     <ul>
@@ -36,14 +38,16 @@
     </ul>
     
     <h4>3.1.1.2. CL@VE FIRMA – FIRMA CRIPTOGRÁFICA BASADA EN CERTIFICADOS CENTRALIZADOS</h4>
-    <p id="1090301003">Cl@ve Firma es una plataforma común para la firma criptográfica utilizando certificados centralizados. Los certificados centralizados son emitidos de manera opcional a los usuarios registrados en el sistema Cl@ve y pueden ser utilizados para la firma criptográfica en aquellas aplicaciones de administración electrónica que se han integrado con Cl@ve Firma.</p>
-    <p>Ventajas principales:</p>
-    <ul>
-      <li>El certificado está custodiado por el Prestador de Servicios de Confianza (PSC).</li>
-      <li>La firma electrónica no se realiza en el cliente, sino en los servidores de la Seguridad Social y la Policía.</li>
-      <li>El usuario se despreocupa de la configuración del entorno de su máquina y de instalar el certificado electrónico.</li>
-      <li>El usuario es el único que tiene acceso exclusivo a las claves privadas en el momento de la firma.</li>
-    </ul>
+    <span  id="1090301003">
+      <p>Cl@ve Firma es una plataforma común para la firma criptográfica utilizando certificados centralizados. Los certificados centralizados son emitidos de manera opcional a los usuarios registrados en el sistema Cl@ve y pueden ser utilizados para la firma criptográfica en aquellas aplicaciones de administración electrónica que se han integrado con Cl@ve Firma.</p>
+      <p>Ventajas principales:</p>
+      <ul>
+        <li>El certificado está custodiado por el Prestador de Servicios de Confianza (PSC).</li>
+        <li>La firma electrónica no se realiza en el cliente, sino en los servidores de la Seguridad Social y la Policía.</li>
+        <li>El usuario se despreocupa de la configuración del entorno de su máquina y de instalar el certificado electrónico.</li>
+        <li>El usuario es el único que tiene acceso exclusivo a las claves privadas en el momento de la firma.</li>
+      </ul>
+    </span>
     <p>Para autenticarse, el usuario utiliza Cl@ve Permanente (usuario y contraseña), reforzada con una contraseña de un solo uso que se recibirá vía SMS en su móvil.</p>
     <p>Cl@ve Firma se ofrece en colaboración de la SGAD con la Seguridad Social, la Dirección General de la Policía y la AEAT. Los certificados de los ciudadanos se encuentran en la Dirección General de la Policía (DGP) y respaldados en la Gerencia Informática de la Seguridad Social (GISS).</p>
     
@@ -77,22 +81,24 @@
     </ul>
     
     <h4>3.1.1.4. FIRE – SOLUCIÓN INTEGRAL DE FIRMA ELECTRÓNICA</h4>
-    <p id="1090301005">FIRe es una solución integral de firma electrónica que permite simplificar todos los requisitos de creación de firmas basadas tanto en certificados locales como en certificados en la nube. Gracias a FIRe, las aplicaciones ya no tienen que gestionar los componentes de realización de firmas como el Miniapplet, Autofirma o Clave Firma y pueden centrarse en su negocio, ya que todas las cuestiones relativas a la firma se delegan en FIRe.</p>
-    <p>La solución FIRe está compuesta por dos componentes:</p>
-    <ul>
-      <li><strong>El API FIRe:</strong> Son librerías que se integran en las aplicaciones que necesitan servicios de realización de firmas. Estas librerías permiten conectarse al servidor FIRe y se ofrecen en los lenguajes JAVA, PHP y .Net.</li>
-      <li><strong>El Servidor FIRe:</strong> Es el componente central de la solución y contiene la inteligencia que permite al usuario la selección del método de firma y la propia realización de las firmas, usando tanto certificados en local como certificados en la nube.
-        <ul>
-          <li>Para la firma en local, el Servidor FIRe incluye el Miniapplet de @firma y la adaptación a Autofirma.</li>
-          <li>Para la firma en la nube, FIRe se conecta al servicio de Cl@ve Firma proporcionado por la GISS y la DGP.</li>
-        </ul>
-      </li>
-    </ul>
-    <p>Las funcionalidades de firma ofrecidas por el API de FIRe son:</p>
-    <ul>
-      <li><strong>Firma electrónica individual:</strong> Firma o multifirma electrónica de un documento.</li>
-      <li><strong>Firma de lotes:</strong> Firma o multifirma de múltiples documentos simultáneamente.</li>
-    </ul>
+    <span  id="1090301005">
+      <p>FIRe es una solución integral de firma electrónica que permite simplificar todos los requisitos de creación de firmas basadas tanto en certificados locales como en certificados en la nube. Gracias a FIRe, las aplicaciones ya no tienen que gestionar los componentes de realización de firmas como el Miniapplet, Autofirma o Clave Firma y pueden centrarse en su negocio, ya que todas las cuestiones relativas a la firma se delegan en FIRe.</p>
+      <p>La solución FIRe está compuesta por dos componentes:</p>
+      <ul>
+        <li><strong>El API FIRe:</strong> Son librerías que se integran en las aplicaciones que necesitan servicios de realización de firmas. Estas librerías permiten conectarse al servidor FIRe y se ofrecen en los lenguajes JAVA, PHP y .Net.</li>
+        <li><strong>El Servidor FIRe:</strong> Es el componente central de la solución y contiene la inteligencia que permite al usuario la selección del método de firma y la propia realización de las firmas, usando tanto certificados en local como certificados en la nube.
+          <ul>
+            <li>Para la firma en local, el Servidor FIRe incluye el Miniapplet de @firma y la adaptación a Autofirma.</li>
+            <li>Para la firma en la nube, FIRe se conecta al servicio de Cl@ve Firma proporcionado por la GISS y la DGP.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Las funcionalidades de firma ofrecidas por el API de FIRe son:</p>
+      <ul>
+        <li><strong>Firma electrónica individual:</strong> Firma o multifirma electrónica de un documento.</li>
+        <li><strong>Firma de lotes:</strong> Firma o multifirma de múltiples documentos simultáneamente.</li>
+      </ul>
+    </span>
     
     <h4>3.1.1.5. TS@ – PLATAFORMA DE SELLADO DE TIEMPO</h4>
     <p id="1090301006">La Plataforma de Sellado de Tiempo (TS@) proporciona servicio de sellado de tiempo sincronizado con la hora oficial del Estado, proporcionado por el Real Observatorio de la Armada (ROA). Deja constancia, mediante la emisión de un sello de tiempo, de la fecha y la hora de cualquier operación o transacción en un momento dado y de que ninguno de los datos de la operación ha sido modificado desde entonces.</p>
@@ -145,20 +151,22 @@
     <p>Permite realizar firmas CadES, XAdES, PADES, PDF, ODF y OOXML.</p>
     
     <h4>3.1.1.8. POR@FIRMAS – FIRMA ELECTRÓNICA DE EMPLEADO PÚBLICO</h4>
-    <p id="1090301009">Port@firmas permite incorporar la firma electrónica en los flujos de trabajo de una organización. Usa el Cliente @firma para la firma cliente de usuario y se integra con la plataforma @firma para la validación de las firmas que se generan. Estas son algunas de las funcionalidades que incorpora:</p>
-    <ul>
-      <li>Firmas en paralelo o en cascada y usuarios que otorguen el visto bueno.</li>
-      <li>Definir y utilizar flujos desde aplicaciones externas mediante servicios web.</li>
-      <li>Organización de las peticiones en bandejas (enviados, entrantes, terminados y pendientes).</li>
-      <li>Creación de grupos de usuarios.</li>
-      <li>Consulta por CSV de documentos firmados.</li>
-    </ul>
-    <p>El Port@firmas dispone de los siguientes interfaces de acceso:</p>
-    <ul>
-      <li>Interfaz web a través de navegador, para petición o realización de firmas.</li>
-      <li>Clientes o aplicaciones móviles que permiten firmar desde smartphones y otros dispositivos móviles.</li>
-      <li>Interfaz de servicios web para peticiones de firma y recepción de documentos firmados.</li>
-    </ul>
+    <span  id="1090301009">
+      <p>Port@firmas permite incorporar la firma electrónica en los flujos de trabajo de una organización. Usa el Cliente @firma para la firma cliente de usuario y se integra con la plataforma @firma para la validación de las firmas que se generan. Estas son algunas de las funcionalidades que incorpora:</p>
+      <ul>
+        <li>Firmas en paralelo o en cascada y usuarios que otorguen el visto bueno.</li>
+        <li>Definir y utilizar flujos desde aplicaciones externas mediante servicios web.</li>
+        <li>Organización de las peticiones en bandejas (enviados, entrantes, terminados y pendientes).</li>
+        <li>Creación de grupos de usuarios.</li>
+        <li>Consulta por CSV de documentos firmados.</li>
+      </ul>
+      <p>El Port@firmas dispone de los siguientes interfaces de acceso:</p>
+      <ul>
+        <li>Interfaz web a través de navegador, para petición o realización de firmas.</li>
+        <li>Clientes o aplicaciones móviles que permiten firmar desde smartphones y otros dispositivos móviles.</li>
+        <li>Interfaz de servicios web para peticiones de firma y recepción de documentos firmados.</li>
+      </ul>
+    </span>
     
     <h4>3.1.1.9. AUTENTICA – AUTENTICACIÓN DE EMPLEADO PÚBLICO</h4>
     <p id="1090301010">Autentica ofrece servicios de autenticación, autorización y Single Sign On, de empleados públicos, altos cargos y personal relacionado, en el acceso a aplicaciones internas de las AA.PP.</p>
