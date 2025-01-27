@@ -1,0 +1,87 @@
+<div class="teoria">
+    <article>
+      <!-- punto 3.2 : La Unidad Central de Procesamiento (CPU) -->
+      <h2>3.2. LA UNIDAD CENTRAL DE PROCESAMIENTO (CPU)</h2>
+      
+      <span id="2010302001">
+        <p>La unidad central de procesamiento (CPU) o procesador constituye la parte central de un sistema de información, interpreta las instrucciones que normalmente se encuentran en un programa informático y procesa los datos de estas utilizando para ello operaciones básicas, aritméticas y lógicas.</p>
+      </span>
+  
+      <h3>3.2.1. CARACTERÍSTICAS DE LA CPU</h3>
+      <span id="2010302002">
+        <p>Las características que diferencian a una CPU de otra son las siguientes:</p>
+        <ul>
+          <li><strong>Consumo energético:</strong> se refiere a la cantidad de energía que consume la CPU al ejecutar acciones. Normalmente, a mayor capacidad de proceso, mayor consumo.</li>
+          <li><strong>Frecuencia de reloj:</strong> se refiere a la velocidad de reloj que tiene una CPU y determina el número de acciones que puede ejecutar en un determinado periodo de tiempo. La frecuencia de reloj se suele medir en MHz o GHz y es un indicativo de la potencia de la CPU.</li>
+          <li><strong>Tamaño de palabra:</strong> es el número de bits que maneja en paralelo el computador y que se refieren al ancho del bus de direcciones, lo cual define la arquitectura del ordenador.</li>
+          <li><strong>Número de núcleos:</strong> se trata de disponer en la CPU de dos o más núcleos o microprocesadores en un mismo paquete o circuito integrado que pueden repartir las instrucciones entre ellos y trabajar de forma paralela. Cada uno de los núcleos dispone de su propia memoria caché L1. Actualmente hay procesadores de 2 a 64 núcleos.</li>
+          <li><strong>Número de hilos:</strong> dentro de cada núcleo las operaciones se pueden dividir en hilos (threads) que pueden ejecutarse simultáneamente. Es el equivalente a disponer de varios núcleos virtuales.</li>
+          <li><strong>Capacidad de memoria cache:</strong> la capacidad de la memoria caché determina la necesidad de acceder a la memoria RAM, y por tanto, la velocidad del procesamiento.</li>
+          <li><strong>Rendimiento o potencia:</strong> se trata del número de operaciones que puede ejecutar una CPU, y normalmente se mide en FLOPS (Floating-point Operations per second), esto es número de operaciones en punto flotante por segundo. También se suele usar MIPS (Million Instructions per second), millones de instrucciones por segundo.</li>
+        </ul>
+      </span>
+  
+      <h3>3.2.2. COMPONENTES DE LA CPU</h3>
+      <span id="2010302003">
+        <p>Los principales componentes de la CPU son:</p>
+        <ol type="a">
+          <li><strong>Unidad de control (UC):</strong> La tarea principal de la UC es recibir y ejecutar las instrucciones, que interpreta y procesa mediante órdenes que envía a otros componentes, en el orden e instante debidos.</li>
+          <li><strong>Unidad aritmético lógica (UAL o ALU):</strong> Es la parte de la CPU encargada de realizar las operaciones de tipo aritmético y de tipo lógico.</li>
+          <li><strong>Conjunto de Registros (Register Bank) o almacenamiento de acceso inmediato:</strong> Un registro es una memoria de alta velocidad y poca capacidad, que se usa para guardar de valores de datos, comandos, instrucciones o estados.</li>
+          <li><strong>Memoria Caché:</strong> Se trata de una memoria de alta velocidad donde se almacenan los datos para que la CPU no tenga que acceder a buscarlos a la memoria principal, cuyo acceso sería más lento.</li>
+          <li><strong>Unidad de Punto Flotante (FPU) o coprocesador matemático:</strong> Son unidades integradas en algunas CPU para efectuar operaciones matemáticas en punto flotante.</li>
+          <li><strong>Unidad de gestión de memoria (MMU):</strong> Se trata de un circuito integrado específico que forma parte del hardware de la CPU.</li>
+        </ol>
+      </span>
+  
+      <h3>3.2.3. FUNCIONAMIENTO DE LA CPU</h3>
+      <span id="2010302004">
+        <h4>3.2.3.1. RISC y CISC</h4>
+        <p>RISC (Reduced Instruction Set Computer) y CISC (Complex Instruction Set Computer) son dos tipos de diseño de CPU:</p>
+        <ul>
+          <li><strong>RISC:</strong> Instrucciones cortas de tamaño fijo, instrucciones de un único ciclo, solo las instrucciones de carga y almacenamiento acceden a la memoria de datos.</li>
+          <li><strong>CISC:</strong> Conjunto de instrucciones amplio y complejo, permite operaciones complejas entre operandos situados en la memoria o en los registros internos.</li>
+        </ul>
+      </span>
+  
+      <span id="2010302005">
+        <h4>3.2.3.2. CICLO DE UNA INSTRUCCIÓN DE LA CPU</h4>
+        <p>Una instrucción de la CPU pasa por las siguientes fases:</p>
+        <ol>
+          <li>Fase de captación o fetch</li>
+          <li>Fase de decodificación o decode</li>
+          <li>Fase de ejecución o execute</li>
+          <li>Store o almacenamiento</li>
+        </ol>
+      </span>
+  
+      <span id="2010302006">
+        <h4>3.2.3.3. MODOS DE DIRECCIONAMIENTO</h4>
+        <p>Los principales modos de direccionamiento son:</p>
+        <ul>
+          <li>Implícito</li>
+          <li>Inmediato</li>
+          <li>Directo o absoluto</li>
+          <li>Indirecto</li>
+        </ul>
+      </span>
+  
+      <span id="2010302007">
+        <h4>3.2.3.4. MULTIHILO Y MULTIPROCESAMIENTO</h4>
+        <p><strong>Multihilo (Multithreading):</strong> Consiste en la división de un proceso en hilos que pueden ejecutarse en una o varias CPUs de manera simultánea. Tipos principales:</p>
+        <ul>
+          <li>Multihilo simultáneo (SMT)</li>
+          <li>Multihilo temporal (TMT)</li>
+        </ul>
+        <p><strong>Multiprocesamiento:</strong> Consiste en la ejecución de varios procesos a la vez de forma simultánea en varios procesadores o núcleos. Tipos principales:</p>
+        <ul>
+          <li>Procesamiento Asimétrico (AMP)</li>
+          <li>Procesamiento Simétrico (SMP)</li>
+          <li>Acceso no uniforme a Memoria (NUMA)</li>
+          <li>Proceso paralelo masivo (MPP)</li>
+        </ul>
+      </span>
+    </article>
+  </div>
+  
+  

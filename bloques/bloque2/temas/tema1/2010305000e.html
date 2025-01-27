@@ -1,0 +1,163 @@
+<div class="teoria">
+    <article>
+      <!-- punto 3.5 : Buses -->
+      <h2>3.5. BUSES</h2>
+      
+      <span id="2010305001">
+        <p>Como hemos visto anteriormente, los componentes internos de un sistema microinformático intercambian datos entre sí y con el exterior a través de buses de comunicaciones.</p>
+      </span>
+  
+      <h3>3.5.1. CLASIFICACIÓN DE BUSES SEGÚN LA INFORMACIÓN QUE TRANSFIEREN</h3>
+      <span id="2010305002">
+        <ol>
+          <li><strong>Bus de datos:</strong> Permite el intercambio de información entre la CPU y el resto de componentes.</li>
+          <li><strong>Bus de direcciones:</strong> Se trata de un bus independiente del bus de datos donde se transfiere la dirección de memoria del dato que se está comunicando.</li>
+          <li><strong>Bus de control:</strong> Donde se controla y gestiona el uso y acceso a las líneas de datos y direcciones.</li>
+        </ol>
+      </span>
+  
+      <h3>3.5.2. CLASIFICACIÓN DE BUSES SEGÚN EL MODO DE TRANSMISIÓN</h3>
+      <span id="2010305003">
+        <ol start="4">
+          <li><strong>Bus serie:</strong> El bus transfiere los datos bit a bit, normalmente por un único cable.</li>
+          <li><strong>Bus paralelo:</strong> El bus dispone de varios hilos que le permiten transmitir varios bits a la vez.</li>
+        </ol>
+      </span>
+  
+      <h3>3.5.3. TIPOS DE BUSES ESPECÍFICOS</h3>
+      <span id="2010305004">
+        <p>Según la terminología usada por los fabricantes, y su uso específico algunos de los buses más conocidos por orden cronológico son:</p>
+        <ol start="6">
+          <li><strong>Industry Standard Architecture (ISA):</strong> Es el bus de 16 bits de IBM PC/AT y otros equipos basados en el Intel 80286 durante los años 80. Su velocidad era de 8 a 16 MB/s. Este bus se intentó extender a 32 bits con un nuevo bus EISA (Extended-ISA), que no tuvo mucho éxito.</li>
+          <li><strong>Micro Channel architecture (MCA):</strong> Bus paralelo propietario de IBM de 16 y 32 bits. Alcanzaba velocidades de 80 MB/s.</li>
+          <li><strong>Video Electronics Standards Association (VESA):</strong> Bus en paralelo de 32 bits y compatible con ISA que intentó acelerar las operaciones de vídeo. Su velocidad alcanzaba los 200 MB/s.</li>
+          <li><strong>Peripheral Computer Interconnect (PCI):</strong> Este bus de datos paralelo, que data del año 1992, tiene una capacidad de 32 a 64 bits y se empleaba originalmente para dar servicio tanto a las tarjetas gráficas como a las tarjetas auxiliares que se podían conectar a un ordenador. Alcanza velocidades de hasta 533 MB/s (64 bit a 66 MHz).</li>
+          <li><strong>Bus Advanced Graphics Interface (AGP):</strong> El bus paralelo AGP se desarrolló como una derivación del bus PCI para conectar una tarjeta gráfica. La principal ventaja frente al bus PCI es que se conectaba directamente al procesador, sin tener que compartir ancho de banda con el bus PCI. Alcanza velocidades de hasta 2133 MB/s.</li>
+          <li><strong>Bus Peripheral Computer Interconnect Express (PCIe):</strong> Este bus está estructurado como carriles punto a punto, full-duplex, trabajando en serie. Se diseñó para ser el sustituto de los buses AGP y PCI con una interfaz que fuera modular en su diseño. Actualmente todos los componentes del sistema se conectan al bus PCIe. La última versión para el año 2021 (PCIE 6.0) podría alcanzar una velocidad de 126 GB/s con 16 carriles (7877 MB/s por carril).</li>
+          <li><strong>Bus Parallel AT Attachement:</strong> Conocido también como PATA, IDE o ATAPI, fue el primer estándar desarrollado para conectar las unidades de almacenamiento en los PC de IBM. Fue el estándar por defecto para dar servicio a este tipo de unidades, desde su introducción en 1986 hasta que se popularizó el estándar SATA actual.</li>
+          <li><strong>Bus Serial AT Attachement (SATA):</strong> El bus SATA es muy conocido ya que es el que conecta las unidades de almacenamiento de nuestro ordenador. Este bus llegó al mercado en el año 2003 y, a diferencia del bus PATA (Parallel AT Attachement), es un bus en serie.</li>
+          <li><strong>M.2:</strong> Al emplear una especificación física más flexible, permite diferentes anchos y longitudes de módulo, lo que, junto con la disponibilidad de funciones de interfaz más avanzadas, hace que M.2 sea más adecuado que SATA en general para aplicaciones de almacenamiento de estado sólido, particularmente en dispositivos más pequeños como ultrabooks y tabletas.</li>
+          <li><strong>Universal Serial Bus (USB):</strong> Se usa normalmente para conectar periféricos. Su velocidad depende de su versión, la versión 3.1 puede alcanzar 10 Gbit/s, la versión 3.2 hasta 20 Gbit/s y la última versión USB 4.0 toma velocidades de 10, 20 y 40 Gbit/s.</li>
+          <li><strong>Thunderbolt:</strong> Como en el caso de USB también se usa para conectar periféricos. De hecho, se confunde con este último, ya que usa un conector USB de tipo C. Actualmente existe la versión 4 y alcanza velocidades de 40 Gbit/s.</li>
+          <li><strong>HyperTransport:</strong> También conocido como Lighting Data Transport (LDT), que es una tecnología bidireccional de comunicaciones basada en paquetes, tanto en serie como paralelo, que ofrece un gran ancho de banda en conexiones de punto a punto y baja latencia. Es una conexión universal que está diseñada para reducir el número de buses dentro de un sistema, suministrando un enlace de alto rendimiento a las aplicaciones incorporadas. Su velocidad de transferencia máxima, utilizando líneas de 32 bits, tiene por cada uno de sus 2 buses un total de 20.8 GB/s (2.6GHz * (32bits / 8)), lo que supone la suma de 41,6 GB/s en ambas direcciones. Actualmente se está usando para sustituir al FSB.</li>
+          <li><strong>Quickpath interconnect:</strong> Tecnología punto a punto de Intel para competir con HyperTransport. La primera versión 1.0 permitía velocidades de transferencia de 25,6 GB/s en sentido bidireccional.</li>
+        </ol>
+      </span>
+  
+      <h3>3.5.4. COMPARATIVA DE BUSES</h3>
+      <span id="2010305005">
+        <table>
+          <thead>
+            <tr>
+              <th>Bus</th>
+              <th>Uso</th>
+              <th>Tipo</th>
+              <th>Tamaño</th>
+              <th>Transferencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ISA</td>
+              <td>Expansión</td>
+              <td>Paralelo</td>
+              <td>16 bits</td>
+              <td>4 – 5 MB/s</td>
+            </tr>
+            <tr>
+              <td>MCA</td>
+              <td>Expansión</td>
+              <td>Paralelo</td>
+              <td>16-32 bits</td>
+              <td>80 MB/s</td>
+            </tr>
+            <tr>
+              <td>VESA</td>
+              <td>Video</td>
+              <td>Paralelo</td>
+              <td>32 bits</td>
+              <td>200 MB/s</td>
+            </tr>
+            <tr>
+              <td>FSB</td>
+              <td>CPU - Memoria</td>
+              <td>Paralelo</td>
+              <td>32-64 bits</td>
+              <td>400- 12000 MB/s</td>
+            </tr>
+            <tr>
+              <td>PCI</td>
+              <td>Expansión</td>
+              <td>Paralelo</td>
+              <td>32-64 bits</td>
+              <td>133 - 266 MB/s</td>
+            </tr>
+            <tr>
+              <td>AGP</td>
+              <td>Tarjetas gráficas</td>
+              <td>Paralelo</td>
+              <td>32 bits</td>
+              <td>533 - 2133 MB/s</td>
+            </tr>
+            <tr>
+              <td>PCIe</td>
+              <td>Expansión</td>
+              <td>Serie</td>
+              <td>1 – 32 bits</td>
+              <td>4 -126 GB/s (16 carriles)</td>
+            </tr>
+            <tr>
+              <td>PATA</td>
+              <td>Almacenamiento</td>
+              <td>Paralelo</td>
+              <td>16 bits</td>
+              <td>8, 3 – 133 MB/s</td>
+            </tr>
+            <tr>
+              <td>SATA</td>
+              <td>Almacenamiento</td>
+              <td>Serie</td>
+              <td>1</td>
+              <td>1,5 – 16 GB/s</td>
+            </tr>
+            <tr>
+              <td>M.2</td>
+              <td>Almacenamiento</td>
+              <td>Serie</td>
+              <td>1</td>
+              <td>10 - 32 GB/s</td>
+            </tr>
+            <tr>
+              <td>USB 4.0</td>
+              <td>Periféricos</td>
+              <td>Serie</td>
+              <td>1</td>
+              <td>10, 20, 40 Gbit/s</td>
+            </tr>
+            <tr>
+              <td>Thunderbolt 4</td>
+              <td>Periféricos</td>
+              <td>Serie</td>
+              <td>1</td>
+              <td>40 Gbit/s</td>
+            </tr>
+            <tr>
+              <td>HyperTransport</td>
+              <td>Interno genérico</td>
+              <td>Serie/paralelo</td>
+              <td>32 bits</td>
+              <td>41, 6 GB/s</td>
+            </tr>
+            <tr>
+              <td>Quickpath</td>
+              <td>Interno genérico</td>
+              <td>Serie/paralelo</td>
+              <td>32 bits</td>
+              <td>25, 6 GB/s</td>
+            </tr>
+          </tbody>
+        </table>
+      </span>
+    </article>
+  </div>
+  

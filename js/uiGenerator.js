@@ -33,7 +33,7 @@ export function cargarBloque(bloqueId) {
         return;
     }
     
-    generarEstructuraBloque(estructura);
+    generarEstructuraBloque(getCurrentBlockId());
 }
 
 export function generarEstructuraBloque(estructura) {
