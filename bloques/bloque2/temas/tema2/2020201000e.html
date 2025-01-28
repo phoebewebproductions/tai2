@@ -1,72 +1,82 @@
 <div class="teoria">
   <article>
-    <!-- punto 2.1 : Arquitecturas de ordenadores -->
-    <h2>2.1. ARQUITECTURAS DE ORDENADORES</h2>
+    <h1>2.1 ELEMENTOS DE IMPRESIÓN</h1>
     
-    <h3>2.1.1. ARQUITECTURA DE VON NEUMANN</h3>
-    <span id="2010201001">
-      <p>La arquitectura von Neumann es una arquitectura de computadores basada en la descrita en 1945 por el matemático y físico John von Neumann y otros en un primer borrador sobre el ordenador EDVAC (Electronic Discrete Variable Automatic Calculator) y se considera la arquitectura clásica en la que se basan los ordenadores modernos.</p>
-      <p>Esta arquitectura describe un diseño con una unidad de procesamiento (CPU), que contiene una unidad aritmético lógica (UAL o ALU, en inglés), una unidad de control (UC) y un conjunto de registros. La arquitectura incluye una memoria principal donde se almacenan tanto datos como instrucciones y sistemas para la entrada/salida de la información.</p>
+    <span id="2020201001">
+      <p>Las impresoras son dispositivos periféricos que se ocupan de realizar la impresión en formato físico de los elementos diseñados en el ordenador. La mayoría de las impresoras están limitadas a la impresión en papel de oficina, si bien existen otras posibilidades como la impresión en papel fotográfico, cartón u otros materiales en 2D y 3D.</p>
     </span>
+  
+    <h2>2.1.1 IMPRESIÓN 2D</h2>
     
-    <span id="2010201002">
-      <p>Características principales de la arquitectura Von Neumann:</p>
-      <ul>
-        <li>Existencia de programas almacenados en la memoria principal que podían contener datos e instrucciones.</li>
-        <li>Permite cambiar el código que se ejecutaba en la computadora y el comportamiento de la misma.</li>
-        <li>Las instrucciones se ejecutan secuencialmente y se requieren instrucciones de salto para cambiar el flujo de control.</li>
-        <li>Existe un bus común para datos e instrucciones, lo que puede causar el "cuello de botella Von Neumann".</li>
-      </ul>
+    <span id="2020201002">
+      <p>Las impresoras 2D se clasifican habitualmente según su método de impresión:</p>
     </span>
-
-    <h3>2.1.2. ARQUITECTURA HARVARD</h3>
-    <span id="2010201003">
-      <p>La arquitectura Harvard pretende resolver el problema del cuello de botella Von Neumann, utilizando memorias diferentes para instrucciones y datos. Características principales:</p>
-      <ul>
-        <li>Memorias separadas para instrucciones y datos.</li>
-        <li>Las memorias pueden diferir en anchura de palabra, tecnología de implementación y estructura de dirección de memoria.</li>
-        <li>La CPU puede leer una instrucción y acceder a los datos al mismo tiempo.</li>
-      </ul>
+  
+    <span id="2020201003">
+      <h3>Impresoras de inyección de tinta</h3>
+      <p>Se basan en el uso de pigmentos de color que se aplican en el papel a través de unos inyectores que impulsan la tinta almacenada en el cartucho. Son las más baratas pero tienen el problema del alto coste de las tintas y cartuchos y la tendencia de la tinta a secarse por falta de uso y bloquear los inyectores. Existen impresoras industriales de gran tamaño que se utilizan para imprimir carteles o planos que se denominan plotters.</p>
     </span>
-
-    <h3>2.1.3. ARQUITECTURA HARVARD MODIFICADA</h3>
-    <span id="2010201004">
-      <p>Se han introducido modificaciones para reducir la rigidez de la arquitectura Harvard:</p>
-      <ul>
-        <li>Arquitectura de caché dividida: se introducen en la CPU cachés separadas de instrucciones y de datos, pero que tienen el mismo espacio de direcciones.</li>
-        <li>Arquitectura de memoria de instrucciones como los datos: conserva la naturaleza de espacio de direcciones separado característico de una máquina Harvard, pero proporciona operaciones especiales de la máquina para acceder al contenido de la memoria de instrucciones como si fueran datos.</li>
-      </ul>
+  
+    <span id="2020201004">
+      <h3>Impresoras láser</h3>
+      <p>De mayor rapidez a las de inyección de tinta, están muy extendidas en entornos de oficina. Se basan en pegar un polvo alojado en el tóner. Para ello, se aplica una carga eléctrica positiva sobre el papel, y cuando éste pasa junto al cilindro del tóner, el polvo se adhiere. Por último, se funde el polvo de tóner sobre el papel aplicando calor. Las impresoras láser son comúnmente en B/N, si bien las láser color están cada vez más extendidas. Además de su velocidad, no sufren de los problemas de secado de material de las de inyección de tinta.</p>
     </span>
-
-    <h3>2.1.4. TAXONOMÍA DE FLYNN</h3>
-    <span id="2010201005">
-      <p>Las cuatro clasificaciones definidas por Flynn en 1972 se basan en el número de instrucciones concurrentes (control) y en los flujos de datos disponibles en la arquitectura:</p>
-      <ul>
-        <li><strong>SISD (Una instrucción, un dato):</strong> Computador secuencial que no explota el paralelismo en las instrucciones ni en flujos de datos. Es la Arquitectura Von-Neumann.</li>
-        <li><strong>SIMD (Una instrucción, múltiples datos):</strong> Todas las unidades ejecutan la misma instrucción sincronizadamente, pero con datos distintos.</li>
-        <li><strong>MISD (Múltiples instrucciones, un dato):</strong> Poco común, usado en situaciones de paralelismo redundante.</li>
-        <li><strong>MIMD (Múltiples instrucciones, múltiples datos):</strong> Varios procesadores autónomos que ejecutan simultáneamente instrucciones diferentes sobre datos diferentes.</li>
-      </ul>
+  
+    <span id="2020201005">
+      <h3>Impresoras de margarita y matriciales</h3>
+      <p>También denominadas de impacto. Las impresoras de margarita se basan en un mecanismo similar a las máquinas de escribir, impactando sobre el papel los caracteres a través de una cinta impregnada en tinta. Existen variantes que en lugar de impactar impulsan la tinta mediante un mecanismo de chorro. Muy extendidas en los años 80 y 90, actualmente están en desuso por su lentitud y ruido. Las impresoras matriciales también funcionan mediante impacto, mediante una serie de agujas alineadas, y al contrario que las de margarita pueden imprimir gráficos.</p>
     </span>
-
-    <h3>2.1.5. CLASIFICACIÓN DE TANENBAUM</h3>
-    <span id="2010201006">
-      <p>Andrew S. Tanembaum realizó una nueva clasificación, distinguiendo en la arquitectura MIMD de Flynn:</p>
-      <ul>
-        <li><strong>Múltiples procesadores que comparten una memoria y están fuertemente acoplados:</strong>
-          <ul>
-            <li>UMA (Uniform Memory Access)</li>
-            <li>NUMA (Non-Uniform Memory Access)</li>
-            <li>COMA (Cache-Only Memory Access)</li>
-          </ul>
-        </li>
-        <li><strong>Múltiples computadores ligeramente acoplados con su propia memoria que se comunican mediante paso de mensajes:</strong>
-          <ul>
-            <li>Equipos en cluster (cluster de workstations o COW)</li>
-            <li>Grupos de computadores independientes para multiprocesamiento masivo (MPP)</li>
-          </ul>
-        </li>
-      </ul>
+  
+    <span id="2020201006">
+      <h3>Otros tipos de impresoras</h3>
+      <p>Existen otros tipos de impresoras, como las de sublimación de tinta, que se usan fundamentalmente para aplicaciones de fotografía y calientan la tinta hasta que se convierte en gas aplicando el color de forma más continua que con puntos, las de tinta sólida, que usan varillas de tinta sólida con un proceso conocido como "cambio de fase", o las térmicas, que usan unas agujas que están calientes y que "queman el papel" volviéndolo negro y son usadas principalmente en cajeros.</p>
+    </span>
+  
+    <h2>2.1.2 IMPRESIÓN 3D</h2>
+    
+    <span id="2020201007">
+      <h3>Materiales de impresión 3D</h3>
+      <p>Existen distintas alternativas de materiales para la impresión 3D, siendo el más común el termoplástico, que consiste en un material de tipo plástico que al calentarse se convierte en líquido, de modo que pueda ser impulsado a través de un extrusor, mediante una técnica denominada modelado por deposición fundida o FMD, de modo que al enfriarse forma la figura deseada. Los tipos más comunes son el acrilonitrilo butadieno estireno o ABS (que se derrite a una temperatura más elevada y forma figuras más resistentes) y el ácido poliláctico o PLA (de origen natural).</p>
+    </span>
+  
+    <span id="2020201008">
+      <h4>Comparación entre PLA y ABS</h4>
+      <table>
+        <tr>
+          <th>PLA</th>
+          <th>ABS</th>
+        </tr>
+        <tr>
+          <td>Temperatura de cabezal 180-230°C</td>
+          <td>Temperatura de cabezal 210-250°C</td>
+        </tr>
+        <tr>
+          <td>Temperatura de cama 60°C</td>
+          <td>Temperatura de cama 110°C</td>
+        </tr>
+        <tr>
+          <td>No requiere carcasa protectora para evitar cambios de temperatura durante la impresión</td>
+          <td>Requiere carcasa protectora para evitar cambios de temperatura durante la impresión</td>
+        </tr>
+        <tr>
+          <td>Emanación no tóxica (origen vegetal/natural)</td>
+          <td>Emanación tóxica</td>
+        </tr>
+        <tr>
+          <td>Durabilidad media</td>
+          <td>Durabilidad alta</td>
+        </tr>
+        <tr>
+          <td>No se agrieta con el frío y se deforma con altas temperaturas</td>
+          <td>Se agrieta con el frío y no se deforma con altas temperaturas</td>
+        </tr>
+      </table>
+    </span>
+  
+    <span id="2020201009">
+      <p>Otros tipos de filamento comunes en impresoras domésticas son el filamento PETG (similar al plástico que se utiliza para los envases de bebidas) o el filamento HIPS, que se utiliza muy a menudo junto con el filamento ABS para rellenar las zonas huecas proporcionando más robustez.</p>
     </span>
   </article>
-</div>
+  </div>
+  
+  

@@ -1,61 +1,112 @@
 <div class="teoria">
-    <article>
-      <!-- punto 3.1 : La placa base -->
-      <h2>3.1. LA PLACA BASE</h2>
-      
-      <span id="2010301001">
-        <p>La placa base es una tarjeta de circuito impreso donde se conectan los componentes del equipo microinformático. Suele disponer también de un panel para conectar dispositivos externos, y conectores y zócalos para los dispositivos internos.</p>
-      </span>
+  <article>
+    <h2>3.1 ELEMENTOS DE ALMACENAMIENTO</h2>
   
-      <p>Los componentes más usuales de la placa base son:</p>
+    <h3>Tipos de Almacenamiento</h3>
+    <span id="2020301001">
+      <ul>
+        <li><strong>Almacenamiento Primario:</strong> Volátil, necesita suministro de electricidad, direccionable por el procesador y accesible directamente por los procesos del equipo.</li>
+        <li><strong>Almacenamiento Secundario:</strong> Permanente, no volátil. Más lenta que la primaria, almacenamiento a largo plazo.</li>
+        <li><strong>Memoria virtual:</strong> Parte del almacenamiento secundario se utiliza para ampliar el almacenamiento primario. "Segmentación" si lo realiza un programa, "Memoria virtual del sistema" si lo realiza el S.O.</li>
+        <li><strong>Memoria caché:</strong> Memoria muy rápida intermedia para no tener que acudir al almacenamiento secundario. Se carga mediante algoritmos predictivos. "Prefetching" si los datos se van cargando en caché antes de su lectura, "Write-Behind" si se escribe en caché en lugar de en disco y posteriormente se vuelca.</li>
+      </ul>
+    </span>
   
-      <span id="2010301002">
-        <p><strong>a) Conectores de alimentación:</strong> que a través de la alimentación eléctrica proporcionan a la placa base los diferentes voltajes e intensidades necesarios para su funcionamiento.</p>
-      </span>
+    <h3>Dispositivos de Almacenamiento Masivo</h3>
+    <h4>Dispositivos de almacenamiento Magnético</h4>
+    <span id="2020301002">
+      <ul>
+        <li>Se basan en las propiedades magnéticas de los materiales</li>
+        <li><strong>Cintas magnéticas:</strong> Acceso secuencial. Para backup y respaldo. Requiere de largos desplazamientos.</li>
+        <li><strong>Discos duros:</strong> Acceso aleatorio. Trabajan a velocidad angular constante. La superficie se divide en pistas y las pistas en sectores. Un cluster es un conjunto de sectores. Zone Bit Recording aumenta sectores en las pistas exteriores. Disco híbrido SSD+HD.</li>
+      </ul>
+    </span>
   
-      <span id="2010301003">
-        <p><strong>b) Zócalo de CPU:</strong> receptáculo que encastra el procesador y lo conecta al resto de los componentes a través del bus frontal.</p>
-      </span>
+    <h4>Dispositivos de almacenamiento óptico</h4>
+    <span id="2020301003">
+      <p>Organizan la información en surcos que lee un lector utilizando un haz láser. La capacidad depende de la longitud de onda del láser. Trabajan a velocidad linear constante.</p>
+    </span>
   
-      <span id="2010301004">
-        <p><strong>c) Front Side Bus (FSB):</strong> Este es el bus de datos que se encargaba de comunicar la CPU con el northbridge del chipset, donde se ubicaba el controlador de memoria. En contraposición se nombra como Back Side Bus (BSB) al que conecta internamente la CPU con la caché.</p>
-      </span>
+    <h4>Dispositivos de almacenamiento flash</h4>
+    <span id="2020301004">
+      <p>Memoria no volátil, requiere electricidad para la programación pero no para el mantenimiento. Se estructura en celdas.</p>
+      <ul>
+        <li><strong>Discos SSD:</strong> Discos de estado sólido. Almacenan los datos en memorias NAND. Permiten lecturas en paralelo. Incluyen un controlador que se encarga de detección y corrección de errores, cacheado o cifrado. Es necesario aportar energía periódicamente para no perder la información.</li>
+        <li><strong>Otros formatos:</strong> SD, MiniSD, MicroSD, Memory Stick, Pendrives</li>
+      </ul>
+    </span>
   
-      <span id="2010301005">
-        <p><strong>d) Ranuras o slots de memoria RAM:</strong> receptáculos para insertar los módulos de memoria RAM.</p>
-      </span>
+    <span id="2020301005">
+      <p><strong>NVME:</strong> Protocolo estándar que utiliza PCIe. Aprovecha la capacidad de los SSD. Hasta 64.000 líneas paralelas de datos.</p>
+    </span>
   
-      <span id="2010301006">
-        <p><strong>e) Chipset o circuito integrado auxiliar:</strong> que sirve de puente de comunicación con el resto de componentes. Generalmente se divide en dos secciones:</p>
-        <ul>
-          <li><strong>Puente norte (northbridge):</strong> gestiona la interconexión entre la CPU, la memoria RAM y la unidad de procesamiento gráfico. Actualmente tiende a desaparecer y a ser integrado en el procesador.</li>
-          <li><strong>Puente sur (southbridge):</strong> gestiona la interconexión entre los periféricos y los dispositivos de almacenamiento.</li>
-        </ul>
-      </span>
+    <h3>Tipos de memorias NAND</h3>
+    <span id="2020301006">
+      <p>Las memorias NAND son un tipo de memoria flash utilizada en dispositivos de almacenamiento como unidades SSD (Solid State Drives), tarjetas de memoria y otros dispositivos de almacenamiento no volátil. Estas memorias se diferencian en la cantidad de bits que almacenan por celda de memoria, lo que afecta su rendimiento, durabilidad y costo. Los tipos de memorias más comunes son SLC, MLC, TLC y QLC:</p>
+      <ul>
+        <li><strong>SLC (Single-Level Cell):</strong>
+          <ul>
+            <li>Bits por celda: 1</li>
+            <li>Características: Almacena un solo bit por celda, lo que simplifica la lectura y escritura.</li>
+            <li>Mayor durabilidad y menor latencia en comparación con otros tipos de NAND.</li>
+            <li>Mayor coste en relación a su capacidad en comparación con otras tecnologías.</li>
+            <li>Se utiliza en aplicaciones que requieren un rendimiento y confiabilidad excepcionales, como en entornos industriales y empresariales.</li>
+          </ul>
+        </li>
+        <li><strong>MLC (Multi-Level Cell):</strong>
+          <ul>
+            <li>Bits por celda: 2</li>
+            <li>Características: Almacena dos bits por celda, lo que aumenta la capacidad en comparación con SLC.</li>
+            <li>Menor durabilidad y mayor latencia en comparación con SLC.</li>
+            <li>Precio más bajo en relación a su capacidad en comparación con SLC.</li>
+            <li>Se encuentra comúnmente en unidades SSD para consumidores y algunas aplicaciones empresariales.</li>
+          </ul>
+        </li>
+        <li><strong>TLC (Triple-Level Cell):</strong>
+          <ul>
+            <li>Bits por celda: 3</li>
+            <li>Características: Almacena tres bits por celda, aumentando aún más la capacidad.</li>
+            <li>Menor durabilidad y mayor latencia en comparación con MLC.</li>
+            <li>Precio más bajo en relación a su capacidad en comparación con MLC.</li>
+            <li>Se utiliza en unidades SSD de consumo y en dispositivos donde la capacidad es una consideración clave.</li>
+          </ul>
+        </li>
+        <li><strong>QLC (Quad-Level Cell):</strong>
+          <ul>
+            <li>Bits por celda: 4</li>
+            <li>Características: Almacena cuatro bits por celda, lo que maximiza la capacidad.</li>
+            <li>La durabilidad y la latencia son inferiores en comparación con TLC y MLC.</li>
+            <li>Precio más bajo en relación a su capacidad en comparación con TLC y MLC.</li>
+            <li>Utilizado en unidades SSD de alta capacidad para consumidores y en aplicaciones donde la densidad de almacenamiento es crucial.</li>
+          </ul>
+        </li>
+      </ul>
+    </span>
   
-      <span id="2010301007">
-        <p><strong>f) El reloj:</strong> que regula la velocidad de ejecución de la CPU.</p>
-      </span>
+    <h3>Cabinas de almacenamiento</h3>
+    <span id="2020301007">
+      <p>Las cabinas de almacenamiento son equipos hardware con capacidad para alojar un alto número de discos duros, junto con una interfaz única de administración que permite aplicar distintas configuraciones al espacio de almacenamiento (configuración de pools de almacenamiento, configuraciones RAID, compartición por protocolos NAS…), así como establecer procedimientos de copia de seguridad de manera independiente. Lo habitual en organizaciones de tamaño medio o grande es disponer de más de una cabina de almacenamiento distribuidas dos o más ubicaciones físicas, de modo que se provea de alta disponibilidad a la infraestructura, con una sincronización continua entre las cabinas, ya sea a través de la propia red de almacenamiento o de conexiones dedicadas separadas del tráfico hacia los clientes.</p>
+    </span>
   
-      <span id="2010301008">
-        <p><strong>g) La RAM CMOS:</strong> que preserva información acerca de la configuración del equipo, la fecha y la hora. Está alimentada por una pila para que no se pierda esta información cuando se apague el equipo.</p>
-      </span>
+    <h3>Tiering de almacenamiento</h3>
+    <span id="2020301008">
+      <p>La heterogeneidad de tecnologías así como la diversidad de precios permiten una gran flexibilidad a la hora de establecer el tipo de almacenamiento y el uso de cada uno de ellos. En organizaciones de tamaño mediano y grande, se dispone distintos almacenamientos que se estructuran en capas o "tiers", de modo que se establezca un almacenamiento ajustado a las necesidades de cada uno de los aplicativos en funcionamiento.</p>
+      <ul>
+        <li><strong>Tier bajo o de almacenamiento lento:</strong> Compuesto habitualmente por disco rotacional de bajo coste y alta capacidad. Es apropiado para usos como las copias de seguridad a largo plazo o el almacenamiento de datos históricos cuya recuperación online no requiere de alta velocidad.</li>
+        <li><strong>Tier medio o de almacenamiento rápido:</strong> Compuesto por disco rápido con una latencia menor, es apropiado para usos tales como el almacenamiento del sistema operativo, librerías u otro tipo de software base del que hagan uso las aplicaciones.</li>
+        <li><strong>Tier alto o de almacenamiento ultrarrápido:</strong> Compuesto habitualmente por almacenamiento de tipo flash. Se utiliza para aplicaciones en las que el tiempo de respuesta es crítico, tales como bases de datos, o que requieren escrituras en tiempo real, como pueden ser logs de aplicación.</li>
+      </ul>
+    </span>
   
-      <span id="2010301009">
-        <p><strong>h) El bus de memoria:</strong> que conecta el chipset a la memoria temporal.</p>
-      </span>
-  
-      <span id="2010301010">
-        <p><strong>i) El bus de expansión (o bus E/S):</strong> que une la CPU a los conectores de entrada/salida y las ranuras de expansión.</p>
-      </span>
-  
-      <span id="2010301011">
-        <p><strong>j) Los conectores de entrada/salida:</strong> que suelen cumplir la norma PC99: ratón, teclado, tarjeta de video, tarjeta de sonido.</p>
-      </span>
-  
-      <span id="2010301012">
-        <p><strong>k) Las ranuras de expansión:</strong> que se trata de puertos para añadir circuitos integrados de gestión de vídeo, sonido o comunicaciones. Con la evolución de los equipos, estos dispositivos se han ido integrando en la placa base.</p>
-      </span>
-    </article>
+    <h3>Protección contra ransomware</h3>
+    <span id="2020301009">
+      <p>Las cabinas de almacenamiento proveen de distintos mecanismos que pueden ayudar a afrontar los ataques de ransomware:</p>
+      <ul>
+        <li><strong>Establecimiento de listas blancas y negras de ficheros:</strong> En muchas ocasiones los procesos de encriptación asociados al ransomware generan extensiones de fichero detectables, por lo que la exclusión de estos tipos de ficheros de las extensiones permitidas puede evitar un ataque.</li>
+        <li><strong>Políticas adecuadas de snapshots preventivos con retención suficiente:</strong> Hay que tener en cuenta que en muchas ocasiones los ataques de ransomware tardan tiempo en hacerse visibles, e incluso puede darse el caso de que los backups y copias de seguridad estén también afectados si no hay una retención suficiente que asegure la disponibilidad de una copia limpia.</li>
+        <li><strong>Utilización de sistemas de detección de ataques:</strong> Algunos productos comerciales realizan monitorización de la actividad de los usuarios, generando alertas en base a reglas de detección de actividad sospechosa, como actividad masiva sobre ficheros o procesos de encriptación sobre gran cantidad de archivos.</li>
+      </ul>
+    </span>
+  </article>
   </div>
   

@@ -1,0 +1,62 @@
+<div class="teoria">
+    <article>
+      <h2>3.5 GESTIÓN DE VOLÚMENES</h2>
+    
+      <h3>LVM</h3>
+      <span id="2020305001">
+        <p>El gestor de volúmenes lógicos o LVM es una capa de abstracción típica de los sistemas Linux que separa las características físicas del dispositivo de almacenamiento del sistema de ficheros final que se presenta al sistema operativo.</p>
+        <p>Dentro de LVM, se trabaja con los siguientes conceptos:</p>
+        <ul>
+          <li><strong>Volumen físico o Physical Volume (PV):</strong> Un physical volume es cualquier almacenamiento físico, como por ejemplo un disco duro o unidad SSD. El PV es el bloque básico que se utiliza dentro de LVM. Los volúmenes físicos existentes en el sistema pueden consultarse con el comando pvs, crearse con el comando pvcreate y verificarse con el comando pvdisplay.</li>
+          <li><strong>Grupo de volúmenes o Volume Group (VG):</strong> Un volumen group está compuesto por un grupo de physical volumes, con la ventaja de poder ser aumentado a posteriori agregando nuevos PVs. Un VG puede estar compuesto por un único PV. Se crean con el comando vgcreate y se pueden visualizar con el comando vgs. Se pueden excluir PVs de un VG a través del comando vgreduce.</li>
+          <li><strong>Volumen lógico o Logical Volume (LV):</strong> Un logical volumen corresponde con un dispositivo de almacenamiento que gestiona el LVM y que pone a disposición del S.O., y como tal puede formatearse para instalar sobre él un sistema de ficheros. Se crean con lvcreate y se pueden modificar con lvextend. Asimismo se pueden visualizar con lvs y lvdisplay.</li>
+        </ul>
+      </span>
+    
+      <span id="2020305002">
+        <p>La utilización de LVM tiene muchas ventajas, ya que permite realizar distintas operativas tales como ampliación del sistema de ficheros incluyendo distintos dispositivos físicos o añadir o quitar volúmenes lógicos en caliente, lo que reduce los tiempos de parada e indisponibilidad de las aplicaciones en el caso de una intervención.</p>
+      </span>
+    
+      <h3>RAID</h3>
+      <span id="2020305003">
+        <p>El array redundante de discos independientes o redundant array of independent disks (RAID) es una configuración de almacenamiento consistente en agrupar un conjunto de discos de modo que actúan de forma conjunta aportando distintas características de velocidad o disponibilidad de datos. De este modo y a nivel de usuario, se percibirá el almacenamiento como único, a pesar de que este almacenamiento esté distribuido en distintos dispositivos físicos.</p>
+      </span>
+    
+      <h4>CRC y paridad</h4>
+      <span id="2020305004">
+        <p>Muchos de los tipos de RAID se basan en aportar tolerancia a fallos gracias a procedimientos de detección y corrección de errores. En este caso, si la lectura de los discos provoca un error de CRC (Control de Redundancia Cíclica) se procede a leer los bloques de paridad adicionales, evitando lecturas innecesarias. Asimismo, ante un fallo se puede reconstruir el dato original gracias a los bloques de paridad.</p>
+      </span>
+    
+      <h4>Tipos de RAID</h4>
+      <span id="2020305005">
+        <h5>RAID 0</h5>
+        <p>El RAID 0 distribuye la información entre los distintos discos que forman el conjunto, mediante una configuración de striping. Tiene la ventaja de mejorar mucho el tiempo de acceso a la información al poder realizar recuperación de información y escritura de datos en paralelo, sin embargo no proporciona ningún tipo de redundancia de información, por lo que ante el fallo de cualquiera de los discos se producirá pérdida de datos. Tiene una limitación importante en el tamaño de los discos, ya que deben ser del mismo tamaño por lo que el disco más pequeño marcará el límite del tamaño de almacenamiento. El tamaño del RAID, por tanto, es el del disco más pequeño multiplicado por el número de discos disponibles. Requiere un mínimo de dos discos.</p>
+      </span>
+    
+      <span id="2020305006">
+        <h5>RAID 1</h5>
+        <p>Se trata de una configuración en espejo de un mínimo de dos discos, que aporta tolerancia a fallos de modo que ante el fallo de un disco no hay pérdida de datos, siempre y cuando el disco fallido sea reemplazado antes de que se produzca un fallo en el disco restante. Al igual que RAID 0, permite mejorar las velocidades de lectura al poder recuperarse la información en paralelo de los discos. Posee también la limitación asociada al disco más pequeño. Por ejemplo si creamos un RAID 1 con un disco de 1 TB y un disco de 1.5 TB, el tamaño resultante será de 1 TB. Requiere un mínimo de dos discos.</p>
+      </span>
+    
+      <span id="2020305007">
+        <h5>RAID 2, 3 y 4</h5>
+        <p>Consisten en el almacenamiento bit a bit (RAID 2), a nivel de byte (RAID 3) o a nivel de bloque (RAID 4) de manera que cada bit de la secuencia de datos está en un disco distinto, con discos de paridad. Aportan tolerancia a fallos gracias a la paridad, lo que permite reconstruir la información ante un fallo, pero es necesario calcular la paridad con cada escritura. Actualmente estos tres tipos están en desuso. Requieren un mínimo de tres discos.</p>
+      </span>
+    
+      <span id="2020305008">
+        <h5>RAID 5</h5>
+        <p>RAID 5 es probablemente la configuración más popular. En este caso, los bloques de paridad no se escriben todos en el mismo disco, sino que se distribuyen a lo largo de todas las unidades. Para implementarlo se necesitan al menos 3 discos, y este tipo de RAID es capaz de soportar el fallo de una unidad sin perder datos, ya que se pueden reconstruir a partir de los existentes en el resto de discos. En este tipo de RAID, las lecturas son muy rápidas, pero las escrituras requieren el cálculo de la paridad por lo que son algo más lentas.</p>
+      </span>
+    
+      <span id="2020305009">
+        <h5>RAID 6</h5>
+        <p>Este tipo de RAID es similar al RAID 5, con la salvedad de que en este caso los datos de paridad se escriben en dos unidades, por lo que se puede soportar la pérdida de dos discos sin que haya pérdida de datos. Requiere un mínimo de cuatro discos.</p>
+      </span>
+    
+      <span id="2020305010">
+        <p>Además, es posible combinar distintos tipos de RAID para establecer estructuras que aporten una mayor tolerancia a fallos o una mayor velocidad. Los más comunes son RAID 10, RAID 01, RAID 30, RAID 10+1 o RAID 50.</p>
+      </span>
+    </article>
+    </div>
+    
+    

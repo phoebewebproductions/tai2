@@ -61,28 +61,28 @@
             "id": "2020103000"
           },
           {
-            "titulo": "Punto 2.1: Elementos de impresión: Impresión 2D",
+            "titulo": "Punto 2.1: Elementos de impresión: Impresión 2D y 3D",
             "id": "2020201000"
           },
           {
-            "titulo": "Punto 2.2: Impresión 3D",
-            "id": "2020202000"
-          },
-          {
-            "titulo": "Punto 3.1: Elementos de almacenamiento: Almacenamiento DAS",
+            "titulo": "Punto 3.1: Elementos de almacenamiento",
             "id": "2020301000"
           },
           {
-            "titulo": "Punto 3.2:  Almacenamiento NAS",
+            "titulo": "Punto 3.2: Almacenamiento DAS",
             "id": "2020302000"
           },
           {
-            "titulo": "Punto 3.3: Almacenamiento SAN",
+            "titulo": "Punto 3.3: Almacenamiento NAS",
             "id": "2020303000"
           },
           {
-            "titulo": "Punto 3.4: Gestión de volúmenes",
+            "titulo": "Punto 3.4: Almacenamiento SAN",
             "id": "2020304000"
+          },
+          {
+            "titulo": "Punto 3.5: Gestión de volumenes",
+            "id": "2020305000"
           },
           {
             "titulo": "Punto 4.1: Elementos de visualización y digitalización: Digitalización",

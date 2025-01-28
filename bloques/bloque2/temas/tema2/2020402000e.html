@@ -1,163 +1,72 @@
 <div class="teoria">
-    <article>
-      <!-- punto 3.5 : Buses -->
-      <h2>3.5. BUSES</h2>
-      
-      <span id="2010305001">
-        <p>Como hemos visto anteriormente, los componentes internos de un sistema microinformático intercambian datos entre sí y con el exterior a través de buses de comunicaciones.</p>
-      </span>
+  <article>
+    <h2>5.2. VISUALIZACIÓN</h2>
   
-      <h3>3.5.1. CLASIFICACIÓN DE BUSES SEGÚN LA INFORMACIÓN QUE TRANSFIEREN</h3>
-      <span id="2010305002">
-        <ol>
-          <li><strong>Bus de datos:</strong> Permite el intercambio de información entre la CPU y el resto de componentes.</li>
-          <li><strong>Bus de direcciones:</strong> Se trata de un bus independiente del bus de datos donde se transfiere la dirección de memoria del dato que se está comunicando.</li>
-          <li><strong>Bus de control:</strong> Donde se controla y gestiona el uso y acceso a las líneas de datos y direcciones.</li>
-        </ol>
-      </span>
+    <span id="2020402001">
+      <p>A la hora de visualizar información en una pantalla, entendemos por resolución el número de píxeles que se muestran. Estos valores siempre se representan mediante el formato resolución horizontal x resolución vertical, y es habitual referirse a ellas sólo por la resolución vertical. Por ejemplo, la resolución Full HD o 1920x1080 suele describirse también como 1080p. Por supuesto, a mayor resolución es necesaria una mayor capacidad de cómputo para poder representar la información en pantalla, por lo que el equilibrio entre resolución y rendimiento es importante.</p>
+    </span>
   
-      <h3>3.5.2. CLASIFICACIÓN DE BUSES SEGÚN EL MODO DE TRANSMISIÓN</h3>
-      <span id="2010305003">
-        <ol start="4">
-          <li><strong>Bus serie:</strong> El bus transfiere los datos bit a bit, normalmente por un único cable.</li>
-          <li><strong>Bus paralelo:</strong> El bus dispone de varios hilos que le permiten transmitir varios bits a la vez.</li>
-        </ol>
-      </span>
+    <span id="2020402002">
+      <p>Las resoluciones más comunes son:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Resolución</th>
+            <th>Densidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>QVGA (Quarter Video Graphics Array)</td><td>320x240 (76.800 pixeles)</td></tr>
+          <tr><td>VGA (Video Graphics Array)</td><td>640x480 (307.200 pixeles)</td></tr>
+          <tr><td>SD (Standard Definition)</td><td>854x480 (409.920 pixeles)</td></tr>
+          <tr><td>FWVGA (Full Wide Video Graphics Array)</td><td>800x600 (480.000 pixeles)</td></tr>
+          <tr><td>SVGA (Super Video Graphics Array)</td><td>960x540 (518.400 pixeles)</td></tr>
+          <tr><td>QHD (Quarter of High Definition)</td><td>1024x576 (589.824 pixeles)</td></tr>
+          <tr><td>WSVGA (Wide Super VGA)</td><td>1024x768 (786.432 pixeles)</td></tr>
+          <tr><td>XGA (Extended Graphics Array)</td><td>1280x720 (921.600 pixeles)</td></tr>
+          <tr><td>HD (High Definition)</td><td>1152x864 (995.328 pixeles)</td></tr>
+          <tr><td>XGA+ (Extended Graphics Array Plus)</td><td>1280x800 (1.024.000 pixeles)</td></tr>
+          <tr><td>WXGA (Wide Extended Graphics Array)</td><td>1360x768 (1.044.480 pixeles)</td></tr>
+          <tr><td>WXGA+ (Wide Extended Graphics Array Plus)</td><td>1440x900 (1.296.000 pixeles)</td></tr>
+          <tr><td>SXGA (Super Extended Graphics Array)</td><td>1280x1024 (1.310.720 pixeles)</td></tr>
+          <tr><td>SXGA+ (Super Extended Graphics Array Plus)</td><td>1400x1050 (1.470.000 pixeles)</td></tr>
+          <tr><td>UXGA (Ultra Extended Graphics Array)</td><td>1600x1200 (1.920.000 pixeles)</td></tr>
+          <tr><td>FHD (Full HD)</td><td>1920x1080 (2.073.600 pixeles)</td></tr>
+          <tr><td>WUXGA (Wide Ultra Extended Graphics Array)</td><td>1920x1200 (2.304.000 pixeles)</td></tr>
+          <tr><td>QWXGA (Quad Wide Extended Graphics Array)</td><td>2048x1152 (2.359.296 pixeles)</td></tr>
+          <tr><td>QXGA (Quad Extended Graphics Array)</td><td>2048x1536 (3.145.728 pixeles)</td></tr>
+          <tr><td>QHD (Quad High Definition)</td><td>2560x1440 (3.686.400 pixeles)</td></tr>
+          <tr><td>2K</td><td>2560x1600 (4.096.000 pixeles)</td></tr>
+          <tr><td>WQXGA (Wide Quad Extended Graphics Array)</td><td>3840x2160 (8.294.400 pixeles)</td></tr>
+          <tr><td>UHD (Ultra HD)</td><td>3840x2400 (9.216.000 pixeles)</td></tr>
+          <tr><td>4K</td><td>4096x3072 (12.582.912 pixeles)</td></tr>
+          <tr><td>WQUXGA (Winde Quad Ultra Extended Graphics Array)</td><td>7680x4320 (33.177.600 pixeles)</td></tr>
+          <tr><td>HXGA (Hexadecatuple Extended Graphics Array)</td><td>7680x4320 (33.177.600 pixeles)</td></tr>
+          <tr><td>UHD 8K (Ultra High Definition 8K)</td><td>7680x4320 (33.177.600 pixeles)</td></tr>
+          <tr><td>8K</td><td>7680x4320 (33.177.600 pixeles)</td></tr>
+        </tbody>
+      </table>
+    </span>
   
-      <h3>3.5.3. TIPOS DE BUSES ESPECÍFICOS</h3>
-      <span id="2010305004">
-        <p>Según la terminología usada por los fabricantes, y su uso específico algunos de los buses más conocidos por orden cronológico son:</p>
-        <ol start="6">
-          <li><strong>Industry Standard Architecture (ISA):</strong> Es el bus de 16 bits de IBM PC/AT y otros equipos basados en el Intel 80286 durante los años 80. Su velocidad era de 8 a 16 MB/s. Este bus se intentó extender a 32 bits con un nuevo bus EISA (Extended-ISA), que no tuvo mucho éxito.</li>
-          <li><strong>Micro Channel architecture (MCA):</strong> Bus paralelo propietario de IBM de 16 y 32 bits. Alcanzaba velocidades de 80 MB/s.</li>
-          <li><strong>Video Electronics Standards Association (VESA):</strong> Bus en paralelo de 32 bits y compatible con ISA que intentó acelerar las operaciones de vídeo. Su velocidad alcanzaba los 200 MB/s.</li>
-          <li><strong>Peripheral Computer Interconnect (PCI):</strong> Este bus de datos paralelo, que data del año 1992, tiene una capacidad de 32 a 64 bits y se empleaba originalmente para dar servicio tanto a las tarjetas gráficas como a las tarjetas auxiliares que se podían conectar a un ordenador. Alcanza velocidades de hasta 533 MB/s (64 bit a 66 MHz).</li>
-          <li><strong>Bus Advanced Graphics Interface (AGP):</strong> El bus paralelo AGP se desarrolló como una derivación del bus PCI para conectar una tarjeta gráfica. La principal ventaja frente al bus PCI es que se conectaba directamente al procesador, sin tener que compartir ancho de banda con el bus PCI. Alcanza velocidades de hasta 2133 MB/s.</li>
-          <li><strong>Bus Peripheral Computer Interconnect Express (PCIe):</strong> Este bus está estructurado como carriles punto a punto, full-duplex, trabajando en serie. Se diseñó para ser el sustituto de los buses AGP y PCI con una interfaz que fuera modular en su diseño. Actualmente todos los componentes del sistema se conectan al bus PCIe. La última versión para el año 2021 (PCIE 6.0) podría alcanzar una velocidad de 126 GB/s con 16 carriles (7877 MB/s por carril).</li>
-          <li><strong>Bus Parallel AT Attachement:</strong> Conocido también como PATA, IDE o ATAPI, fue el primer estándar desarrollado para conectar las unidades de almacenamiento en los PC de IBM. Fue el estándar por defecto para dar servicio a este tipo de unidades, desde su introducción en 1986 hasta que se popularizó el estándar SATA actual.</li>
-          <li><strong>Bus Serial AT Attachement (SATA):</strong> El bus SATA es muy conocido ya que es el que conecta las unidades de almacenamiento de nuestro ordenador. Este bus llegó al mercado en el año 2003 y, a diferencia del bus PATA (Parallel AT Attachement), es un bus en serie.</li>
-          <li><strong>M.2:</strong> Al emplear una especificación física más flexible, permite diferentes anchos y longitudes de módulo, lo que, junto con la disponibilidad de funciones de interfaz más avanzadas, hace que M.2 sea más adecuado que SATA en general para aplicaciones de almacenamiento de estado sólido, particularmente en dispositivos más pequeños como ultrabooks y tabletas.</li>
-          <li><strong>Universal Serial Bus (USB):</strong> Se usa normalmente para conectar periféricos. Su velocidad depende de su versión, la versión 3.1 puede alcanzar 10 Gbit/s, la versión 3.2 hasta 20 Gbit/s y la última versión USB 4.0 toma velocidades de 10, 20 y 40 Gbit/s.</li>
-          <li><strong>Thunderbolt:</strong> Como en el caso de USB también se usa para conectar periféricos. De hecho, se confunde con este último, ya que usa un conector USB de tipo C. Actualmente existe la versión 4 y alcanza velocidades de 40 Gbit/s.</li>
-          <li><strong>HyperTransport:</strong> También conocido como Lighting Data Transport (LDT), que es una tecnología bidireccional de comunicaciones basada en paquetes, tanto en serie como paralelo, que ofrece un gran ancho de banda en conexiones de punto a punto y baja latencia. Es una conexión universal que está diseñada para reducir el número de buses dentro de un sistema, suministrando un enlace de alto rendimiento a las aplicaciones incorporadas. Su velocidad de transferencia máxima, utilizando líneas de 32 bits, tiene por cada uno de sus 2 buses un total de 20.8 GB/s (2.6GHz * (32bits / 8)), lo que supone la suma de 41,6 GB/s en ambas direcciones. Actualmente se está usando para sustituir al FSB.</li>
-          <li><strong>Quickpath interconnect:</strong> Tecnología punto a punto de Intel para competir con HyperTransport. La primera versión 1.0 permitía velocidades de transferencia de 25,6 GB/s en sentido bidireccional.</li>
-        </ol>
-      </span>
+    <span id="2020402003">
+      <p>Los primeros monitores estaban basados en tecnología CRT o tubo de rayos catódicos, cuya tecnología existe comercialmente desde 1922 y que se aplicó a las televisiones en 1954. Este tipo de monitores dirigían un haz de rayos contra una pantalla de vidrio recubierto de plomo y fósforo, y tenían múltiples problemas como la necesidad de un tiempo de calentamiento para su funcionamiento, la afectación de cualquier campo magnético o la pérdida de calidad de imagen con el tiempo, además de su gran tamaño debido al tubo.</p>
+    </span>
   
-      <h3>3.5.4. COMPARATIVA DE BUSES</h3>
-      <span id="2010305005">
-        <table>
-          <thead>
-            <tr>
-              <th>Bus</th>
-              <th>Uso</th>
-              <th>Tipo</th>
-              <th>Tamaño</th>
-              <th>Transferencia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ISA</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>16 bits</td>
-              <td>4 – 5 MB/s</td>
-            </tr>
-            <tr>
-              <td>MCA</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>16-32 bits</td>
-              <td>80 MB/s</td>
-            </tr>
-            <tr>
-              <td>VESA</td>
-              <td>Video</td>
-              <td>Paralelo</td>
-              <td>32 bits</td>
-              <td>200 MB/s</td>
-            </tr>
-            <tr>
-              <td>FSB</td>
-              <td>CPU - Memoria</td>
-              <td>Paralelo</td>
-              <td>32-64 bits</td>
-              <td>400- 12000 MB/s</td>
-            </tr>
-            <tr>
-              <td>PCI</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>32-64 bits</td>
-              <td>133 - 266 MB/s</td>
-            </tr>
-            <tr>
-              <td>AGP</td>
-              <td>Tarjetas gráficas</td>
-              <td>Paralelo</td>
-              <td>32 bits</td>
-              <td>533 - 2133 MB/s</td>
-            </tr>
-            <tr>
-              <td>PCIe</td>
-              <td>Expansión</td>
-              <td>Serie</td>
-              <td>1 – 32 bits</td>
-              <td>4 -126 GB/s (16 carriles)</td>
-            </tr>
-            <tr>
-              <td>PATA</td>
-              <td>Almacenamiento</td>
-              <td>Paralelo</td>
-              <td>16 bits</td>
-              <td>8, 3 – 133 MB/s</td>
-            </tr>
-            <tr>
-              <td>SATA</td>
-              <td>Almacenamiento</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>1,5 – 16 GB/s</td>
-            </tr>
-            <tr>
-              <td>M.2</td>
-              <td>Almacenamiento</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>10 - 32 GB/s</td>
-            </tr>
-            <tr>
-              <td>USB 4.0</td>
-              <td>Periféricos</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>10, 20, 40 Gbit/s</td>
-            </tr>
-            <tr>
-              <td>Thunderbolt 4</td>
-              <td>Periféricos</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>40 Gbit/s</td>
-            </tr>
-            <tr>
-              <td>HyperTransport</td>
-              <td>Interno genérico</td>
-              <td>Serie/paralelo</td>
-              <td>32 bits</td>
-              <td>41, 6 GB/s</td>
-            </tr>
-            <tr>
-              <td>Quickpath</td>
-              <td>Interno genérico</td>
-              <td>Serie/paralelo</td>
-              <td>32 bits</td>
-              <td>25, 6 GB/s</td>
-            </tr>
-          </tbody>
-        </table>
-      </span>
-    </article>
+    <span id="2020402004">
+      <p>En 1964 aparecieron las pantallas de plasma, que contienen un gas ionizado (habitualmente neon) que responde a los campos eléctricos. Su uso fue muy común en las pantallas más grandes pero en la actualidad están prácticamente obsoletas. Tanto CRT como Plasma sufren de problemas de screen burn-in o quemado de pantalla, que genera una imagen fantasma cuando hay una activación constante de un área de la pantalla.</p>
+    </span>
+  
+    <span id="2020402005">
+      <p>En el mismo año, aparecieron las pantallas LCD o de cristal líquido, inventadas en los laboratorios de RCA de Princeton. En estas pantallas, cada pixel tiene tres células o subpíxeles de rojo, verde o azul que se activan según sea necesario.</p>
+    </span>
+  
+    <span id="2020402006">
+      <p>Posteriormente, en 1968, aparecieron las primeras pantallas con tecnología LED, que utilizan un array de diodos emisores de luz o LEDs para componer la imagen. Sus primeros usos fueron en pantallas al aire libre, ya que por su brillo se aprecia bien la imagen a la luz del sol.</p>
+    </span>
+  
+    <span id="2020402007">
+      <p>El formato o proporción de pantalla es la relación de los píxeles horizontales y verticales de la pantalla, que es independiente de la densidad de píxeles que contenga. La más tradicional es 4:3 o 1.33:1, de aspecto cuadrado, sin embargo las más comunes actualmente son 16:9, también denominado formato panorámico, y en monitores anchos y ultraanchos, 21:9, 32:0, 3:2 o 16:10.</p>
+    </span>
+  </article>
   </div>
   

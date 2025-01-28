@@ -1,25 +1,74 @@
 <div class="teoria">
-    <article>
-      <!-- punto 3.4 : Dispositivos de Entrada y Salida (E/S) -->
-      <h2>3.4. DISPOSITIVOS DE ENTRADA Y SALIDA (E/S)</h2>
-      
-      <span id="2010304001">
-        <p>Los sistemas de entrada y salida permiten el intercambio de datos entre el sistema de información y el mundo exterior. Se trata de dispositivos periféricos, como los siguientes:</p>
-        <ol type="a">
-          <li>Dispositivos de interfaz de usuarios, como el ratón teclado, pantalla, impresora, etc.</li>
-          <li>Dispositivos de almacenamiento de datos, lo que se conoce como memoria secundaria, como es el caso de los discos magnéticos o de estado sólido, memorias flash o USB, tarjetas SD, unidades de discos ópticos, etc.</li>
-          <li>Dispositivos de comunicación con otros procesadores, que permiten la comunicación a través de las redes de comunicaciones, como las tarjetas de red, con interfaces fijos o inalámbricos, o los puertos bluetooth.</li>
-          <li>Dispositivos de adquisición de datos, mediante sensores o actuadores, que incorporan conversores analógico/digital.</li>
-        </ol>
-      </span>
+  <article>
+    <h2>3.4 ALMACENAMIENTO SAN</h2>
   
-      <span id="2010304002">
-        <p>Los dispositivos periféricos tienen formas de funcionamiento, velocidades de transferencia y formato de datos diferentes, sin embargo están todos identificados por la CPU de manera unívoca, y se sincronizan con ella para intercambiar información.</p>
-      </span>
+    <h3>Host Bus Adapter (HBA)</h3>
+    <span id="2020304001">
+      <p>Los adaptadores que facilitan el acceso de un equipo a una SAN se denominan HBAs o Host Bus Adapters. Un HBA es un circuito integrado que incluye la lógica correspondiente a la Entrada/Salida, facilitando el acceso del equipo cliente al dispositivo que proporciona el almacenamiento. Un HBA es similar al concepto de NIC en comunicaciones, e incluso es posible que un mismo adaptador incluya funcionalidades de HBA y NIC, mediante dos conexiones (Fiber Channel y Ethernet). En este caso se denomina Adaptador de Red Convergente o Convergent Network Adapter (CNA).</p>
+    </span>
   
-      <span id="2010304003">
-        <p>Para administrar los periféricos, la CPU usa módulos de entrada/salida comunes para cada gama de ellos, y cada dispositivo tiene un software específico llamado controlador o driver. Este controlador se encarga de adaptar las instrucciones que llegan al módulo de entrada a las peculiaridades del dispositivo.</p>
-      </span>
-    </article>
+    <span id="2020304002">
+      <p>Los módulos que se encargan de las conexiones de los adaptadores de red se denominan transceptores. Existen distintos tipos de transceptores, para proveer acceso a redes FC o Ethernet, según sea necesario. El formato más extendido de transceptor es SFP (Small Form-Factor Pluggable), que es pequeño, compacto e intercambiable en caliente.</p>
+    </span>
+  
+    <h3>Switches de SAN</h3>
+    <span id="2020304003">
+      <p>Los switches o conmutadores de SAN son dispositivos que interconectan los servidores o equipos finales con el servidor o cabina que proporciona el pool de almacenamiento. Los switches de almacenamiento se basan en las tecnologías Fiber Channel e iSCSI. Este tipo de conmutadores analizan los paquetes de las comunicaciones de la SAN, remitiendo la comunicación únicamente al dispositivo destino, evitando la saturación de la red.</p>
+    </span>
+  
+    <h3>Storage Fabric</h3>
+    <span id="2020304004">
+      <p>Literalmente "tejido", el concepto de fabric se refiere al conjunto de redes de fibra óptica que interconexionan los switches y a través de los cuales se encamina el tráfico de la SAN. Esta red puede ser mínima, estando compuesta por una única cabina y un único switch de fibra, o por multitud de cabinas, switches de fibra y clientes trabajando en una infraestructura con alta disponibilidad.</p>
+    </span>
+  
+    <h3>Zoning</h3>
+    <span id="2020304005">
+      <p>El zoning es la segmentación en zonas de los puertos de fibra de los switches de la SAN. Es un concepto similar al de las subredes o VLANs en las redes ethernet, y asegura que los dispositivos con conectividad en una zona únicamente pueden comunicarse con otros que se encuentren en ésta, realizando de manera efectiva un particionado de una red SAN en varias independientes. Este zoning puede ser realizado por hardware (Hard Zoning) o por software (Soft Zoning).</p>
+    </span>
+  
+    <h3>World Wide Name (WWN)</h3>
+    <span id="2020304006">
+      <p>En una SAN todos los dispositivos se identifican a través de un World Wide Name (WWN), que es un código único de 16 Bytes, que contiene información sobre el fabricante de acuerdo al esquema definido por el IEEE. Además, dentro de cada dispositivo de una SAN se asigna un node name o WWNN a cada nodo y un port name o WWPN a cada puerto.</p>
+    </span>
+  
+    <h3>Logical Unit Number (LUN)</h3>
+    <span id="2020304007">
+      <p>Un logical unit number o LUN es una dirección única que identifica un conjunto de bloques que se presentan como un disco único al cliente de una SAN. Desde el punto de vista práctico, una LUN equivale a un disco lógico, que el cliente puede manejar mediante FC o iSCSI. A nivel de seguridad, una LUN puede presentarse únicamente a uno o varios clientes mediante un proceso denominado enmascaramiento de LUNs o LUN masking.</p>
+    </span>
+  
+    <h3>Estructuras de almacenamiento SAN con alta disponibilidad</h3>
+    <span id="2020304008">
+      <p>Existen diversas técnicas para mejorar la resiliencia y dotar a una SAN de alta disponibilidad:</p>
+      <ul>
+        <li>Establecimiento de estructura de red redundante y alta disponibilidad de los nodos y switches de la SAN.</li>
+        <li>Técnicas de mirroring de almacenamiento y arrays redundantes de discos.</li>
+        <li>Infraestructura de Centro de Proceso de Datos adecuada, con redundancia en elementos de refrigeración y alimentación.</li>
+      </ul>
+    </span>
+  
+    <h3>Trunking y redundancia de conexiones</h3>
+    <span id="2020304009">
+      <p>En los switches de fibra es posible realizar configuraciones que optimicen el uso de las líneas de fibra tales como:</p>
+      <ul>
+        <li>Asignación al mismo canal de varias bocas de switch, aumentando el ancho de banda efectivo disponible.</li>
+        <li>Agrupación de más de un canal sobre la misma línea física, mediante una configuración denominada trunking.</li>
+      </ul>
+    </span>
+  
+    <h3>SAN basada en IP y Ethernet</h3>
+    <span id="2020304010">
+      <p>El aumento de las capacidades de ancho de banda de Ethernet han permitido explorar la utilización de las redes Ethernet para el acceso a SAN. Existen diferentes protocolos para implementar SAN sobre IP:</p>
+      <ul>
+        <li>iSCSI: Permite el uso del protocolo SCSI sobre redes TCP/IP.</li>
+        <li>FCIP: Fiber Channel over IP, permite la creación de un túnel que encapsula la información de una red basada en protocolo Fiber Channel sobre una red TCP/IP.</li>
+        <li>FCoE: Fiber Channel over Ethernet, realiza un encapsulado de las tramas Fiber Channel sobre redes Ethernet.</li>
+      </ul>
+    </span>
+  
+    <h3>NVMe over Fabric (NVMe-oF)</h3>
+    <span id="2020304011">
+      <p>NVMe over Fabric (NVMe-oF) es una especificación que permite la transferencia de los datos sobre redes SAN. La diferencia principal entre NVMe y NVMe-oF es que en NVMe la transferencia de los comandos es directa a la memoria local a través del bus PCIe, mientras que en el caso de NVMe-oF se utiliza intercambio de mensajes a través de la red para la ejecución de los comandos.</p>
+    </span>
+  </article>
   </div>
   

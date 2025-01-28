@@ -1,87 +1,58 @@
 <div class="teoria">
-    <article>
-      <!-- punto 3.2 : La Unidad Central de Procesamiento (CPU) -->
-      <h2>3.2. LA UNIDAD CENTRAL DE PROCESAMIENTO (CPU)</h2>
-      
-      <span id="2010302001">
-        <p>La unidad central de procesamiento (CPU) o procesador constituye la parte central de un sistema de información, interpreta las instrucciones que normalmente se encuentran en un programa informático y procesa los datos de estas utilizando para ello operaciones básicas, aritméticas y lógicas.</p>
-      </span>
+  <article>
+    <h2>3.2 ALMACENAMIENTO DAS</h2>
   
-      <h3>3.2.1. CARACTERÍSTICAS DE LA CPU</h3>
-      <span id="2010302002">
-        <p>Las características que diferencian a una CPU de otra son las siguientes:</p>
-        <ul>
-          <li><strong>Consumo energético:</strong> se refiere a la cantidad de energía que consume la CPU al ejecutar acciones. Normalmente, a mayor capacidad de proceso, mayor consumo.</li>
-          <li><strong>Frecuencia de reloj:</strong> se refiere a la velocidad de reloj que tiene una CPU y determina el número de acciones que puede ejecutar en un determinado periodo de tiempo. La frecuencia de reloj se suele medir en MHz o GHz y es un indicativo de la potencia de la CPU.</li>
-          <li><strong>Tamaño de palabra:</strong> es el número de bits que maneja en paralelo el computador y que se refieren al ancho del bus de direcciones, lo cual define la arquitectura del ordenador.</li>
-          <li><strong>Número de núcleos:</strong> se trata de disponer en la CPU de dos o más núcleos o microprocesadores en un mismo paquete o circuito integrado que pueden repartir las instrucciones entre ellos y trabajar de forma paralela. Cada uno de los núcleos dispone de su propia memoria caché L1. Actualmente hay procesadores de 2 a 64 núcleos.</li>
-          <li><strong>Número de hilos:</strong> dentro de cada núcleo las operaciones se pueden dividir en hilos (threads) que pueden ejecutarse simultáneamente. Es el equivalente a disponer de varios núcleos virtuales.</li>
-          <li><strong>Capacidad de memoria cache:</strong> la capacidad de la memoria caché determina la necesidad de acceder a la memoria RAM, y por tanto, la velocidad del procesamiento.</li>
-          <li><strong>Rendimiento o potencia:</strong> se trata del número de operaciones que puede ejecutar una CPU, y normalmente se mide en FLOPS (Floating-point Operations per second), esto es número de operaciones en punto flotante por segundo. También se suele usar MIPS (Million Instructions per second), millones de instrucciones por segundo.</li>
-        </ul>
-      </span>
+    <span id="2020302001">
+      <p>El DAS o almacenamiento directamente conectado es el uso tradicional para el acceso a los dispositivos de almacenamiento secundario. Principalmente consiste en la conexión directa mediante cableado dedicado de un dispositivo (disco duro generalmente) directamente a la placa base, donde se ubica una controladora que es capaz de enviar y recibir información directamente al dispositivo conectado.</p>
+    </span>
   
-      <h3>3.2.2. COMPONENTES DE LA CPU</h3>
-      <span id="2010302003">
-        <p>Los principales componentes de la CPU son:</p>
-        <ol type="a">
-          <li><strong>Unidad de control (UC):</strong> La tarea principal de la UC es recibir y ejecutar las instrucciones, que interpreta y procesa mediante órdenes que envía a otros componentes, en el orden e instante debidos.</li>
-          <li><strong>Unidad aritmético lógica (UAL o ALU):</strong> Es la parte de la CPU encargada de realizar las operaciones de tipo aritmético y de tipo lógico.</li>
-          <li><strong>Conjunto de Registros (Register Bank) o almacenamiento de acceso inmediato:</strong> Un registro es una memoria de alta velocidad y poca capacidad, que se usa para guardar de valores de datos, comandos, instrucciones o estados.</li>
-          <li><strong>Memoria Caché:</strong> Se trata de una memoria de alta velocidad donde se almacenan los datos para que la CPU no tenga que acceder a buscarlos a la memoria principal, cuyo acceso sería más lento.</li>
-          <li><strong>Unidad de Punto Flotante (FPU) o coprocesador matemático:</strong> Son unidades integradas en algunas CPU para efectuar operaciones matemáticas en punto flotante.</li>
-          <li><strong>Unidad de gestión de memoria (MMU):</strong> Se trata de un circuito integrado específico que forma parte del hardware de la CPU.</li>
-        </ol>
-      </span>
+    <h3>El estándar IDE</h3>
+    <span id="2020302002">
+      <p>La interfaz IDE, también denominada Advanced Technology Attachment (ATA) o Parallel ATA (P-ATA), fue en su momento la más extendida, si bien actualmente se encuentra en desuso. Consta de un cable de 40 pines que conecta directamente el dispositivo de almacenamiento a la placa base. En el caso de los dispositivos IDE, cada conector de la placa base puede soportar dos dispositivos, que deben configurarse uno en posición maestro (que además será también el dispositivo de arranque de la máquina) y uno en posición esclavo.</p>
+      <p>La configuración maestro-esclavo en los dispositivos de tipo IDE se realiza a través de unos jumpers que se conectan uniendo diversos pines del dispositivo, estableciendo una configuración u otra.</p>
+    </span>
   
-      <h3>3.2.3. FUNCIONAMIENTO DE LA CPU</h3>
-      <span id="2010302004">
-        <h4>3.2.3.1. RISC y CISC</h4>
-        <p>RISC (Reduced Instruction Set Computer) y CISC (Complex Instruction Set Computer) son dos tipos de diseño de CPU:</p>
-        <ul>
-          <li><strong>RISC:</strong> Instrucciones cortas de tamaño fijo, instrucciones de un único ciclo, solo las instrucciones de carga y almacenamiento acceden a la memoria de datos.</li>
-          <li><strong>CISC:</strong> Conjunto de instrucciones amplio y complejo, permite operaciones complejas entre operandos situados en la memoria o en los registros internos.</li>
-        </ul>
-      </span>
+    <span id="2020302003">
+      <p>Dependiendo del modo en el que un dispositivo IDE transfiere la información desde el soporte físico a la memoria del sistema, podemos realizar las siguientes distinciones:</p>
+      <ul>
+        <li><strong>Entrada/Salida programada o PIO:</strong> En este tipo de transferencia de información hacia o desde un dispositivo de almacenamiento, la transferencia se inicia a través de una instrucción de procesador, esto es, se requiere intervención y actividad por parte de la CPU para cada transferencia de datos. Es poco óptimo ya que supone una sobrecarga importante para el procesador del sistema.</li>
+        <li><strong>Acceso Directo a Memoria o DMA:</strong> En la transferencia DMA se puede enviar o recibir cierta cantidad de información entre el dispositivo de almacenamiento y la memoria RAM de manera transparente al procesador, de modo que la CPU queda libre para ejecutar otros procesos durante el tiempo que se dedica a la transferencia de datos.</li>
+      </ul>
+    </span>
   
-      <span id="2010302005">
-        <h4>3.2.3.2. CICLO DE UNA INSTRUCCIÓN DE LA CPU</h4>
-        <p>Una instrucción de la CPU pasa por las siguientes fases:</p>
-        <ol>
-          <li>Fase de captación o fetch</li>
-          <li>Fase de decodificación o decode</li>
-          <li>Fase de ejecución o execute</li>
-          <li>Store o almacenamiento</li>
-        </ol>
-      </span>
+    <h3>El estándar SATA</h3>
+    <span id="2020302004">
+      <p>En 2001 se creó el grupo de trabajo de Serial ATA para diseñar el nuevo estándar, reemplazando al estándar paralelo PATA por un estándar se transmisión en serie o SATA. Este grupo de trabajo posteriormente se convirtió en la Organización Internacional Serial ATA o SATA-IO, que definió los siguientes estándares que vinieron en los próximos años. En el caso de SATA se utilizan conexiones directas punto a punto, desechando la estructura de dispositivos de IDE.</p>
+    </span>
   
-      <span id="2010302006">
-        <h4>3.2.3.3. MODOS DE DIRECCIONAMIENTO</h4>
-        <p>Los principales modos de direccionamiento son:</p>
-        <ul>
-          <li>Implícito</li>
-          <li>Inmediato (en este modo el operando está incluido directamente en la instrucción)</li>
-          <li>Directo o absoluto</li>
-          <li>Indirecto</li>
-        </ul>
-      </span>
+    <h3>Estándares SCSI</h3>
+    <span id="2020302005">
+      <p>El hoy ampliamente extendido estándar SCSI ("Small Computer System Interface") no fue ampliamente utilizado en equipos domésticos, que optaron por otras alternativas más baratas como IDE, mientras que en equipos profesionales y servidores encontró un nicho que continúa hasta hoy. Al contrario que IDE, que define la interfaz, en el caso de SCSI se dispone de controladoras inteligentes en cada dispositivo, lo que mejora el comportamiento y la fiabilidad pero incrementa enormemente el coste.</p>
+    </span>
   
-      <span id="2010302007">
-        <h4>3.2.3.4. MULTIHILO Y MULTIPROCESAMIENTO</h4>
-        <p><strong>Multihilo (Multithreading):</strong> Consiste en la división de un proceso en hilos que pueden ejecutarse en una o varias CPUs de manera simultánea. Tipos principales:</p>
-        <ul>
-          <li>Multihilo simultáneo (SMT)</li>
-          <li>Multihilo temporal (TMT)</li>
-        </ul>
-        <p><strong>Multiprocesamiento:</strong> Consiste en la ejecución de varios procesos a la vez de forma simultánea en varios procesadores o núcleos. Tipos principales:</p>
-        <ul>
-          <li>Procesamiento Asimétrico (AMP)</li>
-          <li>Procesamiento Simétrico (SMP)</li>
-          <li>Acceso no uniforme a Memoria (NUMA)</li>
-          <li>Proceso paralelo masivo (MPP)</li>
-        </ul>
-      </span>
-    </article>
+    <span id="2020302006">
+      <p>El origen de SCSI es una interfaz liberada en 1979 denominada SASI (Shugart Associates System Interface) que en 1981 fue estandarizada por ANSI, y se le cambió el nombre por SCSI. Las primeras implementaciones de SCSI se realizaron en forma de puertos paralelos (SPI o SCSI Parallel Interface), con una velocidad de transferencia de apenas 1,5 Megabytes por segundo, que se amplió hasta los 5 Megabytes en 1986.</p>
+    </span>
+  
+    <h3>Discos SAS</h3>
+    <span id="2020302007">
+      <p>La introducción de SAS supone el cambio a una interfaz serie en SCSI en lugar del envío paralelo de datos. No es compatible con cables o conectores previos. La velocidad de SAS es siempre superior a los 3 Gbps.</p>
+    </span>
+  
+    <h3>Iniciador y destino</h3>
+    <span id="2020302008">
+      <p>En terminología SCSI, se denomina iniciador o initiator al punto de origen de la sesión SCSI, esto es, el punto de origen del primer comando SCSI. Por otro lado, denominamos destino o target al extremo que recibe los comandos. Los comandos SCSI se agrupan en cuatro categorías: Lectura (R), Escritura (W), Bidireccionales (B) y de Control o Non-Data (N).</p>
+    </span>
+  
+    <h3>SATA vs SAS</h3>
+    <span id="2020302009">
+      <p>Los conectores actuales de SAS y SATA son muy parecidos, aunque existen una diferencia en el conector que impide conectar un disco SAS en una interfaz SATA, aunque sí es posible conectar un disco SATA en un conector SAS. Por tanto, un sistema SAS puede funcionar también con discos SATA, aunque existirá una pérdida de rendimiento.</p>
+    </span>
+  
+    <span id="2020302010">
+      <p>Los discos SATA son habitualmente de 7.200 RPM, mientras que los SAS son de 10.000 o 15.000 RPM, lo que en la práctica supone una menor latencia (la localización del dato llega antes a la cabeza lectora). Esto en la práctica se traduce en una tasa de IOPS (Entrada/Salida por Segundo) más alta.</p>
+    </span>
+  </article>
   </div>
   
   
