@@ -1,0 +1,39 @@
+<div class="teoria">
+  <article>
+    <!-- punto 1.3 : Administración de periféricos -->
+    <h2>1.3. ADMINISTRACIÓN DE PERIFÉRICOS</h2>
+    
+    <span id="2020103001">
+      <p>Los periféricos se comunican con el ordenador a través de un controlador o driver, que es un software específico del sistema operativo y que permite a éste enviar y recibir comandos e intercambiar datos con el dispositivo periférico. Siempre que se utilice un periférico, es necesario disponer del driver correspondiente a éste, ya sea porque esté integrado como parte del sistema operativo o mediante una instalación ad hoc.</p>
+    </span>
+  
+    <span id="2020103002">
+      <figure>
+        <img src="/placeholder.svg?height=300&width=400" alt="Funcionamiento de un driver o controlador" />
+        <figcaption>Funcionamiento de un driver o controlador. Fuente: Wikipedia</figcaption>
+      </figure>
+    </span>
+  
+    <h3>Administración de periféricos en Linux</h3>
+    <span id="2020103003">
+      <p>En línea con el funcionamiento de Linux en el que todos los elementos del sistema y que se relacionan con éste tienen su contrapartida en el sistema de ficheros, todos los dispositivos cuelgan del directorio /dev, representando cada dispositivo mediante un fichero separado.</p>
+      <p>Estos dispositivos necesitan para su funcionamiento de un driver. En caso de que el sistema no disponga del driver necesario, éstos se pueden añadir al directorio /lib.</p>
+    </span>
+  
+    <span id="2020103004">
+      <p>Los dispositivos en Linux se clasifican en tres tipos:</p>
+      <ul>
+        <li><strong>Dispositivos orientados a carácter (tipo c):</strong> Transmiten únicamente un byte a la vez. Algunos ejemplos de dispositivos de este tipo son "/dev/mouse" (ratón), "/dev/tty1" (terminal) o "/dev/lp0" (puerto paralelo).</li>
+        <li><strong>Dispositivos orientados a bloque:</strong> Transmiten bloques completos de información utilizando un buffer. Ejemplos de dispositivos son "/dev/fd0" (disquetera) o "/dev/hda" (disco duro) o "/dev/cdrom".</li>
+        <li><strong>Dispositivos orientados a socket:</strong> Sirven para comunicación entre procesos. Ejemplos son "/dev/log" o "/dev/printer".</li>
+      </ul>
+    </span>
+  
+    <h3>Administración de periféricos en Windows</h3>
+    <span id="2020103005">
+      <p>En Microsoft Windows, los distintos periféricos se administran a través del Administrador de Dispositivos ("Device Manager"). Los drivers en Windows habitualmente se distribuyen en archivos con extensión .inf, .sys o .drv.</p>
+    </span>
+  </article>
+  </div>
+  
+  

@@ -1,0 +1,135 @@
+<div class="teoria">
+  <article>
+    <!-- punto 1.2 : Conexión de periféricos -->
+    <h2>1.2. CONEXIÓN DE PERIFÉRICOS</h2>
+    
+    <h3>Operaciones de comunicación de periféricos</h3>
+    <span id="2020102001">
+      <p>Los periféricos realizan dos tipos de operaciones: De sincronización y de transferencia de datos.</p>
+      <p>La sincronización es el mecanismo mediante el cual los dispositivos periféricos acuerdan con el sistema la velocidad, período y reserva de ciclos de CPU que se utilizarán posteriormente para transferir información. Esta sincronización puede ser a través de programa (también denominada de software) o a través de interrupciones.</p>
+      <p>En caso de que sea por programa, es el sistema el que accede al controlador del periférico para consultar a través de una operación denominada polling o sondeo si el dispositivo tiene información que remitir al sistema, o para enviarle comandos o información.</p>
+      <p>El segundo método funciona a través de señales hardware denominadas interrupciones, que comunican directamente a la CPU que el dispositivo desea interrumpir el curso de ejecución del sistema para ejecutar un código propio del controlador. Este método es más óptimo ya que libera a la CPU de la necesidad de consultar periódicamente al controlador el estado del periférico.</p>
+    </span>
+  
+    <span id="2020102002">
+      <p>Existen distintos modos de conectar un periférico a un equipo, tanto mediante una interfaz cableada como mediante una conexión inalámbrica. Cuando se realiza un envío de datos desde un dispositivo a la computadora, podemos hablar de conexión serie si esta transmisión se realiza bit a bit, mientras que si hay una transmisión simultánea de la información hablamos de transmisión paralela.</p>
+    </span>
+  
+    <h3>Puertos clásicos serie y paralelo</h3>
+    <span id="2020102003">
+      <p>En informática, el término "puerto serie" suele hacer referencia a los conectores RS-232, siendo su conexión más habitual la denominada DE-9 o DB-9, mientras que el término "puerto paralelo" se refiere al puerto DB-25 de tipo Centronics, que permite la transmisión de 8 bits paralelos de datos.</p>
+    </span>
+  
+    <h3>El puerto USB</h3>
+    <span id="2020102004">
+      <p>El Bus Universal en Serie o USB es el estándar de puerto de comunicaciones serie más extendido en la actualidad. Surgió en 1996 gracias a la iniciativa de un grupo de grandes empresas, entre las que se encontraban Intel, IBM y Microsoft, para unificar la conexión de periféricos.</p>
+      <p>Existen distintos tipos de conectores USB: Tipo A, Tipo B, Mini USB, Micro USB y el estándar más reciente USB C. USB utiliza transmisión diferencial, enviando dos señales complementarias por los pines Data+ y Data-, de modo que el otro extremo pueda calcular la diferencia de señal entre ambos pines. La ventaja de este tipo de transmisión es que cualquier interferencia afectaría de manera similar a ambas señales, siendo de este modo más robusto ante interferencias externas.</p>
+      <p>La especificación USB OTG o USB On-The-Go permite que los dispositivos USB actúen como servidores, de modo que se puedan conectar pendrives o discos duros a dispositivos como teléfonos móviles o tabletas.</p>
+    </span>
+  
+    <h3>Firewire</h3>
+    <span id="2020102005">
+      <p>El conector Firewire, que fue propuesto en el estándar IEEE 1394, introducido por Apple en 1995 pero que ha sido progresivamente posteriormente reemplazado por USB. Una ventaja de Firewire sobre USB es que dispone de un modo "peer-to-peer" que permite comunicar dos dispositivos sin intervención de la CPU.</p>
+    </span>
+  
+    <h3>Thunderbolt</h3>
+    <span id="2020102006">
+      <p>Anteriormente Light Peak, es una especificación definida por Intel para alta velocidad basado en tecnología óptica. Al igual que USB, permite hot swap para conexión de dispositivos, así como implementación de QoS. Las versiones 1 y 2 de Thunderbolt usan versiones distintas de la versión 3 y la ya anunciada revisión 4 del estándar.</p>
+    </span>
+  
+    <span id="2020102007">
+      <table>
+        <caption>Comparativa de velocidades Thunderbolt, Firewire y USB</caption>
+        <thead>
+          <tr>
+            <th>Estándar</th>
+            <th>Velocidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>USB 1.0</td><td>0.19 MB/s</td></tr>
+          <tr><td>USB 1.1</td><td>1.5 MB/s</td></tr>
+          <tr><td>Firewire 400</td><td>50 MB/s</td></tr>
+          <tr><td>USB 2.0</td><td>60 MB/s</td></tr>
+          <tr><td>Firewire 800</td><td>100 MB/s</td></tr>
+          <tr><td>Firewire s1600</td><td>200 MB/s</td></tr>
+          <tr><td>Firewire s3200</td><td>400 MB/s</td></tr>
+          <tr><td>USB 3.0</td><td>600 MB/s</td></tr>
+          <tr><td>Thunderbolt (primer estándar)</td><td>1.2 GB/s</td></tr>
+          <tr><td>USB 3.1</td><td>1225 MB/s (10 Gbps single channel)</td></tr>
+          <tr><td>Thunderbolt 2</td><td>2.5 GB/s</td></tr>
+          <tr><td>USB 3.2</td><td>2.5 GB/s (10 Gbps dual channel)</td></tr>
+          <tr><td>Thunderbolt 3</td><td>5 GB/s</td></tr>
+          <tr><td>USB 4.0</td><td>5 GB/s</td></tr>
+        </tbody>
+      </table>
+    </span>
+  
+    <h3>Otras interfaces serie</h3>
+    <span id="2020102008">
+      <p>Otras interfaces comunes que utilizan transmisión serie son el conector clásico de teclado y ratón PS/2 de 6 pines en formato circular, así como distintos puertos de salida gráfica, como el VGA, DVI, HDMI o DisplayPort.</p>
+    </span>
+  
+    <h3>Conexiones y ranuras paralelas para dispositivos y almacenamiento</h3>
+    <span id="2020102009">
+      <p>Como ya hemos visto, la mayor parte de los dispositivos externos en la actualidad tienen transmisión serie, por la simplicidad y robustez de transmisión que ello conlleva. La transmisión paralela se reserva para necesidades de muy alto ancho de banda en los que la complejidad y coste no son un factor determinante. Esto incluye los buses y ranuras de expansión para periféricos internos de las placas base, como ISA, PCI o AGP, o los conectores de memoria, así como diversas conexiones de almacenamiento que veremos más adelante.</p>
+    </span>
+  
+    <h3>Puerto Jack de Audio</h3>
+    <span id="2020102010">
+      <p>El puerto de conexión de audio más extendido es el Jack, en especial en su formato 3.5 mm. Se trata de un conector analógico, y cuando se utiliza en un dispositivo actual requiere de un conversor digital-analógico o DAC. Si bien está en proceso de desaparecer ya que los nuevos dispositivos optan por conectividad inalámbrica bluetooth o dispositivos USB, sigue siendo con diferencia el conector para audio más extendido. Existen variantes de 2.5 mm (muy común en dispositivos como walkie talkies), o el 6.3 mm, muy utilizado antiguamente en las centralitas telefónicas. No obstante, existen otro tipo de conectores de audio con mayores capacidades, como Toslink, RCA, XLR o MIDI.</p>
+    </span>
+  
+    <h3>Conexión inalámbrica de dispositivos</h3>
+    <span id="2020102011">
+      <p>Existen distintos estándares de conexión inalámbrica, siendo los principales:</p>
+      <ul>
+        <li><strong>Infrarrojos:</strong> La comunicación por infrarrojos utiliza unos emisores y receptores de ondas infrarrojas entre el dispositivo y el equipo, por lo que se necesita visibilidad directa entre ambos extremos.</li>
+        <li><strong>Bluetooth:</strong> Muy común y soportado por gran variedad de dispositivos, desde teléfonos móviles a manos libres, lo introdujo la marca Ericsson y ha evolucionado hasta el actual estándar Bluetooth 5.0, que permite una velocidad de transmisión de hasta 2Mbps con un consumo de 2.5 veces menos que bluetooth 4.0.</li>
+        <li><strong>Wifi:</strong> Es común que algunos dispositivos se conecten directamente a través de la red inalámbrica Wifi ya sea de 2.4 GHz o 5 GHz, permitiendo compartición sencilla de datos sin necesidad de línea directa de visión.</li>
+      </ul>
+      <p>No son los únicos, existen otro tipo de estándares menos extendidos, como Zigbee, que permiten conectar dispositivos con muy bajo consumo de energía y habitual en uso industrial de sensores y dispositivos de automatización.</p>
+    </span>
+  
+    <span id="2020102012">
+      <table>
+        <caption>Comparativa de tecnologías inalámbricas</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Bluetooth</th>
+            <th>Wifi</th>
+            <th>ZigBee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distancia de trabajo</td>
+            <td>10-30 metros</td>
+            <td>50-100 metros</td>
+            <td>10-100 metros</td>
+          </tr>
+          <tr>
+            <td>Topología de red</td>
+            <td>Punto a punto</td>
+            <td>Conexión a punto de acceso</td>
+            <td>Red mallada</td>
+          </tr>
+          <tr>
+            <td>Frecuencia de trabajo</td>
+            <td>2.4 GHz</td>
+            <td>2.4 GHz/5 GHz</td>
+            <td>868 MHz (sólo Europa), 2.4 GHz</td>
+          </tr>
+          <tr>
+            <td>Consumo</td>
+            <td>Medio</td>
+            <td>Alto</td>
+            <td>Muy bajo</td>
+          </tr>
+        </tbody>
+      </table>
+    </span>
+  </article>
+  </div>
+  

@@ -11,7 +11,7 @@ export const preguntas = {
             "Un tipo de operador lógico",
           ],
           correcta: 1,
-          explicacionId: "2010101001",
+          preguntaId: "2010101001",
         },
         {
           id: "2010101002",
@@ -23,7 +23,7 @@ export const preguntas = {
             "Un tipo de codificación de caracteres",
           ],
           correcta: 2,
-          explicacionId: "2010101002",
+          preguntaId: "2010101002",
         },
         {
           id: "2010101003",
@@ -35,7 +35,7 @@ export const preguntas = {
             "Un estándar de codificación Unicode",
           ],
           correcta: 2,
-          explicacionId: "2010101003",
+          preguntaId: "2010101003",
         },
         {
           id: "2010101004",
@@ -47,28 +47,28 @@ export const preguntas = {
             "Un operador lógico binario",
           ],
           correcta: 2,
-          explicacionId: "2010101004",
+          preguntaId: "2010101004",
         },
         {
           id: "2010101005",
           pregunta: "¿Cuál de los siguientes NO es un sistema de codificación de caracteres?",
           opciones: ["ASCII", "Unicode", "EBCDIC", "BCD"],
           correcta: 3,
-          explicacionId: "2010101005",
+          preguntaId: "2010101005",
         },
         {
           id: "2010101006",
           pregunta: "¿Qué base utiliza el sistema de numeración hexadecimal?",
           opciones: ["Base 2", "Base 8", "Base 10", "Base 16"],
           correcta: 3,
-          explicacionId: "2010101006",
+          preguntaId: "2010101006",
         },
         {
           id: "2010101007",
           pregunta: "¿Cuántos dígitos utiliza el sistema de numeración octal?",
           opciones: ["2 dígitos (0-1)", "8 dígitos (0-7)", "10 dígitos (0-9)", "16 dígitos (0-9 y A-F)"],
           correcta: 1,
-          explicacionId: "2010101007",
+          preguntaId: "2010101007",
         },
         {
           id: "2010101008",
@@ -81,14 +81,14 @@ export const preguntas = {
             "Todos tienen la misma base",
           ],
           correcta: 1,
-          explicacionId: "2010101008",
+          preguntaId: "2010101008",
         },
         {
           id: "2010101009",
           pregunta: "¿Cuántos bytes equivalen a 1 Kilobyte (KB) según el Sistema Internacional?",
           opciones: ["1000 bytes", "1024 bytes", "100 bytes", "10000 bytes"],
           correcta: 0,
-          explicacionId: "2010101009",
+          preguntaId: "2010101009",
         },
         {
           id: "2010101010",
@@ -100,7 +100,7 @@ export const preguntas = {
             "Megabytes por segundo (MB/s)",
           ],
           correcta: 1,
-          explicacionId: "2010101010",
+          preguntaId: "2010101010",
         },
       ],
       minimoParaAprobar: 7,
@@ -117,7 +117,7 @@ export const preguntas = {
               "Un grupo de personas que manejan datos",
             ],
             correcta: 0,
-            explicacionId: "2010102001",
+            preguntaId: "2010102001",
           },
           {
             id: "2010102002",
@@ -129,7 +129,7 @@ export const preguntas = {
               "Los procedimientos operativos",
             ],
             correcta: 1,
-            explicacionId: "2010102002",
+            preguntaId: "2010102002",
           },
           {
             id: "2010102003",
@@ -141,14 +141,14 @@ export const preguntas = {
               "Los datos procesados por el sistema",
             ],
             correcta: 2,
-            explicacionId: "2010102003",
+            preguntaId: "2010102003",
           },
           {
             id: "2010102004",
             pregunta: "¿Qué elemento del sistema de información se refiere a la interconexión entre sistemas?",
             opciones: ["Hardware", "Software", "Comunicaciones", "Procedimientos"],
             correcta: 2,
-            explicacionId: "2010102004",
+            preguntaId: "2010102004",
           },
           {
             id: "2010102005",
@@ -160,7 +160,7 @@ export const preguntas = {
               "Los usuarios del sistema",
             ],
             correcta: 2,
-            explicacionId: "2010102005",
+            preguntaId: "2010102005",
           },
           {
             id: "2010102006",
@@ -172,7 +172,7 @@ export const preguntas = {
               "Todos los usuarios que se relacionan con el sistema",
             ],
             correcta: 3,
-            explicacionId: "2010102006",
+            preguntaId: "2010102006",
           },
           {
             id: "2010102007",
@@ -184,7 +184,7 @@ export const preguntas = {
               "Los datos procesados por el sistema",
             ],
             correcta: 2,
-            explicacionId: "2010102007",
+            preguntaId: "2010102007",
           },
         ],
         minimoParaAprobar: 5,
@@ -197,14 +197,14 @@ export const preguntas = {
               "¿Qué característica de un sistema de información se refiere a que la información almacenada debe ser importante?",
             opciones: ["Persistencia", "Relevancia", "Integración", "Control"],
             correcta: 1,
-            explicacionId: "2010103001",
+            preguntaId: "2010103001",
           },
           {
             id: "2010103002",
             pregunta: "¿Qué característica permite que la información permanezca en el sistema de forma indefinida?",
             opciones: ["Relevancia", "Persistencia", "Flujo de información", "Integración"],
             correcta: 1,
-            explicacionId: "2010103002",
+            preguntaId: "2010103002",
           },
           {
             id: "2010103003",
@@ -212,49 +212,49 @@ export const preguntas = {
               "¿Qué característica se refiere a que los componentes del sistema comparten información de manera ordenada?",
             opciones: ["Control", "Flujo de información", "Integración", "Persistencia"],
             correcta: 2,
-            explicacionId: "2010103003",
+            preguntaId: "2010103003",
           },
           {
             id: "2010103004",
             pregunta: "¿Qué característica indica que el sistema sigue un orden predeterminado en sus funciones?",
             opciones: ["Flujo de información", "Control", "Relevancia", "Integración"],
             correcta: 0,
-            explicacionId: "2010103004",
+            preguntaId: "2010103004",
           },
           {
             id: "2010103005",
             pregunta: "¿Qué característica se refiere al procesamiento lógico de entradas para determinar salidas?",
             opciones: ["Persistencia", "Integración", "Control", "Relevancia"],
             correcta: 2,
-            explicacionId: "2010103005",
+            preguntaId: "2010103005",
           },
           {
             id: "2010103006",
             pregunta: "¿Qué función del sistema de información se encarga de capturar datos en bruto?",
             opciones: ["Almacenamiento", "Procesamiento", "Distribución", "Recopilación"],
             correcta: 3,
-            explicacionId: "2010103006",
+            preguntaId: "2010103006",
           },
           {
             id: "2010103007",
             pregunta: "¿Qué función guarda de forma estructurada la información recopilada?",
             opciones: ["Recopilación", "Almacenamiento", "Procesamiento", "Distribución"],
             correcta: 1,
-            explicacionId: "2010103007",
+            preguntaId: "2010103007",
           },
           {
             id: "2010103008",
             pregunta: "¿Qué función convierte una entrada de datos en una salida mediante instrucciones?",
             opciones: ["Recopilación", "Almacenamiento", "Procesamiento", "Distribución"],
             correcta: 2,
-            explicacionId: "2010103008",
+            preguntaId: "2010103008",
           },
           {
             id: "2010103009",
             pregunta: "¿Qué función transfiere la información procesada a las personas o a otros sistemas?",
             opciones: ["Recopilación", "Almacenamiento", "Procesamiento", "Distribución"],
             correcta: 3,
-            explicacionId: "2010103009",
+            preguntaId: "2010103009",
           },
         ],
         minimoParaAprobar: 7,
@@ -272,7 +272,7 @@ export const preguntas = {
               "Sistemas de apoyo a las decisiones (DSS)",
             ],
             correcta: 2,
-            explicacionId: "2010104001",
+            preguntaId: "2010104001",
           },
           {
             id: "2010104002",
@@ -285,7 +285,7 @@ export const preguntas = {
               "Sistemas de apoyo a las decisiones (DSS)",
             ],
             correcta: 0,
-            explicacionId: "2010104002",
+            preguntaId: "2010104002",
           },
           {
             id: "2010104003",
@@ -297,7 +297,7 @@ export const preguntas = {
               "Sistemas de apoyo a las decisiones (DSS)",
             ],
             correcta: 1,
-            explicacionId: "2010104003",
+            preguntaId: "2010104003",
           },
           {
             id: "2010104004",
@@ -310,7 +310,7 @@ export const preguntas = {
               "Sistema de información para ejecutivos (EIS)",
             ],
             correcta: 2,
-            explicacionId: "2010104004",
+            preguntaId: "2010104004",
           },
           {
             id: "2010104005",
@@ -323,7 +323,7 @@ export const preguntas = {
               "Sistemas Expertos (SE)",
             ],
             correcta: 1,
-            explicacionId: "2010104005",
+            preguntaId: "2010104005",
           },
           {
             id: "2010104006",
@@ -335,7 +335,7 @@ export const preguntas = {
               "Sistemas Expertos (SE)",
             ],
             correcta: 0,
-            explicacionId: "2010104006",
+            preguntaId: "2010104006",
           },
           {
             id: "2010104007",
@@ -348,7 +348,7 @@ export const preguntas = {
               "Sistemas Expertos (SE)",
             ],
             correcta: 2,
-            explicacionId: "2010104007",
+            preguntaId: "2010104007",
           },
           {
             id: "2010104008",
@@ -360,7 +360,7 @@ export const preguntas = {
               "Sistemas Expertos (SE)",
             ],
             correcta: 3,
-            explicacionId: "2010104008",
+            preguntaId: "2010104008",
           },
           {
             id: "2010104008",
@@ -372,7 +372,7 @@ export const preguntas = {
               "Basados en procesamiento de transacciones (TPS)",
             ],
             correcta: 3,
-            explicacionId: "2010104009",
+            preguntaId: "2010104009",
           },
         ],
         minimoParaAprobar: 7,
@@ -380,14 +380,14 @@ export const preguntas = {
       "2010201000e": {
     preguntas: [
       {
-        explicacionId: "2010201001",
+        preguntaId: "2010201001",
         pregunta: "¿Quién describió la arquitectura que se considera la base de los ordenadores modernos?",
         opciones: ["Alan Turing", "John von Neumann", "Charles Babbage", "Ada Lovelace"],
         correcta: 1,
         id: "2010201001",
       },
       {
-        explicacionId: "2010201002",
+        preguntaId: "2010201002",
         pregunta: "¿Qué componentes incluye la unidad de procesamiento (CPU) en la arquitectura von Neumann?",
         opciones: [
           "Unidad aritmético lógica, unidad de control y registros",
@@ -399,7 +399,7 @@ export const preguntas = {
         id: "2010201001",
       },
       {
-        explicacionId: "2010201003",
+        preguntaId: "2010201003",
         pregunta: "¿Cuál es una característica principal de la arquitectura Von Neumann?",
         opciones: [
           "Memorias separadas para instrucciones y datos",
@@ -411,7 +411,7 @@ export const preguntas = {
         id: "2010201002",
       },
       {
-        explicacionId: "2010201004",
+        preguntaId: "2010201004",
         pregunta: "¿Qué se conoce como 'cuello de botella Von Neumann'?",
         opciones: [
           "La limitación en la velocidad de la CPU",
@@ -423,7 +423,7 @@ export const preguntas = {
         id: "2010201002",
       },
       {
-        explicacionId: "2010201005",
+        preguntaId: "2010201005",
         pregunta: "¿Cuál es la principal diferencia entre la arquitectura Harvard y la arquitectura von Neumann?",
         opciones: [
           "La arquitectura Harvard no utiliza CPU",
@@ -444,7 +444,7 @@ export const preguntas = {
           "Simplificación del diseño del procesador",
         ],
         correcta: 2,
-        explicacionId: "2010201006",
+        preguntaId: "2010201006",
       },
       {
         id: "2010201004",
@@ -456,7 +456,7 @@ export const preguntas = {
           "Utiliza la memoria principal como caché",
         ],
         correcta: 1,
-        explicacionId: "2010201007",
+        preguntaId: "2010201007",
       },
       {
         id: "2010201004",
@@ -469,7 +469,7 @@ export const preguntas = {
           "Reducir el tamaño total de la memoria",
         ],
         correcta: 1,
-        explicacionId: "2010201008",
+        preguntaId: "2010201008",
       },
       {
         id: "2010201005",
@@ -481,7 +481,7 @@ export const preguntas = {
           "En el tipo de arquitectura de caché",
         ],
         correcta: 2,
-        explicacionId: "2010201009",
+        preguntaId: "2010201009",
       },
       {
         id: "2010201005",
@@ -493,35 +493,35 @@ export const preguntas = {
           "Sistema de Instrucciones para Manejo de Datos",
         ],
         correcta: 2,
-        explicacionId: "2010201010",
+        preguntaId: "2010201010",
       },
       {
         id: "2010201005",
         pregunta: "¿Cuál de las siguientes arquitecturas de Flynn es considerada poco común?",
         opciones: ["SISD", "SIMD", "MISD", "MIMD"],
         correcta: 2,
-        explicacionId: "2010201011",
+        preguntaId: "2010201011",
       },
       {
         id: "2010201005",
         pregunta: "¿Qué tipo de arquitectura según Flynn utilizan típicamente los sistemas distribuidos?",
         opciones: ["SISD", "SIMD", "MISD", "MIMD"],
         correcta: 3,
-        explicacionId: "2010201012",
+        preguntaId: "2010201012",
       },
       {
         id: "2010201005",
         pregunta: "¿Qué arquitectura de Flynn corresponde a la Arquitectura Von-Neumann tradicional?",
         opciones: ["SISD", "SIMD", "MISD", "MIMD"],
         correcta: 0,
-        explicacionId: "2010201013",
+        preguntaId: "2010201013",
       },
       {
         id: "2010201006",
         pregunta: "¿Quién realizó una nueva clasificación ampliando la arquitectura MIMD de Flynn?",
         opciones: ["John von Neumann", "Michael J. Flynn", "Andrew S. Tanenbaum", "Gordon Moore"],
         correcta: 2,
-        explicacionId: "2010201014",
+        preguntaId: "2010201014",
       },
       {
         id: "2010201006",
@@ -533,14 +533,14 @@ export const preguntas = {
           "Unique Memory Architecture",
         ],
         correcta: 1,
-        explicacionId: "2010201015",
+        preguntaId: "2010201015",
       },
       {
         id: "2010201006",
         pregunta: "En la clasificación de Tanenbaum, ¿qué tipo de arquitectura utiliza solo memoria caché?",
         opciones: ["UMA", "NUMA", "COMA", "MPP"],
         correcta: 2,
-        explicacionId: "2010201016",
+        preguntaId: "2010201016",
       },
       {
         id: "2010201006",
@@ -552,7 +552,7 @@ export const preguntas = {
           "Coordinated Output Workers",
         ],
         correcta: 1,
-        explicacionId: "2010201017",
+        preguntaId: "2010201017",
       },
       {
         id: "2010201006",
@@ -565,7 +565,7 @@ export const preguntas = {
           "Clusters y sistemas de multiprocesamiento masivo (MPP)",
         ],
         correcta: 3,
-        explicacionId: "2010201018",
+        preguntaId: "2010201018",
       },
     ],
     minimoParaAprobar: 13,
@@ -582,7 +582,7 @@ export const preguntas = {
           "El procesador principal del ordenador",
         ],
         correcta: 1,
-        explicacionId: "2010301001",
+        preguntaId: "2010301001",
       },
       {
         id: "2010301002",
@@ -594,7 +594,7 @@ export const preguntas = {
           "Almacenar información de configuración",
         ],
         correcta: 2,
-        explicacionId: "2010301002",
+        preguntaId: "2010301002",
       },
       {
         id: "2010301003",
@@ -606,7 +606,7 @@ export const preguntas = {
           "Un conector de alimentación",
         ],
         correcta: 2,
-        explicacionId: "2010301003",
+        preguntaId: "2010301003",
       },
       {
         id: "2010301004",
@@ -618,7 +618,7 @@ export const preguntas = {
           "El reloj del sistema",
         ],
         correcta: 1,
-        explicacionId: "2010301004",
+        preguntaId: "2010301004",
       },
       {
         id: "2010301005",
@@ -630,7 +630,7 @@ export const preguntas = {
           "Conectores para dispositivos externos",
         ],
         correcta: 2,
-        explicacionId: "2010301005",
+        preguntaId: "2010301005",
       },
       {
         id: "2010301006",
@@ -642,7 +642,7 @@ export const preguntas = {
           "Proporcionar alimentación eléctrica",
         ],
         correcta: 2,
-        explicacionId: "2010301006",
+        preguntaId: "2010301006",
       },
       {
         id: "2010301007",
@@ -654,7 +654,7 @@ export const preguntas = {
           "Gestionar la interconexión entre periféricos",
         ],
         correcta: 1,
-        explicacionId: "2010301007",
+        preguntaId: "2010301007",
       },
       {
         id: "2010301008",
@@ -666,7 +666,7 @@ export const preguntas = {
           "Las instrucciones de la CPU",
         ],
         correcta: 2,
-        explicacionId: "2010301008",
+        preguntaId: "2010301008",
       },
       {
         id: "2010301009",
@@ -678,7 +678,7 @@ export const preguntas = {
           "Las ranuras de expansión con el chipset",
         ],
         correcta: 1,
-        explicacionId: "2010301009",
+        preguntaId: "2010301009",
       },
       {
         id: "2010301010",
@@ -690,14 +690,14 @@ export const preguntas = {
           "Almacenar información de configuración",
         ],
         correcta: 1,
-        explicacionId: "2010301010",
+        preguntaId: "2010301010",
       },
       {
         id: "2010301011",
         pregunta: "¿Qué norma suelen cumplir los conectores de entrada/salida en la placa base?",
         opciones: ["USB 3.0", "IEEE 1394", "PC99", "SATA III"],
         correcta: 2,
-        explicacionId: "2010301011",
+        preguntaId: "2010301011",
       },
       {
         id: "2010301012",
@@ -709,7 +709,7 @@ export const preguntas = {
           "Conectores para el procesador",
         ],
         correcta: 1,
-        explicacionId: "2010301012",
+        preguntaId: "2010301012",
       },
     ],
     minimoParaAprobar: 7,
@@ -726,7 +726,7 @@ export const preguntas = {
           "Gestionar la red de comunicaciones",
         ],
         correcta: 1,
-        explicacionId: "2010302001",
+        preguntaId: "2010302001",
       },
       {
         id: "2010302002",
@@ -738,14 +738,14 @@ export const preguntas = {
           "Tamaño físico del procesador",
         ],
         correcta: 3,
-        explicacionId: "2010302002",
+        preguntaId: "2010302002",
       },
       {
         id: "2010302003",
         pregunta: "¿Cuál de los siguientes NO es un componente principal de la CPU?",
         opciones: ["Unidad de control (UC)", "Unidad aritmético lógica (UAL)", "Memoria RAM", "Conjunto de Registros"],
         correcta: 2,
-        explicacionId: "2010302003",
+        preguntaId: "2010302003",
       },
       {
         id: "2010302004",
@@ -757,7 +757,7 @@ export const preguntas = {
           "No hay diferencia significativa entre RISC y CISC",
         ],
         correcta: 1,
-        explicacionId: "2010302004",
+        preguntaId: "2010302004",
       },
       {
         id: "2010302005",
@@ -769,14 +769,14 @@ export const preguntas = {
           "Execute, Fetch, Decode, Store",
         ],
         correcta: 2,
-        explicacionId: "2010302005",
+        preguntaId: "2010302005",
       },
       {
         id: "2010302006",
         pregunta: "¿En qué modo de direccionamiento el operando está incluido directamente en la instrucción?",
         opciones: ["Implícito", "Inmediato", "Directo", "Indirecto"],
         correcta: 1,
-        explicacionId: "2010302006",
+        preguntaId: "2010302006",
       },
       {
         id: "2010302007",
@@ -788,7 +788,7 @@ export const preguntas = {
           "No hay diferencia significativa entre multihilo y multiprocesamiento",
         ],
         correcta: 1,
-        explicacionId: "2010302007",
+        preguntaId: "2010302007",
       },
     ],
     minimoParaAprobar: 5,
@@ -805,7 +805,7 @@ export const preguntas = {
           "La ROM se usa para almacenar el sistema operativo, mientras que la RAM se usa para la BIOS",
         ],
         correcta: 1,
-        explicacionId: "2010303002",
+        preguntaId: "2010303002",
       },
       {
         id: "2010303002",
@@ -813,14 +813,14 @@ export const preguntas = {
           "¿Cuál de los siguientes tipos de ROM permite ser borrada y regrabada múltiples veces usando electricidad?",
         opciones: ["Mask ROM", "PROM", "UV-EPROM", "EEPROM"],
         correcta: 3,
-        explicacionId: "2010303002",
+        preguntaId: "2010303002",
       },
       {
         id: "2010303003",
         pregunta: "¿Qué significa POST en el contexto de las rutinas de la memoria ROM?",
         opciones: ["Power On System Test", "Power On Self Test", "Program On System Test", "Program On Self Test"],
         correcta: 1,
-        explicacionId: "2010303003",
+        preguntaId: "2010303003",
       },
       {
         id: "2010303004",
@@ -832,14 +832,14 @@ export const preguntas = {
           "Se usa para almacenar permanentemente el sistema operativo",
         ],
         correcta: 2,
-        explicacionId: "2010303004",
+        preguntaId: "2010303004",
       },
       {
         id: "2010303005",
         pregunta: "¿Cuál de los siguientes NO es un tipo de módulo de memoria RAM?",
         opciones: ["SIPP", "SIMM", "DIMM", "RISC"],
         correcta: 3,
-        explicacionId: "2010303005",
+        preguntaId: "2010303005",
       },
       {
         id: "2010303006",
@@ -851,7 +851,7 @@ export const preguntas = {
           "La DRAM es no volátil, mientras que la SRAM es volátil",
         ],
         correcta: 2,
-        explicacionId: "2010303006",
+        preguntaId: "2010303006",
       },
       {
         id: "2010303007",
@@ -863,7 +863,7 @@ export const preguntas = {
           "Consume menos energía que la RAM",
         ],
         correcta: 1,
-        explicacionId: "2010303007",
+        preguntaId: "2010303007",
       },
       {
         id: "2010303008",
@@ -875,7 +875,7 @@ export const preguntas = {
           "Porque tienen mayor capacidad de almacenamiento",
         ],
         correcta: 2,
-        explicacionId: "2010303008",
+        preguntaId: "2010303008",
       },
     ],
     minimoParaAprobar: 6,
@@ -892,22 +892,22 @@ export const preguntas = {
           "Generar informes del sistema",
         ],
         correcta: 2,
-        explicacionId: "2010304001",
+        preguntaId: "2010304001",
       },
       {
-        id: "2010304002",
-        pregunta: "¿Cuál de los siguientes NO es un tipo de dispositivo periférico mencionado en el texto?",
+        id: "2010304001",
+        pregunta: "¿Cuál de los siguientes NO es un tipo de dispositivo de usuario?",
         opciones: [
-          "Dispositivos de interfaz de usuarios",
-          "Dispositivos de almacenamiento de datos",
-          "Dispositivos de comunicación con otros procesadores",
-          "Dispositivos de procesamiento paralelo",
+          "Ratón",
+          "Teclado",
+          "Pantala",
+          "Altavoz",
         ],
         correcta: 3,
-        explicacionId: "2010304001",
+        preguntaId: "2010304002",
       },
       {
-        id: "2010304003",
+        id: "2010304001",
         pregunta: "¿Qué se considera como memoria secundaria?",
         opciones: [
           "La memoria RAM",
@@ -916,10 +916,10 @@ export const preguntas = {
           "La memoria caché",
         ],
         correcta: 2,
-        explicacionId: "2010304001",
+        preguntaId: "2010304003",
       },
       {
-        id: "2010304004",
+        id: "2010304001",
         pregunta: "¿Qué tipo de dispositivos permiten la comunicación a través de redes?",
         opciones: [
           "Dispositivos de interfaz de usuarios",
@@ -928,10 +928,10 @@ export const preguntas = {
           "Dispositivos de adquisición de datos",
         ],
         correcta: 2,
-        explicacionId: "2010304001",
+        preguntaId: "2010304004",
       },
       {
-        id: "2010304005",
+        id: "2010304002",
         pregunta: "¿Qué característica comparten todos los dispositivos periféricos según el texto?",
         opciones: [
           "Tienen la misma velocidad de transferencia",
@@ -940,10 +940,10 @@ export const preguntas = {
           "Tienen la misma forma de funcionamiento",
         ],
         correcta: 2,
-        explicacionId: "2010304002",
+        preguntaId: "2010304005",
       },
       {
-        id: "2010304006",
+        id: "2010304003",
         pregunta: "¿Qué es un controlador o driver?",
         opciones: [
           "Un dispositivo de hardware que controla otros periféricos",
@@ -952,10 +952,10 @@ export const preguntas = {
           "Un tipo de memoria que almacena instrucciones para los periféricos",
         ],
         correcta: 1,
-        explicacionId: "2010304003",
+        preguntaId: "2010304006",
       },
       {
-        id: "2010304007",
+        id: "2010304003",
         pregunta: "¿Cuál es la función principal de un controlador o driver?",
         opciones: [
           "Aumentar la velocidad de transferencia de datos",
@@ -964,7 +964,7 @@ export const preguntas = {
           "Sincronizar todos los dispositivos periféricos",
         ],
         correcta: 2,
-        explicacionId: "2010304003",
+        preguntaId: "2010304007",
       },
     ],
     minimoParaAprobar: 5,
@@ -972,7 +972,7 @@ export const preguntas = {
   "2010305000e": {
     preguntas: [
       {
-        id: "2010305001",
+        id: "2010305002",
         pregunta: "¿Cuál es la principal diferencia entre el bus de datos y el bus de direcciones?",
         opciones: [
           "El bus de datos es más rápido que el bus de direcciones",
@@ -981,10 +981,10 @@ export const preguntas = {
           "El bus de datos es unidireccional y el bus de direcciones es bidireccional",
         ],
         correcta: 1,
-        explicacionId: "2010305002",
+        preguntaId: "2010305001",
       },
       {
-        id: "2010305002",
+        id: "2010305003",
         pregunta: "¿Qué característica define a un bus serie?",
         opciones: [
           "Transmite varios bits simultáneamente",
@@ -993,10 +993,10 @@ export const preguntas = {
           "Es más rápido que un bus paralelo en todas las situaciones",
         ],
         correcta: 2,
-        explicacionId: "2010305003",
+        preguntaId: "2010305002",
       },
       {
-        id: "2010305003",
+        id: "2010305004",
         pregunta: "¿Cuál fue la principal ventaja del bus AGP sobre el bus PCI para tarjetas gráficas?",
         opciones: [
           "AGP era un bus serie mientras que PCI era paralelo",
@@ -1005,7 +1005,7 @@ export const preguntas = {
           "AGP utilizaba voltajes más bajos, reduciendo el consumo de energía",
         ],
         correcta: 1,
-        explicacionId: "2010305004",
+        preguntaId: "2010305004",
       },
       {
         id: "2010305004",
@@ -1017,10 +1017,10 @@ export const preguntas = {
           "Solo se utiliza para conectar dispositivos de almacenamiento",
         ],
         correcta: 2,
-        explicacionId: "2010305004",
+        preguntaId: "2010305005",
       },
       {
-        id: "2010305005",
+        id: "2010305004",
         pregunta: "¿Cuál es una ventaja clave del estándar M.2 sobre SATA para el almacenamiento?",
         opciones: [
           "M.2 siempre ofrece velocidades más altas que SATA",
@@ -1029,10 +1029,10 @@ export const preguntas = {
           "M.2 es compatible con todos los dispositivos que usan SATA",
         ],
         correcta: 2,
-        explicacionId: "2010305004",
+        preguntaId: "2010305006",
       },
       {
-        id: "2010305006",
+        id: "2010305004",
         pregunta: "¿Qué característica comparten USB 4.0 y Thunderbolt 4?",
         opciones: [
           "Ambos son buses paralelos",
@@ -1041,10 +1041,10 @@ export const preguntas = {
           "Solo se utilizan para dispositivos de almacenamiento",
         ],
         correcta: 1,
-        explicacionId: "2010305004",
+        preguntaId: "2010305007",
       },
       {
-        id: "2010305007",
+        id: "2010305004",
         pregunta: "¿Cuál es una característica distintiva de HyperTransport?",
         opciones: [
           "Es una tecnología exclusivamente paralela",
@@ -1053,7 +1053,7 @@ export const preguntas = {
           "Tiene una velocidad de transferencia fija de 10 GB/s",
         ],
         correcta: 2,
-        explicacionId: "2010305004",
+        preguntaId: "2010305008",
       },
     ],
     minimoParaAprobar: 5,
