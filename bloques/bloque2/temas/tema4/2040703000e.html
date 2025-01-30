@@ -1,0 +1,125 @@
+<div class="teoria">
+  <article>
+  <h2>7.3. TAREAS ADMINISTRATIVAS Y SCRIPTING EN LINUX</h2>
+  
+  <span id="2040703001">
+    <h3>Programación de Tareas</h3>
+    <p>En sistemas Unix/Linux, se utilizan los siguientes comandos para ejecutar tareas regularmente:</p>
+    <ul>
+      <li><strong>cron:</strong> Administrador regular de procesos en segundo plano.</li>
+      <li><strong>at:</strong> Ejecuta un programa en un momento específico en el futuro.</li>
+      <li><strong>batch:</strong> Similar a at, pero la tarea solo se ejecuta si la carga del sistema es inferior a 0.8.</li>
+    </ul>
+  
+    <h4>cron</h4>
+    <p>Archivos importantes:</p>
+    <ul>
+      <li><code>/etc/crontab</code></li>
+      <li><code>/var/spool/cron/nombreUsuario</code></li>
+      <li><code>/etc/cron.d</code>, <code>/etc/cron.hourly</code>, <code>/etc/cron.daily</code>, <code>/etc/cron.weekly</code>, <code>/etc/cron.monthly</code></li>
+    </ul>
+  
+    <p>Formato de cada línea del archivo crontab:</p>
+    <pre><code>Min. Hora Día-del-Mes Mes Día-de-la-semana Usuario Comando</code></pre>
+  
+    <p>Comandos útiles:</p>
+    <ul>
+      <li><code>crontab -l</code>: Lista las tareas especificadas en el crontab</li>
+      <li><code>crontab -r</code>: Elimina las tareas programadas por el usuario</li>
+      <li><code>crontab -e</code>: Edita el crontab</li>
+    </ul>
+  
+    <h4>at</h4>
+    <p>Sintaxis básica: <code>at hora fecha comando</code></p>
+    <p>Ejemplos:</p>
+    <pre><code>at now + 2 minutes
+  at 16:00 today
+  at 15:00 10/03/08</code></pre>
+  
+    <p>Comandos útiles:</p>
+    <ul>
+      <li><code>at -l</code> o <code>atq</code>: Visualiza tareas pendientes</li>
+      <li><code>at -d nº_trabajo</code> o <code>atrm nº_trabajo</code>: Elimina tareas pendientes</li>
+    </ul>
+  </span>
+  
+  <span id="2040703002">
+    <h3>Montaje de Sistemas de Archivos</h3>
+    <h4>Archivo /etc/fstab</h4>
+    <p>Contiene información sobre el montaje de sistemas de archivos. Formato básico:</p>
+    <pre><code>Dispositivo Punto-de-montaje Tipo-de-sistema Opciones Descargado Comprobado</code></pre>
+  
+    <h4>Comando mount</h4>
+    <p>Sintaxis básica: <code>mount -t tipo origen punto_de_montaje opciones</code></p>
+    <p>Ejemplos:</p>
+    <pre><code>mount -t iso9660 /dev/cdrom /mnt/cdrom
+  mount -t vfat /dev/hdb5 /mnt/c -r</code></pre>
+  
+    <p>Para desmontar: <code>umount punto_de_montaje</code></p>
+  </span>
+  
+  <span id="2040703003">
+    <h3>Almacenamiento Remoto</h3>
+    <h4>NFS (Network File System)</h4>
+    <p>Protocolo estándar de compartición de ficheros de UNIX.</p>
+    <p>Exportar sistema de ficheros NFS (en /etc/exports):</p>
+    <pre><code>/misc/export pc1.cetic.es(rw)</code></pre>
+  
+    <p>Montar cliente NFS:</p>
+    <pre><code>mount servidorNFS:/directorio /directorioLocal opciones</code></pre>
+  
+    <h4>Samba</h4>
+    <p>Utiliza el protocolo SMB para compartir ficheros e impresoras.</p>
+    <p>Listar recursos compartidos:</p>
+    <pre><code>smbclient -L ip -U usuario%contraseña</code></pre>
+  
+    <p>Configuración básica en /etc/samba/smb.conf:</p>
+    <pre><code>[sharename]
+  comment = Comentario
+  path = /ruta
+  valid users = usuario1 usuario2
+  writable = yes</code></pre>
+  </span>
+  
+  <span id="2040703004">
+    <h3>Programación Básica de Scripts en Linux</h3>
+    <p>Estructura básica de un script:</p>
+    <pre><code>#!/bin/bash
+  
+  # Comentarios
+  # Código del script</code></pre>
+  
+    <h4>Estructuras de Control</h4>
+    <p>Bucle for:</p>
+    <pre><code>for VAR in LIST
+  do
+    # cuerpo
+  done</code></pre>
+  
+    <p>Condicional if:</p>
+    <pre><code>if [ expresión ]
+  then
+    # código
+  else
+    # código
+  fi</code></pre>
+  
+    <p>Bucle while:</p>
+    <pre><code>while condicion
+  do
+    # comandos
+  done</code></pre>
+  
+    <p>Definición de funciones:</p>
+    <pre><code>function nombre_funcion {
+    # código de la función
+  }</code></pre>
+  
+    <p>Operaciones aritméticas:</p>
+    <pre><code>let resultado=100/13
+  resultado=$(expr 100 / 12)</code></pre>
+  </span>
+  
+  </article>
+  </div>
+  

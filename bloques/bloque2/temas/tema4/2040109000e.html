@@ -1,0 +1,118 @@
+<div class="teoria">
+  <article>
+  <h2>1.9. SISTEMA DE COMUNICACIONES</h2>
+  
+  <span id="2040109001">
+    <p>El sistema de comunicaciones es el componente de un sistema operativo que permite el intercambio de información entre procesos y programas que se ejecutan localmente con procesos y programas que se ejecutan de forma remota.</p>
+    <p>El sistema operativo es el responsable de:</p>
+    <ul>
+      <li>Controlar el envío y recepción de la información</li>
+      <li>Crear y mantener la comunicación para que las aplicaciones envíen y reciban información</li>
+      <li>Crear y mantener conexiones virtuales entre aplicaciones locales y aplicaciones remotas</li>
+    </ul>
+  </span>
+  
+  <span id="2040109002">
+    <h3>Funciones:</h3>
+    <ul>
+      <li>Gestionar los interfaces de red.</li>
+      <li>Crear y mantener puntos de comunicación que sirvan a las aplicaciones para enviar y recibir información.</li>
+      <li>Crear y mantener conexiones virtuales entre aplicaciones locales y remotas.</li>
+      <li>Comunicación de procesos locales.</li>
+    </ul>
+  </span>
+  
+  <span id="2040109003">
+    <h3>Tipos de procesos:</h3>
+    <p>Los procesos ejecutándose concurrentemente en un sistema operativo pueden ser:</p>
+    <ul>
+      <li><strong>Independientes:</strong> Si no afectan ni son afectados por otro proceso en el sistema.</li>
+      <li><strong>Cooperantes:</strong> Si afectan o son afectados por otro proceso en el sistema.</li>
+    </ul>
+  </span>
+  
+  <span id="2040109004">
+    <h3>Sistemas de comunicación entre procesos:</h3>
+    <table>
+      <tr>
+        <th>Método</th>
+        <th>Descripción</th>
+        <th>Sistema operativo</th>
+      </tr>
+      <tr>
+        <td>Archivo</td>
+        <td>Es el método de comunicación más lento debido a la sobrecarga de leer y escribir en el propio fichero.</td>
+        <td>Todos los sistemas operativos.</td>
+      </tr>
+      <tr>
+        <td>Señal</td>
+        <td>Forma limitada de comunicación entre procesos. Es una notificación enviada a un proceso para informarle de un evento.</td>
+        <td>La mayoría de los Sistemas Operativos; algunos, como Windows, solo implementan señales en las librerías de C run-time.</td>
+      </tr>
+      <tr>
+        <td>Socket</td>
+        <td>Sistema de comunicación orientado a la conexión que permite intercambiar cualquier flujo de datos de manera fiable y ordenada.</td>
+        <td>La mayoría de los sistemas operativos.</td>
+      </tr>
+      <tr>
+        <td>Tubería sin nombre/Pipes</td>
+        <td>Cadena de procesos conectados de tal forma que la salida de un proceso es la entrada del siguiente siguiendo el modelo productor/consumidor.</td>
+        <td>Todos los sistemas POSIX.</td>
+      </tr>
+      <tr>
+        <td>Tubería con nombre</td>
+        <td>Similar a la tubería sin nombre, pero es creada por el sistema de archivos y por lo tanto no es temporal.</td>
+        <td>Todos los sistemas POSIX.</td>
+      </tr>
+      <tr>
+        <td>Semáforo</td>
+        <td>Variable especial que constituye el método clásico para restringir o permitir el acceso a recursos compartidos.</td>
+        <td>Todos los sistemas POSIX.</td>
+      </tr>
+      <tr>
+        <td>Memoria compartida</td>
+        <td>Requiere que los procesos comunicantes establezcan una región de memoria compartida.</td>
+        <td>Todos los sistemas POSIX.</td>
+      </tr>
+      <tr>
+        <td>Mensajes</td>
+        <td>Permite comunicar y sincronizar sus acciones sin necesidad de compartir memoria.</td>
+        <td>Usado en los paradigmas MPI, Java RMI, CORBA y otros.</td>
+      </tr>
+      <tr>
+        <td>Mapa de Memoria</td>
+        <td>Consiste en utilizar el mismo espacio de direcciones para direccionar tanto posiciones de memoria como dispositivos físicos.</td>
+        <td>Todos los sistemas POSIX. Windows también es apto para esta técnica.</td>
+      </tr>
+      <tr>
+        <td>Cola de Mensajes</td>
+        <td>Estructura de datos gestionada por el kernel, en la cual van a poder escribir y leer los procesos que se ejecuten en el sistema.</td>
+        <td>La mayoría de los Sistemas Operativos.</td>
+      </tr>
+      <tr>
+        <td>Puertos</td>
+        <td>Zona de la memoria RAM del ordenador asociada con un puerto físico o un canal de comunicación.</td>
+        <td>Algunos Sistemas Operativos.</td>
+      </tr>
+    </table>
+  </span>
+  
+  <h2>1.9.1 GESTOR DE RECURSOS</h2>
+  
+  <span id="2040109005">
+    <p>Para que un programa pueda realizar las tareas solicitadas por el usuario requiere de la asignación de recursos para cada una de esas tareas. El sistema operativo administra los recursos que se deben asignar a los programas en ejecución.</p>
+    <p>El sistema operativo administra todos los recursos del sistema incluyendo:</p>
+    <ul>
+      <li>CPU</li>
+      <li>Dispositivos de entrada y salida</li>
+      <li>Memoria principal (acceso directo)</li>
+      <li>Memoria secundaria (virtual)</li>
+      <li>Procesos o programas en ejecución</li>
+      <li>Resto de recursos del sistema</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  
+  

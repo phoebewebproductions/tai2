@@ -1,0 +1,208 @@
+<div class="teoria">
+  <article>
+  <h2>3.1 TIPOS DE SISTEMAS OPERATIVOS</h2>
+  
+  <span id="2040301001">
+    <p>Los sistemas operativos pueden ser de distintos tipos en función de la catalogación que utilicemos.</p>
+  </span>
+  
+  <h3>3.1.1 SISTEMAS OPERATIVOS POR SU ESTRUCTURA</h3>
+  
+  <span id="2040301002">
+    <ul>
+      <li><strong>Estructura monolítica:</strong> Es la estructura de los primeros sistemas operativos, consistía en un sólo programa desarrollado con rutinas entrelazadas que podían llamarse entre sí. Por lo general, eran sistemas operativos hechos a medida, pero difíciles de mantener.</li>
+      <li><strong>Estructura jerárquica:</strong> Conforme las necesidades de los usuarios aumentaron, los sistemas operativos fueron creciendo en complejidad y funciones. Esto llevó a que se hiciera necesaria una mayor organización del software del sistema operativo, dividiéndose en partes más pequeñas, diferenciadas por funciones y con una interfaz clara para interoperar con los demás elementos. Ejemplo: MULTICS.</li>
+      <li><strong>Máquina virtual:</strong> Integran distintos sistemas operativos dando la sensación de ser varias máquinas diferentes. Presentan una interfaz a cada proceso, mostrando una máquina que parece idéntica a la máquina real subyacente. Estas máquinas no son máquinas extendidas, son una réplica de la máquina real, de manera que en cada una de ellas se pueda ejecutar un sistema operativo diferente, que será el que ofrezca la máquina extendida al usuario. Ejemplos: VMware y VM/CMS</li>
+      <li><strong>Microkernel o Cliente-Servidor:</strong> Aíslan del núcleo las operaciones de gestión de memoria, entrada/salida, sistema de archivos, etc. Éste aislamiento incrementa la seguridad, la tolerancia a fallos y la portabilidad entre plataformas de hardware. El núcleo distribuye las diferentes tareas en porciones de código modulares y sencillas. Ejemplos: MAC OS X o AIX.</li>
+    </ul>
+  </span>
+  
+  <h3>3.1.2 SISTEMAS OPERATIVOS POR LAS OPERACIONES QUE IMPLEMENTAN EN SU NÚCLEO</h3>
+  
+  <span id="2040301003">
+    <p>El modo de ejecución del procesador determina qué conjunto de instrucciones y a qué recursos del procesador se puede acceder.</p>
+    <p>Los procesadores ofrecen, como mínimo, dos modos de funcionamiento del procesador:</p>
+    <ul>
+      <li><strong>Modo privilegiado/Modo supervisor:</strong> Permite el acceso a todo el conjunto de instrucciones que ofrece el procesador y a todos los recursos del sistema. Incluye también el conjunto de instrucciones del modo no privilegiado. Es el modo en el que se ejecuta el núcleo de un sistema operativo.</li>
+      <li><strong>Modo no privilegiado:</strong> Permite acceder a un subconjunto de las instrucciones que ofrece el procesador, es el modo en el que se ejecutan los procesos.</li>
+    </ul>
+  </span>
+  
+  <span id="2040301004">
+    <p>Los sistemas operativos se pueden clasificar en base a la cantidad de funcionalidades propias del sistema operativo que se implementan en su núcleo. En general distinguimos cuatro tipos:</p>
+    <ul>
+      <li><strong>Monolíticos:</strong> Gestionan los cuatro componentes fundamentales del sistema operativo en modo supervisor, esto incluye, la planificación de procesos, la administración de la memoria principal, la gestión de E/S y el administrador de ficheros.</li>
+      <li><strong>Micronúcleos:</strong> Implementan en su núcleo únicamente la planificación de procesos, la gestión de interrupciones (la parte básica fundamental de la gestión de E/S que necesariamente se tiene que realizar en modo privilegiado) y la comunicación entre procesos. Por tanto, la administración de memoria principal, la gestión de la E/S y la gestión de ficheros se realiza en modo usuario. En este tipo de sistema operativo hay procesos especiales propios del sistema operativo que implementan dichas funcionalidades en modo usuario y se denominan proceso servidor.</li>
+      <li><strong>Híbrido:</strong> A mitad de camino entre monolítico y micronúcleo, incluyen la gestión de dispositivos de E/S en modo supervisor con el fin de mejorar el rendimiento del sistema.</li>
+      <li><strong>Unikernel:</strong> Las aplicaciones se ejecutan en modo supervisor, dentro del espacio del núcleo del Sistema Operativo. Por tanto, la totalidad del código se ejecuta en modo privilegiado. Los procesos no invocan llamadas al sistema pues tienen acceso directo a los recursos del computador. El argumento para este diseño es el rendimiento a cambio de sacrificar la fiabilidad. Sólo es aplicable a sistemas de propósito muy específico.</li>
+    </ul>
+  </span>
+  
+  <span id="2040301005">
+    <p>En número de líneas de código, el núcleo monolítico es mayor que el micronúcleo, al implementar más componentes del sistema operativo que permiten la gestión del computador en el espacio del núcleo, es decir, en modo privilegiado.</p>
+    <p>Los sistemas operativos monolíticos ofrecen mejor rendimiento que los micronúcleos, pero los micronúcleos son más fiables, pues un fallo de programación en el núcleo lleva al traste con la ejecución del sistema.</p>
+  </span>
+  
+  <h3>3.1.3 SISTEMAS OPERATIVOS POR LOS SERVICIOS QUE OFRECEN</h3>
+  
+  <span id="2040301006">
+    <p>La clasificación de Sistemas Operativos por servicio se refiere al punto de vista del usuario final. Y se clasifica por tres clases:</p>
+    <ul>
+      <li>Por el número de usuarios.</li>
+      <li>Por el número de tareas</li>
+      <li>Por el número de procesadores</li>
+    </ul>
+  </span>
+  
+  <h3>3.1.4 SISTEMAS OPERATIVOS POR EL NÚMERO DE USUARIOS</h3>
+  
+  <span id="2040301007">
+    <ul>
+      <li><strong>Monousuario:</strong> Sistema operativo que solo puede ser ocupado por un único usuario en un determinado tiempo.</li>
+      <li><strong>Multiusuario:</strong> Proveer servicio y procesamiento a múltiples usuarios simultáneamente. La acción se produce estrictamente en forma pseudo-simultánea bajo el concepto tiempo compartido.</li>
+    </ul>
+  </span>
+  
+  <h3>3.1.5 SISTEMAS OPERATIVOS POR EL NÚMERO DE TAREAS</h3>
+  
+  <span id="2040301008">
+    <ul>
+      <li><strong>Monotarea/tarea única:</strong> Solamente puede estar ejecutando un proceso en un momento dado. Cuando se ejecuta una aplicación, guarda la parte residente del s.o. que controla las llamadas del sistema, a continuación toma el control de todo el ordenador y al finalizar vuelve a cargar el sistema cuando termina. Es una característica de los sistemas operativos más antiguos como MS-DOS. Los s.o monotarea son fáciles de diseñar y de programar pero debido a sus limitaciones y su debilidad ante software malicioso no se emplean en los s.o modernos.</li>
+      <li><strong>Multitarea:</strong> Pueden ejecutar múltiples procesos o aplicaciones compartiendo el tiempo de los procesadores disponibles de forma automática. Al fraccionar el tiempo del procesador entre varios programas el usuario tiene la sensación de que los programas se ejecutan simultáneamente.
+        <ul>
+          <li><strong>Multitarea cooperativa:</strong> El s.o. da el control a un proceso y es el propio proceso el que decide ceder el control pasando al estado de Espera. Esto puede ocasionar bloqueos si el proceso no cede el control por el motivo que sea. También puede crear latencias no predecibles e irregulares por lo que no puede ser utilizado en sistemas operativos en tiempo real.</li>
+          <li><strong>Multitarea apropiativa o preventiva:</strong> El s.o es el encargado de administrar repartiendo el tiempo de uso entre los procesos</li>
+          <li><strong>Real:</strong> Sólo se da en sistemas multiprocesador donde varios procesos se ejecutan al mismo tiempo en distintos procesadores. Ejemplos: variantes de Unix, Windows NT, Mac OS X.</li>
+        </ul>
+      </li>
+    </ul>
+  </span>
+  
+  <h3>3.1.6 SISTEMAS OPERATIVOS POR EL NÚMERO DE PROCESADORES</h3>
+  
+  <h4>3.1.6.1 MULTIPROCESADOR</h4>
+  
+  <span id="2040301009">
+    <p>Los ordenadores multiprocesador presentan retos de diseño que no se encuentran en los ordenadores uniprocesador. El mayor reto es evitar las interferencias en las lecturas y escrituras en memoria que se pueden producir al poder ejecutar dos programas simultáneamente.</p>
+    <p>Existen dos arquitecturas que resuelven estos problemas: UMA (SMP) y NUMA.</p>
+  </span>
+  
+  <h5>3.1.6.1.1 UMA: UNIFORM MEMORY ACCESS (ACCESO A MEMORIA UNIFORME)</h5>
+  
+  <span id="2040301010">
+    <p>También conocida como arquitectura SMP (Symmetric Multi-Processing)</p>
+    <ul>
+      <li>La memoria física es compartida por todos los procesadores y accedida a través de un bus de interconexión.</li>
+      <li>Todos los procesadores tienen la misma latencia y velocidad de acceso a cada dirección de la memoria.</li>
+      <li>Normalmente cada procesador tiene su propia memoria caché que, a su vez, está vinculada al bus que la conecta con la memoria compartida común, por lo que éstos sistemas deben lidiar con el problema de la coherencia de caché.</li>
+      <li>Todos los procesadores tienen la misma probabilidad de leer y escribir en la memoria.</li>
+    </ul>
+  </span>
+  
+  <h5>3.1.6.1.2 NUMA: NON UNIFORM MEMORY ACCESS (ACESO A MEMORIA NO UNIFORME)</h5>
+  
+  <span id="2040301011">
+    <ul>
+      <li>Cada procesador tiene su propia memoria principal y caché locales pero también pueden acceder a la memoria de otros procesadores.</li>
+      <li>El conjunto de memorias de cada procesador se combina para crear un único espacio de direcciones.</li>
+      <li>El tiempo de acceso a la memoria se basa en la distancia que existe entre el procesador y la dirección de memoria a la que quiere acceder siendo menor si la dirección corresponde a su memoria local.</li>
+      <li>Cada procesador tiene mayor probabilidad de leer y escribir en las direcciones locales que en las remotas.</li>
+      <li>La arquitectura NUMA utiliza redes de bus jerárquicas o en árbol para interconectar los bloques de memoria con los procesadores.</li>
+    </ul>
+  </span>
+  
+  <span id="2040301012">
+    <h5>DIFERENCIAS ENTRE UMA Y NUMA</h5>
+    <table>
+      <tr>
+        <th></th>
+        <th>UMA</th>
+        <th>NUMA</th>
+      </tr>
+      <tr>
+        <td>Controlador de Memoria</td>
+        <td>Utiliza uno dos controladores</td>
+        <td>Varios controladores</td>
+      </tr>
+      <tr>
+        <td>Tipos de buses</td>
+        <td>Simple, múltiple y redes, crossbar</td>
+        <td>Árbol o jerárquico</td>
+      </tr>
+      <tr>
+        <td>Tiempo de acceso a Memoria</td>
+        <td>Igual</td>
+        <td>Variable en función de la distancia del procesador</td>
+      </tr>
+      <tr>
+        <td>Orientado a</td>
+        <td>Aplicaciones de uso general y tiempo compartido</td>
+        <td>Aplicaciones en tiempo real y de tiempo crítico (tiempo real estricto)</td>
+      </tr>
+      <tr>
+        <td>Velocidad</td>
+        <td>Más lento</td>
+        <td>Más rápido</td>
+      </tr>
+      <tr>
+        <td>Ancho de Banda</td>
+        <td>Limitado</td>
+        <td>Mayor que UMA</td>
+      </tr>
+    </table>
+  </span>
+  
+  <h5>3.1.6.1.3 DSM: DISTRIBUTED SHARED MEMORY (MEMORIA HÍBRIDA COMPARTIDA)</h5>
+  
+  <span id="2040301013">
+    <p>Implementación hardware y software (vía sistema operativo o como biblioteca de programación) donde cada nodo de un cluster tiene acceso a su propia memoria privada limitada y a una amplia memoria compartida por el resto de nodos.</p>
+    <p>En sistemas operativos el DSM puede ser implementado como extensión de la arquitectura de memoria virtual subyacente siendo totalmente transparente para los usuarios o desarrolladores.</p>
+  </span>
+  
+  <h5>3.1.6.1.4 MEMORIA HÍBRIDA</h5>
+  
+  <span id="2040301014">
+    <p>La arquitectura combina memoria local para los datos locales y memoria de sistema compartida para los datos globales.</p>
+  </span>
+  
+  <h3>3.1.7 SISTEMAS OPERATIVOS POR LA FORMA EN QUE OFRECEN SUS SERVICIOS</h3>
+  
+  <span id="2040301015">
+    <h4>Sistemas operativos de Red (NOS Network Operating System)</h4>
+    <p>Ampliación de los sistemas operativos convencionales que permite la comunicación de un equipo informático con otros equipos en el ámbito de una red con el objetivo de poder acceder a los servicios y recursos presentes en la red. Ésta ampliación puede ser añadida a un sistema operativo existente (como el caso de MathSL o las primeras versiones de Novell que corrían sobre Windows NT) o venir integrada dentro del propio sistema operativo (los sistemas operativos actuales de Microsoft, Linux, Apple, Android, IOS, Windows Phone, etc).</p>
+    <p>Los objetivos generales de un sistema operativo de red son:</p>
+    <ul>
+      <li>Compartir recursos</li>
+      <li>Conectar todos los equipos y recursos de la red.</li>
+      <li>Gestionar los usuarios de forma centralizada.</li>
+      <li>Gestionar y monitorizar la red y sus componentes.</li>
+      <li>Coordinar las funciones de red</li>
+      <li>Proporcionar seguridad.</li>
+    </ul>
+    <p>Los componentes habituales son:</p>
+    <ul>
+      <li>Servidores: Equipos que proporcionan servicios a los clientes</li>
+      <li>Clientes: Equipos que acceden a los servicios proporcionados por los servidores.</li>
+      <li>Dominios: Agrupación lógica de equipos y usuarios con administración centralizada, por ejemplo, el Directorio Activo de Microsoft Windows o OpenLDAP en Linux.</li>
+      <li>Grupos de trabajo: Agrupación lógica de equipos y usuarios sin administración centralizada.</li>
+    </ul>
+  </span>
+  
+  <span id="2040301016">
+    <h4>Sistemas operativos Distribuidos</h4>
+    <p>Unión lógica de un grupo de sistemas operativos ejecutándose sobre un conjunto de nodos independientes donde cada nodo contiene un subconjunto de programas/servicios que componen una parte del sistema operativo distribuido.</p>
+    <p>El funcionamiento interno de los sistemas operativos distribuidos es transparente para el usuario. De ésta forma las aplicaciones y usuarios ven todo el sistema como un solo nodo.</p>
+    <p>Ejemplos de sistemas operativos distribuidos son Sprite, Solaris-MC, Mach, Chorus, Spring, Amoeba, Taos.</p>
+    <p>Las características principales son:</p>
+    <ul>
+      <li>Formados por una colección de sistemas autónomos capaces de comunicarse y cooperar mediante interconexiones hardware y software.</li>
+      <li>Proporcionan una abstracción de máquina virtual a los usuarios.</li>
+      <li>Tienen como objetivo principal la transparencia.</li>
+      <li>Generalmente proporcionan medios para la compartición global de recursos.</li>
+      <li>Integran servicios añadidos como la denominación global, sistemas de archivos distribuidos, facilidades para distribución de cálculos, etc.</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  

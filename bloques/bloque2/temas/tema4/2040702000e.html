@@ -1,0 +1,110 @@
+<div class="teoria">
+  <article>
+  <h2>7.2. ESTRUCTURA DE DIRECTORIOS Y ADMINISTRACIÓN EN LINUX</h2>
+  
+  <span id="2040702001">
+    <h3>Estructura de Directorios Básica (Filesystem Hierarchy Standard - FHS)</h3>
+    <p>La estructura de directorios en Linux sigue un estándar conocido como FHS. Algunos de los directorios más importantes son:</p>
+    <ul>
+      <li><strong>/</strong>: Directorio raíz</li>
+      <li><strong>/bin</strong>: Archivos binarios, ejecutables esenciales para todos los usuarios</li>
+      <li><strong>/sbin</strong>: Archivos binarios del SuperAdministrador</li>
+      <li><strong>/etc</strong>: Archivos de configuración del sistema estático no binarios</li>
+      <li><strong>/home</strong>: Contiene los directorios de trabajo de todos los usuarios salvo el root</li>
+      <li><strong>/root</strong>: Directorio home del superusuario root</li>
+      <li><strong>/var</strong>: Archivos de tamaño variable</li>
+      <li><strong>/tmp</strong>: Archivos temporales</li>
+      <li><strong>/usr</strong>: Aplicaciones para los usuarios</li>
+      <li><strong>/opt</strong>: Aplicaciones opcionales</li>
+    </ul>
+  </span>
+  
+  <span id="2040702002">
+    <h3>Niveles de Ejecución (Runlevels)</h3>
+    <p>Los sistemas Linux pueden arrancar en distintos modos de funcionamiento, conocidos como niveles de ejecución:</p>
+    <table>
+      <tr>
+        <th>Nivel</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>Alto</td>
+        <td>Apagado del sistema</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Modo de usuario único (Monousuario)</td>
+        <td>Nivel de ejecución mínimo orientado a reparar el sistema o para testeo</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Multiusuario con soporte de red</td>
+        <td>Inicia el sistema normalmente sin interfaz gráfica</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Multiusuario gráfico (X11)</td>
+        <td>Similar al nivel 3 pero con arranque automático de la interfaz gráfica</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Reinicio</td>
+        <td>Reinicio del sistema</td>
+      </tr>
+    </table>
+  </span>
+  
+  <span id="2040702003">
+    <h3>Administración de Usuarios</h3>
+    <p>Linux utiliza varios archivos importantes para la administración de usuarios:</p>
+    <ul>
+      <li><strong>/etc/passwd</strong>: Contiene la base de datos de usuarios</li>
+      <li><strong>/etc/shadow</strong>: Almacena las contraseñas de los usuarios de forma encriptada</li>
+      <li><strong>/etc/group</strong>: Contiene la base de datos de grupos del sistema</li>
+      <li><strong>/etc/gshadow</strong>: Contiene las contraseñas encriptadas de grupo</li>
+    </ul>
+  </span>
+  
+  <span id="2040702004">
+    <h3>Comandos de Administración de Usuarios</h3>
+    <ul>
+      <li><strong>useradd</strong>: Da de alta un usuario en el sistema</li>
+      <li><strong>groupadd</strong>: Da de alta un grupo</li>
+      <li><strong>passwd</strong>: Permite cambiar la contraseña de un usuario</li>
+    </ul>
+  </span>
+  
+  <span id="2040702005">
+    <h3>Seguridad de Ficheros</h3>
+    <ul>
+      <li><strong>chown</strong>: Cambia el usuario propietario de un archivo o directorio</li>
+      <li><strong>chgrp</strong>: Cambia el grupo propietario de un archivo o directorio</li>
+      <li><strong>chmod</strong>: Modifica los permisos de un fichero/directorio</li>
+      <li><strong>umask</strong>: Especifica la máscara de permisos del usuario</li>
+    </ul>
+  </span>
+  
+  <span id="2040702006">
+    <h3>Permisos en Linux</h3>
+    <p>El comando más utilizado para gestionar permisos es <strong>chmod</strong>. Puede usarse en modo relativo o absoluto:</p>
+    <h4>Modo Relativo:</h4>
+    <pre><code>chmod u|g|o|a +|-|= r|w|x nombreFichero</code></pre>
+    <h4>Modo Absoluto:</h4>
+    <pre><code>chmod numeroPropietario numeroGrupoPropietario numeroOtros</code></pre>
+  </span>
+  
+  <span id="2040702007">
+    <h3>FACL (File Access Control List)</h3>
+    <p>Permite modificar la granularidad con la que se aplican los permisos de un fichero definiendo sus listas de control de acceso personalizadas.</p>
+    <ul>
+      <li><strong>setfacl</strong>: Permite cambiar los permisos en las listas de control de acceso de un archivo o directorio</li>
+      <li><strong>getfacl</strong>: Permite visualizar las FACLs asociadas a un fichero</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  
+  

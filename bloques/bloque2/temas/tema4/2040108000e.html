@@ -1,0 +1,93 @@
+<div class="teoria">
+  <article>
+  <h2>1.8. PLANIFICACIÓN DE DISCO/PLANIFICACIÓN E/S</h2>
+  
+  <span id="2040108001">
+    <p>Método mediante el cual los sistemas operativos deciden el orden en el que se enviarán las peticiones de lectura y escritura al subsistema de disco.</p>
+    <p>Los objetivos deseables de los métodos de planificación de disco son:</p>
+    <ul>
+      <li>Minimizar el tiempo de búsqueda (seek time) en el disco.</li>
+      <li>Dar prioridad a las peticiones de E/S de ciertos procesos frente a otros menos prioritarios.</li>
+      <li>Asignar una parte del ancho de banda de lectura de disco a cada proceso.</li>
+      <li>Garantizar que no se produzcan deadlines. Las peticiones deben atenderse antes de un tiempo máximo determinado.</li>
+    </ul>
+  </span>
+  
+  <h3>1.8.1 ALGORITMOS DE PLANIFICACIÓN DE DISCO</h3>
+  
+  <span id="2040108002">
+    <p>Los algoritmos de planificación de disco más importantes son:</p>
+    <ul>
+      <li><strong>FCFS (First Come, First Served):</strong> Atiende las peticiones por orden de llegada dando preferencia a las que han llegado antes.</li>
+      <li><strong>SSF (Shortest Seek First):</strong> Atiende la petición más cercana desde la ubicación actual.</li>
+      <li><strong>Scan (algoritmo del ascensor):</strong> Atiende a las peticiones que se va encontrando en el sentido en el que se mueven las cabezas de lectura/escritura.</li>
+      <li><strong>C-Scan (Scan circular):</strong> Similar al Scan pero al llegar al extremo vuelve al principio sin servir ninguna solicitud. Recorre el disco en un solo sentido.</li>
+      <li><strong>Scan de N-pasos:</strong> Scan de N registros cada vez. Es un Scan que sólo da servicio a aquellas peticiones que se encuentran en espera cuando comienza un recorrido particular.</li>
+      <li><strong>F-Scan:</strong> Scan de N pasos, donde N es igual a la longitud de la cola de peticiones al comienzo del ciclo de Scan.</li>
+      <li><strong>Planificación aleatoria (random scheduling, RSS):</strong> La planificación no sigue ningún orden establecido si no que se atienden las peticiones de forma aleatoria. Se suele utilizar en procesos de análisis y simulación.</li>
+      <li><strong>FIFO (First In, First Out):</strong> También conocido como FCFS (First Come First Served). Atiende las peticiones en el orden estricto de llegada.</li>
+      <li><strong>LIFO (Last In, First Out):</strong> Atiende las peticiones en el orden inverso a la llegada. Se atienden primero las últimas que han llegado.</li>
+      <li><strong>SSTF (Shortest seek time first):</strong> Mejora de FIFO. La unidad mantiene un buffer de peticiones entrantes junto al cilindro donde se encuentran. Se atenderán primero las peticiones que se encuentren en el cilindro más cercano al que se encuentra en cada momento el cabezal. Este algoritmo puede provocar inanición de peticiones.</li>
+      <li><strong>CFQ (Completely Fair Queuing):</strong> Parecido al Round Robin de la planificación de procesos.</li>
+      <li><strong>Planificación anticipada (anticipatory scheduling):</strong> Realiza una demora controlada antes de realizar las peticiones de Entrada/Salida para reordenar las operaciones de búsqueda mejorando el desempeño y reduciendo de manera significativa las operaciones de petición de los discos duros.</li>
+    </ul>
+  </span>
+  
+  <h3>1.8.2 MÉTODOS DE ACCESO</h3>
+  
+  <span id="2040108003">
+    <p>Técnicas utilizadas para almacenar y recuperar datos utilizada por el sistema operativo.</p>
+    <ul>
+      <li><strong>BSAM (Método de Acceso Básico Secuencial):</strong> Lee los bytes del archivo en orden empezando desde el principio. No se pueden efectuar saltos en la posición del archivo por lo que los datos se almacenan en el orden en el que llegan.</li>
+      <li><strong>BDAM (Método de Acceso Directo):</strong> Apareció con la llegada de los dispositivos de acceso directo (discos magnéticos). También conocido como acceso aleatorio.</li>
+      <li><strong>Acceso indexado:</strong> Permite buscar archivos sin ningún orden utilizando listas con un campo clave o más datos del archivo. Se utiliza en búsquedas para encontrar cierta posición o cierto valor en un archivo.</li>
+      <li><strong>ISAM (Método de Acceso Secuencial Indizado):</strong> Almacena registros de forma secuencial y permite tanto el procesamiento secuencial como el aleatorio. Sus índices permiten el acceso a los registros seleccionados sin tener que buscar el archivo completo.</li>
+    </ul>
+  </span>
+  
+  <h3>1.8.3 ASIGNACIÓN DE ESPACIO DE ALMACENAMIENTO</h3>
+  
+  <span id="2040108004">
+    <p>El subsistema de archivos se debe encargar de localizar espacio libre en los medios de almacenamiento para guardar archivos, borrarlos, renombrarlos o agrandarlos.</p>
+    <p>Normalmente utiliza estructuras especiales y jerarquizadas llamadas directorios que contienen la lista de archivos creados y por cada archivo una serie de direcciones que contienen los datos de los mismos.</p>
+    <p><strong>Fragmentación externa:</strong> Se produce cuando los archivos han ocupado posiciones no contiguas de disco dejando demasiados bloques libres de pequeño tamaño, en los que no "caben" nuevos archivos.</p>
+    <p><strong>Fragmentación interna:</strong> Es la pérdida de espacio en disco producida porque el tamaño de un determinado archivo puede ser inferior al tamaño del clúster. Los archivos ocupan al menos un clúster. No puede haber dos archivos distintos en el mismo clúster.</p>
+  </span>
+  
+  <h3>1.8.4 MÉTODOS DE ASIGNACIÓN DE ESPACIO</h3>
+  
+  <span id="2040108005">
+    <h4>Asignación contigua:</h4>
+    <p>Cada directorio contiene una tabla con los nombres de sus archivos, la dirección del bloque inicial de cada archivo y la longitud del área asignada al archivo (número de bloques).</p>
+    <ul>
+      <li>Permite el acceso secuencial y directo.</li>
+      <li>Número de búsquedas y tiempo de búsqueda mínimos para acceder a archivos contiguos.</li>
+      <li>Puede producir fragmentación externa.</li>
+    </ul>
+  </span>
+  
+  <span id="2040108006">
+    <h4>Asignación enlazada/encadenada:</h4>
+    <p>Los directorios contienen una tabla con los nombres de sus archivos y un puntero al primer y último bloque del archivo.</p>
+    <ul>
+      <li>No genera fragmentación externa.</li>
+      <li>No se necesita declarar el tamaño del fichero en el momento de crearlo.</li>
+      <li>No es necesario compactar el disco.</li>
+      <li>Ocupa más espacio por el espacio ocupado por los punteros.</li>
+    </ul>
+  </span>
+  
+  <span id="2040108007">
+    <h4>Indexada:</h4>
+    <p>El directorio contiene un bloque de índices para cada archivo, con punteros hacia todos los bloques que lo componen.</p>
+    <ul>
+      <li>El acceso directo es muy ágil.</li>
+      <li>Ideal para archivos grandes.</li>
+      <li>Desventaja: Puede desperdiciar espacio en archivos pequeños debido a la relación entre bloques de índices y bloques de datos.</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  
+  

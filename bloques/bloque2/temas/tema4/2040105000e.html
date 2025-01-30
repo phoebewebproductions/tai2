@@ -1,0 +1,183 @@
+<div class="teoria">
+  <article>
+  <h2>1.5 GESTIÓN DE PROCESOS</h2>
+  
+  <span id="2040105001">
+    <p>Todos los programas que se vayan a ejecutar deben ser convertidos en, al menos, un proceso.</p>
+    <p>El proceso está formado por:</p>
+    <ul>
+      <li>Las instrucciones de un programa destinadas a ser ejecutadas</li>
+      <li>Su estado de ejecución en un momento dado (valores de los registros de la CPU).</li>
+      <li>Un conjunto de recursos del sistema asociados, incluyendo la memoria de trabajo (memoria reservada y los datos almacenados).</li>
+      <li>Las estructuras de información necesarias para su correcta planificación. El sistema operativo almacena ésta información en un registro especial llamado Bloque de Control de Procesos (BCP) o Process Control Block (PCB).</li>
+    </ul>
+  </span>
+  
+  <h3>1.5.1 CONCEPTOS BÁSICOS DE PROCESOS</h3>
+  
+  <span id="2040105002">
+    <table>
+      <tr>
+        <th>Concepto</th>
+        <th>Definición</th>
+      </tr>
+      <tr>
+        <td>Proceso</td>
+        <td>Programa en ejecución con su propio código, estado actual, memoria, un conjunto de recursos de sistema asociados y otra información que permita al usuario su planificación.</td>
+      </tr>
+      <tr>
+        <td>Trabajo</td>
+        <td>Proceso administrado por la shell</td>
+      </tr>
+      <tr>
+        <td>Tiempo de servicio (Ts)</td>
+        <td>Tiempo dedicado a tareas productivas (cpu, entrada/salida). Ts=TCPU + TE/S</td>
+      </tr>
+      <tr>
+        <td>Tiempo de retorno Turnaround (Tq)</td>
+        <td>Tiempo que transcurre desde que se lanza un proceso hasta que finaliza. Es el tiempo que está un proceso en el sistema. Objetivo minimizarlo. Instante final (Tf) – Instante inicial (Ti)</td>
+      </tr>
+      <tr>
+        <td>Tiempo de espera (Te)</td>
+        <td>El tiempo que un proceso permanece en espera en las colas de espera. Te = Tq - Ts</td>
+      </tr>
+      <tr>
+        <td>Tiempo de respuesta</td>
+        <td>Tiempo que un proceso bloqueado tarda en entrar en ejecución.</td>
+      </tr>
+      <tr>
+        <td>Uso de CPU</td>
+        <td>Porcentaje de tiempo que la CPU está realizando trabajo útil. El objetivo de un buen gestor de procesos es maximizar este valor. Aunque conceptualmente es un valor entre el 0% y el 100% en sistemas reales se ha observado que oscila entre el 40% y el 90%.</td>
+      </tr>
+      <tr>
+        <td>Productividad o rendimiento (throughput)</td>
+        <td>Número de procesos terminados en una unidad de tiempo. El objetivo es maximizarlo. Número de procesos/unidad de tiempo</td>
+      </tr>
+      <tr>
+        <td>Quantum</td>
+        <td>Tiempo mínimo de uso del procesador por parte de un proceso.</td>
+      </tr>
+      <tr>
+        <td>Tick</td>
+        <td>Fracción de tiempo durante la cual se puede realizar trabajo útil (uso de la CPU sin ser interrumpido). Está definido por una señal emitida por el temporizador (timer) de forma periódica. Su frecuencia se establece al inicio del sistema. En Linux un tick dura 1 ms, en Windows entre 10 y 15 ms.</td>
+      </tr>
+      <tr>
+        <td>Tiempo de núcleo o kernel</td>
+        <td>Tiempo ocupado por el sistema en el espacio de núcleo implementando, entre otras cosas, la política de planificación y los cambios de contexto.</td>
+      </tr>
+      <tr>
+        <td>Tiempo desocupado (idle)</td>
+        <td>Tiempo en el que la cola de procesos preparados está vacío y no puede realizarse ningún trabajo.</td>
+      </tr>
+    </table>
+  </span>
+  
+  <h3>1.5.2 NIVELES DE PLANIFICACIÓN</h3>
+  
+  <span id="2040105003">
+    <ul>
+      <li><strong>Planificación a largo plazo (planificador de trabajos):</strong> Realiza el control de admisión de trabajos a ejecutar. Es el encargado de crear los procesos necesarios para realizar los trabajos. Utilizada habitualmente en sistemas de procesos por lotes (batch).</li>
+      <li><strong>Planificación a medio plazo (planificador de procesos inactivos):</strong> Selecciona qué procesos se añaden o se suspenden (expulsión a swap) de memoria principal. Sólo existe en los sistemas de tiempo compartido o donde existe gestión de memoria principal.</li>
+      <li><strong>Planificación a corto plazo:</strong> Selecciona el siguiente proceso a ejecutar. Se lleva a cabo decenas de veces por segundo. El planificador a corto plazo se denomina Despachador (Dispatcher)</li>
+    </ul>
+  
+    <h4>Transición de estado de un proceso entre planificadores</h4>
+    <ol>
+      <li>El planificador a largo plazo se encarga de admitir un nuevo proceso:
+        <ul>
+          <li>Transición de Nuevo → Preparado.</li>
+        </ul>
+      </li>
+      <li>El planificador a medio plazo gestiona la activación y bloqueo de un proceso relacionado con eventos.
+        <ul>
+          <li>Transición En ejecución → Bloqueado</li>
+          <li>Transición Bloqueado → Preparado.</li>
+        </ul>
+      </li>
+      <li>El planificador a corto plazo decide el proceso a activar entre los procesos que están listos para ejecutarse y detiene a aquellos que exceden su tiempo de procesador.
+        <ul>
+          <li>Transición Preparado → En ejecución.</li>
+          <li>Transición En ejecución → Preparado.</li>
+        </ul>
+      </li>
+    </ol>
+  </span>
+  
+  <h3>1.5.3 TIPOS DE PLANIFICACIÓN</h3>
+  
+  <span id="2040105004">
+    <ul>
+      <li><strong>Algoritmo apropiativo:</strong> El sistema operativo puede expulsar a un proceso de la CPU. También conocido como expulsivo o expropiativo.</li>
+      <li><strong>Algoritmo No Apropiativo:</strong> El proceso en ejecución conserva el uso de la CPU hasta que termina. No se permite la expulsión.</li>
+    </ul>
+  </span>
+  
+  <h3>1.5.4 TIPOS DE ALGORITMOS DE PLANIFICACIÓN</h3>
+  
+  <span id="2040105005">
+    <p>Los objetivos de un buen planificador son:</p>
+    <ul>
+      <li>Ser justo</li>
+      <li>Maximizar el rendimiento</li>
+      <li>Ser predecible</li>
+      <li>Minimizar la sobrecarga</li>
+      <li>Equilibrar el uso de recursos</li>
+      <li>Evitar la postergación indefinida.</li>
+      <li>Favorecer el uso esperado del sistema</li>
+      <li>Dar preferencia a los procesos que podrían causar bloqueo</li>
+      <li>Favorecer a los procesos con un comportamiento deseable</li>
+      <li>Degradarse suavemente</li>
+    </ul>
+  </span>
+  
+  <span id="2040105006">
+    <h4>FCFS (First-Come, First-Served)</h4>
+    <p>Primero en llegar, primero en ser servido. También llamado FIFO (del inglés First In, First Out).</p>
+    <ul>
+      <li>Algoritmo no apropiativo en el que el primer proceso que llega se ejecuta hasta finalizar. Una vez terminado se ejecuta el siguiente.</li>
+      <li>Penaliza a los procesos cortos si tienen por delante procesos largos.</li>
+    </ul>
+  
+    <h4>SJF (Shortest Job First)</h4>
+    <p>El trabajo más corto primero</p>
+    <ul>
+      <li>Algoritmo no apropiativo.</li>
+      <li>Selecciona el proceso más corto de los que hay esperando en la cola.</li>
+      <li>En el caso de que dos procesos tengan la misma duración utiliza el método FIFO anterior.</li>
+      <li>Sólo se puede aplicar si se conoce de antemano la duración de cada trabajo.</li>
+      <li>Puede provocar inanición: Los procesos largos pueden dejar de ejecutarse si continuamente van llegando procesos cortos.</li>
+    </ul>
+  
+    <h4>SRTF (Short Remaining Time Next)</h4>
+    <ul>
+      <li>Versión apropiativa de SJF. Al igual que SJF, selecciona el proceso más corto de lo que encuentra en la cola sin embargo puede expulsar un proceso en ejecución si entra uno más corto.</li>
+      <li>También puede provocar inanición: Un proceso largo puede ser expulsado muchas veces y no llegar a terminar por la continua llegada de procesos más cortos.</li>
+    </ul>
+  
+    <h4>Round Robin</h4>
+    <ul>
+      <li>Asigna a cada proceso un tiempo máximo de uso de la CPU tratando a todos los procesos de forma equitativa. Pasado el tiempo y si el proceso no ha terminado es desalojado y retornado al estado de listo.</li>
+      <li>Es un algoritmo de planificación circular, organizado mediante una cola FIFO circular (volviendo siempre al primer proceso una vez terminado con el último).</li>
+      <li>A cada proceso se le asigna un intervalo de tiempo llamado Quantum o Cuanto cuya duración varía según el sistema (Una regla empírica establece que el 80% de los procesos tienen que durar menos tiempo que el quantum definido).</li>
+    </ul>
+  
+    <h4>Round Robin egoísta</h4>
+    <p>Variación de Round Robin con dos colas. La cola de procesos "aceptados" y la cola de procesos "nuevos" donde ingresan los procesos nuevos que han de ser ejecutados.</p>
+    <p>La prioridad de los procesos de la cola de procesos "nuevos" se incrementa a mayor velocidad que la prioridad de los procesos de la cola de "aceptados". De tal forma que cuando la prioridad de un proceso de la cola de "nuevos" alcanza la prioridad de los procesos de la cola de "aceptados" el proceso nuevo asciende a la cola de aceptados.</p>
+  </span>
+  
+  <h3>1.5.5 COMPARATIVA DE ALGORITMOS DE PLANIFICACIÓN</h3>
+  
+  <span id="2040105007">
+    <ul>
+      <li>El algoritmo SJF presenta mejor promedio, tiene un buen tiempo de espera y tiempo de retorno.</li>
+      <li>FCFS y SRTF tienen unos tiempos de espera similares, pero SFJ sigue siendo mejor en este aspecto.</li>
+      <li>Round Robin tiene el mejor tiempo de espera para los procesos, pero por el contrario su tiempo de retorno es el más alto debido a la expulsión de procesos cuando se termina el quantum.</li>
+      <li>Round Robin también presenta una ligera pérdida de capacidad del microprocesador para la gestión del propio planificador.</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  
+  

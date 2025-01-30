@@ -1,0 +1,92 @@
+<div class="teoria">
+  <article>
+  <h2>1.6 GESTIÓN DE MEMORIA PRINCIPAL</h2>
+  
+  <span id="2040106001">
+    <p>Todo proceso que vaya a ser ejecutado necesita residir en la memoria principal del ordenador bien con todo su código y datos o sólo la parte que se va a necesitar inmediatamente.</p>
+    <p>Para ello el sistema operativo dispone de un Gestor de Memoria que se encarga de gestionar la memoria disponible entre los procesos para que puedan ser ejecutados sin conflictos.</p>
+  </span>
+  
+  <span id="2040106002">
+    <h3>Objetivos del Gestor de memoria:</h3>
+    <ul>
+      <li>Administrar la memoria disponible, mantener un registro de las zonas libres de memoria y las zonas ocupadas por los procesos.</li>
+      <li>Ofrecer a cada proceso un espacio lógico propio.</li>
+      <li>Cargar los programas de disco a memoria y volcar los datos de memoria a disco.</li>
+      <li>Proporcionar protección entre procesos. Evita que un proceso referencie la memoria de otro proceso sin permiso. Evita que un error de programación de un proceso o un código malicioso interfiera en la operación de otro.
+        <ul>
+          <li>Monoprogramación: Protección del espacio de memoria del sistema operativo.</li>
+          <li>Multiprogramación: Protección del sistema operativo y de los espacios de memoria de los procesos entre sí.</li>
+        </ul>
+      </li>
+      <li>Permitir que los procesos compartan memoria.</li>
+      <li>Dar soporte a las regiones del proceso y transformar las referencias de memoria de programa a su nueva ubicación:
+        <ul>
+          <li>Transformación estática</li>
+          <li>Transformación dinámica</li>
+        </ul>
+      </li>
+      <li>Maximizar el grado de multiprogramación.</li>
+      <li>Proporcionar a los procesos mapas de memoria muy grandes.</li>
+    </ul>
+  </span>
+  
+  <h3>1.6.1 ALGORITMOS DE REEMPLAZO DE PÁGINAS DE MEMORIA</h3>
+  
+  <span id="2040106003">
+    <h4>Óptimo</h4>
+    <p>Es un algoritmo teórico. Se utiliza como referencia de comparación del resto de algoritmos.</p>
+    <p>Su funcionamiento sería aquel que predijera con exactitud qué páginas serán menos referenciadas en el futuro para poder eliminarlas de memoria con el mínimo perjuicio al rendimiento. Es decir, el algoritmo que produjera el mínimo número de cambios de página para un trabajo dado.</p>
+  </span>
+  
+  <span id="2040106004">
+    <h4>FIFO, First In, First Out. Primera en entrar, primera en salir</h4>
+    <p>Las páginas se almacenan en una cola de tal forma que cuando se necesita espacio se elimina siempre la más antigua independientemente de lo que se use o lo que se prevea que se va a utilizar.</p>
+    <p>En la práctica no tiene un comportamiento aceptable. Presenta la llamada Anomalía FIFO o Anomalía de Belady.</p>
+    <p>Belady demostró que para determinadas secuencias de páginas aumentar el número de marcos de página en el sistema puede generar un mayor número de errores de página.</p>
+  </span>
+  
+  <span id="2040106005">
+    <h4>Segunda oportunidad (Reloj)</h4>
+    <p>Es una evolución del algoritmo FIFO.</p>
+    <p>En este caso cuando una página debe ser sacada se toma la primera en la cola, y en vez de sacarla, consulta el valor de un bit de referencia. En caso de estar fijado (en 1) se cambia el bit a 0 y se lo coloca al final de la cola, actualizando su tiempo de carga como si recién hubiera llegado al procesador. De esta forma, se le da una segunda oportunidad. Si el bit se encuentra sin fijar(en 0), la página se saca de memoria. Cada vez que la MMU accede a una página, fija su bit de referencia a 1. Para esto es necesario soporte para bit de referencia por hardware.</p>
+  </span>
+  
+  <span id="2040106006">
+    <h4>De páginas de reloj (CLOCK) (Reloj mejorado)</h4>
+    <p>Existe una mejora en el algoritmo de segunda oportunidad que presenta una mejora en la implementación. Es el algoritmo del CLOCK, que lo que hace es tener una lista circular, de forma que al llegar al último elemento de la lista, pasa automáticamente al primero. Los elementos no se mueven al final de la cola cuando son accedidos, simplemente se cambia el bit de referencia a 0. Esto nos evita tener que hacer movimientos de punteros en el caso de implementarlo con una lista enlazada. De hecho, se puede implementar con un array perfectamente, ahorrando así memoria.</p>
+  </span>
+  
+  <span id="2040106007">
+    <h4>Not Recently Used, NRU No usada recientemente</h4>
+    <p>Cuando una página es referenciada, fija el bit de referencia para esa página. Similarmente, cuando una página es modificada, fija su bit de modificación. Usualmente estas operaciones son realizadas por el hardware, aunque puede hacerse también por software. En un tiempo fijo, el sistema operativo pone en 0 los bits de referencia de todas las páginas, de modo que las páginas con su bit de referencia en 1 son las que fueron referenciadas dentro del último intervalo de reloj.</p>
+    <p>Cuando una página debe ser reemplazada, el sistema operativo divide las páginas en cuatro categorías:</p>
+    <ul>
+      <li>Categoría 0: No referenciada, No modificada</li>
+      <li>Categoría 1: No referenciada, modificada</li>
+      <li>Categoría 2: referenciada, No modificada</li>
+      <li>Categoría 3: referenciada, modificada</li>
+    </ul>
+    <p>Las mejores páginas para cambiar son las que se encuentran en la categoría 0, mientras que las peores son las de la categoría 3. Se desaloja al azar una página de la categoría más baja que no esté vacía. Este algoritmo se basa en la suposición de que es mejor desalojar una página modificada a la que no se ha hecho referencia en al menos un tic de reloj, en vez de una página limpia que se está usando mucho.</p>
+    <p>Favorece a las páginas que fueron usadas recientemente</p>
+  </span>
+  
+  <span id="2040106008">
+    <h4>LRU Least Recently Used Menos Usada Recientemente</h4>
+    <p>Este algoritmo difiere del de 'No usada recientemente' en el hecho de que aquel solo se fija en el intervalo de tiempo desde que se pusieron en 0 los bits de referencia de las páginas, mientras que el algoritmo de 'Menos usada recientemente' intenta proveer un comportamiento casi óptimo mediante la observación de las páginas que menos fueron usadas recientemente. Este tipo de páginas, estadísticamente son las que tienen menor probabilidad de ser usadas nuevamente.</p>
+    <p>Aunque este algoritmo provee un buen comportamiento en teoría, es caro de implementar, en cuanto a recursos consumidos. Hay varias implementaciones que intentan mantener bajo el costo y lograr un rendimiento considerable. Un método consiste en tener una lista enlazada y ordenada de todas las páginas en memoria. En el final de la lista está la página menos usada recientemente, y al principio la más usada recientemente. El costo alto de este método es porque cada vez que se referencia una página debe ser movida en la lista, algo que consume mucho tiempo. Otra forma, que requiere soporte de hardware, consiste en tener un contador que es incrementado en cada instrucción del CPU. Cada vez que una página es accedida, gana el número del contador en ese momento. Cuando una página debe ser retirada de memoria, simplemente hay que buscar cuál es la que tiene el menor número, que es la que fue usada hace más tiempo.</p>
+    <p>En el presente no existen contadores tan grandes para permitir esto. Debido al alto costo del LRU, se proponen algoritmos similares, pero que permiten implementaciones menos costosas.</p>
+  </span>
+  
+  <span id="2040106009">
+    <h4>Aging. Envejecimiento</h4>
+    <p>Desciende del algoritmo "No usada frecuentemente", con algunas modificaciones necesarias para tener en cuenta en qué momento fue usada frecuentemente una página, y no solamente cuántas veces fue.</p>
+    <p>En vez de solo incrementar el contador de la página cuando es referenciada, primero se desplaza a la derecha (se divide entre 2) y después sí se suma 1. Por ejemplo, si los bits de referencia de una página fueron 1, 0, 0, 1, 1 y 0 en los últimos 6 ticks del reloj, el contador se verá así: 10000000, 01000000, 00100000, 10010000, 11001000, 01100100.</p>
+    <p>De esta forma, cuando se necesite eliminar una página de memoria, se eliminará la que tenga el número más pequeño en su contador.</p>
+    <p>Este algoritmo consigue una buena aproximación al algoritmo óptimo.</p>
+  </span>
+  
+  </article>
+  </div>
+  
+  

@@ -1,0 +1,110 @@
+<div class="teoria">
+  <article>
+  <h2>4. FUNCIONES DE UN SISTEMA OPERATIVO</h2>
+  
+  <span id="2040201001">
+    <p>Las funciones del sistema operativo han sido tratadas en la propia estructura pero a modo resumen podemos listar las siguientes:</p>
+    <ul>
+      <li>Suministro del interfaz de usuario</li>
+      <li>Administración de recursos</li>
+      <li>Administración de archivos</li>
+      <li>Administración de tareas</li>
+      <li>Servicio de soporte y utilidades</li>
+    </ul>
+  </span>
+  
+  <h3>4.1. 32 BITS VS 64 BITS</h3>
+  
+  <span id="2040201002">
+    <p>Las arquitecturas de los ordenadores han ido evolucionando a lo largo del tiempo. Arquitecturas de 8 bits, 16 bits, 32 bits, 64 bits tienen que llevar asociados sistemas operativos que aprovechen las características que brindan las nuevas arquitecturas.</p>
+    <p>Actualmente conviven las arquitecturas de 32 y 64 bits. La mayor diferencia es la cantidad de memoria que se puede direccionar.</p>
+  </span>
+  
+  <span id="2040201003">
+    <p>A mayor número de bits de ancho de banda del bus de direcciones → Mayor capacidad de memoria direccionable por lo que los sistemas operativos podrán reconocer mayor cantidad de memoria RAM.</p>
+    <ul>
+      <li>2<sup>32</sup> = 4.294.967.296 = 4 GB. Un sistema operativo de 32 bits puede reconocer hasta 4GB de memoria RAM. Existen trucos para reconocer más memoria RAM pero un mismo proceso no podrá utilizar más de 3GB de RAM</li>
+      <li>2<sup>64</sup> = 18.446.744.073.709.551.616 = 16 exabytes</li>
+    </ul>
+  </span>
+  
+  <span id="2040201004">
+    <p>Es importante destacar que por lo general un sistema operativo de 64 bits puede ejecutar programas compilados para arquitecturas de 32 bits del mismo sistema operativo. Pero no al revés, un sistema operativo de 32 bits no puede ejecutar aplicaciones compiladas para entornos de 64 bits.</p>
+    <p>Un sistema operativo de 32 bits si puede hacer llamadas a procedimientos remotos (RPC) en otro equipo que tenga un sistema operativo de 64 bits.</p>
+  </span>
+  
+  <span id="2040201005">
+    <h4>Memoria RAM soportada por distintos sistemas operativos actuales</h4>
+    <table>
+      <tr>
+        <th>Versión</th>
+        <th>X86</th>
+        <th>X64</th>
+      </tr>
+      <tr>
+        <td>Windows Server 2019 Essentials</td>
+        <td>-</td>
+        <td>64GB</td>
+      </tr>
+      <tr>
+        <td>Windows Server 2019, 2016 Standard</td>
+        <td>-</td>
+        <td>24TB</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Enterprise</td>
+        <td>4GB</td>
+        <td>6TB</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Educacion</td>
+        <td>4GB</td>
+        <td>2TB</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Pro para Workstation</td>
+        <td>4GB</td>
+        <td>6TB</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Pro</td>
+        <td>4GB</td>
+        <td>2TB</td>
+      </tr>
+      <tr>
+        <td>Windows 10 Home</td>
+        <td>4GB</td>
+        <td>128GB</td>
+      </tr>
+      <tr>
+        <td>Mac OS X from 10.10</td>
+        <td>-</td>
+        <td>18 Exabyte</td>
+      </tr>
+      <tr>
+        <td>Red Hat Linux 8</td>
+        <td>-</td>
+        <td>64TB</td>
+      </tr>
+    </table>
+  </span>
+  
+  <span id="2040201006">
+    <p>Otra diferencia importante es el conjunto de instrucciones ampliadas de microprocesador para hacer uso del incremento de bits del bus de datos haciendo que se pueda trabajar con números más grandes por ciclo de reloj.</p>
+    <p>Un ordenador de 64 bits puede ejecutar aplicaciones de 32 bits</p>
+  </span>
+  
+  <span id="2040201007">
+    <h4>WOW64: Windows-on-Windows 64-bit</h4>
+    <p>Subsistema de Microsoft Windows que permite ejecutar aplicaciones de 32 bits en sistemas operativos de 64 bits. Apareció por primera vez en Windows XP 64 bits edición y está presente en todas las versiones posteriores de 64 bits.</p>
+    <p>Se implementa mediante tres librerías de enlace dinámico (DLL):</p>
+    <ul>
+      <li><strong>Wow64.dll:</strong> Interfaz principal que traduce las llamadas de 32 y 64 bits.</li>
+      <li><strong>Wow64win.dll:</strong> Ofrece los puntos de entrada para las aplicaciones de 32 bits.</li>
+      <li><strong>Wow64cpu.dll:</strong> Cambia el modelo de procesador entre 32 y 64 bits.</li>
+    </ul>
+  </span>
+  
+  </article>
+  </div>
+  

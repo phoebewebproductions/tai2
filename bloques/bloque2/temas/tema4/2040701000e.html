@@ -1,0 +1,134 @@
+<div class="teoria">
+  <article>
+  <h2>7. SISTEMAS GNU/LINUX</h2>
+  
+  <span id="2040701001">
+    <p>Denominación técnica y generalizada que reciben una serie de sistemas operativos de tipo Unix, generalmente de código abierto, multiplataforma, multiusuario y multitarea.</p>
+    <p>Están formados mediante la combinación de varios proyectos, entre los cuales destacan:</p>
+    <ul>
+      <li>El núcleo de sistema operativo conocido como «Linux», encabezado por el programador finlandés Linus Torvalds.</li>
+      <li>El entorno GNU, encabezado por el programador estadounidense Richard Stallman junto a la Free Software Foundation, una fundación cuyo propósito es difundir el software libre.</li>
+    </ul>
+  </span>
+  
+  <span id="2040701002">
+    <h3>Modelos de liberación y soporte</h3>
+    <ul>
+      <li><strong>Liberación continua (Rolling release):</strong> Modelo de desarrollo de software donde el lanzamiento y las actualizaciones son continuas. Utilizado por Windows 10, OpenSuse, Gentoo Linux, Chromium OS…</li>
+      <li><strong>Soporte a corto plazo STS (Short Term Support):</strong> Versiones del software diseñadas para tener soporte durante un año a partir de su fecha de publicación.</li>
+      <li><strong>Soporte a largo plazo LTS (Long Term Support):</strong> Versiones del software diseñadas para tener soporte durante un tiempo más largo de lo normal. Por ejemplo, la versión de Ubuntu LTS tiene un soporte de 5 años mientras que la versión Ubuntu STS tiene un soporte de 9 meses.</li>
+    </ul>
+  </span>
+  
+  <span id="2040701003">
+    <h3>Distribuciones de Linux populares</h3>
+    <table>
+      <tr>
+        <th>NOMBRE</th>
+        <th>DESCRIPCIÓN</th>
+      </tr>
+      <tr>
+        <td>Red Hat Enterprise Linux</td>
+        <td>Conocida como RHEL. Distribución comercial de GNU/Linux desarrollada por Red Hat.</td>
+      </tr>
+      <tr>
+        <td>Fedora</td>
+        <td>Versión libre basada en el antiguo Red Hat Linux</td>
+      </tr>
+      <tr>
+        <td>CentOS</td>
+        <td>Bifurcación a nivel binario de la distribución GNU/Linux Red Hat Enterprise Linux RHEL. Utilizado por los nodos de la Red Sara.</td>
+      </tr>
+      <tr>
+        <td>Ubuntu</td>
+        <td>Distribución de Linux basada en Debian patrocinada por la empresa Canonical.</td>
+      </tr>
+      <tr>
+        <td>Debian</td>
+        <td>Una de las distribuciones más antiguas y respetadas.</td>
+      </tr>
+      <tr>
+        <td>openSUSE</td>
+        <td>Distribución auspiciada por SUSE Linux y AMD</td>
+      </tr>
+      <tr>
+        <td>Kali</td>
+        <td>Distribución basada en Debian diseñada para realizar pruebas de penetración en sistemas de información, auditorías de seguridad y hackeo ético</td>
+      </tr>
+    </table>
+  </span>
+  
+  <span id="2040701004">
+    <h3>Comandos de Linux</h3>
+    <p>Linux es famoso por la potencia de su Shell. A continuación se presenta una clasificación de los comandos más importantes:</p>
+  
+    <h4>Comandos de propósito general</h4>
+    <ul>
+      <li><strong>alias:</strong> Escribe un alias para la orden especificada</li>
+      <li><strong>clear:</strong> Limpia la pantalla</li>
+      <li><strong>echo:</strong> Salida de caracteres por pantalla</li>
+      <li><strong>exit:</strong> Sale de un script/sesión/bucle</li>
+      <li><strong>reboot:</strong> Reiniciar el sistema</li>
+      <li><strong>shutdown:</strong> Apagar el sistema de forma parametrizada</li>
+      <li><strong>man:</strong> Muestra el manual de un comando o fichero</li>
+      <li><strong>su:</strong> Permite cambiar de usuario sin necesidad de cerrar la sesión</li>
+      <li><strong>sudo:</strong> Permite a los usuarios ejecutar programas con los privilegios de seguridad de otro usuario</li>
+    </ul>
+  
+    <h4>Comandos de operación de ficheros</h4>
+    <ul>
+      <li><strong>cp:</strong> Copia un fichero</li>
+      <li><strong>mv:</strong> Mover ficheros/directorios</li>
+      <li><strong>ls:</strong> Lista los ficheros y directorios de un directorio</li>
+      <li><strong>rm:</strong> Borra ficheros</li>
+      <li><strong>mkdir:</strong> Crea el directorio</li>
+      <li><strong>cd:</strong> Accede a un directorio</li>
+      <li><strong>pwd:</strong> Muestra la ruta actual</li>
+      <li><strong>find:</strong> Busca ficheros que coincidan con los parámetros especificados</li>
+      <li><strong>grep:</strong> Buscar cadena en ficheros</li>
+    </ul>
+  
+    <h4>Comandos de red</h4>
+    <ul>
+      <li><strong>ifconfig:</strong> Ver configuración de red</li>
+      <li><strong>ping:</strong> Realiza un echo request a la dirección indicada</li>
+      <li><strong>tracert:</strong> Muestra la ruta que sigue un paquete hasta llegar a su destino</li>
+      <li><strong>route:</strong> Permite mostrar y modificar la tabla de enrutamiento residente en el kernel</li>
+      <li><strong>ssh:</strong> Secure Shell, para conexiones seguras</li>
+      <li><strong>wget:</strong> Recupera contenido y archivos de un servidor web</li>
+    </ul>
+  
+    <h4>Comandos de manejo de paquetes de instalación</h4>
+    <ul>
+      <li><strong>rpm:</strong> Red Hat Package Manager</li>
+      <li><strong>apt:</strong> Gestor de paquetes de las distribuciones basadas en Debian o Ubuntu</li>
+      <li><strong>yum:</strong> Gestor de paquetes que mejora la instalación de paquetes rpm</li>
+    </ul>
+  </span>
+  
+  <span id="2040701005">
+    <h3>Ficheros de red importantes</h3>
+    <ul>
+      <li><strong>/etc/hosts:</strong> Resuelve los nombres de hosts que no pueden ser resueltos de ningún otro modo</li>
+      <li><strong>/etc/resolv.conf:</strong> Especifica la dirección de los servidores DNS</li>
+      <li><strong>/etc/sysconfig/network-scripts/ifcfg-nombre-interfaz:</strong> Proporciona información específica de una interfaz de red determinada</li>
+      <li><strong>/etc/hosts.deny:</strong> Permite indicar qué equipos están denegados explícitamente para conectarse a varios servicios de red</li>
+      <li><strong>/etc/hosts.allow:</strong> Permite indicar qué equipos están autorizados explícitamente para conectarse a varios servicios de red</li>
+    </ul>
+  </span>
+  
+  <span id="2040701006">
+    <h3>Montaje de sistemas de ficheros</h3>
+    <p><strong>mount:</strong> Monta un dispositivo</p>
+    <pre><code>mount -t vfat /dev/fd0 /mnt/floppy
+  mount -t iso9660 /dev/cdrom /mnt/cdrom
+  mount -t vfat /dev/hda1 /mnt/win
+  mount -t vfat /dev/sdb1 /mnt/usb</code></pre>
+    <p><strong>umount:</strong> Desmonta la unidad</p>
+    <pre><code>umount /dev/hda1</code></pre>
+  </span>
+  
+  </article>
+  </div>
+  
+  

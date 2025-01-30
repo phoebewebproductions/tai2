@@ -1,0 +1,114 @@
+<div class="teoria">
+  <article>
+    <h2>TIPOS ABSTRACTOS Y ESTRUCTURAS DE DATOS</h2>
+  
+    <h3>Definiciones</h3>
+    <span id="2030101001">
+      <p>El valor de las variables de programación se almacena en espacios de memoria que atribuye el Sistema Operativo. Existe un primer nivel de abstracción por el que se puede asignar un nombre a las variables de tipo básico, y acceder a su valor o contenido.</p>
+      <p>Cuando estas variables de tipo básico no cubren las necesidades de los programadores, puede añadirse una segunda capa de abstracción, agrupando varias variables en una única variable compleja.</p>
+      <p>Por tanto, una Estructura de Datos es la agrupación de distintos tipos de datos en la que se almacenará la información.</p>
+      <p>Sobre esa Estructura de Datos se pueden realizar distintas operaciones de acceso y modificación de la información.</p>
+      <p>Por último, el Tipo Abstracto de Datos (TAD) se compone de la Estructura de Datos y del conjunto de operaciones que se pueden realizar sobre la misma.</p>
+      <p>TAD = ED + Operaciones</p>
+      <p>Las operaciones proveen de una capa de abstracción que permite manejar la estructura de datos sin conocer los detalles de su implementación u organización de la información. Además, aporta una capa de protección que evita que se puedan realizar modificaciones de datos no deseadas.</p>
+    </span>
+  
+    <h3>Pilas y colas</h3>
+    <span id="2030101002">
+      <p>Entre los Tipos Abstractos de Datos más importantes, existen:</p>
+      <ul>
+        <li>
+          <strong>Cola:</strong> Estructura de datos del tipo FIFO (First In, First Out), es decir, el primer elemento que se añade al TAD será el primero en salir. Tal y como ocurre en la cola de un supermercado. Sus operaciones más importantes son:
+          <ul>
+            <li>Inicializar: Prepara el TAD para ser usado.</li>
+            <li>estaVacia: indica si en la cola no existe ningún elemento.</li>
+            <li>Añadir (encolar): Añade un elemento al final de la cola.</li>
+            <li>Quitar (desencolar): Quita un elemento del principio de la cola.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Pila:</strong> Estructura de datos del tipo LIFO (Last In, First Out), es decir, el último elemento que se añade al TAD será el primero en salir. Tal y como ocurre en una pila de papeles. Sus operaciones más importantes son:
+          <ul>
+            <li>Inicializar: Prepara el TAD para ser usado.</li>
+            <li>estaVacia: indica si en la pila no existe ningún elemento.</li>
+            <li>Añadir (apilar): Añade un elemento al final de la cola.</li>
+            <li>Quitar (desapilar): Quita un elemento del principio de la cola.</li>
+          </ul>
+        </li>
+      </ul>
+    </span>
+  
+    <h3>Árboles</h3>
+    <span id="2030101003">
+      <p>Los TAD árbol son Estructuras de Datos complejas que, o bien están vacías, o bien se componen de un nodo Raíz y una serie de subárboles que son hijos de ese nodo Raíz. También puede decirse que es un grafo en el que no pueden existir ciclos entre los distintos nodos, y que solo tiene un nodo raíz.</p>
+      <p>Entre los términos a conocer en el ámbito de los árboles existen:</p>
+      <ul>
+        <li>Grado de un nodo: Número de subárboles</li>
+        <li>Nodo terminal/Hoja: Nodo que no tiene subárboles.</li>
+        <li>Grado de un árbol: Grado del nodo que tenga el mayor grado.</li>
+        <li>Hijos de un nodo: Nodos que dependen de un nodo raíz.</li>
+        <li>Padre: Antecesor de un nodo.</li>
+        <li>Hermanos: Hijos de un mismo nodo.</li>
+        <li>Camino o recorrido: Sucesión de nodos conectados entre sí.</li>
+        <li>Nivel de un nodo: longitud desde la raíz del árbol al nodo.</li>
+        <li>Altura de un árbol: Nivel del nodo que tenga el nivel máximo.</li>
+      </ul>
+    </span>
+  
+    <span id="2030101004">
+      <p>Para conocer el contenido del árbol, o el valor de sus nodos, es necesario recorrer el árbol. Según el tipo de árbol y del orden en el que se visiten los nodos existen distintos recorridos.</p>
+      <ul>
+        <li><strong>Recorrido en profundidad:</strong> es el recorrido en el que primero se visita el primer hijo del primer nodo, después el primer hijo del segundo nodo, etc. Cuando ya no hay más primeros hijos se visita el segundo hijo del último nodo, y se mira si tiene más hijos.</li>
+        <li><strong>Recorrido en anchura:</strong> es el recorrido en el que primero se visitan todos los nodos del primer nodo, luego todos los nodos del segundo nodo, etc.</li>
+      </ul>
+      <p>En el ejemplo dado, el recorrido en profundidad sería: P-O-E-P-A-R-I-L-O</p>
+      <p>Y el recorrido en anchura sería: P-O-I-E-P-L-A-R-O</p>
+    </span>
+  
+    <span id="2030101005">
+      <p>En el caso de Árboles Binarios, es decir, los que solo tienen (como máximo) dos hijos, uno llamado Izquierda y otro llamado Derecha, existen tres tipos de recorrido:</p>
+      <ul>
+        <li><strong>Recorrido en Preorden:</strong> Primero se visita la raíz del nodo, luego el hijo izquierdo y por último el derecho. Esta secuencia se repite en todos sus nodos. (raíz, izquierda, derecha). Ejemplo: P – O – E – P – A – R – I – L – O</li>
+        <li><strong>Recorrido en Inorden:</strong> Primero se visita el hijo izquierdo, luego la raíz del nodo y por último el derecho. Esta secuencia se repite en todos sus nodos. (izquierda, raíz, derecha). Ejemplo: E – O – A – P – R – P – I – O – L</li>
+        <li><strong>Recorrido en postorden:</strong> Primero se visita el hijo izquierdo, luego el derecho y por último la raíz del nodo. Esta secuencia se repite en todos sus nodos. (izquierda, derecha, raíz) Ejemplo: E – A – R – P – O – O – L – I – P</li>
+      </ul>
+      <p>Es habitual encontrarse con preguntas en las que dan un árbol binario, y piden cuál sería su recorrido en uno de estos tres órdenes.</p>
+    </span>
+  
+    <span id="2030101006">
+      <p><strong>Tipos de árboles.</strong> Según el número de hijos o cómo se distribuyan éstos por el árbol, se distinguen distintos tipos de árboles. Los más importantes son los Binarios, que tienen un máximo de 2 hijos por nodo:</p>
+      <ul>
+        <li><strong>Árbol Binario lleno:</strong> Cada nodo tiene cero o dos hijos, nunca solo uno.</li>
+        <li><strong>Árbol Binario perfecto/completo:</strong> Árbol lleno con todas las hojas a la misma profundidad.</li>
+        <li><strong>Árbol Binario Balanceado:</strong> el número de nodos de la rama izquierda es igual al número de nodos de la rama derecha, más menos uno. Esto ocurre para todos los nodos.</li>
+        <li><strong>Árbol Binario de Búsqueda:</strong> Cualquier nodo del subárbol izquierdo contiene valores menores que cualquier nodo del subárbol derecho. Un recorrido inorden devuelve una lista de los elementos ordenados de menor a mayor. La búsqueda de un elemento es muy eficiente.</li>
+      </ul>
+    </span>
+  
+    <h3>Estructuras dinámicas y estáticas</h3>
+    <span id="2030101007">
+      <p>Las Estructuras de Datos de los TAD pueden estar implementadas por variables de tipo estáticas o dinámicas. Es decir, el sistema operativo realiza una reserva de memoria para almacenar las variables, que puede ser fija desde el momento de la declaración (variables estáticas), o que puede crecer y decrecer en tiempo de ejecución (variables dinámicas). Entre las primeras tenemos los datos simples (enteros, char, etc.), pero también variables de tipo array o listas, a las que se debe dar un tamaño fijo que es invariable. Las segundas, en cambio, necesitan de punteros que permite que el espacio de la variable sea el adecuado en cada momento, pero son más complejos de implementar.</p>
+      <p>Los arrays tienen una limitación, y es que todos los elementos del array deben ser del mismo tipo (un array de enteros, por ejemplo).</p>
+      <p>También existen otro tipo de elementos complejos que son los registros, que permiten crear un conjunto de variables de distintos tipos.</p>
+    </span>
+  
+    <h3>Registros</h3>
+    <span id="2030101008">
+      <p>Los registros son un conjunto de datos vistos como una entidad completa. De esta forma, se pueden trabajar con conceptos complejos sin tener en cuenta los distintos tipos de los elementos del registro. Por ejemplo: el TAD libro puede tener las siguientes variables:</p>
+      <ul>
+        <li>ID de tipo entero</li>
+        <li>Título de tipo array de char</li>
+        <li>Autor de tipo array de char</li>
+        <li>Número de páginas de tipo entero</li>
+        <li>Fecha de publicación de tipo array de char</li>
+        <li>Número de veces prestado de tipo entero</li>
+      </ul>
+      <p>Es importante señalar que este concepto, el de registro, es previo al concepto de Clase en el paradigma de Orientación a Objetos, pero salta a la vista que el principio de encapsulación surge ya en el paradigma de la programación estructurada.</p>
+    </span>
+  
+    <span id="2030101009">
+      <p>Es habitual que en el test pregunten por definiciones de los Tipos Abstractos de Datos: LIFO, FIFO, Grados, etc. Es útil manejar esos conceptos con soltura</p>
+    </span>
+  </article>
+  </div>
+  

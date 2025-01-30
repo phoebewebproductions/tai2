@@ -1,0 +1,48 @@
+<div class="teoria">
+  <article>
+    <h2>Organizaciones de ficheros</h2>
+  
+    <span id="2030102001">
+      <p>La organización de ficheros es una funcionalidad reservada a los sistemas operativos. Consiste en alojar los datos de un fichero en un espacio de memoria secundaria, normalmente disco duro, y la capacidad de recuperar dicha información. De cómo se almacenen los ficheros dependerá lo rápido que se pueda acceder a la información, o el tamaño que pueda ocupar en disco.</p>
+      <p>En este caso debe entenderse un fichero como un conjunto de registros, que deben ser insertados, leídos, modificados y/o borrados.</p>
+    </span>
+  
+    <h3>Organización secuencial</h3>
+    <span id="2030102002">
+      <p>Los registros se añaden uno tras otro en el espacio del disco. Puede utilizarse en soportes de acceso secuencial (tipo cinta) o direccionable (disco magnético). Acceder de un registro a otro es inmediato, pero para acceder a un registro aleatorio es necesario recorrer todos los registros anteriores. Su principal característica es que el orden físico coincide con el orden lógico.</p>
+    </span>
+  
+    <h3>Organización secuencial encadenada</h3>
+    <span id="2030102003">
+      <p>Los registros se almacenan en unas estructuras compuestas por el bloque de información, y un puntero al siguiente registro. De esta forma, los registros admiten cierta manipulación, un borrado selectivo (redirigiendo los punteros de unos registros a otros), y permiten que los ficheros puedan estar mezclados en mismos soportes físicos. Sin embargo, es necesario mantener la estructura de punteros. Para acceder a un registro concreto, es necesario leer todos los registros anteriores.</p>
+    </span>
+  
+    <h3>Organización secuencial indexada</h3>
+    <span id="2030102004">
+      <p>Cada fichero consta, a su vez, de tres ficheros físicos:</p>
+      <ul>
+        <li>Un fichero de índices que contiene punteros a ciertos elementos "clave", por ejemplo, que se repitan mucho, o que divida el fichero de registros en partes iguales.</li>
+        <li>Un fichero de registros que mantiene la información de los registros. Esta parte de los ficheros debe estar ordenada. Cuando se busca un elemento, primero se busca en el fichero de índices su elemento más cercano, y después se termina de buscar el registro concreto en el fichero de registros.</li>
+        <li>Un fichero de "overflow" en el que se almacenan los nuevos registros que se incluyen en el fichero. Para que este fichero no crezca de manera descontrolada, es necesario vaciarlo y llevar sus registros al fichero principal con cierta frecuencia. En dicho fichero de registros se hace una inserción ordenada de los nuevos registros.</li>
+      </ul>
+    </span>
+  
+    <h3>Organización secuencial indexada encadenada</h3>
+    <span id="2030102005">
+      <p>Es una evolución de la organización secuencial indexada, solo que los registros del fichero principal tienen un puntero apuntando al siguiente elemento, si es que pertenece al fichero de overflow. De esta manera, no es necesario recorrer todo el tramo del fichero principal y después todo el fichero de overflow, sino que se puede llegar de una forma más directa, reduciendo el tiempo de búsqueda.</p>
+    </span>
+  
+    <h3>Organización directa, relativa o aleatoria</h3>
+    <span id="2030102006">
+      <p>La posición física del registro se obtiene de una transformación de la clave a través de una función hash, por lo que no existe relación entre la posición de los registros y los valores que contiene. Cada hash debe ser único para evitar colisiones.</p>
+    </span>
+  
+    <h3>Fragmentación interna-externa</h3>
+    <span id="2030102007">
+      <p>La fragmentación consiste en dejar espacios de memoria o disco ocupados, pero sin que contengan información. Ocurre porque la reserva de disco o memoria no se hace bit a bit, sino en bloques de varios Kilobytes. Cuando un fichero crece, se le van asignando nuevos bloques de memoria para almacenar su contenido.</p>
+      <p>La fragmentación interna es, precisamente, ese espacio que queda dentro de un bloque de memoria sin información, pero que el Sistema Operativo entiende que está ocupado. Se soluciona creando bloques más pequeños, pero entonces la estructura que mantiene los bloques se complica porque tiene que manejar muchos más bloques.</p>
+      <p>La fragmentación externa es, por otro lado, un fenómeno que ocurre al asignar bloques de memoria contiguos a distintos procesos o archivos. Cuando esto ocurre, recorrer un fichero implica tener que saltar entre distintos bloques de memoria, retrasando innecesariamente la obtención de los datos. Se soluciona realizando un proceso de defragmentación, que reorganiza, a nivel físico, los datos para que estén disponibles en posiciones contiguas. Esta labor pertenece al Sistema Operativo.</p>
+    </span>
+  </article>
+  </div>
+  
