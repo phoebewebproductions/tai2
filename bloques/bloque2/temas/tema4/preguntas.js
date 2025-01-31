@@ -2545,7 +2545,6 @@ export const preguntas = {
     ],
     minimoParaAprobar: 12,
   },
-  export const preguntas = {
     "2040801000e": {
       preguntas: [
         {
@@ -2680,6 +2679,5 @@ export const preguntas = {
 
 
 
-  }
-  
+
   

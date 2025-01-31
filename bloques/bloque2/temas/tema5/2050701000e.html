@@ -1,124 +1,158 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>7. NoSQL</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <span id="2050701001">
+  <p>Las aplicaciones interactivas han evolucionado mucho en los últimos años, al igual que las necesidades de administración de bases de datos para esas aplicaciones. Hoy en día, un nuevo tipo de base de datos no relacional conocido como "NoSQL" está ganando terreno en la empresa como un modelo alternativo para la gestión de bases de datos.</p>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <p>Las principales diferencias entre los SGBDs NoSQL con los SGBDR son las siguientes:</p>
+  <ul>
+    <li>No usan SQL como lenguaje principal de consultas.</li>
+    <li>Los datos almacenados no requieren estructuras fijas como tablas.</li>
+    <li>Normalmente no soportan operaciones JOIN.</li>
+    <li>Normalmente no garantizan completamente ACID (atomicidad, consistencia, aislamiento y durabilidad).</li>
+    <li>Habitualmente escalan bien horizontalmente.</li>
+  </ul>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <p>Los sistemas NoSQL se denominan a veces "no solo SQL" para subrayar el hecho de que también pueden soportar lenguajes de consulta de tipo SQL.</p>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <p>La adopción de la tecnología NoSQL está impulsada en gran medida por tres tendencias correlacionadas: computación en la nube, gran cantidad de usuarios (de millones a miles de millones) y big data.</p>
+  </span>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <h3>7.1. VENTAJAS</h3>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <span id="2050701002">
+  <ul>
+    <li>Estos sistemas responden a las necesidades de escalabilidad horizontal que tienen cada vez más empresas.</li>
+    <li>Pueden manejar enormes cantidades de datos.</li>
+    <li>No generan cuellos de botella.</li>
+    <li>Escalamiento sencillo.</li>
+    <li>Diferentes bases de datos NoSQL para diferentes proyectos.</li>
+    <li>Se ejecutan en clusters de máquinas baratas.</li>
+  </ul>
+  </span>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <h3>7.2. DESVENTAJAS</h3>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <span id="2050701003">
+  <p>Las bases de datos NoSQL al ser de código abierto poseen un soporte diferente al soporte que ofrecen las compañías comerciales a sus productos. Esto puede presentar algunas ventajas y también algunas desventajas:</p>
+  <ul>
+    <li>Algunos productos pueden no estar lo suficientemente maduros para algunas empresas.</li>
+    <li>A pesar de sus puestas en práctica en algunas grandes empresas, las bases de datos NoSQL aún se enfrentan a un problema de credibilidad importante con muchas empresas.</li>
+    <li>Limitaciones de Inteligencia de Negocios: Existen dudas de si pueden proporcionar la clase de minería de datos rigurosos que las empresas utilizan con las SGBDR.</li>
+    <li>Falta de experiencia: La novedad de NoSQL implica que no hay una gran cantidad de desarrolladores y administradores que conocen la tecnología.</li>
+    <li>Problemas de compatibilidad: A diferencia de las bases de datos relacionales, que comparten ciertos estándares, las bases de datos NoSQL tienen pocas normas en común.</li>
+  </ul>
+  </span>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
+  <h3>7.3. TIPOS DE BBDD NoSQL</h3>
   
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
+  <span id="2050701004">
+  <p>Las bases de datos NoSQL tienen diferentes tipos de modelos en comparación con las RDBMS. Los tipos de modelos pueden dividirse en cuatro grupos:</p>
+  <ul>
+    <li>BBDD Clave/Valor</li>
+    <li>BBDD basadas en columnas (multivalor)</li>
+    <li>BBDD basadas en documentos (documentales)</li>
+    <li>BBDD basadas en grafos</li>
+  </ul>
+  </span>
+  
+  <h4>7.3.1. BBDD BASADAS EN COLUMNAS</h4>
+  
+  <span id="2050701005">
+  <p>Las BBDDs trabajan creando una colección de una o más claves/valores que corresponden a un registro específico. También son conocidas como almacenes extensibles de valores o almacenes orientados a columnas o multivalor.</p>
+  
+  <h5>APACHE HBASE</h5>
+  <ul>
+    <li>Se ejecuta sobre HDFS (Sistema de archivos distribuido de Hadoop).</li>
+    <li>Es seguro, escalable, distribuido, seguro y ofrece alta disponibilidad.</li>
+    <li>Capaz de manejar grandes tablas de datos que contienen millones de columnas y miles de millones de filas.</li>
+    <li>La estructura de reducción/mapa de Hadoop es ideal para trabajos computacionales complejos o consultas que se asignan a cada nodo.</li>
+  </ul>
+  
+  <h5>CASSANDRA</h5>
+  <p>El proyecto Apache Cassandra surgió de Facebook en 2008. Actualmente es una herramienta de base de datos completamente madura utilizada por la mayoría de los grandes almacenes de datos.</p>
+  <ul>
+    <li>Ofrece alta disponibilidad, tolerancia a fallos y escalabilidad en infraestructura de nube, sistemas virtuales o hardware.</li>
+    <li>El mecanismo de Cassandra proporciona una mezcla híbrida de un almacén de clave/valor con una base de datos orientada a columnas.</li>
+    <li>Permite indexación de columnas, vistas materializadas y desnormalizadas y almacenamiento en caché incorporado.</li>
+  </ul>
+  
+  <h5>HYPERTABLE</h5>
+  <p>Hypertable sigue el modelo de Bigtable de Google.</p>
+  <ul>
+    <li>Utiliza una compresión de datos de bloque y prefijo clave y tiene una estructura de tabla plana.</li>
+    <li>Los datos se representan en tablas de información en columnas y filas; Hypertable tiene poca semejanza con un RDBMS tradicional.</li>
+    <li>Características notables incluyen escalado en "tiempo real" y control de versiones de celdas, espacios de nombres y calificadores de columna.</li>
+  </ul>
+  
+  <p>Otras BBDDs basadas en columnas incluyen: Accumulo, Amazon SimpleDB, Clouddata, Cloudera, HPCC, Apache Flink, Splice Machine.</p>
+  </span>
+  
+  <h4>7.3.2. BBDD BASADAS EN ALMACÉN DE DATOS DE DOCUMENTOS</h4>
+  
+  <span id="2050701006">
+  <p>Los valores de cada clave están encapsulados en JSON o documentos JSON. Cada clave debe ser única. También se conocen como BBDD Documentales.</p>
+  
+  <h5>COUCHDB</h5>
+  <ul>
+    <li>Diseñado específicamente para las necesidades de bases de datos de aplicaciones web.</li>
+    <li>Carece por completo de un esquema o estructura de datos predefinidos.</li>
+    <li>Los datos se introducen en formato JSON de JavaScript, las consultas se escriben en JavaScript y los datos son devueltos en JSON.</li>
+    <li>Admite aplicaciones móviles y web (CouchDB se puede usar offline en el background de las aplicaciones móviles).</li>
+    <li>Ideal para acumular y cambiar ocasionalmente datos, sobre los cuales se ejecutarán consultas predefinidas.</li>
+  </ul>
+  
+  <h5>MONGODB</h5>
+  <ul>
+    <li>Base de datos de documentos de código abierto escrita en C++.</li>
+    <li>Características tradicionales de NoSQL: formato de JavaScript, almacenamiento de valor/clave, replicación flexible para fragmentación.</li>
+    <li>Utiliza control de concurrencia de múltiples versiones para mantener la coherencia en transacciones complejas.</li>
+    <li>Ventajas principales: matrices y documentos integrados que reducen la necesidad de realizar costosos JOINs, esquema dinámico que admite polimorfismo articulado.</li>
+  </ul>
+  
+  <p>Otras BBDDs basadas en almacén de datos de documentos incluyen: Elasticsearch, Couchbase Server, RethinkDB, RavenDB, MarkLogic Server, NeDB, Terrastore, JasDB, RaptorDB, djondb, EJDB, Amisa Server, densodb, SisoDB, ThruDB.</p>
+  </span>
+  
+  <h4>7.3.3. BBDD BASADAS EN GRAFOS</h4>
+  
+  <span id="2050701007">
+  <p>Especializadas en la gestión de datos altamente enlazados mediante la utilización de grafos.</p>
+  
+  <h5>NEO4J</h5>
+  <ul>
+    <li>Almacena las relaciones entre objetos mediante una estructura de grafos.</li>
+    <li>Incluye varios algoritmos para analizar y buscar las relaciones.</li>
+    <li>El uso de algoritmos de 'gráfico transversal' elimina el problema de perseguir punteros.</li>
+    <li>Ideal para datos de estilo gráfico interconectados, ricos o complejos.</li>
+  </ul>
+  
+  <p>Otras BBDDs basadas en grafos incluyen: OrientDB, FlockDB, Infinite Graph, DEX, TITAN, InfoGrid, HyperGraphDB, GraphBase, Trinity.</p>
+  </span>
+  
+  <h4>7.3.4. BBDD BASADAS EN CLAVE-VALOR</h4>
+  
+  <span id="2050701008">
+  <p>Las BBDDs trabajan asociando claves con sus valores correspondientes. Algo parecido al mapeo que establecen las estructuras de diccionario. Sus ventajas principales son la eficiencia, rendimiento extremo y el fácil escalado.</p>
+  
+  <h5>REDIS</h5>
+  <ul>
+    <li>Base de datos NoSQL de almacenamiento de datos clave-valor en memoria, en red, escrita en ANSI C.</li>
+    <li>Características clave: rendimiento mejorado a través del almacenamiento en memoria, replicación maestro-esclavo y modelo de datos de diccionario asignados clave a valores.</li>
+    <li>Proporciona clústeres de etapa alfa en plataformas PaaS e IaaS.</li>
+  </ul>
+  
+  <h5>RIAK</h5>
+  <ul>
+    <li>Base de datos distribuida y solución de almacenamiento en la nube.</li>
+    <li>Orientada a ofrecer almacenamiento en la nube a cualquier escala tanto en nubes públicas como privadas.</li>
+    <li>Proporciona consistencia final a los datos almacenados en una colección de nodos que pueden crecer en cualquier momento.</li>
+    <li>Las consultas de mapa/reducción en Riak se pueden escribir en Erlang o JavaScript.</li>
+  </ul>
+  
+  <p>Otras BBDDs basadas en clave-valor incluyen: DynamoDB, LevelDB, Aerospike, FoundationDB, Berkeley DB, Oracle NoSQL Database, GenieDB, BangDB, Scalaris.</p>
+  </span>
+  
   </article>
   </div>
   

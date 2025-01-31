@@ -1,125 +1,477 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>4. NORMALIZACIÓN (FORMAS NORMALES)</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <span id="2050401001">
+  <p>La normalización de base de datos es una técnica de modelado consistente en designar y aplicar una serie de reglas a las relaciones obtenidas tras el paso del modelo entidad-relación al modelo relacional con los siguientes objetivos:</p>
+  <ul>
+    <li>Evitar redundancia</li>
+    <li>Simplificar la actualización de datos</li>
+    <li>Garantizar la integridad referencial</li>
+  </ul>
+  <p>Para que una tabla sea considerada una relación tiene que cumplirse lo siguiente:</p>
+  <ul>
+    <li>Cada tabla tiene que tener un nombre único</li>
+    <li>No pueden haber dos filas iguales (No se permiten duplicados)</li>
+    <li>Todos los datos en una columna deben ser del mismo tipo</li>
+  </ul>
+  </span>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <h3>4.1. CONCEPTOS</h3>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <span id="2050401002">
+  <ul>
+    <li><strong>Dependencia Funcional:</strong> Es una conexión entre uno o más atributos<br>
+      DNI → Nombre y apellidos</li>
+    <li><strong>Dependencia Funcional Reflexiva:</strong> Si Y está incluido en X entonces X → Y<br>
+      Si dirección y nombre están incluidos en DNI entonces con el DNI se puede recuperar la dirección y el nombre</li>
+    <li><strong>Dependencia Funcional Aumentativa:</strong> Si X → Y entonces XZ → YZ<br>
+      DNI → Nombre<br>
+      DNI, Dirección → Nombre, Dirección</li>
+    <li><strong>Dependencia Funcional Transitiva:</strong> Si X → Y → Z entonces X → Z<br>
+      Fecha de nacimiento → Edad<br>
+      Edad → Conducir<br>
+      Fecha de nacimiento → Edad → Conducir</li>
+  </ul>
+  </span>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <h3>4.2. PRIMERA FORMA NORMAL (1FN)</h3>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <span id="2050401003">
+  <p>Una tabla está en primera forma normal si:</p>
+  <ul>
+    <li>Todos los atributos son atómicos. Un atributo es atómico si los elementos del dominio son simples e indivisibles.</li>
+    <li>No debe existir variación en el número de columnas.</li>
+    <li>Los campos no clave deben identificarse por la clave (dependencia funcional).</li>
+    <li>Debe existir una independencia del orden tanto de las filas como de las columnas (si los datos cambian de orden no deben cambiar sus significados).</li>
+  </ul>
+  <p>Esta forma normal elimina los valores repetidos dentro de una base de datos.</p>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <p>Pasos:</p>
+  <ul>
+    <li>Eliminar los grupos repetidos de las tablas individuales.</li>
+    <li>Crear una tabla independiente para cada conjunto de datos relacionados.</li>
+    <li>Identificar cada conjunto de datos relacionados con una clave principal</li>
+  </ul>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <p>Ejemplo de tabla antes de 1FN:</p>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Departamento</th>
+      <th>Salario</th>
+      <th>Emails</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Pedro García</td>
+      <td>Informática</td>
+      <td>2500</td>
+      <td>pgarcia@empresa.com;it@empresa.com</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Emma López</td>
+      <td>Comunicación</td>
+      <td>2300</td>
+      <td>elopez@empresa.com</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Marta Gil</td>
+      <td>Habilitación</td>
+      <td>2600</td>
+      <td>mgil@empresa.com;habilitacion@empresa.com</td>
+    </tr>
+  </table>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <p>Tablas después de aplicar 1FN:</p>
+  <table border="1">
+    <caption>tEmpleados</caption>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Puesto</th>
+      <th>Sueldo base</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Pedro García</td>
+      <td>Analista Programador</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Emma López</td>
+      <td>Jefe de sección</td>
+      <td>2800</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Marta Gil</td>
+      <td>Jefe de área</td>
+      <td>3000</td>
+    </tr>
+  </table>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
+  <table border="1">
+    <caption>tEmail</caption>
+    <tr>
+      <th>IDEMAIL</th>
+      <th>FKID</th>
+      <th>Emails</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>pgarcia@empresa.com</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1</td>
+      <td>it@empresa.com</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2</td>
+      <td>elopez@empresa.com</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>3</td>
+      <td>mgil@empresa.com</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>3</td>
+      <td>habilitacion@empresa.com</td>
+    </tr>
+  </table>
+  </span>
   
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
+  <h3>4.3. SEGUNDA FORMA NORMAL (2FN)</h3>
+  
+  <span id="2050401004">
+  <p>Una tabla está en segunda forma normal si:</p>
+  <ul>
+    <li>Está en 1FN</li>
+    <li>Todos los atributos que no son clave primaria tienen dependencia funcional completa con respecto a todas las claves existentes en el esquema. Para recuperar un atributo no clave, se necesita acceder por la clave completa, no por una subclave</li>
+    <li>Las 2FN aplican a las relaciones con claves primarias compuestas por dos o más atributos</li>
+  </ul>
+  
+  <p>Dependencia funcional: Una relación está en 2FN si está en 1FN y si los atributos que no forman parte de ninguna clave dependen de forma completa de la clave principal. Es decir, que no existen dependencias parciales. Todos los atributos que no son clave principal deben depender únicamente de la clave principal.</p>
+  
+  <p>Pasos:</p>
+  <ul>
+    <li>Crear tablas independientes para conjuntos de valores que se apliquen a varios registros.</li>
+    <li>Relacionar estas tablas con una clave foránea o externa</li>
+  </ul>
+  
+  <p>En la tabla tEmpleados podemos observar que el sueldo base depende del puesto (existe una dependencia parcial)</p>
+  <ul>
+    <li>ID → Nombre, Puesto, Sueldo base</li>
+    <li>Puesto → Sueldo base</li>
+  </ul>
+  </span>
+  
+  <h3>4.4. TERCERA FORMA NORMAL (3FN)</h3>
+  
+  <span id="2050401005">
+  <p>Una tabla está en 3FN si:</p>
+  <ul>
+    <li>Está en 2FN</li>
+    <li>Todos los atributos que no son clave primaria no dependen transitivamente de ésta</li>
+  </ul>
+  
+  <p>Por tanto hay que buscar dependencias funcionales entre atributos que no estén en la clave.</p>
+  
+  <p>La 3NF fue definida originalmente por E.F. Codd.</p>
+  
+  <p>La tabla se encuentra en 3FN si es 2FN y si no existe ninguna dependencia funcional transitiva en los atributos que no son clave.</p>
+  
+  <p>Pasos:</p>
+  <ul>
+    <li>Eliminar los campos que no dependan de la clave</li>
+  </ul>
+  
+  <p>Cumplir con la 3FN no siempre es práctico porque puede llevar a la creación de multitud de tablas para separar los campos no dependientes.</p>
+  
+  <p>Por ejemplo para una base de datos de usuarios deberíamos crear tablas independientes de ciudades, códigos postales, tipos de usuarios… y cualquier otro factor que pueda estar duplicado en varias tuplas.</p>
+  
+  <p>Puede ser más factible aplicar la 3FN sólo a los datos que cambian con frecuencia.</p>
+  </span>
+  
+  <h3>4.5. FORMA NORMAL DE BOYCE-CODD (FNBC)</h3>
+  
+  <span id="2050401006">
+  <p>Es una versión ligeramente más fuerte que la 3FN.</p>
+  
+  <p>La tabla se encuentra en FNBC si cada determinante, atributo que determina completamente a otro, es clave candidata.</p>
+  </span>
+  
+  <h3>4.6. CUARTA FORMA NORMAL (4FN)</h3>
+  
+  <span id="2050401007">
+  <p>Una tabla está en 4FN si y sólo si está 3FN o en FNBC y no posee dependencias multivaluadas no triviales.</p>
+  
+  <p>La definición de la 4FN confía en la noción de una dependencia multivaluada. Una tabla con una dependencia multivaluada es una donde la existencia de dos o más relaciones independientes muchos a muchos causa redundancia.</p>
+  
+  <p>Ejemplo de tabla antes de aplicar 4FN:</p>
+  <table border="1">
+    <tr>
+      <th>Lenguaje</th>
+      <th>Empleado</th>
+      <th>Proyecto</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+      <td>Microservicio1</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+      <td>Escritorio1</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+      <td>Escritorio2</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Marta Gil</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Marta Gil</td>
+      <td>Escritorio2</td>
+    </tr>
+  </table>
+  
+  <p>Tablas después de aplicar 4FN:</p>
+  <table border="1">
+    <caption>Tabla 1</caption>
+    <tr>
+      <th>Lenguaje</th>
+      <th>Empleado</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Marta Gil</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Marta Gil</td>
+    </tr>
+  </table>
+  
+  <table border="1">
+    <caption>Tabla 2</caption>
+    <tr>
+      <th>Lenguaje</th>
+      <th>Proyecto</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio1</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio1</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio2</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio2</td>
+    </tr>
+  </table>
+  </span>
+  
+  <h3>4.7. QUINTA FORMA NORMAL (5FN)</h3>
+  
+  <span id="2050401008">
+  <p>Una tabla se encuentra en 5FN si:</p>
+  <ul>
+    <li>La tabla está en 4FN</li>
+    <li>No existen relaciones de dependencias de reunión (join) no triviales que no se generen desde las claves.</li>
+    <li>Una tabla que se encuentra en la 4FN se dice que está en la 5FN si, y sólo si, cada relación de dependencia de reunión (join) se encuentra definida por claves candidatas.</li>
+  </ul>
+  
+  <p>La forma 5FN se suele emplear en muy contadas ocasiones para garantizar la integridad de datos en casos complejos.</p>
+  
+  <p>Ejemplo de tabla antes de aplicar 5FN:</p>
+  <table border="1">
+    <tr>
+      <th>Lenguaje</th>
+      <th>Empleado</th>
+      <th>Proyecto</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+      <td>Microservicio1</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+      <td>Escritorio1</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+      <td>Escritorio2</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Marta Gil</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Marta Gil</td>
+      <td>Escritorio2</td>
+    </tr>
+  </table>
+  
+  <p>Para implementar la restricción en la que ciertos empleados sólo pueden trabajar en ciertos proyectos deberíamos dividir la tabla en tres:</p>
+  
+  <table border="1">
+    <caption>Tabla 1</caption>
+    <tr>
+      <th>Lenguaje</th>
+      <th>Empleado</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Pedro García</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Emma López</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Marta Gil</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Marta Gil</td>
+    </tr>
+  </table>
+  
+  <table border="1">
+    <caption>Tabla 2</caption>
+    <tr>
+      <th>Lenguaje</th>
+      <th>Proyecto</th>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio1</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio1</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio2</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Escritorio2</td>
+    </tr>
+  </table>
+  
+  <table border="1">
+    <caption>Tabla 3</caption>
+    <tr>
+      <th>Empleado</th>
+      <th>Proyecto</th>
+    </tr>
+    <tr>
+      <td>Pedro García</td>
+      <td>Microservicio1</td>
+    </tr>
+    <tr>
+      <td>Pedro García</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Emma López</td>
+      <td>Escritorio1</td>
+    </tr>
+    <tr>
+      <td>Emma López</td>
+      <td>Escritorio2</td>
+    </tr>
+    <tr>
+      <td>Marta Gil</td>
+      <td>Microservicio2</td>
+    </tr>
+    <tr>
+      <td>Marta Gil</td>
+      <td>Escritorio2</td>
+    </tr>
+  </table>
+  </span>
+  
   </article>
   </div>
-  
   

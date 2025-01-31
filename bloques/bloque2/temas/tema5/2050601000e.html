@@ -1,124 +1,183 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>6. BASES DE DATOS ORIENTADAS A OBJETOS</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <h3>6.1. INTRODUCCIÓN A LAS BDOO</h3>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <span id="2050601001">
+  <p>Un sistema de gestión de base de datos orientada a objetos (ODBMS, Object Database Management System) representa la información en forma de objetos, tal y como son utilizados en la programación orientada a objetos.</p>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <p>Podemos realizar la siguiente analogía entre una base de datos relacional y una base de datos orientada a objetos:</p>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <table border="1">
+    <tr>
+      <th>Base de datos relacional</th>
+      <th>Ejemplo Relacional</th>
+      <th>Base de datos orientada a objetos</th>
+      <th>Ejemplo BBDD Orientada a Objetos</th>
+    </tr>
+    <tr>
+      <td>Tabla</td>
+      <td>Tabla cliente</td>
+      <td>Clase</td>
+      <td>Clase Cliente</td>
+    </tr>
+    <tr>
+      <td>Registro</td>
+      <td></td>
+      <td>Objeto</td>
+      <td>Instancia de Cliente</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td></td>
+      <td>Crear un objeto de la clase</td>
+      <td>Cliente clienteNuevo = new Cliente()</td>
+    </tr>
+    <tr>
+      <td>Update</td>
+      <td></td>
+      <td>Modificar un objeto</td>
+      <td>Cliente8.nombre="Juan"</td>
+    </tr>
+    <tr>
+      <td>Delete</td>
+      <td></td>
+      <td>Eliminar un objeto</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Select</td>
+      <td></td>
+      <td>Obtener una lista de objetos</td>
+      <td></td>
+    </tr>
+  </table>
+  </span>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <span id="2050601002">
+  <p>Un ODBMS integra las características de las bases de datos con las de un lenguaje de programación orientada a objetos, haciendo que los objetos de la base de datos se mapeen como objetos de los lenguajes de programación orientados a objetos a los que da soporte. A su vez, extiende de forma transparente los lenguajes orientados a objetos con las siguientes características:</p>
+  <ul>
+    <li>Trabajar con datos persistentes.</li>
+    <li>Control de concurrencia</li>
+    <li>Recuperación y filtrado de datos</li>
+    <li>Consultas asociativas.</li>
+  </ul>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <p>Actualmente los ODBMS trabajan con lenguajes orientados a objetos como Java, C++, C#, Visual Basic.net, Delphi, Ruby, Python, Perl, etc.</p>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <p>El ODMG (Object Database Management Group) es el grupo de trabajo encargado de proporcionar estándares sobre base de datos orientada a objetos.</p>
+  </span>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <h3>6.2. CARACTERÍSTICAS DE LAS BDOO</h3>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
+  <span id="2050601003">
+  <p>Las principales características de las bases de datos orientadas a objetos se pueden dividir en tres grupos:</p>
   
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
+  <h4>6.2.1. MANDATORIAS</h4>
+  <p>Aquellas características que deben estar en la BDOO de forma obligatoria, es decir, los requisitos imprescindibles que el sistema debe tener:</p>
+  <ul>
+    <li>Debe soportar objetos complejos.</li>
+    <li>Los objetos deben tener un identificador al margen de los valores de sus atributos.</li>
+    <li>Encapsulación, es decir, los datos e implementación de los métodos están ocultos en los objetos.</li>
+    <li>El esquema de la BDOO tiene un conjunto de clases.</li>
+    <li>Concurrencia.</li>
+    <li>Recuperación.</li>
+    <li>Persistencia y manejador de almacenamiento secundario.</li>
+    <li>Facilidad de consulta.</li>
+  </ul>
+  
+  <h4>6.2.2. OPCIONALES</h4>
+  <p>Características que no es necesario incluirlas, pero si la BDOO cuenta con ellas, hará que el sistema sea mejor, entre otras:</p>
+  <ul>
+    <li>Herencia múltiple.</li>
+    <li>Diseño de transacciones y versiones.</li>
+    <li>Comprobación de clases e inferencia de la distribución.</li>
+  </ul>
+  
+  <h4>6.2.3. ABIERTAS</h4>
+  <p>Características que el diseñador puede implementar y que están relacionadas con la programación.</p>
+  </span>
+  
+  <h3>6.3. CONCEPTOS CLAVE DEL MODELO DE OBJETOS</h3>
+  
+  <span id="2050601004">
+  <p>Las BDOO cuentan con conceptos propios y clave del modelo de objetos, entre los que se encuentran estas propiedades:</p>
+  
+  <ul>
+    <li><strong>Encapsulación:</strong> Oculta información al resto de objetos, de manera que pueden impedir los conflictos o los accesos incorrectos. Consiste en unir en la clase las variables (características) y los métodos (comportamientos), de manera que solo se tiene una unidad, de la que se conoce su comportamiento, pero no los detalles internos.</li>
+    <li><strong>Herencia:</strong> Hace referencia a que los objetos heredan comportamientos dentro de una jerarquía de clases, es decir, una clase se deriva de otra de manera que extiende su funcionalidad. La clase de la que se hereda puede llamarse clase base, clase padre, superclase, clase ancestro, etc. (dependiendo del lenguaje de programación que se esté usando)</li>
+    <li><strong>Polimorfismo:</strong> Propiedad que permite que una operación pueda aplicarse a objetos de distinta tipología.</li>
+  </ul>
+  </span>
+  
+  <h3>6.4. VENTAJAS Y DESVENTAJAS</h3>
+  
+  <span id="2050601005">
+  <h4>6.4.1. VENTAJAS</h4>
+  <p>Entre las principales ventajas con las que cuentan las bases de datos orientadas a objetos tenemos las siguientes:</p>
+  <ul>
+    <li>Son las más adecuadas si trabajamos con lenguajes de programación orientados a objetos, puesto que los objetos del código fuente se pueden integrar fácilmente en la base de datos.</li>
+    <li>Permiten manipular conjuntos de datos complejos de manera más rápida, tanto para guardarse como para su consulta. A cada objeto se le asigna de forma automática un código de identificación.</li>
+    <li>Alto nivel de confiabilidad en la ejecución de transacciones ACID, es decir, las transacciones se completan solo cuando no existen conflictos con los datos.</li>
+    <li>Cuentan con un mecanismo de almacenamiento en caché que crea réplicas parciales de la base de datos, lo que mejora su rendimiento.</li>
+    <li>Son capaces de manejar grandes volúmenes de datos.</li>
+  </ul>
+  
+  <h4>6.4.2. DESVENTAJAS</h4>
+  <ul>
+    <li>El uso de las BDOO está poco extendido aún por lo que todavía no hay criterios claros de estandarización.</li>
+    <li>Existe poca documentación sobre los proyectos que las han implementado.</li>
+  </ul>
+  </span>
+  
+  <h3>6.5. ESTRUCTURA Y FUNCIONAMIENTO</h3>
+  
+  <span id="2050601006">
+  <h4>6.5.1. ESTRUCTURA</h4>
+  <p>La estructura de una base de datos orientada a objetos se basa en encapsular los datos y el código relacionado con cada objeto en una sola unidad. Las interacciones entre los objetos y el resto del sistema se realizan mediante una interfaz que se define mediante un conjunto de mensajes permitidos.</p>
+  
+  <p>Los objetos están asociados a conjuntos de variables con los datos del objeto, de mensajes a los que responde (con o sin parámetros) y de métodos (que con el código que implementa un mensaje).</p>
+  
+  <p>La estructura de estas BDOO se diseña a partir de una serie de diagramas:</p>
+  <ul>
+    <li><strong>Diagrama de clases:</strong> Presenta las clases con sus respectivas relaciones estructurales y de herencia</li>
+    <li><strong>Diagrama de objetos (opcional):</strong> Ayuda a clarificar las instancias de las clases.</li>
+    <li><strong>Diagrama de secuencias:</strong> Presenta las interacciones entre los objetos organizados en una secuencia temporal y describe cómo colaboran.</li>
+    <li><strong>Diagrama de estado:</strong> Muestra los posibles estados en los que pueden estar un objeto y las transacciones que pueden realizar.</li>
+  </ul>
+  
+  <h4>6.5.2. FUNCIONAMIENTO</h4>
+  <p>La base de datos orientada a objetos se fundamenta en agrupar la información en paquetes relacionados entre sí.</p>
+  <ul>
+    <li>Los datos de cada registro se combinan en un solo objeto y a su vez se incluyen todos sus atributos.</li>
+    <li>A diferencia de lo que ocurre con la distribución en tablas de otras bases de datos, en las BDOO toda la información está disponible en el objeto y no repartida en filas y columnas.</li>
+    <li>Los métodos, es decir el conjunto de acciones que pueden llevarse a cabo en cada objeto, también se pueden agrupar.</li>
+    <li>Los objetos a su vez se dividen en clases, creando así una jerarquía de clases y subclases, en la que las subclases heredan las propiedades de las clases superiores y las complementan con sus propios atributos.</li>
+    <li>Esta jerarquía no es estricta, puesto que los objetos de una clase pueden relacionarse con otras clases, formando redes.</li>
+    <li>Los objetos simples pueden combinarse para crear objetos más complejos.</li>
+    <li>El sistema de gestión de base de datos orientadas a objetos asigna de forma automática un código de identificación único e inmutable a cada registro, permitiendo así recuperar los objetos cuando estos se han guardado y realizar consultas.</li>
+    <li>En estas bases de datos, los objetos tienen relaciones de varios a varios, en las que los indicadores son los encargados de establecer dichas relaciones entre objetos.</li>
+    <li>Las BDOO no emplean lenguaje SQL, sino lenguajes de programación.</li>
+  </ul>
+  </span>
+  
+  <h3>6.6. CARACTERÍSTICAS ADICIONALES</h3>
+  
+  <span id="2050601007">
+  <ul>
+    <li>La mayoría de bases de datos orientadas a objetos incluyen algún tipo de lenguaje para realizar consultas, lo cual permite que los objetos sean encontrados utilizando un enfoque de programación declarativa.</li>
+    <li>En una base de datos orientada a objetos, el acceso a los datos es más rápido debido a que los Joins casi nunca son necesarios, a diferencia de lo que ocurre con las bases de datos relacionales. Un objeto puede ser recuperado directamente sin una búsqueda, simplemente siguiendo los punteros.</li>
+    <li>Un área en la que los diferentes productos pueden variar es la forma en la que el esquema de la base de datos es definido. Sin embargo, una característica general es que el lenguaje de programación y el esquema de la base de datos utilizan la misma definición de tipos.</li>
+    <li>Las aplicaciones multimedia se agilizan debido a que los métodos de clase asociados con los datos son responsables de una correcta interpretación.</li>
+    <li>Muchas bases de datos orientadas a objetos ofrecen soporte para control de versiones. Un objeto puede ser visto como un conjunto de todas sus versiones. También las versiones de objetos pueden ser tratadas como objetos por derecho propio.</li>
+    <li>Algunas bases de datos orientadas a objetos también proporcionan soporte sistemático para triggers y restricciones.</li>
+    <li>La eficiencia de una base de datos orientada a objetos también ha mejorado considerablemente en áreas en las cuales se requieren cantidades masivas de datos sobre un elemento. Por ejemplo, una entidad bancaria podría obtener la información de la cuenta de un usuario y proporcionarle eficientemente información muy extensa conteniendo todas las transacciones, todas las entradas con información de la cuenta, etc.</li>
+    <li>Una base de datos orientada a objetos almacena datos complejos y relaciones entre datos directamente, sin asignar filas y columnas, y esto hace que sean más adecuadas para aplicaciones que tratan con datos muy complejos.</li>
+    <li>Otro beneficio adicional de una base de datos orientada a objetos es que puede ser programada con pequeñas diferencias de procedimientos sin afectar a todo el sistema.</li>
+  </ul>
+  </span>
+  
   </article>
   </div>
   

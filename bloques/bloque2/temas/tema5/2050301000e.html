@@ -1,125 +1,188 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>3.1 SISTEMAS DE GESTIÓN DE BASES DE DATOS RELACIONALES</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <span id="2050301001">
+  <p>Un sistema de gestión de bases de datos relaciones (SGBDR o RDBMS) es aquél que sigue el modelo relacional.</p>
+  </span>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <h3>3.1.1 LAS 12 REGLAS DE CODD (QUE EN REALIDAD SON 13)</h3>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <span id="2050301002">
+  <p>Edgar F. Codd publicó en 1985 las doce reglas (más la regla 0) que se utilizan para evaluar si un SGBD puede considerarse relacional.</p>
+  </span>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <h4>3.1.1.0 REGLA 0: REGLA DE FUNDACIÓN</h4>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <span id="2050301003">
+  <p>Para que el sistema sea considerado relacional, debe usar únicamente sus capacidades relacionales para gestionar una base de datos.</p>
+  </span>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <h4>3.1.1.1 REGLA 1: REGLA DE LA INFORMACIÓN</h4>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <span id="2050301004">
+  <p>Toda la información de la base de datos debe estar representada explícitamente en el esquema lógico (columnas dentro de filas de tablas). Es decir, todos los datos están en las tablas.</p>
+  </span>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <h4>3.1.1.2 REGLA 2: REGLA DEL ACCESO GARANTIZADO</h4>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
+  <span id="2050301005">
+  <p>Cualquier dato almacenado en una BDR tiene que poder ser direccionado unívocamente. Todos y cada uno de los datos (valores atómicos) de una base de datos relacional (BDR) deben ser accesibles a nivel lógico utilizando una combinación de nombre de tabla, valor de clave primaria y nombre de columna.</p>
+  <p>Se debe indicar en qué tabla está, cuál es la columna y cuál es la fila (mediante la clave primaria).</p>
+  <p>Por lo tanto, o bien la implementación soporta el concepto de clave primaria o la "simula" de la siguiente forma:</p>
+  <ul>
+  <li>Hacer que los atributos "clave primaria" no puedan ser nulos (NOT NULL).</li>
+  <li>Crear un índice único sobre la "clave primaria".</li>
+  <li>No eliminar nunca el índice.</li>
+  <li>"clave primaria" es el campo que vamos a utilizar simulando la clave primaria.</li>
+  </ul>
+  </span>
   
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
+  <h4>3.1.1.3 REGLA 3: REGLA DEL TRATAMIENTO SISTEMÁTICO DE VALORES NULOS</h4>
+  
+  <span id="2050301006">
+  <p>Los valores nulos (que son distintos de la cadena vacía, blancos, 0, ...) se soportan en los SGBD totalmente relacionales para representar información desconocida o no aplicable de manera sistemática, independientemente del tipo de datos.</p>
+  <p>Se reconoce la necesidad de la existencia de valores nulos, para un tratamiento sistemático de los mismos.</p>
+  <p>El valor nulo significa desconocido</p>
+  <p>Hay problemas para soportar los valores nulos en las operaciones relacionales, especialmente en las operaciones lógicas. Muchas bases de datos relacionales utilizan Lógica trivaluada en lugar de Lógica booleana.</p>
+  
+  <h5>Lógica Trivaluada</h5>
+  <p>Extiende la lógica booleana añadiendo el tercer estado Nulo (desconocido) a los estados Verdadero y Falso.</p>
+  <p>A partir de aquí define las tablas de verdad:</p>
+  
+  <table>
+  <tr><th>A</th><th>B</th><th>A Y B</th></tr>
+  <tr><td>F</td><td>F</td><td>F</td></tr>
+  <tr><td>F</td><td>V</td><td>F</td></tr>
+  <tr><td>F</td><td>Null</td><td>F</td></tr>
+  <tr><td>V</td><td>F</td><td>F</td></tr>
+  <tr><td>V</td><td>V</td><td>V</td></tr>
+  <tr><td>V</td><td>Null</td><td>Null</td></tr>
+  <tr><td>Null</td><td>F</td><td>F</td></tr>
+  <tr><td>Null</td><td>V</td><td>Null</td></tr>
+  <tr><td>Null</td><td>Null</td><td>Null</td></tr>
+  </table>
+  
+  <table>
+  <tr><th>A</th><th>B</th><th>A O B</th></tr>
+  <tr><td>F</td><td>F</td><td>F</td></tr>
+  <tr><td>F</td><td>V</td><td>V</td></tr>
+  <tr><td>F</td><td>Null</td><td>Null</td></tr>
+  <tr><td>V</td><td>F</td><td>V</td></tr>
+  <tr><td>V</td><td>V</td><td>V</td></tr>
+  <tr><td>V</td><td>Null</td><td>V</td></tr>
+  <tr><td>Null</td><td>F</td><td>Null</td></tr>
+  <tr><td>Null</td><td>V</td><td>V</td></tr>
+  <tr><td>Null</td><td>Null</td><td>Null</td></tr>
+  </table>
+  
+  <table>
+  <tr><th>A</th><th>NO A</th></tr>
+  <tr><td>F</td><td>V</td></tr>
+  <tr><td>V</td><td>F</td></tr>
+  <tr><td>Null</td><td>Null</td></tr>
+  </table>
+  
+  <p>Un inconveniente es que de cara al usuario el manejo de los lenguajes relacionales se complica pues es más difícil de entender.</p>
+  </span>
+  
+  <h4>3.1.1.4 REGLA 4: REGLA DEL DICCIONARIO DINÁMICO EN LÍNEA BASADO EN EL MODELO RELACIONAL</h4>
+  
+  <span id="2050301007">
+  <p>La descripción de la base de datos se representa a nivel lógico de la misma manera que los datos normales, de modo que los usuarios autorizados pueden aplicar el mismo lenguaje relacional a su consulta, igual que lo aplican a los datos normales.</p>
+  <p>Es una consecuencia de la regla 1 que se destaca por su importancia. Los metadatos se almacenan usando el modelo relacional, con todas las consecuencias.</p>
+  </span>
+  
+  <h4>3.1.1.5 REGLA 5: REGLA DEL SUBLENGUAJE DE DATOS COMPLETO</h4>
+  
+  <span id="2050301008">
+  <p>Un sistema relacional debe soportar varios lenguajes y varios modos de uso de terminal (por ejemplo: rellenar formularios). Sin embargo, debe existir al menos un lenguaje cuyas sentencias sean expresables, mediante una sintaxis bien definida, como cadenas de caracteres y que sea completo, soportando:</p>
+  <ul>
+  <li>Lenguaje de Definición de datos (DDL)</li>
+  <li>Lenguaje de Manipulación de datos (DML)</li>
+  <li>Lenguaje de Control de Datos (DCL)</li>
+  <li>Definición de vistas</li>
+  <li>Limitantes de integridad</li>
+  <li>Limitantes de transacción (iniciar, realizar, deshacer) (Begin, commit, rollback).</li>
+  </ul>
+  <p>Además de poder tener interfaces más amigables para hacer consultas, etc. siempre debe de haber una manera de hacerlo todo de manera textual, que es tanto como decir que pueda ser incorporada en un programa tradicional.</p>
+  <p>Un lenguaje que cumple esto en gran medida es SQL.</p>
+  </span>
+  
+  <h4>3.1.1.6 REGLA 6: REGLA DE ACTUALIZACIÓN DE VISTAS</h4>
+  
+  <span id="2050301009">
+  <p>Todas las vistas que son teóricamente actualizables se deben actualizar por el sistema.</p>
+  <p>El problema es determinar cuáles son las vistas teóricamente actualizables.</p>
+  <p>Cada sistema puede hacer unas suposiciones particulares sobre las vistas que son actualizables.</p>
+  </span>
+  
+  <h4>3.1.1.7 REGLA 7: REGLA DE INSECIÓN, ACTUALIZACIÓN Y BORRADO DE ALTO NIVEL</h4>
+  
+  <span id="2050301010">
+  <p>La capacidad de manejar una relación base o derivada como un solo operando se aplica no sólo a la recuperación de los datos (consultas), también se aplica a la inserción, actualización y borrado de datos.</p>
+  <p>El lenguaje de manejo de datos también debe ser de alto nivel (de conjuntos). Algunas bases de datos inicialmente sólo podían modificar las tuplas de la base de datos de una en una (un registro de cada vez).</p>
+  </span>
+  
+  <h4>3.1.1.8 REGLA 8: REGLA DE INDEPENDENCIA FÍSICA DE DATOS</h4>
+  
+  <span id="2050301011">
+  <p>Los programas de aplicación y actividades del terminal permanecen inalterados a nivel físico cuando quiera que se realicen cambios en las representaciones de almacenamiento o métodos de acceso.</p>
+  <p>El modelo relacional es un modelo lógico de datos, y oculta las características de su representación física.</p>
+  <p>Es la capacidad de modificar el esquema interno sin tener que alterar el esquema conceptual (o los externos) y la capacidad de modificar el esquema conceptual sin obligar a reescribir los programas de aplicación.</p>
+  </span>
+  
+  <h4>3.1.1.9 REGLA 9: REGLA DE INDEPENDENCIA LÓGICA DE DATOS</h4>
+  
+  <span id="2050301012">
+  <p>Los programas de aplicación y actividades del terminal permanecen inalterados a nivel lógico cuando quiera que se realicen cambios a las tablas base que preserven la información.</p>
+  <p>Cuando se modifica el esquema lógico preservando información no debe ser necesario modificar nada en niveles superiores.</p>
+  <p>Ejemplos de cambios que preservan la información:</p>
+  <ul>
+  <li>Añadir un atributo a una tabla base.</li>
+  <li>Sustituir dos tablas base por la unión de las mismas. Usando vistas de la unión puedo recrear las tablas anteriores...</li>
+  <li>depurar las vistas de diseños y contenerla estable.</li>
+  </ul>
+  </span>
+  
+  <h4>3.1.1.10 REGLA 10: REGLA DE INDEPENDENCIA DE INTEGRIDAD</h4>
+  
+  <span id="2050301013">
+  <p>Los limitantes de integridad específicos para una determinada base de datos relacional deben poder ser definidos en el sublenguaje de datos relacional, y almacenables en el catálogo, no en los programas de aplicación.</p>
+  <p>El objetivo de las bases de datos no es sólo almacenar los datos, si no también sus relaciones y evitar que estas (limitantes) se codifiquen en los programas.</p>
+  <p>En una BDR se deben poder definir limitantes de integridad.</p>
+  <p>Como parte de los limitantes inherentes al modelo relacional (forman parte de su definición) están:</p>
+  <ul>
+  <li>Una BDR tiene integridad de entidad. Es decir, toda tabla debe tener una clave primaria.</li>
+  <li>Una BDR tiene integridad referencial. Es decir, toda clave externa no nula debe existir en la relación donde es primaria.</li>
+  </ul>
+  </span>
+  
+  <h4>3.1.1.11 REGLA 11: REGLA DE INDEPENDENCIA DE DISTRIBUCIÓN</h4>
+  
+  <span id="2050301014">
+  <p>Una base de datos relacional tiene independencia de distribución.</p>
+  <p>Las mismas órdenes y programas se ejecutan igual en una BD centralizada que en una distribuida.</p>
+  <p>Las BDR son fácilmente distribuibles:</p>
+  <ul>
+  <li>Las tablas se dividen en fragmentos que se distribuyen.</li>
+  <li>Cuando se necesitan las tablas completas se recombinan usando operaciones relacionales con los fragmentos.</li>
+  </ul>
+  <p>Esta regla es responsable de tres tipos de transparencia de distribución:</p>
+  <ul>
+  <li>Transparencia de localización: El usuario tiene la impresión de que trabaja con una BD local. (aspecto de la regla de independencia física)</li>
+  <li>Transparencia de fragmentación: El usuario no se da cuenta de que la relación con que trabaja está fragmentada. (aspecto de la regla de independencia lógica de datos).</li>
+  <li>Transparencia de replicación: El usuario no se da cuenta de que pueden existir copias (réplicas) de una misma relación en diferentes lugares.</li>
+  </ul>
+  </span>
+  
+  <h4>3.1.1.12 REGLA 12: REGLA DE LA NO SUBVERSIÓN</h4>
+  
+  <span id="2050301015">
+  <p>Si un sistema relacional tiene un lenguaje de bajo nivel (un registro de cada vez), ese bajo nivel no puede ser usado para saltarse (subvertir) las reglas de integridad y los limitantes expresados en los lenguajes relacionales de más alto nivel (una relación (conjunto de registros) de cada vez)</p>
+  <p>Algunos problemas no se pueden solucionar directamente con el lenguaje de alto nivel. Normalmente se usa SQL inmerso en un lenguaje anfitrión para solucionar estos problemas. Se utiliza el concepto de cursor para tratar individualmente las tuplas de una relación. En cualquier caso no debe ser posible saltarse los limitantes de integridad impuestos al tratar las tablas a ese nivel.</p>
+  </span>
+  
   </article>
   </div>
-  
   

@@ -1,125 +1,85 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>2.1 MODELO RELACIONAL</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <span id="2050201001">
+  <p>El modelo relacional para el modelado y la gestión de bases de datos es un modelo de datos basado en la lógica de predicados, el álgebra relacional y la teoría de conjuntos. Fue propuesto por E.F Codd en los laboratorios de IBM en California y actualmente es el modelo más utilizado para modelar problemas reales y administrar datos dinámicamente.</p>
+  </span>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <span id="2050201002">
+  <h3>2.1.1. CONCEPTOS</h3>
+  <p>Se basa en el concepto matemático de Relación. Una relación R, de n conjuntos, es un subconjunto del producto cartesiano de los conjuntos A1, A2, A3, …., An</p>
+  <p>Estas relaciones son consideradas en forma lógica como conjuntos de datos llamados tuplas. Habitualmente es más fácil entender el concepto de relación equiparándolo a una tabla compuesta por registros donde:</p>
+  <ul>
+    <li><strong>Tupla:</strong> Cada fila de la tabla (también llamado registro)</li>
+    <li><strong>Campos:</strong> Las columnas de la tabla.</li>
+  </ul>
+  </span>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <span id="2050201003">
+  <h3>2.1.2 TABLA O RELACIÓN: ATRIBUTOS Y DOMINIOS</h3>
+  <ul>
+    <li>Una tabla o relación es una matriz rectangular que almacena líneas con una estructura determinada.</li>
+    <li>La primera fila de una tabla no se considera una tupla. Nos marca la estructura de la tabla mediante la definición de las columnas o atributos que la componen.</li>
+    <li>Cada atributo tiene un dominio de valores que puede aceptar (tipo de datos) y debe ser atómico.</li>
+    <li>El resto de filas de la tabla o relación es un conjunto de tuplas donde cada una de ellas corresponde a un registro de la tabla.</li>
+    <li>Cada tupla corresponde a la descripción de una entidad particular o a la descripción de una relación particular entre varias entidades particulares.</li>
+    <li>El grado de una tabla es el número de campos que posee. Es independiente del momento de observación de la tabla (salvo que se modifique)</li>
+    <li>La cardinalidad es el número de tuplas que almacena. No es independiente del momento de observación</li>
+  </ul>
+  </span>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <span id="2050201004">
+  <h3>2.1.3 RESTRICCIONES</h3>
+  <ul>
+    <li>Cada atributo debe tomar un valor perteneciente a su dominio asociado.</li>
+    <li>No se permite la repetición de tuplas en una misma tabla.</li>
+    <li>Las tuplas no tienen un orden determinado.</li>
+    <li>Cada tabla debe contener una clave principal o primaria (PK: Primary Key)</li>
+    <li>Una clave principal es un atributo o conjunto de atributos cuyo valor es único y diferente en cada tupla.</li>
+    <li>Una clave candidata es un atributo o conjunto de atributos que cumple las condiciones para ser clave principal. Generalmente una tabla puede tener varias claves candidatas aunque sólo se elige una como clave principal.</li>
+    <li>Una clave foránea (FK: Foreign Key) o clave ajena es una columna o conjunto de columnas que es clave principal en una tabla relacionada.</li>
+  </ul>
+  <p>La clave principal se suele representar en negrita, subrayada o con el icono de una llave (key) a la izquierda</p>
+  </span>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <span id="2050201005">
+  <h3>2.1.3.1. REGLA DE INTEGRIDAD DE ENTIDAD</h3>
+  <p>Incluye dos reglas:</p>
+  <ul>
+    <li><strong>Regla de integridad de unicidad de la clave primaria:</strong> La clave primaria elegida para una relación no debe tener valores repetidos. Si la clave primaria es compuesta, la combinación de campos también debe ser única.</li>
+    <li><strong>Regla de integridad de entidad no nula:</strong> La clave primaria de una relación no puede contener valores nulos.</li>
+  </ul>
+  <p>Integridad de entidad: Si la clave primaria es compuesta, ningún campo de la combinación puede ser nulo.</p>
+  </span>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <span id="2050201006">
+  <h3>2.1.3.2. REGLA DE INTEGRIDAD REFERENCIAL</h3>
+  <p>Está relacionada con el concepto de clave foránea.</p>
+  <p>Todos los valores que toma una clave foránea deben ser valores nulos o valores que existen en la clave primaria referenciada.</p>
+  <p>Si la clave primaria es compuesta, la clave primaria compuesta referenciada debe existir</p>
+  </span>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <span id="2050201007">
+  <h3>2.1.4. REGLA DE INTEGRIDAD DE DOMINIO</h3>
+  <p>Establece la validez de las restricciones que debe cumplir una determinada columna de la tabla.</p>
+  <ul>
+    <li><strong>Datos Requeridos:</strong> establece que una columna tenga un valor no NULL. Se define efectuando la declaración de una columna es NOT NULL cuando la tabla que contiene las columnas se crea por primera vez, como parte de la sentencia CREATE TABLE.</li>
+    <li><strong>Chequeo de Validez:</strong> cuando se crea una tabla cada columna tiene un tipo de datos y el DBMS asegura que solamente los datos del tipo especificado sean ingresados en la tabla</li>
+  </ul>
+  </span>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <span id="2050201008">
+  <h3>2.1.5 RESTRICCIONES DE LA BASE DE DATOS</h3>
+  <ul>
+    <li><strong>Restricciones de atributo:</strong> Permiten acotar los valores del dominio de un atributo. Por ejemplo el dominio del atributo Fecha de nacimiento puede ser una fecha válida, pero en la base de datos puede no tener sentido que la fecha sea anterior al 1900 o posterior al día de la fecha. A su vez el descuento de un producto no puede ser superior al 100%.</li>
+    <li><strong>Restricciones de tupla:</strong> Permiten comprobar que los valores de algunos atributos de una misma tupla son consistentes entre sí. Por ejemplo si el cliente ha puesto que no tiene niños a su cargo no puede solicitar la ayuda para guardería</li>
+    <li><strong>Restricciones de tabla:</strong> Establecen restricciones que engloban a todas o parte de las tuplas de una misma tabla. Por ejemplo en una tabla que almacenase los encuentros de una liga se debería evitar que un mismo equipo jugase contra dos equipos contrarios el mismo día en dos lugares distintos.</li>
+    <li><strong>Restricciones de base de datos:</strong> Establecen restricciones que engloban a todas o parte de las tuplas de una o distintas tablas de la misma base de datos. Por ejemplo, no debemos anotar un pedido en la tabla de pedidos si un producto comprado está agotado en la tabla de inventario.</li>
+    <li><strong>Restricciones de usuario:</strong> Suelen realizarse a través de permisos de usuario sobre las tablas.</li>
+  </ul>
+  </span>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
-  
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
   </article>
   </div>
-  
   

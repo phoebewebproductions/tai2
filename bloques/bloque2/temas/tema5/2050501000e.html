@@ -1,124 +1,81 @@
 <div class="teoria">
   <article>
-    <h2>Algoritmos</h2>
+  <h2>5. MODELO ACID Y TEOREMA DE CAP</h2>
   
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
+  <h3>5.1. MODELO ACID</h3>
   
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
+  <span id="2050501001">
+  <p>El modelo ACID es un conjunto de principios de diseño de bases de datos para garantizar la fiabilidad y validez de los datos. Establece cuatro objetivos que cada sistema de administración de bases de datos debe esforzarse por lograr:</p>
+  <ul>
+    <li>Atomicidad (Atomicity)</li>
+    <li>Consistencia (Consistency)</li>
+    <li>Aislamiento (Isolation)</li>
+    <li>Durabilidad (Durability)</li>
+  </ul>
+  </span>
   
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
+  <h4>5.1.1. ATOMICIDAD (ATOMICITY)</h4>
   
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
+  <span id="2050501002">
+  <p>Atomicity establece que las modificaciones de la base de datos deben seguir una regla de "todo o nada". Se dice que cada transacción es "atómica". Si una parte de la transacción falla, la transacción completa falla. Es fundamental que el sistema de administración de la base de datos mantenga la naturaleza atómica de las transacciones a pesar de cualquier sistema de gestión de bases de datos relacionales, sistema operativo o fallo de hardware.</p>
+  </span>
   
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
+  <h4>5.1.2. CONSISTENCIA (CONSISTENCY)</h4>
   
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
+  <span id="2050501003">
+  <p>La consistencia indica que solo se escribirán datos válidos en la base de datos. Si por alguna razón, se ejecuta una transacción que viola las reglas de consistencia de la base de datos, la transacción completa se revertirá y la base de datos se restaurará a un estado consistente con esas reglas. Por otro lado, si una transacción se ejecuta con éxito, llevará la base de datos al nuevo estado consistente con las reglas.</p>
+  </span>
   
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
+  <h4>5.1.3. AISLAMIENTO (ISOLATION)</h4>
   
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
+  <span id="2050501004">
+  <p>El aislamiento requiere que las transacciones múltiples que ocurren al mismo tiempo no afecten la ejecución del otro. Por ejemplo, si Joe emite una transacción contra una base de datos al mismo tiempo que Charles emite una transacción diferente, ambas transacciones deberían operar en la base de datos de manera aislada. La base de datos debe realizar la transacción completa de Joe antes de ejecutar la de Charles o viceversa. Esto evita que la transacción de Joe lea datos intermedios producidos como un efecto secundario de parte de la transacción de Charles que eventualmente no se comprometerá con la base de datos. Ten en cuenta que la propiedad de aislamiento no garantiza qué transacción se ejecutará primero, simplemente que las transacciones no interferirán entre sí.</p>
+  </span>
   
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
+  <h4>5.1.4. DURABILIDAD (DURABILITY)</h4>
   
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
+  <span id="2050501005">
+  <p>La durabilidad asegura que cualquier transacción comprometida con la base de datos no se perderá. La durabilidad se garantiza mediante el uso de copias de seguridad de la base de datos y registros de transacciones que facilitan la restauración de transacciones comprometidas a pesar de cualquier fallo de software o hardware.</p>
+  </span>
+  
+  <h3>5.2. TEOREMA CAP</h3>
+  
+  <span id="2050501006">
+  <p>No todas las bases de datos cumplen con el modelo ACID. Por ejemplo, las bases de datos NoSQL no proporcionan todos los conceptos de ACID puesto que su objetivo consiste en ofrecer la máxima velocidad de respuesta asumiendo, si es necesario, alguna pérdida de datos.</p>
+  
+  <p>Puesto que los conceptos ACID no se pueden aplicar a todos los modelos de base de datos se definió el teorema CAP (teorema de Brewer) que establece que es imposible que un almacén de datos distribuido proporcione simultáneamente más de dos de las tres garantías:</p>
+  <ul>
+    <li><strong>Consistencia (Consistency):</strong> cada lectura recibe la escritura más reciente o un error. Esto significa que todos los clientes ven los mismos datos al mismo tiempo, sin importar qué nodo se contacte. Los datos están sincronizados en todos los nodos.</li>
+    <li><strong>Disponibilidad (Availability):</strong> cada solicitud recibe una respuesta (sin error), sin la garantía de que contiene la escritura más reciente. El sistema sigue funcionando incluso si algunos nodos fallan. Cada cliente puede leer y escribir, aunque algunos nodos del sistema estén caídos.</li>
+    <li><strong>Tolerancia de partición (Partition Tolerance):</strong> el sistema continúa funcionando a pesar de que la red deje caer (o retrasa) un número arbitrario de mensajes entre nodos. El sistema continúa operando a pesar de las particiones de red, que pueden causar que algunos nodos no puedan comunicarse entre sí.</li>
+  </ul>
+  
+  <p>Es importante notar que:</p>
+  <ul>
+    <li>La disponibilidad del teorema CAP entra en conflicto con la "Atomicidad" del modelo ACID.</li>
+    <li>La tolerancia del teorema CAP entra en conflicto con el "Aislamiento" del modelo ACID.</li>
+    <li>La consistencia en CAP es diferente de la consistencia en ACID. En CAP, se refiere a la consistencia de los datos en todos los nodos en un momento dado, mientras que en ACID se refiere a la integridad de los datos con respecto a las reglas definidas.</li>
+  </ul>
+  </span>
+  
+  <span id="2050501007">
+  <p>En caso de un fallo de red en tu base de datos, el teorema de CAP implica elegir entre consistencia y disponibilidad. Cuando ocurre un fallo en la red, el diseñador de la base de datos debe decidir entre:</p>
+  <ul>
+    <li><strong>CP (Consistencia y Tolerancia de partición):</strong> Cancelar la operación y, por lo tanto, disminuir la disponibilidad, pero garantizar la coherencia. Esta solución es la que se ofrece en modelos de base de datos relacional como MySQL, Oracle o SQL Server. Estos sistemas priorizan la consistencia sobre la disponibilidad en caso de una partición de red.</li>
+    <li><strong>AP (Disponibilidad y Tolerancia de partición):</strong> Continuar con la operación y, por lo tanto, brindar disponibilidad pero arriesgando inconsistencia de datos. En este caso podemos pasar a utilizar un modelo NoSQL con soluciones como Cassandra o CouchDB. Estos sistemas priorizan la disponibilidad sobre la consistencia en caso de una partición de red.</li>
+    <li><strong>CA (Consistencia y Disponibilidad):</strong> Algunos sistemas, como las bases de datos relacionales tradicionales que no están distribuidas, pueden ofrecer consistencia y disponibilidad, pero no tolerancia a particiones. Sin embargo, en un sistema distribuido real, las particiones son inevitables, por lo que este escenario es más teórico que práctico en sistemas distribuidos.</li>
+  </ul>
+  
+  <p>Es importante destacar que estas elecciones no son absolutas y muchos sistemas modernos intentan encontrar un equilibrio o ofrecer opciones configurables:</p>
+  <ul>
+    <li><strong>Consistencia eventual:</strong> Algunos sistemas NoSQL, como DynamoDB de Amazon, ofrecen una "consistencia eventual", donde el sistema garantiza que, si no se realizan nuevas actualizaciones a un objeto, eventualmente todas las acciones de acceso a ese objeto devolverán el último valor actualizado.</li>
+    <li><strong>Ajustes de consistencia:</strong> Algunas bases de datos, como Cassandra, permiten ajustar el nivel de consistencia por operación, permitiendo a los desarrolladores elegir entre consistencia fuerte, consistencia eventual u opciones intermedias según las necesidades de cada operación.</li>
+    <li><strong>Sistemas multi-modelo:</strong> Algunas bases de datos modernas intentan combinar las ventajas de los sistemas SQL y NoSQL, ofreciendo diferentes modelos de datos y niveles de consistencia en un solo sistema.</li>
+  </ul>
+  
+  <p>En resumen, el teorema CAP proporciona un marco para entender las compensaciones en el diseño de sistemas distribuidos, pero la elección entre consistencia, disponibilidad y tolerancia a particiones a menudo no es una decisión binaria, sino un espectro de opciones que dependen de los requisitos específicos de cada aplicación y caso de uso.</p>
+  </span>
+  
   </article>
   </div>
   
