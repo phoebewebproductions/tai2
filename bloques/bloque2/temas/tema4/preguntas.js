@@ -285,15 +285,15 @@ export const preguntas = {
         preguntaId: "2040103006",
       },
       {
-        id: "2040103007",
+        id: "2040103001",
         pregunta:
           "¿Aproximadamente qué porcentaje del tiempo del Sistema Operativo ocupan las operaciones de Entrada/Salida?",
         opciones: ["10%", "20%", "30%", "50%"],
         correcta: 2,
-        preguntaId: "2040103001",
+        preguntaId: "2040103007",
       },
       {
-        id: "2040103008",
+        id: "2040103002",
         pregunta:
           "¿Qué componente del sistema de E/S se encarga de adaptar las instrucciones a las peculiaridades de cada dispositivo?",
         opciones: [
@@ -303,10 +303,10 @@ export const preguntas = {
           "La interfaz del sistema operativo para E/S",
         ],
         correcta: 2,
-        preguntaId: "2040103002",
+        preguntaId: "2040103008",
       },
       {
-        id: "2040103009",
+        id: "2040103006",
         pregunta: "¿Qué son las ACLs en el contexto de sistemas de archivos?",
         opciones: [
           "Algoritmos de Compresión Lineal",
@@ -315,10 +315,10 @@ export const preguntas = {
           "Aplicaciones de Carga Ligera",
         ],
         correcta: 1,
-        preguntaId: "2040103006",
+        preguntaId: "2040103009",
       },
       {
-        id: "2040103010",
+        id: "2040103005",
         pregunta: "¿Cuál de las siguientes NO es una función típica de un sistema de archivos?",
         opciones: [
           "Asignación de espacio a los archivos",
@@ -327,7 +327,7 @@ export const preguntas = {
           "Proveer métodos para crear, eliminar, mover y renombrar archivos",
         ],
         correcta: 2,
-        preguntaId: "2040103005",
+        preguntaId: "2040103010",
       },
     ],
     minimoParaAprobar: 8,
@@ -519,14 +519,14 @@ export const preguntas = {
         preguntaId: "2040105002",
       },
       {
-        id: "2040105003",
+        id: "2040105002",
         pregunta: "¿Cuál es el objetivo del Tiempo de retorno (Turnaround) en la gestión de procesos?",
         opciones: ["Maximizarlo", "Minimizarlo", "Mantenerlo constante", "Igualarlo al tiempo de servicio"],
         correcta: 1,
         preguntaId: "2040105003",
       },
       {
-        id: "2040105004",
+        id: "2040105002",
         pregunta: "¿Qué representa el Uso de CPU en el contexto de gestión de procesos?",
         opciones: [
           "El tiempo que la CPU está inactiva",
@@ -538,7 +538,7 @@ export const preguntas = {
         preguntaId: "2040105004",
       },
       {
-        id: "2040105005",
+        id: "2040105002",
         pregunta: "¿Qué es un Quantum en el contexto de planificación de procesos?",
         opciones: [
           "El número total de procesos en el sistema",
@@ -550,7 +550,7 @@ export const preguntas = {
         preguntaId: "2040105005",
       },
       {
-        id: "2040105006",
+        id: "2040105003",
         pregunta: "¿Cuál es la función principal del planificador a largo plazo?",
         opciones: [
           "Seleccionar el siguiente proceso a ejecutar",
@@ -562,7 +562,7 @@ export const preguntas = {
         preguntaId: "2040105006",
       },
       {
-        id: "2040105007",
+        id: "2040105004",
         pregunta: "¿Qué caracteriza a un algoritmo de planificación apropiativo?",
         opciones: [
           "El proceso en ejecución conserva la CPU hasta que termina",
@@ -574,7 +574,7 @@ export const preguntas = {
         preguntaId: "2040105007",
       },
       {
-        id: "2040105008",
+        id: "2040105006",
         pregunta: "¿Cuál es una característica del algoritmo de planificación FCFS?",
         opciones: [
           "Es un algoritmo apropiativo",
@@ -586,7 +586,7 @@ export const preguntas = {
         preguntaId: "2040105008",
       },
       {
-        id: "2040105009",
+        id: "2040105006",
         pregunta: "¿Qué desventaja presenta el algoritmo de planificación SJF?",
         opciones: [
           "Es difícil de implementar",
@@ -598,7 +598,7 @@ export const preguntas = {
         preguntaId: "2040105009",
       },
       {
-        id: "2040105010",
+        id: "2040105006",
         pregunta: "¿Qué caracteriza al algoritmo de planificación Round Robin?",
         opciones: [
           "Asigna prioridades fijas a los procesos",
@@ -610,7 +610,7 @@ export const preguntas = {
         preguntaId: "2040105010",
       },
       {
-        id: "2040105011",
+        id: "2040105007",
         pregunta:
           "¿Qué algoritmo de planificación tiene el mejor tiempo de espera para los procesos según la comparativa?",
         opciones: ["FCFS", "SJF", "SRTF", "Round Robin"],
@@ -618,7 +618,7 @@ export const preguntas = {
         preguntaId: "2040105011",
       },
       {
-        id: "2040105012",
+        id: "2040105002",
         pregunta: "¿Qué es el tiempo de núcleo o kernel en el contexto de gestión de procesos?",
         opciones: [
           "El tiempo que tarda en iniciarse el sistema operativo",
@@ -630,7 +630,7 @@ export const preguntas = {
         preguntaId: "2040105012",
       },
       {
-        id: "2040105013",
+        id: "2040105006",
         pregunta: "¿Qué diferencia principal existe entre los algoritmos SJF y SRTF?",
         opciones: [
           "SJF es apropiativo mientras que SRTF no lo es",
@@ -642,7 +642,7 @@ export const preguntas = {
         preguntaId: "2040105013",
       },
       {
-        id: "2040105014",
+        id: "2040105003",
         pregunta: "¿Qué caracteriza al planificador a medio plazo?",
         opciones: [
           "Selecciona el siguiente proceso a ejecutar",
@@ -654,7 +654,7 @@ export const preguntas = {
         preguntaId: "2040105014",
       },
       {
-        id: "2040105015",
+        id: "2040105002",
         pregunta: "¿Qué representa el throughput en la gestión de procesos?",
         opciones: [
           "El tiempo que un proceso está en ejecución",
@@ -780,7 +780,7 @@ export const preguntas = {
         preguntaId: "2040106009",
       },
       {
-        id: "2040106010",
+        id: "2040106008",
         pregunta: "¿Qué ventaja ofrece el algoritmo de Aging sobre el LRU?",
         opciones: [
           "Es más preciso que LRU",
@@ -792,7 +792,7 @@ export const preguntas = {
         preguntaId: "2040106010",
       },
       {
-        id: "2040106011",
+        id: "2040106002",
         pregunta: "¿Qué tipo de protección de memoria proporciona un sistema de monoprogramación?",
         opciones: [
           "Protección entre procesos de usuario",
@@ -804,7 +804,7 @@ export const preguntas = {
         preguntaId: "2040106011",
       },
       {
-        id: "2040106012",
+        id: "2040106002",
         pregunta:
           "¿Cuál es la principal diferencia entre la transformación estática y dinámica de referencias de memoria?",
         opciones: [
@@ -829,7 +829,7 @@ export const preguntas = {
         preguntaId: "2040106013",
       },
       {
-        id: "2040106014",
+        id: "2040106005",
         pregunta: "¿Qué ventaja ofrece el algoritmo de Segunda oportunidad sobre el FIFO básico?",
         opciones: [
           "Es más rápido de implementar",
@@ -841,7 +841,7 @@ export const preguntas = {
         preguntaId: "2040106014",
       },
       {
-        id: "2040106015",
+        id: "2040106005",
         pregunta: "¿Cuál es el propósito principal de los bits de referencia y modificación en el algoritmo NRU?",
         opciones: [
           "Aumentar la velocidad de acceso a memoria",
@@ -966,66 +966,9 @@ export const preguntas = {
         opciones: ["type", "info", "details", "file"],
         correcta: 3,
         preguntaId: "2040107010",
-      },
-      {
-        id: "2040107011",
-        pregunta: "¿Qué sucede cuando se elimina un archivo que tiene enlaces duros en Linux?",
-        opciones: [
-          "El archivo se borra inmediatamente",
-          "Todos los enlaces duros se eliminan automáticamente",
-          "Se decrementa el número de enlaces duros y el archivo se borra solo cuando este número llega a cero",
-          "El sistema operativo muestra un error",
-        ],
-        correcta: 2,
-        preguntaId: "2040107011",
-      },
-      {
-        id: "2040107012",
-        pregunta:
-          "¿Cuál es una característica de los archivos de tubería nombrados (named pipes) en sistemas Unix/Linux?",
-        opciones: [
-          "Son utilizados para almacenar datos permanentemente",
-          "Son utilizados para la comunicación entre procesos",
-          "Son equivalentes a los archivos ejecutables",
-          "Solo pueden ser creados por el administrador del sistema",
-        ],
-        correcta: 1,
-        preguntaId: "2040107012",
-      },
-      {
-        id: "2040107013",
-        pregunta: "En Linux, ¿qué significa un punto (.) al inicio del nombre de un archivo?",
-        opciones: [
-          "El archivo es ejecutable",
-          "El archivo es de solo lectura",
-          "El archivo es oculto",
-          "El archivo es un enlace simbólico",
-        ],
-        correcta: 2,
-        preguntaId: "2040107013",
-      },
-      {
-        id: "2040107014",
-        pregunta: "¿Cuál es la principal ventaja de utilizar enlaces simbólicos en lugar de enlaces duros?",
-        opciones: [
-          "Los enlaces simbólicos ocupan menos espacio",
-          "Los enlaces simbólicos pueden apuntar a directorios y ubicaciones de red",
-          "Los enlaces simbólicos son más rápidos de acceder",
-          "Los enlaces simbólicos no se rompen si se mueve el archivo original",
-        ],
-        correcta: 1,
-        preguntaId: "2040107014",
-      },
-      {
-        id: "2040107015",
-        pregunta:
-          "¿Qué tipo de archivo en sistemas Unix/Linux se utiliza para representar dispositivos de tipo bloque?",
-        opciones: ["Archivo regular", "Archivo de tubería", "Archivo especial de bloque", "Archivo socket"],
-        correcta: 2,
-        preguntaId: "2040107015",
-      },
+      }
     ],
-    minimoParaAprobar: 12,
+    minimoParaAprobar: 8,
   },
   "2040108000e": {
     preguntas: [
@@ -1114,7 +1057,7 @@ export const preguntas = {
         preguntaId: "2040108007",
       },
       {
-        id: "2040108008",
+        id: "2040108006",
         pregunta: "¿Cuál es una ventaja de la asignación enlazada/encadenada sobre la asignación contigua?",
         opciones: [
           "Permite un acceso más rápido a los archivos",
@@ -1126,7 +1069,7 @@ export const preguntas = {
         preguntaId: "2040108008",
       },
       {
-        id: "2040108009",
+        id: "2040108007",
         pregunta: "¿Qué método de asignación de espacio es más adecuado para archivos grandes?",
         opciones: [
           "Asignación contigua",
@@ -1138,7 +1081,7 @@ export const preguntas = {
         preguntaId: "2040108009",
       },
       {
-        id: "2040108010",
+        id: "2040108004",
         pregunta: "¿Qué es la fragmentación interna en el contexto de la asignación de espacio de almacenamiento?",
         opciones: [
           "La pérdida de espacio porque el tamaño del archivo es inferior al tamaño del clúster",
@@ -1148,69 +1091,9 @@ export const preguntas = {
         ],
         correcta: 0,
         preguntaId: "2040108010",
-      },
-      {
-        id: "2040108011",
-        pregunta: "¿Cuál es la principal desventaja del método de asignación indexada para archivos pequeños?",
-        opciones: [
-          "No permite el acceso directo",
-          "Genera fragmentación externa",
-          "Requiere compactación frecuente del disco",
-          "Desperdicia espacio debido a la relación entre bloques de índices y bloques de datos",
-        ],
-        correcta: 3,
-        preguntaId: "2040108011",
-      },
-      {
-        id: "2040108012",
-        pregunta: "¿Qué algoritmo de planificación de disco es similar al Round Robin de la planificación de procesos?",
-        opciones: [
-          "FCFS (First Come, First Served)",
-          "SSF (Shortest Seek First)",
-          "CFQ (Completely Fair Queuing)",
-          "LIFO (Last In, First Out)",
-        ],
-        correcta: 2,
-        preguntaId: "2040108012",
-      },
-      {
-        id: "2040108013",
-        pregunta: "¿Cuál es el propósito principal de la planificación anticipada (anticipatory scheduling)?",
-        opciones: [
-          "Aumentar el tiempo de búsqueda en el disco",
-          "Reordenar las operaciones de búsqueda para mejorar el desempeño",
-          "Atender las peticiones en orden aleatorio",
-          "Incrementar la fragmentación del disco",
-        ],
-        correcta: 1,
-        preguntaId: "2040108013",
-      },
-      {
-        id: "2040108014",
-        pregunta: "¿Qué método de acceso lee los bytes del archivo en orden empezando desde el principio?",
-        opciones: [
-          "BDAM (Método de Acceso Directo)",
-          "ISAM (Método de Acceso Secuencial Indizado)",
-          "Acceso indexado",
-          "BSAM (Método de Acceso Básico Secuencial)",
-        ],
-        correcta: 3,
-        preguntaId: "2040108014",
-      },
-      {
-        id: "2040108015",
-        pregunta: "¿Qué característica distingue al método de asignación enlazada/encadenada?",
-        opciones: [
-          "Requiere que se declare el tamaño del archivo al crearlo",
-          "Genera fragmentación externa",
-          "Utiliza punteros para enlazar los bloques del archivo",
-          "Es ideal para acceso aleatorio rápido",
-        ],
-        correcta: 2,
-        preguntaId: "2040108015",
-      },
+      }
     ],
-    minimoParaAprobar: 12,
+    minimoParaAprobar: 8,
   },
   "2040109000e": {
     preguntas: [
@@ -1266,7 +1149,7 @@ export const preguntas = {
         preguntaId: "2040109005",
       },
       {
-        id: "2040109006",
+        id: "2040109004",
         pregunta: "Las tuberías sin nombre (pipes) son:",
         opciones: [
           "Permanentes y se almacenan en el sistema de archivos",
@@ -1278,14 +1161,7 @@ export const preguntas = {
         preguntaId: "2040109006",
       },
       {
-        id: "2040109007",
-        pregunta: "¿Qué método de comunicación entre procesos fue inventado por Edsger Dijkstra en 1965?",
-        opciones: ["Sockets", "Tuberías", "Semáforos", "Memoria compartida"],
-        correcta: 2,
-        preguntaId: "2040109007",
-      },
-      {
-        id: "2040109008",
+        id: "2040109004",
         pregunta: "La memoria compartida como método de comunicación entre procesos:",
         opciones: [
           "No requiere que los procesos establezcan una región de memoria común",
@@ -1294,18 +1170,18 @@ export const preguntas = {
           "Solo está disponible en sistemas Windows",
         ],
         correcta: 2,
-        preguntaId: "2040109008",
+        preguntaId: "2040109007",
       },
       {
-        id: "2040109009",
+        id: "2040109004",
         pregunta:
           "¿Qué técnica de comunicación entre procesos utiliza el mismo espacio de direcciones para memoria y dispositivos físicos?",
         opciones: ["Sockets", "Mapa de Memoria", "Cola de Mensajes", "Puertos"],
         correcta: 1,
-        preguntaId: "2040109009",
+        preguntaId: "2040109008",
       },
       {
-        id: "2040109010",
+        id: "2040109005",
         pregunta: "¿Cuál es la responsabilidad principal del gestor de recursos en un sistema operativo?",
         opciones: [
           "Crear nuevos procesos",
@@ -1314,57 +1190,10 @@ export const preguntas = {
           "Gestionar el sistema de archivos",
         ],
         correcta: 2,
-        preguntaId: "2040109010",
-      },
-      {
-        id: "2040109011",
-        pregunta:
-          "¿Cuál de los siguientes NO es un recurso típicamente administrado por el gestor de recursos del sistema operativo?",
-        opciones: ["CPU", "Memoria principal", "Dispositivos de entrada y salida", "Aplicaciones de usuario"],
-        correcta: 3,
-        preguntaId: "2040109011",
-      },
-      {
-        id: "2040109012",
-        pregunta: "Las señales como método de comunicación entre procesos:",
-        opciones: [
-          "Son una forma extensa y detallada de comunicación",
-          "Solo están disponibles en sistemas Unix",
-          "Son una notificación limitada enviada a un proceso",
-          "Requieren que los procesos compartan memoria",
-        ],
-        correcta: 2,
-        preguntaId: "2040109012",
-      },
-      {
-        id: "2040109013",
-        pregunta: "¿Qué característica distingue a las tuberías con nombre de las tuberías sin nombre?",
-        opciones: [
-          "Las tuberías con nombre son temporales",
-          "Las tuberías con nombre son creadas por el sistema de archivos",
-          "Las tuberías con nombre solo pueden ser usadas por procesos descendientes",
-          "Las tuberías con nombre no requieren permisos para ser utilizadas",
-        ],
-        correcta: 1,
-        preguntaId: "2040109013",
-      },
-      {
-        id: "2040109014",
-        pregunta:
-          "¿Qué método de comunicación entre procesos es gestionado por el kernel y permite escribir y leer a los procesos que se ejecutan en el sistema?",
-        opciones: ["Semáforos", "Memoria compartida", "Cola de Mensajes", "Puertos"],
-        correcta: 2,
-        preguntaId: "2040109014",
-      },
-      {
-        id: "2040109015",
-        pregunta: "En el contexto de la gestión de recursos, ¿qué se entiende por memoria secundaria?",
-        opciones: ["La memoria RAM", "La memoria caché", "La memoria virtual", "Los registros de la CPU"],
-        correcta: 2,
-        preguntaId: "2040109015",
-      },
+        preguntaId: "2040109009",
+      }
     ],
-    minimoParaAprobar: 12,
+    minimoParaAprobar: 8,
   },
   "2040201000e": {
     preguntas: [
@@ -1443,7 +1272,7 @@ export const preguntas = {
           preguntaId: "2040201007",
         },
         {
-          id: "2040201008",
+          id: "2040201007",
           pregunta:
             "¿Cuál de las siguientes librerías de WOW64 es responsable de cambiar el modelo de procesador entre 32 y 64 bits?",
           opciones: ["Wow64.dll", "Wow64win.dll", "Wow64cpu.dll", "Wow64sys.dll"],
@@ -1451,14 +1280,14 @@ export const preguntas = {
           preguntaId: "2040201008",
         },
         {
-          id: "2040201009",
+          id: "2040201003",
           pregunta: "¿Cuál es la máxima cantidad de RAM que puede utilizar un sistema operativo de 32 bits?",
           opciones: ["2 GB", "3 GB", "4 GB", "8 GB"],
           correcta: 2,
           preguntaId: "2040201009",
         },
         {
-          id: "2040201010",
+          id: "2040201005",
           pregunta:
             "¿Qué sistema operativo soporta la mayor cantidad de RAM en su versión de 64 bits, según la tabla proporcionada?",
           opciones: ["Windows Server 2019 Standard", "Windows 10 Enterprise", "Mac OS X from 10.10", "Red Hat Linux 8"],
@@ -1466,14 +1295,14 @@ export const preguntas = {
           preguntaId: "2040201010",
         },
         {
-          id: "2040201011",
+          id: "2040201007",
           pregunta: "¿En qué versión de Windows apareció por primera vez el subsistema WOW64?",
           opciones: ["Windows 7", "Windows Vista", "Windows XP 64 bits", "Windows 8"],
           correcta: 2,
           preguntaId: "2040201011",
         },
         {
-          id: "2040201012",
+          id: "2040201007",
           pregunta: "¿Cuál es la principal función de la librería Wow64win.dll en el subsistema WOW64?",
           opciones: [
             "Traducir las llamadas entre 32 y 64 bits",
@@ -1485,14 +1314,14 @@ export const preguntas = {
           preguntaId: "2040201012",
         },
         {
-          id: "2040201013",
+          id: "2040201005",
           pregunta: "¿Cuánta RAM puede soportar Windows 10 Pro en su versión de 64 bits?",
           opciones: ["128 GB", "2 TB", "6 TB", "24 TB"],
           correcta: 1,
           preguntaId: "2040201013",
         },
         {
-          id: "2040201014",
+          id: "2040201004",
           pregunta: "¿Qué afirmación es correcta sobre la compatibilidad entre sistemas de 32 y 64 bits?",
           opciones: [
             "Un sistema de 32 bits puede ejecutar aplicaciones de 64 bits sin problemas",
@@ -1504,7 +1333,7 @@ export const preguntas = {
           preguntaId: "2040201014",
         },
         {
-          id: "2040201015",
+          id: "2040201004",
           pregunta: "¿Qué significa RPC en el contexto de sistemas operativos de 32 y 64 bits?",
           opciones: [
             "Real-time Processing Control",
@@ -1518,183 +1347,184 @@ export const preguntas = {
       ],
       minimoParaAprobar: 12,
     },
-    "2040301000e": {
-        preguntas: [
-          {
-            id: "2040301001",
-            pregunta: "¿Cuál de las siguientes NO es una estructura de sistema operativo mencionada en el texto?",
-            opciones: ["Estructura monolítica", "Estructura jerárquica", "Máquina virtual", "Estructura en capas"],
-            correcta: 3,
-            preguntaId: "2040301001",
-          },
-          {
-            id: "2040301002",
-            pregunta:
-              "¿Qué tipo de estructura de sistema operativo aísla del núcleo las operaciones de gestión de memoria, entrada/salida y sistema de archivos?",
-            opciones: [
-              "Estructura monolítica",
-              "Estructura jerárquica",
-              "Máquina virtual",
-              "Microkernel o Cliente-Servidor",
-            ],
-            correcta: 3,
-            preguntaId: "2040301002",
-          },
-          {
-            id: "2040301003",
-            pregunta:
-              "¿Cuál es la principal diferencia entre el modo privilegiado y el modo no privilegiado en un procesador?",
-            opciones: [
-              "El modo privilegiado es más rápido",
-              "El modo no privilegiado tiene acceso a todos los recursos del sistema",
-              "El modo privilegiado permite el acceso a todo el conjunto de instrucciones y recursos del sistema",
-              "No hay diferencia entre ambos modos",
-            ],
-            correcta: 2,
-            preguntaId: "2040301003",
-          },
-          {
-            id: "2040301004",
-            pregunta: "¿Qué tipo de sistema operativo implementa todas sus funcionalidades en modo supervisor?",
-            opciones: ["Monolítico", "Micronúcleo", "Híbrido", "Unikernel"],
-            correcta: 0,
-            preguntaId: "2040301004",
-          },
-          {
-            id: "2040301005",
-            pregunta: "¿Cuál es la principal ventaja de los sistemas operativos micronúcleo frente a los monolíticos?",
-            opciones: [
-              "Mayor rendimiento",
-              "Mayor fiabilidad",
-              "Mayor cantidad de funcionalidades",
-              "Menor consumo de recursos",
-            ],
-            correcta: 1,
-            preguntaId: "2040301005",
-          },
-          {
-            id: "2040301006",
-            pregunta: "¿Cuáles son las tres clases principales de clasificación de sistemas operativos por servicios?",
-            opciones: [
-              "Por el número de usuarios, tareas y procesadores",
-              "Por el tipo de kernel, interfaz y arquitectura",
-              "Por el rendimiento, seguridad y escalabilidad",
-              "Por el costo, popularidad y compatibilidad",
-            ],
-            correcta: 0,
-            preguntaId: "2040301006",
-          },
-          {
-            id: "2040301007",
-            pregunta: "¿Qué caracteriza a un sistema operativo multiusuario?",
-            opciones: [
-              "Solo puede ser usado por un usuario a la vez",
-              "Permite el uso simultáneo por múltiples usuarios",
-              "Está diseñado exclusivamente para redes",
-              "Solo funciona en sistemas de un solo procesador",
-            ],
-            correcta: 1,
-            preguntaId: "2040301007",
-          },
-          {
-            id: "2040301008",
-            pregunta: "¿Cuál es la principal diferencia entre la multitarea cooperativa y la apropiativa?",
-            opciones: [
-              "La cooperativa es más rápida",
-              "La apropiativa solo funciona en sistemas multiusuario",
-              "En la cooperativa, el proceso decide cuándo ceder el control",
-              "La apropiativa solo se usa en sistemas de tiempo real",
-            ],
-            correcta: 2,
-            preguntaId: "2040301008",
-          },
-          {
-            id: "2040301009",
-            pregunta: "¿Cuál es el principal desafío en el diseño de sistemas operativos multiprocesador?",
-            opciones: [
-              "Aumentar la velocidad de procesamiento",
-              "Reducir el consumo de energía",
-              "Evitar interferencias en lecturas y escrituras en memoria",
-              "Mejorar la interfaz de usuario",
-            ],
-            correcta: 2,
-            preguntaId: "2040301009",
-          },
-          {
-            id: "2040301010",
-            pregunta: "¿Qué caracteriza a la arquitectura UMA (Uniform Memory Access)?",
-            opciones: [
-              "Cada procesador tiene su propia memoria local",
-              "El tiempo de acceso a memoria varía según la distancia del procesador",
-              "Todos los procesadores tienen la misma latencia y velocidad de acceso a cada dirección de memoria",
-              "Utiliza redes de bus jerárquicas para interconectar los bloques de memoria",
-            ],
-            correcta: 2,
-            preguntaId: "2040301010",
-          },
-          {
-            id: "2040301011",
-            pregunta: "En la arquitectura NUMA, ¿cómo se caracteriza el acceso a la memoria?",
-            opciones: [
-              "Todos los accesos tienen el mismo tiempo",
-              "El tiempo de acceso depende de la distancia entre el procesador y la dirección de memoria",
-              "Solo se puede acceder a la memoria local",
-              "El acceso a memoria es siempre más rápido que en UMA",
-            ],
-            correcta: 1,
-            preguntaId: "2040301011",
-          },
-          {
-            id: "2040301012",
-            pregunta: "¿Cuál es la principal diferencia en términos de velocidad entre UMA y NUMA?",
-            opciones: [
-              "UMA es siempre más rápido",
-              "NUMA es más rápido",
-              "Ambos tienen la misma velocidad",
-              "La velocidad depende del tipo de aplicación",
-            ],
-            correcta: 1,
-            preguntaId: "2040301012",
-          },
-          {
-            id: "2040301013",
-            pregunta: "¿Qué es DSM (Distributed Shared Memory)?",
-            opciones: [
-              "Un tipo de memoria física",
-              "Una implementación que permite a cada nodo de un cluster acceder a memoria privada y compartida",
-              "Un sistema operativo distribuido",
-              "Un tipo de caché de procesador",
-            ],
-            correcta: 1,
-            preguntaId: "2040301013",
-          },
-          {
-            id: "2040301014",
-            pregunta: "¿Qué caracteriza a la arquitectura de memoria híbrida?",
-            opciones: [
-              "Solo usa memoria compartida",
-              "Solo usa memoria local",
-              "Combina memoria local para datos locales y memoria compartida para datos globales",
-              "Usa exclusivamente memoria virtual",
-            ],
-            correcta: 2,
-            preguntaId: "2040301014",
-          },
-          {
-            id: "2040301015",
-            pregunta: "¿Cuál es uno de los objetivos principales de un sistema operativo de red (NOS)?",
-            opciones: [
-              "Maximizar el uso de un solo procesador",
-              "Limitar el acceso a recursos compartidos",
-              "Gestionar los usuarios de forma centralizada",
-              "Aislar completamente los equipos en la red",
-            ],
-            correcta: 2,
-            preguntaId: "2040301015",
-          },
+"2040301000e": {
+    preguntas: [
+      {
+        id: "2040301001",
+        pregunta: "¿Cuál de las siguientes NO es una estructura de sistema operativo mencionada en el texto?",
+        opciones: ["Estructura monolítica", "Estructura jerárquica", "Máquina virtual", "Estructura en capas"],
+        correcta: 3,
+        preguntaId: "2040301001",
+      },
+      {
+        id: "2040301002",
+        pregunta:
+          "¿Qué tipo de estructura de sistema operativo aísla del núcleo las operaciones de gestión de memoria, entrada/salida y sistema de archivos?",
+        opciones: [
+          "Estructura monolítica",
+          "Estructura jerárquica",
+          "Máquina virtual",
+          "Microkernel o Cliente-Servidor",
         ],
-        minimoParaAprobar: 12,
-    },
+        correcta: 3,
+        preguntaId: "2040301002",
+      },
+      {
+        id: "2040301003",
+        pregunta:
+          "¿Cuál es la principal diferencia entre el modo privilegiado y el modo no privilegiado en un procesador?",
+        opciones: [
+          "El modo privilegiado es más rápido",
+          "El modo no privilegiado tiene acceso a todos los recursos del sistema",
+          "El modo privilegiado permite el acceso a todo el conjunto de instrucciones y recursos del sistema",
+          "No hay diferencia entre ambos modos",
+        ],
+        correcta: 2,
+        preguntaId: "2040301003",
+      },
+      {
+        id: "2040301004",
+        pregunta: "¿Qué tipo de sistema operativo implementa todas sus funcionalidades en modo supervisor?",
+        opciones: ["Monolítico", "Micronúcleo", "Híbrido", "Unikernel"],
+        correcta: 0,
+        preguntaId: "2040301004",
+      },
+      {
+        id: "2040301005",
+        pregunta: "¿Cuál es la principal ventaja de los sistemas operativos micronúcleo frente a los monolíticos?",
+        opciones: [
+          "Mayor rendimiento",
+          "Mayor fiabilidad",
+          "Mayor cantidad de funcionalidades",
+          "Menor consumo de recursos",
+        ],
+        correcta: 1,
+        preguntaId: "2040301005",
+      },
+      {
+        id: "2040301006",
+        pregunta: "¿Cuáles son las tres clases principales de clasificación de sistemas operativos por servicios?",
+        opciones: [
+          "Por el número de usuarios, tareas y procesadores",
+          "Por el tipo de kernel, interfaz y arquitectura",
+          "Por el rendimiento, seguridad y escalabilidad",
+          "Por el costo, popularidad y compatibilidad",
+        ],
+        correcta: 0,
+        preguntaId: "2040301006",
+      },
+      {
+        id: "2040301007",
+        pregunta: "¿Qué caracteriza a un sistema operativo multiusuario?",
+        opciones: [
+          "Solo puede ser usado por un usuario a la vez",
+          "Permite el uso simultáneo por múltiples usuarios",
+          "Está diseñado exclusivamente para redes",
+          "Solo funciona en sistemas de un solo procesador",
+        ],
+        correcta: 1,
+        preguntaId: "2040301007",
+      },
+      {
+        id: "2040301008",
+        pregunta: "¿Cuál es la principal diferencia entre la multitarea cooperativa y la apropiativa?",
+        opciones: [
+          "La cooperativa es más rápida",
+          "La apropiativa solo funciona en sistemas multiusuario",
+          "En la cooperativa, el proceso decide cuándo ceder el control",
+          "La apropiativa solo se usa en sistemas de tiempo real",
+        ],
+        correcta: 2,
+        preguntaId: "2040301008",
+      },
+      {
+        id: "2040301009",
+        pregunta: "¿Cuál es el principal desafío en el diseño de sistemas operativos multiprocesador?",
+        opciones: [
+          "Aumentar la velocidad de procesamiento",
+          "Reducir el consumo de energía",
+          "Evitar interferencias en lecturas y escrituras en memoria",
+          "Mejorar la interfaz de usuario",
+        ],
+        correcta: 2,
+        preguntaId: "2040301009",
+      },
+      {
+        id: "2040301010",
+        pregunta: "¿Qué caracteriza a la arquitectura UMA (Uniform Memory Access)?",
+        opciones: [
+          "Cada procesador tiene su propia memoria local",
+          "El tiempo de acceso a memoria varía según la distancia del procesador",
+          "Todos los procesadores tienen la misma latencia y velocidad de acceso a cada dirección de memoria",
+          "Utiliza redes de bus jerárquicas para interconectar los bloques de memoria",
+        ],
+        correcta: 2,
+        preguntaId: "2040301010",
+      },
+      {
+        id: "2040301011",
+        pregunta: "En la arquitectura NUMA, ¿cómo se caracteriza el acceso a la memoria?",
+        opciones: [
+          "Todos los accesos tienen el mismo tiempo",
+          "El tiempo de acceso depende de la distancia entre el procesador y la dirección de memoria",
+          "Solo se puede acceder a la memoria local",
+          "El acceso a memoria es siempre más rápido que en UMA",
+        ],
+        correcta: 1,
+        preguntaId: "2040301011",
+      },
+      {
+        id: "2040301012",
+        pregunta: "¿Cuál es la principal diferencia en términos de velocidad entre UMA y NUMA?",
+        opciones: [
+          "UMA es siempre más rápido",
+          "NUMA es más rápido",
+          "Ambos tienen la misma velocidad",
+          "La velocidad depende del tipo de aplicación",
+        ],
+        correcta: 1,
+        preguntaId: "2040301012",
+      },
+      {
+        id: "2040301013",
+        pregunta: "¿Qué es DSM (Distributed Shared Memory)?",
+        opciones: [
+          "Un tipo de memoria física",
+          "Una implementación que permite a cada nodo de un cluster acceder a memoria privada y compartida",
+          "Un sistema operativo distribuido",
+          "Un tipo de caché de procesador",
+        ],
+        correcta: 1,
+        preguntaId: "2040301013",
+      },
+      {
+        id: "2040301014",
+        pregunta: "¿Qué caracteriza a la arquitectura de memoria híbrida?",
+        opciones: [
+          "Solo usa memoria compartida",
+          "Solo usa memoria local",
+          "Combina memoria local para datos locales y memoria compartida para datos globales",
+          "Usa exclusivamente memoria virtual",
+        ],
+        correcta: 2,
+        preguntaId: "2040301014",
+      },
+      {
+        id: "2040301015",
+        pregunta: "¿Cuál es uno de los objetivos principales de un sistema operativo de red (NOS)?",
+        opciones: [
+          "Maximizar el uso de un solo procesador",
+          "Limitar el acceso a recursos compartidos",
+          "Gestionar los usuarios de forma centralizada",
+          "Aislar completamente los equipos en la red",
+        ],
+        correcta: 2,
+        preguntaId: "2040301015",
+      },
+    ],
+    minimoParaAprobar: 12,
+  },
+
     "2040401000e": {
         preguntas: [
           {
@@ -1726,42 +1556,42 @@ export const preguntas = {
             preguntaId: "2040401004",
           },
           {
-            id: "2040401005",
+            id: "2040401001",
             pregunta: "¿Cuál de los siguientes sistemas operativos es específico para dispositivos móviles?",
             opciones: ["Solaris", "FreeBSD", "Windows 10 Mobile", "Unix"],
             correcta: 2,
             preguntaId: "2040401005",
           },
           {
-            id: "2040401006",
+            id: "2040401002",
             pregunta: "¿Qué sistema operativo se utiliza en los televisores inteligentes de LG?",
             opciones: ["WebOS", "Tizen", "Android TV", "My Home Screen"],
             correcta: 0,
             preguntaId: "2040401006",
           },
           {
-            id: "2040401007",
+            id: "2040401003",
             pregunta: "¿Cuál de los siguientes NO es un sistema operativo para smartwatches mencionado en la lista?",
             opciones: ["Android", "WatchOS", "Tizen", "OpenWatch"],
             correcta: 2,
             preguntaId: "2040401007",
           },
           {
-            id: "2040401008",
+            id: "2040401004",
             pregunta: "¿Qué sistema operativo está presente en la mayoría de los routers de la marca Cisco?",
             opciones: ["CatOS", "Cisco IOS", "RouterOS", "Synology DSM"],
             correcta: 1,
             preguntaId: "2040401008",
           },
           {
-            id: "2040401009",
+            id: "2040401002",
             pregunta: "¿Cuál de los siguientes sistemas operativos para Smart TV es desarrollado por Amazon?",
             opciones: ["Roku OS", "Android TV", "Amazon Fire TV", "Harmony OS"],
             correcta: 2,
             preguntaId: "2040401009",
           },
           {
-            id: "2040401010",
+            id: "2040401004",
             pregunta:
               "¿Qué sistema operativo se utiliza en algunos switches y puntos de acceso wifi de la familia Catalyst de Cisco?",
             opciones: ["Cisco IOS", "CatOS", "SwitchOS", "Catalyst OS"],
@@ -1769,35 +1599,35 @@ export const preguntas = {
             preguntaId: "2040401010",
           },
           {
-            id: "2040401011",
+            id: "2040401001",
             pregunta: "¿Cuál de los siguientes sistemas operativos para PC está basado en GNU/Linux?",
             opciones: ["Windows", "Mac OS", "Chrome OS", "BlackBerry OS"],
             correcta: 2,
             preguntaId: "2040401011",
           },
           {
-            id: "2040401012",
+            id: "2040401002",
             pregunta: "¿Qué sistema operativo se utiliza en los televisores Panasonic mencionados en la lista?",
             opciones: ["WebOS", "Firefox OS", "Tizen", "Android TV"],
             correcta: 1,
             preguntaId: "2040401012",
           },
           {
-            id: "2040401013",
+            id: "2040401001",
             pregunta: "¿Cuál de los siguientes es un sistema operativo de código abierto para PC?",
             opciones: ["Windows", "Mac OS", "iOS", "FreeBSD"],
             correcta: 3,
             preguntaId: "2040401013",
           },
           {
-            id: "2040401014",
+            id: "2040401002",
             pregunta: "¿Qué sistema operativo es específico para los dispositivos de streaming de Roku?",
             opciones: ["Roku OS", "Android TV", "WebOS", "Amazon Fire TV"],
             correcta: 0,
             preguntaId: "2040401014",
           },
           {
-            id: "2040401015",
+            id: "2040401003",
             pregunta: "¿Cuál de los siguientes sistemas operativos para smartwatches es desarrollado por Google?",
             opciones: ["WatchOS", "OpenWatch", "WearOS", "Tizen"],
             correcta: 2,
@@ -1810,259 +1640,253 @@ export const preguntas = {
         preguntas: [
           {
             id: "2040501001",
-            pregunta: "¿Cuál fue la versión de Windows que introdujo una interfaz adaptada para pantallas táctiles?",
-            opciones: ["Windows 7", "Windows 8", "Windows 10", "Windows Vista"],
-            correcta: 1,
+            pregunta: "¿Cuál es actualmente el sistema operativo más utilizado según el texto?",
+            opciones: ["Linux", "macOS", "Windows", "Android"],
+            correcta: 2,
             preguntaId: "2040501001",
           },
           {
             id: "2040501002",
-            pregunta: "¿Qué versión de Windows Server introdujo la opción de Server Core?",
-            opciones: ["Windows Server 2003", "Windows Server 2008", "Windows Server 2012", "Windows Server 2016"],
+            pregunta: "¿Qué versión de Windows introdujo una interfaz adaptada para pantallas táctiles?",
+            opciones: ["Windows 7", "Windows 8", "Windows 10", "Windows Vista"],
             correcta: 1,
             preguntaId: "2040501002",
           },
           {
-            id: "2040501003",
-            pregunta: "¿Cuál de las siguientes NO es un tipo de licencia de cliente de Windows?",
-            opciones: ["OEM", "Retail", "Por volumen", "Por Core"],
-            correcta: 3,
+            id: "2040501002",
+            pregunta: "¿Qué versión de Windows para cliente fue lanzada en 2015?",
+            opciones: ["Windows 8", "Windows 8.1", "Windows 10", "Windows 11"],
+            correcta: 2,
             preguntaId: "2040501003",
           },
           {
-            id: "2040501004",
-            pregunta: "¿Qué tipo de licencia de servidor de Windows se basa en el número de núcleos del procesador?",
-            opciones: ["CAL", "Conector Externo", "Por Core", "De especialidad"],
-            correcta: 2,
+            id: "2040501003",
+            pregunta: "¿Qué versión de Windows Server introdujo la opción de Server Core?",
+            opciones: ["Windows Server 2003", "Windows Server 2008", "Windows Server 2012", "Windows Server 2016"],
+            correcta: 1,
             preguntaId: "2040501004",
           },
           {
-            id: "2040501005",
-            pregunta: "¿Qué versión de Windows introdujo el sistema de archivos ReFS?",
-            opciones: ["Windows Server 2008", "Windows Server 2012", "Windows Server 2016", "Windows Server 2019"],
-            correcta: 1,
+            id: "2040501003",
+            pregunta: "¿Qué característica importante introdujo Windows 2000 Server?",
+            opciones: ["NTFS 3.0", "Server Core", "Hyper-V", "El Directorio Activo de Microsoft"],
+            correcta: 3,
             preguntaId: "2040501005",
           },
           {
-            id: "2040501006",
-            pregunta: "¿Cuál es la última versión de Windows para cliente lanzada hasta la fecha?",
-            opciones: ["Windows 10", "Windows 11", "Windows 8.1", "Windows Server 2022"],
-            correcta: 1,
+            id: "2040501003",
+            pregunta: "¿Qué nueva característica introdujo Windows Server 2012?",
+            opciones: ["Server Core", "Directorio Activo", "ReFS", "Soporte para Kubernetes"],
+            correcta: 2,
             preguntaId: "2040501006",
           },
           {
-            id: "2040501007",
-            pregunta: "¿Qué tipo de licencia de Windows está ligada al equipo en el que se instaló por primera vez?",
-            opciones: ["Retail", "OEM", "Por volumen", "CAL"],
-            correcta: 1,
+            id: "2040501004",
+            pregunta: "¿Cuál de los siguientes NO es un tipo de licencia de cliente de Windows?",
+            opciones: ["OEM", "Retail", "Por volumen", "CAL"],
+            correcta: 3,
             preguntaId: "2040501007",
           },
           {
-            id: "2040501008",
-            pregunta: "¿Qué versión de Windows Server introdujo soporte para Kubernetes?",
-            opciones: ["Windows Server 2016", "Windows Server 2019", "Windows Server 2012", "Windows Server 2022"],
+            id: "2040501004",
+            pregunta: "¿Qué tipo de licencia de Windows está preinstalada en equipos nuevos y no es transferible?",
+            opciones: ["Retail", "OEM", "Por volumen", "CAL"],
             correcta: 1,
             preguntaId: "2040501008",
           },
           {
-            id: "2040501009",
-            pregunta:
-              "¿Qué tipo de licencia de servidor se utiliza cuando es imposible cuantificar el número de usuarios que accederán a los servicios?",
-            opciones: ["CAL de usuario", "CAL de dispositivo", "Licencia de Conector Externo", "Licencia por Core"],
+            id: "2040501005",
+            pregunta: "¿Qué tipo de licencia de servidor de Windows se basa en el número de núcleos del procesador?",
+            opciones: ["CAL", "Conector Externo", "Por Core", "De especialidad"],
             correcta: 2,
             preguntaId: "2040501009",
           },
           {
-            id: "2040501010",
+            id: "2040501005",
+            pregunta: "¿Qué tipo de licencia de servidor se utiliza para el acceso de usuarios externos?",
+            opciones: ["CAL de usuario", "CAL de dispositivo", "Licencia de Conector Externo", "Licencia por Core"],
+            correcta: 2,
+            preguntaId: "2040501010",
+          },
+          {
+            id: "2040501002",
             pregunta:
               "¿Qué versión de Windows fue criticada por su inestabilidad y lentitud, a pesar de introducir un diseño renovado?",
             opciones: ["Windows XP", "Windows Vista", "Windows 7", "Windows 8"],
             correcta: 1,
-            preguntaId: "2040501010",
-          },
-          {
-            id: "2040501011",
-            pregunta: "¿Qué característica introdujo Windows Server 2008 R2?",
-            opciones: ["Server Core", "ReFS", "Nuevas características de virtualización", "Soporte para Kubernetes"],
-            correcta: 2,
             preguntaId: "2040501011",
           },
           {
-            id: "2040501012",
-            pregunta: "¿Qué tipo de licencia de Windows permite actualizar un sistema operativo anterior?",
-            opciones: ["OEM", "Retail completa", "Licencia de Windows para actualización", "Por volumen"],
+            id: "2040501003",
+            pregunta: "¿Qué característica introdujo Windows Server 2008 R2?",
+            opciones: ["Server Core", "ReFS", "Nuevas características de virtualización", "Soporte para Kubernetes"],
             correcta: 2,
             preguntaId: "2040501012",
           },
           {
-            id: "2040501013",
-            pregunta: "¿Qué versión de Windows Server introdujo funcionalidad híbrida con Azure?",
-            opciones: ["Windows Server 2016", "Windows Server 2019", "Windows Server 2022", "Windows Server 2012 R2"],
+            id: "2040501004",
+            pregunta: "¿Qué tipo de licencia de Windows permite activaciones por lotes en empresas?",
+            opciones: ["OEM", "Retail", "Por volumen (GVLK)", "CAL"],
             correcta: 2,
             preguntaId: "2040501013",
           },
           {
-            id: "2040501014",
-            pregunta: "¿Qué tipo de licencia de servidor de Windows no requiere generalmente una CAL?",
-            opciones: [
-              "Licencia por Core",
-              "Licencia de Conector Externo",
-              "Licencias de servidores de especialidad",
-              "Licencias de servidores de administración",
-            ],
-            correcta: 2,
+            id: "2040501003",
+            pregunta: "¿Qué versión de Windows Server introdujo soporte para Kubernetes?",
+            opciones: ["Windows Server 2016", "Windows Server 2019", "Windows Server 2012", "Windows Server 2022"],
+            correcta: 1,
             preguntaId: "2040501014",
           },
           {
-            id: "2040501015",
-            pregunta: "¿Qué versión de Windows introdujo el Directorio Activo de Microsoft?",
-            opciones: ["Windows NT Server", "Windows 2000 Server", "Windows Server 2003", "Windows Server 2008"],
-            correcta: 1,
+            id: "2040501003",
+            pregunta: "¿Qué característica introdujo Windows Server 2022?",
+            opciones: ["Server Core", "ReFS", "Soporte para Kubernetes", "Funcionalidad híbrida con Azure"],
+            correcta: 3,
             preguntaId: "2040501015",
           },
         ],
         minimoParaAprobar: 12,
       },
-      "2040502000e": {
-        preguntas: [
-          {
-            id: "2040502001",
-            pregunta: "¿Qué permite el Control de cuentas de usuario (UAC) en Windows?",
-            opciones: [
-              "Cifrar volúmenes enteros",
-              "Crear reglas para permitir o denegar la ejecución de aplicaciones",
-              "Realizar tareas comunes como no administradores y como administradores sin cambiar de usuario",
-              "Proporcionar un entorno aislado para pruebas de aplicaciones",
-            ],
-            correcta: 2,
-            preguntaId: "2040502001",
-          },
-          {
-            id: "2040502002",
-            pregunta: "¿Cuál de las siguientes NO es una característica de AppLocker?",
-            opciones: [
-              "Definir reglas basadas en atributos de archivo derivados de la firma digital",
-              "Cifrar volúmenes enteros para proteger los datos",
-              "Crear excepciones a ciertas reglas",
-              "Importar y exportar reglas",
-            ],
-            correcta: 1,
-            preguntaId: "2040502002",
-          },
-          {
-            id: "2040502003",
-            pregunta: "¿Qué algoritmo de cifrado utiliza BitLocker por defecto?",
-            opciones: ["DES", "3DES", "AES en modo CBC con claves de 128 bits", "RSA"],
-            correcta: 2,
-            preguntaId: "2040502003",
-          },
-          {
-            id: "2040502004",
-            pregunta: "¿Qué versión mínima de TPM requiere Windows 11?",
-            opciones: ["TPM 1.0", "TPM 1.2", "TPM 2.0", "No requiere TPM"],
-            correcta: 1,
-            preguntaId: "2040502004",
-          },
-          {
-            id: "2040502005",
-            pregunta: "¿En qué versiones de Windows está disponible Windows Sandbox?",
-            opciones: [
-              "Windows 10 Home y Pro",
-              "Windows 10 Pro y Enterprise",
-              "Windows 11 Home y Pro",
-              "Todas las versiones de Windows 10 y 11",
-            ],
-            correcta: 1,
-            preguntaId: "2040502005",
-          },
-          {
-            id: "2040502006",
-            pregunta: "¿Qué comando se utiliza para actualizar las políticas de grupo en Windows?",
-            opciones: ["gpedit.msc", "gpupdate", "gpresult", "mmc"],
-            correcta: 1,
-            preguntaId: "2040502006",
-          },
-          {
-            id: "2040502007",
-            pregunta: "¿Cuál es la función principal del comando 'tracert'?",
-            opciones: [
-              "Mostrar estadísticas de protocolo TCP/IP",
-              "Trazar la ruta que hace un paquete hasta llegar a su destino",
-              "Manipular tablas locales de enrutamiento de red",
-              "Comprobar la conexión y latencia de red",
-            ],
-            correcta: 1,
-            preguntaId: "2040502007",
-          },
-          {
-            id: "2040502008",
-            pregunta: "¿Qué comando se utiliza para mostrar toda la información de configuración TCP/IP de un equipo?",
-            opciones: ["ipconfig /all", "netstat -a", "nbtstat -a", "route print"],
-            correcta: 0,
-            preguntaId: "2040502008",
-          },
-          {
-            id: "2040502009",
-            pregunta: "¿Qué componente de Windows permite ejecutar aplicaciones en un entorno aislado y desechable?",
-            opciones: ["Windows Defender", "BitLocker", "Windows Sandbox", "AppLocker"],
-            correcta: 2,
-            preguntaId: "2040502009",
-          },
-          {
-            id: "2040502010",
-            pregunta: "¿Qué comando se utiliza para el cliente de escritorio remoto de Windows?",
-            opciones: ["rdp.exe", "remote.exe", "mstsc.exe", "remotedesktop.exe"],
-            correcta: 2,
-            preguntaId: "2040502010",
-          },
-          {
-            id: "2040502011",
-            pregunta: "¿Cuál es la función principal de Windows Mixed Reality?",
-            opciones: [
-              "Cifrado de disco",
-              "Control de cuentas de usuario",
-              "Plataforma de realidad mixta y realidad virtual",
-              "Antivirus y firewall",
-            ],
-            correcta: 2,
-            preguntaId: "2040502011",
-          },
-          {
-            id: "2040502012",
-            pregunta: "¿Qué comando se utiliza para copiar archivos de una ubicación a otra en Windows?",
-            opciones: ["copy", "xcopy", "robocopy", "move"],
-            correcta: 2,
-            preguntaId: "2040502012",
-          },
-          {
-            id: "2040502013",
-            pregunta: "¿Qué herramienta se utiliza para editar directivas de grupo en Windows?",
-            opciones: ["gpedit.msc", "regedit.exe", "msconfig.exe", "secpol.msc"],
-            correcta: 0,
-            preguntaId: "2040502013",
-          },
-          {
-            id: "2040502014",
-            pregunta: "¿Qué comando muestra las estadísticas del protocolo y las conexiones actuales de TCP/IP usando NBT?",
-            opciones: ["netstat", "ipconfig", "nbtstat", "tracert"],
-            correcta: 2,
-            preguntaId: "2040502014",
-          },
-          {
-            id: "2040502015",
-            pregunta: "¿En qué versión de Windows se finaliza la compatibilidad con Windows Mixed Reality?",
-            opciones: [
-              "Windows 10 versión 21H2",
-              "Windows 11 versión 22H2",
-              "Windows 11 versión 23H2",
-              "Windows 11 versión 24H2",
-            ],
-            correcta: 3,
-            preguntaId: "2040502015",
-          },
+"2040502000e": {
+    preguntas: [
+      {
+        id: "2040502002",
+        pregunta: "¿Qué permite el Control de cuentas de usuario (UAC) en Windows?",
+        opciones: [
+          "Cifrar volúmenes enteros",
+          "Crear reglas para permitir o denegar la ejecución de aplicaciones",
+          "Realizar tareas comunes como no administradores y como administradores sin cambiar de usuario",
+          "Proporcionar un entorno aislado para pruebas de aplicaciones",
         ],
-        minimoParaAprobar: 12,
+        correcta: 2,
+        preguntaId: "2040502001",
       },
+      {
+        id: "2040502003",
+        pregunta: "¿Cuál de las siguientes NO es una característica de AppLocker?",
+        opciones: [
+          "Definir reglas basadas en atributos de archivo derivados de la firma digital",
+          "Cifrar volúmenes enteros para proteger los datos",
+          "Crear excepciones a ciertas reglas",
+          "Importar y exportar reglas",
+        ],
+        correcta: 1,
+        preguntaId: "2040502002",
+      },
+      {
+        id: "2040502004",
+        pregunta: "¿Qué algoritmo de cifrado utiliza BitLocker por defecto?",
+        opciones: ["DES", "3DES", "AES en modo CBC con claves de 128 bits", "RSA"],
+        correcta: 2,
+        preguntaId: "2040502003",
+      },
+      {
+        id: "2040502004",
+        pregunta: "¿Qué versión mínima de TPM requiere Windows 11?",
+        opciones: ["TPM 1.0", "TPM 1.2", "TPM 2.0", "No requiere TPM"],
+        correcta: 1,
+        preguntaId: "2040502004",
+      },
+      {
+        id: "2040502006",
+        pregunta: "¿En qué versiones de Windows está disponible Windows Sandbox?",
+        opciones: [
+          "Windows 10 Home y Pro",
+          "Windows 10 Pro y Enterprise",
+          "Windows 11 Home y Pro",
+          "Todas las versiones de Windows 10 y 11",
+        ],
+        correcta: 1,
+        preguntaId: "2040502005",
+      },
+      {
+        id: "2040502008",
+        pregunta: "¿Qué comando se utiliza para actualizar las políticas de grupo en Windows?",
+        opciones: ["gpedit.msc", "gpupdate", "gpresult", "mmc"],
+        correcta: 1,
+        preguntaId: "2040502006",
+      },
+      {
+        id: "2040502009",
+        pregunta: "¿Cuál es la función principal del comando 'tracert'?",
+        opciones: [
+          "Mostrar estadísticas de protocolo TCP/IP",
+          "Trazar la ruta que hace un paquete hasta llegar a su destino",
+          "Manipular tablas locales de enrutamiento de red",
+          "Comprobar la conexión y latencia de red",
+        ],
+        correcta: 1,
+        preguntaId: "2040502007",
+      },
+      {
+        id: "2040502009",
+        pregunta: "¿Qué comando se utiliza para mostrar toda la información de configuración TCP/IP de un equipo?",
+        opciones: ["ipconfig /all", "netstat -a", "nbtstat -a", "route print"],
+        correcta: 0,
+        preguntaId: "2040502008",
+      },
+      {
+        id: "2040502006",
+        pregunta: "¿Qué componente de Windows permite ejecutar aplicaciones en un entorno aislado y desechable?",
+        opciones: ["Windows Defender", "BitLocker", "Windows Sandbox", "AppLocker"],
+        correcta: 2,
+        preguntaId: "2040502009",
+      },
+      {
+        id: "2040502009",
+        pregunta: "¿Qué comando se utiliza para el cliente de escritorio remoto•••••••• de Windows?",
+        opciones: ["rdp.exe", "remote.exe", "mstsc.exe", "remotedesktop.exe"],
+        correcta: 2,
+        preguntaId: "2040502010",
+      },
+      {
+        id: "2040502007",
+        pregunta: "¿Cuál es la función principal de Windows Mixed Reality?",
+        opciones: [
+          "Cifrado de disco",
+          "Control de cuentas de usuario",
+          "Plataforma de realidad mixta y realidad virtual",
+          "Antivirus y firewall",
+        ],
+        correcta: 2,
+        preguntaId: "2040502011",
+      },
+      {
+        id: "2040502008",
+        pregunta: "¿Qué comando se utiliza para copiar archivos de una ubicación a otra en Windows?",
+        opciones: ["copy", "xcopy", "robocopy", "move"],
+        correcta: 2,
+        preguntaId: "2040502012",
+      },
+      {
+        id: "2040502008",
+        pregunta: "¿Qué herramienta se utiliza para editar directivas de grupo en Windows?",
+        opciones: ["gpedit.msc", "regedit.exe", "msconfig.exe", "secpol.msc"],
+        correcta: 0,
+        preguntaId: "2040502013",
+      },
+      {
+        id: "2040502009",
+        pregunta: "¿Qué comando muestra las estadísticas del protocolo y las conexiones actuales de TCP/IP usando NBT?",
+        opciones: ["netstat", "ipconfig", "nbtstat", "tracert"],
+        correcta: 2,
+        preguntaId: "2040502014",
+      },
+      {
+        id: "2040502007",
+        pregunta: "¿En qué versión de Windows se finaliza la compatibilidad con Windows Mixed Reality?",
+        opciones: [
+          "Windows 10 versión 21H2",
+          "Windows 11 versión 22H2",
+          "Windows 11 versión 23H2",
+          "Windows 11 versión 24H2",
+        ],
+        correcta: 3,
+        preguntaId: "2040502015",
+      },
+    ],
+    minimoParaAprobar: 12,
+  },
       "2040601000e": {
         preguntas: [
           {
@@ -2097,14 +1921,14 @@ export const preguntas = {
             preguntaId: "2040601003",
           },
           {
-            id: "2040601004",
+            id: "2040601002",
             pregunta: "¿Qué empresa es propietaria de Solaris?",
             opciones: ["IBM", "Apple", "Sun Microsystems", "Hewlett-Packard"],
             correcta: 2,
             preguntaId: "2040601004",
           },
           {
-            id: "2040601005",
+            id: "2040601002",
             pregunta: "¿Cuál es el objetivo declarado del proyecto Illumos?",
             opciones: [
               "Ser el sistema operativo principal de los ordenadores Mac",
@@ -2128,7 +1952,7 @@ export const preguntas = {
             preguntaId: "2040601006",
           },
           {
-            id: "2040601007",
+            id: "2040601003",
             pregunta: "¿Cuál es la versión más reciente de macOS mencionada en el texto?",
             opciones: ["Catalina", "Big Sur", "Ventura", "Sonoma"],
             correcta: 3,
@@ -2149,14 +1973,14 @@ export const preguntas = {
             preguntaId: "2040601009",
           },
           {
-            id: "2040601010",
+            id: "2040601003",
             pregunta: "¿En qué año se anunció macOS Big Sur?",
             opciones: ["2019", "2020", "2021", "2022"],
             correcta: 1,
             preguntaId: "2040601010",
           },
           {
-            id: "2040601011",
+            id: "2040601003",
             pregunta: "¿Qué versión de macOS se llamó 'El Capitan'?",
             opciones: ["10.10", "10.11", "10.12", "10.13"],
             correcta: 1,
@@ -2170,21 +1994,21 @@ export const preguntas = {
             preguntaId: "2040601012",
           },
           {
-            id: "2040601013",
+            id: "2040601006",
             pregunta: "¿Qué lenguaje de programación se utiliza principalmente para desarrollar macOS?",
             opciones: ["C", "C++", "Objective-C", "Java"],
             correcta: 2,
             preguntaId: "2040601013",
           },
           {
-            id: "2040601014",
+            id: "2040601008",
             pregunta: "¿Cuántos años cumplió AIX en 2016?",
             opciones: ["20", "25", "30", "35"],
             correcta: 2,
             preguntaId: "2040601014",
           },
           {
-            id: "2040601015",
+            id: "2040601006",
             pregunta: "¿Qué nombre tenía macOS antes de ser conocido como tal?",
             opciones: ["Solo Mac OS X", "Solo OS X", "Mac OS X y OS X", "Apple OS"],
             correcta: 2,
@@ -2225,28 +2049,28 @@ export const preguntas = {
         preguntaId: "2040701004",
       },
       {
-        id: "2040701005",
+        id: "2040701055",
         pregunta: "¿Qué comando se usa para buscar una cadena específica en archivos?",
         opciones: ["find", "search", "grep", "locate"],
         correcta: 2,
         preguntaId: "2040701005",
       },
       {
-        id: "2040701006",
+        id: "2040701005",
         pregunta: "¿Qué archivo se utiliza para especificar la dirección de los servidores DNS en sistemas Linux?",
         opciones: ["/etc/hosts", "/etc/resolv.conf", "/etc/dns.conf", "/etc/network/interfaces"],
         correcta: 1,
         preguntaId: "2040701006",
       },
       {
-        id: "2040701007",
+        id: "2040701006",
         pregunta: "¿Qué comando se utiliza para montar un dispositivo en Linux?",
         opciones: ["mount", "attach", "connect", "link"],
         correcta: 0,
         preguntaId: "2040701007",
       },
       {
-        id: "2040701008",
+        id: "2040701004",
         pregunta: "¿Cuál es el propósito principal del comando 'sudo'?",
         opciones: [
           "Cambiar de usuario",
@@ -2284,14 +2108,14 @@ export const preguntas = {
         preguntaId: "2040701011",
       },
       {
-        id: "2040701012",
+        id: "2040701006",
         pregunta: "¿Qué comando se utiliza para desmontar una unidad en Linux?",
         opciones: ["unmount", "dismount", "umount", "demount"],
         correcta: 2,
         preguntaId: "2040701012",
       },
       {
-        id: "2040701013",
+        id: "2040701002",
         pregunta: "¿Qué significa STS en el contexto de las versiones de sistemas operativos?",
         opciones: ["System Testing Suite", "Short Term Support", "Secure Technology System", "Standard Time Service"],
         correcta: 1,

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloque 2 - Curso Interactivo</title>
+   
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exam-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+</head>
+<body id="3000000000">
+    <header id="bloque-header">
+        <h1>Bloque II:<br> Informática Básica</h1>
+        <a href="../../index.html"><button class=" volver ">
+            Volver a selección
+        </button></a>
+      
+
+      
+    </header>
+    <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+        <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+    </button>  
+    <main id="contenido-principal">
+        <!-- Los temas y puntos se generarán dinámicamente aquí -->
+    </main>
+
+    <!-- Modal para exámenes -->
+    <div id="modal-examen" class="modal oculto">
+       
+       
+        <div class="modal-contenido">
+            
+            <span class="cerrar">&times;</span>
+            <p id="contador-preguntas"></p>
+            <div id="pregunta-contenedor"></div>
+            <div id="opciones-contenedor"></div>
+            
+        </div>
+    </div>
+
+    <!-- Modal para explicaciones -->
+    <div id="modal-explicacion" class="modal oculto">
+        <div class="modal-contenido">
+            <h3 id="explicacion-titulo"></h3>
+            <div id="explicacion-contenido"></div>
+            <button id="btn-entendido">Entendido</button>
+        </div>
+    </div>
+   
+
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/script.js" type="module"></script>
+   
+</body>
+</html>

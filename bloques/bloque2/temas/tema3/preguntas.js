@@ -93,26 +93,15 @@ export const preguntas = {
           preguntaId: "2030101008",
         },
         {
-          id: "2030101009",
+          id: "2030101002",
           pregunta: "¿Qué significa LIFO en el contexto de las estructuras de datos?",
           opciones: ["Last In, First Out", "Long Input, Fast Output", "List Input, File Output", "Large In, Few Out"],
           correcta: 0,
           preguntaId: "2030101009",
         },
-        {
-          id: "2030101010",
-          pregunta: "¿Cuál es la principal ventaja de un Árbol Binario de Búsqueda?",
-          opciones: [
-            "Ocupa menos espacio en memoria que otros tipos de árboles",
-            "Permite insertar un número ilimitado de nodos",
-            "La búsqueda de un elemento es muy eficiente",
-            "Siempre está perfectamente balanceado",
-          ],
-          correcta: 2,
-          preguntaId: "2030101010",
-        },
+        
       ],
-      minimoParaAprobar: 8,
+      minimoParaAprobar: 7,
     },
       "2030102000e": {
     preguntas: [
@@ -197,7 +186,7 @@ export const preguntas = {
         preguntaId: "2030102007",
       },
       {
-        id: "2030102008",
+        id: "2030102007",
         pregunta: "¿Cómo se soluciona la fragmentación externa?",
         opciones: [
           "Creando bloques de memoria más pequeños",
@@ -209,20 +198,7 @@ export const preguntas = {
         preguntaId: "2030102008",
       },
       {
-        id: "2030102009",
-        pregunta:
-          "¿Qué tipo de organización de ficheros es más adecuada para acceder rápidamente a registros aleatorios?",
-        opciones: [
-          "Organización secuencial",
-          "Organización secuencial encadenada",
-          "Organización secuencial indexada",
-          "Organización directa o aleatoria",
-        ],
-        correcta: 3,
-        preguntaId: "2030102009",
-      },
-      {
-        id: "2030102010",
+        id: "2030102005",
         pregunta: "En la organización secuencial indexada, ¿cuál es la función del fichero de overflow?",
         opciones: [
           "Contener los índices de los registros",
@@ -234,7 +210,7 @@ export const preguntas = {
         preguntaId: "2030102010",
       },
     ],
-    minimoParaAprobar: 8,
+    minimoParaAprobar: 7,
   },
   "2030103000e": {
     preguntas: [
@@ -412,28 +388,28 @@ export const preguntas = {
         preguntaId: "2030104006",
       },
       {
-        id: "2030104007",
+        id: "2030104005",
         pregunta: "¿Cuál de los siguientes formatos es comúnmente utilizado para documentos portátiles?",
         opciones: ["TXT", "JPG", "PDF", "MP3"],
         correcta: 2,
         preguntaId: "2030104007",
       },
       {
-        id: "2030104008",
+        id: "2030104005",
         pregunta: "¿Qué tipo de archivo se utiliza típicamente para hojas de estilo en desarrollo web?",
         opciones: ["HTML", "JS", "CSS", "PHP"],
         correcta: 2,
         preguntaId: "2030104008",
       },
       {
-        id: "2030104009",
+        id: "2030104005",
         pregunta: "¿Cuál de los siguientes es un formato de compresión de archivos mencionado en la lista?",
         opciones: ["RAR", "7Z", "ZIP", "TAR"],
         correcta: 2,
         preguntaId: "2030104009",
       },
       {
-        id: "2030104010",
+        id: "2030104005",
         pregunta: "¿Qué formato se utiliza comúnmente para archivos de audio comprimido?",
         opciones: ["WAV", "MP3", "FLAC", "MIDI"],
         correcta: 1,
