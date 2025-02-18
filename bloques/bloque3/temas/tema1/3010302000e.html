@@ -1,0 +1,62 @@
+<div class="teoria">
+    <h2>3.2. DESCOMPOSICIÓN EN NIVELES</h2>
+    
+    <span id="3010302001">
+        <p>Los diagramas de flujo de datos han de representar el sistema de la forma más clara posible, por ello su construcción se basa en el principio de descomposición o explosión en distintos niveles de detalle.</p>
+    </span>
+
+    <span id="3010302002">
+        <p>La descomposición por niveles se realiza de arriba abajo (top-down), es decir, se comienza en el nivel más general y se termina en el más detallado, pasando por los niveles intermedios. De este modo se dispondrá de un conjunto de particiones del sistema que facilitarán su estudio y su desarrollo.</p>
+    </span>
+
+    <span id="3010302003">
+        <p>La descomposición de cada proceso de un DFD origina otro DFD y es necesario comprobar que se mantiene la consistencia de información entre ellos, es decir, que la información de entrada y de salida de un proceso cualquiera se corresponde con la información de entrada y de salida del diagrama de flujo de datos en el que se descompone.</p>
+    </span>
+
+    <span id="3010302004">
+        <p>En cualquiera de las descomposiciones o explosiones puede aparecer un proceso que no necesite descomposición. A éste se le denomina proceso primitivo y sólo se detalla en él su entrada y su salida, además de una descripción de lo que realiza. En la construcción hay que evitar en lo posible la descomposición desigual, es decir, que un nivel contenga un proceso primitivo, y otro que necesite ser particionado en uno o varios niveles más.</p>
+    </span>
+
+    <span id="3010302005">
+        <p>El modelo de procesos deberá contener:</p>
+        <ul>
+            <li>Un diagrama de contexto (Nivel 0).</li>
+            <li>Un diagrama 0 (Nivel 1).</li>
+            <li>Tantos diagramas 1, 2, 3, … n como funciones haya en el diagrama 0 (Nivel 2).</li>
+            <li>Tantos niveles intermedios como sea necesario.</li>
+            <li>Varios DFD en el último nivel de detalle.</li>
+        </ul>
+    </span>
+
+    <span id="3010302006">
+        <p>Es decir:</p>
+        <ul>
+            <li>Nivel 0: Diagrama de Contexto (representa al sistema).</li>
+            <li>Nivel 1: Diagrama de Subsistemas (representa a áreas funcionales).</li>
+            <li>Nivel 2: Diagrama de Funciones (de cada subsistema).</li>
+            <li>Nivel 3: Diagrama de Subfunciones (de cada función).</li>
+            <li>Nivel 4: Diagrama de Procesos (para tratamiento de cada subfunción).</li>
+        </ul>
+    </span>
+
+    <span id="3010302007">
+        <p>Por tanto, los pasos para esta descomposición en niveles serían los siguientes:</p>
+        <ol>
+            <li>El diagrama de contexto tiene como objetivo delimitar el ámbito del sistema con el mundo exterior definiendo sus interfaces. En este diagrama se representa un único proceso que corresponde al sistema en estudio, un conjunto de entidades externas que representan la procedencia y destino de la información y un conjunto de flujos de datos que representan los caminos por los que fluye dicha información.</li>
+            <li>A continuación, este proceso se descompone en otro DFD, en el que se representan los procesos principales o subsistemas. Un subsistema es un conjunto de procesos cuyas funcionalidades tienen algo en común. Éstos deberán ser identificados en base a determinados criterios, como por ejemplo: funciones organizativas o administrativas propias del sistema, funciones homogéneas de los procesos, localización geográfica de los mismos, procesos que actualicen los mismos almacenes de datos, etc.</li>
+            <li>Cada uno de los procesos principales se descompone a su vez en otros que representan funciones más simples y se sigue descomponiendo hasta que los procesos estén suficientemente detallados y tengan una funcionalidad concreta, es decir, sean procesos primitivos.</li>
+        </ol>
+    </span>
+
+    <span id="3010302008">
+        <p>Por tanto, como resultado de los pasos anteriores, se obtiene un modelo de procesos del sistema de información que consta de un conjunto de diagramas de flujo de datos de diferentes niveles de abstracción, de modo que cada uno proporciona una visión más detallada de una parte definida en el nivel anterior.</p>
+    </span>
+
+    <span id="3010302009">
+        <p>Además de los diagramas de flujo de datos, el modelo de procesos incluye la especificación de los flujos de datos, de los almacenes de datos y la especificación detallada de los procesos que no precisan descomposición, es decir los procesos de último nivel o primitivos. En la especificación de un proceso primitivo se debe describir, de una manera más o menos formal, cómo se obtienen los flujos de datos de salida a partir de los flujos de datos de entrada y características propias del proceso.</p>
+    </span>
+
+    <span id="3010302010">
+        <p>Dependiendo del tipo de proceso se puede describir el procedimiento asociado utilizando un lenguaje estructurado o un pseudocódigo, apoyándose en tablas de decisión o árboles de decisión.</p>
+    </span>
+</div>

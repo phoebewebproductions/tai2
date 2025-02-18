@@ -1,0 +1,92 @@
+<div class="teoria">
+    <h2>3.3. CONSISTENCIA DE LOS DIAGRAMAS DE FLUJO DE DATOS</h2>
+    
+    <span id="3010303001">
+        <p>Una vez construidos los diagramas de flujo de datos que componen el modelo de procesos del sistema de información, es necesario comprobar y asegurar su validez. Para ello, se debe estudiar cada diagrama comprobando que es legible, de poca complejidad y si los nombres asignados a sus elementos ayudan a su comprensión sin ambigüedades.</p>
+    </span>
+
+    <span id="3010303002">
+        <p>Además, los diagramas deben ser consistentes. En los diagramas hay que comprobar que en un DFD resultado de una explosión o descomposición:</p>
+        <ul>
+            <li>No falten flujos de datos de entrada o salida que acompañaban al proceso del nivel superior.</li>
+            <li>No aparezca algún flujo que no estuviese ya asociado al proceso de nivel superior.</li>
+            <li>Todos los elementos del DFD resultante deben estar conectados directa o indirectamente con los flujos del proceso origen.</li>
+        </ul>
+    </span>
+
+    <h2>3.3. REGLAS DE CONSTRUCCIÓN</h2>
+
+    <span id="3010303003">
+        <p>Los diagramas de flujos de datos se deben diseñar de forma sistemática. En primer lugar, el analista de sistemas necesita conceptualizar los flujos de datos desde una perspectiva de arriba-abajo (top-down).</p>
+    </span>
+
+    <span id="3010303004">
+        <p>Para empezar un diagrama de flujo de datos, hay que entender la narrativa (o historia o negocio) del sistema de la organización en una lista con las cuatro categorías de entidad externa, flujo de datos, proceso y almacén de datos. A su vez, esta lista ayuda a determinar los límites del sistema que va a describir. Una vez que haya compilado una lista básica de elementos de datos, empiece a dibujar un diagrama de contexto.</p>
+    </span>
+
+    <span id="3010303005">
+        <p>Las siguientes son reglas básicas que deben cumplir los diagramas:</p>
+        <ol>
+            <li>El diagrama de flujo de datos debe tener por lo menos un proceso y no debe haber objetos independientes o conectados a sí mismos.</li>
+            <li>Un proceso debe recibir por lo menos un flujo de datos entrante y debe crear por lo menos un flujo de datos saliente.</li>
+            <li>Un almacén de datos debe estar conectado con por lo menos un proceso.</li>
+            <li>Las entidades externas no se deben conectar entre sí. Aunque se comunican en forma independiente, esa comunicación no forma parte del sistema que diseñamos mediante el uso de DFD.</li>
+        </ol>
+    </span>
+
+
+
+    <h3>3.3.1. DIAGRAMAS DE FLUJO DE DATOS LÓGICOS Y FÍSICOS</h3>
+
+    <span id="3010303007">
+        <p>Los diagramas de flujo de datos se clasifican como lógicos o físicos:</p>
+        <ul>
+            <li>Un diagrama de flujo de datos lógico se enfoca en la organización y la forma en que ésta opera. No se preocupa por la forma en que se construirá el sistema, sino que describe los eventos de la empresa que se llevarán a cabo, además de los datos requeridos y producidos por cada evento.</li>
+            <li>Un diagrama de flujo de datos físico, en contraste con el diagrama de flujo de datos lógico, muestra cómo se implementará el sistema, incluyendo hardware, software, los archivos y las personas involucradas en el sistema.</li>
+        </ul>
+    </span>
+
+    <span id="3010303008">
+        <p>Cabe mencionar que el modelo lógico refleja a la organización o empresa, mientras que el modelo físico describe al sistema.</p>
+    </span>
+
+    <span id="3010303009">
+        <p>Lo ideal es desarrollar sistemas para analizar el sistema actual (el DFD lógico actual) y después agregar las características que debería incluir el nuevo sistema (la DFD lógica propuesta). Por último hay que desarrollar los mejores métodos para implementar el nuevo sistema (el DFD físico).</p>
+    </span>
+
+    <span id="3010303010">
+        <p>Características comunes para los DFD lógicos y físicos:</p>
+        <table>
+            <tr>
+                <th>Característica de diseño</th>
+                <th>Lógico</th>
+                <th>Físico</th>
+            </tr>
+            <tr>
+                <td>Qué describe el modelo</td>
+                <td>Cómo opera la empresa</td>
+                <td>Cómo se implementará el sistema (o cómo opera el sistema actual)</td>
+            </tr>
+            <tr>
+                <td>Qué representan los procesos</td>
+                <td>Actividades de la empresa</td>
+                <td>Programas, módulos de programas y procedimientos manuales</td>
+            </tr>
+            <tr>
+                <td>Qué representan los almacenes de datos</td>
+                <td>Colecciones de datos sin importar cómo se guarden éstos</td>
+                <td>Archivos y bases de datos físicas, archivos manuales</td>
+            </tr>
+            <tr>
+                <td>Tipos de almacenes de datos</td>
+                <td>Muestran los almacenes de datos que representan colecciones permanentes de datos</td>
+                <td>Archivos maestros, archivos de transición. Cualquier proceso que opere en dos momentos distintos se debe conectar mediante un almacén de datos.</td>
+            </tr>
+            <tr>
+                <td>Controles del sistema</td>
+                <td>Muestra los controles de la empresa</td>
+                <td>Muestra los controles para validar los datos de entrada, para obtener un registro (estado de registro encontrado), para asegurar que se complete un proceso con éxito y para la seguridad del sistema</td>
+            </tr>
+        </table>
+    </span>
+</div>

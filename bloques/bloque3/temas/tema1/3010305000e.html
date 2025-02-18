@@ -1,0 +1,163 @@
+<div class="teoria">
+    <h2>3.5.1 AMPLIACIÓN DE WARD Y MELLOR</h2>
+    
+    <span id="3010305001">
+        <p>Ward y Mellor amplían la notación básica de los diagramas de flujo de datos para que se adapte a las siguientes a los sistemas de tiempo real:</p>
+        <ul>
+            <li>Flujo de información que es recogido o producido de forma continua en el tiempo.</li>
+            <li>Información de control que pasa por el sistema y el procesamiento de control asociado.</li>
+            <li>Ocurrencias múltiples de la misma transformación que se encuentran a menudo en situaciones de multitarea.</li>
+            <li>Estados del sistema y mecanismos que producen transición de estados en el sistema</li>
+        </ul>
+    </span>
+
+    <span id="3010305002">
+        <p>Es decir, se emplea en sistemas de tiempo real y se representa de la siguiente forma:</p>
+        <p>[Aquí iría una imagen con la notación para representación de componentes según Ward y Mellor, y Métrica v3]</p>
+    </span>
+
+    <span id="3010305003">
+        <p>Los elementos a los que afecta la ampliación de Ward y Mellor son los siguientes:</p>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Representa</th>
+                <th>Características</th>
+            </tr>
+            <tr>
+                <td>Procesos de control</td>
+                <td>
+                    <ul>
+                        <li>Representan: Procesamiento de señales de control.</li>
+                        <li>Representan: Coordinación y sincronización de actividades de otros procesos.</li>
+                        <li>Representan: Activación/desactivación de procesos.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Ward y Mellor, y Métrica v3.</li>
+                        <li>Señales de control pueden ser: Entrada/salida</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Procesos múltiples</td>
+                <td>
+                    <ul>
+                        <li>Representan: Varias instancias de un mismo proceso.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Ward y Mellor.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Almacenes de control</td>
+                <td>
+                    <ul>
+                        <li>Representan: Almacén de info./señal de control (del sistema).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Ward y Mellor.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Flujos de control</td>
+                <td>
+                    <ul>
+                        <li>Representan: Transmisión de señales de control a procesos (salen de proceso origen para activar proceso destino).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Ward y Mellor, y Métrica v3.</li>
+                        <li>Flujos de control = Eventos.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Flujos de datos continuos</td>
+                <td>
+                    <ul>
+                        <li>Representan: Flujos de datos → Entran/salen de un proceso (de forma constante/continua).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Ward y Mellor.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </span>
+
+    <h2>3.5.2 TÉCNICAS ALTERNATIVAS O COMPLEMENTARIAS AL DFD</h2>
+
+    <span id="3010305004">
+        <p>Existen otras técnicas complementarios o alternativas para la definición de los diagramas de flujo de datos que se presentan en la siguiente tabla:</p>
+        <table>
+            <tr>
+                <th>Técnica</th>
+                <th>Descripción</th>
+                <th>Procedimiento</th>
+            </tr>
+            <tr>
+                <td>SRD (Structured Requirement Definition – Definición de Requisitos Estructurados)</td>
+                <td>Método para completar conj. de entradas y salida de sist. de info.</td>
+                <td>
+                    <ol>
+                        <li>Definir DFD de nivel de usuario: Para cada usuario se registran en un DFD:
+                            <ul>
+                                <li>Entradas que produce el sistema.</li>
+                                <li>Salidas que produce el sistema.</li>
+                            </ul>
+                        </li>
+                        <li>Definir DFD de nivel de usuario combinado.</li>
+                        <li>Definir DFD de nivel de aplicación (diagrama del contexto – entradas y salidas externas).</li>
+                        <li>Definir funciones del nivel de aplicación (entradas y salidas del sistema para mostrar el orden de sucesos).</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>SADT (Structured Analisys & Design Technique – Técnica de Análisis y Diseño Estructurado)</td>
+                <td>
+                    <ul>
+                        <li>Método para construir modelo del problema.</li>
+                        <li>Método emplea notación gráfica para representación.</li>
+                        <li>Método compuesto por jerarquía de diagramas.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ol>
+                        <li>Obtener Jerarquía de diagramas:
+                            <ul>
+                                <li>Diagrama de contexto define problema de forma abstracta.</li>
+                                <li>Caja representa acciones del problema.</li>
+                                <li>Flecha representa interconexiones entre cajas (flechas entran por izqda./arriba/abajo; flechas salen por dcha.).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>SASS (Structured Analisys & System Specification – Análisis Estructurado y Especificación del Sistema)</td>
+                <td>Método que representa y refina continuamente diagrama de contexto.</td>
+                <td>
+                    <ol>
+                        <li>Obtener DFD físico actual (muestra flujos de datos producidos en la organización NO automatizada).</li>
+                        <li>Obtener equivalentes lógicos.</li>
+                        <li>Verificar modelo (por parte del cliente).</li>
+                        <li>Definir alternativas de automatización diferentes.</li>
+                        <li>Analizar alternativas de automatización (junto con el cliente).</li>
+                        <li>Seleccionar 1 de los DFD físicos para su implementación.</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </span>
+</div>

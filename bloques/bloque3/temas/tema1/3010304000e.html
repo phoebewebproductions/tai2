@@ -1,0 +1,124 @@
+<div class="teoria">
+    <h2>3.4. DICCIONARIO DE DATOS</h2>
+    
+    <span id="3010304001">
+        <p>El diccionario de datos (DD) es un elemento u obra de consulta con información sobre los datos (metadatos) creados por el analista de sistemas con base en los diagramas de flujo de datos; recopila y coordina términos de datos específicos, confirmando lo que cada término significa para distintas personas en la organización. Es decir, el diccionario de datos es un repositorio en el que se almacena información sobre todos los elementos de datos definidos en los diagramas de flujo de datos.</p>
+    </span>
+
+    <span id="3010304002">
+        <p>Una razón importante para tener un diccionario es con el fin de mantener limpios los datos; es decir, para conservarlos consistentes.</p>
+    </span>
+
+    <span id="3010304003">
+        <p>Por ejemplo, si se almacena datos sobre el sexo de un hombre como "M" en un registro, "Masculino" en un segundo registro y como el número "1" en un tercer registro, los datos no están "limpios". En este aspecto el diccionario de datos será muy útil.</p>
+    </span>
+
+    <span id="3010304004">
+        <p>Los diccionarios de datos automatizados (parte de las herramientas CASE - Computer Aided Software Engineering) son valiosos por su capacidad de realizar referencias cruzadas con los elementos de datos para permitir los cambios necesarios en todos los programas que compartan un elemento común. Gracias a esta característica ya no hay necesidad de modificar los programas al azar ni esperar hasta que el programa no se ejecute debido a un cambio que no se implementó en todos los programas que compartan el elemento actualizado.</p>
+    </span>
+
+    <span id="3010304005">
+        <p>Para describir brevemente (para cada elemento representado en DFD) los datos utilizados se emplea la notación BNF (Backus-Naier Form).</p>
+    </span>
+
+    <span id="3010304006">
+        <p>Las características principales de los diccionarios de datos son:</p>
+        <ul>
+            <li>Actúan como unión entre diferentes modelos (puntos de vista) (como: estático, dinámico, funcional).</li>
+            <li>Definen todo elemento (mediante: descripción de elemento + conjunto de posibles valores).</li>
+            <li>Sólo describe los flujos de datos entre entidades en caso de existencia de almacenes de datos del DFD.</li>
+        </ul>
+    </span>
+
+    <span id="3010304007">
+        <p>El formato o símbolos BNF son los siguientes:</p>
+        <p>[Aquí iría una tabla o lista con los símbolos BNF]</p>
+    </span>
+
+    <span id="3010304008">
+        <p>Por ejemplo:</p>
+        <pre>
+Lista Empleados = { Codigo Empleado + Nombre + Dirección }
+Nombre = Titulo Cortesia + NombrePila + Apellido
+TituloCortesia = [ "Sr" | "Sra" ]
+NombrePila = { Caracter }
+Apellido = { Caracter }
+Caracter = [ "A"-"Z" | "a"-"z" ]
+        </pre>
+    </span>
+
+    <h3>3.4.1. HERRAMIENTAS CASE</h3>
+
+    <span id="3010304009">
+        <p>Se puede definir a las herramientas CASE como un conjunto de programas y ayudas que dan asistencia a los analistas, ingenieros de software y desarrolladores, durante todos los pasos del ciclo de vida de desarrollo de un software (estudio preliminar, análisis, diseño, implementación e instalación).</p>
+    </span>
+
+    <span id="3010304010">
+        <p>CASE es también definido como el conjunto de métodos, utilidades y técnicas que facilitan el mejoramiento del ciclo de vida del desarrollo de sistemas de información, completamente o en alguna de sus fases.</p>
+    </span>
+
+    <span id="3010304011">
+        <p>Se puede ver al CASE como la unión de las herramientas automáticas de software y las metodologías de desarrollo de software formales.</p>
+    </span>
+
+    <span id="3010304012">
+        <p>La relación entre diccionario de datos y herramientas CASE:</p>
+        <ul>
+            <li>El diccionario de datos interactúa con herramientas CASE.</li>
+            <li>Para cada entrada insertada en un diccionario de datos, la herramienta CASE inspecciona los DFDs y demás componentes para determinar CÓMO usan el dato los procesos.</li>
+        </ul>
+    </span>
+
+    <span id="3010304013">
+        <p>Las herramientas CASE permiten:</p>
+        <ul>
+            <li>Automatizar aspectos principales de todo proceso de desarrollo de un sistema.</li>
+            <li>Desarrollar el modelo de datos corporativo y esquemas conceptual y lógico.</li>
+            <li>Desarrollar los prototipos de aplicaciones.</li>
+            <li>Generar programas desde una especificación hasta nivel de diseño.</li>
+        </ul>
+    </span>
+
+    <span id="3010304014">
+        <p>Los tipos de herramientas CASE son los siguientes:</p>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Definición</th>
+                <th>Actividades que cubre</th>
+            </tr>
+            <tr>
+                <td>CASE de alto nivel</td>
+                <td>Automatizan fases iniciales/superiores del ciclo de vida de desarrollo de sistemas.</td>
+                <td>
+                    <ul>
+                        <li>Fase de planificación de sistemas.</li>
+                        <li>Fase de análisis de sistemas.</li>
+                        <li>Fase de diseño de sistemas.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>CASE de bajo nivel</td>
+                <td>Automatizan fases finales/inferiores del ciclo de vida de desarrollo de sistemas.</td>
+                <td>
+                    <ul>
+                        <li>Fase de diseño detallado de sistemas.</li>
+                        <li>Fase de implantación de sistemas.</li>
+                        <li>Fase de soporte de sistemas.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>CASE de ciclo de vida</td>
+                <td>Apoya actividades producidas durante ciclo de vida de desarrollo de sistemas.</td>
+                <td>
+                    <ul>
+                        <li>Gestión de proyectos.</li>
+                        <li>Estimación de proyectos.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </span>
+</div>

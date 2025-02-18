@@ -942,14 +942,14 @@ export const preguntas = {
         preguntaId: "2050601007",
       },
       {
-        id: "2050601008",
+        id: "2050601004",
         pregunta: "¿Qué característica de las BDOO permite ocultar los detalles internos de un objeto?",
         opciones: ["Polimorfismo", "Herencia", "Encapsulación", "Persistencia"],
         correcta: 2,
         preguntaId: "2050601008",
       },
       {
-        id: "2050601009",
+        id: "2050601005",
         pregunta: "¿Cuál es una desventaja de las bases de datos orientadas a objetos?",
         opciones: [
           "No pueden manejar grandes volúmenes de datos",
@@ -961,14 +961,14 @@ export const preguntas = {
         preguntaId: "2050601009",
       },
       {
-        id: "2050601010",
+        id: "2050601002",
         pregunta: "¿Qué grupo es responsable de proporcionar estándares sobre bases de datos orientadas a objetos?",
         opciones: ["SQL", "ODMG", "ANSI", "ISO"],
         correcta: 1,
         preguntaId: "2050601010",
       },
       {
-        id: "2050601011",
+        id: "2050601003",
         pregunta:
           "¿Qué característica de las BDOO permite que los objetos hereden comportamientos dentro de una jerarquía de clases?",
         opciones: ["Encapsulación", "Polimorfismo", "Herencia", "Abstracción"],
@@ -976,7 +976,7 @@ export const preguntas = {
         preguntaId: "2050601011",
       },
       {
-        id: "2050601012",
+        id: "2050601006",
         pregunta: "En una BDOO, ¿cómo se realiza generalmente la recuperación de objetos?",
         opciones: [
           "Mediante consultas SQL",
@@ -988,7 +988,7 @@ export const preguntas = {
         preguntaId: "2050601012",
       },
       {
-        id: "2050601013",
+        id: "2050601007",
         pregunta: "¿Qué ventaja ofrecen las BDOO en el manejo de datos multimedia?",
         opciones: [
           "No pueden manejar datos multimedia",
@@ -1000,14 +1000,14 @@ export const preguntas = {
         preguntaId: "2050601013",
       },
       {
-        id: "2050601014",
+        id: "2050601007",
         pregunta: "¿Qué característica de las BDOO permite ver un objeto como un conjunto de todas sus versiones?",
         opciones: ["Versionado de objetos", "Herencia múltiple", "Polimorfismo", "Encapsulación"],
         correcta: 0,
         preguntaId: "2050601014",
       },
       {
-        id: "2050601015",
+        id: "2050601002",
         pregunta: "¿Qué lenguaje utilizan principalmente las BDOO para realizar operaciones en la base de datos?",
         opciones: ["SQL", "XML", "Lenguajes de programación orientados a objetos", "JSON"],
         correcta: 2,
@@ -1117,7 +1117,7 @@ export const preguntas = {
         preguntaId: "2050701009",
       },
       {
-        id: "2050701010",
+        id: "2050701007",
         pregunta: "¿Qué tipo de base de datos NoSQL es especialmente adecuada para datos altamente interconectados?",
         opciones: [
           "Bases de datos clave/valor",
@@ -1129,7 +1129,7 @@ export const preguntas = {
         preguntaId: "2050701010",
       },
       {
-        id: "2050701011",
+        id: "2050701007",
         pregunta: "¿Cuál es una característica distintiva de Neo4j?",
         opciones: [
           "Utiliza tablas para almacenar datos",
@@ -1141,14 +1141,14 @@ export const preguntas = {
         preguntaId: "2050701011",
       },
       {
-        id: "2050701012",
+        id: "2050701008",
         pregunta: "¿Qué tipo de base de datos NoSQL es Redis?",
         opciones: ["Basada en documentos", "Basada en grafos", "Basada en columnas", "Basada en clave/valor"],
         correcta: 3,
         preguntaId: "2050701012",
       },
       {
-        id: "2050701013",
+        id: "2050701008",
         pregunta: "¿Cuál es una característica principal de Riak?",
         opciones: [
           "Solo funciona con datos estructurados",
@@ -1160,7 +1160,7 @@ export const preguntas = {
         preguntaId: "2050701013",
       },
       {
-        id: "2050701014",
+        id: "2050701003",
         pregunta: "¿Qué problema potencial enfrentan las bases de datos NoSQL en términos de compatibilidad?",
         opciones: [
           "Todas las bases de datos NoSQL son totalmente compatibles entre sí",
@@ -1172,7 +1172,7 @@ export const preguntas = {
         preguntaId: "2050701014",
       },
       {
-        id: "2050701015",
+        id: "2050701001",
         pregunta: "¿Qué significa el término 'no solo SQL' en el contexto de NoSQL?",
         opciones: [
           "Que las bases de datos NoSQL nunca usan SQL",

@@ -1,0 +1,33 @@
+<div class="teoria">
+    <h2>1.2. ARQUITECTURA ANSI/SPARC</h2>
+    
+    <span id="3010102000">Visto que es necesaria independencia entre el modelo lógico de los datos y su estructura física, en la arquitectura ANSI/X3/SPARC se propone que las bases de datos se construyan siguiendo un modelo o arquitectura jerárquica de tres niveles: nivel externo, nivel conceptual y nivel interno o físico.</span>
+
+    <h3>1.2.1. NIVEL FÍSICO</h3>
+    
+    <span id="3010102001">En este nivel se especifica qué, cómo y dónde se van a almacenar los datos físicamente => esquema interno.</span>
+    
+    <span id="3010102002">También es conocido como el nivel físico y es el que está más cerca del almacenamiento físico; es decir, es el que tiene que ver con la forma en que los datos están almacenados físicamente. La capa física incluye los archivos que contienen toda la información de la base de datos.</span>
+    
+    <span id="3010102003">Cada SGBD ofrece diferentes opciones para organizar ficheros y rutas de acceso, y es necesario que el diseñador conozca la implementación concreta, con el fin de implementar de una manera más eficiente el diseño físico del sistema de información.</span>
+    
+    <span id="3010102004">También es importante conocer las características de los procesos que consultan y actualizan la base de datos, como por ejemplo las frecuencias de ejecución y los volúmenes que se espera tener de los diferentes datos que se quieren almacenar con el fin de conseguir un buen rendimiento de la base de datos.</span>
+
+    <h3>1.2.2. NIVEL CONCEPTUAL</h3>
+    
+    <span id="3010102005">El nivel conceptual refleja la estructura y relaciones existentes entre los datos del mundo real que se van a guardar en la base de datos => se obtiene el esquema conceptual que se identifica mediante las estructuras de datos, relaciones y restricciones.</span>
+    
+    <span id="3010102006">Dentro de este nivel se incluye el modelo lógico. El modelo lógico de datos se define como un conjunto de conceptos, reglas y convenciones que permiten describir un modelo conceptual.</span>
+    
+    <span id="3010102007">El nivel conceptual también se le conoce como el nivel lógico de la comunidad, o en ocasiones sólo como el nivel lógico, sin calificar es un nivel de indirección entre los otros dos.</span>
+
+    <h3>1.2.3. NIVEL EXTERNO</h3>
+    
+    <span id="3010102008">El nivel externo son las vistas parciales de la base de datos que se muestran a los usuarios y/o aplicaciones. (No todos los que acceden a la base de datos necesitan tener una visión total de la información guardada)=> esquema externo.</span>
+    
+    <span id="3010102009">El nivel externo también es conocido como el nivel lógico de usuario es el más próximo a los usuarios; es decir, el que tiene que ver con la forma en que los usuarios individuales ven los datos.</span>
+    
+    <span id="3010102010">También se conoce como capa externa (o modelo externo) y es la segunda capa de abstracción de la base de datos.</span>
+    
+    <span id="3010102011">Esta capa está formada por las vistas de usuarios, a las que en conjunto se les denomina esquema secundario. En esta capa, los usuarios (los programas de aplicaciones y las personas) que la consultan se conectan y plantean consultas contra la base de datos. El DBMS controla la transformación de los elementos seleccionados de una o más estructuras de datos en la capa lógica para formar la vista de cada usuario. Las vistas de usuario de esta capa se pueden redefinir y almacenar en la base de datos para reutilización, o pueden ser elementos temporales creados por el DBMS para contener los resultados de una sola consulta específica, hasta que ya no sean necesarios para el usuario.</span>
+</div>

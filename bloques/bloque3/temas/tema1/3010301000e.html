@@ -1,0 +1,88 @@
+<div class="teoria">
+    <h2>3. DIAGRAMAS DE FLUJO DE DATOS (DFD)</h2>
+    
+    <span id="3010301001">
+        <p>Un diagrama de flujo de datos es una técnica muy apropiada para reflejar de una forma clara y precisa los procesos que conforman el sistema de información. Permite representar gráficamente los límites del sistema y la lógica de los procesos, estableciendo qué funciones hay que desarrollar. Además, muestra el flujo o movimiento de los datos a través del sistema y sus transformaciones como resultado de la ejecución de los procesos.</p>
+    </span>
+
+    <span id="3010301002">
+        <p>Esta técnica consiste en la descomposición sucesiva de los procesos, desde un nivel general, hasta llegar al nivel de detalle necesario para reflejar toda la semántica que debe soportar el sistema en estudio.</p>
+    </span>
+
+    <span id="3010301003">
+        <p>El objetivo del diagrama de flujo de datos es la obtención de un modelo lógico de procesos que represente el sistema, con independencia de las restricciones físicas del entorno. Así se facilita su comprensión por los usuarios y los miembros del equipo de desarrollo.</p>
+    </span>
+
+    <span id="3010301004">
+        <p>El sistema se divide en distintos niveles de detalle, con el objetivo de:</p>
+        <ul>
+            <li>Simplificar la complejidad del sistema, representando los diferentes procesos de que consta.</li>
+            <li>Facilitar el mantenimiento del sistema.</li>
+        </ul>
+    </span>
+
+    <h3>3.1. ELEMENTOS DE UN DIAGRAMA DE FLUJO DE DATOS</h3>
+
+    <span id="3010301005">
+        <p>El diagrama de flujo de datos se compone de los siguientes elementos:</p>
+    </span>
+
+    <h4>3.1.1. ENTIDADES EXTERNAS</h4>
+
+    <span id="3010301006">
+        <p>Representa un ente ajeno al sistema que proporciona o recibe información del mismo. Puede hacer referencia a departamentos, personas, máquinas, recursos u otros sistemas. El estudio de las relaciones entre entidades externas no forma parte del modelo.</p>
+    </span>
+
+    <span id="3010301007">
+        <p>Reglas de construcción:</p>
+        <ul>
+            <li>Representa personas, organizaciones, o sistemas que no pertenecen al sistema</li>
+            <li>En el caso de que las entidades externas se comunicasen entre sí, esto no se contemplaría en el diagrama, por estar fuera del ámbito de nuestro sistema</li>
+            <li>Puede aparecer en los distintos niveles de DFD para mejorar su comprensión, aunque normalmente sólo aparecerá en el diagrama de contexto.</li>
+            <li>Pueden aparecer varias veces en un mismo diagrama, para evitar entrecruzamientos de líneas.</li>
+            <li>Suministra información acerca de la conexión del sistema con el mundo exterior.</li>
+        </ul>
+    </span>
+
+    <span id="3010301008">
+        <p>Notación:</p>
+        <ul>
+            <li>Se representa mediante una elipse con un identificador y un nombre significativo en su interior.</li>
+            <li>Si la entidad externa aparece varias veces en un mismo diagrama, se representa con una línea inclinada en el ángulo superior izquierdo.</li>
+        </ul>
+    </span>
+
+    <h4>3.1.2. PROCESOS</h4>
+
+    <span id="3010301009">
+        <p>Representa una funcionalidad que tiene que llevar a cabo el sistema para transformar o manipular datos. El proceso debe ser capaz de generar los flujos de datos de salida a partir de los de entrada, más una información constante o variable al proceso.</p>
+    </span>
+
+    <span id="3010301010">
+        <p>Reglas de construcción:</p>
+        <ul>
+            <li>El proceso nunca es el origen ni el final de los datos, sólo lugar de transformación de ellos.</li>
+            <li>Puede transformar un flujo de datos de entrada en varios de salida.</li>
+            <li>Siempre es necesario como intermediario entre una entidad externa y un almacén de datos.</li>
+        </ul>
+    </span>
+
+    <span id="3010301011">
+        <p>Notación:</p>
+        <ul>
+            <li>Se representa por un rectángulo subdividido en tres casillas donde se indica el nombre del proceso, un número identificativo y la localización (expresa la unidad o área dentro de la organización donde se realiza el proceso).</li>
+            <li>El nombre del proceso debe ser lo más representativo posible. Normalmente estará constituido por un verbo más un sustantivo.</li>
+            <li>El número identificativo se representa en la parte superior izquierda e indica el nivel del DFD en que se está.</li>
+            <li>Hay que resaltar que el número no indica orden de ejecución alguno entre los procesos ya que en un DFD no se representa una secuencia en el tratamiento de los datos.</li>
+        </ul>
+    </span>
+
+    <span id="3010301012">
+        <p>El número que identifica el proceso es único en el sistema y debe seguir el siguiente estándar de notación:</p>
+        <ul>
+            <li>El proceso del diagrama de contexto se numera como cero.</li>
+            <li>Los procesos del siguiente nivel se enumeran desde 1 y de forma creciente hasta completar el número de procesos del diagrama.</li>
+            <li>En los niveles inferiores se forma con el número del proceso en el que está incluido seguido de un número que lo identifica en ese contexto.</li>
+        </ul>
+    </span>
+</div>

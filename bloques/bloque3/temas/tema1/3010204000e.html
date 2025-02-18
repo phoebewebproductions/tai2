@@ -1,0 +1,55 @@
+<div class="teoria">
+    <h2>2.4. RELACIONES</h2>
+    
+    <span id="3010204001">
+        <p>Una relación es una asociación entre las ocurrencias de las entidades vinculadas. Las relaciones son las asociaciones entre las entidades. Como las bases de datos se concentran en guardar datos relacionados, las relaciones se vuelven el pegamento que mantiene unida la base de datos.</p>
+    </span>
+
+    <span id="3010204002">
+        <p>La relación puede ser regular, si asocia tipos de entidad regulares, o débil, si asocia un tipo de entidad débil con un tipo de entidad regular. Dentro de las relaciones débiles se distinguen la dependencia en existencia y la dependencia en identificación.</p>
+    </span>
+
+    <span id="3010204003">
+        <p>Se dice que la dependencia es en existencia cuando las ocurrencias de un tipo de entidad débil no pueden existir sin la ocurrencia de la entidad regular de la que dependen.</p>
+    </span>
+
+    <span id="3010204004">
+        <p>Se dice que la dependencia es en identificación cuando, además de lo anterior, las ocurrencias del tipo de entidad débil no se pueden identificar sólo mediante sus propios atributos, sino que se les tiene que añadir el identificador de la ocurrencia de la entidad regular de la cual dependen.</p>
+    </span>
+
+    <span id="3010204005">
+        <p>Además, se dice que una relación es exclusiva cuando la existencia de una relación entre dos tipos de entidades implica la no existencia de las otras relaciones.</p>
+    </span>
+
+    <span id="3010204006">
+        <p>Una relación se caracteriza por:</p>
+        <ul>
+            <li>Nombre: que lo distingue unívocamente del resto de relaciones del modelo.</li>
+            <li>Tipo de correspondencia: es el número máximo de ocurrencias de cada tipo de entidad que pueden intervenir en una ocurrencia de la relación que se está tratando.</li>
+        </ul>
+    </span>
+
+    <span id="3010204007">
+        <p>Conceptualmente se pueden identificar tres clases de relaciones:</p>
+        <ul>
+            <li>Relaciones 1:1: Cada ocurrencia de una entidad se relaciona con una y sólo una ocurrencia de la otra entidad. Ejemplo: un hombre solo puede estar casado con una mujer, y una mujer con un hombre.</li>
+            <li>Relaciones 1:N: Cada ocurrencia de una entidad puede estar relacionada con cero, una o varias ocurrencias de la otra entidad. Ejemplo: un profesor imparte muchas asignaturas pero una asignatura solamente es impartida por un profesor.</li>
+            <li>Relaciones M:N: Cada ocurrencia de una entidad puede estar relacionada con cero, una o varias ocurrencias de la otra entidad y cada ocurrencia de la otra entidad puede corresponder a cero, una o varias ocurrencias de la primera. Ejemplo: un alumno puede estar matriculado en muchas asignaturas, y en una asignatura pueden estar matriculados muchos alumnos.</li>
+        </ul>
+    </span>
+
+    <span id="3010204008">
+        <p>Grado: número de tipos de entidad sobre las que se establece la relación.</p>
+        <ul>
+            <li>Unarias: una entidad se relaciona consigo misma.</li>
+            <li>Binarias: entidades relacionadas dos a dos.</li>
+            <li>Ternarias: relación entre tres entidades.</li>
+        </ul>
+    </span>
+
+    <h3>2.4.1. NOTACIÓN</h3>
+
+    <span id="3010204009">
+        <p>Se representa por un rombo unido a las entidades relacionadas por dos líneas rectas a los lados. El tipo de correspondencia se representa gráficamente con una etiqueta 1:1, 1:N o M:N, cerca de alguno de los vértices del rombo, o bien situando cada número o letra cerca de la entidad correspondiente, para mayor claridad.</p>
+    </span>
+</div>
