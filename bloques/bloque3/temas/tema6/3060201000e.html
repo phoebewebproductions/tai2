@@ -1,0 +1,61 @@
+<div class="teoria">
+    <span id="3060201001">
+        <h2>2.0 TECNOLOGÍAS DE LA PLATAFORMA JAVA EE</h2>
+        <ul>
+            <li><strong>Enterprise JavaBeans (EJB)</strong></li>
+            <li><strong>Java Servlet</strong></li>
+            <li><strong>JavaServer Page (JSP)</strong></li>
+            <li><strong>JavaServer Pages Standard Tag Library (JSTL)</strong></li>
+            <li><strong>JavaServer Faces (JSF)</strong></li>
+            <li><strong>Java Message Service (JMS)</strong></li>
+            <li><strong>Java Transaction API (JTA)</strong></li>
+            <li><strong>JavaMail API</strong> y <strong>JavaBeans Activation Framework (JAF)</strong></li>
+            <li>Tecnologías XML (<strong>JAXP</strong>, <strong>JAX-RPC</strong>, <strong>JAX-WS</strong>, <strong>JAXB</strong>, <strong>SAAJ</strong>, <strong>JAXR</strong>)</li>
+            <li><strong>JPA</strong>, <strong>JDBC API</strong></li>
+            <li><strong>Java Naming and Directory Interface (JNDI)</strong></li>
+            <li><strong>Java Authentication and Authorization Service (JAAS)</strong></li>
+        </ul>
+    </span>
+
+    <span id="3060201002">
+        <h2>2.1. Concepto de aplicación web</h2>
+        <p>Antes de adentrarnos en el estudio de la arquitectura JavaEE, es necesario el conocer lo que es una aplicación web, ya que como ya veremos es una parte fundamental de la arquitectura JavaEE en la actualidad el grueso de aplicaciones que se desarrollan están orientadas hacia usuarios que interactúan con ellas a través de interfaces web.</p>
+        <p>La característica más importante que caracteriza a una aplicación web es que no es una aplicación monolítica, sino que es un conjunto de componentes que se ejecutan en diferentes capas ubicadas tanto en el cliente como en la parte servidora para que, conjuntamente, logren el objetivo para el cual han sido desarrolladas.</p>
+        <p>El cambio hacia esta nueva forma de desarrollar aplicaciones ha motivado que los equipos de desarrollo de aplicaciones tengan que especializarse en cada capa, de igual manera que los lenguajes de programación.</p>
+    </span>
+
+    <span id="3060201003">
+        <h2>2.2. Arquitectura multicapa</h2>
+        <p>El principio fundamental de este tipo de arquitectura radica en dividir el sistema a desarrollar en diferentes capas o niveles que se comunican entre sí para lograr la funcionalidad mediante el uso de interfaces.</p>
+        
+        <h3>Capas principales:</h3>
+        <ul>
+            <li><strong>Capa de presentación</strong>: encargada de la interacción cliente-interfaz.</li>
+            <li><strong>Capa de lógica de negocio</strong>: donde se recepcionan las peticiones dirigidas desde la capa de presentación y se ejecuta la lógica transaccional del sistema.</li>
+            <li><strong>Capa de persistencia o datos</strong>: donde se almacenan los datos necesarios para mantener el sistema.</li>
+        </ul>
+
+        <h3>Características principales:</h3>
+        <ul>
+            <li>Escalabilidad y mayor rendimiento</li>
+            <li>Integridad transaccional</li>
+            <li>Robustez</li>
+            <li>Interoperabilidad</li>
+            <li>Seguridad</li>
+        </ul>
+    </span>
+
+    <span id="3060201004">
+        <h2>2.3. Patrón Modelo-Vista-Controlador (MVC)</h2>
+        <p>El patrón de diseño <strong>MVC</strong> es un modelo que logra dividir la funcionalidad de un sistema o aplicación en diferentes componentes de forma lógica y ordenada.</p>
+
+        <h3>Niveles del modelo:</h3>
+        <ul>
+            <li><strong>Nivel "modelo"</strong>: representa los componentes que implementan el acceso a los datos del sistema y las reglas funcionales del mismo (reglas de negocio). Es habitual el uso del patrón DAO (Data Access Object) para el desarrollo del modelo.</li>
+            <li><strong>Nivel "vista"</strong>: se encarga de la interfaz de usuario que se encargará de interactuar con él y presentar los resultados obtenidos por los componentes del nivel "modelo". Para implementarlo es habitual el uso de tecnología JSP, páginas ASP, XML/XSL.</li>
+            <li><strong>Nivel "controlador"</strong>: se encarga de dirigir qué resultados mostrar al nivel "vista" dependiendo del tipo de usuario que interactúa con el sistema.</li>
+        </ul>
+
+        <p>Para terminar, mencionaremos que cada nivel es independiente del resto por lo que cualquier modificación en los componentes de cada uno de ellos no debería afectare al resto de componentes de otros niveles.</p>
+    </span>
+</div>

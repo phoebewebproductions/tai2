@@ -1,0 +1,69 @@
+<div class="teoria">
+    <span id="3060401001">
+        <h2>4.1 SERVICIOS JAVA EE</h2>
+        <p>La arquitectura Java EE ofrece una serie de servicios que son:</p>
+        <ul>
+            <li><strong>Servicio de nombres (Java Naming and Directory Interface - JNDI)</strong>: ofrece acceso a componentes y recursos mediante nombres lógicos. Nos aporta: Portabilidad y mantenibilidad.</li>
+            
+            <li><strong>Servicio de transacciones (Java Transaction Service - JTS)</strong>: se encarga de la ejecución de una serie de pasos de forma atómica y aislada mediante descriptores.</li>
+            
+            <li><strong>Servicio de seguridad (Java Authentication & Authorization Service - JAAS)</strong>: implementa directivas de seguridad para recursos protegidos. Características principales: Control de acceso en dos pasos: autentificación y autorización.</li>
+            
+            <li><strong>Comunicación</strong>: distintas técnicas de comunicación, proporcionadas por el proveedor de servicio de aplicación o de contenedores. Existen dos modelos:
+                <ul>
+                    <li>Comunicaciones Web: TCP/IP, UDP/IP, HTTP y HTTPS (con SSL/TLS)</li>
+                    <li>Procesamiento de objetos distribuidos:
+                        <ul>
+                            <li>RMI (Remote Method Invocation)</li>
+                            <li>Java Remote Method Protocol (JRMP)</li>
+                            <li>CORBA-IIOP para interoperabilidad entre Java EE y sistemas CORBA</li>
+                            <li>JAX-WS/JAX-RPC para interoperabilidad entre Java EE y Web Services</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+            <li><strong>Persistencia</strong>: almacenamiento persistente de objetos y estados de objetos, normalmente realizado en bases de datos relacionales.
+                <p>Puede ser de dos tipos:</p>
+                <ul>
+                    <li>Declarativa: persistencia gestionada por el contenedor (CMP)</li>
+                    <li>Programática: persistencia gestionada por bean (BMP) via API JDBC</li>
+                </ul>
+            </li>
+            
+            <li><strong>Servicios de configuración y administración</strong>: empaquetamiento, instalación y configuración flexible de componentes y la administración de aplicaciones. Descripción mediante esquemas XML de las características de servidores, contenedores, aplicaciones, componentes y servicios.</li>
+        </ul>
+    </span>
+
+    <span id="3060401002">
+        <h3>4.1.1. Soporte Java para web services</h3>
+        <p>La arquitectura presta una serie de servicios web (Web Services) para facilitar la comunicación entre las diferentes capas de la arquitectura:</p>
+        <ul>
+            <li><strong>JAXP</strong>: Procesamiento de documentos XML mediante modelo</li>
+            <li><strong>JAX-RPC</strong>: permite llamada a procedimientos remotos mediante XML (se recomienda JAX-WS para nuevas versiones)</li>
+            <li><strong>JAX-WS</strong> (Java API for XML Web Services 2.0): evolución de JAX-RPC</li>
+            <li><strong>JAXB</strong> (Java Architecture for XML Binding): permite vincular objetos Java con datos en formato XML</li>
+            <li><strong>JAXR</strong> (Java API for XML Registries): facilitar acceso a UDDI o ebXML</li>
+            <li><strong>SAAJ</strong> (SOAP with attachments API for Java): generar y recoger mensajes SOAP</li>
+            <li><strong>XMSS</strong> (XML and Web Services Security): seguridad a nivel de mensaje</li>
+        </ul>
+    </span>
+
+    <span id="3060401003">
+        <h3>4.1.2. Servicios Adicionales</h3>
+        <ul>
+            <li><strong>JDBC</strong>: API estándar para conectar programas desarrollados en Java con SGBD</li>
+            <li><strong>Java Persistence</strong>: API estándar para la gestión de la persistencia y el mapeo objetos/modelo relacional</li>
+            <li><strong>JMS</strong> (Java Message Service): Estándar para la creación, recepción y lectura de mensajes</li>
+            <li><strong>RMI</strong> (Java Remote Method Invocation): manera de tratar cliente-servidor (RPC)</li>
+            <li><strong>Java IDL</strong>: permite a las aplicaciones Java EE invocar a objetos CORBA externos usando el protocolo IIOP</li>
+            <li><strong>Java Mail Technology</strong>: API para leer, componer y enviar mensajes electrónicos</li>
+            <li><strong>StAX</strong> (Streaming API for XML): Expone métodos para el procesamiento de documentos XML de forma iterativa</li>
+            <li><strong>JAF</strong> (JavaBeans Activation Framework): Permite descubrir el tipo de datos de un objeto arbitrario</li>
+            <li><strong>JACC</strong> (Java Authorization Service Provider Contract for Containers): Define un contrato entre servidor y proveedor de servicios</li>
+            <li><strong>JCA</strong> (J2EE Connector Architecture): Módulos de SW para abstraer detalles de acceso a EIS</li>
+            <li><strong>JMX</strong> (Java Management Extensions): API para crear sistemas de gestión y monitoreo</li>
+            <li><strong>CORBA</strong>: permite crear objetos distribuidos, diferenciando stub y skeleton</li>
+        </ul>
+    </span>
+</div>

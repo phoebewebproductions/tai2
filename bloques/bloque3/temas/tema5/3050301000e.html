@@ -1,0 +1,86 @@
+<div class="teoria">
+    <h1><span id="3050301001">3 VENTAJAS Y DESVENTAJAS</span></h1>
+  
+    <h2>3.1 VENTAJAS</h2>
+    <ul>
+      <span id="3050301002">
+        <li>Construir los programas a partir de módulos de trabajo estándar que se comunican entre sí, en lugar de tener que empezar a escribir el código desde cero, lo que genera un ahorro de tiempo de desarrollo y una mayor productividad.</li>
+        <li>El lenguaje OOP permite dividir el programa en problemas del tamaño de un bit que se pueden resolver fácilmente (un objeto a la vez).</li>
+        <li>La nueva tecnología promete una mayor productividad del programador, una mejor calidad del software y un menor costo de mantenimiento.</li>
+        <li>Los sistemas OOP se pueden actualizar fácilmente de sistemas pequeños a grandes.</li>
+        <li>Es posible que coexistan múltiples instancias de objetos sin ninguna interferencia.</li>
+        <li>Es muy fácil dividir el trabajo en un proyecto basado en objetos.</li>
+        <li>Es posible mapear los objetos en el dominio del problema con los del programa.</li>
+        <li>El principio de ocultación de datos ayuda al programador a crear programas seguros que no pueden ser invadidos por el código en otras partes del programa.</li>
+        <li>Al usar la herencia, podemos eliminar el código redundante y extender el uso de clases existentes.</li>
+        <li>Las técnicas de paso de mensajes se utilizan para la comunicación entre objetos, lo que simplifica mucho las descripciones de la interfaz con sistemas externos.</li>
+        <li>El enfoque de diseño centrado en datos nos permite capturar más detalles del modelo en una forma implementable.</li>
+      </span>
+    </ul>
+  
+    <h2>3.2 DESVENTAJAS</h2>
+    <ul>
+      <span id="3050301003">
+        <li>La duración de los programas desarrollados utilizando lenguaje OOP es mucho mayor que el enfoque procedimental. Dado que el programa aumenta de tamaño, requiere más tiempo para ejecutarse, lo que conduce a una ejecución más lenta del programa.</li>
+        <li>No podemos aplicar la POO en todas partes ya que no es un lenguaje universal. Se aplica solo cuando se requiere. No es adecuado para todo tipo de problemas.</li>
+        <li>Los programadores deben tener habilidades de diseño y programación brillantes junto con una planificación adecuada porque usar OOP es un poco complicado.</li>
+        <li>Los POO toman tiempo para acostumbrarse. El proceso de pensamiento involucrado en la programación orientada a objetos puede no ser natural para algunas personas.</li>
+        <li>Todo se trata como un objeto en POO.</li>
+      </span>
+    </ul>
+  
+    <h2>PATRONES DE DISEÑO</h2>
+    <span id="3050301004">  <p>Los patrones de diseño o design patterns, son una solución general, reutilizable y aplicable a diferentes problemas de diseño de software. Se trata de plantillas que identifican problemas en el sistema y proporcionan soluciones apropiadas a problemas generales.</p></span>
+  
+    <h2>4 PATRONES CLÁSICOS</h2>
+    <p><span id="3050301005">En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado Design Patterns, elementos de software orientado a objetos reutilizables. Con este trabajo se inició el concepto de patrón de diseño en el desarrollo de software y recoge 23 patrones de diseño comunes.</span></p>
+  
+    <h3>4.1 TIPOS DE PATRONES DE DISEÑO</h3>
+  
+    <h4>PATRONES CREACIONALES</h4>
+    <p><span id="3050301006">Los patrones de creación proporcionan diversos mecanismos de creación de objetos, que aumentan la flexibilidad y la reutilización del código existente de una manera adecuada a la situación. Esto le da al programa más flexibilidad para decidir qué objetos deben crearse para un caso de uso dado.</span></p>
+  
+    <ul>
+      <span id="3050301007">
+        <li><strong>Abstract Factory:</strong> En este patrón, una interfaz crea conjuntos o familias de objetos relacionados sin especificar el nombre de la clase.</li>
+        <li><strong>Builder Patterns:</strong> Permite producir diferentes tipos y representaciones de un objeto utilizando el mismo código de construcción. Se utiliza para la creación etapa por etapa de un objeto complejo combinando objetos simples. La creación final de objetos depende de las etapas del proceso creativo, pero es independiente de otros objetos.</li>
+        <li><strong>Factory Method:</strong> Proporciona una interfaz para crear objetos en una superclase, pero permite que las subclases alteren el tipo de objetos que se crearán. Proporciona instanciación de objetos implícita a través de interfaces comunes. Permite separar la clase constructora que crea los objetos de la jerarquía de objetos a instanciar, centralizando así la creación de objetos.</li>
+        <li><strong>Prototype:</strong> Permite copiar objetos existentes sin hacer que su código dependa de sus CLASES. SE UTILIZA PARA RESTRINGIR LAS OPERACIONES DE MEMORIA / BASE DE DATOS manteniendo la modificación al mínimo utilizando copias de objetos.</li>
+        <li><strong>Singleton:</strong> Este patrón de diseño restringe la creación de instancias de una clase a un único objeto.</li>
+      </span>
+    </ul>
+  
+    <h4>PATRONES ESTRUCTURALES</h4>
+    <p><span id="3050301008">Facilitan soluciones y estándares eficientes con respecto a las composiciones de clase y las estructuras de objetos. El concepto de herencia se utiliza para componer interfaces y definir formas de componer objetos para obtener nuevas funcionalidades.</span></p>
+  
+    <ul>
+      <span id="3050301009">
+        <li><strong>Adapter:</strong> Se utiliza para vincular dos interfaces que no son compatibles y utilizan sus funcionalidades. El adaptador permite que las clases trabajen juntas de otra manera que no podrían al ser interfaces incompatibles.</li>
+        <li><strong>Bridge:</strong> En este patrón hay una alteración estructural en las clases principales y de implementador de interfaz sin tener ningún efecto entre ellas. Estas dos clases pueden desarrollarse de manera independiente y solo se conectan utilizando una interfaz como puente. O dicho de otra manera su objetivo es acoplar una abstracción de su implementación de manera que las dos puedan evolucionar independientemente.</li>
+        <li><strong>Composite:</strong> Se usa para agrupar objetos como un solo objeto. Permite componer objetos en estructuras de árbol y luego trabajar con estas estructuras como si fueran objetos individuales.</li>
+        <li><strong>Decorator:</strong> Este patrón restringe la alteración de la estructura del objeto mientras se le agrega una nueva funcionalidad. La clase inicial permanece inalterada mientras que una clase decorator proporciona capacidades adicionales.</li>
+        <li><strong>Facade:</strong> Proporciona una interfaz simplificada para una biblioteca, un marco o cualquier otro conjunto complejo de clases.</li>
+        <li><strong>Flyweight:</strong> El patrón Flyweight se usa para reducir el uso de memoria y mejorar el rendimiento al reducir la creación de objetos. El patrón busca objetos similares que ya existen para reutilizarlo en lugar de crear otros nuevos que sean similares.</li>
+        <li><strong>Proxy:</strong> Se utiliza para crear objetos que pueden representar funciones de otras clases u objetos y la interfaz se utiliza para acceder a estas funcionalidades.</li>
+      </span>
+    </ul>
+  
+    <h4>PATRONES DE COMPORTAMIENTO</h4>
+    <p><span id="3050301010">El patrón de comportamiento se ocupa de la comunicación entre objetos de clase. Se utilizan para detectar la presencia de patrones de comunicación ya presentes y pueden manipular estos patrones.</span></p>
+  
+    <ul>
+      <span id="3050301011">
+        <li><strong>Chain of responsibility:</strong> El patrón de diseño Chain of Responsibility es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición.</li>
+        <li><strong>Command:</strong> Convierte una solicitud en un objeto independiente que contiene toda la información sobre la solicitud. Esta transformación permite parametrizar métodos con diferentes solicitudes, retrasar o poner en cola la ejecución de una solicitud y respaldar operaciones que no se pueden deshacer.</li>
+        <li><strong>Interpreter:</strong> Se utiliza para evaluar el lenguaje o la expresión al crear una interfaz que indique el contexto para la interpretación.</li>
+        <li><strong>Iterator:</strong> Su utilidad es proporcionar acceso secuencial a un número de elementos presentes dentro de un objeto de colección sin realizar ningún intercambio de información relevante.</li>
+        <li><strong>Mediator:</strong> Este patrón proporciona una comunicación fácil a través de su clase que permite la comunicación para varias clases.</li>
+        <li><strong>Memento:</strong> El patrón Memento permite recorrer elementos de una colección sin exponer su representación subyacente.</li>
+        <li><strong>Observer:</strong> Permite definir un mecanismo de suscripción para notificar a varios objetos sobre cualquier evento que le suceda al objeto que está siendo observado.</li>
+        <li><strong>State:</strong> En el patrón state, el comportamiento de una clase varía con su estado y, por lo tanto, está representado por el objeto de contexto.</li>
+        <li><strong>Strategy:</strong> Permite definir una familia de algoritmos, poner cada uno de ellos en una clase separada y hacer que sus objetos sean intercambiables.</li>
+        <li><strong>Template method:</strong> Se usa con componentes que tienen similitud donde se puede implementar una plantilla del código para probar ambos componentes. El código se puede cambiar con pequeñas modificaciones.</li>
+        <li><strong>Visitor:</strong> El propósito de un patrón Visitor es definir una nueva operación sin introducir las modificaciones a una estructura de objeto existente.</li>
+      </span>
+    </ul>
+  </div>

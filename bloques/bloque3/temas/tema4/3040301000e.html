@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDL y Tipos de Datos ANSI SQL</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="3040301001">
+            <h1>4. DDL (LENGUAJE DE DEFINICIÓN DE DATOS)</h1>
+            <p>Se encarga de la modificación de la estructura de los objetos de la base de datos. Incluye órdenes para modificar, borrar o definir las tablas en las que se almacenan los datos de la base de datos. Existen cuatro operaciones básicas: CREATE, ALTER, DROP y TRUNCATE.</p>
+        </span>
+
+        <span id="3040301002">
+            <h2>4.1. CREATE</h2>
+            <p>Crea objetos de la base de datos. Se utiliza para crear bases de datos, tablas, vistas, procedimientos almacenados…</p>
+            <pre><code>CREATE DATABASE nombreBBDD;
+CREATE TABLE nombreTabla;</code></pre>
+        </span>
+
+        <span id="3040301003">
+            <h2>4.2. ALTER</h2>
+            <p>Modifica objetos existentes de la base de datos. Se utiliza para modificar bases de datos, tablas, vistas, procedimientos almacenados…</p>
+            <pre><code>ALTER DATABASE nombreBBDD;
+ALTER TABLE nombreTabla;
+ALTER TABLE clientes ADD movil varchar(50);</code></pre>
+        </span>
+
+        <span id="3040301004">
+            <h2>4.3. DROP</h2>
+            <p>Elimina objetos existentes de la base de datos. Se utiliza para eliminar bases de datos, tablas, vistas, procedimientos almacenados…</p>
+            <pre><code>DROP DATABASE nombreBBDD;
+DROP TABLE nombreTabla;
+DROP TABLE clientes;</code></pre>
+        </span>
+
+        <span id="3040301005">
+            <h2>4.4. TRUNCATE</h2>
+            <p>Elimina todo el contenido de una tabla. Es mucho más rápido que la operación de DELETE. Básicamente TRUNCATE borra la tabla con un DROP y la vuelve a crear con un CREATE.</p>
+            <pre><code>TRUNCATE TABLE nombreTabla;
+TRUNCATE TABLE clientes;</code></pre>
+        </span>
+
+        <span id="3040301006">
+            <h2>4.5. CONSTRAINTS</h2>
+            <p>Las constraints son restricciones utilizadas para especificar reglas que tengan que cumplir los datos contenidos en una tabla. Las constraints pueden ser especificadas durante la creación o modificación de una tabla (CREATE o ALTER)</p>
+            <pre><code>CREATE TABLE nombreTabla (
+    columna1 datatype constraint,
+    columna2 datatype constraint,
+    columna3 datatype constraint,
+    ....
+);</code></pre>
+            <p>Las restricciones más utilizadas son:</p>
+            <ul>
+                <li>NOT NULL: Especifica que el atributo (columna) no puede tener un valor nulo.</li>
+                <li>UNIQUE: Establece que todos los valores del atributo deben ser diferentes.</li>
+                <li>PRIMARY KEY: Combinación de NOT NULL y UNIQUE. Identifica inequívocamente un registro en una tabla.</li>
+                <li>FOREIGN KEY: Evita que ciertas acciones rompan relaciones entre tablas.</li>
+                <li>CHECK: Establece que los valores de una columna satisfice una determinada condición.</li>
+                <li>DEFAULT: Establece un valor por defecto si no se da un valor al atributo.</li>
+            </ul>
+        </span>
+
+        <span id="3040301007">
+            <h3>CREATE INDEX</h3>
+            <p>Utilizado para convertir el atributo en un índice. Esto permite que las búsquedas y filtrados por el valor de ese atributo sean más rápidas.</p>
+            <pre><code>CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...);</code></pre>
+        </span>
+
+        <span id="3040301008">
+            <h2>4.6. ESQUEMAS</h2>
+            <p>Un esquema en SQL es una colección de objetos de base de datos asociados con una base de datos. El nombre de usuario de una base de datos se denomina propietario de esquema (propietario de estructuras de datos agrupadas lógicamente). Cada esquema siempre pertenece a una sola base de datos, mientras que una base de datos puede tener uno o varios.</p>
+            <pre><code>CREATE SCHEMA [schema_name] [AUTHORIZATION owner_name]
+[DEFAULT CHARACTER SET char_set_name]
+[PATH schema_name[, ...]]
+[ ANSI CREATE statements [...] ]
+[ ANSI GRANT statements [...] ];</code></pre>
+        </span>
+
+        <span id="3040301009">
+            <h2>5. TIPOS DE DATOS ANSI SQL</h2>
+            <p>ANSI SQL define varios tipos de datos estándar. Diferentes sistemas de gestión de bases de datos pueden implementar estos tipos de datos de manera ligeramente diferente. Algunos de los tipos de datos ANSI SQL comunes incluyen:</p>
+            <ul>
+                <li>CHARACTER, VARCHAR: Para cadenas de caracteres</li>
+                <li>NUMERIC, DECIMAL: Para números exactos</li>
+                <li>INTEGER, SMALLINT: Para números enteros</li>
+                <li>FLOAT, REAL, DOUBLE PRECISION: Para números de punto flotante</li>
+                <li>DATE, TIME, TIMESTAMP: Para fechas y horas</li>
+                <li>BOOLEAN: Para valores lógicos</li>
+                <li>BLOB, CLOB: Para datos binarios y caracteres largos</li>
+            </ul>
+            <p>Es importante consultar la documentación específica de cada sistema de gestión de bases de datos para conocer los detalles de implementación de estos tipos de datos.</p>
+        </span>
+    </div>
+</body>
+</html>

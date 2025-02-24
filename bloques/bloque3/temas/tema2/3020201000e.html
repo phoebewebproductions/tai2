@@ -1,0 +1,271 @@
+<div class="teoria">
+    <h1>3 DISEÑO LÓGICO Y FÍSICO</h1>
+    
+    <h2>3.1 DISEÑO LÓGICO</h2>
+    <p><span id="3020201001">El diseño de bases de datos es el proceso por el que se determina la organización de una base de datos, incluidos su estructura, contenido y las aplicaciones que se han de desarrollar.</span></p>
+    <p><span id="3020201002">Es un proceso iterativo. Conforme se va desarrollando el esquema lógico, este se va probando y validando con los requisitos de usuario.</span></p>
+    
+    <p>Los modelos tratados en este tema son:</p>
+    <ul>
+        <li>Modelo de datos jerárquico.</li>
+        <li>Modelo en red.</li>
+        <li><span id="3020201005">Modelo relacional. Es el más usado en la actualidad y del que se entrará en profundidad en el siguiente apartado.</span></li>
+    </ul>
+
+    <h3>3.1.1 OBJETIVO</h3>
+    <p><span id="3020201006">El diseño lógico tiene por objetivo conseguir un esquema lógico de la base de datos a partir del esquema conceptual descrito anteriormente.</span></p>
+    <p><span id="3020201007">El diseño lógico es la etapa intermedia de las que componen el proceso de desarrollo de una base de datos. Por lo tanto, se parte de los resultados de una etapa previa (la etapa del diseño conceptual) y se producen otros nuevos, que a su vez servirán como punto de entrada de una etapa posterior (el diseño físico).</span></p>
+
+    <h3>3.1.2 MODELO LÓGICO RELACIONAL</h3>
+    <h4>DEFINICIÓN DE MODELO LÓGICO</h4>
+    <p><span id="3020201008">Un modelo de base de datos en la fase de diseño lógico es la estructura lógica que adopta la base de datos, incluyendo las relaciones y limitaciones que determinan cómo se almacenan, se organizan y se accede a los datos.</span></p>
+
+    <h4>MODELO LÓGICO RELACIONAL</h4>
+    <p><span id="3020201009">El modelo de base de datos relacional es uno de los más comunes. Fue presentado por Edgar F. Codd a finales de los años 60. Se caracteriza por:</span></p>
+    <ul>
+        <li><span id="3020201010">Independencia física. Los usuarios que acceden a los datos no han de modificar sus programas por cambios en el almacenamiento físico.</span></li>
+        <li><span id="3020201011">Independencia lógica. Añadir, eliminar o modificar cualquier elemento de la base de datos no debe repercutir en los programas y/o usuarios que están accediendo a subconjuntos parciales de los mismos.</span></li>
+        <li><span id="3020201012">Flexibilidad. Poder ofrecer a cada usuario los datos de la forma más adecuada a su aplicación.</span></li>
+        <li><span id="3020201013">Uniformidad. Las estructuras lógicas de los datos presentan un aspecto uniforme (tablas).</span></li>
+        <li><span id="3020201014">Sencillez. El modelo de datos relacional es fácil de comprender y de utilizar.</span></li>
+    </ul>
+
+    <h3>CARACTERÍSTICAS DEL MODELO LÓGICO RELACIONAL</h3>
+    <p><span id="3020201015">Este modelo es el que emplean las bases de datos relacionales y ordena los datos en tablas (relaciones) compuestas por columnas y filas.</span></p>
+    <ul>
+        <li><span id="3020201016">Cada columna alberga un atributo de la entidad (nombre, dirección, fecha de nacimiento…); a los posibles valores de un atributo se los llama dominio. Escogiendo un atributo en concreto o una combinación de varios tenemos una clave primaria, a la que se puede hacer referencia en otras tablas, en las que será un clave externa.</span></li>
+        <li>En cada fila (tupla) se incluyen datos sobre una instancia específica de la entidad (por ejemplo, un cliente específico).</li>
+        <li>Además, el modelo también representa el tipo de relaciones entre las tablas, que pueden ser uno a uno, uno a muchos o muchos a muchos.</li>
+    </ul>
+
+    <h3>LAS DOCE REGLAS DE CODD PARA LAS BASES DE DATOS RELACIONALES</h3>
+    <ol>
+        <li><span id="3020201019">Regla de información. Toda la información de una base de datos relacional está representada explícitamente a nivel lógico y exactamente de un modo mediante valores en tablas.</span></li>
+        <li>Regla de acceso garantizado. Todos y cada uno de los datos de una base de datos relacional se garantiza que sean lógicamente accesibles recurriendo una combinación de nombre de tabla, valor de clave primaria y columna.</li>
+        <li>Tratamiento sistemático de valores nulo. Los valores nulos (distinto de la cadena de caracteres vacía o de una cadena de caracteres en blanco y distinta del cero o de cualquier otro número) se soportan en los SGBD para representar la falta de información y la información inaplicable de un modo sistemático e independiente del tipo de datos.</li>
+        <li>Catálogo en línea dinámico basado en el modelo relacional. La descripción de la base de datos se representa a nivel lógico del mismo modo que los datos, de modo que los usuarios autorizados puedan aplicar consulta el mismo lenguaje relacional que aplican a los datos regulares.</li>
+        <li>Regla de sublenguaje completo de datos. Un sistema relacional puede soportar varios lenguajes y varios modos de uso terminal (por ejemplo, el modo de rellenar con blancos). Sin embargo, debe haber al menos un lenguaje cuyas sentencias sean expresables mediante alguna sintaxis bien definida, como cadenas de caracteres</li>
+        <li>Regla de actualización de vista. Todas las vistas que sean teóricamente actualizables son también actualizables por el sistema.</li>
+        <li>Inserción, actualización y supresión.</li>
+        <li>Independencia fisica de los datos. Los programas de aplicación y las actividades terminales permanecen lógicamente inalterados cualesquiera que sean los cambios efectuados, ya sea a las representaciones de almacenamiento o los métodos de acceso</li>
+        <li>Independencia lógica de los datos.</li>
+        <li>Independencia de integridad. Las restricciones de integridad específicas para una base de datos relacional particular deben ser definibles en el sublenguaje de datos relacional y almacenables en el catálogo, no en los programas de aplicacion.</li>
+        <li>Independencia de distribución.</li>
+        <li>Regla de no subversión.</li>
+    </ol>
+
+    <h3>CONCEPTOS PRINCIPALES DEL MODELO RELACIONAL</h3>
+    <table>
+        <tr>
+            <th>Concepto</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>SGBD</td>
+            <td>Sistemas de Gestión de Base de Datos. Es una aplicación que permite a los usuarios definir, crear y mantener la base de datos, y proporciona acceso controlado a la misma.</td>
+        </tr>
+        <tr>
+            <td>Tabla</td>
+            <td>Se pueden destacar las siguientes propiedades de las tablas:
+                <ul>
+                    <li>Cada tabla debe tener un nombre distinto.</li>
+                    <li>Cada atributo de la tabla toma un solo valor en cada fila.</li>
+                    <li>Cada atributo tiene un nombre distinto en cada tabla.</li>
+                    <li>Cada fila es única (no hay tuplas duplicadas).</li>
+                    <li>El orden de los atributos/filas no importa.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Tupla</td>
+            <td>Cada fila de la tabla.</td>
+        </tr>
+        <tr>
+            <td>Atributo</td>
+            <td>Cada columna de la tabla.</td>
+        </tr>
+        <tr>
+            <td>Grado</td>
+            <td>Nº de atributos de la tabla.</td>
+        </tr>
+        <tr>
+            <td>Cardinalidad</td>
+            <td>Nº de tuplas de la tabla.</td>
+        </tr>
+        <tr>
+            <td>Dominio</td>
+            <td>Conjunto válido de valores de un atributo.</td>
+        </tr>
+        <tr>
+            <td>Claves</td>
+            <td>
+                <ul>
+                    <li>Las claves impiden la duplicidad de registros.</li>
+                    <li>Clave candidata. Conjunto de atributos de una tabla que identifican unívocamente cada tupla de la tabla.</li>
+                    <li>Clave primaria. Clave candidata que se escoge como identificador de las tuplas. Toda relación tiene una clave primaria.</li>
+                    <li>Clave alternativa. Cualquier clave candidata que no sea primaria.</li>
+                    <li>Clave externa o secundaria. Atributo de una tabla relacionado con una clave de otra tabla.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Restricciones</td>
+            <td>Limitaciones de ciertos campos de la bases de datos.</td>
+        </tr>
+    </table>
+    <h1>ÁLGEBRA RELACIONAL</h1>
+    <p>El álgebra relacional es un conjunto de operaciones que describen paso a paso cómo computar una respuesta sobre las relaciones, tal y como éstas son definidas en el modelo relacional. Toda consulta a una Base de datos relacional genera como resultado una relación.</p>
+    <p>El elemento fundamental del modelo relacional de bases de datos es la tabla relacional.</p>
+    
+    <h2>Tipos de operadores algebraicos:</h2>
+    <ul>
+        <li>Operadores básicos o primitivos.</li>
+        <li>Operadores no básicos o derivados.</li>
+    </ul>
+
+    <h2>OPERADORES BÁSICOS O PRIMITIVOS</h2>
+    <p>Se clasifican en:</p>
+    <ol>
+        <li>Proyección (π).</li>
+        <li>Selección (σ).</li>
+        <li>Unión (U).</li>
+        <li>Diferencia (-).</li>
+        <li>Producto cartesiano (X).</li>
+    </ol>
+
+    <h3>Proyección</h3>
+    <p>Este operador permite extraer columnas de una relación y de esta manera crea un subconjunto de atributos de la relación, además elimina las filas duplicadas.</p>
+
+    <h3>Selección</h3>
+    <p>Este operador permite seleccionar un subconjunto de filas o registros de una relación y de acuerdo a la condición planteada los registros serán seleccionados para formar parte de un nuevo subconjunto.</p>
+
+    <h3>Unión</h3>
+    <p>La unión de 2 relaciones R y S es otra relación la cual va a tener los registros de R en S o en ambas, además se eliminan los registros duplicados.</p>
+    <p>En esta relación R y S deben ser compatibles, es decir que deben estar definidas sobre el mismo conjunto de atributos.</p>
+
+    <h3>Diferencia</h3>
+    <p>La diferencia de 2 relaciones R y S es otra relación la cual va a tener los registros que están en R pero no están en S.</p>
+    <p>En esta relación R y S deben ser compatibles.</p>
+
+    <h3>Producto cartesiano</h3>
+    <p>Es una relación que consiste en la concatenación de cada una de las filas de la relación R con cada una de las filas de la relación S.</p>
+
+    <h2>OPERADORES NO BÁSICOS O DERIVADOS</h2>
+    <p>Se clasifican en:</p>
+    <ol>
+        <li>Intersección (∩).</li>
+        <li>Unión natural (U).</li>
+        <li>División (/).</li>
+    </ol>
+
+    <h3>Intersección</h3>
+    <p>Es una relación que contiene el conjunto de todas las filas que están tanto en la relación R como en S. R y S deben ser compatibles.</p>
+
+    <h3>Unión natural</h3>
+    <p>El resultado es una relación con los atributos de ambas relaciones y se obtiene combinando vas filas de ambas relaciones que tengan el mismo valor en los atributos comunes.</p>
+    <p>El join se usa entre los atributos comunes de las entidades o tablas que poseen la clave primaria de una tabla foránea correspondiente de otra entidad.</p>
+
+    <h3>División</h3>
+    <p>Define una relación sobre el conjunto de atributos C, incluido en la relación R, y que contiene el conjunto de valores de S, que en las filas de R están combinadas con cada una de las filas de S.</p>
+
+    <h1>REGLAS DE INTEGRIDAD</h1>
+    <p>Un SGBD de un modelo determinado debe velar por el cumplimiento de las reglas de integridad preestablecidas por su modelo. A continuación, veremos con detalle las reglas de integridad del modelo relacional, reglas que todo SGBD relacional debe obligar a cumplir.</p>
+
+    <ul>
+        <li><strong>Integridad de unicidad de la clave primaria:</strong> La regla de integridad de unicidad está relacionada con la definición de clave primaria que establece que toda clave primaria que se elija para una relación no debe tener valores repetidos.</li>
+        <li><strong>Integridad de entidad de la clave primaria:</strong> La regla de integridad de entidad de la clave primaria dispone que los atributos de la clave primaria de una relación no pueden tener valores nulos.</li>
+        <li><strong>Integridad referencial:</strong> La regla de integridad referencial está relacionada con el concepto de clave foránea. Concretamente, determina que todos los valores que toma una clave foránea deben ser valores nulos o valores que existen en la clave primaria que referencia.</li>
+        <li><strong>Integridad de dominio:</strong> La regla de integridad de dominio está relacionada con la noción de dominio que le sean adecuados.</li>
+    </ul>
+
+    <h1>MODELO JERÁRQUICO</h1>
+    <p>Son bases de datos que almacenan la información en una estructura jerarquizada, concretamente los datos son organizados de forma parecida a un árbol visto del revés.</p>
+    <p>Uno de los principales objetivos de las bases de datos jerárquicas es gestionar grandes volúmenes de datos.</p>
+
+    <h2>CARACTERÍSTICAS DEL MODELO JERÁRQUICO</h2>
+    <ul>
+        <li>Se organizan en forma de árbol invertido, con un nodo raíz, nodos padre e hijos.</li>
+        <li>El árbol se organiza en un conjunto de niveles.</li>
+        <li>El nivel 0 se corresponde al nodo raíz y es el nivel más alto de la jerarquía.</li>
+        <li>Los arcos (enlaces) representan las asociaciones jerárquicas entre dos nodos, carecen de nombre porque entre dos conjuntos de datos sólo puede existir una interrelación.</li>
+        <li>Un nodo padre puede tener un número ilimitado de nodos hijos, pero a un nodo hijo solo le puede corresponder un padre.</li>
+        <li>Todo nodo debe tener un padre, a excepción del nodo raíz.</li>
+        <li>Los nodos sin descendientes se llaman «hojas».</li>
+        <li>Los niveles de la estructura jerárquica se denominan «altura».</li>
+        <li>El número de nodos se llama «momento».</li>
+        <li>Solo pueden existir relaciones de uno a uno o de uno a varios.</li>
+        <li>El árbol siempre se recorre en un orden prefijado.</li>
+        <li>La estructura del árbol no se puede modificar cuando ha quedado establecida.</li>
+    </ul>
+
+    <h2>VENTAJAS</h2>
+    <ul>
+        <li>Las conexiones dentro del árbol son fijas y hace que la navegación por ellas sea rápida.</li>
+        <li>Muestra una estructura de la base de datos fácil de ver y comprender.</li>
+        <li>Permite predefinir relaciones, simplificando las variaciones futuras.</li>
+        <li>Globalizan la información, es decir, cualquier usuario puede acceder a esta información, que se considera un recurso corporativo que no tiene dueños (hablamos dentro del ámbito de una empresa u organización).</li>
+        <li>Permite compartir información.</li>
+        <li>Permite mantener la integridad la información.</li>
+        <li>Mantiene la independencia de datos.</li>
+    </ul>
+
+    <h2>DESVENTAJAS</h2>
+    <ul>
+        <li>Escasa independencia entre los registros (nodos), puesto que, para acceder a un registro, se debe pasar por los padres, algo que quita flexibilidad a la navegación por la base de datos.</li>
+        <li>Implica una mala gestión de la redundancia de datos, puesto que cuando un registro tiene relación con dos o más registros, debe almacenarse varias veces, puesto que un hijo no puede tener varios padres.</li>
+        <li>Lo anterior implica un mayor volumen de datos y posibles problemas en la integridad y coherencia de los datos, puesto que, si se modifica una de las copias de un registro, se deben modificar también las restantes.</li>
+        <li>Sin embargo, modificar este tipo de bases de datos resulta complejo por su rigidez y exige un conocimiento muy amplio sobre la forma en que se han almacenado los datos.</li>
+        <li>Diseñar esta base de datos jerárquica requiere conocer muy bien las unidades de información y las relaciones que tienen estas entre sí.</li>
+    </ul>
+
+    <h1>MODELO EN RED</h1>
+    <p>Una base de datos de red se basa en una base de datos jerárquica tradicional, excepto que permite que cada objeto tenga varios padres en lugar de uno solo. Esto le permite modelar relaciones más complejas.</p>
+    <p>Las bases de datos de red se pueden representar como un gráfico en lugar de una estructura de árbol. El gráfico está definido por un esquema, que es una lista de nodos de datos y las relaciones entre ellos. Esto proporciona una estructura de datos a la que, en una base de datos relacional normal, solo se puede acceder por inferencia.</p>
+    <p>Las bases de datos de red brindan mucha flexibilidad, pero aún están limitadas a los patrones de acceso y las limitaciones de diseño de las bases de datos jerárquicas. Estas limitaciones se superaron posteriormente mediante sistemas de gestión de bases de datos relacionales.</p>
+
+    <h2>VENTAJAS</h2>
+    <ul>
+        <li>Concepto simple—Al igual que una base de datos jerárquica, las bases de datos en red son conceptualmente simples y fáciles de diseñar.</li>
+        <li>Múltiples tipos de relaciones—Los modelos de red pueden admitir relaciones de uno a muchos y de muchos a muchos, lo que resulta útil para capturar las relaciones de la vida real entre entidades.</li>
+        <li>Integridad de los datos—El modelo de red no permite que los miembros existan sin un propietario.</li>
+        <li>Independencia de datos—El modelo de red es superior al modelo jerárquico en la separación del procesamiento de datos de los detalles del almacenamiento físico.</li>
+        <li>Acceso a los datos—El acceso a los datos es más rápido y sencillo que en una base de datos jerárquica.</li>
+    </ul>
+
+    <h2>DESVENTAJAS</h2>
+    <ul>
+        <li>Implementación compleja—Todos los registros deben almacenarse mediante punteros, lo que hace que la estructura de la base de datos sea mucho más compleja que en una base de datos jerárquica.</li>
+        <li>Manejo de operaciones ineficiente—Las operaciones de inserción, eliminación y actualización requieren muchos ajustes de puntero, lo que puede afectar el rendimiento.</li>
+        <li>Estructura no flexible—Es difícil cambiar la estructura de una base de datos una vez que ya está poblada.</li>
+    </ul>
+
+    <h1>MODELO JERÁRQUICO VS MODELO EN RED VS MODELO RELACIONAL</h1>
+    <table border="1">
+        <tr>
+            <th>Modelo jerárquico</th>
+            <th>Modelo en red</th>
+            <th>Modelo relacional</th>
+        </tr>
+        <tr>
+            <td>Organiza los datos en una estructura de árbol</td>
+            <td>Organiza los datos en una estructura gráfica</td>
+            <td>Almacena datos en tablas</td>
+        </tr>
+        <tr>
+            <td>Representa relaciones de uno a varios</td>
+            <td>Representa relaciones de varios a varios</td>
+            <td>Admite relaciones de uno a varios y de varios a varios</td>
+        </tr>
+        <tr>
+            <td>Acceso ineficiente a los datos</td>
+            <td>Acceso eficiente a los datos</td>
+            <td>Acceso eficiente a los datos</td>
+        </tr>
+        <tr>
+            <td>Inflexible</td>
+            <td>Flexible al diseñar la base de datos, menos flexible una vez los datos ya están introducidos</td>
+            <td>Flexible tanto durante el diseño de la base de datos como durante la carga de los datos</td>
+        </tr>
+    </table>
+ 
+</div>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCL y Ampliaciones de SQL</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="3040401001">
+            <h1>6. DCL (LENGUAJE DE CONTROL DE DATOS)</h1>
+            <p>Las operaciones de DCL permiten establecer trabajar con los permisos sobre las operaciones que se pueden realizar sobre la BBDD. Usualmente se utilizan para otorgar o revocar permisos de la base de datos a los usuarios.</p>
+        </span>
+
+        <span id="3040401002">
+            <h2>6.1. GRANT</h2>
+            <p>Otorga a los usuarios especificados el permiso sobre el objeto especificado.</p>
+            <pre><code>GRANT permiso ON objeto TO Usuario
+GRANT SELECT ON pedidos TO usuario1 [WITH GRANT]</code></pre>
+            <p>Los permisos más utilizados son:</p>
+            <ul>
+                <li>SELECT</li>
+                <li>INSERT</li>
+                <li>UPDATE</li>
+                <li>DELETE</li>
+                <li>REFERENCES: Permite acceder a la clave principal de una tabla para usarla como clave foránea en una tabla relacionada.</li>
+                <li>EXECUTE: Permite ejecutar un procedimiento almacenado.</li>
+                <li>CONTROL</li>
+                <li>ALTER</li>
+                <li>TAKE OWNERSHIP</li>
+                <li>CREATE</li>
+                <li>VIEW DEFINITION: Acceder a los metadatos de un objeto</li>
+            </ul>
+        </span>
+
+        <span id="3040401003">
+            <h2>6.2. REVOKE</h2>
+            <p>Revoca a los usuarios especificados el permiso sobre el objeto especificado.</p>
+            <pre><code>REVOKE permiso ON objeto TO Usuario
+REVOKE SELECT ON pedidos TO usuario1</code></pre>
+        </span>
+
+        <span id="3040401004">
+            <h1>7. AMPLIACIONES DE SQL</h1>
+            <p>Unos de los problemas que ha arrastrado SQL y por el que muchos usuarios ni siquiera lo consideran un lenguaje es que no dispone de los bloques de programación estructurada típicos como condicionales, bucles, secuencias de control, funciones, etc.</p>
+            <p>Esa carencia provoca que el lenguaje SQL sea utilizado habitualmente integrado en otro lenguaje de alto nivel como C, Java, C++, etc. El lenguaje de alto nivel efectúa la lógica de la aplicación y utiliza las llamadas de SQL para atacar a la base de datos.</p>
+            <p>Algunos fabricantes han creado sus propias extensiones de SQL añadiendo características de los lenguajes tradicionales al ANSI SQL. Estas características son exclusivas de cada lenguaje de tal forma que al utilizarlas el código queda ligado al fabricante del sistema gestor de bases de datos.</p>
+            <p>Los archivos de código se guardan en scripts SQL y pueden ser cargados en la base de datos o incluso almacenarse en ella.</p>
+            <p>Los lenguajes de SQL extendido más utilizados son:</p>
+            <ul>
+                <li>Microsoft SQL Server: Transact SQL (TSQL).</li>
+                <li>Oracle: PL-SQL</li>
+            </ul>
+        </span>
+
+        <span id="3040401005">
+            <h2>TIPOS DE DATOS ANSI SQL</h2>
+            <p>ANSI SQL define varios tipos de datos estándar que pueden tener diferentes implementaciones en distintos sistemas de gestión de bases de datos. A continuación se presenta una tabla comparativa de los tipos de datos ANSI SQL y sus equivalentes en Microsoft Access y Microsoft SQL Server:</p>
+            <table border="1">
+                <tr>
+                    <th>ANSI SQL data type</th>
+                    <th>Microsoft Access SQL data type</th>
+                    <th>Microsoft SQL Server data type</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>BIT, BIT VARYING</td>
+                    <td>BINARY (See Notes)</td>
+                    <td>BINARY, VARBINARY</td>
+                    <td>Para almacenar datos binarios de longitud fija o variable</td>
+                </tr>
+                <tr>
+                    <td>BOOLEAN</td>
+                    <td>BOOLEAN, LOGICAL, LOGICAL1, YESNO</td>
+                    <td>BIT</td>
+                    <td>Para almacenar valores lógicos (verdadero/falso)</td>
+                </tr>
+                <tr>
+                    <td>TINYINT</td>
+                    <td>INTEGER1, BYTE</td>
+                    <td>TINYINT</td>
+                    <td>Para almacenar números enteros muy pequeños</td>
+                </tr>
+                <tr>
+                    <td>SMALLINT</td>
+                    <td>SHORT, INTEGER2</td>
+                    <td>SMALLINT</td>
+                    <td>Para almacenar números enteros pequeños</td>
+                </tr>
+                <tr>
+                    <td>INTEGER</td>
+                    <td>LONG, INT, INTEGER4</td>
+                    <td>INTEGER</td>
+                    <td>Para almacenar números enteros</td>
+                </tr>
+                <tr>
+                    <td>DECIMAL, NUMERIC</td>
+                    <td>DECIMAL</td>
+                    <td>DECIMAL, NUMERIC</td>
+                    <td>Para almacenar números decimales de precisión exacta</td>
+                </tr>
+                <tr>
+                    <td>REAL</td>
+                    <td>SINGLE, FLOAT4, IEEESINGLE</td>
+                    <td>REAL</td>
+                    <td>Para almacenar números de punto flotante de precisión simple</td>
+                </tr>
+                <tr>
+                    <td>DOUBLE PRECISION, FLOAT</td>
+                    <td>DOUBLE, FLOAT8, IEEEDOUBLE, NUMBER</td>
+                    <td>FLOAT</td>
+                    <td>Para almacenar números de punto flotante de doble precisión</td>
+                </tr>
+                <tr>
+                    <td>DATE, TIME, TIMESTAMP</td>
+                    <td>DATE, TIME</td>
+                    <td>DATETIME</td>
+                    <td>Para almacenar fechas y horas</td>
+                </tr>
+                <tr>
+                    <td>CHARACTER, CHARACTER VARYING</td>
+                    <td>TEXT(n), ALPHANUMERIC, CHARACTER, STRING, VARCHAR</td>
+                    <td>CHAR, VARCHAR</td>
+                    <td>Para almacenar cadenas de caracteres de longitud fija o variable</td>
+                </tr>
+                <tr>
+                    <td>NATIONAL CHARACTER, NATIONAL CHARACTER VARYING</td>
+                    <td>No soportado</td>
+                    <td>NCHAR, NVARCHAR</td>
+                    <td>Para almacenar cadenas de caracteres Unicode de longitud fija o variable</td>
+                </tr>
+                <tr>
+                    <td>INTERVAL</td>
+                    <td>No soportado</td>
+                    <td>No soportado</td>
+                    <td>Para representar un período de tiempo</td>
+                </tr>
+            </table>
+            <p>Es importante consultar la documentación específica de cada sistema de gestión de bases de datos para conocer las implementaciones exactas de estos tipos de datos.</p>
+        </span>
+    </div>
+</body>
+</html>

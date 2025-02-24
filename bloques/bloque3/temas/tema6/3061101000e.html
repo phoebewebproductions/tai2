@@ -1,0 +1,216 @@
+<div class="teoria">
+    <span id="3061101001">
+        <h2>11.1 TECNOLOGÍAS DE ACCESO A DATOS</h2>
+        <p>Evolución de las tecnologías de Microsoft de acceso a las Bases de Datos:</p>
+
+        <h3>ODBC (Open Database Connectivity)</h3>
+        <ul>
+            <li>Interfaz común de acceso a múltiples Bases de Datos usando SQL</li>
+            <li>Interfaz C++ de bajo nivel</li>
+            <li>Usa un driver específico para cada BBDD concreta</li>
+            <li>Permite conectar con cualquier base de datos con driver ODBC</li>
+            <li>Los creadores de las BBDD son responsables de crear drivers ODBC</li>
+            <li>Permite cambiar de BBDD sin recompilar ni modificar la aplicación</li>
+        </ul>
+    </span>
+
+    <span id="3061101002">
+        <h3>DAO (Data Access Object) y RDO (Remote Data Object)</h3>
+        <ul>
+            <li>Colección de objetos de más alto nivel que ODBC</li>
+            <li>Basado en el Motor Jet (Access)</li>
+            <li>Puede acceder a otras BBDD mediante conversión Jet a ODBC</li>
+            <li>RDO creado para usar directamente ODBC sin Jet</li>
+        </ul>
+
+        <h3>OleDB</h3>
+        <ul>
+            <li>Interfaz de acceso universal a datos (BBDD, ficheros, Exchange, Directorios)</li>
+            <li>Interfaz para lenguajes tipo C++</li>
+        </ul>
+    </span>
+
+    <span id="3061101003">
+        <h3>ADO (Active Data Object)</h3>
+        <ul>
+            <li>Arquitectura de objetos para simplificar el uso de OleDB</li>
+            <li>Utilizable en lenguajes tipo VB y de script</li>
+            <li>Puede usar OleDB u ODBC</li>
+            <li>Se basa en RecordSets conectados</li>
+            <li><strong>RDS</strong> (Remote Data Sources):
+                <ul>
+                    <li>Intento de mejorar ADO</li>
+                    <li>Permite RecordSets desconectados</li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+
+    <span id="3061101004">
+        <h3>ADO.NET</h3>
+        <ul>
+            <li>Proporciona acceso a orígenes de datos:
+                <ul>
+                    <li>Microsoft SQL Server y XML</li>
+                    <li>Datos expuestos mediante OLE DB y ODBC</li>
+                </ul>
+            </li>
+            <li>Características principales:
+                <ul>
+                    <li>Separa el acceso a datos de la manipulación de datos</li>
+                    <li>Los resultados se procesan directamente o se colocan en un objeto DataSet</li>
+                </ul>
+            </li>
+            <li><strong>Entity Framework</strong>:
+                <ul>
+                    <li>Conjunto de tecnologías de ADO.NET para desarrollo orientado a datos</li>
+                    <li>Permite trabajar con datos en forma de objetos y propiedades</li>
+                    <li>Componente de .NET Framework</li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+
+    <span id="3061101005">
+        <h3>Componentes de ADO.NET</h3>
+        <h4>Proveedores de datos de .NET Framework:</h4>
+        <ul>
+            <li><strong>Connection</strong>: proporciona conectividad a un origen de datos</li>
+            <li><strong>Command</strong>: permite acceso a comandos de base de datos</li>
+            <li><strong>DataReader</strong>: proporciona secuencia de datos de alto rendimiento</li>
+            <li><strong>DataAdapter</strong>: puente entre el DataSet y el origen de datos</li>
+        </ul>
+
+        <h4>DataSet:</h4>
+        <ul>
+            <li>Diseñado para acceso a datos independiente del origen</li>
+            <li>Utilizable con múltiples orígenes de datos</li>
+            <li>Contiene colección de objetos DataTable con información sobre claves y relaciones</li>
+        </ul>
+    </span>
+
+    <span id="3061101006">
+        <h2>Modelo de programación</h2>
+        <p>.NET unifica todos los modelos de programación ofreciendo:</p>
+        <ul>
+            <li>Una única API</li>
+            <li>Un único entorno de ejecución</li>
+            <li>Un único conjunto de bibliotecas</li>
+            <li>Una única herramienta de desarrollo</li>
+        </ul>
+
+        <h3>Modelos de programación ASP.NET:</h3>
+        <ol>
+            <li><strong>ASP.NET Web Forms</strong>
+                <ul>
+                    <li>Primer modelo de programación</li>
+                    <li>Basado en eventos y controles</li>
+                    <li>Favorece la productividad mediante programación declarativa</li>
+                </ul>
+            </li>
+            <li><strong>ASP.NET MVC</strong>
+                <ul>
+                    <li>Alternativa a Web Forms</li>
+                    <li>Basado en el patrón MVC (Modelo, Vista, Controlador)</li>
+                    <li>Integración con pruebas unitarias</li>
+                    <li>Separación entre lógica de presentación, negocio y datos</li>
+                </ul>
+            </li>
+            <li><strong>ASP.NET Web Pages</strong>
+                <ul>
+                    <li>Modelo más reciente</li>
+                    <li>Más simple y rápido de aprender</li>
+                    <li>Mantiene toda la funcionalidad de ASP.NET</li>
+                </ul>
+            </li>
+        </ol>
+    </span>
+
+    <span id="3061101007">
+        <h2>13. SERVICIOS</h2>
+        <p>Aspectos importantes en el diseño de servicios:</p>
+        <ul>
+            <li>Seguridad en transferencia de mensajes</li>
+            <li>Interoperabilidad</li>
+            <li>Modelos de mensajería</li>
+            <li>Gestión de excepciones</li>
+        </ul>
+
+        <h3>Mecanismos de seguridad en servicios Web XML:</h3>
+        <ul>
+            <li>Seguridad a nivel de transporte (SSL)</li>
+            <li>Seguridad a nivel del mensaje (WS-Security)</li>
+        </ul>
+
+        <h3>Modelos de intercambio de mensajes WCF:</h3>
+        <ul>
+            <li>Petición-Respuesta (síncrono)</li>
+            <li>Asíncrono (one-way)</li>
+            <li>Duplex</li>
+        </ul>
+    </span>
+
+    <span id="3061101008">
+        <h3>13.1 Servicios de Azure</h3>
+        <p>Azure es un conjunto integral de servicios en la nube que incluye:</p>
+
+        <h4>AZURE IAAS (Infraestructura como servicio)</h4>
+        <ul>
+            <li>Infraestructura segura y escalable</li>
+            <li>Despliegue de entornos híbridos</li>
+            <li>Protección de aplicaciones</li>
+            <li>Reducción de costes de infraestructura</li>
+        </ul>
+
+        <h4>AZURE PAAS (Plataforma como servicio)</h4>
+        <ul>
+            <li>Gestión del ciclo de vida de aplicaciones web</li>
+            <li>Modelo de pago por uso</li>
+            <li>Sin preocupación por mantenimiento de servidores</li>
+        </ul>
+
+        <h4>AZURE SAAS (Software como servicio)</h4>
+        <ul>
+            <li>Acceso a aplicaciones a través de Internet</li>
+            <li>Soluciones de software completas</li>
+            <li>Hardware y plataforma ofrecida por el proveedor</li>
+        </ul>
+    </span>
+
+    <span id="3061101009">
+        <h2>14. HERRAMIENTAS</h2>
+        <h3>Team Foundation Server (TFS)</h3>
+        <ul>
+            <li>Administración de código fuente</li>
+            <li>Gestión de proyectos</li>
+            <li>Compilaciones automatizadas</li>
+            <li>Pruebas y liberación</li>
+            <li>Cubre todo el ciclo de vida de la aplicación</li>
+        </ul>
+
+        <h3>Visual Studio.NET</h3>
+        <p>IDE (Entorno Integrado de Desarrollo) con características:</p>
+        <ul>
+            <li>Soporte para múltiples lenguajes .NET</li>
+            <li>Plataforma completa para Servicios Web</li>
+            <li>Desarrollo Rápido de Aplicaciones (RAD)</li>
+            <li>Diseñadores visuales</li>
+            <li>Depuración extremo a extremo</li>
+            <li>Tecnología Intellisense y Ayuda Dinámica</li>
+        </ul>
+    </span>
+
+    <span id="3061101010">
+        <h3>Herramientas de .NET Framework</h3>
+        <p>Principales herramientas:</p>
+        <ul>
+            <li><strong>Al.exe</strong>: Assembly Linker para generar archivos con manifiesto</li>
+            <li><strong>Caspol.exe</strong>: Herramienta de directiva de seguridad</li>
+            <li><strong>Gacutil.exe</strong>: Herramienta Caché global de ensamblados</li>
+            <li><strong>Ngen.exe</strong>: Generador de imágenes nativas</li>
+            <li><strong>SignTool.exe</strong>: Firma digital de archivos</li>
+            <li><strong>Sn.exe</strong>: Herramienta de nombre seguro</li>
+            <li><strong>Winmdexp.exe</strong>: Herramienta de exportación de metadatos</li>
+        </ul>
+    </span>
+</div>

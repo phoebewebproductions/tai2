@@ -70,8 +70,8 @@
             "id": "3020202000"
           },
           {
-            "titulo": "Punto 3.1: Normalización",
-            "id": "3020301000"
+            "titulo": "Punto 2.3: Normalización",
+            "id": "3020203000"
           }
           
         ]
@@ -85,15 +85,15 @@
           },
           {
             "titulo": "Punto 2.1: Representación de tipos de datos y operadores",
-            "id": "3020201000"
+            "id": "3030201000"
           },
           {
             "titulo": "Punto 3.1: Instrucciones condicionales, bucles, recursividad, procedimientos, funciones y parámetros",
-            "id": "3020301000"
+            "id": "3030301000"
           },
           {
             "titulo": "Punto 4.1: Vectores, registros y estructura de un programa",
-            "id": "3020401000"
+            "id": "3030401000"
           }
           
         ]
@@ -111,15 +111,11 @@
           },
           {
             "titulo": "Punto 3.1: DDL",
-            "id": "3040202000"
+            "id": "3040301000"
           },
           {
-            "titulo": "Punto 4.1: DCL",
+            "titulo": "Punto 4.1: DCL y tipos de datos ANSI SQL",
             "id": "3040401000"
-          },
-          {
-            "titulo": "Punto 5.1: Tipos de datos ANSI SQL",
-            "id": "3040501000"
           }
           
         ]
@@ -174,30 +170,133 @@
             "id": "3060501000"
           },
           {
-            "titulo": "Punto 6.1: Seguridad en J2EE y persistencia",
+            "titulo": "Punto 6.1: Seguridad en J2EE",
             "id": "3060601000"
           },
           {
-            "titulo": "Punto 7.1: Arquitectura mircrosoft.net",
+            "titulo": "Punto 7.1: Persistencia",
             "id": "3060701000"
           },
           {
-            "titulo": "Punto 8.1: La arquitectura.net  ",
+            "titulo": "Punto 8.1: Arquitectura mircrosoft.net",
             "id": "3060801000"
           },
           {
-            "titulo": "Punto 9.1: ASP.NET. Desarrollo web",
+            "titulo": "Punto 9.1: La arquitectura.net  ",
             "id": "3060901000"
           },
           {
-            "titulo": "Punto 10.1: Tecnologías de acceso de datos, servicios, herramientas, presistencia, seguridad y diferencias entre J2EE y .NET  ",
+            "titulo": "Punto 10.1: ASP.NET. Desarrollo web",
             "id": "3061001000"
+          },
+          {
+            "titulo": "Punto 11.1: Tecnologías de acceso de datos, servicios y  herramientas ",
+            "id": "3061101000"
+          },
+          {
+            "titulo": "Punto 12.1: Persistencia y seguridad  ",
+            "id": "3061201000"
+          },
+          {
+            "titulo": "Punto 13.1: Diferencias entre J2EE y .NET  ",
+            "id": "3061301000"
+          }
+           
+          
+        ]
+      },
+      {
+        "titulo": "Tema VII:Arquitectura de sistemas cliente-servidor y multicapas",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Patrones de arequitectura  ",
+            "id": "3060101000"
+          },
+          {
+            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
+            "id": "3060102000"
+          },
+          {
+            "titulo": "Punto 2.1: Servicios WEB",
+            "id": "3060201000"
+          },
+          {
+            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
+            "id": "3060301000"
+          },
+          {
+            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
+            "id": "3060401000"
+          },
+          {
+            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
+            "id": "3060501000"
           }
           
         ]
       },
       {
-        "titulo": "Tema VII:Arquitectura JAVA EE/JAkarta EE y .NET",
+        "titulo": "Tema VIII: Aplicaciones web, Desarrollo front-end y en servidor",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Patrones de arequitectura  ",
+            "id": "3060101000"
+          },
+          {
+            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
+            "id": "3060102000"
+          },
+          {
+            "titulo": "Punto 2.1: Servicios WEB",
+            "id": "3060201000"
+          },
+          {
+            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
+            "id": "3060301000"
+          },
+          {
+            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
+            "id": "3060401000"
+          },
+          {
+            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
+            "id": "3060501000"
+          }
+          
+        ]
+      },
+      {
+        "titulo": "Tema IX: Accesibilidad",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Patrones de arequitectura  ",
+            "id": "3060101000"
+          },
+          {
+            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
+            "id": "3060102000"
+          },
+          {
+            "titulo": "Punto 2.1: Servicios WEB",
+            "id": "3060201000"
+          },
+          {
+            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
+            "id": "3060301000"
+          },
+          {
+            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
+            "id": "3060401000"
+          },
+          {
+            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
+            "id": "3060501000"
+          }
+          
+        ]
+      },
+      {
+        "titulo": "Tema X:Herramientas CASE",
         "puntos": [
           {
             "titulo": "Punto 1.1: Patrones de arequitectura  ",

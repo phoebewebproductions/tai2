@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normalización de Bases de Datos</title>
+</head>
+<body>
+    <div class="teoria">
+        <h1>4 NORMALIZACIÓN</h1>
+        
+        <span id="3020203001">
+            <p>La normalización es una técnica de diseño de base de datos que organiza las tablas de una manera que reduce la redundancia y la dependencia de los datos.</p>
+            <p>Para realizar la normalización de bases de datos y eliminar anomalías en las tablas, se utilizan lo que se llaman formas normales. Se dice que una tabla está en una determinada forma normal si satisface un conjunto de restricciones impuestas por esa regla.</p>
+            <p>Utilizando las diferentes formas normales, se dividen tablas grandes en otras de tamaño más pequeñas, vinculadas entre sí mediante relaciones. Utilizando técnicas de normalización, se obtienen estructuras de datos más simples, estables y fáciles de mantener, además de reducir problemas de redundancia y ambigedad.</p>
+        </span>
+
+        <span id="3020203002">
+            <p>Existen diferentes formas normales para una base de datos. Edgar Codd, el inventor del modelo relacional, propuso la teoría de la normalización introduciendo la primera forma normal (1NF), y posteriormente extendió esta idea con la segunda y tercera forma normal (2NF y 3NF). Con la colaboración de Raymond F. Boyce, desarrollaron la forma normal de Boyce-Codd (BCNF). Existen formas normales más allá de la de Boyce-Codd, pero desde un punto de vista práctico, la normalización suele aplicarse hasta la tercera forma normal. Una forma normal de cierto nivel debe cumplir las reglas de las formas normales de niveles inferiores.</p>
+        </span>
+
+        <h2>CONCEPTOS DE DEPENDENCIA</h2>
+        <span id="3020203003">
+            <p>Para describir ciertos aspectos de las formas normales se utilizan diferentes conceptos de dependencia:</p>
+            <ul>
+                <li><strong>Dependencia funcional:</strong> se dice que un atributo A depende funcionalmente de otro atributo B (B determina a A) si para cada valor de B le corresponde un único valor de A. En esta situación, el atributo B es el determinante.</li>
+                <li><strong>Determinante:</strong> Un determinante es un atributo que depende de otro atributo.</li>
+                <li><strong>Dependencia funcional completa:</strong> se dice que un atributo A tiene una relación de dependencia funcional completa de un grupo de atributos B si depende funcionalmente de B, pero no de ningún subconjunto de B. Es decir, que si al eliminar un atributo de una relación, esta deja de existir.</li>
+                <li><strong>Dependencia funcional transitiva:</strong> dados tres atributos, A, B y C, dentro de una misma tabla, y teniendo que B depende funcionalmente de A y C dependen funcionalmente de B, se dice que C depende transitivamente de A.</li>
+                <li><strong>Dependencia multivaluada:</strong> se dice que un atributo B multidetermina a un atributo A si a cada valor de B le corresponde un conjunto definido de valores de A.</li>
+            </ul>
+        </span>
+
+        <h2>PASOS PARA LA NORMALIZACIÓN</h2>
+        <span id="3020203004">
+            <p>El proceso de normalización puede generalizarse en los siguientes pasos:</p>
+            <ol>
+                <li>Descomponer todos los grupos de datos en registros bidimensionales.</li>
+                <li>Eliminar las relaciones donde los datos no son completamente dependientes de la clave primaria del registro.</li>
+                <li>Eliminar las relaciones que tienen dependencias transitivas.</li>
+            </ol>
+        </span>
+
+        <h2>TABLA DE BASE DE DATOS A NORMALIZAR</h2>
+        <span id="3020203005">
+            <p>Tomemos la siguiente tabla de una base de datos de alquiler de películas como ejemplo para realizar los procesos de normalización. La clave principal de esta tabla es una clave compuesta, utilizando el Nombre completo y la Dirección de cada registro para identificarlo.</p>
+            <table border="1">
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>Dirección</th>
+                    <th>Película alquilada</th>
+                    <th>Tratamiento</th>
+                    <th>Categoría</th>
+                </tr>
+                <tr>
+                    <td>Nombre Apellido</td>
+                    <td>Calle I, nº 2</td>
+                    <td>Película 1, Película 2</td>
+                    <td>Señora</td>
+                    <td>Comedia, Comedia</td>
+                </tr>
+                <tr>
+                    <td>Primero Segundo</td>
+                    <td>Segunda calle 45</td>
+                    <td>Película 3, Película 4</td>
+                    <td>Señor</td>
+                    <td>Romance, Romance</td>
+                </tr>
+                <tr>
+                    <td>Primero Segundo</td>
+                    <td>Avenida tercera</td>
+                    <td>Película 2</td>
+                    <td>Señor</td>
+                    <td>Comedia</td>
+                </tr>
+            </table>
+        </span>
+
+        <h2>PRIMERA FORMA NORMAL (1NF)</h2>
+        <span id="3020203006">
+            <p>La primera forma normal requiere que cada tabla de una base de datos cumpla los siguientes requisitos:</p>
+            <ul>
+                <li>Todos los atributos clave están definidos.</li>
+                <li>No hay registros con más de un valor por cada columna (no contiene grupos repetitivos). Cada fila o columna contiene un valor, no un conjunto de ellos.</li>
+                <li>Todos los atributos son dependientes de la clave primaria.</li>
+                <li>Todos los atributos son atómicos. Un atributo es atómico si los elementos del dominio son simples e indivisibles.</li>
+                <li>No existe variación en el número de columnas para cada fila.</li>
+            </ul>
+            <p>Para convertir una tabla a 1NF, se dividen las filas que tienen varios atributos en tantas filas como atributos tenga. En la tabla anterior, encontramos varios ejemplos de filas de la tabla con varios valores. Veamos ahora dicha tabla en 1NF:</p>
+            <table border="1">
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>Dirección</th>
+                    <th>Película alquilada</th>
+                    <th>Tratamiento</th>
+                    <th>Categoría</th>
+                </tr>
+                <tr>
+                    <td>Nombre Apellido</td>
+                    <td>Calle I, nº 2</td>
+                    <td>Película 1</td>
+                    <td>Señora</td>
+                    <td>Comedia</td>
+                </tr>
+                <tr>
+                    <td>Nombre Apellido</td>
+                    <td>Calle I, nº 2</td>
+                    <td>Película 2</td>
+                    <td>Señora</td>
+                    <td>Comedia</td>
+                </tr>
+                <tr>
+                    <td>Primero Segundo</td>
+                    <td>Segunda calle 45</td>
+                    <td>Película 3</td>
+                    <td>Señor</td>
+                    <td>Romance</td>
+                </tr>
+                <tr>
+                    <td>Primero Segundo</td>
+                    <td>Segunda calle 45</td>
+                    <td>Película 4</td>
+                    <td>Señor</td>
+                    <td>Romance</td>
+                </tr>
+                <tr>
+                    <td>Primero Segundo</td>
+                    <td>Avenida tercera</td>
+                    <td>Película 2</td>
+                    <td>Señor</td>
+                    <td>Comedia</td>
+                </tr>
+            </table>
+        </span>
+
+        <h2>SEGUNDA FORMA NORMAL (2NF)</h2>
+        <span id="3020203007">
+            <p>La segunda forma normal tiene los siguientes requisitos:</p>
+            <ul>
+                <li>La tabla debe estar en 1NF.</li>
+                <li>Los atributos no principales tienen dependencia funcional completa respecto de las claves candidatas. Es decir, que si alguno de los atributos desaparece, la relación entre atributos y clave también se pierde.</li>
+            </ul>
+            <p>Para convertir una tabla a 2NF, se separa la tabla en cuantas tablas sean necesarias para eliminar dichas dependencias. En el caso de la tabla anterior, el atributo Categoría no tiene una dependencia funcional completa de la clave, ya que depende funcionalmente de Película alquilada. Podemos conseguir 2NF separando en dos tablas, y relacionando mediante una clave foránea. Para facilitar la visualización, crearemos una columna ID en la tabla que sustituirá a la tupla Nombre completo y Dirección como clave principal de la tabla.</p>
+            <table border="1">
+                <caption>Tabla de usuarios en 2NF</caption>
+                <tr>
+                    <th>ID usuario</th>
+                    <th>Nombre completo</th>
+                    <th>Dirección</th>
+                    <th>Tratamiento</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nombre Apellido</td>
+                    <td>Calle I, nº 2</td>
+                    <td>Señora</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Primero Segundo</td>
+                    <td>Segunda calle 45</td>
+                    <td>Señor</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Primero Segundo</td>
+                    <td>Avenida tercera</td>
+                    <td>Señor</td>
+                </tr>
+            </table>
+            <table border="1">
+                <caption>Tabla de películas alquiladas en 2NF</caption>
+                <tr>
+                    <th>ID usuario</th>
+                    <th>Película alquilada</th>
+                    <th>Categoría</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Película 1</td>
+                    <td>Comedia</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Película 2</td>
+                    <td>Comedia</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Película 3</td>
+                    <td>Romance</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Película 4</td>
+                    <td>Romance</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Película 2</td>
+                    <td>Comedia</td>
+                </tr>
+            </table>
+        </span>
+
+        <h2>TERCERA FORMA NORMAL (3NF)</h2>
+        <span id="3020203008">
+            <p>La tercera forma normal tiene los siguientes requisitos:</p>
+            <ul>
+                <li>La tabla debe estar en 2NF.</li>
+                <li>Los atributos no principales no deben depender transitivamente de la clave; o lo que es lo mismo, todos los atributos de la tabla dependen solo de la clave principal.</li>
+            </ul>
+            <p>Para convertir la tabla con la que hemos estado trabajando a 3NF, separamos el Tratamiento, ya que es una dependencia que no depende directamente de la clave principal, sino de forma transitiva a través del Nombre completo del registro. Podemos separar una tabla de Tratamientos, asignando un ID a cada tratamiento, y enlazando cada tratamiento en el registro correspondiente de la tabla de usuarios. Lo mismo podemos hacer con las Categorías de las películas, ya que se encuentran en una situación similar. Las tablas quedarían de la siguiente forma:</p>
+            <table border="1">
+                <caption>Tabla de usuarios en 3NF</caption>
+                <tr>
+                    <th>ID usuario</th>
+                    <th>Nombre completo</th>
+                    <th>Dirección</th>
+                    <th>ID tratamiento</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nombre Apellido</td>
+                    <td>Calle I, nº 2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Primero Segundo</td>
+                    <td>Segunda calle 45</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Primero Segundo</td>
+                    <td>Avenida tercera</td>
+                    <td>2</td>
+                </tr>
+            </table>
+            <table border="1">
+                <caption>Tabla de películas alquiladas en 3NF</caption>
+                <tr>
+                    <th>ID usuario</th>
+                    <th>Película alquilada</th>
+                    <th>ID categoría</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Película 1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Película 2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Película 3</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Película 4</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Película 2</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <table border="1">
+                <caption>Tabla de tratamientos en 3NF</caption>
+                <tr>
+                    <th>ID tratamiento</th>
+                    <th>Tratamiento</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Señora</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Señor</td>
+                </tr>
+            </table>
+            <table border="1">
+                <caption>Tabla de categorías en 3NF</caption>
+                <tr>
+                    <th>ID categoría</th>
+                    <th>Categoría</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Comedia</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Romance</td>
+                </tr>
+            </table>
+        </span>
+
+        <h2>FORMA NORMAL DE BOYCE-CODD (BCNF)</h2>
+        <span id="3020203009">
+            <p>La forma normal de Boyce-Codd es muy similar a la 3NF, pero con una restricción adicional. Tiene los siguientes requisitos:</p>
+            <ul>
+                <li>La tabla debe estar en 3NF.</li>
+                <li>Los atributos no determinantes son claves candidatas.</li>
+            </ul>
+            <p>En el caso que hemos estado trabajando, podemos ver los atributos no determinantes son claves candidatas de cada una de sus tablas, por lo que se encuentra en BCNF.</p>
+        </span>
+
+        <h2>CUARTA FORMA NORMAL (4NF)</h2>
+        <span id="3020203010">
+            <p>Está basada en dependencias multivaluadas, y, además de hallarse la base de datos en BCNF, se ocupa de las relaciones muchos a muchos entre los diferentes atributos.</p>
+        </span>
+
+        <h2>QUINTA FORMA NORMAL (5NF)</h2>
+        <span id="3020203011">
+            <p>Está basada en dependencias de combinación, y, además de hallarse la base de datos en 4NF, ocupa de la representación de las relaciones uno a muchos entre los atributos.</p>
+        </span>
+
+        <h2>SEXTA FORMA NORMAL (6NF)</h2>
+        <span id="3020203012">
+            <p>Además de hallarse la base de datos en 5NF, se basa en el principio de que en tablas con más de dos claves candidatas en una tabla, se deben crear otras tablas que relacionen dichas claves.</p>
+        </span>
+    </div>
+</body>
+</html>

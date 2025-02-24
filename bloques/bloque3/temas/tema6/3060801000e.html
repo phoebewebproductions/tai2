@@ -1,0 +1,102 @@
+<div class="teoria">
+    <span id="3060801001">
+        <h2>8.1 ARQUITECTURA MICROSOFT .NET</h2>
+        <p>La arquitectura .Net ha sido desarrollada por Microsoft para dar solución al cambio de paradigma cliente/servidor hacia el modelo Web.</p>
+        <p>El modelo Web se articula en un conjunto de capas que contienen conjuntos de información y de aplicaciones.</p>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li>Presentan pocas dependencias entre capas (<strong>"loosely connected"</strong>)</li>
+            <li>Las capas pueden residir en distintas plataformas hardware</li>
+        </ul>
+    </span>
+
+    <span id="3060801002">
+        <h3>8.1.1 Retos actuales del desarrollo de software</h3>
+        <ul>
+            <li>Desarrollo rápido de aplicaciones y su distribución</li>
+            <li>Administración y gestión de las plataformas:
+                <ul>
+                    <li>No existe un estándar del navegador</li>
+                    <li>El desarrollo de aplicaciones es más difícil</li>
+                    <li>Gran número de publicadores de contenido</li>
+                    <li>Servicio 24/7/365</li>
+                </ul>
+            </li>
+            <li>Desarrollo de aplicaciones distribuidas para entornos móviles</li>
+        </ul>
+    </span>
+
+    <span id="3060801003">
+        <h3>8.1.2 Soluciones .NET</h3>
+        <p>La arquitectura .NET ofrece:</p>
+        <ul>
+            <li>Aplicaciones Web: <strong>ASP.NET</strong></li>
+            <li>Servicios: <strong>ASP.NET</strong> y <strong>WCF</strong> (Windows Communication Foundation)</li>
+            <li>Aplicaciones en la nube: <strong>Azure</strong></li>
+            <li>Aplicaciones para dispositivos móviles: <strong>SilverLight</strong>, <strong>XNA</strong></li>
+            <li>Aplicaciones de escritorio: <strong>WinForms</strong>, <strong>WPF</strong> (Windows Presentation Foundation)</li>
+        </ul>
+    </span>
+
+    <span id="3060801004">
+        <h3>8.1.3 Arquitectura en capas</h3>
+        <h4>Capa de presentación:</h4>
+        <ul>
+            <li>Cliente pesado: Windows FORMS, Win 32 API</li>
+            <li>Cliente ligero: Navegador Web
+                <ul>
+                    <li>Aplicaciones en ASP.NET o con XML WebServices</li>
+                    <li>Mayor portabilidad entre diferentes plataformas</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Capa de lógica de negocio:</h4>
+        <ul>
+            <li>Denominada capa empresarial en Microsoft</li>
+            <li>Compuesta por Workflows, Componentes, Entidades e interfaz de servicios</li>
+            <li>Se aloja en servidores de aplicaciones o Servicios</li>
+            <li>Servicios a través de Enterprise Services (Componentes COM+)</li>
+        </ul>
+
+        <h4>Capa de Acceso a datos:</h4>
+        <ul>
+            <li><strong>ADO.NET</strong>: acceso fácil a los datos</li>
+            <li><strong>OLE.DB</strong>: proveedor de datos universal en .NET</li>
+            <li><strong>XML</strong>: lenguaje estándar para definir estructuras de datos</li>
+        </ul>
+    </span>
+
+    <span id="3060801005">
+        <h3>8.1.4 Políticas de la arquitectura</h3>
+        <ul>
+            <li><strong>Políticas de Seguridad</strong>: Autenticación, Autorización, Manejo de Perfiles, Auditoría</li>
+            <li><strong>Políticas de Administración</strong>: Gestión de Excepciones, Monitorización, Configuración, Publicación de Servicios</li>
+            <li><strong>Políticas de Comunicación</strong>: elección de modelos de telecomunicaciones, síncrono/asíncrono, protocolos</li>
+        </ul>
+
+        <h4>Principios de diseño:</h4>
+        <p>Objetivos del diseño de una aplicación distribuida:</p>
+        <ul>
+            <li>Requisitos funcionales:
+                <ul>
+                    <li>Funcionalidad</li>
+                    <li>Flexibilidad</li>
+                    <li>Accesibilidad</li>
+                </ul>
+            </li>
+            <li>Requisitos operacionales:
+                <ul>
+                    <li>Seguridad</li>
+                    <li>Rendimiento (Performance)</li>
+                    <li>Disponibilidad (24/7/365)</li>
+                    <li>Fiabilidad</li>
+                    <li>Escalabilidad</li>
+                    <li>Administrable</li>
+                    <li>Mantenibilidad</li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+</div>

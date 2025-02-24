@@ -1,0 +1,46 @@
+<div class="teoria">
+    <span id="3060701001">
+        <h2>7.1 PERSISTENCIA</h2>
+        <p><strong>Java Persistence API (JPA)</strong> es la tecnología estándar de Java para gestionar entidades persistentes que se incluye en la versión 5 de Java EE. La descripción oficial del estándar está definida en el <strong>JSR 220</strong> en el que se especifica la arquitectura completa EJB 3.0. JPA es una parte del estándar EJB 3.0, aunque está especificado en un documento separado y autocontenido.</p>
+    </span>
+
+    <span id="3060701002">
+        <h3>7.1.1 Necesidad de la Persistencia</h3>
+        <p>Casi cualquier aplicación que vayamos a construir va a necesitar contar con la persistencia de sus datos. Es decir, debemos lograr que los datos que maneja o genera la aplicación se almacenen fuera de ésta para su uso posterior.</p>
+        
+        <p>Esto, por regla general, implica el uso de un sistema de base de datos:</p>
+        <ul>
+            <li>Tradicional basado en SQL</li>
+            <li>De tipo documental (también conocido como No-SQL)</li>
+        </ul>
+    </span>
+
+    <span id="3060701003">
+        <h3>7.1.2 El Desfase de Impedancia</h3>
+        <p>A la hora de desarrollar:</p>
+        <ul>
+            <li>Los programas modernos modelan su información utilizando <strong>objetos</strong></li>
+            <li>Las bases de datos utilizan otros paradigmas:
+                <ul>
+                    <li>Las relaciones (también llamadas a veces "Tablas")</li>
+                    <li>Las claves externas que las relacionan</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Esta diferencia entre la forma de programar y la forma de almacenar da lugar a lo que se llama <strong>"desfase de impedancia"</strong> y complica la persistencia de los objetos.</p>
+        
+        <p>Para minimizar ese desfase y facilitar a los programadores la persistencia de sus objetos de manera transparente, nacen los denominados <strong>ORMs</strong> o mapeadores Objeto-Relacionales.</p>
+    </span>
+
+    <span id="3060701004">
+        <h3>7.1.3 ¿Qué es JPA?</h3>
+        <p>JPA es una especificación que indica cómo se debe realizar la persistencia (almacenamiento) de los objetos en programas Java. La descripción oficial del estándar está definida en el JSR 220 en el que se especifica la arquitectura completa EJB 3.0.</p>
+    </span>
+
+    <span id="3060701005">
+        <h3>7.1.4 ¿Cómo funciona JPA?</h3>
+        <p>Dado que es una especificación, JPA no proporciona clase alguna para poder trabajar con la información. Lo que hace es proveernos de una serie de interfaces que podemos utilizar para implementar la capa de persistencia de nuestra aplicación, apoyándonos en alguna implementación concreta de JPA.</p>
+        
+        <p>Es decir, en la práctica significa que lo que vas a utilizar es una biblioteca de persistencia que implemente JPA, no JPA directamente.</p>
+    </span>
+</div>

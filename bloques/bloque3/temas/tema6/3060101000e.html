@@ -1,0 +1,70 @@
+<div class="teoria">
+    <span id="3060101001">
+        <p>Java es un lenguaje <strong>multiplataforma</strong>, <strong>concurrente</strong> y de <strong>propósito general</strong>. Se puede considerar un lenguaje <strong>Orientado a Objetos "puro"</strong> (algunos autores no consideran Java como puro, porque en Java todos los tipos, a excepción de los tipos fundamentales de variables (int, char, long...) son clases. Sin embargo, en los lenguajes orientados a objetos puros incluso estos tipos fundamentales son clases, por ejemplo, en Smalltalk).</p>
+    </span>
+
+    <span id="3060101002">
+        <p>En el cliente se necesita <strong>JRE</strong> (Java Runtime Environment) que aporta <strong>JVM</strong> (Java virtual machine).</p>
+        <h3>Entorno de ejecución</h3>
+    </span>
+
+    <span id="3060101003">
+        <h3>Esquema de compilación:</h3>
+        <ul>
+            <li>Ficheros <strong>.java</strong></li>
+            <li>Ficheros <strong>.class</strong> (bytecode) o <strong>.jar</strong> (bytecode comprimido)</li>
+        </ul>
+    </span>
+
+    <span id="3060101004">
+        <ul>
+            <li>Un <strong>.class</strong> por cada clase -> sólo clases concretas internas, las abstractas no</li>
+            <li>No genera código máquina para una CPU concreta, sino <strong>código binario intermedio</strong> que debe interpretar la JVM</li>
+            <li>No se compila para una máquina, sino para una <strong>máquina virtual</strong>, Cualquier bytecode se puede ejecutar en una máquina virtual, que se debe instalar en todos los equipos.</li>
+            <li>El intérprete, cada vez que ejecuta necesita una traducción previa</li>
+            <li>En la compilación, se compila una vez y se ejecuta una. El intérprete va línea a línea. El programa como un todo -> más eficiente</li>
+        </ul>
+    </span>
+
+    <span id="3060101005">
+        <h3>Fichero jar:</h3>
+        <p>Fichero que reúne clases, imágenes, sonidos, etc. para la ejecución de un applet o aplicación java</p>
+        <h4>Contiene:</h4>
+        <ul>
+            <li>Subdirectorio <strong>META-INF</strong></li>
+            <li>Fichero <strong>MANIFEST.MF</strong> -> codificación utilizada, directorio donde instalar, etc.</li>
+            <li>Ficheros con extensión <strong>.sf</strong> -> información de la firma de clases y aplicaciones. Uno por cada fichero firmado</li>
+            <li>Firmas digitales de ficheros con extensión que depende del formato de firma</li>
+        </ul>
+    </span>
+
+    <span id="3060101006">
+        <h3>Compilación e Interpretación</h3>
+        <p>Java es compilado por una parte e interpretado por otro.</p>
+        <h4><strong>JIT</strong> (just in time compilation)</h4>
+        <ul>
+            <li>Ahora Java trabaja así.</li>
+            <li>En el instante en el que se detecta el bytecode se obtiene un ejecutable, se puede reutilizar n veces. Compilación realizada durante la ejecución del programa.</li>
+            <li>Buena solución para tiempos de respuesta optimizados</li>
+            <li>Por defecto, ejecución en java y compilación de JIT -> aquí java sería compilado.</li>
+        </ul>
+    </span>
+
+    <span id="3060101007">
+        <h2>Java EE</h2>
+        <p>Es una <strong>especificación detallada</strong> de cada una de las tecnologías dentro de la plataforma Java EE.</p>
+        <p>Es como si fueran un conjunto de reglas que dictan como debe desarrollarse ese producto de tal forma que se pueda garantizar que una aplicación desarrollada siguiendo las especificaciones de Java EE pueda desplegarse y ejecutarse.</p>
+    </span>
+
+    <span id="3060101008">
+        <p><strong>Java Platform Enterprise Edition</strong> o <strong>Java EE</strong>. Anteriormente conocido como Java 2 Platform Enterprise Edition o J2EE hasta la versión 1.4., es una plataforma de programación para desarrollar y ejecutar software de aplicaciones en el lenguaje de programación Java. Nos permite utilizar <strong>arquitecturas de N capas distribuidas</strong>.</p>
+    </span>
+
+    <span id="3060101009">
+        <p>Java EE no es un producto de Sun (Oracle), es un <strong>conjunto de especificaciones</strong> que permiten soluciones para el desarrollo, despliegue y gestión de aplicaciones multicapa centradas en servidor. La plataforma Java EE está definida por una especificación, eso quiere decir que cualquier fabricante puede coger estas especificaciones y desarrollar un producto final que las cumpla.</p>
+    </span>
+
+    <span id="3060101010">
+        <p>Como ocurre con otras especificaciones del <strong>Java Community Process</strong>, Java EE es considerado informalmente como un <strong>estándar</strong> debido a que los proveedores deben cumplir ciertos requisitos de conformidad para declarar que sus productos son conformes a Java EE; estandarizado por The Java Community Process / JCP.</p>
+    </span>
+</div>

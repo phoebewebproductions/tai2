@@ -1,0 +1,114 @@
+<div class="teoria">
+    <span id="3061201001">
+        <h2>15. PERSISTENCIA</h2>
+        <h3>Persistencia del flujo de trabajo</h3>
+        <p>La persistencia del flujo de trabajo es la captura duradera de un estado de la instancia de flujo de trabajo, independientemente de la información del proceso o del equipo.</p>
+        
+        <h4>Características principales:</h4>
+        <ul>
+            <li>Proporciona un punto de recuperación conocido en caso de error del sistema</li>
+            <li>Permite mover el estado de la instancia entre nodos en una granja de servidores</li>
+            <li>El proceso incluye:
+                <ul>
+                    <li>Identificación de un punto de persistencia</li>
+                    <li>Recopilación de datos a guardar</li>
+                    <li>Delegación del almacenamiento al proveedor de persistencia</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Implementación:</h4>
+        <ul>
+            <li>Requiere asociar un almacén de instancias a WorkflowApplication o WorkflowServiceHost</li>
+            <li>Utiliza SqlWorkflowInstanceStore para persistencia en SQL Server</li>
+            <li>Permite crear participantes de persistencia extendiendo PersistenceParticipant</li>
+        </ul>
+    </span>
+
+    <span id="3061201002">
+        <h4>Puntos de persistencia implícitos:</h4>
+        <ul>
+            <li>Al completar actividades TransactionScope o TransactedReceiveScope</li>
+            <li>Cuando una instancia se vuelve inactiva</li>
+            <li>Al finalizar o terminar una instancia</li>
+            <li>Al ejecutar una actividad Persist</li>
+            <li>Durante la ejecución interoperable con versiones anteriores</li>
+        </ul>
+    </span>
+
+    <span id="3061201003">
+        <h2>16. SEGURIDAD</h2>
+        <p>Common Language Runtime (CLR) y .NET Framework proporcionan clases y servicios para:</p>
+        <ul>
+            <li>Escribir código seguro</li>
+            <li>Personalizar permisos de acceso a recursos protegidos</li>
+            <li>Facilitar el uso de criptografía</li>
+            <li>Implementar seguridad basada en roles</li>
+        </ul>
+
+        <p><strong>Cambios en .NET Framework 4:</strong></p>
+        <ul>
+            <li>Las aplicaciones de escritorio se ejecutan como aplicaciones de plena confianza</li>
+            <li>Las aplicaciones de confianza parcial requieren espacio aislado</li>
+            <li>El sistema de permisos está superado por reglas de transparencia de seguridad</li>
+        </ul>
+    </span>
+
+    <span id="3061201004">
+        <h3>16.1 Seguridad de aplicaciones Web ASP.NET</h3>
+        <p>Métodos de autenticación disponibles:</p>
+        <ul>
+            <li>Windows:
+                <ul>
+                    <li>Básica</li>
+                    <li>Implícita</li>
+                    <li>Autenticación integrada (NTLM o Kerberos)</li>
+                </ul>
+            </li>
+            <li>Autenticación mediante formularios</li>
+            <li>Autenticación mediante certificados de cliente</li>
+        </ul>
+    </span>
+
+    <span id="3061201005">
+        <h3>16.2 Herramientas de seguridad (.NET Framework)</h3>
+        <p>Principales herramientas:</p>
+        <ul>
+            <li><strong>Caspol.exe</strong>: Configuración de directivas de seguridad</li>
+            <li><strong>Cert2spc.exe</strong>: Creación de certificados de software</li>
+            <li><strong>Certmgr.exe</strong>: Administración de certificados</li>
+            <li><strong>Makecert.exe</strong>: Generación de certificados X.509</li>
+            <li><strong>SignTool.exe</strong>: Firma digital de archivos</li>
+            <li><strong>Sn.exe</strong>: Creación de ensamblados con nombres seguros</li>
+        </ul>
+    </span>
+
+    <span id="3061201006">
+        <h3>16.3 Servicios criptológicos</h3>
+        <p>Características principales:</p>
+        <ul>
+            <li>Protección de datos contra visualización no autorizada</li>
+            <li>Mecanismos de detección de modificaciones</li>
+            <li>Comunicación segura en canales</li>
+        </ul>
+
+        <h4>System.Security.Cryptography:</h4>
+        <ul>
+            <li>Contenedores de CryptoAPI no administrada</li>
+            <li>Implementaciones administradas</li>
+            <li>Generación automática de claves</li>
+        </ul>
+
+        <h4>Métodos de cifrado compatibles:</h4>
+        <ul>
+            <li>Primitivos criptográficos</li>
+            <li>Cifrado de clave secreta y pública</li>
+            <li>Firmas digitales</li>
+            <li>Valores hash</li>
+            <li>Generación de números aleatorios</li>
+            <li>Manifiestos de ClickOnce</li>
+            <li>Compatibilidad con Suite B</li>
+            <li>Clases de criptografía de próxima generación (CNG)</li>
+        </ul>
+    </span>
+</div>

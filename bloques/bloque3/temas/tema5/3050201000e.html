@@ -1,0 +1,93 @@
+<div class="teoria">
+    <h1><span id="3050201001">2 ELEMENTOS Y COMPONENTES SOFTWARE: OBJETOS, CLASES, HERENCIA, MÉTODOS, SOBRECARGA</span></h1>
+  
+    <h2>2.1 OBJETO</h2>
+    <p><span id="3050201002">El elemento fundamental de la programación orientada a objetos es el objeto. Podemos definir un objeto como la instanciación de una clase. Cuando se crea un objeto se tiene que especificar la clase a partir de la cual se ha creado.
+  
+    Un objeto puede estar compuesto por otros objetos; estos últimos, a su vez, pueden estar compuestos de objetos. Esta estructura intrincada de los objetos permite definir objetos muy complejos. Las técnicas orientadas a objetos permiten que el software se construya a partir de objetos de comportamiento específico.
+  
+    El objeto está compuesto por:
+    <ul id="305020115">
+      <li><strong>Atributos:</strong> Definen las características del objeto. Por ejemplo, si describiera el objeto persona, un atributo podría ser el nombre o el dni.</li>
+      <li><strong>Métodos:</strong> Funcionalidades asociadas al objeto. Un método del objeto persona podría ser obtenerDNI.</li>
+    </ul>
+    </span></p>
+  
+    <h2>2.2 CLASES</h2>
+    <p><span id="3050201003">Una clase representa al conjunto de objetos que tienen unas características comunes. Podría entenderse una clase como una plantilla con las características y comportamientos comunes de los objetos lo que permite definirlos y crearlos.
+  
+    <ul id="3050201019">
+      <li>Las clases son un concepto estático definido en el programa fuente, mientras que los objetos (Instancias de una clase) son entes dinámicos que ocupan memoria en la ejecución de un programa.</li>
+      <li>Una variable de clase o miembro de dato estático es una variable, al contrario que las variables de instancia, propia de la clase que la contiene, y no de instancias de la misma, esto quiere decir que todos los objetos que se creen de esta clase, comparten su valor, son llamadas variables estáticas.</li>
+      <li>Una variable o atributo de instancia es una variable que se relaciona con una única instancia de una clase. Cada vez que se crea un objeto, el sistema crea una copia de todas las variables que están vinculadas con dicha clase, haciéndolas propias de esa instancia. Solamente se puede acceder a ellas a través del identificador del objeto. Desaparecen cuando el objeto desaparece y se libera la memoria del sistema.</li>
+      <li>Estas variables son declaradas fuera del cuerpo de los métodos y dentro del de la clase por lo tanto son de tipo global. Por lo tanto, pueden ser utilizadas por cualquier método no estático de dicha clase.</li>
+    </ul>
+    </span></p>
+  
+    <h3>2.2.1 TIPOS DE CLASES</h3>
+ <span id="3050201004"><p>Los tipos de clases que podemos definir son:</p>
+    <table>
+      <tr>
+        <th>Tipo de Clase</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>Abstract</td>
+        <td>Una clase abstract tiene al menos un método abstracto. Una clase abstracta no se instancia, solo se puede utilizar como base para la herencia.</td>
+      </tr>
+      <tr>
+        <td>Final</td>
+        <td>Una clase final se declara como la clase que termina una cadena herencia. No se puede heredar de una clase final.</td>
+      </tr>
+      <tr>
+        <td>Public</td>
+        <td>Las clases public son accesibles desde otras clases, bien sea directamente o por herencia. Son accesibles dentro del mismo paquete en el que se han declarado.</td>
+      </tr>
+      <tr>
+        <td>Synchronizable</td>
+        <td>Este modificador especifica que todos los métodos definidos en la clase son sincronizados. No se puede acceder al mismo tiempo a ellos desde distintos threads.</td>
+      </tr>
+    </table>
+    </span>
+  
+    <h3>2.2.3 RELACIONES ENTRE CLASES</h3>
+    <span >
+    <ul id="3050201005">
+      <li><strong>Asociación:</strong> Es una relación estructural que describe una conexión entre objetos. Suelen ser bidireccionales pero es importante a veces hacerlas unidireccionales para restringir su navegación en un solo sentido.</li>
+      <li><strong>Agregación y composición:</strong> Son casos particulares de asociación cuya relación está entre un todo y sus partes, gráficamente es como una asociación con un rombo en los extremos.</li>
+      <li><strong>Dependencia:</strong> Relación más débil que una asociación que muestra la relación entre un cliente y el proveedor de un servicio usado por el cliente.</li>
+      <li><strong>Herencia:</strong> Por esta relación una clase comparte estructura o comportamiento definidos en una (herencia simple) o más (herencia múltiple) clases.</li>
+    </ul>
+    </span>
+  
+    <h2>2.3 MÉTODOS</h2>
+    <p><span id="3050201006">Un método se le llama a un bloque de código que tiene definido en su interior un conjunto de instrucciones, estas instrucciones realizan una determinada tarea. Cuando se necesita hacer uso de la función definida en el método simplemente se lo llama por su nombre, cuando el flujo del programa pasa por una llamada a un método el puntero salta a la región donde está definido el método, ejecuta todas sus instrucciones y al finalizar retorna a la línea posterior a la llamada al método.</span></p>
+  
+    <h3>2.3.1 MODULARIZACIÓN</h3>
+    <span id="3050201007"> <p>Agrupar conjuntos de instrucciones en un módulo independiente, una caja negra por así decirlo, aquí es donde entra en juego el concepto de abstracción, sabemos que el método cumple una determinada función pero desde afuera no nos interesa realmente lo que hay en su interior, el método puede ser llamado cuando sea necesario sabiendo que cumplirá la función que le fue programada previamente.</p></span>
+  
+    <h3>2.3.2 MÉTODOS PÚBLICOS Y PRIVADOS</h3>
+   <span id="3050201008">
+    <table>
+      <tr>
+        <th>Tipo de Método</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>Públicos</td>
+        <td>Podremos ejecutarlos desde otro código por ejemplo, o podremos ejecutarlos desde un componente en la jerarquía en Unity, por ejemplo un botón.</td>
+      </tr>
+      <tr>
+        <td>Privados</td>
+        <td>No serán accesibles desde contextos externos al objeto donde está definido.</td>
+      </tr>
+    </table>
+    </span>
+  
+    <h2>2.4 SOBRECARGA</h2>
+    <p><span id="3050201009">La sobrecarga de métodos se refiere a la posibilidad de tener dos o más métodos con el mismo nombre pero distinta funcionalidad. Es decir, dos o más métodos con el mismo nombre realizan acciones diferentes y el compilador usará una u otra dependiendo de los parámetros usados. Esto también se aplica a los constructores (de hecho, es la aplicación más habitual de la sobrecarga).
+  
+    Se pueden diferenciar varios métodos sobrecargados a través de sus parámetros, ya sea por la cantidad, el tipo o el orden de los mismos.
+  
+    Gracias a la sobrecarga de métodos, una clase puede tener distinto comportamiento dependiendo de cual método sobrecargado se use, a esta característica se le conoce como Polimorfismo por sobrecarga. La palabra Polimorfismo viene de la capacidad que tiene una clase de cambiar su comportamiento. En el caso del polimorfismo por sobrecarga, el cambio del comportamiento de una clase se define sobrecargando los métodos necesarios para lograr el polimorfismo.</span></p>
+  </div>

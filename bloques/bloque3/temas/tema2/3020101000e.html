@@ -1,0 +1,55 @@
+<div class="teoria">
+    <h1><span id="3020101001">1 DISEÑO DE BASES DE DATOS</span></h1>
+    <p><span id="3020101002">El diseño de una base de datos se define en tres fases:</span></p>
+    <ul>
+        <li><span id="3020101003">Diseño conceptual.</span></li>
+        <li><span id="3020101004">Diseño lógico.</span></li>
+        <li><span id="3020101005">Diseño físico.</span></li>
+    </ul>
+    
+    <h2><span id="3020101006">1.1 REPRESENTACIÓN DE BASES DE DATOS</span></h2>
+    <p><span id="3020101007">Una base de datos es una representación de una visión de los datos para una aplicación informática, de forma que sean capaz de interpretarlos y manejarlos. Según la visión que tengan los datos de una base de datos, se señalan tres niveles:</span></p>
+    <ul>
+        <li><span id="3020101008">Nivel interno o físico. Nivel más bajo de abstracción y nivel más cercano al almacenamiento físico. Se realiza mediante la creación de un esquema interno en el que:</span>
+            <ul>
+                <li><span id="3020101009">Se define cómo se almacenan los datos.</span></li>
+                <li><span id="3020101010">Se definen los elementos que contienen la información.</span></li>
+                <li><span id="3020101011">Su organización, formas de acceso, tipos de registro, etc.</span></li>
+            </ul>
+        </li>
+        <li><span id="3020101012">Nivel conceptual. Corresponde a la vista de la base de datos desde el mundo real, o lo que es lo mismo, para la representación de estos datos se recogen los datos de requerimiento de los diferentes usuarios. Esto también es llamado "esquema conceptual".</span></li>
+        <li><span id="3020101013">Nivel externo. Es el nivel más cercano al usuario. Se describe la parte de los datos que interesa a un usuario.</span></li>
+    </ul>
+    
+    <h2><span id="3020101014">1.2 IMPORTANCIA DE UNA BASE DE DATOS BIEN DISEÑADA</span></h2>
+    <p><span id="3020101015">Una base de datos bien diseñada debe cumplir las siguientes características:</span></p>
+    <ul>
+        <li><span id="3020101016">Capacidad de acceso rápido.</span></li>
+        <li><span id="3020101017">Versatilidad para representar la información.</span></li>
+        <li><span id="3020101018">Redundancia mínima. Un objetivo de las bases de datos es eliminar la redundancia, o lo que es lo mismo, datos repetidos en distintos lugares.</span></li>
+        <li><span id="3020101019">Integridad. Los datos de la base de datos van a ser utilizados por muchos usuarios y de diferentes maneras, por lo que tiene que asegurarse de que los valores almacenados no se destruyan con los fallos producidos en el sistema.</span></li>
+        <li><span id="3020101020">Capacidad de adaptación. Una base de datos debe estar preparada para futuros cambios en los datos y medios de almacenamiento.</span></li>
+        <li><span id="3020101021">Afinación. El volumen de datos en una base de datos va aumentando, por lo que es posible que haya que ajustar la organización física de la base de datos en función de las necesidades de almacenamiento.</span></li>
+        <li><span id="3020101022">Seguridad y privacidad. Es necesario disponer de procedimientos que protejan los datos frente a fallos del sistema. La privacidad hace referencia a que los datos de la base de datos sean accesibles solo para los usuarios que estén autorizados.</span></li>
+    </ul>
+    
+    <h2><span id="3020101023">1.3 MODELO DE DATOS</span></h2>
+    <p><span id="3020101024">El modelo de datos es una representación de la base de datos de una aplicación informática, que permite:</span></p>
+    <ul>
+        <li><span id="3020101025">Describir los elementos que están en ella.</span></li>
+        <li><span id="3020101026">Describir cómo interactúan entre sí.</span></li>
+        <li><span id="3020101027">Describir condiciones que deben cumplir los datos, también conocidas como restricciones de integridad.</span></li>
+    </ul>
+    
+    <h2><span id="3020101028">1.4 PASOS PARA LA CREACIÓN DEL MODELO CONCEPTUAL</span></h2>
+    <p><span id="3020101029">El primer paso en el diseño de una base de datos es la producción del modelo conceptual. Pueden construirse varios esquemas conceptuales, cada uno para representar las distintas visiones que los usuarios tienen de la información. Cada una de estas visiones suelen corresponder a las diferentes áreas funcionales de la empresa como, por ejemplo, producción, ventas, recursos humanos, etc.</span></p>
+    <p><span id="3020101030">Las tareas a realizar en el diseño son:</span></p>
+    <ol>
+        <li><span id="3020101031">Identificar las entidades. Definir los principales objetos que interesan al usuario. Estos objetos serán las entidades. En estas especificaciones se buscan los nombres o los sintagmas nominales que se mencionan (por ejemplo: número de empleado, nombre de empleado, número de inmueble, dirección del inmueble, alquiler, número de habitaciones).</span></li>
+        <li><span id="3020101032">Identificar las relaciones. Definir las relaciones existentes entre ellas. Del mismo modo que para identificar las entidades se buscaban nombres en las especificaciones de requisitos, para identificar las relaciones se suelen buscar las expresiones verbales (por ejemplo: oficina tiene empleados, empleado gestiona inmueble, cliente visita inmueble).</span></li>
+        <li><span id="3020101033">Identificar los atributos y asociarlos a entidades y relaciones. Son atributos los nombres que identifican propiedades, cualidades, identificadores o características de entidades o relaciones.</span></li>
+        <li><span id="3020101034">Determinar los dominios de los atributos. El dominio de un atributo es el conjunto de valores que puede tomar el atributo.</span></li>
+        <li><span id="3020101035">Determinar los identificadores. Cada entidad tiene al menos un identificador. En este paso, se trata de encontrar todos los identificadores de cada una de las entidades. Los identificadores pueden ser simples o compuestos. De cada entidad se escogerá uno de los identificadores como clave primaria en la fase del diseño lógico.</span></li>
+        <li><span id="3020101036">Dibujar el diagrama entidad-relación. Se puede dibujar el diagrama entidad-relación correspondiente a una de las vistas de los usuarios. Se obtiene así un esquema conceptual.</span></li>
+    </ol>
+</div>

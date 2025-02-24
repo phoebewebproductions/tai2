@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Datos y Operadores</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="3030201001">
+            <h1>3 REPRESENTACIÓN DE TIPOS DE DATOS</h1>
+            <p>Mientras los humanos utilizamos distintos tipos de conceptos de información, las
+            máquinas solo pueden utilizar los valores lógicos 0 y 1 (sistema binario). El más
+            utilizado por los humanos es el sistema decimal (del 0 al 9). Por lo tanto, se establecen
+            agrupaciones de símbolos para representar más de los dos números del sistema
+            binario.</p>
+            
+            <p>Esto ocurre no solo con números, también con letras. El ordenador no es capaz de
+            interpretarlas, por lo que se establece una codificación ASCII (American Standard Code
+            for Information Interchange)</p>
+        </span>
+
+        <span id="3030201002">
+            <h2>Tipos de Datos en C</h2>
+            <table border="1">
+                <tr>
+                    <th>Tipo de Dato</th>
+                    <th>Bits</th>
+                    <th>Rango</th>
+                    <th>Especificador</th>
+                </tr>
+                <tr>
+                    <td>short int</td>
+                    <td>2</td>
+                    <td>-32,768 to 32,767</td>
+                    <td>%hd</td>
+                </tr>
+                <tr>
+                    <td>unsigned short int</td>
+                    <td>2</td>
+                    <td>0 to 65,535</td>
+                    <td>%hu</td>
+                </tr>
+                <tr>
+                    <td>int</td>
+                    <td>4</td>
+                    <td>-2,147,483,648 to 2,147,483,647</td>
+                    <td>%d</td>
+                </tr>
+                <tr>
+                    <td>unsigned int</td>
+                    <td>4</td>
+                    <td>0 to 4,294,967,295</td>
+                    <td>%u</td>
+                </tr>
+                <tr>
+                    <td>long int</td>
+                    <td>4</td>
+                    <td>-2,147,483,648 to 2,147,483,647</td>
+                    <td>%ld</td>
+                </tr>
+                <tr>
+                    <td>unsigned long int</td>
+                    <td>4</td>
+                    <td>0 to 4,294,967,295</td>
+                    <td>%lu</td>
+                </tr>
+                <tr>
+                    <td>float</td>
+                    <td>4</td>
+                    <td>3.4E-38 to 3.4E+38</td>
+                    <td>%f</td>
+                </tr>
+                <tr>
+                    <td>double</td>
+                    <td>8</td>
+                    <td>1.7E-308 to 1.7E+308</td>
+                    <td>%lf</td>
+                </tr>
+                <tr>
+                    <td>long double</td>
+                    <td>16</td>
+                    <td>3.4E-4932 to 1.1E+4932</td>
+                    <td>%Lf</td>
+                </tr>
+            </table>
+        </span>
+
+        <span id="3030201003">
+            <h2>4 OPERADORES</h2>
+            <p>Los operadores son los símbolos reservados por el lenguaje de programación para
+            especificar una función lógica o matemática. Pueden ser:</p>
+            <ul>
+                <li>Aritméticos</li>
+                <li>Relacionales</li>
+                <li>Lógicos</li>
+                <li>de Bit</li>
+                <li>de Asignación</li>
+                <li>Otros</li>
+            </ul>
+        </span>
+
+        <span id="3030201004">
+            <h3>Operadores de Asignación</h3>
+            <table border="1">
+                <tr>
+                    <th>Operador</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo</th>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>Asignación simple</td>
+                    <td>C = A + B asignará el valor de A + B a C</td>
+                </tr>
+                <tr>
+                    <td>+=</td>
+                    <td>Suma y asignación</td>
+                    <td>C += A es equivalente a C = C + A</td>
+                </tr>
+                <tr>
+                    <td>-=</td>
+                    <td>Resta y asignación</td>
+                    <td>C -= A es equivalente a C = C - A</td>
+                </tr>
+                <tr>
+                    <td>*=</td>
+                    <td>Multiplicación y asignación</td>
+                    <td>C *= A es equivalente a C = C * A</td>
+                </tr>
+                <tr>
+                    <td>/=</td>
+                    <td>División y asignación</td>
+                    <td>C /= A es equivalente a C = C / A</td>
+                </tr>
+                <tr>
+                    <td>%=</td>
+                    <td>Módulo y asignación</td>
+                    <td>C %= A es equivalente a C = C % A</td>
+                </tr>
+            </table>
+        </span>
+
+        <span id="3030201005">
+            <h3>Operadores Especiales</h3>
+            <table border="1">
+                <tr>
+                    <th>Operador</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo</th>
+                </tr>
+                <tr>
+                    <td>sizeof()</td>
+                    <td>Devuelve el tamaño de una variable</td>
+                    <td>sizeof(int) devolverá 4</td>
+                </tr>
+                <tr>
+                    <td>&</td>
+                    <td>Devuelve la dirección de una variable</td>
+                    <td>&a devuelve la dirección de memoria de a</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>Puntero a una variable</td>
+                    <td>*a declara un puntero a</td>
+                </tr>
+                <tr>
+                    <td>?:</td>
+                    <td>Operador ternario</td>
+                    <td>condición ? valor_si_verdadero : valor_si_falso</td>
+                </tr>
+            </table>
+        </span>
+
+        <span id="3030201006">
+            <h3>Precedencia de Operadores</h3>
+            <p>La precedencia de operadores determina el orden en que se evalúan las operaciones. Aquí hay una lista simplificada de mayor a menor precedencia:</p>
+            <ol>
+                <li>() [] -> . :: Paréntesis y acceso a miembros</li>
+                <li>! ~ ++ -- + - * & (type) sizeof Operadores unarios</li>
+                <li>* / % Multiplicación, división y módulo</li>
+                <li>+ - Suma y resta</li>
+                <li><< >> Desplazamiento de bits</li>
+                <li>< <= > >= Comparaciones</li>
+                <li>== != Igualdad y desigualdad</li>
+                <li>& ^ | Operaciones de bits</li>
+                <li>&& || Operaciones lógicas</li>
+                <li>?: Operador ternario</li>
+                <li>= += -= *= /= %= &= ^= |= <<= >>= Asignaciones</li>
+                <li>, Operador coma</li>
+            </ol>
+            <p>Los operadores con mayor precedencia se evalúan primero. Cuando los operadores tienen la misma precedencia, se evalúan de izquierda a derecha, excepto las asignaciones que se evalúan de derecha a izquierda.</p>
+        </span>
+    </div>
+</body>
+</html>

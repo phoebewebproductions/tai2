@@ -1,0 +1,54 @@
+<div class="teoria">
+    <span id="3060601001">
+        <h2>6.1 SEGURIDAD EN J2EE</h2>
+        <p>Muchas aplicaciones requieren proveer la identidad de los usuarios que están accediéndolas.</p>
+        
+        <p>J2EE y los EJBs proveen un modelo de seguridad híbrido (tanto programático como declarativo) basado en:</p>
+        <ul>
+            <li><strong>Autentificación</strong> (verificación de credenciales)</li>
+            <li><strong>Autorización</strong> (con lo que puede interactuar un usuario)</li>
+            <li><strong>Confidencialidad e integridad</strong> (soporte contra ataques, como por ejemplo SSL)</li>
+        </ul>
+    </span>
+
+    <span id="3060601002">
+        <h3>6.1.1 Roles en la Arquitectura de Seguridad</h3>
+        <p>En la arquitectura de J2EE se reparte la responsabilidad de la seguridad entre sus diferentes roles:</p>
+        <ul>
+            <li>Administrador del sistema</li>
+            <li>Proveedor del contenedor</li>
+            <li>El desarrollador de aplicaciones</li>
+            <li>Encargado de despliegue</li>
+        </ul>
+    </span>
+
+    <span id="3060601003">
+        <h3>6.1.2 Autenticación</h3>
+        <p>Es el proceso de verificar si alguien es quien dice ser.</p>
+        <ul>
+            <li>Típicamente mediante login y password</li>
+            <li>La clave puede estar en muchos formatos</li>
+            <li>Una vez autenticado, al usuario se le asigna un rol</li>
+        </ul>
+
+        <p>Los EJBs no especifican cómo se hace este proceso, es responsabilidad del servidor de aplicaciones.</p>
+        <p>Se puede hacer con <strong>JNDI</strong> (por ejemplo contra LDAP de la empresa) o por ejemplo en Jboss se usa <strong>JAAS</strong> (Java Authentication and Authorization Service) o realms.</p>
+    </span>
+
+    <span id="3060601004">
+        <h3>6.1.3 Autorización</h3>
+        <p>Una vez autenticado el componente, se procede por un mecanismo de autorización, basado en roles.</p>
+        <p>En J2EE las políticas se aplican sobre roles y no sobre usuarios.</p>
+    </span>
+
+    <span id="3060601005">
+        <h3>6.1.4 Seguridad EIS</h3>
+        <p>La capa EIS puede requerir una conexión (con seguridad) a un elemento. Por ejemplo a una base de datos.</p>
+        
+        <p>J2EE ofrece dos alternativas:</p>
+        <ul>
+            <li><strong>Container-Managed Sign-On</strong>: Donde el programador es responsable de enviar datos al servidor sobre la autentificación</li>
+            <li><strong>Component-Managed Sign-On</strong></li>
+        </ul>
+    </span>
+</div>

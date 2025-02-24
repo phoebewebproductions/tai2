@@ -1,0 +1,51 @@
+<div class="teoria">
+    <span id="3060501001">
+        <h2>5.1 PRODUCTOS Y HERRAMIENTAS J2EE</h2>
+        <ul>
+            <li><strong>Apache Struts</strong>: código abierto. Más utilizado para Java</li>
+            <li><strong>Spring</strong>: código abierto. Inicialmente licencia Apache 2.0. Existe Spring.net</li>
+            <li><strong>Hibernate</strong>: open source</li>
+            <li><strong>WebWork</strong>: Pull HMVC (Hierarchical Model View Controller). Proviene de Struts</li>
+            <li><strong>Tapestry</strong>: Apache Software Foundation. Basado en componentes. Adopta MVC JSF</li>
+            <li><strong>iBATIS</strong>: código abierto, Apache Software Foundation</li>
+            <li><strong>Frameworks de JAX-RS y JAX-WS</strong></li>
+        </ul>
+    </span>
+
+    <span id="3060501002">
+        <h3>5.1.1 Patrones de diseño de Java EE</h3>
+        <p>Responden a soluciones para una serie de problemas que se repiten con cierta frecuencia en los sistemas de información.</p>
+        <p>Se dividen en cinco capas: Cliente, Presentación, Negocios, Integración y Recursos</p>
+
+        <h4>Capa de Presentación</h4>
+        <ul>
+            <li><strong>Decorating Filter/Intercepting Filter</strong>: Maneja varios tipos de peticiones que requieren un procesamiento determinado; especialmente aplicado a procesos de validación de sesión.</li>
+            <li><strong>Front Controller</strong>: Acepta todas las peticiones de un cliente y las direcciona a los manejadores apropiados.</li>
+            <li><strong>View Helper</strong>: Encapsula la lógica de acceso a bases de datos en beneficio de la capa de presentación.</li>
+            <li><strong>Composite View</strong>: Elemento de la Vista compuesto por otros elementos del mismo tipo.</li>
+            <li><strong>Service to Worker</strong>: Similar al MVC, emplea dos subpatrones, el Front Controller para el Controlador y el View Helper para la Vista.</li>
+            <li><strong>Dispatcher View</strong>: Similar al MVC y al anterior, pero el Controller no realiza acciones sobre el Helper.</li>
+        </ul>
+    </span>
+
+    <span id="3060501003">
+        <h4>Capa de Negocio</h4>
+        <ul>
+            <li><strong>Business Delegate</strong>: Un objeto de la capa de presentación llama a métodos remotos de los objetos de la capa de negocio, se produce una búsqueda del elemento requerido, generando posteriormente una llamada al servicio en cuestión.</li>
+            <li><strong>Transfer Object</strong>: Encapsula la serialización de un objeto que debe ser traspasado por la red.</li>
+            <li><strong>Session Facade</strong>: Crea una fachada para encapsular las complejas interrelaciones de los distintos elementos de negocio.</li>
+            <li><strong>Aggregate Entity</strong>: Encapsula la creación de un Bean de entidad compuesto por otros Beans de entidad.</li>
+            <li><strong>Transfer Object Assembler</strong>: Es una combinación del Transfer Object y el Session Facade.</li>
+            <li><strong>Value List Handler</strong>: Maneja la ejecución de sentencias SQL, empleando para ello Beans de Sesión.</li>
+            <li><strong>Service Locator</strong>: Utilizado para abstraer toda la utilización de JNDI y de la creación de cualquier contexto inicial complejo.</li>
+        </ul>
+    </span>
+
+    <span id="3060501004">
+        <h4>Capa de Integración</h4>
+        <ul>
+            <li><strong>Data Access Object (DAO)</strong>: Crea un objeto que es un medio para el acceso a la Base de Datos de la aplicación, de forma que se abstraen y encapsulan todas las operaciones relacionadas con el tratamiento del acceso a datos.</li>
+            <li><strong>Service Activator</strong>: Se utiliza para recibir peticiones y mensajes asíncronos por parte del cliente, buscando el elemento de negocio que contiene el método que se ha de invocar.</li>
+        </ul>
+    </span>
+</div>

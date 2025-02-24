@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Físico de Bases de Datos</title>
+</head>
+<body>
+    <div class="teoria">
+        <h1>3.2 DISEÑO FÍSICO</h1>
+        <span id="3020202001">
+            <p>En esta fase se definen las estructuras de almacenamiento de la base de datos de forma física. Es cuando se escribe el código (por ejemplo, SQL) para concretar el diseño en el motor de base de datos que hemos escogido.</p>
+        </span>
+
+        <h2>OBJETIVOS</h2>
+        <span id="3020202002">
+            <p>El objetivo general es definir las estructuras de almacenamiento y estructuras de acceso para que las aplicaciones que accedan a la BD obtengan un buen rendimiento del diseño físico. Lo que se busca en un buen diseño físico es:</p>
+            <ul>
+                <li>Minimizar el tiempo de respuesta
+                    <ul>
+                        <li>Tiempo entre la introducción de una transacción T de BD y la obtención de respuesta</li>
+                    </ul>
+                </li>
+                <li>Maximizar la productividad de las transacciones
+                    <ul>
+                        <li>Número medio de transacciones que SBD puede procesar por minuto</li>
+                        <li>Parámetro crítico de los sistemas de procesamiento masivo de transacciones (reservas de vuelos, servicios bancarios)</li>
+                        <li>Debe medirse en "condiciones pico" del sistema</li>
+                    </ul>
+                </li>
+                <li>Optimizar el aprovechamiento del espacio
+                    <ul>
+                        <li>Cantidad de espacio ocupado por ficheros de la BD y sus estructuras de acceso</li>
+                    </ul>
+                </li>
+            </ul>
+        </span>
+
+        <h2>DECISIONES A TOMAR</h2>
+        <span id="3020202003">
+            <ul>
+                <li>Encargarnos de la traducción de todo nuestro esquema lógico global, el cual debe ser específicamente diseñado para el "SGBD" que escogemos.</li>
+                <li>Crear todas aquellas reglas dedicadas al negocio SGBD que elegimos.</li>
+                <li>Reproducir una versión física de nuestra meta elegida durante el diseño conceptual.</li>
+                <li>Descubrir, mejorar y agregar aquellas transacciones que faciliten el uso de nuestra base de datos.</li>
+                <li>Organizar de manera funcional aquellos ficheros cargados de información.</li>
+                <li>Desarrollar los índices de contenido, tanto principales como secundarios.</li>
+                <li>Considerar hasta cierto punto introducir algunas redundancias, siempre y cuando estas se encuentren controladas.</li>
+                <li>Calcular el espacio que será necesario en un disco duro u otro dispositivo de almacenamiento, de modo que sea capaz de utilizar la base de datos.</li>
+                <li>Crear algunos mecanismos dedicados a la seguridad de los archivos.</li>
+                <li>Utilizar un sistema vistoso y que instruya a los usuarios a manejar de forma correcta las funciones desarrolladas.</li>
+                <li>Seleccionar algunas reglas únicas para el acceso de datos.</li>
+                <li>Realizar un chequeo constante de todo el sistema, con la intención de descubrir fallas y errores.</li>
+            </ul>
+        </span>
+
+        <h2>FASES PARA LA CREACIÓN DEL DISEÑO LÓGICO</h2>
+        <span id="3020202004">
+            <ul>
+                <li>Traducir el esquema lógico global para el SGBD específico. La primera fase del diseño lógico consiste en traducir el esquema lógico global a un esquema que se pueda implementar en el SGBD seleccionado. Dentro de este apartado se encuentra:
+                    <ul>
+                        <li>Diseñar las relaciones base para el SGBD específico.</li>
+                        <li>Diseñar las reglas de negocio para el SGBD específico.</li>
+                    </ul>
+                </li>
+            </ul>
+        </span>
+        <span id="3020202005">
+            <ul>
+                <li>Diseñar la representación física.
+                    <ul>
+                        <li>Analizar las transacciones. Será necesario contar con revisiones paulatinas, las cuales nos ayudarán a conocer las transacciones que están a punto de ser ejecutadas dentro de una base de datos. Las revisiones necesitan tener información cuantitativa, como lo es el peso exacto de un archivo, el tiempo que tarda en ejecutarse o el espacio necesario en el disco duro cuando es almacenado. Al mismo tiempo, también deberemos consultar información cualitativa, como la frecuencia, relaciones y atributos de cada transacción.</li>
+                        <li>Escoger las organizaciones de ficheros. La organización es un paso muy importante, ya que dependiendo del diseño que tenemos pensado crear una puede ser óptima o bastante inútil. Cabe resaltar que en el momento que decidamos seleccionar una organización para los ficheros, esta debe ser documentada dentro del "Diccionario de datos", explicando las razones de escogerla.</li>
+                        <li>Considerar la introducción de redundancias controladas. Deberemos contemplar la idea de disminuir y aligerar las normativas que hemos implementado, algo que puede ser logrado al ingresar cierto número de redundancias de manera manejable, las cuales tienen como objetivo mejorar las prestaciones de nuestro sistema. Durante todo el desarrollo de nuestro diseño lógico (la fase anterior al diseño físico) se nos recomienda alcanzar mínimo la tercera forma de nuestro esquema, de forma que este ya posea una estructura firme y sin con una cantidad misera de redundancias.</li>
+                        <li>Estimar la necesidad de espacio en disco.</li>
+                    </ul>
+                </li>
+            </ul>
+        </span>
+        <span id="3020202006">
+            <ul>
+                <li>Diseñar los mecanismos de seguridad.
+                    <ul>
+                        <li>Diseñar las vistas de los usuarios.</li>
+                        <li>Diseñar las reglas de acceso.</li>
+                    </ul>
+                </li>
+                <li>Monitorizar y afinar el sistema.</li>
+            </ul>
+        </span>
+    </div>
+</body>
+</html>

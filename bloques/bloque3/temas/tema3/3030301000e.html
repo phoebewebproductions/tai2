@@ -1,0 +1,84 @@
+<div class="teoria">
+    <span id="3030301001">
+        <h1>5 INSTRUCCIONES CONDICIONALES</h1>
+        <p>Las instrucciones condicionales son aquellas en las que se evalúan una o varias
+        instrucciones, pero solo una puede ser considerada cierta (true) y el resto falsas (false)</p>
+        <p>En C, las instrucciones condicionales son:</p>
+        <ul>
+            <li>If</li>
+            <li>If..else</li>
+            <li>if anidados</li>
+            <li>if..else anidados</li>
+            <li>switch</li>
+            <li>switchs anidados</li>
+        </ul>
+    </span>
+
+    <span id="3030301002">
+        <h1>6 BUCLES Y RECURSIVIDAD</h1>
+        <p>Los bucles son sentencias que permiten que un bloque de código se ejecute varias
+        veces, de forma secuencial.</p>
+        <p>En C, son estructuras de bucle:</p>
+        <ul>
+            <li>while</li>
+            <li>for</li>
+            <li>do while</li>
+            <li>bucles anidados</li>
+        </ul>
+        <p>Además permite, aunque no está recomendado: romper las estructuras de loop a
+        través de:</p>
+        <ul>
+            <li>break</li>
+            <li>continue</li>
+            <li>goto</li>
+        </ul>
+        <p>Si no se incluye una condición de parada, se pueden dar bloques infinitos.</p>
+    </span>
+
+    <span id="3030301003">
+        <h1>7 PROCEDIMIENTOS, FUNCIONES Y PARÁMETROS</h1>
+        <p>Una función es un grupo de sentencias que, todas juntas, ejecutan una tarea. En todo
+        programa C debe existir al menos una función main(), que es la que se ejecuta por
+        defecto.</p>
+        <p>Además, el programador puede crear tantas funciones como desee, teniendo en
+        cuenta que cada función se compone de:</p>
+        <ul>
+            <li>Parte declarativa: informa al compilador del nombre de la función, el tipo de
+            datos que va a devolver y los parámetros que va a recibir.</li>
+            <li>Parte de definición: Es el cuerpo o conjunto de operaciones de la función.</li>
+        </ul>
+        <pre>
+Tipo_devuelto nombre_de_la_funcion (lista de parámetros ) {
+cuerpo de la función
+}
+        </pre>
+        <ul>
+            <li>Tipo_devuelto: Es el tipo de dato que devolverá la función. Si no devuelve nada
+            será void.</li>
+            <li>Nombre_de_la_función: Es el nombre por el que se invocará la función.</li>
+            <li>Parámetros: lista de parámetros que reciba la función desde su invocante.</li>
+        </ul>
+        <p>Si la función se declara static, quiere decir que solo puede invocarse desde el fichero en
+        el que se ha definido.</p>
+        <p>Si la función utiliza argumentos o parámetros, será necesario que se declaren los
+        valores de esos argumentos. Dentro de la función se comportan como variables locales
+        a la función, y cuándo termina la ejecución de la misma, se destruyen.</p>
+        <p>Las variables se pueden pasar por valor o por referencia. Por defecto, en C se pasan por
+        Valor.</p>
+        <ul>
+            <li>Las variables por valor son las que copian el valor del argumento en la variable
+            de la función. Los cambios de la variable dentro de la función no tienen efecto
+            fuera del ámbito de ejecución de la misma.</li>
+            <li>Las variables por referencia copian la dirección del argumento, por lo que las
+            modificaciones de la variables sí tienen efecto fuera del ámbito de ejecución de
+            la función.</li>
+        </ul>
+        <p>La principal diferencia entre procedimientos y funciones es que las funciones
+        devuelven un valor, mientras que los procedimientos no devuelven ninguno. Existen
+        programas que distinguen la forma de declarar una función y un procedimiento. En C
+        solo existen funciones. Lo más parecido a un procedimiento es declararlo de manera
+        que devuelva un tipo void. Que no devuelvan un valor no quiere decir que el trabajo de
+        un procedimiento no sea útil, ya que pueden modificar variables pasadas por
+        referencia.</p>
+    </span>
+</div>
