@@ -1,0 +1,141 @@
+<div class="teoria">
+    <span id="3070301001">
+        <h2>3.1. ARQUITECTURAS CLIENTE-SERVIDOR</h2>
+        <p>Los <strong>clientes</strong> (o programas que representan entidades que necesitan servicios) y los <strong>servidores</strong> (o programas que proporcionan servicios) son objetos separados desde un punto de vista lógico y que se comunican a través de una red de comunicaciones para realizar una o varias tareas de forma conjunta.</p>
+        <p>Un cliente hace una petición de un servicio y recibe la respuesta a dicha petición; un servidor recibe y procesa la petición, y devuelve la respuesta solicitada.</p>
+        <p>En una aplicación cliente-servidor se pueden distinguir las siguientes partes:</p>
+        <h4>Lógica de presentación</h4>
+        <p>Contiene el código de la aplicación encargado de interactuar con el usuario</p>
+        <h4>Lógica de negocio o de aplicación</h4>
+        <p>Es la parte de la aplicación la cual realiza el procesamiento de las funciones del sistema.</p>
+        <h4>Lógica de datos</h4>
+        <p>Se encarga de la gestión de datos en la aplicación.</p>
+    </span>
+
+    <span id="3070301002">
+        <h3>3.1.1. CARACTERÍSTICAS DE LA ARQUITECTURA CLIENTE/SERVIDOR</h3>
+        <ul>
+            <li><strong>Protocolos asimétricos</strong>: hay una relación muchos a uno entre los clientes y un servidor. Los clientes siempre inician un diálogo mediante la petición dirigida a un servicio. Los Servidores esperan a la "escucha" a las solicitudes de los clientes.</li>
+            <li><strong>Encapsulación de servicios</strong>: El servidor es un especialista, cuando se le entrega un mensaje solicitando un servicio, él determina cómo conseguir hacer el trabajo. Los servidores se pueden actualizar sin afectar a los clientes en tanto que la interfaz pública de mensajes que se utilice por ambos lados permanezca sin cambiar.</li>
+            <li><strong>Integridad</strong>: el código y los datos de un servidor se mantienen centralizados, lo que origina que el mantenimiento sea más sencillo y la protección de la integridad de datos compartidos. Al mismo tiempo, los clientes mantienen su independencia y "personalidad".</li>
+            <li><strong>Transparencia de localización</strong>: el servidor es un proceso que puede residir en la misma máquina que el cliente o otra una máquina diferente de la red. El software cliente/servidor (middleware) habitualmente oculta la localización de un servidor a los clientes mediante la redirección de servicios. Un programa puede actuar tanto como cliente, como servidor o como cliente y servidor simultáneamente.</li>
+            <li><strong>Intercambios basados en mensajes</strong>: Los clientes y servidores son procesos débilmente acoplados que pueden intercambiar solicitudes de servicios y respuestas utilizando mensajes</li>
+            <li><strong>Modularidad, diseño extensible</strong>: el diseño modular de una aplicación cliente/servidor permite que la aplicación sea tolerante a fallos
+                <ul>
+                    <li>En sistemas tolerantes a fallos, los fallos pueden ocurrir sin causar la caída de la aplicación completa</li>
+                    <li>En una aplicación cliente/servidor tolerante a fallos, uno o más servidores pueden fallar sin parar el sistema total mientras que los servicios proporcionados por los servidores caídos estén disponibles en otros servidores activos</li>
+                    <li>Otra ventaja de la modularidad es que una aplicación cliente/servidor puede responder automáticamente al incremento o decremento de la carga del sistema mediante la incorporación o eliminación de uno o más servicios o servidores</li>
+                </ul>
+            </li>
+            <li><strong>Independencia de la plataforma</strong>: el software cliente/servidor "ideal" es independiente del hardware o sistemas operativos, permitiendo al programador mezclar plataformas de clientes y servidores
+                <ul>
+                    <li>El entorno de explotación de clientes y servidores puede ser sobre diferentes plataformas, con el fin de optimizar el tipo de trabajo que cada uno desempeña.</li>
+                </ul>
+            </li>
+            <li><strong>Código reutilizable</strong>: La implementación de un servicio puede utilizarse en varios servidores.</li>
+            <li><strong>Escalabilidad</strong>: Los sistemas cliente/servidor pueden ser escalados horizontal o verticalmente
+                <ul>
+                    <li>El escalado horizontal significa añadir o eliminar estaciones clientes con un ligero impacto en el rendimiento o la incorporación de nuevas máquinas servidoras</li>
+                    <li>El escalado vertical significa la migración a una máquina servidora más grande y rápida</li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+
+    <span id="3070301003">
+        <h3>3.1.2. TECNOLOGÍAS DE LA ARQUITECTURA CLIENTE/SERVIDOR</h3>
+        <h4>Servidores de ficheros</h4>
+        <p>Los clientes hacen solicitudes de ficheros al servidor: forma de compartir ficheros en una red (repositorios de documentos, imágenes, programas, etc.)</p>
+        
+        <h4>Servidores de bases de datos</h4>
+        <p>Las aplicaciones del cliente mandan solicitudes SQL al servidor. El servidor devuelve el resultado de la consulta.</p>
+        
+        <h4>Servidores de transacciones</h4>
+        <p>El cliente invoca procedimientos remotos o transacciones (conjunto de instrucciones SQL) sobre la base de datos.</p>
+        <p>Los datos intercambiados son:</p>
+        <ul>
+            <li>Cliente -> servidor: solicitud</li>
+            <li>Servidor -> cliente: mensaje de resultado</li>
+        </ul>
+        
+        <h4>Servidores groupware</h4>
+        <p>Intercambio de información semiestructurada: texto, imágenes. Cada vez más se usa correo electrónico.</p>
+        
+        <h4>Servidores de aplicaciones de objetos</h4>
+        <p>Conjunto de objetos de comunicación. Los objetos del cliente usan un Object Request Broker (ORB).</p>
+        <ul>
+            <li>El cliente invoca un método remoto.</li>
+            <li>El ORB localiza una instancia de la clase del objeto en el servidor.</li>
+            <li>Invoca el método.</li>
+            <li>Devuelve el resultado al objeto del cliente. CORBA (Common Object Request Broker Arquitecture)</li>
+        </ul>
+        
+        <h4>Servidores de aplicaciones web</h4>
+        <p>World Wide Web: arquitectura cliente/servidor (los clientes solicitan documentos a los servidores). La solicitud es por nombre y el protocolo es HTTP.</p>
+    </span>
+
+    <span id="3070301004">
+        <h3>3.1.3. EVOLUCIÓN ARQUITECTURAS CLIENTE-SERVIDOR</h3>
+        <p>En este apartado vamos a describir la evolución que ha experimentado la arquitectura Cliente/Servidor:</p>
+        
+        <h4>Arquitecturas monolíticas (una capa)</h4>
+        <p>En esa configuración un host mainframe y un terminal "tonto" directamente conectado con el mainframe puede verse como un modelo C/S de una capa.</p>
+        
+        <h4>Arquitecturas C/S de dos capas</h4>
+        <p>El cliente se comunica directamente con un servidor de bases de datos</p>
+        <p>La aplicación o lógica de negocio bien reside en el cliente, o en el servidor de base de datos en la forma de procedimientos almacenados.</p>
+        
+        <h4>Arquitecturas C/S de tres capas</h4>
+        <p>En la arquitectura de tres capas, el cliente implementa la lógica de presentación (cliente "fino"), el servidor(es) de aplicación implementan la lógica de negocio y los datos residen en uno (o varios) servidor(es) de bases de datos.</p>
+        <p>Una arquitectura multicapa se define por tanto por las siguientes tres capas de componentes:</p>
+        <ul>
+            <li>Un componente front-end que es el responsable de proporcionar la lógica de presentación</li>
+            <li>Un componente back-end que proporciona acceso a servicios dedicados, tales como un servidor de bases de datos</li>
+            <li>Un componente que hace las funciones de capa intermediaria (middleware) que permite a los usuarios compartir y controlar la lógica de negocio mediante su aislamiento de la aplicación real.</li>
+        </ul>
+        <p>La arquitectura de 3 capas se puede extender a n capas cuando la capa intermedia soporta conexiones a diferentes tipos de servicios (no sólo servicios de almacenamiento de datos), integrándolos y acoplándolos al cliente y entre ellos.</p>
+    </span>
+
+    <span id="3070301005">
+        <h3>3.1.4. ELEMENTOS DE ARQUITECTURAS CLIENTE/SERVIDOR</h3>
+        <ul>
+            <li><strong>Cliente</strong>: incluye sistema operativo (OS) con interfaz gráfico de usuario (GUI) o interfaz orientado a objetos de usuario (OOUI)</li>
+            <li><strong>Servidor</strong>: ejecuta software especializado.</li>
+            <li><strong>Middleware</strong>: software distribuido para interacciones entre cliente y servidor. Desde la API de la cliente usada para invocar el servicio, la transmisión de la solicitud y la respuesta hasta el sistema que informa al servidor. No incluye el software que proporciona el servicio ni el interfaz de usuario en el cliente. Parte en el cliente y parte en el servidor. El middleware incluye:
+                <ul>
+                    <li>Protocolos de transporte, como TCP/IP, IPX...</li>
+                    <li>NOS's (Sistemas operativos de red), como RPC, Samba...</li>
+                    <li>Middleware específico para el servicio como HTTP, ORB...</li>
+                    <li>Responsable del buen funcionamiento, especialmente en N niveles</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h4>Ejemplos de servidores de aplicaciones</h4>
+        <p>Para finalizar este apartado vamos a mostrar algunos ejemplos de servidores de aplicaciones:</p>
+        <p>Entre los servidores de aplicación Java EE privativos más conocidos se encuentran:</p>
+        <ul>
+            <li>WebLogic de Oracle (antes BEA Systems)</li>
+            <li>JBoss Enterprise Application Platform de Red Hat</li>
+            <li>WebSphere de IBM</li>
+            <li>EAServer de Sybase Inc</li>
+            <li>Microsoft
+                <ul>
+                    <li>IIS – Internet information server</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Entre los servidores de aplicaciones libres se encuentran:</p>
+        <ul>
+            <li>JOnAS del consorcio ObjectWeb</li>
+            <li>Wildfly versión comunitaria de JBoss Red Hat</li>
+            <li>Geronimo de Apache</li>
+            <li>TomEE de Apache</li>
+            <li>Resin Java Application Server de Caucho Technology</li>
+            <li>Blazix de Desiderata Software</li>
+            <li>Enhydra Server de Enhydra.org</li>
+            <li>Zope. Programado en Python</li>
+            <li>GlassFish de Oracle</li>
+        </ul>
+    </span>
+</div>

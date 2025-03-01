@@ -1,0 +1,65 @@
+<div class="teoria">
+    <span id="3070101001">
+        <h2>1.1. PATRONES DE ARQUITECTURA</h2>
+        <p>Los <strong>patrones arquitectónicos</strong>, o <strong>patrones de arquitectura</strong>, también llamados <strong>arquetipos</strong> ofrecen soluciones a problemas de arquitectura de software en ingeniería de software.</p>
+        <p>Dan una descripción de los elementos y el tipo de relación que tienen junto con un conjunto de restricciones sobre cómo pueden ser usados.</p>
+        <p>Un <strong>patrón arquitectónico</strong> expresa un esquema de organización estructural esencial para un sistema de software, que consta de subsistemas, sus responsabilidades e interrelaciones.</p>
+        <p>En comparación con los patrones de diseño, los patrones arquitectónicos tienen un nivel de abstracción mayor.</p>
+    </span>
+
+    <span id="3070101002">
+        <h3>1.1.1. EJEMPLOS DE PATRONES DE ARQUITECTURA</h3>
+        <p>En este apartado vamos a enumerar los distintos patrones de arquitectura que vamos a ir detallando a lo largo del tema:</p>
+        <ul>
+            <li>Programación por capas</li>
+            <li>Tres niveles</li>
+            <li>Pipeline</li>
+            <li>Invocación implícita</li>
+            <li>Arquitectura en pizarra</li>
+            <li>Arquitectura dirigida por eventos, Presentación-abstracción-control</li>
+            <li>Peer-to-peer</li>
+            <li>Arquitectura orientada a servicios</li>
+            <li>Arquitectura cliente-servidor</li>
+            <li>Modelo Vista Controlador</li>
+            <li>Arquitectura 4 + 1</li>
+        </ul>
+    </span>
+
+    <span id="3070101003">
+        <h3>1.1.2. PROGRAMACIÓN POR CAPAS</h3>
+        <p>La <strong>programación por capas</strong> tiene como objetivo fundamental la separación (desacoplamiento) de las partes que componen una aplicación software o también una arquitectura cliente-servidor. Esta separación se produce en las siguientes capas:</p>
+        <ul>
+            <li>capa de presentación.</li>
+            <li>lógica de negocio.</li>
+            <li>capa de persistencia o datos.</li>
+        </ul>
+        <p>El disponer de diferentes capas nos brinda una flexibilidad a la hora de mantener el sistema. Por ejemplo, podemos crear nuevas interfaces de usuario, para la capa de presentación, sin que se vean afectadas el resto de capas: negocio y datos.</p>
+        <p>Vamos ahora a describir las principales ventajas que nos aporta este modelo:</p>
+        <ul>
+            <li>El desarrollo se puede llevar a cabo en varios niveles y, en caso de que sobrevenga algún cambio, solo afectará al nivel requerido sin tener que revisar entre el código fuente de otros módulos, dado que se habrá reducido el Acoplamiento informático hasta una interfaz de paso de mensajes.</li>
+            <li>Permite distribuir el trabajo de creación de una aplicación por capas; de este modo, cada equipo de desarrollo está totalmente independizado del resto de capas, de forma que basta con conocer la API que existe entre niveles.</li>
+        </ul>
+    </span>
+
+    <span id="3070101004">
+        <h3>1.1.3. CAPAS DE LA ARQUITECTURA</h3>
+        <h4>Capa de presentación:</h4>
+        <p>La que ve el usuario (también se la denomina «capa de usuario»), presenta el sistema al usuario, le comunica la información y captura la información del usuario en un mínimo de proceso (realiza un filtrado previo para comprobar que no hay errores de formato). También es conocida como <strong>interfaz gráfica</strong> y debe tener la característica de ser «amigable» (entendible y fácil de usar) para el usuario. Esta capa se comunica únicamente con la capa de negocio.</p>
+        
+        <h4>Capa de negocio:</h4>
+        <p>Es donde residen los programas que se ejecutan, se reciben las peticiones del usuario y se envían las respuestas tras el proceso. Se denomina <strong>capa de negocio</strong> (e incluso de lógica del negocio) porque es aquí donde se establecen todas las reglas que deben cumplirse. Esta capa se comunica con la capa de presentación, para recibir las solicitudes y presentar los resultados, y con la capa de datos, para solicitar al gestor de base de datos almacenar o recuperar datos de él. También se consideran aquí los programas de aplicación.</p>
+        
+        <h4>Capa de datos:</h4>
+        <p>Es donde residen los datos y es la encargada de acceder a los mismos. Está formada por uno o más gestores de bases de datos que realizan todo el almacenamiento de datos, reciben solicitudes de almacenamiento o recuperación de información desde la capa de negocio.</p>
+        
+        <p>Hay que indicar que todas estas capas pueden estar alojadas en una única máquina, aunque lo más común es que haya una arquitectura de máquinas en donde reside la capa de presentación.</p>
+        
+        <p>Las capas de negocio y de datos pueden residir en la misma máquina, y si el crecimiento de las necesidades lo aconseja se pueden separar en dos o más máquinas.</p>
+        
+        <p>En el caso de la capa de datos, si el tamaño o complejidad de ésta aumenta, se puede crear un <strong>clúster</strong> el cual recibirá las peticiones dirigidas desde la capa de negocio.</p>
+        
+        <p>Puede ocurrir que necesitemos por complejidad o rendimiento el dividir la capa de negocio en varias instancias, en este caso todas ellas serían las que dirigirían las peticiones a una única instancia de base de datos.</p>
+        
+        <p>En sistemas muy complejos y con grandes necesidades de disponibilidad y rendimiento, se llega a tener una serie de máquinas sobre los cuales se aloja la capa de negocio, y otra serie de máquinas sobre las cuales se despliega la base de datos.</p>
+    </span>
+</div>

@@ -1,0 +1,89 @@
+<div class="teoria">
+    <span id="3080101001">
+        <h2>1.1 APLICACIONES WEB</h2>
+        <p>En la Ingeniería de software se denomina <strong>aplicación web</strong> a aquellas aplicaciones que los usuarios pueden utilizar accediendo a un Servidor web a través de Internet o de una intranet mediante un navegador web. En resumen, es una aplicación software que se desarrolla en un lenguaje de programación que es soportado por los navegadores web.</p>
+        <p>Las aplicaciones web son muy comunes ya que es muy sencillo utilizarlas a través de un <strong>cliente ligero</strong>, en este caso un navegador web, así como a la independencia de la arquitectura del dispositivo donde se ejecuta, además es sencillo el poderla actualizar y mantener sin distribuir e instalar software a miles de usuarios potenciales.</p>
+        <p>Por ello podemos afirmar que es la arquitectura ideal para aplicaciones Internet/Intranet.</p>
+        <p>Las aplicaciones Web suelen ser descritas como <strong>multiplataforma</strong>, ya que, idealmente, se puede acceder desde cualquiera de los diversos navegadores web en diferentes sistemas operativos. Estas aplicaciones generalmente emplean una arquitectura de sistema <strong>cliente-servidor</strong>, y pueden variar ampliamente en complejidad y funcionalidad.</p>
+    </span>
+
+    <span id="3080101002">
+        <h3>1.1.1 ARQUITECTURA DE APLICACIONES WEB</h3>
+        <p>La arquitectura típica que siguen las aplicaciones web está basada en el patrón <strong>Modelo-Vista-Controlador</strong>, y en concreto siguen un modelo en <strong>tres capas</strong>, en donde está separada la parte de presentación, la lógica de negocio y la persistencia, o capa de datos.</p>
+        <p>Ilustración 1 Arquitectura aplicaciones web en 3 capas</p>
+    </span>
+
+    <span id="3080101003">
+        <h3>1.1.2 SERVIDOR DE APLICACIONES</h3>
+        <p>Centro de Estudios TIC www.cetic.es Cuerpo de Técnicos Auxiliares de Informática de la Administración del Estado</p>
+        <ul>
+            <li>Recoge y procesa las peticiones HTTP de los clientes.</li>
+            <li>Gestiona la seguridad: identifica y valida al usuario, control de accesos a zonas protegidas.</li>
+            <li>Sirve a los clientes contenido estático y dinámico de las aplicaciones web.</li>
+            <li>Registra la actividad del usuario.</li>
+        </ul>
+        <p>Ilustración 2 Niveles arquitectura aplicaciones web en tres capas</p>
+        <p>El servidor de aplicaciones presenta una arquitectura que se muestra a continuación:</p>
+        <p>Ilustración 3 Servidor aplicaciones de aplicaciones Web</p>
+        <p>Ilustración 4 Desarrollo Front End vs Back End</p>
+    </span>
+
+    <span id="3080101004">
+        <h4>Servidor HTTP/SSL (aunque se sigue llamando SSL en realidad es TLS):</h4>
+        <p>Se envía y se recibe información de forma segura con SSL (TLS). Servidores típicos: ApacheWeb Server, IIS (Internet Information Server).</p>
+    </span>
+
+    <span id="3080101005">
+        <h4>Servlet:</h4>
+        <p>Es una clase en el lenguaje de programación Java, utilizada para ampliar las capacidades de un servidor. Pueden ser vistos como applets de Java que se ejecutan en servidores en vez de navegadores web. El uso más común de los servlets es generar páginas web de forma dinámica a partir de los parámetros de la petición que envíe el navegador web.</p>
+    </span>
+
+    <span id="3080101006">
+        <h4>Páginas dinámicas:</h4>
+        <p>Combinación de HTML estático y script dinámicos. Parte del código embebido en las páginas HTML será ejecutado en el servidor y parte en el cliente.</p>
+    </span>
+
+    <span id="3080101007">
+        <h4>JSP (Java Server Pages) y ASP (Active Server Pages)</h4>
+        <p>Son dos lenguajes scripting del lado del servidor. Tenemos que JSP se trata de un lenguaje compilado mientras que ASP es interpretado.</p>
+    </span>
+
+    <span id="3080101008">
+        <h4>Interprete de scripting</h4>
+        <p>Permite la ejecución de script en el servidor.</p>
+    </span>
+
+    <span id="3080101009">
+        <h4>Framework de desarrollo de la lógica de negocio en una aplicación web multicapa.</h4>
+        <p>Un ejemplo de este tipo de framework es por ejemplo Spring.</p>
+    </span>
+
+    <span id="3080101010">
+        <h3>1.1.3 CLIENTE WEB</h3>
+        <p>El cliente Web dentro de la arquitectura de este tipo de aplicaciones Web, es el encargado de realizar las peticiones HTTP al servidor Web. A continuación, recibe las respuestas de éste, las procesa y las representa al cliente que hizo la petición. Además, se encarga de gestionar la interfaz con el usuario.</p>
+        <p>El cliente Web presenta las siguientes características:</p>
+        <ul>
+            <li>Realiza peticiones HTTP al servidor Web.</li>
+            <li>Procesa y representa la respuesta del servidor.</li>
+            <li>Gestiona el interfaz con el usuario.</li>
+        </ul>
+    </span>
+
+    <span id="3080101011">
+        <p>En cuanto a la arquitectura que presentan los clientes web, están compuestos por:</p>
+        <ul>
+            <li>Java Virtual Machine, que ejecuta los applets.</li>
+            <li>Un Intérprete de scripting para validar datos antes de enviarlos al servidor.</li>
+            <li>Los scripts de clientes (embebidos dentro de la página web), se ejecutan ante la ejecución de un evento, hay que destacar que no son lo mismo que los componentes de cliente (applets o controles Active X) ya que éstos se ejecutan en el navegador.</li>
+            <li>Plug-ins, que son elementos que se instalan en el navegador e interactúan con él.</li>
+            <li>Objetos de servidor que están implementados en Java.</li>
+            <li>Páginas dinámicas (Java Server Pages).</li>
+        </ul>
+    </span>
+
+    <span id="3080101012">
+        <p>El <strong>front-end</strong> o cliente es la parte del software que interactúa con los usuarios y el <strong>back-end</strong> es la parte que procesa la entrada desde el front-end.</p>
+        <p>La separación del sistema en front-ends y back-ends es un tipo de abstracción que ayuda a mantener las diferentes partes del sistema separadas.</p>
+        <p>El front-end es el responsable de recolectar los datos de entrada del usuario, que pueden ser de muchas y variadas formas, y los transforma ajustándolos a las especificaciones que demanda el back-end para poder procesarlos, devolviendo generalmente una respuesta que el front-end recibe y expone al usuario de una forma entendible para este. La conexión del front-end y el back-end es un tipo de interfaz.</p>
+    </span>
+</div>

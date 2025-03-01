@@ -1,0 +1,129 @@
+<div class="teoria">
+    <span id="3100501001">
+        <h2>5.1. PRUEBAS</h2>
+        <p>Las pruebas son la forma más eficaz de garantizar la calidad de software.</p>
+    </span>
+
+    <span id="3100501002">
+        <h3>5.1.1. CONCEPTOS IMPORTANTES</h3>
+        <p>A continuación, se describen una serie de conceptos importantes relacionados con las pruebas:</p>
+        <ul>
+            <li>Caso de prueba. Prueba o comportamiento del código que se desea testear. Está compuesto por:
+                <ul>
+                    <li>Descripción del requisito a probar y resultado esperado.</li>
+                    <li>Flujo de comprobación.</li>
+                    <li>Datos de entrada.</li>
+                </ul>
+            </li>
+            <li>Cobertura. Porcentaje de código o requisitos que se han probado.</li>
+            <li>Verificación. Comprobación de que el funcionamiento es el descrito por los diferentes requisitos definidos por los clientes.</li>
+            <li>Validación. Comprobación de que la/s funcionalidades desarrolladas cumplen las características y necesidades últimos del cliente final.</li>
+        </ul>
+    </span>
+
+    <span id="3100501003">
+        <h3>5.1.2. TIPOS DE PRUEBAS</h3>
+        <p>En función del objetivo que se pretende probar dentro del software, se pueden distinguir los siguientes tipos de pruebas:</p>
+        <ul>
+            <li>Pruebas unitarias. Las pruebas unitarias son consideradas una parte esencial que permite garantizar la calidad del código. Siendo puristas las pruebas unitarias son aquellas que verifican las unidades más pequeñas del código. Es decir trataríamos un procedimiento, función de una clase con un determinado comportamiento.</li>
+            <li>Pruebas de integración. Cómo su propio nombre indica las pruebas de integración son aquellas que testean la interconexión o comunicación de los distintos módulos.</li>
+            <li>Pruebas de regresión. El objetivo de las pruebas de regresión es certificar que los cambios de código no afectan a la funcionalidad ya desarrollada. Es decir verifica si el sistema a probar funciona correctamente después de los cambios.</li>
+            <li>Pruebas de aceptación. Pruebas realizadas por los usuarios finales para verificar y dar el visto bueno a las funcionalidades desarrolladas.</li>
+            <li>Pruebas de usabilidad (UX). Tienen la finalidad de cuantificar determinar la experiencia de usuario. Lo que se pretende conseguir con este tipo de pruebas es la creación de soluciones intuitivas y fáciles de usar para todo tipo de usuarios.</li>
+            <li>Pruebas de accesibilidad. Se comprueban que las soluciones cumplen los requisitos de accesibilidad generalmente definidos en el WCAG (Web Content Accesibility Guideness).</li>
+            <li>Pruebas de rendimiento. Tienen la finalidad de evaluar el rendimiento en diversas vertientes. Se pueden medir tiempos de respuesta o número de usuarios soportados.</li>
+            <li>Pruebas de estrés. Se prueban la carga máxima soportada de un sistema en busca de los niveles críticos.</li>
+            <li>Pruebas de seguridad. Pruebas que tienen el objetivo de mejorar las diversas vulnerabilidades de sistemas midiendo la capacidad de evadir una intrusión. Este tipo de pruebas se pueden hacer ejecutando el sistema o sin ejecutarlo:
+                <ul>
+                    <li>DAST (Dynamic Application Security Testing).</li>
+                    <li>SAST (Static Application Security Testing).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>Por otro lado, también podemos definir las pruebas que se definen dentro de Métrica 3:</p>
+        <ul>
+            <li>Pruebas unitarias.</li>
+            <li>Pruebas de integración.</li>
+            <li>Pruebas del sistema.</li>
+            <li>Pruebas de implantación.</li>
+            <li>Pruebas de aceptación.</li>
+            <li>Pruebas de regresión.</li>
+        </ul>
+    </span>
+
+    <span id="3100501004">
+        <h3>5.1.3. TÉCNICAS PARA LA REALIZACIÓN DE PRUEBAS</h3>
+        <p>Una vez explicados los diferentes tipos de pruebas, conviene saber los diferentes tipos de técnicas de realización de pruebas. Estas se pueden dividir entre técnicas estáticas y dinámicas:</p>
+
+        <h4>Pruebas de Caja Negra</h4>
+        <p>Es una técnica de pruebas del software en la que se verifica las funcionalidades sin tener en cuenta cómo se encuentra desarrollado. Se definen los datos de entrada y se comparan los resultados de salida con los esperados.</p>
+
+        <p>Tipos de técnicas de caja negra:</p>
+        <ul>
+            <li>Partición de equivalencias</li>
+            <li>Análisis de valores borde</li>
+            <li>Tablas de decisión</li>
+            <li>Transición entre estados</li>
+        </ul>
+
+        <h4>Pruebas de Caja Blanca</h4>
+        <p>Técnicas de pruebas de software en la que se verifica una codificación, estructura interna y diseño. Se utilizan para mejorar el diseño y la usabilidad del software.</p>
+
+        <p>Tipos de técnicas de caja blanca:</p>
+        <ul>
+            <li>Pruebas unitarias.</li>
+            <li>Prueba de penetración.</li>
+            <li>Prueba de transformación</li>
+        </ul>
+    </span>
+
+    <span id="3100501005">
+        <h3>5.1.4. PRUEBAS EN METODOLOGÍAS ÁGILES</h3>
+        <p>Como se ha comentado a lo largo del documento, las pruebas son una parte esencial para garantizar una correcta calidad del desarrollo. Como se dice en metodología ágiles "La calidad de un producto de software depende exclusivamente de la calidad del proceso con el que se construye". Para ello se debe tener en cuenta el concepto de prueba ágil.</p>
+
+        <p>Características del "agile testing" frente las características de un sistema de pruebas tradicional:</p>
+        <ul>
+            <li>Las metodologías ágiles no consideran las pruebas como una fase separada sino como una parte integral del desarrollo del software.</li>
+            <li>Prueba ágil es un tipo dinámico de pruebas en los que se asume que los requerimientos están en continúo cambio. Este tipo de pruebas se basa en el concepto de Integrar y Probar.</li>
+            <li>Integrar y Probar. Concepto de iteraciones cortas de realización de pruebas en cada etapa de desarrollo, a modo continuo hasta que el requerimiento es finalmente aprobado por el cliente.</li>
+        </ul>
+
+        <p>Teniendo en cuenta estos conceptos, cuando hablamos de metodologías tenemos en cuenta las siguientes tipos de pruebas:</p>
+        <ul>
+            <li>Pruebas Unitarias. Parte técnica.</li>
+            <li>Pruebas funcionales centradas en el negocio.</li>
+            <li>Pruebas de usabilidad y aceptación. Encontrar mejorar de cara al negocio que se quiere estudiar.</li>
+            <li>Pruebas de desempeño, carga y seguridad.</li>
+        </ul>
+    </span>
+
+    <span id="3100501006">
+        <h4>5.1.4.1. PRÁCTICAS DE TESTING EN METODOLOGÍAS ÁGILES</h4>
+        
+        <h5>Test Driven Development (TDD) o Desarrollo guiado por pruebas</h5>
+        <p>Es una metodología de desarrollo cuyo objetivo es crear primero las pruebas y luego escribir el software. Por tanto se definen dos fases:</p>
+        <ul>
+            <li>Escribir las pruebas primero
+                <ul>
+                    <li>La prueba debe fallar.</li>
+                    <li>Se genera el código y pasa la prueba.</li>
+                </ul>
+            </li>
+            <li>Refactoring o mejora del código.</li>
+        </ul>
+
+        <p>Ventajas del TDD:</p>
+        <ul>
+            <li>Nos permiten hacer test completos</li>
+            <li>Claridad a la hora de leer el código al tener ejemplos de prueba.</li>
+            <li>Nos permiten mejorar la aplicación asegurándonos que nada de lo anterior se ha estropeado.</li>
+        </ul>
+
+        <h5>Acceptance Test Driven Development (ATDD)</h5>
+        <p>Es una dimensión del TDD aplicada al nivel de gestión de requerimientos de software, en el cual las pruebas escritas son a nivel de cliente, es decir, lo equivalente a una prueba de aceptación o test funcional.</p>
+
+        <h5>Behaviour Driven Development (BDD)</h5>
+        <p>Bajo este enfoque primero se desarrolla una prueba funcional o de historia de usuario automatizada, luego se ejecuta el desarrollo aplicando TDD hasta que la prueba es exitosa.</p>
+    </span>
+</div>

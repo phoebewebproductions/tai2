@@ -1,0 +1,123 @@
+<div class="teoria">
+    <span id="3070501001">
+        <h2>5.1. PROTOCOLOS ASOCIADOS A LAS ARQUITECTURAS</h2>
+        <p>En este apartado vamos a describir los diferentes protocolos utilizados en las arquitecturas que hemos analizado durante el tema.</p>
+    </span>
+
+    <span id="3070501002">
+        <h3>5.1.1. REST</h3>
+        <p><strong>REST</strong> (Representational State Transfer) surge ya que muchos desarrolladores de Servicios Web piensan que SOAP es demasiado complicado.</p>
+        <p>Como solución están comenzando a utilizar Servicios Web basados en REST para el tratamiento de cantidades de datos masivas.</p>
+        <p>Este es el caso de grandes empresas como eBay y Google.</p>
+        <p>Este nuevo estilo ha supuesto una nueva opción de estilo de uso de los Servicios Web.</p>
+        <p>Los servicios RESTful son la alternativa de los servicios Web SOAP. En la actualidad han experimentado un creciente uso por su simplicidad y ligereza.</p>
+        <p>Evitan la sobrecarga que supone el uso de XML y protocolos complejos de interacción entre aplicaciones.</p>
+        <p>Los servicios RESTful siguen el estilo de arquitectura denominado REST (REpresentational State Transfer).</p>
+        <p>Los servicios RESTful comparten varias características con los servicios web SOAP.</p>
+    </span>
+
+    <span id="3070501003">
+        <h3>5.1.2. REST VS SOAP</h3>
+        <h4>REST</h4>
+        <ul>
+            <li>Las operaciones se definen en los mensajes.</li>
+            <li>Una dirección única para cada instancia del proceso.</li>
+            <li>Cada objeto soporta las operaciones estándares definidas.</li>
+            <li>Componentes débilmente acoplados.</li>
+            <li>No conserva el estado (stateless).</li>
+        </ul>
+        
+        <h4>SOAP</h4>
+        <ul>
+            <li>Las operaciones son definidas como puertos WSDL.</li>
+            <li>Dirección única para todas las operaciones.</li>
+            <li>Múltiple instancias del proceso comparten la misma operación.</li>
+            <li>Componentes fuertemente acoplados.</li>
+        </ul>
+        
+        <h4>REST Y SOAP</h4>
+        <ul>
+            <li>Son componentes software.</li>
+            <li>Permiten la interoperabilidad entre sistemas heterogéneos implementados con diferentes tecnologías y lenguajes.</li>
+            <li>Utilizan protocolos y estándares.</li>
+        </ul>
+    </span>
+
+    <span id="3070501004">
+        <h3>5.1.3. VENTAJAS E INCONVENIENTES</h3>
+        <h4>Ventajas</h4>
+        <h5>REST</h5>
+        <ul>
+            <li>Bajo consumo de recursos.</li>
+            <li>Las instancias del proceso son creadas explícitamente.</li>
+            <li>El cliente no necesita información de enrutamiento a partir de la URI inicial.</li>
+            <li>Los clientes pueden tener una interfaz "listener" (escuchadora) genérica para las notificaciones.</li>
+            <li>Generalmente fácil de construir y adoptar.</li>
+        </ul>
+        
+        <h5>SOAP</h5>
+        <ul>
+            <li>Fácil (generalmente) de utilizar.</li>
+            <li>La depuración es posible.</li>
+            <li>Las operaciones complejas pueden ser escondidas detrás de una fachada.</li>
+            <li>Incrementa la privacidad.</li>
+            <li>Herramientas de desarrollo.</li>
+        </ul>
+        
+        <h4>Inconvenientes</h4>
+        <h5>REST</h5>
+        <ul>
+            <li>Gran número de objetos.</li>
+            <li>Manejar el espacio de nombres (URIs) puede ser engorroso.</li>
+            <li>La descripción sintáctica/semántica muy informal (orientada al usuario).</li>
+            <li>Pocas herramientas de desarrollo.</li>
+        </ul>
+        
+        <h5>SOAP</h5>
+        <ul>
+            <li>Los clientes necesitan saber las operaciones y su semántica antes del uso.</li>
+            <li>Los clientes necesitan puertos dedicados para diferentes tipos de notificaciones.</li>
+            <li>Las instancias del proceso son creadas implícitamente.</li>
+        </ul>
+    </span>
+
+    <span id="3070501005">
+        <h3>5.1.4. SERVICIOS WEB REST VS SERVICIOS WEB SOAP</h3>
+        <p>Los servicios web SOAP y los servicios web RESTful se diferencian fundamentalmente en:</p>
+        <h4>Su complejidad:</h4>
+        <ul>
+            <li>Los servicios web SOAP son muy complejos (adaptabilidad a cualquier necesidad, seguridad avanzada, transaccionalidad, QoS).</li>
+            <li>Los servicios web RESTful son extremadamente simples.</li>
+        </ul>
+        
+        <h4>El tipo de interfaz:</h4>
+        <ul>
+            <li>Los servicios web SOAP están orientados a RPC (llamada a métodos remotos).</li>
+            <li>Los servicios web REST están dirigidos a recursos accesibles con identificadores (URIs) y manejados con acciones basadas en métodos HTTP.</li>
+        </ul>
+    </span>
+
+    <span id="3070501006">
+        <h3>5.1.5. HYPERTEXT TRANSFER PROTOCOL (HTTP)</h3>
+        <p>Es un protocolo para el intercambio de información entre un cliente, que realiza una petición, y un servidor (identificado por una URL) que la responde. Los mensajes intercambiados están en texto plano.</p>
+        <p>Estructura:</p>
+        <ul>
+            <li>Una parte inicial con:
+                <ul>
+                    <li>Para la petición, la acción requerida (método de petición) y la URL del recurso.</li>
+                    <li>Para la respuesta, el código con el resultado de la operación.</li>
+                </ul>
+            </li>
+            <li>Una cabecera con metadatos.</li>
+            <li>Un cuerpo (opcional) con los datos transmitidos</li>
+        </ul>
+    </span>
+
+    <span id="3070501007">
+        <h3>5.1.6. JSON Y OPEN API COMO SUSTITUTO DE XML Y WSDL</h3>
+        <p>Los servicios web RESTful se caracterizan, entre otras cosas, por su ligereza.</p>
+        <p>A ello contribuye el uso del formato JSON en lugar de XML (aunque también podría usarse XML).</p>
+        <p>Por su parte, la descripción del servicio web RESTful (equivalente a la especificación WSDL para los servicios web SOAP) puede hacerse utilizando la especificación OpenAPI.</p>
+        <p>También hay otra especificación WADL (Web Application Description Language) equivalente a WDSL pero no tiene versión definitiva mientras que OpenApi es un estándar de facto.</p>
+    </span>
+</div>

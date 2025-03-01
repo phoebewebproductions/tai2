@@ -1,0 +1,137 @@
+<div class="teoria">
+    <span id="3080401001">
+        <h2>4.1 LENGUAJES DE MARCADO (SGML, HTML, XML)</h2>
+        <p>Su origen es la Industria de la publicación electrónica. Inicialmente eran anotaciones de instrucciones de diseño para el tipógrafo, que maquetaba y componía las publicaciones.</p>
+        <p>Estas tecnologías presentan en común las siguientes características:</p>
+        <h3>Tipos</h3>
+        <h4>Marcado procedural</h4>
+        <p>Conlleva un procedimiento para el dispositivo de salida. El usuario identifica por separado cada elemento significativo, también se especifica la apariencia del texto (tipo de fuente, tamaño, posición), utilizando los comandos apropiados para producir el formato deseado para cada elemento. Es similar al tradicional, la única diferencia es que el marcado se almacena electrónicamente.</p>
+        <p>Desventajas:</p>
+        <ul>
+            <li>Pérdida estructura</li>
+            <li>No es flexible. Cualquier cambio a las normas de formato implica cambiar de manera manual del documento</li>
+            <li>El procesado es lento y propenso a errores</li>
+        </ul>
+    </span>
+
+    <span id="3080401002">
+        <h4>Marcado estructural</h4>
+        <p>Codificación genérica o estructurada. Las etiquetas se asocian a normas de formato, es decir un formateador procesa el texto y produce un documento de salida.</p>
+        <p>Ventajas:</p>
+        <ul>
+            <li>El marcado describe únicamente la estructura lógica del documento</li>
+            <li>Es más flexible</li>
+            <li>Facilita el procesado automático de la información</li>
+        </ul>
+    </span>
+
+    <span id="3080401003">
+        <h3>4.1.1 SGML</h3>
+        <p><strong>Standard Generalized Markup Language</strong>, presenta las siguientes características generales:</p>
+        <ul>
+            <li>Lenguaje de Marcado de Tipo estructural</li>
+            <li>Historia:
+                <ul>
+                    <li>Se basa en los trabajos iniciales del Dr. Charles Goldfarb de IBM</li>
+                    <li>Trataron de definir lenguaje de marcas universal para todo tipo de documentos</li>
+                    <li>Finalmente acabaron con un Metalenguaje</li>
+                </ul>
+            </li>
+            <li>Es un estándar internacional publicado por la ISO (Organización Internacional de Estándares). ISO 8879:1986</li>
+        </ul>
+        <p>Características principales:</p>
+        <ul>
+            <li>El marcado describe la estructura, no su apariencia</li>
+            <li>El marcado se ajusta a un modelo</li>
+            <li>El material que constituye un documento se puede distribuir en diferentes archivos (Un archivo para portada, introducción, etc.) que se denominan entidades</li>
+        </ul>
+    </span>
+
+    <span id="3080401004">
+        <p>Las entidades pueden estar compartidas por distintos documentos. Un documento estará definido en función de la estructura de las entidades que lo conforman.</p>
+        <p>Las entidades se organizan en una estructura lógica de manera jerarquizada, en la que se definen conceptos como capítulos, tablas y párrafos. Cada entidad contiene elementos del documento.</p>
+        <p>Los Elementos y entidades pueden coincidir: un elemento lógico como tabla puede ser también una entidad en un archivo hoja de cálculo.</p>
+        <p>Los objetos SGML son principalmente dos:</p>
+        <ul>
+            <li>Entidades, para caracteres especiales, texto almacenado y archivos externos</li>
+            <li>Elementos, insertados como etiquetas y sus atributos locales</li>
+        </ul>
+        <p>Pensado para grandes sistemas de gestión de Documentos Muy potente pero también muy complicado.</p>
+    </span>
+
+    <span id="3080401005">
+        <p>Un documento SGML está compuesto de tres archivos que trabajan de manera conjunta:</p>
+        <ul>
+            <li>El DTD (Document Type Definition o Definición del Tipo de Documento)</li>
+            <li>La declaración SGML</li>
+            <li>La Muestra de Documento</li>
+        </ul>
+    </span>
+
+    <span id="3080401006">
+        <h3>4.1.2 DTD</h3>
+        <p>Es donde se define la Estructura del documento. Contiene las reglas de dichos elementos: el nombre, su significado, dónde pueden ser utilizados y qué pueden contener.</p>
+        <p>Se puede almacenar en un archivo separado. Sin el DTD (o una referencia a él), el documento SGML no será validado apropiadamente por el parser.</p>
+        <p>El parser es una herramienta que asegura la adecuada conformación de SGML dentro de las múltiples especificaciones que un documento SGML puede tener. Escribir el DTD es la tarea más compleja e importante.</p>
+        <p>El DTD permite a las aplicaciones como editores, motores de búsqueda y visualizadores interpretar los documentos SGML.</p>
+    </span>
+
+    <span id="3080401007">
+        <h4>Declaración SGML</h4>
+        <p>Es lo que indica en el documento qué puede y qué no puede estar contenido, qué caracteres serán usados, qué características específicas de SGML serán implementadas y qué sintaxis se utilizará en el documento.</p>
+        <p>La declaración SGML y el DTD trabajan juntos. Si la declaración SGML dice que una función en particular no podrá ser usada, el DTD debe respetarlo, de otra manera existirán errores en el documento. Ésta puede ser parte de la Muestra de Documento y es necesaria para cada documento SGML. Puede utilizarse desde cualquier ubicación considerada no local.</p>
+    </span>
+
+    <span id="3080401008">
+        <h3>4.1.3 HTML</h3>
+        <p>Aplicación de SGML, no de XML. Desarrollado originalmente por Tim Berners-Lee mientras estaba en el CERN (Centro Europeo de Investigaciones Nucleares), y fue popularizado por el navegador Mosaic desarrollado en el NCSA (Nacional Center of SuperComputing of Applications).</p>
+        <p>La primera web data de 1993: http://info.cern.ch/hypertext/WWW/TheProject.html</p>
+        <p>HTML no es un lenguaje de programación, sino un formato de representación. El formato HTML permite indicar a los navegadores como queremos que se visualice la información que hemos introducido en la página. Para ello utiliza etiquetas o elementos, que a su vez están configuradas o parametrizadas mediante atributos.</p>
+    </span>
+
+    <span id="3080401009">
+        <h4>Características de HTML</h4>
+        <p>Algunas de las características de HTML más importantes son:</p>
+        <ul>
+            <li>Utiliza marcado estructural, procedural e hipertextual:
+                <ul>
+                    <li>Estructural: <code>&lt;h1&gt; Coche &lt;/h1&gt;</code> define que Coche es un contenido de tipo cabecera de primer nivel</li>
+                    <li>Presentacional: <code>&lt;br&gt; Casa&lt;/br&gt;</code> indica que este texto se debe presentar salto de línea</li>
+                    <li>Hipertextual: <code>&lt;a href:"www.w3c.com"&gt; Enlace a W3C &lt;/a&gt;</code> etiqueta ancla para enlazar</li>
+                </ul>
+            </li>
+            <li>Lenguaje muy simple para la visualización de documentos hipermedia en navegadores</li>
+            <li>Gramática fija, es decir, NO ES UN METALENGUAJE</li>
+            <li>Formato mediante etiquetas (tags) que indican el comienzo y el final de los elementos</li>
+            <li>La gramática HTML no necesita de validación</li>
+            <li>Estructura monolítica, comienza con la etiqueta &lt;html&gt;, y termina con &lt;/html&gt;</li>
+        </ul>
+    </span>
+
+    <span id="3080401010">
+        <h3>4.1.4 HTML 5</h3>
+        <p>Aprobado el estándar W3C en Octubre de 2014, aunque ya se está usando por desarrolladores web desde hace años.</p>
+        <p>Pretende englobar y actualizar HTML4.01, XHTML1.1. Cuando se acabe, será la mayor actualización de una versión de HTML.</p>
+        <p>Resultado de la colaboración entre W3C y WHATWG (Web Hypertext Application Technology Working Group), comunidad de fabricantes y personas interesadas en el avance de HTML.</p>
+        <p>Se buscaba:</p>
+        <ul>
+            <li>Nuevas características basadas en HTML, CSS, DOM y JavaScript</li>
+            <li>Reducir la necesidad de plugins externos</li>
+            <li>Mejor gestión de errores</li>
+            <li>Más etiquetas de marcado para reducir la necesidad de lenguajes de script</li>
+        </ul>
+    </span>
+
+    <span id="3080401011">
+        <h4>Novedades de HTML5</h4>
+        <p>Como novedades frente a otros protocolos derivados de HTML, HTML5 aporta:</p>
+        <ul>
+            <li>Reproducción de contenido multimedia sin necesidad de plugins</li>
+            <li>Visores: MathML y SVG</li>
+            <li>Drag & Drop</li>
+            <li>Avance en el desarrollo de la Web Semántica (Web 3.0)</li>
+            <li>Nuevas etiquetas semánticas: header, footer, article, nav, time, etc.</li>
+            <li>Novedades en API's y Javascript</li>
+        </ul>
+    </span>
+</div>

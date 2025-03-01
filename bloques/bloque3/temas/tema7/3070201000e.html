@@ -1,0 +1,45 @@
+<div class="teoria">
+    <span id="3070201001">
+        <h2>2.1. SERVICIOS WEB</h2>
+        <p>Definición de la W3C:</p>
+        <p>"Un <strong>servicio web</strong> es un sistema software diseñado para soportar la interacción máquina-a-máquina a través de una red y de forma interoperable"</p>
+        <p>Una de las tecnologías más destacadas y que con más éxito está llevando a la práctica el paradigma conceptual de SOA son los Web Services o Servicios Web.</p>
+        <p>Pero SOA y Web Services <strong>NO ES LO MISMO</strong>.</p>
+        <p>Una arquitectura SOA puede llegar a ser implementada, sin que para ello exista un solo Servicio Web.</p>
+        <p>De forma inversa, se pueden implementar Servicios Web sin que exista una plataforma o infraestructura SOA que los soporte por detrás.</p>
+        <p>La diferencia entre ambos términos es conceptual, mientras que SOA define el qué, los Servicios Web definen el cómo.</p>
+    </span>
+
+    <span id="3070201002">
+        <h3>2.1.1. COMPONENTES DE LOS SERVICIOS WEB</h3>
+        <p>Un servicio web cuenta con una interfaz descrita en <strong>WSDL</strong> (Web Service Definition Language) en lenguaje XML, a través de la que es posible interactuar con el mismo mediante el intercambio de mensajes <strong>SOAP</strong>, típicamente transmitidos usando serialización XML sobre HTTP conjuntamente con los estándares web.</p>
+        <p>Para conocer el formato, el consumidor del servicio consulta a un intermediador, un registro de servicios (<strong>UDDI</strong>), donde los proveedores de servicios web publican sus formatos y a los consumidores se les ofrece un servicio de consulta similar a unas "páginas amarillas".</p>
+        <p>Los principales estándares y protocolos usados con los Web Services son:</p>
+        <ul>
+            <li>XML</li>
+            <li>SOAP</li>
+            <li>WSDL</li>
+            <li>UDDI</li>
+        </ul>
+    </span>
+
+    <span id="3070201003">
+        <h3>2.1.2. SOAP (SIMPLE OBJECT ACCESS PROTOCOL)</h3>
+        <p>Se trata de un estándar de la W3C. Define una gramática XML, que describe el formato de los documentos XML a intercambiar entre el consumidor del servicio web y el propio servicio, en concreto, el formato en el que "envuelven" las peticiones y las respuestas entre el consumidor y el proveedor del servicio.</p>
+        <p>Permite que programas que se ejecutan en diferentes sistemas operativos se comuniquen.</p>
+        <p>La comunicación entre las diferentes entidades se realiza mediante mensajes que son enrutados en un sobre (envelope) SOAP.</p>
+        <p>Un mensaje SOAP se compone de un sobre (envelope) que contiene el cuerpo del mensaje y cualquier información de cabecera que se utiliza para describir el mensaje.</p>
+    </span>
+
+    <span id="3070201004">
+        <h3>2.1.3. WSDL (WEB SERVICES DESCRIPTION LANGUAGE)</h3>
+        <p>Se trata de un estándar de la W3C. Es realmente un protocolo que describe el servicio web.</p>
+        <p>Define una gramática XML que permite describir la interfaz de un servicio web, es decir, las funciones y parámetros de entrada y salida necesarios para la invocación del servicio.</p>
+    </span>
+
+    <span id="3070201005">
+        <h3>2.1.4. UDDI (UNIVERSAL DESCRIPTION DISCOVERY AND INTEGRATION)</h3>
+        <p>Perteneciente a OASIS (http://www.uddi.org). Configura un servicio de registro o servicio de directorio donde los proveedores de servicios web publican sus servicios web y los consumidores de éstos los buscan y encuentran, de forma parecida a cómo funciona un servicio de directorio.</p>
+        <p>UDDI es uno de los estándares básicos de los servicios Web cuyo objetivo es ser accedido por los mensajes SOAP y dar paso a documentos WSDL, en los que se describen los requisitos del protocolo y los formatos del mensaje solicitado para interactuar con los servicios Web del catálogo de registros.</p>
+    </span>
+</div>

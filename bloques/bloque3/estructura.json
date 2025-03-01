@@ -210,27 +210,27 @@
         "puntos": [
           {
             "titulo": "Punto 1.1: Patrones de arequitectura  ",
-            "id": "3060101000"
+            "id": "3070101000"
           },
           {
             "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
-            "id": "3060102000"
+            "id": "3070102000"
           },
           {
             "titulo": "Punto 2.1: Servicios WEB",
-            "id": "3060201000"
+            "id": "3070201000"
           },
           {
             "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
-            "id": "3060301000"
+            "id": "3070301000"
           },
           {
             "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
-            "id": "3060401000"
+            "id": "3070401000"
           },
           {
             "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
-            "id": "3060501000"
+            "id": "3070501000"
           }
           
         ]
@@ -239,28 +239,40 @@
         "titulo": "Tema VIII: Aplicaciones web, Desarrollo front-end y en servidor",
         "puntos": [
           {
-            "titulo": "Punto 1.1: Patrones de arequitectura  ",
-            "id": "3060101000"
+            "titulo": "Punto 1.1: Aplicaciones Web  ",
+            "id": "3080101000"
           },
           {
-            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
-            "id": "3060102000"
+            "titulo": "Punto 2.1: Diseño Web Multiplataforma",
+            "id": "3080201000"
           },
           {
-            "titulo": "Punto 2.1: Servicios WEB",
-            "id": "3060201000"
+            "titulo": "Punto 3.1:Diseño Web multidispositivo",
+            "id": "3080301000"
           },
           {
-            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
-            "id": "3060301000"
+            "titulo": "Punto 4.1: Lenguajes de Marcado (parte 1/4)",
+            "id": "3080401000"
           },
           {
-            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
-            "id": "3060401000"
+            "titulo": "Punto 4.2: Lenguajes de Marcado (parte 2/4)",
+            "id": "3080402000"
           },
           {
-            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
-            "id": "3060501000"
+            "titulo": "Punto 4.3: Lenguajes de Marcado (parte 3/4)",
+            "id": "3080403000"
+          },
+          {
+            "titulo": "Punto 5.1: Java Script",
+            "id": "3080501000"
+          },
+          {
+            "titulo": "Punto 6.1: Otros conceptos y lenguajes(parte 1/2)",
+            "id": "3080601000"
+          },
+          {
+            "titulo": "Punto 6.2: Otros conceptos y lenguajes(parte 2/2)",
+            "id": "3080602000"
           }
           
         ]
@@ -269,28 +281,24 @@
         "titulo": "Tema IX: Accesibilidad",
         "puntos": [
           {
-            "titulo": "Punto 1.1: Patrones de arequitectura  ",
-            "id": "3060101000"
+            "titulo": "Punto 1.1: Accesibilidad Web y ámbitos de aplicación ",
+            "id": "3090101000"
           },
           {
-            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
-            "id": "3060102000"
+            "titulo": "Punto 1.2: World Wide Web Consortium (W3C) y la accesibilidad",
+            "id": "3090102000"
           },
           {
-            "titulo": "Punto 2.1: Servicios WEB",
-            "id": "3060201000"
+            "titulo": "Punto 2.1: Usabilidad",
+            "id": "3090201000"
           },
           {
-            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
-            "id": "3060301000"
+            "titulo": "Punto 3.1:Confidencialidad y desiponibilidad de la información de usuario final",
+            "id": "3090301000"
           },
           {
-            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
-            "id": "3060401000"
-          },
-          {
-            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
-            "id": "3060501000"
+            "titulo": "Punto 4.1: Conceptos de seguridad en desarrollo de los sistemas",
+            "id": "3090401000"
           }
           
         ]
@@ -299,28 +307,32 @@
         "titulo": "Tema X:Herramientas CASE",
         "puntos": [
           {
-            "titulo": "Punto 1.1: Patrones de arequitectura  ",
-            "id": "3060101000"
+            "titulo": "Punto 1.1: Herramientas CASE  ",
+            "id": "3100101000"
           },
           {
-            "titulo": "Punto 1.2: Arquitectura de tres niveles, pipeline, invocación implícita, en pizarra, por eentos, p2p y SOA",
-            "id": "3060102000"
+            "titulo": "Punto 2.1: Repositorio: Estructura y actualización",
+            "id": "3100201000"
           },
           {
-            "titulo": "Punto 2.1: Servicios WEB",
-            "id": "3060201000"
+            "titulo": "Punto 3.1: Generación del código y documentación",
+            "id": "3100301000"
           },
           {
-            "titulo": "Punto 3.1:Arquitectura Cliente - Servidor",
-            "id": "3060301000"
+            "titulo": "Punto 4.1: Metodologías de desarrollo",
+            "id": "3100401000"
           },
           {
-            "titulo": "Punto 4.1: Modelo, Vista, Controlador y 4 + 1",
-            "id": "3060401000"
+            "titulo": "Punto 5.1: Pruebas",
+            "id": "3100501000"
           },
           {
-            "titulo": "Punto 5.1: Protocolos asociados a las arquitecturas",
-            "id": "3060501000"
+            "titulo": "Punto 6.1: Programa de gestión de versiones y GIT",
+            "id": "3100601000"
+          },
+          {
+            "titulo": "Punto 7.1: Plataforma de desarrollo colaborativo de software",
+            "id": "3100701000"
           }
           
         ]

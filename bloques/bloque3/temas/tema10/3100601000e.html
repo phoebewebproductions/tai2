@@ -1,0 +1,204 @@
+<div class="teoria">
+    <span id="3100601001">
+        <h2>6.1. PROGRAMA DE GESTIÓN DE VERSIONES</h2>
+        <p>Los programas de gestión de versiones (VCS, Versión Control Systems) son herramientas de software utilizadas para gestionar los cambios en los ficheros y código fuente a lo largo del tiempo. Entre las grandes virtudes de utilizar este tipo de software esta:</p>
+        <ul>
+            <li>Mejora en la gestión de los elementos permitiendo recuperar versiones anteriores de los ficheros almacenados.</li>
+            <li>Mayor protección del código fuente frente a imprevistos.</li>
+            <li>Registro de un histórico de los cambios almacenados.</li>
+            <li>Favorecer la colaboración entre los distintos miembros de un equipo de trabajo.</li>
+            <li>Ayudar a propiciar un trabajo colaborativo de forma rápida e inteligente.</li>
+        </ul>
+        <p>El uso principal de este tipo de herramientas es permitir la vuelta hacia atrás del código en el caso sea necesario (errores, mejoras…).</p>
+    </span>
+
+    <span id="3100601002">
+        <h3>6.1.1. TÉRMINOS</h3>
+        <p>Antes de empezar con las definiciones es importante explicar algunos términos utilizados cuando se habla de herramientas CVS:</p>
+        <ul>
+            <li>Repositorio. Lugar en el que se almacenan los datos actualizados e históricos de cambios.</li>
+            <li>Tag. Etiqueta utilizada para identificar las versiones o revisiones de un proyecto.</li>
+            <li>Rama o branch. Copia de archivos de manera que se puedan ir desarrollando distintos aspectos de forma paralela. Normalmente se utilizan para gestiones nuevas tareas o resolución de bugs.</li>
+            <li>Confirmar o commit. Conjunto de cambios preparados para subir al repositorio central los cambios realizados.</li>
+            <li>Merge. Fusionar un cambio a otro conjunto de cambios.</li>
+        </ul>
+    </span>
+
+    <span id="3100601003">
+        <h3>6.1.2. TIPOS DE PROGRAMAS DE GESTIÓN DE VERSIONES</h3>
+        <p>Los tipos de gestión de versiones se clasifican según la forma de almacenar los repositorios. De esta forma tenemos dos clasificaciones más importantes:</p>
+    </span>
+
+    <span id="3100601004">
+        <h4>6.1.2.1. SISTEMAS DE GESTIÓN DE VERSIONES CENTRALIZADOS</h4>
+        <p>Los sistemas de gestión de versiones centralizados se caracterizan por tener un único repositorio donde se almacenan toda la información. Se facilitan las tareas administrativas a cambio de reducir flexibilidad, pues todas las decisiones más importantes necesitan el visto bueno de los administradores.</p>
+        
+        <p>Ejemplos de VCS centralizados:</p>
+        <ul>
+            <li>CVS</li>
+            <li>Subversion</li>
+        </ul>
+    </span>
+
+    <span id="3100601005">
+        <h4>6.1.2.2. SISTEMAS DE GESTIÓN DE VERSIONES DISTRIBUIDOS</h4>
+        <p>Cada usuario tiene su propio repositorio en su máquina y hay un repositorio común que se utiliza como sincronización entre los repositorios.</p>
+
+        <p>Ejemplos de VCS distribuidos:</p>
+        <p>Código abierto:</p>
+        <ul>
+            <li>GIT</li>
+            <li>Mercurial</li>
+            <li>DCVS</li>
+        </ul>
+        <p>Código propietario:</p>
+        <ul>
+            <li>Plastic CSM</li>
+        </ul>
+    </span>
+
+    <span id="3100601006">
+        <h4>6.1.2.3. DISTRIBUIDOS VS CENTRALIZADOS</h4>
+        <p>Aunque los centralizados se siguen utilizando, el gran ganador por ahora son los vcs distribuidos, especialmente con GIT. Algunas de las razones son:</p>
+        <ul>
+            <li>No necesidad de conexión para guardar los cambios y poder seguir trabajando</li>
+            <li>Necesidad menos recursos para el repositorio remoto.</li>
+            <li>Más flexibles al permitir gestionar cada repositorio personal.</li>
+        </ul>
+    </span>
+
+    <span id="3100601007">
+        <h3>6.1.3. GIT</h3>
+        <p>GIT es el programa de gestión de versiones distribuido en código abierto más utilizado. Creado por Linux Torvalds, se utiliza para gestionar el código de forma eficiente.</p>
+    </span>
+
+    <span id="3100601008">
+        <h4>6.1.3.1. FUNCIONAMIENTO DE GIT</h4>
+        <p>Git gestiona los cambios a través de estados. Tiene tres estados en los que puede estar sus archivos:</p>
+        <ul>
+            <li>Confirmado (committed). Los datos están almacenados de manera segura en tu base de datos.</li>
+            <li>Modificado (modified). Se ha modificado el archivo pero no se ha confirmado.</li>
+            <li>Preparado (staged) Se ha seleccionado el archivo modificado vaya en tu próxima confirmación</li>
+        </ul>
+    </span>
+
+    <span id="3100601009">
+        <h4>6.1.3.2. LISTADO DE COMANDOS</h4>
+        <table class="min-w-full border-collapse">
+            <thead>
+                <tr>
+                    <th class="border p-2">Comando</th>
+                    <th class="border p-2">Descripción</th>
+                    <th class="border p-2">Ejemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-2">git init</td>
+                    <td class="border p-2">Creación de un nuevo repositorio en local</td>
+                    <td class="border p-2">git init [Nombre]</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git remote</td>
+                    <td class="border p-2">Para conectar con el escritorio remoto</td>
+                    <td class="border p-2">Git remote Nombre</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git clone</td>
+                    <td class="border p-2">Copiar un repositorio</td>
+                    <td class="border p-2">Git clone [Nombre]</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git add</td>
+                    <td class="border p-2">Agregar archivos al área de preparación</td>
+                    <td class="border p-2">Git add text.c</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git commit</td>
+                    <td class="border p-2">Creará una instantánea de los cambios y la guardará en el directorio git</td>
+                    <td class="border p-2">Git commit -m "Este commit es de prueba"</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git config</td>
+                    <td class="border p-2">Establecer una configuración específica de usuario</td>
+                    <td class="border p-2">Git config –local user.email email@email.com</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git status</td>
+                    <td class="border p-2">Lista de los archivos que se han cambiado junto con los archivos que están por ser preparados o confirmados</td>
+                    <td class="border p-2">Git status</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git push</td>
+                    <td class="border p-2">Enviar confirmaciones locales a la rama maestra del repositorio remoto</td>
+                    <td class="border p-2">Git push origin &lt;master&gt;</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git checkout</td>
+                    <td class="border p-2">Crea ramas y te ayuda a navegar entre ellas</td>
+                    <td class="border p-2">Git checkout &lt;rama&gt;</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git branch</td>
+                    <td class="border p-2">Listar, crear o borrar ramas</td>
+                    <td class="border p-2">Git branch</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git rebase</td>
+                    <td class="border p-2">Aplicar cambios de una rama a otra</td>
+                    <td class="border p-2">Git rebase master</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git archive</td>
+                    <td class="border p-2">Permite crear zip o –tar</td>
+                    <td class="border p-2">Git archive --format</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git pull</td>
+                    <td class="border p-2">Fusionar los cambios que se han hecho en el repositorio remoto con el directorio de trabajo</td>
+                    <td class="border p-2">Git pull</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git diff</td>
+                    <td class="border p-2">Lista la lista de conflictos entre dos ramas</td>
+                    <td class="border p-2">Git diff &lt;rama1&gt; &lt;rama2&gt;</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git merge</td>
+                    <td class="border p-2">Fusionar una rama con otra rama activa</td>
+                    <td class="border p-2">Git merge &lt;rama&gt;</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git tag</td>
+                    <td class="border p-2">Etiqueta commits</td>
+                    <td class="border p-2">Git tag 1.2.0 &lt;CommitId&gt;</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git log</td>
+                    <td class="border p-2">Lista commits en una rama con los datos del creador</td>
+                    <td class="border p-2">Git log</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git reset</td>
+                    <td class="border p-2">Resetea el índice al último directorio de trabajo</td>
+                    <td class="border p-2">Git reset – hard HEAD</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git stash</td>
+                    <td class="border p-2">Salvar los cambios en una pila local temporalmente</td>
+                    <td class="border p-2">Git stash</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git rm</td>
+                    <td class="border p-2">Borrar un fichero o directorio</td>
+                    <td class="border p-2">Git rm fichero</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">git fetch</td>
+                    <td class="border p-2">Listar los elementos que estén en el repositorio remoto y no en el local</td>
+                    <td class="border p-2">Git fetch</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+</div>
