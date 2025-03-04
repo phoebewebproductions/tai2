@@ -4,77 +4,111 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Curso Interactivo de Informática</title>
-       
+        
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-       
-       
-        <!-- Add React and ReactDOM scripts -->
-        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-        
-
     </head>
-<body>
-        <!-- Sección de autenticación -->
-        
-        <header>
-            <div class="header-content">
-                <h1>TAI 2.0</h1>
-                <h2>Academia Phoebe</h2>
-               
+    <body>
+        <header id="bloque-header">
+            <span class="titulo">
+                <h1>Técnico Auxiliar Informático</h1>
+                <h2>Formación Online</h2>
+            </span>
+            
+            <div class="buttonsHeader">
+                <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+                    <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="progress-button" class="header-button" aria-label="Ver progreso">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="progress-icon">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </button>
             </div>
         </header>
-        <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
-            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
-        </button>
-        <div class="nav"> <button class="tema-btn enconstruccion">
-            Examen por temas
-        </button>
-        <a id= "tema-btn"href="examenOficial/examenOficial.html">
-            <button class="tema-btn">
-                Examen oficial
-            </button>
-        </a></div>
-        <main id="contenido-principal">
-            <section class="tema">
-                <div class="grid-container">
-                    <a href="bloques/bloque1/index.html" class="bloque-card" id="bloque1">
-                        <div class="bloque-content">
-                            <h1>Bloque I</h1>
-                            <h2>Organización del Estado y Administración Electrónica</h2>
+        
+        <main id="contenido-principali">
+            <div class="dashboard-container">
+                <!-- Panel izquierdo: Tarjeta de bienvenida y exámenes -->
+                <div class="dashboard-left">
+                    <!-- Tarjeta de bienvenida con progreso -->
+                    <div class="welcome-card">
+                        <div class="welcome-header">
+                            <h2>Bienvenido/a</h2>
+                            <span class="last-access">Último acceso: Hoy, 15:30</span>
                         </div>
-                    </a>
-                    <a  href="bloques/bloque2/index.html"class="bloque-card" id="bloque2">
-                        <div class="bloque-content">
-                            <h1>Bloque II</h1>
-                            <h2>Informática Básica</h2>
+                        <div class="progress-summary">
+                            <div class="progress-item">
+                                <span class="progress-label">Progreso general</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="progress-value">65%</span>
+                            </div>
+                            <div class="progress-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">7.5</span>
+                                    <span class="stat-label">Nota media</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">12/20</span>
+                                    <span class="stat-label">Temas completados</span>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a   href="bloques/bloque3/index.html"class="bloque-card " id = "bloque3">
-                        <div class="bloque-content">
-                            <h1>Bloque III</h1>
-                            <h2>Desarrollo de Sistemas</h2>
-                        </div>
-                    </a>
-                    <a  href="bloques/bloque4/index.html"class="bloque-card" id = "bloque4">
-                        <div class="bloque-content">
-                            <h1>Bloque IV</h1>
-                            <h2>Sistemas y Comunicaciones</h2>
-                        </div>
-                    </a>
-                </div>
-            </section>
-               
-            
-        </main>
-    
+                    </div>
 
-    <script type="module" src="js/script.js">
-       
-       
-     
-    </script> 
-     
-</body>
+                    <!-- Sección de exámenes -->
+                    <div class="exams-section">
+                        <h3>Zona de Exámenes</h3>
+                        <div class="exam-buttons">
+                            <button class="exam-btn temabtn enconstruccion">
+                                Examen por temas
+                            </button>
+                            <a href="examenOficial/examenOficial.html" class="exam-btn">
+                                <button class="temabtn">
+                                    Examen oficial
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel derecho: Zona de estudio -->
+                <div class="dashboard-right">
+                    <h3>Zona de Estudio</h3>
+                    <div class="study-grid">
+                        <a href="bloques/bloque1/index.html" class="bloque-card" id="bloque1">
+                            <div class="bloque-content">
+                                <h1>Bloque I</h1>
+                                <h2>Organización del Estado y Administración Electrónica</h2>
+                            </div>
+                        </a>
+                        <a href="bloques/bloque2/index.html" class="bloque-card" id="bloque2">
+                            <div class="bloque-content">
+                                <h1>Bloque II</h1>
+                                <h2>Informática Básica</h2>
+                            </div>
+                        </a>
+                        <a href="bloques/bloque3/index.html" class="bloque-card" id="bloque3">
+                            <div class="bloque-content">
+                                <h1>Bloque III</h1>
+                                <h2>Desarrollo de Sistemas</h2>
+                            </div>
+                        </a>
+                        <a href="bloques/bloque4/index.html" class="bloque-card" id="bloque4">
+                            <div class="bloque-content">
+                                <h1>Bloque IV</h1>
+                                <h2>Sistemas y Comunicaciones</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script type="module" src="js/script.js"></script>
+    </body>
 </html>

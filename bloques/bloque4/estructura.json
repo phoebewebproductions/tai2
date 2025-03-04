@@ -1,48 +1,258 @@
 {
     "temas": [
       {
-        "titulo": "Tema I La constitución española de 1978 y la Corona",
+        "titulo": "Tema I Administración de SO",
         "puntos": [
           {
-            "titulo": "Punto 1.1: La constitución española de 1978 :Características",
-            "id": "1010101000"
+            "titulo": "Punto 1.1: Administración de sistemas",
+            "id": "4010101000"
           },
           {
-            "titulo": "Punto 1.2: Estructura",
-            "id": "1010102000"
+            "titulo": "Punto 2.1: Tipos de servidores (1/4)",
+            "id": "4010201000"
           },
           {
-            "titulo": "Punto 1.3: Procedimientos de reforma",
-            "id": "1010103000"
+            "titulo": "Punto 2.2: Tipos de servidores (2/4)",
+            "id": "4010202000"
           },
           {
-            "titulo": "Punto 1.4: Los principios constitucionales",
-            "id": "1010104000"
+            "titulo": "Punto 2.3: Tipos de servidores (3/4)",
+            "id": "4010203000"
           },
           {
-            "titulo": "Punto 1.5: De los derechos fundamentales y sus garantías",
-            "id": "1010105000"
+            "titulo": "Punto 2.4: Tipos de servidores (4/4)",
+            "id": "4010204000"
           },
           {
-            "titulo": "Punto 1.6: Suspensión de los derechos y libertades; Los estados excepcionales",
-            "id": "1010106000"
+            "titulo": "Punto 3.1: Tipos de mantenimiento",
+            "id": "4010301000"
           },
           {
-            "titulo": "Punto 2.1: La Corona \"Estatuto jurídico del rey y refrendo\"",
-            "id": "1010201000"
+            "titulo": "Punto 4.1: Herramientas de gestión de incidentes (1/2)",
+            "id": "4010401000"
           },
           {
-            "titulo": "Punto 2.2: Sucesión, Regencia y Tutela",
-            "id": "1010202000"
+            "titulo": "Punto 4.2: Herramientas de gestión de incidentes (2/2)",
+            "id": "4010402000"
           },
           {
-            "titulo": "Punto 2.3: Funciones del Rey",
-            "id": "1010203000"
+            "titulo": "Punto 5.1: Distribución de software y administración de hardware (1/8)",
+            "id": "4010501000"
+          },
+          {
+            "titulo": "Punto 5.2: Distribución de software y administración de hardware (2/8)",
+            "id": "4010502000"
+          },
+          {
+            "titulo": "Punto 5.3: Distribución de software y administración de hardware (3/8)",
+            "id": "4010503000"
+          },
+          {
+            "titulo": "Punto 5.4: Distribución de software y administración de hardware (4/8)",
+            "id": "4010504000"
+          },
+          {
+            "titulo": "Punto 5.5: Distribución de software y administración de hardware (5/8)",
+            "id": "4010505000"
+          },
+          {
+            "titulo": "Punto 5.6: Distribución de software y administración de hardware (6/8)",
+            "id": "4010506000"
+          },
+          {
+            "titulo": "Punto 5.7: Distribución de software y administración de hardware (7/8)",
+            "id": "4010507000"
+          },
+          {
+            "titulo": "Punto 5.8: Distribución de software y administración de hardware (8/8)",
+            "id": "4010508000"
+          },
+          {
+            "titulo": "Punto 6.1: Enterprise Mobility Management (EMM)",
+            "id": "4010601000"
+          },
+          {
+            "titulo": "Punto 7.1: Control de licencias de software",
+            "id": "4010701000"
+          },
+          {
+            "titulo": "Punto 8.1: Windows containers, Docker y Kubernetes",
+            "id": "4010801000"
           }
         ]
       },
       {
-        "titulo": "Tema II: Las Cortes",
+        "titulo": "Tema II: Administración de BBDD",
+        "puntos": [
+          {
+            "titulo": "Punto 1.1: Arquitectura ANSI-SPARC",
+            "id": "4020101000"
+          },
+          {
+            "titulo": "Punto 2.1: Modelos y sistemas de gestión de BBDD",
+            "id": "4020201000"
+          },
+          {
+            "titulo": "Punto 3.1: Tipos de servidores (1/13)",
+            "id": "4020301000"
+          },
+          {
+            "titulo": "Punto 3.2: Tipos de servidores (2/13)",
+            "id": "4020302000"
+          },
+          {
+            "titulo": "Punto 3.3: Tipos de servidores (3/13)",
+            "id": "4020303000"
+          },
+          {
+            "titulo": "Punto 3.4: Tipos de servidores (4/13)",
+            "id": "4020304000"
+          },
+          {
+            "titulo": "Punto 3.5: Tipos de servidores (5/13)",
+            "id": "4020305000"
+          },
+          {
+            "titulo": "Punto 3.6: Tipos de servidores (6/13)",
+            "id": "4020306000"
+          },
+          {
+            "titulo": "Punto 3.7: Tipos de servidores (7/13)",
+            "id": "4020307000"
+          },
+          {
+            "titulo": "Punto 3.8: Tipos de servidores (8/13)",
+            "id": "4020308000"
+          },
+          {
+            "titulo": "Punto 3.9: Tipos de servidores (9/13)",
+            "id": "4020309000"
+          },
+          {
+            "titulo": "Punto 3.10: Tipos de servidores (10/13)",
+            "id": "4020310000"
+          },
+          {
+            "titulo": "Punto 3.11: Tipos de servidores (11/13)",
+            "id": "4020311000"
+          },
+          {
+            "titulo": "Punto 3.12: Tipos de servidores (12/13)",
+            "id": "4020312000"
+          },
+          {
+            "titulo": "Punto 3.13: Tipos de servidores (13/13)",
+            "id": "4020313000"
+          },
+          
+          {
+            "titulo": "Punto 4.1: Sistemas de almacenamiento",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 5.1: Sistemas RAID (1/3)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 5.2: Sistemas RAID (2/3)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 5.3: Sistemas RAID (3/3)",
+            "id": "4020203000"
+          },
+          
+          {
+            "titulo": "Punto 6.1: Discos JBOD y discos de estado sólido",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.1: Políticasm sutenas y oricedunuebtis de backup y recuperación (1/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.2: Políticasm sutenas y oricedunuebtis de backup y recuperación (2/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.3: Políticasm sutenas y oricedunuebtis de backup y recuperación (3/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.4: Políticasm sutenas y oricedunuebtis de backup y recuperación (4/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.5: Políticasm sutenas y oricedunuebtis de backup y recuperación (5/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.6: Políticasm sutenas y oricedunuebtis de backup y recuperación (6/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 7.7: Políticasm sutenas y oricedunuebtis de backup y recuperación (7/7)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 8.1: Virtualización de sistemas o plataforma (1/2)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 8.2: Virtualización de sistemas o plataforma (2/2)",
+            "id": "4020203000"
+          },
+          {
+            "titulo": "Punto 8.3: Puesto de trabajo",
+            "id": "4020203000"
+          }
+          
+        ]
+      },
+      {
+        "titulo": "Tema III: Correo electrónico y microservicios",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema IV: Administración de Red",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema V: Seguridad de los sistemas de información",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema VI: Comunicaciones",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema VII: TCPIP",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema VIII: Internet HTTP",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema IX: Seguridad en redes",
+        "puntos": [
+          
+        ]
+      },
+      {
+        "titulo": "Tema X: Redes locales",
         "puntos": [
           
         ]

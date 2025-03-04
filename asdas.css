@@ -1,0 +1,116 @@
+/* Grid de estudio - Ajustado a 2 columnas en desktop */
+.study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Forzar 2 columnas en desktop */
+    gap: 1.5rem;
+    width: 100%; /* Cambiar a 100% para usar todo el ancho disponible */
+    max-width: 1200px; /* Limitar el ancho máximo para pantallas muy grandes */
+    margin: 0 auto; /* Centrar el grid */
+  }
+  
+  /* Tarjetas de bloque - Mejorar legibilidad */
+  .bloque-card {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .bloque-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Mejorar el gradiente para mayor legibilidad */
+  .bloque-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+  }
+  
+  .bloque-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    color: var(--color-white);
+  }
+  
+  /* Mejorar legibilidad de títulos */
+  .bloque-content h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Añadir sombra para mejorar legibilidad */
+    line-height: 1.2;
+    max-width: 100%;
+  }
+  
+  .bloque-content h2 {
+    font-size: 1rem;
+    margin: 0.5rem 0 0;
+    opacity: 0.95; /* Aumentar opacidad para mejor legibilidad */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    line-height: 1.3;
+    max-width: 100%;
+  }
+  
+  /* Responsive para tablets */
+  @media (max-width: 1024px) {
+    .study-grid {
+      grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
+      gap: 1rem;
+    }
+    
+    .bloque-content h1 {
+      font-size: 1.3rem;
+    }
+    
+    .bloque-content h2 {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    .study-grid {
+      grid-template-columns: 1fr; /* Una sola columna en móvil */
+      gap: 1rem;
+    }
+    
+    .bloque-card {
+      aspect-ratio: 16/9; /* Cambiar proporción para móvil para mejor visualización */
+    }
+    
+    .bloque-content {
+      padding: 1.25rem;
+    }
+    
+    .bloque-content h1 {
+      font-size: 1.2rem;
+    }
+    
+    .bloque-content h2 {
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+  }
+  
+  /* Asegurar que las imágenes de fondo se vean correctamente */
+  [id^="bloque"] {
+    background-size: cover;
+    background-position: center;
+  }

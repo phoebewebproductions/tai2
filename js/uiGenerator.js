@@ -14,7 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Modal or close button not found");
     }
 });
-
+/* Asegurarse de que el header se mida correctamente */
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+        
+        // Actualizar cuando cambie el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            const newHeaderHeight = header.offsetHeight;
+            document.documentElement.style.setProperty('--header-height', newHeaderHeight + 'px');
+        });
+    }
+});
 export function cargarBloque(bloqueId) {
     if (isNaN(bloqueId) || bloqueId < 1 || bloqueId > 4) {
         console.error('Invalid bloqueId:', bloqueId);
@@ -45,45 +58,101 @@ export function generarEstructuraBloque(estructura) {
     }
 
     const bloqueId = estructura.id;
-    if (isNaN(bloqueId) || bloqueId < 1 || bloqueId > 4) {
-        console.error('Invalid bloqueId:', bloqueId);
-        return;
-    }
-
-    console.log(`Generating structure for block ${bloqueId}`);
-
     const lastCompletedIndex = getLastCompletedIndex(bloqueId);
-    console.log(`Último índice completado para bloque ${bloqueId}: ${lastCompletedIndex}`);
+    const temaNavigation = document.querySelector('.tema-navigation');
+    const contentArea = document.querySelector('#punto-actual');
 
-    updateEstructuraGlobal();
+    // Limpiar contenido existente
+    temaNavigation.innerHTML = '';
 
-    contenidoPrincipal.innerHTML = '';
+    // Variable para almacenar el último punto disponible
+    let lastAvailablePoint = null;
+    let lastAvailableContent = null;
 
     estructura.temas.forEach((tema, indexTema) => {
-        const temaElement = document.createElement('section');
-        temaElement.className = 'tema';
-        temaElement.id = `tema${indexTema + 1}`;
-        temaElement.innerHTML = `
-            <button class="tema-btn">${tema.titulo}</button>
-            <div class="puntos-container oculto"></div>
-        `;
+        const temaElement = document.createElement('div');
+        temaElement.className = 'tema-wrapper';
+        
+        const temaButton = document.createElement('button');
+        temaButton.className = 'tema-btn';
+        temaButton.textContent = tema.titulo;
 
-        const temaBtn = temaElement.querySelector('.tema-btn');
-        const puntosContainer = temaElement.querySelector('.puntos-container');
-
-        temaBtn.addEventListener('click', () => {
-            puntosContainer.classList.toggle('oculto');
-            if (puntosContainer.classList.contains('oculto')) {
-                // Si está oculto, vaciamos el contenedor
-                puntosContainer.innerHTML = '';
-            } else if (!puntosContainer.hasChildNodes()) {
-                // Si no está oculto y no tiene nodos hijos, cargamos los puntos
-                cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura);
-            }
+        const puntosContainer = document.createElement('div');
+        puntosContainer.className = 'puntos-container';
+        
+        // Determinar si este tema debe estar abierto
+        const shouldBeOpen = tema.puntos.some((punto, indexPunto) => {
+            const puntoLinealIndex = estructura.puntosLineales.findIndex(p => 
+                p.temaIndex === indexTema && p.puntoIndex === indexPunto
+            );
+            return puntoLinealIndex === lastCompletedIndex + 1;
         });
 
-        contenidoPrincipal.appendChild(temaElement);
+        if (shouldBeOpen) {
+            puntosContainer.classList.remove('oculto');
+        } else {
+            puntosContainer.classList.add('oculto');
+        }
+
+        tema.puntos.forEach((punto, indexPunto) => {
+            const puntoLinealIndex = estructura.puntosLineales.findIndex(p => 
+                p.temaIndex === indexTema && p.puntoIndex === indexPunto
+            );
+            
+            const estaCompletado = isPointCompleted(bloqueId, puntoLinealIndex);
+            const estaDesbloqueado = isPointUnlocked(bloqueId, puntoLinealIndex);
+            
+            const puntoElement = document.createElement('button');
+            puntoElement.className = `punto-btn ${estaCompletado ? 'completado' : ''} ${estaDesbloqueado ? 'disponible' : 'bloqueado'}`;
+            puntoElement.textContent = punto.titulo;
+            puntoElement.dataset.tema = indexTema + 1;
+            puntoElement.dataset.punto = indexPunto + 1;
+            puntoElement.dataset.id = punto.id;
+            
+            if (!estaDesbloqueado) {
+                puntoElement.disabled = true;
+            }
+
+            // Guardar referencia al último punto disponible
+            if (estaDesbloqueado && !estaCompletado) {
+                lastAvailablePoint = puntoElement;
+                lastAvailableContent = punto;
+            }
+
+            puntoElement.addEventListener('click', async () => {
+                // Remover clase active de todos los puntos
+                document.querySelectorAll('.punto-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                
+                // Añadir clase active al punto actual
+                puntoElement.classList.add('active');
+                
+                // Cargar contenido
+                await cargarContenidoPunto(indexTema + 1, indexPunto + 1, punto.id, contentArea);
+            });
+
+            puntosContainer.appendChild(puntoElement);
+        });
+
+        temaButton.addEventListener('click', () => {
+            puntosContainer.classList.toggle('oculto');
+        });
+
+        temaElement.appendChild(temaButton);
+        temaElement.appendChild(puntosContainer);
+        temaNavigation.appendChild(temaElement);
     });
+
+    // Cargar automáticamente el último punto disponible
+    if (lastAvailablePoint) {
+        lastAvailablePoint.classList.add('active');
+        cargarContenidoPunto(
+            lastAvailablePoint.dataset.tema,
+            lastAvailablePoint.dataset.punto,
+            lastAvailablePoint.dataset.id,
+            contentArea
+        );
+    }
 }
 
 function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura) {
@@ -121,12 +190,7 @@ function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura
 }
 
 
-export async function cargarContenidoPunto(tema, punto, id, puntoElement) {
-    const contenidoPunto = puntoElement.querySelector('.punto-contenido');
-    contenidoPunto.classList.toggle('oculto');
-
-    if (contenidoPunto.childNodes.length > 0) return;
-
+export async function cargarContenidoPunto(tema, punto, id, contentArea) {
     try {
         const idInfo = await findId(id);
         console.log('ID Info:', idInfo);
@@ -136,21 +200,22 @@ export async function cargarContenidoPunto(tema, punto, id, puntoElement) {
             return;
         }
 
-        const examId = `${idInfo.bloque}${idInfo.tema.padStart(2, '0')}${idInfo.punto.padStart(2, '0')}${idInfo.subpunto.padStart(2, '0')}000e`;
-        console.log('Constructed examId:', examId);
-
         const response = await fetch(`./temas/tema${idInfo.tema*1}/${id}e.html`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const content = await response.text();
-        contenidoPunto.innerHTML = content;
+        
+        // Actualizar el contenido
+        contentArea.innerHTML = content;
 
+        // Añadir el botón de mini-examen
         const miniExamButton = document.createElement('button');
         miniExamButton.textContent = 'Realizar Mini-Examen';
         miniExamButton.className = 'mini-examen-btn';
+        const examId = `${idInfo.bloque}${idInfo.tema.padStart(2, '0')}${idInfo.punto.padStart(2, '0')}${idInfo.subpunto.padStart(2, '0')}000e`;
         miniExamButton.dataset.examId = examId;
-        contenidoPunto.appendChild(miniExamButton);
+        contentArea.appendChild(miniExamButton);
 
         miniExamButton.addEventListener('click', async () => {
             const preguntas = await cargarPreguntasExamen(idInfo.bloque, idInfo.tema, examId);
@@ -161,7 +226,6 @@ export async function cargarContenidoPunto(tema, punto, id, puntoElement) {
         console.error('Error in cargarContenidoPunto:', error);
     }
 }
-
 export async function cargarPreguntasExamen(bloque, tema, examId) {
     console.log('Attempting to load questions for:', { bloque, tema, examId });
     try {
@@ -226,3 +290,42 @@ export function actualizarProgresoTrasExamen(bloqueId, puntoCompletadoIndex) {
     });
 }
 
+// Añadir al archivo uiGenerator.js o crear un nuevo archivo sidebar.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar-navigation');
+    const content = document.querySelector('.content-area');
+    const overlay = document.createElement('div');
+    
+    // Crear overlay para móvil
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            // Opcional: añadir una clase al content-area cuando el sidebar está activo
+            content?.classList.toggle('sidebar-active');
+        });
+
+        // Cerrar sidebar al hacer clic en el overlaypunto-contenido
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            content?.classList.remove('sidebar-active');
+        });
+
+        // Cerrar sidebar al hacer clic en un punto (en móvil)
+        document.querySelectorAll('.punto-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    content?.classList.remove('sidebar-active');
+                }
+            });
+        });
+    }
+});

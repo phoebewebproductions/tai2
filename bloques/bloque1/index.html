@@ -6,55 +6,83 @@
     <title>Bloque 1 - Curso Interactivo</title>
    
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/estudio.css">
     <link rel="stylesheet" href="../../css/exam-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-</head>
 </head>
 <body id="1000000000">
     <header id="bloque-header">
-        <h1>Bloque I:<br> Organización del Estado y Administración Electrónica</h1>
-        <a href="../../index.html"><button class=" volver ">
-            Volver a selección
-        </button></a>
-      
+        <span class="titulo">
+            <h1>Formación Online</h1>
+            <h2>Bloque I</h2>
+        </span>
+        
+        <div class="buttonsHeader">
+            <a href="../../index.html" class="volver" aria-label="Volver a selección">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="volver-icon">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    <path d="M10 6L4 12"></path>
+                    <path d="M4 12h7"></path>
+                </svg>
+            </a>
+            
+            <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+                <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+            </button>
 
-      
-    </header>
-    <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
-        <i id="darkModeIcon" class="fa-solid fa-moon"></i>
-    </button>  
+            <button id="progress-button" class="header-button" aria-label="Ver progreso">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="progress-icon">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+            </button>
+            <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>  
+
     <main id="contenido-principal">
-        <!-- Los temas y puntos se generarán dinámicamente aquí -->
+        <div class="bloque-container">
+            <!-- Panel izquierdo: Navegación de temas -->
+            <aside class="sidebar-navigation">
+                <div class="sidebar-header">
+                 
+                    <h3>Contenido del bloque</h3>
+                </div>
+                <nav class="tema-navigation">
+                    <!-- Los temas y puntos se generarán dinámicamente aquí -->
+                </nav>
+            </aside>
+
+            <!-- Panel derecho: Contenido del punto seleccionado -->
+            <section class="content-area">
+                <div id="punto-actual" class="punto-contenido active">
+                    <!-- El contenido del punto se cargará aquí -->
+                </div>
+            </section>
+        </div>
     </main>
 
-    <!-- Modal para exámenes -->
-    <div id="modal-examen" class="modal oculto">
-       
-       
-        <div class="modal-contenido">
-            
-            <span class="cerrar">&times;</span>
-            <p id="contador-preguntas"></p>
-            <div id="pregunta-contenedor"></div>
-            <div id="opciones-contenedor"></div>
-            
-        </div>
-    </div>
+    <!-- Modales -->
+   <!-- Modal de examen -->
+<div id="modal-examen" class="oculto">
+    <button class="cerrar">&times;</button>
+    <h2 id="contador-preguntas">Pregunta 1 de 10</h2>
+    <div id="pregunta-contenedor" class="pregunta"></div>
+    <div id="opciones-contenedor" class="opciones"></div>
+</div>
 
-    <!-- Modal para explicaciones -->
-    <div id="modal-explicacion" class="modal oculto">
-        <div class="modal-contenido">
-            <h3 id="explicacion-titulo"></h3>
-            <div id="explicacion-contenido"></div>
-            <button id="btn-entendido">Entendido</button>
-        </div>
-    </div>
-   
+<!-- Modal de explicación -->
+<div id="modal-explicacion" class="oculto">
+    <h3 id="explicacion-titulo">Correcto</h3>
+    <div id="explicacion-contenido"></div>
+    <button id="btn-entendido" class="btn-examen">Entendido</button>
+</div>
 
     <script src="../../js/main.js" type="module"></script>
     <script src="../../js/script.js" type="module"></script>
-   
 </body>
 </html>

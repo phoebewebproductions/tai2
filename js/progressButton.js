@@ -4,77 +4,119 @@ import { estructuraGlobal } from './structureLoader.js';
 
 let progressDisplayVisible = false;
 
+// Modificar la función initializeProgressButton en progressButton.js
 export function initializeProgressButton() {
     let progressButton = document.getElementById('progress-button');
     
     if (!progressButton) {
         progressButton = document.createElement('button');
         progressButton.id = 'progress-button';
-        progressButton.style.position = 'fixed';
-        progressButton.style.top = '20px';
-        progressButton.style.left = '20px';
-        progressButton.style.zIndex = '1000';
-        progressButton.style.padding = '10px';
-        progressButton.style.backgroundColor = 'var(--color-secondary)';
-        progressButton.style.color = 'white';
-        progressButton.style.border = 'none';
-        progressButton.style.borderRadius = '50%';
-        progressButton.style.cursor = 'pointer';
-        progressButton.style.width = '50px';
-        progressButton.style.height = '50px';
-        progressButton.style.display = 'flex';
-        progressButton.style.alignItems = 'center';
-        progressButton.style.justifyContent = 'center';
-        progressButton.style.fontSize = '1.2rem';
-        progressButton.style.zIndex = '4000000';
+        progressButton.className = 'header-button';
+        progressButton.setAttribute('aria-label', 'Ver progreso');
         
-        // Agregar ícono de FontAwesome
-        const progressIcon = document.createElement('i');
-        progressIcon.id = 'progress-icon';
-        progressIcon.className = 'fa-solid fa-circle-check'; // Ícono de progreso
-        progressButton.appendChild(progressIcon);
+        // Crear el SVG
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", "24");
+        svg.setAttribute("height", "24");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("stroke-width", "2");
+        svg.setAttribute("stroke-linecap", "round");
+        svg.setAttribute("stroke-linejoin", "round");
+        svg.className = 'progress-icon';
+
+        // Crear el círculo
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "12");
+        circle.setAttribute("cy", "12");
+        circle.setAttribute("r", "10");
+
+        // Crear el path para el indicador de tiempo
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M12 6v6l4 2");
+
+        svg.appendChild(circle);
+        svg.appendChild(path);
+        progressButton.appendChild(svg);
         
-        document.body.appendChild(progressButton);
+        const headerdiv = document.querySelector(".buttonsHeader");
+        headerdiv.appendChild(progressButton);
     }
 
-    // Crear contenedor de progreso
+    // Crear contenedor de progreso (resto del código igual)
     const progressDisplay = document.createElement('div');
     progressDisplay.id = 'progress-display';
     progressDisplay.style.display = 'none';
-
     document.body.appendChild(progressDisplay);
 
     progressButton.addEventListener('click', toggleProgressDisplay);
     console.log('Progress button initialized');
 }
 
-// Alternar la visualización de progreso
-async function toggleProgressDisplay() {
+function toggleProgressDisplay() {
     const progressDisplay = document.getElementById('progress-display');
-    const progressIcon = document.getElementById('progress-icon');
+    const progressButton = document.getElementById('progress-button');
+    const svg = progressButton.querySelector('svg');
     
     if (progressDisplayVisible) {
         progressDisplay.style.display = 'none';
         progressDisplayVisible = false;
-        progressIcon.className = 'fa-solid fa-circle-check';
+        // Restaurar el SVG original
+        svg.innerHTML = `
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+        `;
     } else {
-        progressDisplay.innerHTML = ''; // Limpiar contenido anterior
+        progressDisplay.innerHTML = '';
         progressDisplay.style.display = 'flex';
-        progressDisplay.style.flexWrap = 'wrap';
-        progressDisplay.style.justifyContent = 'center';
-        progressDisplay.style.gap = '10px';
+        
+        // Cambiar el SVG a pausa
+        svg.innerHTML = `
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M10 15V9M14 15V9"></path>
+        `;
+        
+        // Añadir botón de cerrar
+        const closeButton = document.createElement('button');
+        closeButton.className = 'cerrar-progreso';
+        closeButton.innerHTML = '&times;';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.style.background = 'none';
+        closeButton.style.border = 'none';
+        closeButton.style.fontSize = '1.5rem';
+        closeButton.style.cursor = 'pointer';
+        closeButton.addEventListener('click', toggleProgressDisplay);
+        
+        progressDisplay.appendChild(closeButton);
+        
+        // Título del modal
+        const title = document.createElement('h2');
+        title.textContent = 'Tu progreso';
+        title.style.width = '100%';
+        title.style.textAlign = 'center';
+        title.style.marginBottom = '1rem';
+        progressDisplay.appendChild(title);
+        
+        // Contenedor para los bloques de progreso
+        const blocksContainer = document.createElement('div');
+        blocksContainer.style.display = 'flex';
+        blocksContainer.style.flexWrap = 'wrap';
+        blocksContainer.style.justifyContent = 'center';
+        blocksContainer.style.gap = '20px';
+        progressDisplay.appendChild(blocksContainer);
         
         for (let blockNumber = 1; blockNumber <= 4; blockNumber++) {
-            await updateProgress(blockNumber);
+            updateProgress(blockNumber, blocksContainer);
         }
         
         progressDisplayVisible = true;
-        progressIcon.className = 'fa-solid fa-circle-pause'; // Cambiar ícono al expandir
     }
 }
 
-// Actualizar progreso de cada bloque
-async function updateProgress(blockNumber) {
+async function updateProgress(blockNumber, container) {
     try {
         const progress = await calculateBlockProgress(blockNumber);
         const color = getColorForBlock(blockNumber);
@@ -97,7 +139,7 @@ async function updateProgress(blockNumber) {
         blockContainer.appendChild(circularProgress);
         blockContainer.appendChild(blockLabel);
         
-        document.getElementById('progress-display').appendChild(blockContainer);
+        container.appendChild(blockContainer);
     } catch (error) {
         console.error(`Error updating progress for block ${blockNumber}:`, error);
     }
