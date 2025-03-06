@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../css/exam-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+      <!-- AWS SDK v2 - Asegúrate de que se cargue antes de tus scripts -->
+      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1001.0.min.js"></script>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body id="2000000000">
     <header id="bloque-header">
@@ -82,7 +85,8 @@
     <button id="btn-entendido" class="btn-examen">Entendido</button>
 </div>
 
-    <script src="../../js/main.js" type="module"></script>
-    <script src="../../js/script.js" type="module"></script>
+<script src="../../js/main.js" type="module"></script>
+<script type="module" src="../../js/aws-config.js"></script>
+<script type="module" src="../../js/script.js"></script>
 </body>
 </html>
