@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Iniciar Sesión - Curso Interactivo de Informática</title>
+   
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/login.css">
+   <link rel="stylesheet" href="css/sync.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
+   <!-- En index.html y login.html -->
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1001.0.min.js"></script>
+</head>
+<body>
+   <header id="bloque-header">
+       <span class="titulo">
+           <h1>Técnico Auxiliar Informático</h1>
+           <h2>Formación Online</h2>
+       </span>
+       
+       <div class="buttonsHeader">
+           <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+               <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+           </button>
+       </div>
+   </header>
+   
+   <main id="contenido-principali" class="login-container">
+       <div class="login-card">
+           <h2>Iniciar Sesión</h2>
+           <p>Accede a tu cuenta para continuar con tu formación</p>
+           
+           <div class="login-methods">
+               <!-- 
+                 Dominios autorizados:
+                 - localhost (desarrollo)
+                 - https://opotai.netlify.app/ (producción)
+               -->
+               <div id="g_id_onload"
+               data-client_id="871056487357-h4pa41u49pqig30d491c15q5pui6evc8.apps.googleusercontent.com"
+                    data-context="signin"
+                    data-ux_mode="popup"
+                    data-callback="handleCredentialResponse"
+                    data-auto_select="true"
+                    data-itp_support="true"
+                    data-use_fedcm_for_prompt="true">
+               </div>
+               
+               <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="rectangular"
+                    data-theme="outline"
+                    data-text="signin_with"
+                    data-size="large"
+                    data-logo_alignment="left"
+                    data-width="300">
+               </div>
+           </div>
+           
+           <div class="login-footer">
+               <p>Al iniciar sesión, aceptas nuestros <a href="#">Términos y Condiciones</a> y <a href="#">Política de Privacidad</a>.</p>
+               <p class="sync-info">Tus datos se sincronizarán automáticamente entre dispositivos.</p>
+           </div>
+       </div>
+   </main>
+
+   <script type="module" src="js/aws-config.js"></script>
+   <script type="module" src="js/script.js"></script>
+   <script type="module" src="js/auth.js"></script>
+   <script type="module" src="js/debug-auth.js"></script>
+</body>
+</html>
+
