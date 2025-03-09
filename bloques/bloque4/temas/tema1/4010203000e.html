@@ -1,0 +1,109 @@
+<div class="teoria">
+    <span id="4010203001">
+        <h2>2.3. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
+    </span>
+    
+    <span id="4010203002">
+        <h3>2.3.1. SERVIDOR DNS (DOMAIN NAME SERVER)</h3>
+        <p>Servidores encargados de gestionar los nombres de dominio de una corporación, empresa o país.</p>
+        <p>Los espacios de nombres dentro de un servidor DNS son gestionados a través del concepto de Zona.</p>
+        <p>Una Zona contendrá todos los dominios, subdominios y registros que compartan un espacio de nomenclatura común.</p>
+        <p>Por ejemplo: La zona "es" contendrá el dominio "edu" que a su vez puede contener el subdominio "cetic" y dentro un equipo llamado "www" o cuyo alias es "www".</p>
+        <p>Los servidores DNS son los encargados de almacenar los datos de las zonas a las que dan soporte y de responder a las consultas realizadas por los clientes. Las consultas son, generalmente, de dos tipos:</p>
+        <ul>
+            <li>Consulta de búsqueda directa: Dado un nombre de dominio devuelven la direcciones ip asociadas</li>
+            <li>Consulta de búsqueda inversa: Dada una ip devuelven el nombre de la máquina a la que pertenece</li>
+        </ul>
+        <p>Los tipos de registros más comunes que podemos encontrar dentro de un servidor DNS son los siguientes:</p>
+        <table>
+            <tr>
+                <th>TIPO</th>
+                <th>NOMBRE</th>
+                <th>DESCRIPCIÓN</th>
+            </tr>
+            <tr>
+                <td>SOA</td>
+                <td>Start Of Authority</td>
+                <td>Devuelve el DNS que es el principal para servir una zona. Una zona puede ser servida por varios servidores DNS por redundancia, pero sólo uno es el que está autorizado para hacer cambios sobre ella.</td>
+            </tr>
+            <tr>
+                <td>NS</td>
+                <td>Name Server</td>
+                <td>Registro que establece que servidores DNS están autorizados para servir/resolver los nombres pertenecientes a la zona.</td>
+            </tr>
+            <tr>
+                <td>A (Address)</td>
+                <td>Registro de dirección</td>
+                <td>Asocia un nombre de dominio con una dirección ip v4.</td>
+            </tr>
+            <tr>
+                <td>AAAA (Address)</td>
+                <td>Registro de dirección IPv6.</td>
+                <td>Asocia un nombre de dominio con una dirección ip v6</td>
+            </tr>
+            <tr>
+                <td>CAA (Certification Authority Authorization)</td>
+                <td>Autorización de la Autoridad de Certificación.</td>
+                <td>Establece quienes son las autoridades certificadoras válidas para un dominio. Una entidad certificadora es aquella que puede emitir certificados de seguridad (SSL) para el dominio y comprobar su validez.</td>
+            </tr>
+            <tr>
+                <td>CNAME (Canonical Name)</td>
+                <td>Registro de nombre canónico.</td>
+                <td>Asocia un alias con un registro A. De esta forma podemos asignar varios apodos a un mismo equipo. Por ejemplo los equipos "www" realmente suelen llamarse de otra forma.</td>
+            </tr>
+            <tr>
+                <td>MX (Mail eXchange)</td>
+                <td>Registro de intercambio del correo.</td>
+                <td>Los registros MX apuntan al servidor de correo del dominio. Un dominio puede tener varios registros MX estableciendo una prioridad entre ellos.</td>
+            </tr>
+            <tr>
+                <td>PTR (Pointer)</td>
+                <td>Registro de puntero</td>
+                <td>Registro inverso. Asocia una dirección ip a un nombre de dominio. Se utiliza para realizar búsquedas inversas. Los registros PTR se dan de alta en la zona DNS inversa (in-addres.arpa)</td>
+            </tr>
+            <tr>
+                <td>SRV (Service record)</td>
+                <td>Localizador de servicios. Es un registro para servicios especiales que proporciona información relacionada con los servicios disponibles para un determinado dominio. Es habitual su uso con XMPP, LDAP o SIP.</td>
+                <td>Registro utilizado para indicar servicios especiales dentro de un dominio. Por ejemplo: XMPP, LDAP o SIP.</td>
+            </tr>
+            <tr>
+                <td>TXT (Text)</td>
+                <td>TXT (Text), Registro de texto.</td>
+                <td>Registro comodín utilizado para insertar texto. Suele utilizarse para verificar la autoridad del dominio o para evitar usos incorrectos de las direcciones de correo. Además, TXT permite la creación de registros especiales y Domain-Keys.</td>
+            </tr>
+        </table>
+    </span>
+    
+    <span id="4010203003">
+        <h3>2.3.2. SERVIDOR DHCP (DYNAMIC HOST CONTROL PROTOCOL)</h3>
+        <p>Servidor encargado de suministrar toda la configuración ip a los clientes. Asigna entre otros valores la dirección ip, máscara, puerta de enlace, servidores DNS… a los clientes. La ip asignada se suministra por un tiempo determinado llamado tiempo de arrendamiento (leasing time). Los clientes deben encargarse de solicitar la dirección ip y posteriormente renovarla en caso necesario.</p>
+        <p>El servidor DHCP deriva del servidor BootP (Protocolo de arranque).</p>
+        <p>La conversación entre un cliente DHCP y un servidor DHCP al solicitar una dirección ip es la siguiente:</p>
+        <ul>
+            <li>Cliente: Envía un paquete DHCPDISCOVER solicitando una ip</li>
+            <li>Servidores DHCP en la red: Envían un paquete DHCPOFFER con las ips disponibles y el resto de configuración de red.</li>
+            <li>Cliente: El cliente recibe las ofertas y selecciona aquella que desea utilizar. A continuación envía un paquete DHCPDHCPREQUEST al servidor que ha seleccionado con la ip elegida.</li>
+            <li>Servidor: El servidor recibe la petición, marca la dirección como cedida y envía un paquete DHCPACK al cliente.</li>
+        </ul>
+        <p>El cliente intenta renovar su dirección ip cuando ha transcurrido la mitad de su tiempo de cesión mediante un DHCPPREREQUEST al servidor. Si el servidor acepta la renovación envía un DHCPACK. Si el servidor no responde el cliente puede seguir utilizando la ip hasta que caduque su cesión. Cuando haya caducado el cliente tiene que comenzar el proceso de petición de ip mediante un comando DHCPDISCOVER.</p>
+        <p>El cliente finaliza la cesión enviando un mensaje DHCPRELEASE al servidor.</p>
+        <p>El servidor DHCP contempla tres formas de asignación de direcciones ip:</p>
+        <ul>
+            <li>Asignación automática: El tiempo de arrendamiento de la ip asignada es ilimitado.</li>
+            <li>Asignación dinámica: El tiempo de arrendamiento de la ip asignada está acotado.</li>
+            <li>Asignación estática: La ip asignada está reservada al cliente y suele ser permanente. El cliente es reconocido por su dirección física o mac.</li>
+        </ul>
+    </span>
+    
+    <span id="4010203004">
+        <h3>2.3.3. SERVIDOR DE ACCESO REMOTO</h3>
+        <p>Utilizado principalmente en las telecomunicaciones, es un protocolo de red que le permite a los usuarios gestionar, enviar y recibir datos para solucionar problemas con las redes relacionadas con la telefonía.</p>
+        <p>Asimismo, almacena los datos de los mensajes de voz, contestadoras, encima las llamadas y controla la red del Internet móvil.</p>
+    </span>
+    
+    <span id="4010203005">
+        <h3>2.3.4. SERVIDOR PROXY</h3>
+        <p>Servidor que hace de intermediario en las peticiones de recursos que realiza un cliente (A) a otro servidor (C). El servidor Proxy suele utilizarse para centralizar el acceso a internet de toda la red corporativa, comprobando y filtrando las direcciones a las que los clientes quieren acceder.</p>
+        <p>Puesto que el intermediario entre Internet y los clientes también puede implementar una caché de páginas (Proxy-cache) así como diferentes extensiones de control de usuarios y sesiones.</p>
+    </span>
+</div>

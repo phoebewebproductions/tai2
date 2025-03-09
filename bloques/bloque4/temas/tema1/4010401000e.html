@@ -1,0 +1,98 @@
+<div class="teoria">
+    <span id="4010401001">
+        <h2>4.1. HERRAMIENTAS DE GESTIÓN DE INCIDENTES</h2>
+        <p>Un sistema de seguimiento de incidentes (Issue tracking system, trouble ticket system o incident ticket system) es un paquete de software que permite administrar, crear, actualizar y resolver incidentes reportados por usuarios u otros empleados de la organización.</p>
+        <p>Son utilizados normalmente en los Centros de Atención de Usuarios (CAU) o en las centrales de llamadas de servicio al cliente de una organización.</p>
+        <p>Un sistema de seguimiento de incidencias también contiene una base de conocimiento que contiene información de cada cliente, soluciones a problemas comunes y otros datos relacionados. Un sistema de reportes de incidencias es similar a un Sistema de seguimiento de errores (bugtracker) y, en algunas ocasiones, una compañía de software puede tener ambos, y algunos bugtrackers pueden ser usados como un sistema de seguimiento de incidentes, y viceversa.</p>
+        <p>Un ticket es un archivo contenido en el sistema de seguimiento que contiene información acerca de intervenciones de software hechas por personal de soporte técnico o terceros a pedido de un usuario final que ha reportado un incidente que está impidiéndoles trabajar en sus computadoras cuando ellos esperaban poder hacerlo. Los tickets se crean generalmente en un ambiente de help desk o call center. Típicamente el ticket tiene un número único de referencia, también conocido como un número de caso, incidente o reporte de llamada, el cual es usado para permitir al cliente o al personal de soporte localizar, añadir o comunicar el estado del incidente o requerimiento.</p>
+        <p>Estos tickets también son llamados así debido a su origen como pequeñas tarjetas con un pequeño muro a manera de un sistema de planificación de trabajo acumulado. Cuando este tipo de soporte comenzaba, los operadores o personal recibía una llamada o consulta de un usuario podía llenar una tarjeta con los detalles del usuario y un breve resumen de su requerimiento y lo colocaba en una posición (usualmente la última) en una columna de "pendientes" para que una persona apropiada pueda determinar qué persona debía encargarse de la consulta y la prioridad del requerimiento.</p>
+    </span>
+    
+    <span id="4010401002">
+        <h3>Arquitectura</h3>
+        <p>El diseño más común de sistema de seguimiento de incidentes es relativamente simple. Una base de datos en el principal repositorio de almacenamiento para todos los datos. Estos datos son manejados por la capa de negocio de la aplicación. Esta capa brinda a los datos en bruto más estructura y significado. preparándola para ser comprensible por los usuarios. Los ahora datos comprensibles por humanos son presentados al soporte técnico por otra aplicación de software o página web. El usuario final del sistema de seguimiento de incidentes puede crear nuevos incidentes por completar, leer incidentes existentes, añadir detalles de los mismos o resolverlos.</p>
+        <p>Cada vez que el usuario del sistema efectúa un cambio, el sistema de seguimiento de incidentes registra la acción y quién la hizo, llevando un histórico de las acciones tomadas. Cada usuario del sistema puede tener incidentes asignados, esto es, cada usuario es responsable por la apropiada resolución de ese incidente. Esto es presentado generalmente al usuario en un formato de lista. El usuario puede tener la opción de reasignar un incidente a otro usuario, de ser necesario. Por seguridad, un sistema de seguimiento de incidentes autenticará sus usuarios antes de permitirles el acceso al sistema.</p>
+    </span>
+    
+    <span id="4010401003">
+        <h3>Incidentes</h3>
+        <p>Los incidentes pueden tener muchos aspectos. Cada incidente en el sistema puede tener un nivel de urgencia asignado, basado en la importancia total de ese incidente. Los incidentes críticos son los más severos que deben ser resueltos en la forma más expedita posible, tomando precedencia sobre todos los demás incidentes. Los incidentes de urgencia baja o cero son menores, y deben ser resueltos como lo permita el tiempo. Otros detalles de los incidentes incluyen la experiencia del cliente con el incidente (sea interna o externa), fecha de registro, descripciones detalladas del problema experimentado, intentos de soluciones y otra información relevante. Como se notó previamente, cada incidente mantiene un historial de cada cambio.</p>
+    </span>
+    
+    <span id="4010401004">
+        <h3>Flujo de trabajo</h3>
+        <p>Un escenario de ejemplo es presentado para demostrar cómo un sistema típico de seguimiento de incidencias puede trabajar:</p>
+        <ol>
+            <li>Un técnico de servicio al cliente recibe una llamada telefónica, correo electrónico, u otra comunicación de un cliente acerca de un programa. Algunas aplicaciones proveen reporte automático de errores a partir de bloques de manejo de excepciones.</li>
+            <li>El técnico verifica que el problema es real y no sólo percibido. El técnico podría también asegurarse de que se ha obtenido suficiente información acerca del problema por parte del cliente. Esta información generalmente incluye el ambiente del cliente, cuándo y cómo ocurre el incidente, y otras circunstancias relevantes.</li>
+            <li>El técnico crea el incidente en el sistema, ingresa toda la información relevante tal como fue proporcionada por el cliente.</li>
+            <li>Conforme se trabaja en el incidente, el sistema es actualizado con nuevos datos por el técnico. Cada intento de reparar el problema debe ser anotado en el sistema de incidentes.</li>
+            <li>Después de que el incidente es totalmente solucionado, es marcado como resuelto en el sistema de seguimiento de incidentes.</li>
+            <li>El problema puede no ser totalmente corregido, aun cuando pueda estar marcado como resuelto. El problema puede deberse al diseño, un incidente conocido, o tener una solución parcial adecuada.</li>
+        </ol>
+    </span>
+    
+    <span id="4010401005">
+        <h3>4.1.1. TIPOS DE ERRORES</h3>
+        <ul>
+            <li><strong>Bloqueador:</strong> Inhibe la continuidad de desarrollo o pruebas del programa.</li>
+            <li><strong>Crítico:</strong> Cuelgue de la aplicación, pérdida de datos o fuga de memoria severa.</li>
+            <li><strong>Mayor:</strong> Pérdida mayor de funcionalidad, como menús inoperantes, datos de salida extremadamente incorrectos, o dificultades que inhiben parcial o totalmente el uso del programa.</li>
+            <li><strong>Normal:</strong> Una parte menor del componente no es funcional.</li>
+            <li><strong>Menor:</strong> Una pérdida menor de funcionalidad, o un problema al cual se le puede dar la vuelta.</li>
+            <li><strong>Trivial:</strong> Un problema estético, como puede ser una falta de ortografía o un texto desalineado.</li>
+            <li><strong>Mejora:</strong> Solicitud de una nueva característica o funcionalidad.</li>
+        </ul>
+    </span>
+    
+    <span id="4010401006">
+        <h3>4.1.2. BMC REMEDY</h3>
+        <p>BMC Remedy Service Desk, era una aplicación de software para implementar una mesa de ayuda a nivel enterprise compatible con los procesos de ITIL que incluye manejo de incidentes, manejo de problemas, niveles de servicio y muchas facilidades.</p>
+        <p>Actualmente es BMC Helix</p>
+    </span>
+    
+    <span id="4010401007">
+        <h3>4.1.3. BMC HELIX ITSM</h3>
+        <p>Versión actualizada de Remedy. Tiene las siguientes características:</p>
+        <ul>
+            <li>Experiencia de usuario moderna basada en perfiles (personas) optimizados en todos los dispositivos.</li>
+            <li>Servicio integral e intuitivo y capacidades de gestión de cambios.</li>
+            <li>BMC Helix Multi-Cloud Service Management proporciona una experiencia de servicio perfecta en entornos multinube.</li>
+            <li>Capacidades de automatización cognitiva que transforman la experiencia del agente.</li>
+            <li>Informes y visualizaciones potentes que se crean don drag-and-drop y que permiten obtener información basada en datos.</li>
+            <li>La implementación de contenedores le permite ejecutar BMC Helix ITSM en cualquier tipo de nube pública.</li>
+            <li>Administración central de un solo panel.</li>
+            <li>Herramientas de colaboración integradas para ayudar a los agentes a resolver mejor los problemas.</li>
+            <li>Optimizado en todos los dispositivos para que elija lo que funciona para cada agente.</li>
+        </ul>
+    </span>
+    
+    <span id="4010401008">
+        <h3>4.1.4. OTRS - OPEN-SOURCE TICKET REQUEST SYSTEM</h3>
+        <p>Sistema de solicitud de tiques libre y de código abierto. Permite a cualquier organización canalizar el soporte a los usuarios asignándoles tickets (identificadores únicos) a sus solicitudes de servicio o de información recibidas por vía telefónica o por correo electrónico.</p>
+        <p>Facilita la clasificación, seguimiento y manejo de dichas solicitudes así como cualquier otra interacción con sus clientes o usuarios.</p>
+        <p>Se distribuye bajo la licencia GNU Affero General Public License.</p>
+        <p>Es una aplicación que puede instalarse en servidores locales o en la nube y ser utilizada a través de su interfaz web. Maneja conexiones seguras, se conecta a servidores de correo Postfix para enviar correos, y se basa en otras herramientas de software libre como MySQL, Apache2 y Procmail.</p>
+        <p>OTRS está certificado ITIL V3.1</p>
+    </span>
+    
+    <span id="4010401009">
+        <h3>4.1.5. VRT (VOLUNTER RESPONSE TEAM)</h3>
+        <p>Sistema de gestión de incidentes utilizado en los proyectos Wikimedia. Consiste en un sistema de mensajería donde los voluntarios responden los correos electrónicos que se envían a Wikimedia, incluyendo información general (en varios idiomas), preguntas de la prensa y correos de permisos.</p>
+    </span>
+    
+    <span id="4010401010">
+        <h3>4.1.6. GLPI (GESTIONNAIRE LIBRE DE PARC INFORMATIQUE)</h3>
+        <p>GLPi es una solución libre de gestión de servicios de tecnología de la información (ITSM), un sistema de seguimiento de incidencias y de solución service desk.</p>
+        <p>Es una aplicación web que ayuda las empresas con la gestión de su sistema de información.</p>
+        <p>Sus principales características son:</p>
+        <ul>
+            <li>Permite construir un inventario de todos los recursos de la organización.</li>
+            <li>Permite gestionar tareas administrativas y financieras.</li>
+            <li>Permite crear y administrar una de base de datos de activos técnicos así como a gestionarla.</li>
+            <li>Proporciona un historial de las intervenciones de mantenimiento.</li>
+            <li>Proporciona una herramienta de ticketing ofreciendo a los usuarios un servicio de alta y seguimiento de incidencias y peticiones</li>
+        </ul>
+        <p>Es software código abierto, programado en PHP y distribuido bajo una licencia GPL.</p>
+    </span>
+</div>

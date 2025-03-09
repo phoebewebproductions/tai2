@@ -17,21 +17,9 @@
     }
 }
 
-/* Overlay para móvil */
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 800;
-}
 
-.sidebar-overlay.active {
-    display: block;
-}
+
+
 
 
 /* Ajustes específicos para pantallas muy pequeñas */
@@ -67,25 +55,7 @@ main {
     height: 100%;
 }
 /* Solución para el modal de explicación */
-#modal-explicacion {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-background);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-    max-width: 90%;
-    width: 600px;
-    max-height: 80vh; /* Limitar altura máxima */
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation: fadeIn 0.3s ease;
-    overflow-y: auto; /* Habilitar scroll vertical */
-  }
+
   
   /* Asegurar que el contenido del modal sea scrollable */
   #explicacion-contenido {

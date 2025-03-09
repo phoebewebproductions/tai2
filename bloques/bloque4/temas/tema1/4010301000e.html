@@ -1,0 +1,69 @@
+<div class="teoria">
+    <span id="4010301001">
+        <h2>3.1. TIPOS DE MANTENIMIENTO</h2>
+        <ul>
+            <li><strong>Mantenimiento in site (in situ):</strong> El trabajo se realiza a la propia ubicación donde se encuentra el sistema. El personal técnico se desplaza a la empresa, con el material necesario (piezas de recambio, software, etc) para realizar las actuaciones necesarias del servicio. Los contratos de mantenimiento in-site suelen establecer una claúsula que permite recoger el equipo si no se puede realizar la reparación in situ para realizarla on site. El contrato también puede establecer que el sistema deba ser sustituido por uno similar durante el tiempo de reparación.</li>
+            <li><strong>Mantenimiento on site:</strong> El trabajo se realiza en las instalaciones de la propia empresa de mantenimiento. El servicio puede incluir la recogida del sistema, el transporte, la reparación y la devolución aunque generalmente es el propio cliente el que debe encargarse de trasladar el sistema a la empresa de reparación y posteriormente volverlo a recoger.</li>
+            <li><strong>Mantenimiento correctivo:</strong> Conjunto de tareas destinadas a reparar una avería una vez producida y comunicada. Pese que las averías a veces son difíciles de prever se debe disponer de un plan de mantenimiento para evitarlas en la medida de lo posible y reducir el tiempo de reparación e inactividad una vez producidas. Por ejemplo en el caso de averías de microinformática la empresa debería disponer recambios de fuentes de alimentación, discos duros, memorias, etc para reducir el tiempo de parada de un equipo.</li>
+            <li><strong>Mantenimiento preventivo:</strong> Conjunto de tareas destinadas a mantener un nivel de servicio determinado en los equipos. Tiene un carácter periódico y sistemático, es decir consiste en programar intervenciones en los equipos aunque no hayan presentado ningún fallo, bien siguiendo las tareas prescritas por el fabricante o por la propia política de la empresa.</li>
+            <li><strong>Mantenimiento predictivo:</strong> Conjunto de tareas destinadas a recopilar e interpretar datos estadísticos de los equipos para conocer e informar permanentemente del estado y operatividad de las instalaciones.
+                <p>Los datos estadísticos están compuestos por los valores de determinadas variables físicas o lógicas que representan el estado y operatividad del sistema:</p>
+                <ul>
+                    <li>Variables físicas típicas: temperatura, vibración, humedad, consumo de energía, etc.</li>
+                    <li>Variables lógicas: valores SMART de un disco duro, paquetes perdidos en una red…</li>
+                </ul>
+            </li>
+            <li><strong>Mantenimiento adaptativo:</strong> Conjunto de tareas cuyo objetivo es modificar el sistema, sin alterar su funcionamiento, con el objetivo de dar respuesta a cambios en el entorno de operación. Éstos cambios pueden ser físicos (cambio de componentes de red) o lógicos (cambios en el API de los programas conectados, en el framework, sistema operativo…).</li>
+            <li><strong>Mantenimiento perfectivo:</strong> Conjunto de tareas cuyos objetivos son:
+                <ul>
+                    <li>Incorporar nuevas funcionalidades o modificar las existentes.</li>
+                    <li>Realizar las mejoras necesarias para asegurar el rendimiento del sistema cuando existe un incremento del volumen considerable.</li>
+                </ul>
+            </li>
+            <li><strong>Mantenimiento Cero Horas (Overhaul):</strong> Conjunto de tareas cuyo objetivo es dejar el equipo como nuevo (como si tuviera cero horas de funcionamiento). Consiste en revisar los equipos a intervalos programados, independientemente del estado aparente del equipo. En estas revisiones se sustituyen o se reparan todos los elementos sometidos a desgaste. Intenta asegurar un tiempo de buen funcionamiento fijado de antemano.</li>
+            <li><strong>Mantenimiento En Uso:</strong> es el mantenimiento básico de un equipo realizado por los usuarios del mismo. Es la base del TPM (Total Productive Maintenance, Mantenimiento Productivo Total).</li>
+        </ul>
+    </span>
+    
+    <span id="4010301002">
+        <h3>3.1.1. CONCEPTOS MANTENIMIENTO</h3>
+        <p>Los conceptos más importantes a la hora de realizar tareas de mantenimiento y de comparar servicios de mantenimiento son los siguientes:</p>
+        <ul>
+            <li><strong>MTTR: Mean Time to Repair/Recovery.</strong> Tiempo medio de reparación, es el tiempo medio necesario para resolver fallos y reparar el activo que sufrió una avería, devolviéndole las condiciones normales de funcionamiento.</li>
+            <li><strong>MTBF: Mean Time Between Failures.</strong> Tiempo medio entre averías de un activo</li>
+            <li><strong>MTTR: Mean Time to Recovery:</strong> Tiempo medio de recuperación.</li>
+            <li><strong>MTTR: Mean Time to resolve.</strong> Tiempo medio de resolver una incidencia. Es el tiempo medio necesario para resolver fallos y reparar de un servicio.</li>
+            <li><strong>MTTF: Mean time to failure:</strong> Tiempo medio entre averías no reparables de un activo.</li>
+            <li><strong>MTTA: Mean time to acknowledge.</strong> Tiempo medio transcurrido entre que se lanza una alerta y que se empieza a trabajar en su reparación.</li>
+            <li><strong>Otros conceptos:</strong>
+                <ul>
+                    <li>Tiempo máximo de parada por revisión</li>
+                    <li>Tiempo mínimo garantizado de disponibilidad</li>
+                    <li>Tiempo mínimo garantizado de disponibilidad en un periodo T</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Estos conceptos también son utilizados a la hora de realizar las copias de seguridad y restaurarlas.</p>
+        <ul>
+            <li><strong>RTO (Recovery Time Objetive):</strong> Tiempo Objetivo de recuperación. Tiempo límite para que un cierto servicio vuelva a estar en funcionamiento.</li>
+            <li><strong>RPO (Recovery Point Objetive):</strong> Punto objetivo de recuperación. Indica el tiempo máximo de pérdida de información.</li>
+        </ul>
+        <p>En copias de seguridad, un menor RPO puede conllevar un mayor RTO si queremos mantener contenido el espacio destinado dedicado a copias de seguridad.</p>
+    </span>
+    
+    <span id="4010301003">
+        <h3>3.1.2. FACTORES DEL ENTORNO QUE AFECTAN A LOS EQUIPOS</h3>
+        <ul>
+            <li>Temperatura</li>
+            <li>Humedad</li>
+            <li>Ubicación.</li>
+            <li>Insectos y alimañas</li>
+        </ul>
+        <p>Foto del origen de la leyenda del primer bug informático conocido</p>
+        <ul>
+            <li>Problemas eléctricos (fluctuaciones de la línea, picos de voltaje, cambios de fase)</li>
+            <li>Electricidad estática</li>
+            <li>Altitud: Algunos equipos tienen un Modo gran altitud (ajustes especiales para altitudes superiores a 1.500/1.800 metros.</li>
+        </ul>
+    </span>
+</div>

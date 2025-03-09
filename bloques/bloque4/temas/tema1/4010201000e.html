@@ -1,0 +1,85 @@
+<div class="teoria">
+    <span id="4010201001">
+        <h2>2.1. TIPOS DE SERVIDORES</h2>
+    </span>
+    
+    <span id="4010201002">
+        <h3>2.1.1. SERVIDOR DE AUTENTICACIÓN</h3>
+        <p>Servidor o conjunto de servidores que controlan quién puede acceder a una red informática.</p>
+        <p>Los objetivos de la autenticación son la autorización, la privacidad y el no repudio.</p>
+        <ul>
+            <li>Autorización: determina a qué objetos o datos puede tener acceso un usuario en la red, si corresponde.</li>
+            <li>Privacidad: evita que la información se divulgue a personas no autorizadas.</li>
+            <li>No repudio: Suele ser un requisito legal. Se refiere al hecho de que el servidor de autenticación puede registrar todos los accesos a la red junto con los datos de identificación, de modo que un usuario no puede repudiar o negar el hecho de que ha accedido o modificado datos.</li>
+        </ul>
+        <p>Un servidor de autenticación puede ser implementado de varias formas:</p>
+        <p>Desde la más simple como comprobar un nombre de usuario y una contraseña almacenada en una base de datos o un archivo de texto con una lista de nombres de usuario válidos y las contraseñas correspondientes y procediendo a autenticar a todos los usuarios que intentan conectarse a la red de acuerdo con esta lista hasta protocolos complejos como Kerberos (creado por el MIT) que permite a dos ordenadores en una red insegura demostrar su identidad de manera segura.</p>
+        <p>Hay tres aspectos principales de la autenticación Kerberos: autenticación de la identidad del usuario, empaquetado seguro del nombre del usuario y transmisión segura de las credenciales del usuario a través de la red. Los servidores de autenticación Kerberos en los sistemas operativos Windows están disponibles para los sistemas operativos Windows XP, Windows 2000 y Windows 2003 en adelante</p>
+    </span>
+    
+    <span id="4010201003">
+        <h3>2.1.2. CONTROLADOR DE DOMINIO</h3>
+        <p>Centro neurálgico de un dominio Windows. Se responsabilizan entre otras tareas de la autenticación, que es el proceso de garantizar o denegar a un usuario el acceso a recursos compartidos o a otra máquina de la red, normalmente a través del uso de una contraseña.</p>
+        <p>Permite validar a los usuarios de una red para ser partes de la plataforma de clientes que recibirán los servicios de información.</p>
+        <p>Cada controlador de dominio usa un security account manager (SAM), o NTDS o TUPU en Windows 2003 Server y posterior (que es la forma promovida de la SAM, al pasar como controlador de dominio), para mantener una lista de pares de nombre de usuario y contraseña.</p>
+        <p>El controlador de dominio crea un repositorio centralizado de contraseñas, que están enlazados a los nombres de usuarios (una clave por usuario), lo cual es más eficiente que mantener en cada máquina cliente centenares de claves para cada recurso de red disponible.</p>
+        <p>En un dominio Windows, cuando un cliente no autorizado solicita un acceso a los recursos compartidos de un servidor, el servidor actúa y pregunta al controlador de dominio si ese usuario está autentificado. Si lo está, el servidor establecerá una conexión de sesión con los derechos de acceso correspondientes para ese servicio y usuario. Si no lo está, la conexión es denegada.</p>
+        <p>Una vez que el controlador de dominio autentifica a un usuario, se devuelve al cliente una ficha especial (token) de autenticación, de manera que el usuario no necesitará volver a iniciar sesión para acceder a otros recursos en dicho dominio, ya que el usuario se considera autentificado en el dominio.</p>
+    </span>
+    
+    <span id="4010201004">
+        <h3>2.1.3. SERVIDOR OPENLDAP</h3>
+        <p>OpenLDAP es una implementación libre y de código abierto del protocolo Lightweight Directory Access Protocol desarrollada por el proyecto OpenLDAP. Está liberada bajo su propia licencia OpenLDAP Public License. LDAP es un protocolo de comunicación independiente de la plataforma.</p>
+    </span>
+    
+    <span id="4010201005">
+        <h3>2.1.4. SERVIDOR NETWORK INFORMATION SERVICE (NIS)</h3>
+        <p>Servidor del Sistema de Información de Red nombre por el que se conoce al protocolo de servicios de directorios cliente-servidor desarrollado por Sun Microsystems para el envío de datos de configuración en sistemas distribuidos tales como nombres de usuarios y hosts entre computadoras sobre una red.</p>
+    </span>
+    
+    <span id="4010201006">
+        <h3>2.1.5. SERVIDOR RADIUS</h3>
+        <p>RADIUS (Remote Access Dial In User Service) es un protocolo que permite AAA (Authorisation, Authentication y Acoounting). Destaca por ofrecer un mecanismo de seguridad, flexibilidad, capacidad de expansión y una administración simplificada de las credenciales de acceso a un recurso de red. Es un protocolo de autenticación y autorización para el acceso a la red.</p>
+        <p>Éste protocolo utiliza un esquema cliente-servidor: un usuario con unas credenciales de acceso al recurso se conecta contra un servidor que será el que se encargue de verificar la autenticidad de la información, y será el encargado de determinar si el usuario accede o no al recurso compartido.</p>
+        <p>El servidor Radius permite al administrador de red controlar en todo momento el inicio y final del periodo de autenticación y autorización de los clientes permitiendo incluso expulsar a un usuario que ha iniciado sesión previamente.</p>
+        <p>Los servidores RADIUS son ampliamente usados por los operadores de Internet (PPPoE), en redes WiFi corporativas y de hoteles, universidades o en cualquier lugar donde queramos proporcionar una seguridad adicional a la red inalámbrica.</p>
+        <p>FreeRadius: Servicio open source para la implementación de Radius: Implementa un servidor Radius, DHCP, BFD y ARP.</p>
+    </span>
+    
+    <span id="4010201007">
+        <h3>2.1.6. SERVIDOR DE CORREO ELECTRÓNICO</h3>
+        <p>Es un servidor que funciona como una oficina de correo. Almacena, recibe, envía y permite múltiples operaciones que tienen que ver con el correo personal de los clientes.</p>
+        <p>Existen varios tipos en función del protocolo de correo que utilizan:</p>
+        <ul>
+            <li>POP3: retienen los emails recibidos hasta que el usuario los abre, momento en que son enviados al dispositivo y normalmente borrados del servidor.</li>
+            <li>IMAP: permite interactuar con la información recibida como un mensaje de email, pero sin descargarla (en principio) en el equipo. Permiten las vistas previas para poder organizarlos, descargarlos y archivarlos o eliminarlos.</li>
+            <li>SMTP: administran todos los emails salientes. Funcionan con una combinación entre POP3 y IMAP.</li>
+            <li>Webmail: No es exactamente un tipo de servidor de correo si no una extensión de los servidores. Permite a los usuarios conectarse a su buzón de correo a través de la web sin necesidad de descargarse un cliente. Algunos clientes populares de webmail son:
+                <ul>
+                    <li>OWA: Outlook Web Access. Webmail de Microsoft Exchange. Además del cliente correo, dispone de calendario, contactos y tareas.</li>
+                    <li>Office 365: Incluye el cliente web de Outlook junto a otras muchas herramientas de Office como Calendar, Delve, Excel, Forms, Word, Visio, Teams, Project, OneDrive….</li>
+                    <li>Open WebMail: Basado en NeoMail. Permite administrar grandes buzones de correo de forma eficiente. Contiene herramientas para la migración desde Microsoft Outlook.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Los servidores de email más comunes en la actualidad son:</p>
+        <ul>
+            <li>Microsoft Exchange</li>
+            <li>Sendmail</li>
+        </ul>
+    </span>
+    
+    <span id="4010201008">
+        <h3>2.1.7. SERVIDOR WEB</h3>
+        <p>Un servidor web se ocupa de guardar y servir el contenido de los sitios web. Un sitio web está compuesto por páginas en formato HTML, lenguajes de script de servidor (Asp.net, php, etc), archivos script de cliente (js), imágenes, vídeos, estilos css, todo tipo de datos (archivos pdf, audios…). Mediante un explorador web, los usuarios puedan visualizar todo esto en sus pantallas.</p>
+        <p>Los servidores web más populares en la actualidad son:</p>
+        <ul>
+            <li>Apache: el más popular, es un sistema multiplataforma que brinda estabilidad y seguridad.</li>
+            <li>LAMP (Linux+Apache+MySQL/MariaDB+PHP): Es uno de los entornos web mas utilizados en internet actualmente. Se compone de un servidor con sistema operativo Linux, servidor web Apache, servidor de base de datos MYSQL o MariaDB y los módulo de PHP instalados en Apache.</li>
+            <li>Nginx: Servidor web/proxy inverso ligero de alto rendimiento y un proxy para protocolos de correo electrónico. Es software libre y de código abierto, licenciado bajo la Licencia BSD simplificada; también existe una versión comercial distribuida bajo el nombre de Nginx Plus.</li>
+            <li>Microsoft IIS: Servidor web de Microsoft presente como rol instable tanto en elos Windows Server como en los clientes Windows.</li>
+            <li>Sun Java System Web Server: servidor de código abierto, para tecnologías como PHP, JSP, entre otras.</li>
+            <li>Lighttpd: muy ligero y rápido, está diseñado para entornos donde se necesita la velocidad.</li>
+        </ul>
+    </span>
+</div>

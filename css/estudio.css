@@ -2,551 +2,574 @@
 
 /* Layout principal */
 .bloque-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    width: 100%;
-   
-    position: relative;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  width: 100%;
+
+  position: relative;
+  overflow: hidden;
 }
 
 /* Header ajustado - altura automática */
 
-main{
-   
-  
-    width: 100%;
+main {
+  width: 100%;
 }
 /* Sidebar y navegación */
 .sidebar-navigation {
-    grid-column: 1;
-    background-color: var(--color-background);
-    border-right: 1px solid var(--color-border);
-    height: 100%;
-    overflow-y: auto;
-    width: 300px;
-    padding: 1rem;
-    position: sticky;
-    bottom:0;
-    z-index: 100;
-    scrollbar-width: thin;
+  grid-column: 1;
+  background-color: var(--color-background);
+  border-right: 1px solid var(--color-border);
+  height: 100%;
+  overflow-y: auto;
+  width: 300px;
+  padding: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  scrollbar-width: thin;
 }
 
 .sidebar-navigation::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .sidebar-navigation::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .sidebar-navigation::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 /* Navegación y botones */
 .tema-navigation {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .tema-btn {
-    width: 100%;
-    text-align: left;
-    padding: 1rem;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    border: none;
-    color: var(--color-white);
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border: none;
+  color: var(--color-white);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tema-btn:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-dark));
-    transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-dark));
+  transform: translateY(-2px);
 }
 
 .punto-btn {
-    width: 100%;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.9rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 
 .punto-btn.disponible {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .punto-btn.completado {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
 }
 
 /* Área de contenido */
 .content-area {
-    height: 100%;
-    overflow-y: auto;
-    padding: 1.5rem;
-    background-color: var(--color-background);
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background-color: var(--color-background);
 }
 
-
 .content-area::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .content-area::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .content-area::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 /* Contenido del punto */
 .punto-contenido {
-    padding: 1rem;
-    margin-top: 0;
+  padding: 1rem;
+  margin-top: 0;
 }
 
 .punto-contenido.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
+  display: block;
+  animation: fadeIn 0.3s ease;
 }
 
 /* Botón mini-examen */
 .mini-examen-btn {
-    border: none;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-white);
-    border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-    width: fit-content;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  width: fit-content;
 }
 
 .mini-examen-btn:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
 }
 
 /* Botón toggle del sidebar */
 .sidebar-toggle {
-    display: none;
-    position: relative;
-    z-index: 1000000;
-   border-radius: 50%;
-    color: var(--color-primary);
-    width: 40px;
-    height: 40px;
-   
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    align-items: center;
-    justify-content: center;
+  display: none;
+  position: relative;
+  z-index: 1000000;
+  border-radius: 50%;
+  color: var(--color-primary);
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Overlay para cuando el sidebar está activo */
 .sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* Modal de progreso */
+#progress-display {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1001;
+  max-width: 90%;
+  width: auto;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+#progress-display::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Modal de examen */
+#modal-examen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1002; /* Higher than the overlay */
+  max-width: 90%;
+  width: 600px;
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+  border: 1px solid var(--color-primary);
+}
+
+#modal-examen.visible {
+  display: flex;
+}
+#modal-explicacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1004; /* Higher than the exam modal */
+  max-width: 90%;
+  width: 600px;
+  max-height: 80vh;
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
+
+#modal-examen::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: -1;
+}
+button:hover {
+  opacity: 0.5;
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bloque-container {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+
+  .sidebar-navigation {
+    position: fixed;
+    top: var(--header-height, 60px);
+    left: 0;
+    bottom: 0;
+    width: 90%;
+    max-width: 300px;
+    height: calc(100vh - var(--header-height, 60px));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 200;
+    background-color: var(--color-background);
+    overflow-y: auto;
+  }
+
+  .sidebar-navigation.active {
+    transform: translateX(0);
+  }
+
+  /* Ensure the overlay is properly positioned and styled */
+  .sidebar-overlay {
     display: none;
     position: fixed;
-    top: 0;
+    top: var(--header-height, 60px);
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
-}
+  }
 
-.sidebar-overlay.active {
+  .sidebar-overlay.active {
     display: block;
-}
+  }
 
-/* Modal de progreso */
-#progress-display {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-background);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    z-index: 1001;
-    max-width: 90%;
-    width: auto;
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    animation: fadeIn 0.3s ease;
-}
-
-#progress-display::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
-
-/* Modal de examen */
-#modal-examen{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-background);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    z-index: 1001;
-    max-width: 90%;
-    width: 600px;
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation: fadeIn 0.3s ease;
-}
-
-#modal-examen.visible {
+  .sidebar-toggle {
     display: flex;
-}
-#modal-explicacion{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-primary-dark);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    z-index: 1001;
-    max-width: 90%;
-    width: 600px;
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation: fadeIn 0.3s ease;
-    overflow-y: scroll;
-}
+  }
 
-#modal-examen::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-   
-    z-index: -1;
-}
-button:hover{
-    opacity: 0.5;
-}
-
-.cerrar {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--color-text);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .bloque-container {
-        grid-template-columns: 1fr;
-        height: 100%;
-    }
-
-    .sidebar-navigation {
-        position: fixed;
-      
-        left: -300px;
-        height: calc(100vh - var(--header-height, 60px));
-        transition: transform 0.3s ease;
-        transform: translateX(-100%);
-        z-index: 200;
-        width: 100%;
-        
-    }
-
-    .sidebar-navigation.active {
-        transform: translateX(0);
-        left: 0;
-    }
-
-    .sidebar-toggle {
-        display: flex;
-    }
-
-    .content-area {
-     
-        padding: 1rem;
-        height: calc(100vh - var(--header-height, 60px));
-    }
-    
-    .punto-contenido {
-        
-        font-size: 0.95rem;
-    }
-    
-    #progress-display {
-        width: 90%;
-        padding: 1.5rem;
-    }
-    
-    #modal-examen {
-        width: 90%;
-        padding: 1.5rem;
-    }
+  .content-area {
+    padding: 1rem;
+    height: calc(100vh - var(--header-height, 60px));
+    overflow-y: auto;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-    .sidebar-navigation {
-        width: 90%;
-        z-index: 10000;
-    }
-    .bloque-container{
-        height: 100%;
-    }
+  .sidebar-navigation {
+    width: 90%;
+    z-index: 10000;
+  }
+  .bloque-container {
+    height: 100%;
+  }
 
-    .content-area {
-        padding: 0.75rem;
-        font-size: 0.9rem;
-        height: 100%;
-    }
+  .content-area {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    height: 100%;
+  }
 
-    .punto-contenido {
-      
-        font-size: 0.9rem;
-        height: fit-content;
-    }
+  .punto-contenido {
+    font-size: 0.9rem;
+    height: fit-content;
+  }
 
-    .tema-btn,
-    .punto-btn {
-        padding: 0.75rem;
-        font-size: 0.85rem;
-    }
+  .tema-btn,
+  .punto-btn {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
 
-    .mini-examen-btn {
-        
-        text-align: center;
-        padding: 0.75rem;
-        font-size: 0.9rem;
-        margin-top: 0rem;
-        margin-bottom: 2rem;
-        width: fit-content;
-    }
-    
-    #progress-display {
-        padding: 1rem;
-    }
-    
-    #modal-examen {
-        padding: 1rem;
-    }
-    main{
-        height: 100%;
-    }
+  .mini-examen-btn {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+
+  #progress-display {
+    padding: 1rem;
+  }
+
+  #modal-examen {
+    padding: 1rem;
+  }
+  main {
+    height: 100%;
+  }
 }
 
 /* Clases de estado */
 .oculto {
-    display: none !important;
+  display: none !important;
 }
 
 .visible {
-    display: flex !important;
+  display: flex !important;
 }
 
 /* Animaciones */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Asegurar que el sidebar está completamente oculto cuando no está activo */
 @media (max-width: 1024px) {
-    .sidebar-navigation:not(.active) {
-        transform: translateX(-100%);
-        visibility: hidden;
-        
-    }
+  .sidebar-navigation:not(.active) {
+    transform: translateX(-100%);
+    visibility: hidden;
+  }
 }
 
 /* Estilos para el examen */
 .btn-opcion {
-    width: 100%;
-    text-align: left;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn-opcion:hover {
-    background-color: var(--color-muted);
+  background-color: var(--color-muted);
 }
 
 .btn-opcion.correcta {
-    background-color: rgba(0, 128, 0, 0.2);
-    border-color: green;
+  background-color: rgba(0, 128, 0, 0.2);
+  border-color: green;
 }
 
 .btn-opcion.incorrecta {
-    background-color: rgba(255, 0, 0, 0.2);
-    border-color: red;
+  background-color: rgba(255, 0, 0, 0.2);
+  border-color: red;
 }
 
 .botones-examen {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .btn-examen {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-cerrar {
-    background-color: var(--color-muted);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 }
 
 .btn-reintentar {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-white);
-    border: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  border: none;
 }
 
 .resultado-examen {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .mensaje-aprobado {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .aprobado {
-    color: green;
+  color: green;
 }
 
 .no-aprobado {
-    color: red;
+  color: red;
 }
 
+/* Add these new styles for modal overlays */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
 
+.modal-overlay.visible {
+  display: block;
+}
+
+/* Update z-index for modal overlays with different values */
+.modal-overlay.exam-overlay {
+  z-index: 1000;
+}
+
+.modal-overlay.explanation-overlay {
+  z-index: 1003; /* Higher than exam modal but lower than explanation modal */
+}
 
 /* Ajustes para el contenido principal */
 .content-area {
-    flex: 1;
-    height: 100%;
-    overflow-y: auto;
-    padding: 1.5rem;
-    background-color: var(--color-background);
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background-color: var(--color-background);
 }
 
 /* Ajustes específicos para el contenido del punto */
 .punto-contenido {
-    padding: 1rem;
-    margin-top: 0;
+  padding: 1rem;
+  margin-top: 0;
 }
 
 .teoria {
-    padding: 1rem;
-    background-color: var(--color-background);
+  padding: 1rem;
+  background-color: var(--color-background);
 }
 
 /* Media queries para móvil */
 @media (max-width: 1024px) {
-    .content-area {
-        padding: 1rem;
-       
-        height: 100%;
-        position: relative;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
-    }
+  .content-area {
+    padding: 1rem;
 
-    .punto-contenido {
-        padding: 0.75rem;
-        margin-top: 0;
-    }
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
+  }
 
-    .teoria {
-        padding: 0.75rem;
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
+  .punto-contenido {
+    padding: 0.75rem;
+    margin-top: 0;
+  }
 
-    /* Asegurar que el texto sea legible */
-    article {
-        margin-top: 0;
-    }
+  .teoria {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 
-    /* Ajustar el contenedor principal */
-    .bloque-container {
-        height: 100%;
-        margin-top: 0; /* Eliminar margen superior */
-        padding-top:0; /* Usar padding en su lugar */
-    }
+  /* Asegurar que el texto sea legible */
+  article {
+    margin-top: 0;
+  }
+
+  /* Ajustar el contenedor principal */
+  .bloque-container {
+    height: 100%;
+    margin-top: 0; /* Eliminar margen superior */
+    padding-top: 0; /* Usar padding en su lugar */
+  }
 }
 
 /* Ajustes específicos para pantallas muy pequeñas */
 @media (max-width: 480px) {
-    .content-area {
-        padding: 0.75rem;
-     
-    }
+  .content-area {
+    padding: 0.75rem;
+  }
 
-    .teoria {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        height: 100%;
-    }
+  .teoria {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    height: 100%;
+  }
 }
+
