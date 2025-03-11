@@ -1,0 +1,92 @@
+<div class="teoria">
+    <span id="4010505001">
+        <h2>5.5. COMANDOS NET WINDOWS (FINAL)</h2>
+    </span>
+    
+    <span id="4010505002">
+        <h3>5.5.1. NET USE</h3>
+        <p>NET USE conecta un equipo a un recurso compartido o lo desconecta de él. Si se usa sin opciones, muestra las conexiones del equipo.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET USE
+[devicename | *] [\\computername\sharename[\volume] [password | *]]
+[/USER:[domainname\]username]
+[/USER:[dotted domain name\]username]
+[/USER:[username@dotted domain name]
+[/SMARTCARD]
+[/SAVECRED]
+[/REQUIREINTEGRITY]
+[/REQUIREPRIVACY]
+[/WRITETHROUGH]
+[[/DELETE] | [/PERSISTENT:{YES | NO}]]
+NET USE {devicename | *} [password | *] /HOME
+NET USE [/PERSISTENT:{YES | NO}]
+        </pre>
+        <p><strong>devicename</strong> - Asigna un nombre para conectarse al recurso o especifica el dispositivo del que se desconectará. Hay dos clases de nombre de dispositivo: unidades de disco (de D: a Z:) e impresoras (de LPT1: a LPT3:). Escriba un asterisco en lugar de un dispositivo específico para asignar el siguiente devicename disponible.</p>
+        <p><strong>\\computername</strong> - Nombre del equipo que controla el recurso compartido. Si este nombre contiene caracteres en blanco, escriba la doble barra diagonal inversa (\\) y el nombre del equipo entre comillas (" "). El nombre del equipo puede tener entre 1 y 15 caracteres.</p>
+        <p><strong>\sharename</strong> - Nombre de red del recurso compartido.</p>
+        <p><strong>\volume</strong> - Especifica el volumen de NetWare en el servidor. Los Servicios cliente para NetWare (Estaciones de trabajo de Windows) o Servicio de puerta de enlace para NetWare (Windows Server) deben estar instalados y en ejecución para conectarse a los servidores NetWare.</p>
+        <p><strong>password</strong> - Contraseña requerida para obtener acceso al recurso compartido.</p>
+        <p><strong>*</strong> - Solicita la contraseña. La contraseña no se mostrará al escribirla.</p>
+        <p><strong>/USER</strong> - Especifica un nombre de usuario diferente para realizar la conexión.</p>
+        <p><strong>domainname</strong> - Especifica otro dominio. Si este valor se omite, se usa el dominio actual con sesión iniciada.</p>
+        <p><strong>username</strong> - Especifica el nombre de usuario con el que se inicia sesión.</p>
+        <p><strong>/SMARTCARD</strong> - Especifica que la conexión debe usar las credenciales en una tarjeta inteligente.</p>
+        <p><strong>/SAVECRED</strong> - Especifica que se deben guardar el nombre de usuario y la contraseña. Este modificador se omitirá a menos que el comando solicite un nombre de usuario y una contraseña.</p>
+        <p><strong>/HOME</strong> - Conecta un usuario a su directorio principal.</p>
+        <p><strong>/DELETE</strong> - Cancela una conexión de red y quita la conexión de la lista de conexiones persistentes.</p>
+        <p><strong>/REQUIREINTEGRITY</strong> - Requiere una conexión firmada al recurso compartido. La operación no se llevará a cabo si el proveedor no admite las conexiones firmadas.</p>
+        <p><strong>/REQUIREPRIVACY</strong> - Requiere una conexión cifrada al recurso compartido. La operación no se llevará a cabo si el proveedor no admite las conexiones cifradas.</p>
+        <p><strong>/PERSISTENT</strong> - Controla el uso de conexiones de red persistentes. El valor predeterminado es la última configuración usada.</p>
+        <p><strong>YES</strong> - Guarda las conexiones a medida que se establecen, y las restaura en el siguiente inicio de sesión.</p>
+        <p><strong>NO</strong> - No guarda la conexión establecida ni las conexiones subsiguientes; las conexiones existentes se restaurarán en el siguiente inicio de sesión. Usa el modificador /DELETE para quitar las conexiones persistentes.</p>
+    </span>
+    
+    <span id="4010505003">
+        <h3>5.5.2. NET USER</h3>
+        <p>NET USER crea y modifica las cuentas de usuario en equipos. Si se usa sin modificadores, muestra las cuentas de usuario en el equipo. La información de cuenta de usuario se almacena en la base de datos de cuentas de usuario.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET USER [usuario [contraseña | *] [opciones]] [/DOMAIN]
+usuario {contraseña | *} /ADD [opciones] [/DOMAIN]
+usuario [/DELETE] [/DOMAIN]
+usuario [/TIMES:{tiempos | ALL}]
+usuario [/ACTIVE: {YES | NO}]
+        </pre>
+        <p><strong>usuario</strong> - Nombre de la cuenta de usuario que se desea agregar, eliminar, modificar o ver. El nombre de la cuenta de usuario puede tener hasta 20 caracteres.</p>
+        <p><strong>contraseña</strong> - Asigna o cambia la contraseña para la cuenta del usuario. Las contraseñas deben cumplir con la longitud mínima establecida con la opción /MINPWLEN en el comando NET ACCOUNTS, y puede tener hasta 14 caracteres.</p>
+        <p><strong>*</strong> - Crea una solicitud de contraseña. La contraseña no se mostrará mientras se escribe.</p>
+        <p><strong>/DOMAIN</strong> - Realiza la operación en un controlador de dominio del dominio actual.</p>
+        <p><strong>/ADD</strong> - Agrega una cuenta de usuario a la base de datos de cuentas de usuario.</p>
+        <p><strong>/DELETE</strong> - Quita una cuenta de usuario de la base de datos de cuentas de usuario.</p>
+        <p>Opciones:</p>
+        <p><strong>/ACTIVE:{YES | NO}</strong> - Activa o desactiva la cuenta. Si la cuenta no está activa, el usuario no podrá tener acceso al equipo. El valor predeterminado es YES.</p>
+        <p><strong>/COMMENT:"texto"</strong> - Proporciona un comentario descriptivo acerca de la cuenta de usuario. Escriba el texto entre comillas.</p>
+        <p><strong>/COUNTRYCODE:nnn</strong> - Usa el código de país o región del sistema operativo para usar los archivos de idioma especificados en la ayuda y mensajes de error para el usuario. Un valor de 0 indica el código de país o región predeterminado.</p>
+        <p><strong>/EXPIRES:{fecha | NEVER}</strong> - Hace que la cuenta expire si se establece una fecha. NEVER no establece límite de tiempo en la cuenta. La fecha de expiración debe tener el formato mm/dd/aa(aa). Los meses se pueden indicar con números, nombres o abreviaturas de tres letras. El año debe contener 2 o 4 números. Use barras diagonales (/) en lugar de espacios para separar las partes de la fecha.</p>
+        <p><strong>/FULLNAME:"nombre"</strong> - Nombre completo del usuario (a diferencia de un nombre de usuario). Escriba el nombre entre comillas.</p>
+        <p><strong>/HOMEDIR:ruta</strong> - Establece la ruta para el directorio principal del usuario. La ruta debe existir.</p>
+        <p><strong>/PASSWORDCHG:{YES | NO}</strong> - Especifica si los usuarios pueden cambiar su contraseña. El valor predeterminado es YES.</p>
+        <p><strong>/PASSWORDREQ:{YES | NO}</strong> - Especifica si una cuenta de usuario debe tener contraseña. El valor predeterminado es YES.</p>
+        <p><strong>/LOGONPASSWORDCHG:{YES|NO}</strong> - Especifica si el usuario debe cambiar la contraseña propia en el siguiente inicio de sesión. La opción predeterminada es NO.</p>
+        <p><strong>/PROFILEPATH[:ruta]</strong> - Establece una ruta para el perfil de inicio de sesión del usuario.</p>
+        <p><strong>/SCRIPTPATH:ruta</strong> - Ubicación del script de inicio de sesión del usuario.</p>
+        <p><strong>/TIMES:{tiempos | ALL}</strong> - Horas de inicio de sesión. TIMES se expresa como día[-día][,día[-día]],hora[-hora][,hora[-hora]], limitado a incrementos de 1 hora. Los días se pueden escribir completos o abreviados. Las horas pueden expresarse en notación de 12 o de 24 horas. Use am, pm, a.m. o p.m. para la notación de 12 horas. ALL indica que un usuario puede iniciar sesión siempre, y un valor en blanco indica que no puede iniciar sesión nunca. Separe los valores de días y horas con comas, y separe los valores múltiples de día y hora con puntos y coma.</p>
+        <p><strong>/USERCOMMENT:"texto"</strong> - Permite que un administrador agregue o cambie el comentario de usuario para la cuenta.</p>
+        <p><strong>/WORKSTATIONS:{equipo [,...] | *}</strong> - Muestra hasta 8 equipos en la red desde los que podrá iniciar sesión un usuario. Si /WORKSTATIONS no tiene ninguna lista o si la lista es *, el usuario podrá conectarse desde cualquier equipo.</p>
+    </span>
+    
+    <span id="4010505004">
+        <h3>5.5.3. NET VIEW</h3>
+        <p>NET VIEW muestra una lista de recursos compartidos en un equipo. Si se usa sin opciones, muestra una lista de equipos del dominio o red actual.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET VIEW
+[\\nombreEquipo [/CACHE] | [/ALL] | /DOMAIN[:nombreDominio]]
+        </pre>
+        <p><strong>\\nombreEquipo</strong> - Es un equipo cuyos recursos compartidos desea ver.</p>
+        <p><strong>/DOMAIN:nombreDominio</strong> - Especifica el dominio para el que desea ver los equipos disponibles. Si se omite el nombre de dominio, muestra todos los dominios de la red de área local.</p>
+        <p><strong>/CACHE</strong> - Muestra la configuración de almacenamiento en caché de cliente sin conexión para los recursos del equipo especificado.</p>
+        <p><strong>/ALL</strong> - Muestra todos los recursos compartidos, incluidos los de tipo $.</p>
+    </span>
+</div>

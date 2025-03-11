@@ -1,0 +1,116 @@
+<div class="teoria">
+    <span id="4010504001">
+        <h2>5.4. COMANDOS NET WINDOWS (CONTINUACIÓN)</h2>
+    </span>
+    
+    <span id="4010504002">
+        <h3>5.4.1. NET SHARE</h3>
+        <p>NET SHARE pone los recursos del servidor a disposición de los usuarios de red. Si se usa sin opciones, muestra información de todos los recursos compartidos en el equipo. Windows muestra los nombres de dispositivo o de ruta para cada recurso, así como un comentario descriptivo asociado.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET SHARE
+recursoCompartido
+recursoCompartido=unidad:ruta [/GRANT:usuario,[READ | CHANGE | FULL]]
+[/USERS:número | /UNLIMITED]
+[/REMARK:"texto"]
+[/CACHE:Manual | Documents| Programs | BranchCache | None ]
+recursoCompartido [/USERS:número | /UNLIMITED]
+[/REMARK:"texto"]
+[/CACHE:Manual | Documents | Programs | BranchCache | None]
+{recursoCompartido | dispositivo | unidad:ruta} /DELETE
+recursoCompartido \\equipo /DELETE
+        </pre>
+        <p><strong>recursoCompartido</strong> - Nombre de red del recurso compartido. Escriba NET SHARE junto con un valor de recurso compartido solo para mostrar información acerca de dicho recurso compartido.</p>
+        <p><strong>unidad:ruta</strong> - Especifica la ruta absoluta del directorio que se desea compartir.</p>
+        <p><strong>/GRANT:usuario,perm</strong> - Crea el recurso compartido con un descriptor de seguridad que otorga los permisos solicitados al usuario dado. Esta opción se puede usar más de una vez para otorgar permisos de recursos compartidos a varios usuarios.</p>
+        <p><strong>/USERS:número</strong> - Establece el número máximo de usuarios que pueden tener acceso simultáneo al recurso compartido.</p>
+        <p><strong>/UNLIMITED</strong> - Especifica que un número ilimitado de usuarios puede tener acceso simultáneo al recurso compartido.</p>
+        <p><strong>/REMARK:"texto"</strong> - Agrega un comentario descriptivo acerca del recurso. Escriba el texto entre comillas.</p>
+        <p><strong>dispositivo</strong> - Una o más impresoras (de LPT1: a LPT9:) compartidas por recursoCompartido.</p>
+        <p><strong>/DELETE</strong> - Deja de compartir el recurso.</p>
+        <p><strong>/CACHE:Manual</strong> - Habilita el almacenamiento en caché manual de los programas y documentos de este recurso compartido.</p>
+        <p><strong>/CACHE:Documents</strong> - Habilita el almacenamiento en caché automático de los documentos de este recurso compartido.</p>
+        <p><strong>/CACHE:Programs</strong> - Habilita el almacenamiento en caché automático de los documentos y programas de este recurso compartido.</p>
+        <p><strong>/CACHE:BranchCache</strong> - Almacenamiento manual en caché de documentos con BranchCache habilitado de este recurso compartido.</p>
+        <p><strong>/CACHE:None</strong> - Deshabilita el almacenamiento en caché en este recurso compartido.</p>
+    </span>
+    
+    <span id="4010504003">
+        <h3>5.4.2. NET START</h3>
+        <p>NET START muestra un listado de servicios en ejecución. Si se agrega el nombre de un servicio válido lo inicia.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET START [service]
+        </pre>
+        <p><strong>servicio</strong> - Puede incluir uno de los siguientes servicios:</p>
+        <ul>
+            <li>BROWSER</li>
+            <li>DHCP CLIENT</li>
+            <li>EVENTLOG</li>
+            <li>FILE REPLICATION</li>
+            <li>NETLOGON</li>
+            <li>PLUG AND PLAY</li>
+            <li>REMOTE ACCESS CONNECTION MANAGER</li>
+            <li>ROUTING AND REMOTE ACCESS</li>
+            <li>RPCSS</li>
+            <li>SCHEDULE</li>
+            <li>SERVER</li>
+            <li>SPOOLER</li>
+            <li>TCP/IP NETBIOS HELPER</li>
+            <li>UPS</li>
+            <li>WORKSTATION</li>
+        </ul>
+        <p>Cuando se escriben en el símbolo del sistema, los nombres de servicio de dos o más palabras deben estar entre comillas. Por ejemplo, NET START "cliente DHCP" inicia el servicio Cliente DHCP.</p>
+        <p>NET START también puede iniciar servicios no proporcionados con Windows.</p>
+    </span>
+    
+    <span id="4010504004">
+        <h3>5.4.3. NET STATISTICS</h3>
+        <p>NET STATISTICS muestra el registro de estadísticas para el servicio local Estación de trabajo. Si se usa sin parámetros, NET STATISTICS muestra los servicios con estadísticas disponibles.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET STATISTICS [WORKSTATION]
+        </pre>
+        <p><strong>WORKSTATION</strong> - Muestra las estadísticas del servicio Estación de trabajo.</p>
+    </span>
+    
+    <span id="4010504005">
+        <h3>5.4.4. NET STOP</h3>
+        <p>NET STOP detiene servicios de Windows.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET STOP service
+        </pre>
+        <p>Al detener un servicio se cancelan las conexiones de red que use el servicio. Además, algunos servicios dependen de otros. Si se detiene un servicio, se pueden detener otros.</p>
+        <p>Algunos servicios no se pueden detener.</p>
+        <p><strong>servicio</strong> - Puede ser uno de los siguientes servicios:</p>
+        <ul>
+            <li>BROWSER</li>
+            <li>DHCP CLIENT</li>
+            <li>FILE REPLICATION</li>
+            <li>NETLOGON</li>
+            <li>REMOTE ACCESS CONNECTION MANAGER</li>
+            <li>ROUTING AND REMOTE ACCESS</li>
+            <li>SCHEDULE</li>
+            <li>SERVER</li>
+            <li>SPOOLER</li>
+            <li>TCP/IP NETBIOS HELPER</li>
+            <li>UPS</li>
+            <li>WORKSTATION</li>
+        </ul>
+        <p>NET STOP también puede detener servicios no proporcionados con Windows.</p>
+    </span>
+    
+    <span id="4010504006">
+        <h3>5.4.5. NET TIME</h3>
+        <p>NET TIME sincroniza el reloj del equipo con el de otro equipo o dominio, o muestra la hora de un equipo o dominio. Cuando se usa sin opciones en un dominio de Windows Server, muestra la fecha y la hora actuales en el equipo designado como servidor horario del dominio.</p>
+        <p>La sintaxis de este comando es:</p>
+        <pre>
+NET TIME [\\nombreEquipo | /DOMAIN[:nombreDominio] | /RTSDOMAIN[:nombreDominio]] [/SET]
+        </pre>
+        <p><strong>\\nombreEquipo</strong> - Nombre del equipo que desee comprobar o con el que desee realizar la sincronización.</p>
+        <p><strong>/DOMAIN[:nombreDominio]</strong> - Especifica que se sincronizará la hora desde un controlador de dominio principal de nombreDominio.</p>
+        <p><strong>/RTSDOMAIN[:nombreDominio]</strong> - Especifica que se sincronizará con un servidor horario de confianza de nombreDeDominio.</p>
+        <p><strong>/SET</strong> - Sincroniza la hora del equipo con la hora del equipo o dominio especificados.</p>
+    </span>
+</div>

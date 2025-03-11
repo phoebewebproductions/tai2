@@ -1521,5 +1521,1941 @@ const preguntas = {
           preguntaId: "404010120"
       }
   ]
-}
+},
+"4010501000e": {
+    minimoParaAprobar: 8,
+    preguntas: [
+        {
+            id: "4010501001",
+            pregunta: "¿Qué sección del texto trata sobre la distribución de software y administración de hardware?",
+            opciones: [
+                "Sección 5.1",
+                "Sección 6.1",
+                "Sección 6.2",
+                "Sección 6.3"
+            ],
+            correcta: 0,
+            preguntaId: "405010101"
+        },
+        {
+            id: "4010501002",
+            pregunta: "¿Qué significa PXE?",
+            opciones: [
+                "Preboot Execution Environment",
+                "Post Execution Environment",
+                "Preboot Extension Environment",
+                "Program Execution Environment"
+            ],
+            correcta: 0,
+            preguntaId: "405010102"
+        },
+        {
+            id: "4010501002",
+            pregunta: "¿Cuál es la función principal de PXE?",
+            opciones: [
+                "Actualizar sistemas operativos existentes",
+                "Arrancar e instalar el sistema operativo en computadoras a través de una red",
+                "Administrar de forma centralizada la distribución de actualizaciones",
+                "Capturar imágenes de sistemas operativos"
+            ],
+            correcta: 1,
+            preguntaId: "405010103"
+        },
+        {
+            id: "4010501002",
+            pregunta: "¿Qué protocolo se utiliza para descargar el network bootstrap program (NBP) en PXE?",
+            opciones: [
+                "HTTP",
+                "FTP",
+                "TFTP",
+                "SMTP"
+            ],
+            correcta: 2,
+            preguntaId: "405010104"
+        },
+        {
+            id: "4010501002",
+            pregunta: "¿Qué tipo de máquinas pueden ser clientes PXE según el texto?",
+            opciones: [
+                "Solo servidores",
+                "Solo computadoras de escritorio",
+                "Solo computadoras portátiles",
+                "Cualquier máquina equipada con código de arranque PXE"
+            ],
+            correcta: 3,
+            preguntaId: "405010105"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿Qué significa WDS?",
+            opciones: [
+                "Windows Deployment Services",
+                "Windows Distribution System",
+                "Windows Download Services",
+                "Windows Deployment System"
+            ],
+            correcta: 0,
+            preguntaId: "405010106"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿De qué servicio es la versión revisada WDS?",
+            opciones: [
+                "Remote Access Services (RAS)",
+                "Remote Installation Services (RIS)",
+                "Remote Update Services (RUS)",
+                "Remote Deployment Services (RDS)"
+            ],
+            correcta: 1,
+            preguntaId: "405010107"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿Qué permite WDS en relación a la instalación de sistemas operativos Windows?",
+            opciones: [
+                "Solo actualizar sistemas operativos existentes",
+                "Implementar y configurar sistemas operativos Windows en los nuevos clientes con una instalación basada en red",
+                "Solo instalar sistemas operativos desde medios de CD o DVD",
+                "Solo distribuir actualizaciones de seguridad"
+            ],
+            correcta: 1,
+            preguntaId: "405010108"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿Qué tipo de despliegues permite WDS que facilita la unión de nuevos clientes a una implementación ya iniciada?",
+            opciones: [
+                "IP Unicast",
+                "IP Broadcast",
+                "IP Multicast",
+                "IP Anycast"
+            ],
+            correcta: 2,
+            preguntaId: "405010109"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿Qué protocolo utiliza WDS multicast según el texto?",
+            opciones: [
+                "TCP",
+                "UDP",
+                "IGMP",
+                "ICMP"
+            ],
+            correcta: 2,
+            preguntaId: "405010110"
+        },
+        {
+            id: "4010501003",
+            pregunta: "¿Qué versión de Windows carga WDS en las máquinas cliente para las tareas de instalación y mantenimiento?",
+            opciones: [
+                "Windows 10",
+                "Windows Server",
+                "Windows PE",
+                "Windows Lite"
+            ],
+            correcta: 2,
+            preguntaId: "405010111"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Qué significa WSUS?",
+            opciones: [
+                "Windows Server Update System",
+                "Windows System Update Services",
+                "Windows Server Update Services",
+                "Windows System Update System"
+            ],
+            correcta: 2,
+            preguntaId: "405010112"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Cuál es la función principal de WSUS?",
+            opciones: [
+                "Instalar sistemas operativos a través de la red",
+                "Administrar de forma centralizada la distribución e instalación de actualizaciones",
+                "Capturar imágenes de sistemas operativos",
+                "Crear scripts de instalación desatendida"
+            ],
+            correcta: 1,
+            preguntaId: "405010113"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Cuál es la principal ventaja de WSUS según el texto?",
+            opciones: [
+                "Permite instalar sistemas operativos sin medios físicos",
+                "Ahorra tiempo, ancho de banda y espacio de almacenamiento al evitar conexiones individuales a servidores externos",
+                "Permite capturar imágenes de sistemas operativos",
+                "Permite la instalación desatendida de sistemas operativos"
+            ],
+            correcta: 1,
+            preguntaId: "405010114"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Cuál es el primer paso en el funcionamiento general de un servidor WSUS?",
+            opciones: [
+                "Descargar las actualizaciones",
+                "Configurar reglas de aprobación automática",
+                "Dividir los equipos de la red en distintos grupos",
+                "Evaluar las actualizaciones"
+            ],
+            correcta: 2,
+            preguntaId: "405010115"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Cómo se configuran los equipos cliente para que busquen las actualizaciones en el servidor WSUS?",
+            opciones: [
+                "A través de una directiva de grupo",
+                "Manualmente en cada equipo",
+                "A través de un script de inicio",
+                "No es necesario configurarlos, lo hacen automáticamente"
+            ],
+            correcta: 0,
+            preguntaId: "405010116"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿Qué tipo de reglas se pueden configurar en WSUS para las actualizaciones de seguridad críticas?",
+            opciones: [
+                "Reglas de bloqueo",
+                "Reglas de aprobación automática",
+                "Reglas de rechazo",
+                "Reglas de postergación"
+            ],
+            correcta: 1,
+            preguntaId: "405010117"
+        },
+        {
+            id: "4010501004",
+            pregunta: "¿A qué equipos se suele aplicar la directiva de grupo para buscar actualizaciones en el servidor WSUS?",
+            opciones: [
+                "Solo a los servidores",
+                "Solo a los equipos de desarrollo",
+                "A todo el Dominio excepto a los servidores WSUS",
+                "Solo a los equipos de prueba"
+            ],
+            correcta: 2,
+            preguntaId: "405010118"
+        }
+    ]
+},
+"4010502000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010502001",
+                pregunta: "¿Qué sección del texto trata sobre las herramientas de administración de sistemas?",
+                opciones: [
+                    "Sección 5.2",
+                    "Sección 6.4",
+                    "Sección 6.7",
+                    "Sección 6.8"
+                ],
+                correcta: 0,
+                preguntaId: "405020101"
+            },
+            {
+                id: "4010502002",
+                pregunta: "¿De qué forma parte Configuration Manager desde octubre de 2019?",
+                opciones: [
+                    "Microsoft System Center",
+                    "Microsoft Endpoint Manager",
+                    "Microsoft Azure Manager",
+                    "Microsoft Windows Manager"
+                ],
+                correcta: 1,
+                preguntaId: "405020102"
+            },
+            {
+                id: "4010502003",
+                pregunta: "¿Qué significa ADK en el contexto de Windows?",
+                opciones: [
+                    "Advanced Development Kit",
+                    "Application Development Kit",
+                    "Assessment and Deployment Kit",
+                    "Automated Distribution Kit"
+                ],
+                correcta: 2,
+                preguntaId: "405020103"
+            },
+            {
+                id: "4010502003",
+                pregunta: "¿Cuál es la función principal de Windows ADK?",
+                opciones: [
+                    "Monitorizar redes y servicios",
+                    "Administrar servidores Windows",
+                    "Personalizar imágenes de Windows para implementación a gran escala",
+                    "Distribuir actualizaciones de Windows"
+                ],
+                correcta: 2,
+                preguntaId: "405020104"
+            },
+            {
+                id: "4010502003",
+                pregunta: "¿Qué herramientas incluye Windows ADK para evaluar la calidad y el rendimiento de los sistemas?",
+                opciones: [
+                    "Windows Performance Toolkit",
+                    "Windows Admin Center",
+                    "Windows Server Manager",
+                    "Windows Management Console"
+                ],
+                correcta: 0,
+                preguntaId: "405020105"
+            },
+            {
+                id: "4010502003",
+                pregunta: "¿Por qué otro nombre se conoce a Windows ADK según el texto?",
+                opciones: [
+                    "Windows Installation Kit (WIK)",
+                    "Windows Deployment Kit (WDK)",
+                    "Windows Automated Installation Kit (Windows AIK o WAIK)",
+                    "Windows Assessment Kit (WAK)"
+                ],
+                correcta: 2,
+                preguntaId: "405020106"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué es Windows Admin Center?",
+                opciones: [
+                    "Un sistema operativo para servidores",
+                    "Una herramienta de monitorización de redes",
+                    "La evolución de plataformas de administración tradicionales como el Administrador de servidores y la Microsoft Management Console",
+                    "Un sistema de distribución de actualizaciones"
+                ],
+                correcta: 2,
+                preguntaId: "405020107"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué relación tiene Windows Admin Center con Azure?",
+                opciones: [
+                    "Es completamente dependiente de Azure",
+                    "No tiene ninguna relación con Azure",
+                    "Permite administrar los servidores Windows Server sin ninguna dependencia de Azure ni de la nube",
+                    "Solo funciona con Azure"
+                ],
+                correcta: 2,
+                preguntaId: "405020108"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Cómo se implementa y ejecuta Windows Admin Center?",
+                opciones: [
+                    "Se implementa en la nube y se ejecuta en un explorador web",
+                    "Se implementa localmente y se ejecuta en un explorador web",
+                    "Se implementa localmente y se ejecuta como una aplicación de escritorio",
+                    "Se implementa en la nube y se ejecuta como una aplicación de escritorio"
+                ],
+                correcta: 1,
+                preguntaId: "405020109"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué componente opcional de Windows Admin Center permite administrar los servidores desde fuera de la red corporativa?",
+                opciones: [
+                    "Puerta de enlace de Windows Admin Center",
+                    "Proxy de Windows Admin Center",
+                    "Túnel de Windows Admin Center",
+                    "Conector de Windows Admin Center"
+                ],
+                correcta: 0,
+                preguntaId: "405020110"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué navegadores web se mencionan en el texto para conectarse a la puerta de enlace de Windows Admin Center?",
+                opciones: [
+                    "Microsoft Edge y Mozilla Firefox",
+                    "Google Chrome y Mozilla Firefox",
+                    "Microsoft Edge y Google Chrome",
+                    "Internet Explorer y Microsoft Edge"
+                ],
+                correcta: 2,
+                preguntaId: "405020111"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Mediante qué tecnologías administra servidores la puerta de enlace de Windows Admin Center?",
+                opciones: [
+                    "SSH y Telnet",
+                    "PowerShell remota y WMI a través de WinRM",
+                    "RDP y VNC",
+                    "HTTP y HTTPS"
+                ],
+                correcta: 1,
+                preguntaId: "405020112"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué tipo de control de acceso ofrece Windows Admin Center para mejorar la seguridad?",
+                opciones: [
+                    "Control de acceso basado en tiempo",
+                    "Control de acceso basado en ubicación",
+                    "Control de acceso basado en roles",
+                    "Control de acceso basado en dispositivos"
+                ],
+                correcta: 2,
+                preguntaId: "405020113"
+            },
+            {
+                id: "4010502004",
+                pregunta: "¿Qué opciones de autenticación de puerta de enlace incluye Windows Admin Center?",
+                opciones: [
+                    "Solo grupos locales",
+                    "Solo Active Directory basado en dominios locales",
+                    "Solo Azure Active Directory basado en la nube",
+                    "Grupos locales, Active Directory basado en dominios locales y Azure Active Directory basado en la nube"
+                ],
+                correcta: 3,
+                preguntaId: "405020114"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Qué es Nagios?",
+                opciones: [
+                    "Un sistema operativo para servidores",
+                    "Una herramienta de administración de servidores Windows",
+                    "Un sistema de monitorización de redes de código abierto",
+                    "Una herramienta de distribución de actualizaciones"
+                ],
+                correcta: 2,
+                preguntaId: "405020115"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Qué significa el acrónimo recursivo N.A.G.I.O.S.?",
+                opciones: [
+                    "Network Administration Gateway In Open Source",
+                    "Network And Gateway Integration Operating System",
+                    "Nagios Ain't Gonna Insist On Sainthood",
+                    "Network Administration Gateway In Operating Systems"
+                ],
+                correcta: 2,
+                preguntaId: "405020116"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Qué servicios de red puede monitorizar Nagios según el texto?",
+                opciones: [
+                    "Solo HTTP y SMTP",
+                    "SMTP, POP3, HTTP, NNTP, ICMP, SNMP",
+                    "Solo FTP y SSH",
+                    "Solo DHCP y DNS"
+                ],
+                correcta: 1,
+                preguntaId: "405020117"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Qué tipo de notificaciones puede enviar Nagios cuando ocurren problemas en servicios o hosts?",
+                opciones: [
+                    "Solo correo electrónico",
+                    "Solo SMS",
+                    "Correo electrónico, buscapersonas, Jabber, SMS, o cualquier método definido por el usuario",
+                    "Solo notificaciones en la interfaz web"
+                ],
+                correcta: 2,
+                preguntaId: "405020118"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Bajo qué licencia está disponible Nagios?",
+                opciones: [
+                    "MIT License",
+                    "Apache License",
+                    "GNU General Public License Version 2",
+                    "BSD License"
+                ],
+                correcta: 2,
+                preguntaId: "405020119"
+            },
+            {
+                id: "4010502005",
+                pregunta: "¿Para qué sistemas operativos fue diseñado originalmente Nagios?",
+                opciones: [
+                    "Windows",
+                    "GNU/Linux",
+                    "macOS",
+                    "FreeBSD"
+                ],
+                correcta: 1,
+                preguntaId: "405020120"
+            }
+        ]
+    },
+    "5010503000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "5010503001",
+                pregunta: "¿Qué tipo de tareas administrativas permite realizar el comando NET de Windows?",
+                opciones: [
+                    "Solo tareas relacionadas con la gestión de la red",
+                    "Solo tareas relacionadas con la gestión de usuarios",
+                    "Tareas relacionadas con la gestión de la red, usuarios, grupos, recursos compartidos, etc.",
+                    "Solo tareas relacionadas con la gestión de recursos compartidos"
+                ],
+                correcta: 2,
+                preguntaId: "501050301"
+            },
+            {
+                id: "5010503002",
+                pregunta: "¿Qué hace el comando NET ACCOUNTS si se usa sin opciones?",
+                opciones: [
+                    "Crea una nueva cuenta de usuario",
+                    "Elimina todas las cuentas de usuario",
+                    "Muestra la configuración actual de contraseñas, limitaciones de inicio de sesión e información de dominio",
+                    "Bloquea todas las cuentas de usuario"
+                ],
+                correcta: 2,
+                preguntaId: "501050302"
+            },
+            {
+                id: "5010503002",
+                pregunta: "¿Qué condiciones se requieren para que las opciones usadas con NET ACCOUNTS surtan efecto?",
+                opciones: [
+                    "Solo que el servicio NetLogon esté ejecutándose",
+                    "Solo que ya se hayan configurado cuentas de usuario",
+                    "Que ya se hayan configurado cuentas de usuario y que el servicio NetLogon esté ejecutándose",
+                    "Que el equipo esté conectado a Internet"
+                ],
+                correcta: 2,
+                preguntaId: "501050303"
+            },
+            {
+                id: "5010503002",
+                pregunta: "¿Qué hace la opción /FORCELOGOFF en el comando NET ACCOUNTS?",
+                opciones: [
+                    "Fuerza el cierre de sesión de todos los usuarios inmediatamente",
+                    "Establece el número de minutos antes de que la sesión se cierre cuando la cuenta o las horas de sesión válidas expiran",
+                    "Impide que los usuarios inicien sesión",
+                    "Fuerza a los usuarios a cambiar su contraseña"
+                ],
+                correcta: 1,
+                preguntaId: "501050304"
+            },
+            {
+                id: "5010503002",
+                pregunta: "¿Cuál es el valor máximo para la opción /UNIQUEPW en el comando NET ACCOUNTS?",
+                opciones: [
+                    "10",
+                    "14",
+                    "20",
+                    "24"
+                ],
+                correcta: 3,
+                preguntaId: "501050305"
+            },
+            {
+                id: "5010503003",
+                pregunta: "¿Qué hace el comando NET COMPUTER?",
+                opciones: [
+                    "Muestra información sobre el equipo local",
+                    "Agrega o elimina equipos de una base de datos de dominio",
+                    "Configura las opciones de red del equipo",
+                    "Muestra los equipos conectados a la red"
+                ],
+                correcta: 1,
+                preguntaId: "501050306"
+            },
+            {
+                id: "5010503003",
+                pregunta: "¿En qué sistemas está disponible el comando NET COMPUTER según el texto?",
+                opciones: [
+                    "En todos los sistemas Windows",
+                    "Solo en servidores Windows NT",
+                    "Solo en Windows 10",
+                    "Solo en Windows Server 2019"
+                ],
+                correcta: 1,
+                preguntaId: "501050307"
+            },
+            {
+                id: "5010503004",
+                pregunta: "¿Qué información muestra el comando NET CONFIG SERVER?",
+                opciones: [
+                    "Información sobre los servidores de la red",
+                    "Información acerca de la configuración del servicio Servidor",
+                    "Información sobre los archivos del servidor",
+                    "Información sobre los usuarios conectados al servidor"
+                ],
+                correcta: 1,
+                preguntaId: "501050308"
+            },
+            {
+                id: "5010503005",
+                pregunta: "¿Qué hace el comando NET CONTINUE?",
+                opciones: [
+                    "Continúa la ejecución de un programa",
+                    "Reactiva un servicio de Windows suspendido por NET PAUSE",
+                    "Continúa la transferencia de archivos",
+                    "Continúa la instalación de Windows"
+                ],
+                correcta: 1,
+                preguntaId: "501050309"
+            },
+            {
+                id: "5010503006",
+                pregunta: "¿Qué hace el comando NET FILE si se usa sin opciones?",
+                opciones: [
+                    "Crea un nuevo archivo",
+                    "Elimina todos los archivos compartidos",
+                    "Muestra los archivos abiertos en un servidor",
+                    "Comparte un archivo en la red"
+                ],
+                correcta: 2,
+                preguntaId: "501050310"
+            },
+            {
+                id: "5010503006",
+                pregunta: "¿Qué hace la opción /CLOSE en el comando NET FILE?",
+                opciones: [
+                    "Cierra el programa de gestión de archivos",
+                    "Cierra un archivo abierto y quita los bloqueos de archivo",
+                    "Cierra la conexión con el servidor de archivos",
+                    "Cierra todos los archivos del sistema"
+                ],
+                correcta: 1,
+                preguntaId: "501050311"
+            },
+            {
+                id: "5010503007",
+                pregunta: "¿Qué hace el comando NET GROUP si se usa sin parámetros?",
+                opciones: [
+                    "Crea un nuevo grupo",
+                    "Elimina todos los grupos",
+                    "Muestra los nombres de grupo en el servidor",
+                    "Muestra los usuarios de todos los grupos"
+                ],
+                correcta: 2,
+                preguntaId: "501050312"
+            },
+            {
+                id: "5010503008",
+                pregunta: "¿Qué muestra el comando NET HELP SERVICES?",
+                opciones: [
+                    "Ayuda sobre todos los comandos NET",
+                    "Ayuda sobre cómo configurar servicios",
+                    "Algunos de los servicios que se pueden iniciar",
+                    "Información sobre los servicios en ejecución"
+                ],
+                correcta: 2,
+                preguntaId: "501050313"
+            },
+            {
+                id: "5010503009",
+                pregunta: "¿Qué hace el comando NET HELPMSG?",
+                opciones: [
+                    "Envía mensajes de ayuda a otros usuarios",
+                    "Muestra información acerca de mensajes de red de Windows",
+                    "Crea mensajes de ayuda personalizados",
+                    "Muestra todos los mensajes de error posibles"
+                ],
+                correcta: 1,
+                preguntaId: "501050314"
+            },
+            {
+                id: "5010503010",
+                pregunta: "¿Qué hace el comando NET LOCALGROUP si se usa sin opciones?",
+                opciones: [
+                    "Crea un nuevo grupo local",
+                    "Elimina todos los grupos locales",
+                    "Muestra los grupos locales en el equipo",
+                    "Muestra los usuarios de todos los grupos locales"
+                ],
+                correcta: 2,
+                preguntaId: "501050315"
+            },
+            {
+                id: "5010503010",
+                pregunta: "¿Qué tipo de nombres pueden agregarse a un grupo local con el comando NET LOCALGROUP?",
+                opciones: [
+                    "Solo usuarios locales",
+                    "Solo grupos globales",
+                    "Usuarios o grupos globales, no otros grupos locales",
+                    "Cualquier tipo de usuario o grupo"
+                ],
+                correcta: 2,
+                preguntaId: "501050316"
+            },
+            {
+                id: "5010503011",
+                pregunta: "¿Qué hace el comando NET PAUSE?",
+                opciones: [
+                    "Pausa la ejecución de un programa",
+                    "Suspende un servicio o recurso de Windows",
+                    "Pausa la transferencia de archivos",
+                    "Pausa la instalación de Windows"
+                ],
+                correcta: 1,
+                preguntaId: "501050317"
+            },
+            {
+                id: "5010503012",
+                pregunta: "¿Cuál es el estado actual del comando NET SEND según el texto?",
+                opciones: [
+                    "Es uno de los comandos más utilizados",
+                    "Ha sido mejorado en las últimas versiones de Windows",
+                    "Actualmente obsoleto",
+                    "Solo está disponible en Windows Server"
+                ],
+                correcta: 2,
+                preguntaId: "501050318"
+            },
+            {
+                id: "5010503013",
+                pregunta: "¿Qué hace el comando NET SESSION si se usa sin ninguna opción?",
+                opciones: [
+                    "Crea una nueva sesión",
+                    "Elimina todas las sesiones",
+                    "Muestra información de todas las sesiones con el equipo de foco actual",
+                    "Muestra información sobre la sesión actual del usuario"
+                ],
+                correcta: 2,
+                preguntaId: "501050319"
+            },
+            {
+                id: "5010503013",
+                pregunta: "¿Qué hace la opción /DELETE en el comando NET SESSION?",
+                opciones: [
+                    "Elimina el comando NET SESSION",
+                    "Elimina todas las sesiones del sistema",
+                    "Finaliza la sesión entre el equipo local y el nombre de equipo, y cierra todos los archivos abiertos en el equipo para la sesión",
+                    "Elimina el historial de sesiones"
+                ],
+                correcta: 2,
+                preguntaId: "501050320"
+            }
+        ]
+    },
+    "4010504000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010504001",
+                pregunta: "¿Qué sección del texto trata sobre la continuación de los comandos NET Windows?",
+                opciones: [
+                    "Sección 5.3",
+                    "Sección 5.4",
+                    "Sección 6.1",
+                    "Sección 6.2"
+                ],
+                correcta: 1,
+                preguntaId: "401050401"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué hace el comando NET SHARE si se usa sin opciones?",
+                opciones: [
+                    "Comparte todos los recursos del equipo",
+                    "Elimina todos los recursos compartidos",
+                    "Muestra información de todos los recursos compartidos en el equipo",
+                    "Crea un nuevo recurso compartido"
+                ],
+                correcta: 2,
+                preguntaId: "401050402"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué permisos se pueden otorgar a un usuario con la opción /GRANT en el comando NET SHARE?",
+                opciones: [
+                    "Solo READ",
+                    "Solo FULL",
+                    "READ, CHANGE o FULL",
+                    "READ, WRITE o EXECUTE"
+                ],
+                correcta: 2,
+                preguntaId: "401050403"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué hace la opción /UNLIMITED en el comando NET SHARE?",
+                opciones: [
+                    "Permite compartir un número ilimitado de recursos",
+                    "Especifica que un número ilimitado de usuarios puede tener acceso simultáneo al recurso compartido",
+                    "Permite un espacio ilimitado para el recurso compartido",
+                    "Elimina todas las restricciones de seguridad del recurso compartido"
+                ],
+                correcta: 1,
+                preguntaId: "401050404"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué hace la opción /CACHE:Documents en el comando NET SHARE?",
+                opciones: [
+                    "Crea una caché de documentos en el servidor",
+                    "Habilita el almacenamiento en caché automático de los documentos de este recurso compartido",
+                    "Elimina todos los documentos en caché",
+                    "Comparte solo documentos"
+                ],
+                correcta: 1,
+                preguntaId: "401050405"
+            },
+            {
+                id: "4010504003",
+                pregunta: "¿Qué hace el comando NET START si se usa sin opciones?",
+                opciones: [
+                    "Inicia todos los servicios de Windows",
+                    "Inicia el servicio predeterminado",
+                    "Muestra un listado de servicios en ejecución",
+                    "No hace nada, requiere un parámetro"
+                ],
+                correcta: 2,
+                preguntaId: "401050406"
+            },
+            {
+                id: "4010504003",
+                pregunta: "¿Cómo se deben escribir los nombres de servicio de dos o más palabras en el comando NET START?",
+                opciones: [
+                    "Separados por guiones",
+                    "Separados por guiones bajos",
+                    "Entre comillas",
+                    "En mayúsculas"
+                ],
+                correcta: 2,
+                preguntaId: "401050407"
+            },
+            {
+                id: "4010504003",
+                pregunta: "¿Cuál de los siguientes NO es un servicio que se puede iniciar con NET START según el texto?",
+                opciones: [
+                    "BROWSER",
+                    "DHCP CLIENT",
+                    "NETLOGON",
+                    "FIREWALL"
+                ],
+                correcta: 3,
+                preguntaId: "401050408"
+            },
+            {
+                id: "4010504004",
+                pregunta: "¿Qué hace el comando NET STATISTICS si se usa sin parámetros?",
+                opciones: [
+                    "Muestra todas las estadísticas del sistema",
+                    "Muestra los servicios con estadísticas disponibles",
+                    "Muestra las estadísticas de red",
+                    "Muestra las estadísticas del servicio Estación de trabajo"
+                ],
+                correcta: 1,
+                preguntaId: "401050409"
+            },
+            {
+                id: "4010504004",
+                pregunta: "¿Qué muestra el parámetro WORKSTATION en el comando NET STATISTICS?",
+                opciones: [
+                    "Las estadísticas de todas las estaciones de trabajo de la red",
+                    "Las estadísticas del servicio Estación de trabajo",
+                    "Las estadísticas de conexión con otras estaciones de trabajo",
+                    "Las estadísticas de uso de la estación de trabajo actual"
+                ],
+                correcta: 1,
+                preguntaId: "401050410"
+            },
+            {
+                id: "4010504005",
+                pregunta: "¿Qué hace el comando NET STOP?",
+                opciones: [
+                    "Detiene la ejecución de un programa",
+                    "Detiene servicios de Windows",
+                    "Detiene la conexión de red",
+                    "Detiene el equipo"
+                ],
+                correcta: 1,
+                preguntaId: "401050411"
+            },
+            {
+                id: "4010504005",
+                pregunta: "¿Qué ocurre cuando se detiene un servicio con NET STOP según el texto?",
+                opciones: [
+                    "Solo se detiene ese servicio específico",
+                    "Se cancelan las conexiones de red que use el servicio y se pueden detener otros servicios dependientes",
+                    "Se reinicia automáticamente después de un tiempo",
+                    "Se elimina el servicio del sistema"
+                ],
+                correcta: 1,
+                preguntaId: "401050412"
+            },
+            {
+                id: "4010504005",
+                pregunta: "¿Cuál de los siguientes servicios NO aparece en la lista de servicios que se pueden detener con NET STOP?",
+                opciones: [
+                    "BROWSER",
+                    "DHCP CLIENT",
+                    "EVENTLOG",
+                    "WORKSTATION"
+                ],
+                correcta: 2,
+                preguntaId: "401050413"
+            },
+            {
+                id: "4010504006",
+                pregunta: "¿Qué hace el comando NET TIME si se usa sin opciones en un dominio de Windows Server?",
+                opciones: [
+                    "Sincroniza el reloj del equipo con el servidor de tiempo de Internet",
+                    "Muestra la fecha y la hora actuales en el equipo designado como servidor horario del dominio",
+                    "Establece la hora del sistema",
+                    "Muestra la zona horaria actual"
+                ],
+                correcta: 1,
+                preguntaId: "401050414"
+            },
+            {
+                id: "4010504006",
+                pregunta: "¿Qué hace la opción /SET en el comando NET TIME?",
+                opciones: [
+                    "Establece el equipo como servidor de tiempo",
+                    "Establece la zona horaria",
+                    "Sincroniza la hora del equipo con la hora del equipo o dominio especificados",
+                    "Establece la hora manualmente"
+                ],
+                correcta: 2,
+                preguntaId: "401050415"
+            },
+            {
+                id: "4010504006",
+                pregunta: "¿Qué especifica la opción /DOMAIN[:nombreDominio] en el comando NET TIME?",
+                opciones: [
+                    "Que se mostrará la hora del dominio especificado",
+                    "Que se sincronizará la hora desde un controlador de dominio principal de nombreDominio",
+                    "Que se establecerá el dominio como servidor de tiempo",
+                    "Que se cambiará el dominio del equipo"
+                ],
+                correcta: 1,
+                preguntaId: "401050416"
+            },
+            {
+                id: "4010504006",
+                pregunta: "¿Qué especifica la opción /RTSDOMAIN[:nombreDominio] en el comando NET TIME?",
+                opciones: [
+                    "Que se mostrará la hora del dominio de confianza especificado",
+                    "Que se sincronizará con un servidor horario de confianza de nombreDeDominio",
+                    "Que se establecerá el dominio como servidor de tiempo de confianza",
+                    "Que se cambiará el dominio del equipo a un dominio de confianza"
+                ],
+                correcta: 1,
+                preguntaId: "401050417"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué hace la opción /DELETE en el comando NET SHARE?",
+                opciones: [
+                    "Elimina el recurso compartido",
+                    "Elimina los archivos del recurso compartido",
+                    "Deja de compartir el recurso",
+                    "Elimina los permisos del recurso compartido"
+                ],
+                correcta: 2,
+                preguntaId: "401050418"
+            },
+            {
+                id: "4010504002",
+                pregunta: "¿Qué tipo de dispositivos se pueden compartir con el comando NET SHARE según el texto?",
+                opciones: [
+                    "Solo discos duros",
+                    "Solo carpetas",
+                    "Una o más impresoras (de LPT1: a LPT9:)",
+                    "Cualquier dispositivo conectado al equipo"
+                ],
+                correcta: 2,
+                preguntaId: "401050419"
+            },
+            {
+                id: "4010504003",
+                pregunta: "¿Puede NET START iniciar servicios no proporcionados con Windows?",
+                opciones: [
+                    "No, solo puede iniciar servicios de Windows",
+                    "Sí, puede iniciar servicios no proporcionados con Windows",
+                    "Solo si están registrados como servicios de Windows",
+                    "Solo si tienen el mismo formato que los servicios de Windows"
+                ],
+                correcta: 1,
+                preguntaId: "401050420"
+            }
+        ]
+    },
+    "4010505000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010505001",
+                pregunta: "¿Qué sección del texto trata sobre los comandos NET Windows finales?",
+                opciones: [
+                    "Sección 5.3",
+                    "Sección 5.4",
+                    "Sección 5.5",
+                    "Sección 6.1"
+                ],
+                correcta: 2,
+                preguntaId: "401050501"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué hace el comando NET USE si se usa sin opciones?",
+                opciones: [
+                    "Conecta a todos los recursos compartidos disponibles",
+                    "Desconecta todas las conexiones de red",
+                    "Muestra las conexiones del equipo",
+                    "Crea una nueva conexión de red"
+                ],
+                correcta: 2,
+                preguntaId: "401050502"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué tipos de dispositivos se pueden especificar en el parámetro devicename del comando NET USE?",
+                opciones: [
+                    "Solo unidades de disco",
+                    "Solo impresoras",
+                    "Unidades de disco (de D: a Z:) e impresoras (de LPT1: a LPT3:)",
+                    "Cualquier dispositivo conectado al equipo"
+                ],
+                correcta: 2,
+                preguntaId: "401050503"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué significa el asterisco (*) cuando se usa en lugar de una contraseña en el comando NET USE?",
+                opciones: [
+                    "No se requiere contraseña",
+                    "Usar la contraseña predeterminada",
+                    "Solicita la contraseña y no la muestra al escribirla",
+                    "Usar la última contraseña guardada"
+                ],
+                correcta: 2,
+                preguntaId: "401050504"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué hace la opción /SAVECRED en el comando NET USE?",
+                opciones: [
+                    "Guarda la conexión para futuras sesiones",
+                    "Guarda las credenciales de la tarjeta inteligente",
+                    "Especifica que se deben guardar el nombre de usuario y la contraseña",
+                    "Guarda la configuración de la conexión"
+                ],
+                correcta: 2,
+                preguntaId: "401050505"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué hace la opción /PERSISTENT:YES en el comando NET USE?",
+                opciones: [
+                    "Hace que la conexión sea permanente y no se pueda eliminar",
+                    "Guarda las conexiones a medida que se establecen, y las restaura en el siguiente inicio de sesión",
+                    "Mantiene la conexión activa incluso si no hay actividad",
+                    "Hace que la conexión sea persistente solo durante la sesión actual"
+                ],
+                correcta: 1,
+                preguntaId: "401050506"
+            },
+            {
+                id: "4010505002",
+                pregunta: "¿Qué hace la opción /HOME en el comando NET USE?",
+                opciones: [
+                    "Conecta a la carpeta principal del sistema",
+                    "Conecta a la carpeta de inicio de Windows",
+                    "Conecta un usuario a su directorio principal",
+                    "Establece la conexión como la conexión principal"
+                ],
+                correcta: 2,
+                preguntaId: "401050507"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué hace el comando NET USER si se usa sin modificadores?",
+                opciones: [
+                    "Crea un nuevo usuario",
+                    "Elimina todos los usuarios",
+                    "Muestra las cuentas de usuario en el equipo",
+                    "Modifica la cuenta del usuario actual"
+                ],
+                correcta: 2,
+                preguntaId: "401050508"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Cuál es la longitud máxima que puede tener un nombre de cuenta de usuario según el texto?",
+                opciones: [
+                    "8 caracteres",
+                    "14 caracteres",
+                    "20 caracteres",
+                    "32 caracteres"
+                ],
+                correcta: 2,
+                preguntaId: "401050509"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Cuál es la longitud máxima que puede tener una contraseña de usuario según el texto?",
+                opciones: [
+                    "8 caracteres",
+                    "14 caracteres",
+                    "20 caracteres",
+                    "32 caracteres"
+                ],
+                correcta: 1,
+                preguntaId: "401050510"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué hace la opción /ACTIVE:NO en el comando NET USER?",
+                opciones: [
+                    "Elimina la cuenta de usuario",
+                    "Desactiva la cuenta, impidiendo que el usuario tenga acceso al equipo",
+                    "Desactiva temporalmente la cuenta",
+                    "Desactiva la contraseña de la cuenta"
+                ],
+                correcta: 1,
+                preguntaId: "401050511"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué hace la opción /EXPIRES en el comando NET USER?",
+                opciones: [
+                    "Establece cuándo expira la contraseña del usuario",
+                    "Establece cuándo expira la sesión del usuario",
+                    "Hace que la cuenta expire si se establece una fecha",
+                    "Establece cuándo expiran los permisos del usuario"
+                ],
+                correcta: 2,
+                preguntaId: "401050512"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué formato debe tener la fecha de expiración en la opción /EXPIRES del comando NET USER?",
+                opciones: [
+                    "dd/mm/aa(aa)",
+                    "mm/dd/aa(aa)",
+                    "aa(aa)/mm/dd",
+                    "aa(aa)-mm-dd"
+                ],
+                correcta: 1,
+                preguntaId: "401050513"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué hace la opción /LOGONPASSWORDCHG:YES en el comando NET USER?",
+                opciones: [
+                    "Permite al usuario cambiar su contraseña en cualquier momento",
+                    "Cambia automáticamente la contraseña del usuario en cada inicio de sesión",
+                    "Especifica que el usuario debe cambiar la contraseña propia en el siguiente inicio de sesión",
+                    "Cambia la contraseña del usuario inmediatamente"
+                ],
+                correcta: 2,
+                preguntaId: "401050514"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Qué significa ALL en la opción /TIMES del comando NET USER?",
+                opciones: [
+                    "El usuario puede iniciar sesión solo durante el horario laboral",
+                    "El usuario puede iniciar sesión solo durante los fines de semana",
+                    "El usuario puede iniciar sesión siempre",
+                    "El usuario puede iniciar sesión solo durante las horas especificadas"
+                ],
+                correcta: 2,
+                preguntaId: "401050515"
+            },
+            {
+                id: "4010505003",
+                pregunta: "¿Cuántos equipos como máximo se pueden especificar en la opción /WORKSTATIONS del comando NET USER?",
+                opciones: [
+                    "4 equipos",
+                    "8 equipos",
+                    "10 equipos",
+                    "16 equipos"
+                ],
+                correcta: 1,
+                preguntaId: "401050516"
+            },
+            {
+                id: "4010505004",
+                pregunta: "¿Qué hace el comando NET VIEW si se usa sin opciones?",
+                opciones: [
+                    "Muestra todos los recursos compartidos en la red",
+                    "Muestra una lista de equipos del dominio o red actual",
+                    "Muestra los recursos compartidos del equipo local",
+                    "Muestra los usuarios conectados a los recursos compartidos"
+                ],
+                correcta: 1,
+                preguntaId: "401050517"
+            },
+            {
+                id: "4010505004",
+                pregunta: "¿Qué hace la opción /ALL en el comando NET VIEW?",
+                opciones: [
+                    "Muestra todos los equipos de la red",
+                    "Muestra todos los dominios de la red",
+                    "Muestra todos los recursos compartidos, incluidos los de tipo $",
+                    "Muestra todos los usuarios conectados a los recursos compartidos"
+                ],
+                correcta: 2,
+                preguntaId: "401050518"
+            },
+            {
+                id: "4010505004",
+                pregunta: "¿Qué hace la opción /CACHE en el comando NET VIEW?",
+                opciones: [
+                    "Muestra los recursos compartidos almacenados en caché",
+                    "Muestra la configuración de almacenamiento en caché de cliente sin conexión para los recursos del equipo especificado",
+                    "Almacena en caché la lista de recursos compartidos",
+                    "Limpia la caché de recursos compartidos"
+                ],
+                correcta: 1,
+                preguntaId: "401050519"
+            },
+            {
+                id: "4010505004",
+                pregunta: "¿Qué hace la opción /DOMAIN en el comando NET VIEW?",
+                opciones: [
+                    "Muestra todos los dominios de la red",
+                    "Especifica el dominio para el que desea ver los equipos disponibles",
+                    "Muestra los recursos compartidos del dominio actual",
+                    "Conecta al controlador de dominio"
+                ],
+                correcta: 1,
+                preguntaId: "401050520"
+            }
+        ]
+    },
+    "4010601000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010601001",
+                pregunta: "¿Qué significa EMM?",
+                opciones: [
+                    "Electronic Mail Management",
+                    "Enterprise Mobile Monitoring",
+                    "Enterprise Mobility Management",
+                    "Electronic Mobility Monitoring"
+                ],
+                correcta: 2,
+                preguntaId: "401060101"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿De qué se encarga un sistema EMM?",
+                opciones: [
+                    "De administrar únicamente los teléfonos móviles de la empresa",
+                    "De administrar, distribuir, organizar y controlar los dispositivos móviles de la empresa",
+                    "De monitorizar el uso de Internet en los dispositivos móviles",
+                    "De bloquear el acceso a redes sociales en dispositivos móviles"
+                ],
+                correcta: 1,
+                preguntaId: "401060102"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿Qué tipos de dispositivos puede gestionar un sistema EMM?",
+                opciones: [
+                    "Solo smartphones",
+                    "Solo smartphones y tablets",
+                    "Solo dispositivos con sistema operativo Android",
+                    "Teléfonos, smartphones, tablets, portátiles, etc."
+                ],
+                correcta: 3,
+                preguntaId: "401060103"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿Cuál de las siguientes NO es una función de un sistema EMM según el texto?",
+                opciones: [
+                    "Restringir qué dispositivos o empleados pueden acceder a la información",
+                    "Gestionar conexiones VPN o HTTPS",
+                    "Restringir las aplicaciones que se pueden descargar en los dispositivos",
+                    "Monitorizar las llamadas telefónicas de los empleados"
+                ],
+                correcta: 3,
+                preguntaId: "401060104"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿De qué se encarga el componente MDM en un sistema EMM?",
+                opciones: [
+                    "De gestionar las aplicaciones móviles",
+                    "De securizar los dispositivos",
+                    "De gestionar la información móvil",
+                    "De gestionar las conexiones de red"
+                ],
+                correcta: 1,
+                preguntaId: "401060105"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿De qué se encarga el componente MAM en un sistema EMM?",
+                opciones: [
+                    "De securizar los dispositivos",
+                    "De establecer las aplicaciones a las que pueden acceder los usuarios",
+                    "De establecer qué aplicaciones aprobadas pueden acceder a los datos corporativos",
+                    "De gestionar las conexiones de red"
+                ],
+                correcta: 1,
+                preguntaId: "401060106"
+            },
+            {
+                id: "4010601001",
+                pregunta: "¿De qué se encarga el componente MIM en un sistema EMM?",
+                opciones: [
+                    "De securizar los dispositivos",
+                    "De establecer las aplicaciones a las que pueden acceder los usuarios",
+                    "De establecer qué aplicaciones aprobadas pueden acceder a los datos corporativos",
+                    "De gestionar las conexiones de red"
+                ],
+                correcta: 2,
+                preguntaId: "401060107"
+            },
+            {
+                id: "4010601002",
+                pregunta: "¿Qué es Microsoft Intune?",
+                opciones: [
+                    "Un sistema operativo para dispositivos móviles",
+                    "Un servicio de administración de movilidad empresarial basado en la nube creado por Microsoft",
+                    "Una aplicación para sincronizar dispositivos móviles con Windows",
+                    "Un antivirus para dispositivos móviles"
+                ],
+                correcta: 1,
+                preguntaId: "401060108"
+            },
+            {
+                id: "4010601002",
+                pregunta: "¿Qué sistemas operativos puede gestionar Microsoft Intune según el texto?",
+                opciones: [
+                    "Solo Windows",
+                    "Windows y Android",
+                    "Windows, macOS, Android, iOS",
+                    "Windows, Linux, Android"
+                ],
+                correcta: 2,
+                preguntaId: "401060109"
+            },
+            {
+                id: "4010601002",
+                pregunta: "¿Por qué Microsoft Intune es ideal para gestionar dispositivos que se encuentren alejados físicamente en distintas localizaciones?",
+                opciones: [
+                    "Porque funciona sin conexión a Internet",
+                    "Porque está basado en la nube y la administración puede realizarse desde cualquier lugar",
+                    "Porque tiene agentes instalados en cada dispositivo",
+                    "Porque utiliza conexiones VPN"
+                ],
+                correcta: 1,
+                preguntaId: "401060110"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué empresa adquirió VMware AirWatch y en qué año?",
+                opciones: [
+                    "Microsoft en 2015",
+                    "IBM en 2013",
+                    "VMware, Inc. en febrero de 2014",
+                    "Google en 2016"
+                ],
+                correcta: 2,
+                preguntaId: "401060111"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué permite VMware Identity Manager según el texto?",
+                opciones: [
+                    "Acceder a redes corporativas",
+                    "Acceder a aplicaciones fundamentales del negocio",
+                    "Acceder al contenido y colaborar con este",
+                    "Satisfacer las expectativas del usuario respecto del acceso de un solo paso a cualquier aplicación"
+                ],
+                correcta: 3,
+                preguntaId: "401060112"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué tipo de conexiones pueden gestionar los usuarios finales con AirWatch según el texto?",
+                opciones: [
+                    "Solo conexiones VPN",
+                    "Solo conexiones inalámbricas",
+                    "Conexiones inalámbricas y VPN",
+                    "Solo conexiones Bluetooth"
+                ],
+                correcta: 2,
+                preguntaId: "401060113"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué tipos de aplicaciones se pueden ofrecer mediante AirWatch según el texto?",
+                opciones: [
+                    "Solo aplicaciones nativas",
+                    "Solo aplicaciones web y móviles",
+                    "Aplicaciones nativas, web, móviles, virtuales y de Windows",
+                    "Solo aplicaciones de Windows"
+                ],
+                correcta: 2,
+                preguntaId: "401060114"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué es AirWatch Content Locker?",
+                opciones: [
+                    "Una aplicación para bloquear contenido",
+                    "Una única aplicación para acceder al contenido y colaborar con este",
+                    "Un sistema de almacenamiento en la nube",
+                    "Un sistema de bloqueo de dispositivos"
+                ],
+                correcta: 1,
+                preguntaId: "401060115"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Con qué tipos de dispositivos es compatible AirWatch según el texto?",
+                opciones: [
+                    "Solo teléfonos inteligentes y tabletas",
+                    "Solo computadoras portátiles",
+                    "Teléfonos inteligentes, tabletas, computadoras portátiles, impresoras resistentes y dispositivos periféricos",
+                    "Solo dispositivos Apple"
+                ],
+                correcta: 2,
+                preguntaId: "401060116"
+            },
+            {
+                id: "4010601003",
+                pregunta: "¿Qué permite el portal de autoservicio de AirWatch?",
+                opciones: [
+                    "Que los usuarios instalen cualquier aplicación",
+                    "Que los usuarios controlen y administren sus dispositivos para reducir la demanda sobre TI",
+                    "Que los usuarios accedan a todas las aplicaciones de la empresa",
+                    "Que los usuarios cambien la configuración de seguridad"
+                ],
+                correcta: 1,
+                preguntaId: "401060117"
+            },
+            {
+                id: "4010601004",
+                pregunta: "¿Qué es IBM MaaS360?",
+                opciones: [
+                    "Un sistema operativo para dispositivos móviles",
+                    "Un producto basado en la nube en forma de Software as a Service",
+                    "Una aplicación para sincronizar dispositivos móviles con IBM",
+                    "Un antivirus para dispositivos móviles"
+                ],
+                correcta: 1,
+                preguntaId: "401060118"
+            },
+            {
+                id: "4010601004",
+                pregunta: "¿Qué significa BYOD en el contexto de IBM MaaS360?",
+                opciones: [
+                    "Bring Your Own Data",
+                    "Build Your Own Device",
+                    "Bring Your Own Device",
+                    "Build Your Own Database"
+                ],
+                correcta: 2,
+                preguntaId: "401060119"
+            },
+            {
+                id: "4010601004",
+                pregunta: "¿Qué tipos de dispositivos permite administrar IBM MaaS360 según el texto?",
+                opciones: [
+                    "Solo smartphones",
+                    "Solo tablets",
+                    "Solo dispositivos IBM",
+                    "Smartphones, tablets y portátiles"
+                ],
+                correcta: 3,
+                preguntaId: "401060120"
+            }
+        ]
+    },
+    "4010701000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010701001",
+                pregunta: "¿En qué consiste el control de licencias de software?",
+                opciones: [
+                    "En instalar software gratuito en la empresa",
+                    "En asegurarse de que todo el software instalado en la empresa es legal y su uso es conforme a la licencia correspondiente",
+                    "En limitar el uso de software a los empleados",
+                    "En comprar licencias de software al mejor precio"
+                ],
+                correcta: 1,
+                preguntaId: "401070101"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Qué significa KMS?",
+                opciones: [
+                    "Key Management System",
+                    "Key Microsoft Service",
+                    "Key Multiple System",
+                    "Key Management Software"
+                ],
+                correcta: 0,
+                preguntaId: "401070102"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Para qué se utiliza el servicio KMS?",
+                opciones: [
+                    "Para la activación de claves individuales",
+                    "Para la activación de claves de volumen en la red local",
+                    "Para la gestión de contraseñas",
+                    "Para la gestión de usuarios"
+                ],
+                correcta: 1,
+                preguntaId: "401070103"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Dónde debe residir el host KMS?",
+                opciones: [
+                    "En la nube de Microsoft",
+                    "En Internet",
+                    "En la red local",
+                    "En cualquier lugar"
+                ],
+                correcta: 2,
+                preguntaId: "401070104"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Cómo se denomina comúnmente la clave que activa/autentica el host de KMS ante Microsoft?",
+                opciones: [
+                    "Clave MAK",
+                    "Clave VAMT",
+                    "Clave host de KMS",
+                    "Clave de producto"
+                ],
+                correcta: 2,
+                preguntaId: "401070105"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Cuál es el umbral mínimo de equipos para que se activen los clientes en KMS?",
+                opciones: [
+                    "5 equipos",
+                    "10 equipos",
+                    "25 equipos",
+                    "50 equipos"
+                ],
+                correcta: 2,
+                preguntaId: "401070106"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Cuál es el umbral mínimo de equipos para que se activen los servidores y las ediciones de volumen de productos de Microsoft Office en KMS?",
+                opciones: [
+                    "5 equipos",
+                    "10 equipos",
+                    "25 equipos",
+                    "50 equipos"
+                ],
+                correcta: 0,
+                preguntaId: "401070107"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Durante cuánto tiempo son válidas las activaciones de KMS?",
+                opciones: [
+                    "30 días",
+                    "90 días",
+                    "180 días",
+                    "365 días"
+                ],
+                correcta: 2,
+                preguntaId: "401070108"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Con qué frecuencia intentan renovar sus activaciones los equipos cliente de KMS por defecto?",
+                opciones: [
+                    "Cada día",
+                    "Cada siete días",
+                    "Cada treinta días",
+                    "Cada 180 días"
+                ],
+                correcta: 1,
+                preguntaId: "401070109"
+            },
+            {
+                id: "4010701002",
+                pregunta: "¿Qué sistemas operativos puede activar un host de KMS instalado en un sistema operativo de cliente Windows?",
+                opciones: [
+                    "Solo sistemas operativos de servidor",
+                    "Solo sistemas operativos de cliente",
+                    "Sistemas operativos de cliente y servidor",
+                    "Ningún sistema operativo"
+                ],
+                correcta: 1,
+                preguntaId: "401070110"
+            },
+            {
+                id: "4010701003",
+                pregunta: "¿Qué significa MAK?",
+                opciones: [
+                    "Microsoft Activation Key",
+                    "Multiple Activation Key",
+                    "Management Activation Key",
+                    "Microsoft Administration Key"
+                ],
+                correcta: 1,
+                preguntaId: "401070111"
+            },
+            {
+                id: "4010701003",
+                pregunta: "¿Qué permiten las claves MAK?",
+                opciones: [
+                    "Activar solo un equipo",
+                    "Activar con la misma clave un número determinado de máquinas",
+                    "Activar un número ilimitado de máquinas",
+                    "Activar solo servidores"
+                ],
+                correcta: 1,
+                preguntaId: "401070112"
+            },
+            {
+                id: "4010701003",
+                pregunta: "¿Qué se necesita para activar una clave MAK?",
+                opciones: [
+                    "Conectar el equipo a Internet para validarla contra un servidor de activación de Microsoft",
+                    "Conectar el equipo a la red local",
+                    "Llamar por teléfono a Microsoft",
+                    "Nada, se activa automáticamente"
+                ],
+                correcta: 0,
+                preguntaId: "401070113"
+            },
+            {
+                id: "4010701003",
+                pregunta: "¿Qué advierte el texto sobre las licencias que se encuentran en Internet por precios irrisorios?",
+                opciones: [
+                    "Que son ofertas especiales de Microsoft",
+                    "Que son versiones de prueba",
+                    "Que es posible que sean ilegales",
+                    "Que son versiones antiguas"
+                ],
+                correcta: 2,
+                preguntaId: "401070114"
+            },
+            {
+                id: "4010701003",
+                pregunta: "¿Qué puede hacer Microsoft con las claves MAK ilegales según el texto?",
+                opciones: [
+                    "Nada, una vez activadas son permanentes",
+                    "Puede adoptar en cualquier momento una medida para desactivarlas",
+                    "Puede multar a los usuarios",
+                    "Puede bloquear el acceso a Internet"
+                ],
+                correcta: 1,
+                preguntaId: "401070115"
+            },
+            {
+                id: "4010701004",
+                pregunta: "¿Qué significa VAMT?",
+                opciones: [
+                    "Volume Activation Management Tool",
+                    "Volume Administration Microsoft Tool",
+                    "Virtual Activation Management Tool",
+                    "Volume Activation Microsoft Technology"
+                ],
+                correcta: 0,
+                preguntaId: "401070116"
+            },
+            {
+                id: "4010701004",
+                pregunta: "¿Qué tipo de herramienta es VAMT?",
+                opciones: [
+                    "Una herramienta de línea de comandos",
+                    "Una herramienta GUI",
+                    "Una herramienta web",
+                    "Una herramienta de programación"
+                ],
+                correcta: 1,
+                preguntaId: "401070117"
+            },
+            {
+                id: "4010701004",
+                pregunta: "¿A qué kit pertenece la herramienta VAMT?",
+                opciones: [
+                    "Windows Server Kit",
+                    "Windows Development Kit",
+                    "Windows Assessment and Deployment Kit",
+                    "Windows Administration Kit"
+                ],
+                correcta: 2,
+                preguntaId: "401070118"
+            },
+            {
+                id: "4010701004",
+                pregunta: "¿Dónde se instala VAMT?",
+                opciones: [
+                    "En Windows 10",
+                    "En Windows Server",
+                    "En cualquier sistema operativo",
+                    "En la nube de Microsoft"
+                ],
+                correcta: 1,
+                preguntaId: "401070119"
+            },
+            {
+                id: "4010701004",
+                pregunta: "¿Qué tipo de claves permite utilizar VAMT?",
+                opciones: [
+                    "Solo claves KMS",
+                    "Solo claves MAK",
+                    "Claves KMS o MAK",
+                    "Solo claves de producto"
+                ],
+                correcta: 2,
+                preguntaId: "401070120"
+            }
+        ]
+    },
+    "4010801000e": {
+        minimoParaAprobar: 8,
+        preguntas: [
+            {
+                id: "4010801001",
+                pregunta: "¿Qué son los Windows Containers?",
+                opciones: [
+                    "Un tipo de máquina virtual",
+                    "Tecnología para empaquetar y ejecutar aplicaciones de Windows y Linux en diversos entornos",
+                    "Un sistema operativo ligero",
+                    "Una herramienta de virtualización de Microsoft"
+                ],
+                correcta: 1,
+                preguntaId: "401080101"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Por qué los contenedores son ideales para aplicaciones que necesitan adaptarse rápidamente a la demanda cambiante?",
+                opciones: [
+                    "Porque son más baratos",
+                    "Porque se inician y detienen rápidamente",
+                    "Porque utilizan menos recursos",
+                    "Porque son más seguros"
+                ],
+                correcta: 1,
+                preguntaId: "401080102"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Qué ocurre con los cambios realizados en un contenedor cuando este se detiene?",
+                opciones: [
+                    "Se guardan automáticamente",
+                    "Se descartan",
+                    "Se transfieren al host",
+                    "Se guardan en la nube"
+                ],
+                correcta: 1,
+                preguntaId: "401080103"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Cómo se pueden guardar datos persistentes en un contenedor?",
+                opciones: [
+                    "No es posible guardar datos persistentes en un contenedor",
+                    "Montando una instancia de almacenamiento persistente, como Azure Disk o un recurso compartido de archivos",
+                    "Guardando los datos en el registro del sistema",
+                    "Utilizando una base de datos externa"
+                ],
+                correcta: 1,
+                preguntaId: "401080104"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Por qué los contenedores son más ligeros que las máquinas virtuales?",
+                opciones: [
+                    "Porque utilizan menos memoria RAM",
+                    "Porque no necesitan instalar y ejecutar un sistema operativo completo",
+                    "Porque solo funcionan en Linux",
+                    "Porque están escritos en lenguajes de programación más eficientes"
+                ],
+                correcta: 1,
+                preguntaId: "401080105"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Cuál de las siguientes aplicaciones NO es compatible con los contenedores Windows según el texto?",
+                opciones: [
+                    "Aplicaciones web",
+                    "Aplicaciones de consola",
+                    "Microsoft Office",
+                    "Aplicaciones .NET"
+                ],
+                correcta: 2,
+                preguntaId: "401080106"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Cuáles son los dos modos de ejecución de contenedores Windows mencionados en el texto?",
+                opciones: [
+                    "Modo Online y Modo Offline",
+                    "Modo Aislamiento de Procesos y Modo Aislamiento bajo Hyper-V",
+                    "Modo Seguro y Modo Normal",
+                    "Modo Local y Modo Remoto"
+                ],
+                correcta: 1,
+                preguntaId: "401080107"
+            },
+            {
+                id: "4010801001",
+                pregunta: "¿Cuál es el modo más seguro de ejecutar contenedores Windows según el texto?",
+                opciones: [
+                    "Modo Aislamiento de Procesos",
+                    "Modo Aislamiento bajo Hyper-V",
+                    "Modo Seguro",
+                    "Modo Offline"
+                ],
+                correcta: 1,
+                preguntaId: "401080108"
+            },
+            {
+                id: "4010801002",
+                pregunta: "¿Qué tipo de contenedores puede ejecutar un host Windows nativamente?",
+                opciones: [
+                    "Solo contenedores Linux",
+                    "Solo contenedores Windows",
+                    "Contenedores Windows y Linux",
+                    "Ningún tipo de contenedor"
+                ],
+                correcta: 1,
+                preguntaId: "401080109"
+            },
+            {
+                id: "4010801002",
+                pregunta: "¿Cómo puede un host Windows ejecutar contenedores Linux?",
+                opciones: [
+                    "No puede ejecutar contenedores Linux",
+                    "Mediante el aislamiento de Hyper-V",
+                    "Instalando un kernel Linux",
+                    "Utilizando Docker"
+                ],
+                correcta: 1,
+                preguntaId: "401080110"
+            },
+            {
+                id: "4010801002",
+                pregunta: "Según el texto, ¿dónde está centrado actualmente el desarrollo y diseño de contenedores?",
+                opciones: [
+                    "En Windows",
+                    "En Linux",
+                    "En macOS",
+                    "En Android"
+                ],
+                correcta: 1,
+                preguntaId: "401080111"
+            },
+            {
+                id: "4010801002",
+                pregunta: "¿Dónde pueden implementarse las infraestructuras de contenedores Windows y Linux según el texto?",
+                opciones: [
+                    "Solo On-Premise",
+                    "Solo Cloud",
+                    "On-Premise o Cloud",
+                    "Solo en servidores dedicados"
+                ],
+                correcta: 2,
+                preguntaId: "401080112"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿Qué es Docker?",
+                opciones: [
+                    "Un sistema operativo",
+                    "Un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software",
+                    "Una máquina virtual",
+                    "Un lenguaje de programación"
+                ],
+                correcta: 1,
+                preguntaId: "401080113"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿En qué tipo de servidores puede ser ejecutado un contenedor Docker según el texto?",
+                opciones: [
+                    "Solo en servidores Windows",
+                    "Solo en servidores Linux",
+                    "En cualquier servidor Linux",
+                    "En cualquier tipo de servidor"
+                ],
+                correcta: 2,
+                preguntaId: "401080114"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿Qué permite Docker en términos de flexibilidad y portabilidad?",
+                opciones: [
+                    "Que la aplicación solo se pueda ejecutar en la nube",
+                    "Que la aplicación se pueda ejecutar en las instalaciones físicas, la nube pública o la nube privada",
+                    "Que la aplicación solo se pueda ejecutar en instalaciones físicas",
+                    "Que la aplicación solo se pueda ejecutar en Windows"
+                ],
+                correcta: 1,
+                preguntaId: "401080115"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿Qué diferencia hay entre un contenedor Docker y una máquina virtual según el texto?",
+                opciones: [
+                    "Un contenedor Docker requiere más recursos",
+                    "Un contenedor Docker no requiere incluir un sistema operativo independiente",
+                    "Un contenedor Docker solo puede ejecutar aplicaciones Linux",
+                    "Un contenedor Docker es más lento"
+                ],
+                correcta: 1,
+                preguntaId: "401080116"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿Qué tipo de recursos puede aislar Docker según el texto?",
+                opciones: [
+                    "Solo CPU",
+                    "Solo memoria",
+                    "CPU, memoria, bloque E/S, red, etc.",
+                    "Solo red"
+                ],
+                correcta: 2,
+                preguntaId: "401080117"
+            },
+            {
+                id: "4010801003",
+                pregunta: "¿Qué permite Docker en términos de sistemas distribuidos?",
+                opciones: [
+                    "Complica la creación de sistemas distribuidos",
+                    "Simplifica la creación de sistemas altamente distribuidos",
+                    "No permite crear sistemas distribuidos",
+                    "Solo permite crear sistemas distribuidos en la nube"
+                ],
+                correcta: 1,
+                preguntaId: "401080118"
+            },
+            {
+                id: "4010801004",
+                pregunta: "¿Qué es Kubernetes?",
+                opciones: [
+                    "Un sistema operativo",
+                    "Un contenedor",
+                    "Un sistema open source creado por Google",
+                    "Una máquina virtual"
+                ],
+                correcta: 2,
+                preguntaId: "401080119"
+            },
+            {
+                id: "4010801004",
+                pregunta: "¿Para qué se usa Kubernetes?",
+                opciones: [
+                    "Para crear contenedores",
+                    "Para implementar y escalar aplicaciones mediante la administración de múltiples contenedores implementados en múltiples máquinas host",
+                    "Para virtualizar sistemas operativos",
+                    "Para programar aplicaciones"
+                ],
+                correcta: 1,
+                preguntaId: "401080120"
+            }
+        ]
+    }
 };

@@ -1,0 +1,52 @@
+<div class="teoria">
+    <span id="4010501001">
+        <h2>5.1. DISTRIBUCIÓN DE SOFTWARE Y ADMINISTRACIÓN DE HARDWARE</h2>
+    </span>
+    
+    <span id="4010501002">
+        <h3>5.1.1. PXE (PREBOOT EXECUTION ENVIROMENT)</h3>
+        <p>Entorno para arrancar e instalar el sistema operativo en computadoras a través de una red, de manera independiente de los dispositivos de almacenamiento de datos disponibles (como discos duros) o de los sistemas operativos instalados.</p>
+        <p>Un cliente PXE puede ser un servidor, una computadora de mesa, portátil o cualquier otra máquina que esté equipada con código de arranque PXE.</p>
+        <p>El firmware del cliente trata de encontrar un servicio de redirección PXE en la red para recabar información sobre los servidores de arranque PXE disponibles. Tras analizar la respuesta, el firmware solicitará al servidor de arranque apropiado la ruta de un network bootstrap program (NBP), lo descargará en la memoria RAM del computador mediante TFTP, lo verificará, y finalmente lo ejecutará.</p>
+        <p>Si se utiliza un único NBP para todos los clientes PXE se puede especificar mediante BOOTP sin necesidad de un proxy DHCP, pero aún será necesario un servidor TFTP.</p>
+        <p>Pantalla del cliente PXE proporcionado por el firmware del equipo</p>
+        <p>Carga de imagen a través de la red</p>
+    </span>
+    
+    <span id="4010501003">
+        <h3>5.1.2. WDS (WINDOWS DEPLOYMENT SERVICES)</h3>
+        <p>Es la versión revisada de Servicios de instalación remota (RIS: Remote Installation Services). WDS permite la implementación y configuración de sistemas operativos Windows en los nuevos clientes con una instalación basada en red sin necesidad de que los administradores visiten cada equipo o se instalen directamente desde medios de CD o DVD.</p>
+        <p>Permite un despliegue de los clientes de Windows de forma automatizada y personalizada a través de la utilización de archivos de secuencias de comandos (scripts) de instalación desatendida.</p>
+        <p>Puede realizar tareas automáticas como asignar un nombre a las máquinas de forma automática, unirlas a un dominio, agregar o quitar programas y características e instalar funciones o roles de servidor en sistemas operativos de servidor.</p>
+        <p>WDS se expande después de la instalación con guion sencillo al dar al técnico la posibilidad de capturar, almacenar y distribuir los paquetes de instalación basados en imágenes.</p>
+        <p>Es compatible con despliegues IP Multicast permitiendo a los nuevos clientes unirse a una implementación multicast ya iniciada, el propio servidor WDS ajustará la multidifusión para que cualquier cliente pueda recibir los datos que se ha "perdido" por unirse tarde.</p>
+        <p>WDS multicast usa el Protocolo Internet Estándar IGMP. WDS cuenta con soporte para sistemas x64 basados en EFI.</p>
+        <p>WDS tiene la capacidad de desplegar otros sistemas operativos, como Windows PE, Windows XP y Windows 2000, pero la instalación de estos sistemas operativos no se puede realizar con los archivos de origen o controlada con vigilancia de scripts.</p>
+        <p>WDS trabaja junto con el Preboot Execution Environment (PXE) de las máquinas cliente cargando una versión en miniatura de Windows (Windows PE) para las tareas de instalación y mantenimiento.</p>
+        <p>WDS almacena tanto las imágenes de arranque de red PXE como las imágenes del sistema operativo real que se instalarán en el equipo de destino.</p>
+        <p>Cuando hay varias imágenes de arranque disponibles, el arranque PXE a través de WDS presenta un menú de arranque para seleccionar la imagen que desee cargar.</p>
+    </span>
+    
+    <span id="4010501004">
+        <h3>5.1.3. WINDOWS SERVER UPDATE SERVICES (WSUS)</h3>
+        <p>Rol de servidor que permite administrar de forma centralizada la distribución e instalación de actualizaciones que se publican a través de Microsoft Update a los equipos de la red.</p>
+        <p>El servidor WSUS permite controlar la distribución. Puede ser un mero controlador, ser el origen de las actualizaciones o formar parte de una cadena de distribución de actualizaciones.</p>
+        <p>La principal ventaja del WSUS es que ahorra tiempo, ancho de banda y espacio de almacenamiento porque evita que los ordenadores se tengan que conectar individualmente a servidores externos de a la organización, sino que se conectan a servidores locales.</p>
+        <p>El administrador puede determinar, en función de la configuración y seguridad de red, la cantidad de servidores WSUS que quiere que se conecten directamente a Microsoft Update.</p>
+        <ul>
+            <li>Administración centralizada de actualizaciones</li>
+            <li>Automatización de administración de actualizaciones</li>
+        </ul>
+        <p>El funcionamiento general de un servidor WSUS es el siguiente:</p>
+        <ul>
+            <li>El administrador divide los equipos de la red en distintos grupos. Por ejemplo, servidores, equipos de desarrollo, equipos de ofimática, equipos de prueba, etc.</li>
+            <li>A continuación selecciona el tipo de actualizaciones a descargar en función del parque informático de la red (sistemas operativos instalados, paquetes ofimáticos, paquetes de desarrollo, servidores, etc)</li>
+            <li>El servidor WSUS procederá a descargar las actualizaciones y las marcará como disponibles.</li>
+            <li>El administrador (idealmente) evalúa las actualizaciones aprobándolas para un grupo restringido de equipos de prueba. Si todo funciona correctamente aprueba las actualizaciones para ser descargadas e instaladas en el resto de grupos de equipos de la red.</li>
+            <li>También se pueden configurar reglas de aprobación automática (para actualizaciones de seguridad críticas) y revisar en todo momento las actualizaciones instaladas mediante los informes generados por el WSUS.</li>
+        </ul>
+        <p>Un paso fundamental es que los equipos cliente del WSUS deben ser configurados para que busquen las actualizaciones en el servidor WSUS de la organización en lugar de en los servidores de Microsoft Update.</p>
+        <p>Esto se hace a través de una directiva de grupo que se suele aplicar a todo el Dominio (excepto a los servidores WSUS)</p>
+        <p>Los clientes buscarán las actualizaciones normalmente a través de Windows Update</p>
+    </span>
+</div>

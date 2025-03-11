@@ -1,0 +1,60 @@
+<div class="teoria">
+    <span id="4010701001">
+        <h2>7.1. CONTROL DE LICENCIAS DE SOFTWARE</h2>
+        <p>El control de licencias de software es otra de las labores fundamentales de la administración de sistemas. Consiste en asegurarse de que todo el software instalado en la empresa es legal y su uso es conforme a la licencia correspondiente.</p>
+    </span>
+    
+    <span id="4010701002">
+        <h3>7.1.1. SERVICIO DE ADMINISTRACIÓN DE CLAVES (KMS)</h3>
+        <p>KMS (Key Management System) es un servicio utilizado para la activación de claves de volumen en la red local.</p>
+        <p>Los clientes KMS se conectan al servidor KMS (denominado host de KMS) para realizar la activación.</p>
+        <p>El host KMS debe residir en la red local y no tiene por qué ser un servidor dedicado. Normalmente es un servicio que se añade a un servidor existente que aloje otros servicios.</p>
+        <p>Un host de KMS necesita una clave que active/autentique el host de KMS ante Microsoft. Ésta clave se denomina Clave de licencia por volumen específica de cliente de Microsoft (CSVLK) pero comúnmente se conoce como clave host de KMS.</p>
+        <p>Los clientes pueden ser físicos o virtuales pero para ser calificados para la activación de KMS, la red debe tener un número mínimo de equipos (denominado umbral de activaciones). Los clientes de KMS se activan solo cuando se cumple este umbral. El host de KMS cuenta el número de equipos que está solicitando activación en la red.</p>
+        <p>Cuando un cliente o servidor se pone en contacto con el host de KMS, el host agrega el identificador del equipo a su cuenta y, después, devuelve el valor de recuento actual en su respuesta. Si el recuento es bastante alto, se activará el cliente o servidor:</p>
+        <ul>
+            <li>Los clientes se activarán si el recuento es de 25 o superior.</li>
+            <li>Los servidores y las ediciones de volumen de productos de Microsoft Office se activarán si el recuento es de 5 o superior.</li>
+        </ul>
+        <p>KMS solo cuenta conexiones únicas de los últimos 30 días y solo almacena los 50 contactos más recientes.</p>
+        <p>Las activaciones de KMS son válidas durante 180 días (intervalo de validez de activación)</p>
+        <p>Los clientes de KMS deben renovar sus activaciones al conectarse al host de KMS al menos una vez cada 180 días para permanecer activados. Por defecto los equipos cliente de KMS intentan renovar sus activaciones cada siete días. Una vez que se renueva la activación de un cliente, el intervalo de validez de la activación vuelve a comenzar.</p>
+        <ul>
+            <li>Un host de KMS instalado en un Windows Server puede activar equipos que ejecuten sistemas operativos de cliente y servidor.</li>
+            <li>Un host de KMS instalado en un sistema operativo de cliente Windows solo puede activar equipos que también ejecutan sistemas operativos de cliente.</li>
+        </ul>
+        <p>La versión de Windows que usa para el host de KMS determina la versión de Windows que puede activar para los clientes de KMS.</p>
+    </span>
+    
+    <span id="4010701003">
+        <h3>7.1.2. CLAVES MAK (MULTIPLE ACTIVATION KEY)</h3>
+        <p>Permiten activar con la misma clave un número determinado de máquinas, dependiendo de cuantas licencias hayamos comprado a Microsoft.</p>
+        <p>Necesitan ser validadas y activadas contra un servidor de activación de Microsoft, por lo que para la activación es necesario conectar el equipo a Internet. Una vez activada por primera vez, ya no es necesario volverse a conectar.</p>
+        <p>Atención con las licencias que se encuentran en Internet por precios irrisorios. Es posible que sean ilegales (pueden ser robadas o pertenecer a licencias originales destinadas a Ayuntamientos, Ministerios, colegios o cualquier otra asociación que tenga un convenio con Microsoft a través de una empresa privada y que las haya comprado por volumen). Suelen ser claves MAK pertenecientes a una misma licencia.</p>
+        <p>Microsoft es consciente del problema y puede adoptar en cualquier momento una medida para desactivarlas.</p>
+    </span>
+    
+    <span id="4010701004">
+        <h3>7.1.3. VAMT (VOLUME ACTIVATION MANAGEMENT TOOL)</h3>
+        <p>Herramienta GUI para administrar y automatizar de forma centralizada la activación de los diferentes productos Microsoft, tanto ediciones de servidor como de cliente, así como la suite Office.</p>
+        <ul>
+            <li>Es una herramienta perteneciente al Windows Assessment and Deployment Kit (Kit de evaluación e implementación de Windows).</li>
+            <li>Se instala en Windows Server, se descarga de forma independiente y necesita una base de datos SQL.</li>
+            <li>Permite utilizar claves KMS o MAK.</li>
+        </ul>
+    </span>
+    
+    <span id="4010701005">
+        <h3>7.1.4. OTROS CONCEPTOS</h3>
+        <p>Monitorización del sistema</p>
+        <ul>
+            <li>Contabilidad del sistemas</li>
+            <li>DCIm</li>
+            <li>SCCM</li>
+            <li>Administración con dockers</li>
+            <li>LNK</li>
+            <li>Herramientas para administrar</li>
+            <li>Administrar microservicios</li>
+        </ul>
+    </span>
+</div>

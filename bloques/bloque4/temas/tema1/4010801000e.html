@@ -1,0 +1,62 @@
+<div class="teoria">
+    <span id="4010801001">
+        <h2>8.1. WINDOWS CONTAINERS</h2>
+        <p>Tecnología para empaquetar y ejecutar aplicaciones de Windows y Linux en diversos entornos locales y en la nube proporcionando un entorno ligero y aislado que facilita el desarrollo, implementación y administración de las aplicaciones.</p>
+        <p>Los contenedores se inician y detienen rápidamente, por lo que son ideales para las aplicaciones que necesitan adaptarse rápidamente a la demanda cambiante.</p>
+        <p>Un contenedor es un paquete aislado y ligero para ejecutar una aplicación en el sistema operativo host. Los contenedores se basan en el kernel del sistema operativo host.</p>
+        <p>Un contenedor tiene acceso restringido al kernel del sistema operativo host mediante una vista aislada (y, en ocasiones, virtualizada) del sistema. Por ejemplo, un contenedor puede tener acceso a una versión virtualizada del sistema de archivos y el registro, pero los cambios solo afectan al contenedor y se descartan cuando se detiene. Para guardar los datos, el contenedor puede montar una instancia de almacenamiento persistente, como Azure Disk o un recurso compartido de archivos (incluido Azure Files).</p>
+        <p>En comparación con las máquinas virtuales los contenedores son mucho más ligeros porque cada contenedor no necesita instalar y ejecutar un sistema operativo completo lo que permite aumentar la densidad y el uso de la infraestructura (menos espacio en disco, consumo de ram, cpu, etc).</p>
+        <p>Las aplicaciones que se quieran incluir en un contenedor deben ser compatibles con el modo contenedor.</p>
+        <p>Actualmente algunos tipos de aplicaciones no son compatibles con los contenedores, por ejemplo:</p>
+        <ul>
+            <li>No se admiten contenedores Windows Microsoft DTC (Transacciones Distribuidas)</li>
+            <li>Office tampoco puede ser usado con contenedores</li>
+            <li>Aplicaciones cliente con interfaces de usuario visuales</li>
+            <li>Tampoco se pueden crear contenedores Windows de roles típicos de Infraestructuras como DHCP, DNS, DC, NTP, Servidor de Impresión, de archivos o administrador de identidades.</li>
+        </ul>
+        <p>Podemos ejecutar contenedores Windows de dos formas diferentes:</p>
+        <ul>
+            <li><strong>Modo Aislamiento de Procesos (Isolation):</strong> Es el modo tradicional de ejecutar contenedores. Los contenedores comparten el kernel del host en su ejecución, tal y como se hace en Linux. Aunque es el modo tradicional, puede ser menos seguro, puesto que comparte el kernel tanto con el hosts, como con el resto de contenedores.</li>
+            <li><strong>Modo Aislamiento bajo Hyper-V:</strong> Es el modo más seguro de ejecutar contenedores, ya que permite una mayor compatibilidad entre el host y el contenedor. La ejecución se realiza mediante máquinas virtuales con su propio kernel. También se proporciona aislamiento entre el hardware del host y cada contenedor.</li>
+        </ul>
+    </span>
+    
+    <span id="4010801002">
+        <h3>8.1.1. DIFERENCIAS CONTENEDORES WINDOWS VS DOCKER</h3>
+        <ul>
+            <li>No existen grandes diferencias entre los contenedores Windows / Linux, cuando la isolación o aislamiento se hace con el propio host y no con Hyper-V.</li>
+            <li>Cambia el kernel entre un host a otro, y con ello el tipo de contenedor que puedes ejecutar.</li>
+            <li>Un host Linux puede ejecutar contenedores Linux. Un host Windows puede ejecutar contenedores Windows nativamente o ejecutar contenedores Linux mediante el aislamiento de Hyper-V.</li>
+            <li>Actualmente el desarrollo y diseño de contenedores es mayoritariamente Linux, y aunque se pueden ejecutar contenedores .NET y de otros tipos, su uso no está tan extendido.</li>
+            <li>Ambas infraestructuras pueden implementarse vía On-Premise o Cloud.</li>
+            <li>El soporte en proveedores cloud está centrado en Linux y no Windows, aunque ya las grandes plataformas le dan soporte.</li>
+        </ul>
+    </span>
+    
+    <span id="4010801003">
+        <h3>8.1.2. DOCKER</h3>
+        <p>Proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</p>
+        <p>Un contenedor de software empaqueta una aplicación y sus dependencias en un contenedor virtual. El contenedor puede ser ejecutado en cualquier servidor Linux.</p>
+        <p>Permite la flexibilidad y portabilidad en donde la aplicación se puede ejecutar, ya sea en las instalaciones físicas, la nube pública, nube privada.</p>
+        <p>Proporciona una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos.</p>
+        <p>Docker utiliza características de aislamiento de recursos para permitir que "contenedores" independientes se ejecuten dentro de una sola instancia de Linux, evitando la sobrecarga de iniciar y mantener máquinas virtuales.</p>
+        <p>Docker implementa una API de alto nivel para proporcionar contenedores livianos que ejecutan procesos de manera aislada.</p>
+        <p>Construido sobre las facilidades proporcionadas por el kernel Linux, un contenedor Docker, a diferencia de una máquina virtual, no requiere incluir un sistema operativo independiente.</p>
+        <p>Se basa en las funcionalidades del kernel y utiliza el aislamiento de recursos (CPU, la memoria, el bloque E / S, red, etc.) y namespaces separados para aislar la vista de una aplicación del sistema operativo.</p>
+        <p>Las principales ventajas de Docker son:</p>
+        <ul>
+            <li>Permite que los recursos puedan ser aislados, los servicios restringidos.</li>
+            <li>Otorga a los procesos la capacidad de tener una visión casi completamente privada del sistema operativo con su propio identificador de espacio de proceso, la estructura del sistema de archivos, y las interfaces de red.</li>
+            <li>Permite que contenedores múltiples compartan el mismo núcleo, pero cada contenedor pueda estar restringido a utilizar solo una cantidad definida de recursos como CPU, memoria y E / S.</li>
+            <li>Simplifica la creación de sistemas altamente distribuidos, permitiendo que múltiples aplicaciones, las tareas de los trabajadores y otros procesos funcionen de forma autónoma en una única máquina física o en varias máquinas virtuales.</li>
+            <li>Permite que el despliegue de nodos se realice a medida que se dispone de recursos o cuando se necesiten más nodos, lo que permite una plataforma como servicio (PaaS - Platform as a Service) de estilo de despliegue y ampliación de los sistemas como Apache Cassandra, MongoDB o Riak.</li>
+            <li>Simplifica la creación y el funcionamiento de las tareas de carga de trabajo o las colas y otros sistemas distribuidos.</li>
+        </ul>
+    </span>
+    
+    <span id="4010801004">
+        <h3>8.1.3. KUBERNETES</h3>
+        <p>Sistema open source creado por Google.</p>
+        <p>Herramienta de orquestación / programador de contenedores y se usa para implementar y escalar su aplicación mediante la administración de múltiples contenedores implementados en múltiples máquinas host.</p>
+    </span>
+</div>
