@@ -1,0 +1,624 @@
+<div class="teoria">
+    <span id="4020601001">
+        <h2>6.1 VIRTUALIZACIÓN DE SISTEMAS (PLATAFORMA) Y DE PUESTO DE TRABAJO</h2>
+        <h3>6.1.1 VIRTUALIZACIÓN DE SISTEMAS O PLATAFORMA</h3>
+        <p>La virtualización de plataforma surge como un mecanismo de optimización y racionalización de los recursos, inicialmente, de cómputo y proceso. En multitud de ocasiones se daban situaciones en las que los recursos informáticos estaban infrautilizados o mal dimensionados (pensemos en un servidor con baja carga en el que el procesador está ocioso en muchos momentos). De esa forma, mediante las técnicas de virtualización se consigue adaptar, incluso de manera dinámica, los recursos físicos existentes a las necesidades de cómputo y proceso reales (que en muchas ocasiones son cambiantes).</p>
+        
+        <p>De esa forma, como decimos, mediante la virtualización, se reparten los recursos informáticos -físicos- entre las diferentes cargas de trabajo, creando la ficción para cada una de ellas de que dispone de un entorno especialmente dedicado. Por poner un ejemplo, pueden repartirse los componentes de un servidor de grandes prestaciones –proceso, disco, conexiones de red, etc.-, en pequeños servidores virtuales para dedicar cada uno de ellos a un cierto cometido.</p>
+        
+        <div class="virtualization-diagram">
+            <h4>Virtualización de servidores</h4>
+            <div class="diagram-container">
+                <div class="physical-server">
+                    <div class="server-label">Servidor Físico</div>
+                    <div class="hypervisor">
+                        <div class="hypervisor-label">Hipervisor</div>
+                        <div class="virtual-machines">
+                            <div class="vm">
+                                <div class="vm-label">VM 1</div>
+                                <div class="vm-os">Sistema Operativo</div>
+                                <div class="vm-apps">Aplicaciones</div>
+                            </div>
+                            <div class="vm">
+                                <div class="vm-label">VM 2</div>
+                                <div class="vm-os">Sistema Operativo</div>
+                                <div class="vm-apps">Aplicaciones</div>
+                            </div>
+                            <div class="vm">
+                                <div class="vm-label">VM 3</div>
+                                <div class="vm-os">Sistema Operativo</div>
+                                <div class="vm-apps">Aplicaciones</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hardware">
+                        <div class="hw-component">CPU</div>
+                        <div class="hw-component">Memoria</div>
+                        <div class="hw-component">Almacenamiento</div>
+                        <div class="hw-component">Red</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">
+                <p>Representación de la virtualización de servidores donde múltiples máquinas virtuales comparten los recursos físicos de un único servidor.</p>
+            </div>
+        </div>
+        
+        <p>Aunque inicialmente el concepto de virtualización comenzó aplicándose exclusivamente a los servidores -virtualización de proceso-, con el paso del tiempo y dados los beneficios observados por la madurez de esta solución, ha acabado por aplicarse a un importante número de elementos de la plataforma informática: almacenamiento, balanceadores de carga, appliances de diversa aplicación o incluso redes y elementos de seguridad informática.</p>
+        
+        <p>En cualquier caso, con el nombre de virtualización de plataforma solemos referirnos a la virtualización de la capa de proceso, frente al término virtualización de recursos que suele designar la virtualización de otros elementos informáticos como el almacenamiento o las conexiones de red.</p>
+        
+        <p>Podríamos decir que, mediante la virtualización, el hardware pasa de ser algo estático y rígido a mostrarse adaptable y flexible para su reparto ajustado a las necesidades de las cargas informáticas en un momento determinado. Esta característica, en un mundo TIC tan cambiante como el actual, hace de la virtualización una solución especialmente aplicable en nuestros días.</p>
+        
+        <p>Pensemos por ejemplo en empresas que se dedican a prestar servicios a terceros bajo el paradigma del cloud computing o nube. En muchas ocasiones, el ajuste de los recursos asignados a un elemento virtual –por ejemplo, el procesador o el disco de un servidor- puede hacerse "en caliente", sin necesidad de apagado, lo que redunda en unos mejores números en la continuidad del servicio.</p>
+        
+        <p>Actualmente las tecnologías VSphere de VMWare o HyperV de Microsoft se presentan como las principales soluciones tecnológicas en el ámbito de la virtualización de servidores.</p>
+    </span>
+
+    <span id="4020601002">
+        <h3>6.1.2 PRINCIPALES VENTAJAS DE LA VIRTUALIZACIÓN DE SERVIDORES</h3>
+        <p>Las principales ventajas de la virtualización de los servidores incluyen las siguientes:</p>
+        
+        <div class="advantages">
+            <div class="advantage">
+                <h4>Eficiencia en la asignación de recursos</h4>
+                <p>El hardware deja de ser algo rígido.</p>
+                <ul>
+                    <li><strong>Optimización:</strong> Los recursos se asignan dinámicamente según las cargas.</li>
+                    <li><strong>Flexibilidad:</strong> Los recursos asignados a las máquinas pueden modificarse.</li>
+                    <li><strong>Automatización:</strong> Los procesos de asignación de recursos pueden automatizarse.</li>
+                </ul>
+            </div>
+            
+            <div class="advantage">
+                <h4>Sencillez en las labores de administración</h4>
+                <ul>
+                    <li>Movimiento de cargas.</li>
+                    <li>Punto único de administración.</li>
+                    <li>Plantillas asociadas.</li>
+                </ul>
+            </div>
+            
+            <div class="advantage">
+                <h4>Mayor rapidez en el aprovisionamiento</h4>
+                <p>La creación de nuevos servidores virtuales es mucho más rápida que el aprovisionamiento de hardware físico.</p>
+            </div>
+            
+            <div class="advantage">
+                <h4>Reducción de las instalaciones físicas</h4>
+                <p>Menor espacio en CPD, menor consumo energético y menor necesidad de refrigeración.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020601003">
+        <h3>6.1.3 PRINCIPALES ELEMENTOS DE LA VIRTUALIZACIÓN DE SERVIDORES</h3>
+        <p>Los componentes de cualquier entorno de virtualización de plataforma son los siguientes:</p>
+        
+        <div class="virtualization-components">
+            <div class="component">
+                <h4>Máquinas físicas hosts o anfitrionas</h4>
+                <p>Se trata del hardware físico que soporta el núcleo de la solución de virtualización. Es decir, de los servidores físicos, habitualmente de unas elevadas prestaciones, que son troceados y repartidos por la solución de virtualización para generar la ilusión de entornos dedicados a las diferentes cargas de trabajo.</p>
+                
+                <p>Actualmente, prácticamente la totalidad de los fabricantes de servidores –HPE, DELL o Fujitsu entre otros- cuentan con modelos aptos para su inclusión y configuración en entornos virtualizados.</p>
+                
+                <p>Este elemento en el ámbito del fabricante VMWare recibe el nombre de ESXi.</p>
+            </div>
+            
+            <div class="component">
+                <h4>Hipervisor</h4>
+                <p>Por este término se designa al software de sistema operativo que realiza las labores de virtualización de los diferentes elementos. De esta forma, se instala en los hosts anfitriones físicos anteriormente presentados y, mediante su acceso a los diferentes recursos físicos subyacentes de proceso, almacenamiento o conectividad, puede controlarlos y gestionarlos, para, mediante su partición y reparto, realizar un uso más eficaz y óptimo del hardware.</p>
+                
+                <p>Este elemento en el ámbito del fabricante VMWare recibe el nombre de VSphere.</p>
+            </div>
+            
+            <div class="component">
+                <h4>Software y consolas de gestión del entorno de virtualización</h4>
+                <p>Se trata de un software avanzado de gestión que ofrece una visión global, homogénea y centralizada del entorno de virtualización, permitiendo tener visibilidad y posibilidades de configuración sobre sus diferentes elementos.</p>
+                
+                <p>En el caso de la solución en entornos VSphere este componente recibe el nombre de VMware vCenter Server.</p>
+            </div>
+            
+            <div class="component">
+                <h4>Máquinas virtuales</h4>
+                <p>Las máquinas virtuales son el resultado final del proceso de virtualización. Se trata de elementos virtuales de proceso que emulan el funcionamiento de un servidor físico. De esta forma, sobre cada servidor físico pueden crearse varios servidores virtuales adaptados, cada uno de ellos, a las cargas concretas de trabajo que van a soportar. Así, se optimiza y racionaliza el uso de los recursos informáticos, sin que ello suponga pérdida de rendimiento, eficacia o eficiencia.</p>
+                
+                <p>Actualmente, los principales hipervisores del mercado –que como hemos visto son VSphere de VMware e HyperV de Microsoft- permiten la virtualización de los principales sistemas operativos como Windows, Linux o MacOS.</p>
+            </div>
+            
+            <div class="component">
+                <h4>Almacenamiento</h4>
+                <p>El conjunto de servidores anfitriones deben tener visibilidad común del almacenamiento compartido, lo que permitirá el movimiento de las máquinas virtuales.</p>
+            </div>
+            
+            <div class="component">
+                <h4>Otros elementos relacionados</h4>
+                <p>Alrededor de los ecosistemas de virtualización también aparecen otros elementos, en cierta forma secundarios, como soluciones de monitorización, automatización de operaciones o gestión avanzada de las máquinas virtuales.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020601004">
+        <h3>6.1.4 OTROS CONCEPTOS EN LA VIRTUALIZACIÓN DE PLATAFORMA</h3>
+        <p>Adicionalmente, en el mundo de la virtualización de servidores pueden mencionarse otra serie de conceptos relacionados con su funcionamiento:</p>
+        
+        <div class="additional-concepts">
+            <div class="concept">
+                <h4>Clústers</h4>
+                <p>Se trata de aquellas máquinas físicas que funcionan en conjunto, de tal forma que las máquinas virtuales pueden moverse entre ellos. Estas máquinas físicas deben compartir la visibilidad del almacenamiento.</p>
+            </div>
+            
+            <div class="concept">
+                <h4>Mecanismos de alta disponibilidad de los entornos de virtualización</h4>
+                <ul>
+                    <li><strong>Movimientos entre host:</strong> (VMotion en VMWare).</li>
+                    <li><strong>Movimientos entre unidades de almacenamiento:</strong> (StorageMotion en VMware).</li>
+                </ul>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020601005">
+        <h3>6.1.5 SEGURIDAD EN LA VIRTUALIZACIÓN DE PLATAFORMA</h3>
+        <p>En cualquier caso, no podemos perder de vista que cualquier solución de virtualización funciona mediante la compartición de un sustrato de recursos físicos, en cierta forma, comunes a todas las unidades virtualizadas. Por ejemplo, todas las máquinas virtuales que se ejecutan sobre un determinado host anfitrión, hacen uso de los recursos físicos de esta máquina.</p>
+        
+        <p>De esa forma, una hipotética quiebra de la seguridad podría venir por el salto de una máquina virtual al hardware anfitrión o a otra máquina virtual pasando por éste. De esa forma, suele ser buena práctica de seguridad habitual que los entornos de virtualización no alojen de forma conjunta máquinas que puedan, mediante la quiebra de seguridad explicada, puentear redes de comunicaciones que se encuentren separadas por un firewall.</p>
+        
+        <p>Esto es, si un firewall coloca dos redes en dominios de seguridad distintos –por ejemplo, una red interna y una DMZ-, no parece lógico que máquinas de esos dos dominios de seguridad puedan convivir en el mismo host anfitrión, compartiendo un sustrato de hardware existente.</p>
+        
+        <div class="security-diagram">
+            <h4>Riesgo de seguridad en entornos virtualizados</h4>
+            <div class="diagram-container">
+                <div class="security-risk">
+                    <div class="risk-scenario">
+                        <div class="host">
+                            <div class="host-label">Host Anfitrión</div>
+                            <div class="vms">
+                                <div class="vm vm-secure">
+                                    <div class="vm-label">VM Red Interna</div>
+                                </div>
+                                <div class="vm vm-dmz">
+                                    <div class="vm-label">VM DMZ</div>
+                                </div>
+                            </div>
+                            <div class="risk-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="risk-explanation">
+                        <p>Riesgo: Una vulnerabilidad en el hipervisor podría permitir que una máquina virtual en la DMZ comprometida acceda a máquinas virtuales de la red interna, eludiendo las protecciones del firewall.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020601006">
+        <h3>6.1.6 OTRAS OPCIONES DE LA VIRTUALIZACIÓN DE RECURSOS</h3>
+        <p>Como hemos dicho, a la luz del éxito y consolidación de la virtualización de plataforma, han surgido otras opciones de virtualización de otros recursos informáticos, entre los que pueden citarse el almacenamiento, las conexiones de red, el balanceo de cargas de trabajo o incluso ciertos elementos de seguridad perimetral como los firewalls.</p>
+        
+        <h4>6.1.6.1 VIRTUALIZACIÓN DEL ALMACENAMIENTO</h4>
+        <p>La virtualización del almacenamiento consiste en la agrupación de los heterogéneos recursos físicos de almacenamiento –típicamente cabinas de discos-, para, mediante algún mecanismo de virtualización, presentarlo a los diferentes hosts como un único espacio de almacenamiento preparado para su consumo.</p>
+        
+        <p>De la misma forma que ocurre con la virtualización de plataforma, mediante estas técnicas, a través de la independencia del hardware, se consiguen ventajas relacionadas con la flexibilidad y racionalidad en el uso de los recursos.</p>
+        
+        <p>Las dos principales opciones para la virtualización del almacenamiento son las siguientes:</p>
+        
+        <div class="storage-virtualization">
+            <div class="option">
+                <h5>Virtualización basada en hardware</h5>
+                <p>En estos casos la capacidad de virtualización la aportan las propias cabinas de discos de los principales fabricantes o appliances de virtualización dedicados. De manera general las soluciones suelen permitir conectar varias cabinas de discos, en algunos casos hasta de diferentes fabricantes.</p>
+                
+                <p>El elemento hardware de virtualización se presenta como punto de consumo del almacenamiento para los hosts, abstrayéndoles del espacio físico que finalmente se les haya asignado y en qué punto se encuentre. De la misma forma, este hardware de virtualización se encarga de la realización de otras tareas como replicación y sincronización en el caso de que resulten necesarias.</p>
+            </div>
+            
+            <div class="option">
+                <h5>Virtualización basada en software</h5>
+                <p>En este caso, la virtualización es realizada por elementos software. Un ejemplo de esto es la tecnología vSAN de VMWare, mediante la que las máquinas virtuales de la plataforma VMWare comparten un espacio de almacenamiento. Para este caso de virtualización suele utilizarse el termino de virtualización del almacenamiento en servidor o host.</p>
+            </div>
+        </div>
+        
+        <h4>6.1.6.2 VIRTUALIZACIÓN DE LOS BALANCEADORES DE CARGA</h4>
+        <p>Por balanceo de carga se define al proceso en el que un determinado elemento decide a qué nodo de proceso se envía una determinada petición de servicio o carga de trabajo.</p>
+        
+        <p>Atendiendo a esa definición existen hoy en día en el mercado, chasis como BIG-IP del fabricante F5 y otros productos similares que, permiten la adquisición de un chasis o appliance físico de balanceo de carga para, mediante su troceo, crear unidades virtuales menores que funcionen de manera independiente balanceando cargas de trabajo independientes. Es importante resaltar que cada uno de dichos balanceadores virtuales tendrá su propio espacio de balanceo y, por motivos de seguridad, funcionará de forma independiente.</p>
+        
+        <p>Pese a esta independencia, no cabe duda que resulta de aplicación las mismas consideraciones que, en cuanto a seguridad, se han expuesto para la virtualización de la plataforma.</p>
+        
+        <h4>6.1.6.3 OTRAS OPCIONES DE VIRTUALIZACIÓN DE RECURSOS</h4>
+        <p>Ciertamente, si entendemos por virtualización la abstracción de la ubicación y los detalles físicos en el consumo de un determinado recurso, las posibilidades de aplicación hoy en día a las TIC resultan enormes, así, adicionalmente pueden citarse las siguientes:</p>
+        
+        <div class="other-virtualization">
+            <div class="option">
+                <h5>Virtualización de elementos de seguridad lógica perimetral como firewalls</h5>
+                <p>Se trata de un chasis físico que permite su reparto para la creación de espacios virtuales que funcionen de manera independiente. Lógicamente, en este punto se debe ser especialmente cuidadoso con lo referente a la seguridad.</p>
+            </div>
+            
+            <div class="option">
+                <h5>Virtualización de espacios de ficheros</h5>
+                <p>Mediante este tipo de soluciones se presenta un espacio virtual para el almacenamiento de ficheros, abstrayendo el espacio físico en el que realmente se sustenta.</p>
+                
+                <p>Mecanismos como Distributed File System de Microsoft y otros similares permiten crear, para el acceso a ficheros, una ruta o path lógico para una o varias ubicaciones físicas que, de esa forma, quedan enmascaradas para su consumo por parte de los usuarios.</p>
+            </div>
+            
+            <div class="option">
+                <h5>Virtualización de la conectividad y la red</h5>
+                <p>Muchos son hoy en día los elementos con capacidad de virtualizar las VLANs de una organización. De esa forma, la correspondencia unívoca entre puerto ethernet y VLAN hace tiempo que dejó de ser una realidad.</p>
+                
+                <p>Por ejemplo, los chasis de servidores blades incluyen elementos similares a los switches que, mediante una adecuada configuración, permiten enviar tráfico de varias VLANs por un número menor de ellos –ejemplo de esto puede ser VirtualConnect en el caso del fabricante HPE-. De la misma forma, los softwares de virtualización como VMWare o HyperV permite crear Virtual Switches para realizar esta misma configuración (en este caso suele utilizarse la nomenclatura de virtualLAN o vLAN).</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020601007">
+        <h3>6.1.7 LA VIRTUALIZACIÓN COMO FACTOR CLAVE DE LA COMPUTACIÓN EN LA NUBE</h3>
+        <p>Como se ha comentado anteriormente, hasta la aparición del paradigma de la virtualización, el hardware era algo rígido, difícil de ampliar, reducir o compartir. De esa forma, la flexibilidad que aporta la virtualización, se ha convertido en un factor clave para la proliferación de los servicios en cloud o computación en la nube.</p>
+        
+        <p>De esa forma, un proveedor de este tipo de servicios, puede adquirir un hardware muy potente -ya sean servidores, almacenamiento, elementos de red, etc.- y mediante las técnicas de virtualización, repartirlo para ponerlo a disposición de varios clientes que lo usarán para los servicios que le resulten necesarios.</p>
+        
+        <p>En este caso, se habla de desbordamiento de cargas cuando está pasa de un ámbito a otro (por ejemplo, en una nube híbrida compartida entre infraestructura on premise y cloud pública). Por otro lado, los software de automatización suelen funcionar condicionados por los eventos que se producen –consumo de recursos, etc.-, lo que les hace ser conocidos como event driven.</p>
+        
+        <p>En función de cómo se realice el proceso anterior y de cómo se modelicen los servicios que presta el proveedor podemos hablar de:</p>
+        
+        <div class="cloud-services">
+            <div class="service">
+                <h4>IaaS o infraestructura como servicio</h4>
+                <p>El proveedor pone a disposición del cliente la infraestructura informática en bruto, normalmente los elementos virtuales creados, ya sean servidores, almacenamiento, elementos de red o seguridad lógica, etc.</p>
+                
+                <p>En este caso, es el cliente el que se ocupa de instalar y configurar en dichos elementos lo necesario para la prestación del servicio que requiera. El proveedor puede ofrecer algunos servicios a realizar sobre dichos elementos, la mayoría de las veces básicos (servicios de operación, manos remotas, etc.).</p>
+                
+                <p>Un ejemplo de esta solución sería un conjunto de máquinas virtuales, VLANs y almacenamiento que el proveedor pondría a disposición del cliente, para que este instalara sobre ellos los roles necesarios para alojar una aplicación web (servidor web y de aplicaciones, base de datos y otro almacenamiento necesario, conectividad, etc.).</p>
+            </div>
+            
+            <div class="service">
+                <h4>PaaS o plataforma como servicio</h4>
+                <p>El proveedor pone a disposición del cliente una plataforma informática, que puede ser adaptada a sus necesidades o utilizada directamente por el cliente.</p>
+                
+                <p>Por un lado, es el proveedor se encarga del mantenimiento de la infraestructura que soporta la plataforma (servidores, almacenamiento, etc.). Por otro, las tareas de adaptación, cierto mantenimiento y gestión de las operativas del contenido de la plataforma recaen en el cliente.</p>
+                
+                <p>Ejemplo de esto es la plataforma de Microsoft Office 365, que instalada en la nube MS Azure, presta servicios ofimáticos a sus clientes. Microsoft mantiene la infraestructura que la soporta, mientras que los clientes tienen un espacio propio, llamado tenant, en el que pueden gestionar los elementos que les resulten necesarios (crear usuarios y grupos, asignar licencias, etc.).</p>
+            </div>
+            
+            <div class="service">
+                <h4>SaaS o software como servicio</h4>
+                <p>El proveedor pone a disposición del cliente una solución software como respuesta a las necesidades del cliente. Normalmente se trata de un producto cerrado, limitándose el cliente a su uso o consumo. Si acaso, se permite una pequeña adaptación estética a los colores y logos corporativos.</p>
+                
+                <p>En este caso la práctica totalidad de las tareas de mantenimiento, operación y administración de la infraestructura y de la plataforma son responsabilidad del proveedor del servicio.</p>
+                
+                <p>Ejemplo de esto es un determinado software de videoconferencia que se pone a disposición de una cierta empresa o la solución ARS Remedy de BMC consumida como un software por una organización.</p>
+            </div>
+        </div>
+        
+        <div class="cloud-service-comparison">
+            <h4>Comparativa de modelos de servicio en la nube</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>IaaS</th>
+                        <th>PaaS</th>
+                        <th>SaaS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Control del cliente</td>
+                        <td>Alto</td>
+                        <td>Medio</td>
+                        <td>Bajo</td>
+                    </tr>
+                    <tr>
+                        <td>Responsabilidad del proveedor</td>
+                        <td>Baja</td>
+                        <td>Media</td>
+                        <td>Alta</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibilidad</td>
+                        <td>Alta</td>
+                        <td>Media</td>
+                        <td>Baja</td>
+                    </tr>
+                    <tr>
+                        <td>Complejidad de gestión</td>
+                        <td>Alta</td>
+                        <td>Media</td>
+                        <td>Baja</td>
+                    </tr>
+                    <tr>
+                        <td>Ejemplos</td>
+                        <td>AWS EC2, Azure VMs</td>
+                        <td>Azure App Service, Google App Engine</td>
+                        <td>Office 365, Salesforce</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Virtualization Diagram Styles */
+        .virtualization-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .physical-server {
+            width: 400px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .server-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .hypervisor {
+            border: 1px solid #666;
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+        }
+        .hypervisor-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #666;
+            color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        .virtual-machines {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .vm {
+            flex: 1;
+            min-width: 100px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px;
+            background-color: white;
+        }
+        .vm-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+            background-color: #999;
+            color: white;
+            padding: 2px;
+            border-radius: 2px;
+            font-size: 0.9em;
+        }
+        .vm-os, .vm-apps {
+            text-align: center;
+            font-size: 0.8em;
+            padding: 2px;
+            margin-bottom: 2px;
+            background-color: #eee;
+            border-radius: 2px;
+        }
+        .hardware {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ddd;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .hw-component {
+            flex: 1;
+            text-align: center;
+            font-size: 0.8em;
+            background-color: #bbb;
+            margin: 0 2px;
+            padding: 3px;
+            border-radius: 2px;
+        }
+        .diagram-caption {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Advantages Styles */
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .advantage {
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .advantage h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Virtualization Components Styles */
+        .virtualization-components {
+            margin: 20px 0;
+        }
+        .component {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .component h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Additional Concepts Styles */
+        .additional-concepts {
+            margin: 20px 0;
+        }
+        .concept {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .concept h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Security Diagram Styles */
+        .security-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .security-risk {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .risk-scenario {
+            flex: 1;
+            min-width: 300px;
+        }
+        .risk-explanation {
+            flex: 2;
+            min-width: 300px;
+        }
+        .host {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            position: relative;
+        }
+        .host-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .vms {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .vm-secure {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .vm-dmz {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .risk-arrow {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            background-color: #dc3545;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(0% 0%, 80% 0%, 80% 40%, 100% 40%, 90% 100%, 80% 40%, 0% 40%);
+        }
+        
+        /* Storage Virtualization Styles */
+        .storage-virtualization, .other-virtualization {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .option {
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .option h5 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Cloud Services Styles */
+        .cloud-services {
+            margin: 20px 0;
+        }
+        .service {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .service h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Cloud Service Comparison Table Styles */
+        .cloud-service-comparison {
+            margin: 20px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</div>

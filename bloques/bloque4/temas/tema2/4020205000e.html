@@ -1,0 +1,107 @@
+<div class="teoria">
+    <span id="4020205001">
+        <h2>2.5. PROPIEDADES ACID DE LAS TRANSACCIONES DEL MODELO RELACIONAL</h2>
+        <p>Las propiedades ACID (atomicidad, consistencia, aislamiento -isolation- y durabilidad) del modelo relacional sirven para garantizar que las transacciones (operaciones de acceso) sobre los datos se realizan de manera fiable.</p>
+    </span>
+
+    <span id="4020205002">
+        <h3>2.5.1. ATOMICIDAD</h3>
+        <p>La propiedad de atomicidad indica que las transacciones deben entenderse como una unidad, en el sentido de que la ejecución de una determinada transacción atómica será ejecutada en su totalidad o bien revertida o dejada sin efecto por completo.</p>
+        <p>De esa forma, si una parte concreta de la transacción falla, el conjunto de la transacción será no ejecutado y, por lo tanto, no realizará cambios sobre la base de datos. De esa forma, la condición de atomicidad debe garantizarse en cualquier operación y situación, incluso en aquellas de fallos de alimentación eléctrica, errores o caídas del sistema.</p>
+    </span>
+
+    <span id="4020205003">
+        <h3>2.5.2. CONSISTENCIA</h3>
+        <p>La propiedad de consistencia asegura que la ejecución de cualquier transacción llevará a la base de datos de un estado válido a otro estado que también lo sea. De esa forma, cualquier dato que se escriba en la base de datos debe ser válido de acuerdo a las reglas o restricciones de consistencia definidas.</p>
+        <p>Una restricción de consistencia es un predicado sobre los datos que funcionan como precondición, postcondición, y condición de transformación en la ejecución de cualquier transacción. Ejemplo de estas restricciones son las constraints, los cascades, los triggers, y cualquier combinación de estos.</p>
+    </span>
+
+    <span id="4020205004">
+        <h3>2.5.3. AISLAMIENTO (ISOLATION)</h3>
+        <p>La propiedad de aislamiento (o isolation en inglés) asegura que la ejecución concurrente de las transacciones resulta en un estado del sistema similar al que se obtendría si dichas transacciones fueran ejecutadas una detrás de otra de una forma independiente. Esto es, idealmente cada transacción debe ejecutarse en situación de aislamiento total, de tal forma que, si por ejemplo las transacciones T1 y T2 se ejecutan concurrentemente, el resultado de cada una de ellas debe mantenerse independiente de la otra.</p>
+        <p>De esta forma, relacionados con la propiedad de aislamiento surgen dos conceptos que, relacionados entre sí, resultan fundamentales para la implementación de una estrategia de gestión de las transacciones:</p>
+        <ul>
+            <li><strong>Concurrencia.</strong> Situación de ejecución simultánea de dos o más transacciones sobre el mismo conjunto de datos.</li>
+            <li><strong>Bloqueo.</strong> Establecimiento de restricciones de acceso único o exclusivo sobre ciertos datos o elementos de la base de datos.</li>
+        </ul>
+        <p>Así, situaciones de mayores niveles de aislamiento requieren bloqueos o controles de concurrencia más exigentes, lo que puede resultar en pérdida de concurrencia, mayor carga en el sistema por la gestión de dichos bloqueos o interbloqueo (deadlock).</p>
+        <p>Adicionalmente, las bases de datos suelen ofrecen varios niveles de aislamiento de transacciones, que permiten controlar el grado de bloqueo que ocurre. ANSI/ISO SQL define los siguientes tipos de aislamiento:</p>
+        <ul>
+            <li><strong>Lecturas serializables.</strong> Se trata del nivel más alto de aislamiento, en el que el control de la concurrencia requiere que los bloqueos de lectura y escritura (sobre los datos implicados) sean liberados al finalizar la transacción.
+                <p>Permite los bloqueos de rango cuando se realiza una query de consulta SELECT con una cláusula WHERE, con el fin de evitar las lecturas fantasmas.</p>
+                <p>Cuando el control de concurrencia no se basa en bloqueos, si el sistema detecta una colisión de escritura entre muchas transacciones concurrentes, sólo se permitirá el commit de una de estas transacciones.</p>
+            </li>
+            <li><strong>Lecturas repetibles (repeatable reads).</strong> En este nivel de aislamiento, el control de concurrencia mantiene los bloqueos tanto de escritura como de lectura (sobre los datos implicados) hasta el final de la transacción. Dado que no se gestionan los bloqueos de rango, podrían ocurrir lecturas fantasmas.</li>
+            <li><strong>Lecturas confirmadas (read commited).</strong> En este nivel de aislamiento, el control de concurrencia mantiene los bloqueos de escritura (sobre los datos implicados) hasta el final de la transacción, liberando los bloqueos de lectura en cuanto se realiza la operación de SELECT. Esta situación hace que puedan darse lecturas no-repetibles.</li>
+            <li><strong>Lecturas no confirmadas (read uncommited).</strong> Se trata del nivel más bajo de aislamiento, en el que son admisibles las lecturas sucias, de tal forma que una transacción de lectura podría ver los cambios de otra transacción que todavía no ha realizado un commit.</li>
+        </ul>
+    </span>
+
+    <span id="4020205005">
+        <h3>2.5.4. PROBLEMAS DE CONCURRENCIA EN EL ACCESO A LOS DATOS</h3>
+        <p>Adicionalmente, los niveles de aislamiento anteriores pueden dar lugar a ciertos problemas de concurrencia en el acceso (lectura) a los datos. Para explicar cada caso, supondremos la concurrencia de dos transacciones T1 y T2.</p>
+        <ul>
+            <li><strong>Las lecturas sucias o dirty reads</strong> ocurren cuando se permite que una transacción lea un dato que ha sido modificado por otra transacción que aún no ha hecho COMMIT y que finalmente acaba haciendo ROLLBACK. De esa forma, los datos leídos por la primera transacción nunca existen realmente en la base de datos.
+                <p>Por ejemplo, la transacción T1 modifica ciertos datos, posteriormente la transacción T2 lee dichos datos modificados por la transacción T1, que finalmente acaba haciendo ROLLBACK, por lo que la modificación de los datos acaba sin efecto sobre la base de datos.</p>
+            </li>
+            <li><strong>Las lecturas no repetibles</strong> ocurren cuando durante el curso de una transacción se recupera una fila en dos ocasiones, obteniéndose valores diferentes en cada una de ellas.
+                <p>Por ejemplo, la transacción T1 lee un dato, la transacción T2 lo modifica y cuando T1 necesita volver a leer dicho dato, se encuentra que el valor de dicho dato ha cambiado.</p>
+            </li>
+            <li><strong>Las lecturas fantasmas</strong> ocurren cuando durante el curso de una transacción se ejecutan dos consultas idénticas, siendo las filas devueltas por la segunda diferentes a las de la primera.
+                <p>Por ejemplo, la transacción T1 lee un conjunto de registros, la transacción T2 añade 5 registros adicionales, de tal forma que cuando T1 vuelve a leer, se encuentra con un número diferente de registros.</p>
+            </li>
+            <li><strong>Problema de la última modificación (Last update problem).</strong> Se trata de un caso específico de lectura no repetibles, que se produce cuando dos transacciones concurrentes realizan actualizaciones del mismo registro.
+                <p>Por ejemplo, la transacción T1 actualiza un registro, posteriormente la transacción T2 actualiza ese mismo registro y realiza un COMMIT, posteriormente la transacción T1 realiza un COMMIT, lo que hace que se pierda la actualización realizada por la transacción T2.</p>
+            </li>
+        </ul>
+        <p>Finalmente, a modo de resumen, la siguiente tabla recoge los diferentes niveles de aislamiento explicados y los problemas de lectura que pueden darse con cada uno de ellos.</p>
+        <table border="1">
+            <tr>
+                <th>Aislamiento/Problema concurrencia</th>
+                <th>Lectura Sucia</th>
+                <th>Lectura No Repetible</th>
+                <th>Lectura Fantasma</th>
+            </tr>
+            <tr>
+                <td>Lectura no confirmada</td>
+                <td>SI</td>
+                <td>SI</td>
+                <td>SI</td>
+            </tr>
+            <tr>
+                <td>Lectura confirmada</td>
+                <td>NO</td>
+                <td>SI</td>
+                <td>SI</td>
+            </tr>
+            <tr>
+                <td>Lectura Repetible</td>
+                <td>NO</td>
+                <td>NO</td>
+                <td>SI</td>
+            </tr>
+            <tr>
+                <td>Lectura Serializable</td>
+                <td>NO</td>
+                <td>NO</td>
+                <td>NO</td>
+            </tr>
+        </table>
+    </span>
+
+    <span id="4020205006">
+        <h3>2.5.5. DURABILIDAD</h3>
+        <p>La propiedad de durabilidad establece que una vez que confirmada cierta transacción (commit), quedará persistida, siendo sus cambios permanentes para la base de datos, incluso ante eventos tales como pérdida de alimentación eléctrica, errores o caídas del sistema.</p>
+        <p>En muchas ocasiones, las bases de datos implementan la durabilidad mediante la escritura de las transacciones en un log de transacciones que podría ser reprocesado para recrear el estado del sistema ante fallos. De esa forma, una transacción se considerará confirmada sólo después de que haya sido escrita en el logs de transacciones.</p>
+        <p>En las transacciones distribuidas, todos los participantes (nodos) deben coordinarse (ponerse de acuerdo) antes de aceptar un COMMIT. Esto se suele realizar mediante el llamado protocolo de "COMMIT en dos fases" o 2PC (2-phase COMMIT) por sus siglas en inglés:</p>
+        <ul>
+            <li><strong>Fase preparatoria.</strong> Se contacta con todas los nodos o réplicas que participan para sondear si se decantan por aceptar o abortar la transacción.</li>
+            <li><strong>Fase COMMIT.</strong> Cuando hay respuestas de todas las réplicas se buscan los conflictos entre ellas, si es que los hay:
+                <ul>
+                    <li>Si se detecta un conflicto o, al menos, un nodo responde que la transacción tiene que ser abortada, se avisará a todos los nodos para que aborten la transacción.</li>
+                    <li>Si no se detectan conflictos y todos los nodos están de acuerdo con el COMMIT, se indica a todos a todos que deben realizarlo. Posteriormente, una vez realizada la consolidación, los nodos envían un mensaje de confirmación al respecto.</li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+</div>

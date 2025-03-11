@@ -1,0 +1,38 @@
+<div class="teoria">
+    <span id="4020203001">
+        <h2>2.3. LAS TRECE REGLAS DE CODD</h2>
+        <p>El creador del modelo de base de datos relacional, Edgar Frank Codd, propuso trece reglas (habitualmente numeradas del 0 al 12) que deben ser cumplidas por los modelos de bases de datos para poder considerarse completamente relacionales.</p>
+        <p>En aquella época inicial, cercana a la creación del modelo, existían modelos de bases de datos que, diciéndose relacionales, realmente se limitaban a guardar la información en formato de tabla, sin atender realmente a la normalización ni a las reglas de integridad. De esa forma, podríamos decir que un modelo de bases de datos será más relacional cuanto mayor número de estas 13 reglas cumpla.</p>
+    </span>
+
+    <span id="4020203002">
+        <h3>2.3.1. REGLAS 0 A 3</h3>
+        <ul>
+            <li><strong>Regla 0 o de fundación.</strong> Toda la información debe ser gestionada enteramente mediante capacidades relacionales, esto es, debe ser almacenada en tablas.</li>
+            <li><strong>Regla 1 o de la información.</strong> Toda la información en la base de datos es representada explícitamente en el nivel lógico por valores en posiciones de las columnas dentro de filas de tablas.</li>
+            <li><strong>Regla 2 o del acceso garantizado.</strong> Todos los datos deben ser accesibles sin ambigüedad, es decir, cada valor individual en la base de datos debe ser lógicamente localizable especificando el nombre de la tabla, la columna que lo contiene y la clave primaria asociada que identifica la fila dentro de la tabla.</li>
+            <li><strong>Regla 3 o del tratamiento sistemático de valores nulos.</strong> El sistema de gestión de base de datos debe permitir la existencia de campos con valores nulos, como representación sistemática de información no disponible o inaplicable, distinta de todos los valores regulares.</li>
+        </ul>
+    </span>
+
+    <span id="4020203003">
+        <h3>2.3.2. REGLAS 4 A 7</h3>
+        <ul>
+            <li><strong>Regla 4 o del catálogo dinámico en línea basado en el propio modelo relacional.</strong> El sistema debe soportar un catálogo relacional online que proporcione acceso a la estructura de la base de datos y accesible para los usuarios autorizados.</li>
+            <li><strong>Regla 5 o comprensiva del sub-lenguaje de los datos.</strong> El sistema debe soportar por lo menos un lenguaje relacional que tenga una sintaxis lineal, pueda ser utilizado de manera interactiva y tenga soporte de operaciones de definición (DDL) y manipulación de datos (DML), de control de la seguridad e integridad (DCL) y operaciones de administración de transacciones (TCL).</li>
+            <li><strong>Regla 6 o de actualización de vistas.</strong> Todas las vistas que son teóricamente actualizables deben poder ser actualizadas por el sistema.</li>
+            <li><strong>Regla 7 o de alto nivel de inserción, actualización y borrado.</strong> El sistema debe permitir la manipulación de alto nivel en los datos, es decir, sobre conjuntos de tuplas. Esto significa que los datos no solo se pueden recuperar de una base de datos relacional a partir de filas múltiples y/o de tablas múltiples, sino que también pueden realizarse inserciones, actualizaciones y borrados sobre varias tuplas y/o tablas al mismo tiempo y no sólo sobre registros individuales.</li>
+        </ul>
+    </span>
+
+    <span id="4020203004">
+        <h3>2.3.3. REGLAS 8 A 12</h3>
+        <ul>
+            <li><strong>Regla 8 o de independencia física de los datos.</strong> Los programas de aplicación permanecen inalterados a nivel lógico, aunque se realicen cambios en las representaciones de almacenamiento o métodos de acceso.</li>
+            <li><strong>Regla 9 o de independencia lógica de los datos.</strong> Los programas de aplicación permanecen inalterados a nivel lógico, aunque se realicen cambios a las tablas base que preserven la información.</li>
+            <li><strong>Regla 10 o de independencia de la integridad.</strong> Las restricciones de integridad se deben especificar por separado de los programas de aplicación y almacenarse en la base de datos, debiendo ser posible cambiar esas restricciones sin afectar innecesariamente a las aplicaciones existentes.</li>
+            <li><strong>Regla 11 o de independencia de la distribución.</strong> La distribución de porciones de base de datos en distintas localizaciones debe ser transparente para los usuarios de la base de datos.</li>
+            <li><strong>Regla 12 o regla de la no subversión.</strong> Si el sistema, más allá de la interfaz relacional, proporciona una interfaz de bajo nivel de registro, esa interfaz de bajo nivel no debe permitir su utilización para subvertir el sistema.</li>
+        </ul>
+    </span>
+</div>

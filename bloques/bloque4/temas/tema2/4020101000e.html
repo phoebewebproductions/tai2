@@ -1,0 +1,44 @@
+<div class="teoria">
+    <span id="4020101001">
+        <h2>1.1. ADMINISTRACIÓN DE BASES DE DATOS</h2>
+    </span>
+    
+    <span id="4020101002">
+        <h3>1.1.1. ARQUITECTURA ANSI-SPARC</h3>
+        <p>En 1975 el organismo de estandarización de los Estados Unidos, American National Standard Institute (ANSI) publicó un informe que resultó ser fundamental para la evolución de los Sistemas de Gestión de Base de Datos. El principal objetivo de partida de dicho informe era la necesidad de conseguir independencia entre los datos y las aplicaciones que hacen uso de ellos.</p>
+        <p>Hasta dicha fecha, cualquier cambio en la representación o el modelo conceptual de los datos suponía un impacto considerable en las aplicaciones y los usuarios que hacían uso de ellos. De la misma forma, resultaba fundamental que los cambios en la forma física de almacenar los datos, no impactara en la definición conceptual de los mismos.</p>
+        <p>Así, para la consecución de este objetivo de independencia entre datos y aplicaciones que hacen uso de ellos, ANSI-SPARC propone una arquitectura basada en tres niveles (externo, conceptual e interno), cuyas principales características se definen en los siguientes apartados.</p>
+        <p>Niveles arquitectura ANSI/SPARC</p>
+        <p>En cualquier caso, con esta arquitectura de tres niveles la independencia se define como la capacidad de modificación de la vista o el esquema de uno de dichos niveles, sin que afecte al esquema del nivel inmediatamente superior.</p>
+        <p>De esa forma, dependiendo de los 3 niveles afectados en la modificación y su impacto, la arquitectura ANSI/SPARC define dos tipos de independencia de datos:</p>
+        <ul>
+            <li><strong>La independencia lógica</strong> es la capacidad de modificar el esquema conceptual sin tener que alterar los esquemas externos ni los programas de aplicación que hacen uso de dicho esquema. El esquema conceptual puede modificarse de tal forma que amplíe o reduzca la base de datos. Por ejemplo, si se reduce la base de datos eliminando una determinada entidad, los esquemas externos que no se refieran a ella no deben verse afectados (no debiendo resultado realizar ninguna acción sobre ellos).</li>
+            <li><strong>La independencia física</strong> es la capacidad de modificar el esquema interno sin tener que alterar el esquema conceptual (y los esquemas del nivel externo). A modo de ejemplo, puede resultar necesario reorganizar ciertos ficheros físicos con el fin de mejorar el rendimiento de las operaciones de consulta o de actualización de datos. De esa forma, dicha reorganización debe resultar transparente para el modelo conceptual y, de esa forma por añadidura, para los esquemas o vistas del nivel externo. Dado que la independencia física se refiere sólo a la separación entre las aplicaciones y las estructuras físicas de almacenamiento, es más fácil de conseguir que la independencia lógica.</li>
+        </ul>
+        <p>Relación entre los 3 niveles de la arquitectura ANSI-SPARC.</p>
+    </span>
+    
+    <span id="4020101003">
+        <h3>1.1.1.1. NIVEL EXTERNO (VISTAS DE USUARIO)</h3>
+        <p>El nivel externo o de vistas de usuario es el que está en contacto con los propios usuarios y aplicaciones que hacen uso de la base de datos.</p>
+        <p>De esa forma, se entiende por vista de usuario a la descripción de una parte de la base de datos que resulta relevante para dicho usuario en particular. Excluyendo, de esa forma, los datos irrelevantes, así como aquellos datos que el usuario no está autorizado a acceder.</p>
+        <p>En una base de datos pueden existir varias vistas de usuario según las necesidades de cada caso, pudiendo, a su vez, un esquema ser accedido por uno o varios usuarios.</p>
+    </span>
+    
+    <span id="4020101004">
+        <h3>1.1.1.2. NIVEL CONCEPTUAL</h3>
+        <p>El nivel conceptual es el modelo que describe los datos almacenados en la base de datos junto con las relaciones y restricciones de integridad que se establecen entre ellos. Este nivel es un modelado abstracto, relacionado con el universo de la información de que se trate, y que no especifica cómo se almacenan físicamente los datos.</p>
+        <p>De esta forma, existe un único esquema conceptual por cada base de datos:</p>
+        <ul>
+            <li>El Database Admistrator o DBA define y trabaja en este nivel.</li>
+            <li>La estructura descrita en este nivel conceptual es común a todos los usuarios de la base de datos. De esa forma, aporta una visión global de la base de datos.</li>
+            <li>Se trata de un modelo abstracto, cercano al universo de los datos, de tal forma que es independiente tanto del hardware como del software de la base de datos.</li>
+        </ul>
+    </span>
+    
+    <span id="4020101005">
+        <h3>1.1.1.3. NIVEL INTERNO</h3>
+        <p>El nivel interno es el más bajo de los tres y está relacionado con la forma en la que la base de datos se representa físicamente en el sistema informático. En este nivel se describe cómo se almacenan los datos en la base de datos y en el hardware del equipo que la aloja.</p>
+        <p>A modo de ejemplo de este nivel físico, tendríamos representaciones como la utilizada por SQL Server de Microsoft, que distribuye las bases de datos físicamente en dos ficheros: uno para los datos con extensión .mdf y otro para el log de transacciones con extensión .ldf.</p>
+    </span>
+</div>

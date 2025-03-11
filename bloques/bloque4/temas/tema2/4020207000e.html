@@ -1,0 +1,627 @@
+<div class="teoria">
+    <span id="4020207001">
+        <h2>2.7. ÍNDICES EN LOS SGBD RELACIONALES</h2>
+        <p>Los índices son estructuras de datos que la base de datos crea y maneja con el fin de acelerar las operaciones que se realizan sobre los datos que almacena. De esa forma, lógicamente, para conseguir los mejores efectos, los índices deben aplicarse sobre aquellos datos cuyo acceso, ya sea en lectura o escritura, resulte más frecuente.</p>
+        <p>Los índices de bases de datos funcionan de forma similar a los de los libros, estableciendo pares que asocian el elemento a indexar con su posición que ocupa en la base de datos. De esa forma, posteriormente, para realizar cualquier operación de acceso sobre dicho elemento, basta con consultar el índice para obtener su posición en la base de datos.</p>
+        <p>Por otro lado, las métricas para medir la calidad de los índices son, por un lado, las velocidades de las operaciones de acceso a los datos (consulta, borrado, inserción y modificación), junto con el espacio asociado necesario para el almacenamiento del índice.</p>
+        <p>De la misma forma, el mantenimiento actualizado de los índices conlleva la realización de una serie de operaciones asociadas y, por lo tanto, un coste en ese sentido. Al proceso de puesta al día de los índices con respecto a los datos indexados se le denomina habitualmente actualización de las estadísticas de la base de datos.</p>
+        <p>Algunas de las características que deben tenerse en cuenta en relación a los índices de las bases de datos son las siguientes:</p>
+        <ul>
+            <li>Los índices simples son aquellos que sólo indexan un único atributo o columna de una determinada tabla frente a los índices compuestos que indexan varias de ellas.</li>
+            <li>Los índices de un solo nivel sólo contienen un único nivel de indexación de los datos, frente a los índices multinivel que incluyen un primer nivel de indexado de los datos y otros niveles de indexado sobre esos índices.</li>
+            <li>Los índices agrupados se basan en el orden que toman los datos en la tabla, frente a los no agrupados que siguen otros criterios diferentes de la ordenación de los datos.</li>
+            <li>Los índices densos son aquellos que contienen tantas entradas como la columna de la tabla que indexan, frente a los índices dispersos que contienen un menor número de entradas que los datos indexados.</li>
+        </ul>
+    </span>
+
+    <span id="4020207002">
+        <h3>2.7.1. ÍNDICES DE UN SOLO NIVEL</h3>
+        <ul>
+            <li><strong>Los índices primarios</strong> son archivos ordenados secuencialmente por el campo de la tabla que se indexa, y que será la clave de búsqueda determinando el orden secuencial del archivo índice. Dado que la indexación se basa en el orden de almacenamiento de los registros en la tabla, sólo se podrá establecer un índice primario para ella.
+                <p>La clave de búsqueda de los índices primarios suele ser, aunque no necesariamente tiene que ser así, la clave primaria de la tabla que se indexa.</p>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                            <strong>Índice Primario</strong><br>
+                            <table border="1" style="border-collapse: collapse; width: 100%;">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Dirección</th>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>→</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>→</td>
+                                </tr>
+                                <tr>
+                                    <td>30</td>
+                                    <td>→</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border: 1px solid #333; padding: 5px;">
+                            <strong>Tabla de Datos</strong><br>
+                            <table border="1" style="border-collapse: collapse; width: 100%;">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Juan</td>
+                                    <td>25</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>Ana</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>30</td>
+                                    <td>Luis</td>
+                                    <td>28</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <p>Ejemplo de índice primario</p>
+                
+                <p>Se trata de índices no densos, es decir, el índice no contiene todos los valores del campo o atributo de los datos que se indexa.</p>
+            </li>
+            <li><strong>Los índices secundarios</strong> son aquellos en los que el mecanismo de indexación no está basado en la ordenación de los registros en la tabla. Es decir, el índice secundario no se basa en el atributo que actúa como mecanismo de ordenación.
+                <p>Por ejemplo, la siguiente figura muestra una tabla con números de cuenta, ciudad de la sucursal en las que fueron abiertas y saldo de cada una de ellas, definiéndose un índice secundario sobre esta última columna. De esa forma, tal y como se puede ver, la construcción del índice no está basada en la ordenación de los datos en la columna saldo que se indexa.</p>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                            <strong>Índice Secundario (Saldo)</strong><br>
+                            <table border="1" style="border-collapse: collapse; width: 100%;">
+                                <tr>
+                                    <th>Saldo</th>
+                                    <th>Dirección</th>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>→</td>
+                                </tr>
+                                <tr>
+                                    <td>1000</td>
+                                    <td>→</td>
+                                </tr>
+                                <tr>
+                                    <td>1500</td>
+                                    <td>→</td>
+                                </tr>
+                                <tr>
+                                    <td>2000</td>
+                                    <td>→</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border: 1px solid #333; padding: 5px;">
+                            <strong>Tabla de Cuentas</strong><br>
+                            <table border="1" style="border-collapse: collapse; width: 100%;">
+                                <tr>
+                                    <th>Cuenta</th>
+                                    <th>Ciudad</th>
+                                    <th>Saldo</th>
+                                </tr>
+                                <tr>
+                                    <td>A-101</td>
+                                    <td>Madrid</td>
+                                    <td>1000</td>
+                                </tr>
+                                <tr>
+                                    <td>A-102</td>
+                                    <td>Barcelona</td>
+                                    <td>2000</td>
+                                </tr>
+                                <tr>
+                                    <td>A-103</td>
+                                    <td>Valencia</td>
+                                    <td>500</td>
+                                </tr>
+                                <tr>
+                                    <td>A-104</td>
+                                    <td>Sevilla</td>
+                                    <td>1500</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <p>Ejemplo de índice secundario sobre la columna saldo</p>
+            </li>
+        </ul>
+    </span>
+
+    <span id="4020207003">
+        <h3>2.7.2. ÍNDICES MULTINIVEL</h3>
+        <p>En ocasiones ocurre que la tabla indexada acaba teniendo un tamaño demasiado grande. De esa forma, dado que el propio índice es un archivo ordenado secuencial, resulta factible establecer un nuevo índice sobre él.</p>
+        <p>De esta forma, a este mecanismo de encadenamiento de índices, se le conoce con el nombre de índices multinivel.</p>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                    <strong>Índice de Nivel 2</strong><br>
+                    <table border="1" style="border-collapse: collapse; width: 100%;">
+                        <tr>
+                            <th>Valor</th>
+                            <th>Dirección</th>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>700</td>
+                            <td>→</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                    <strong>Índice de Nivel 1</strong><br>
+                    <table border="1" style="border-collapse: collapse; width: 100%;">
+                        <tr>
+                            <th>Valor</th>
+                            <th>Dirección</th>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>200</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>600</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>700</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>800</td>
+                            <td>→</td>
+                        </tr>
+                        <tr>
+                            <td>900</td>
+                            <td>→</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="border: 1px solid #333; padding: 5px;">
+                    <strong>Datos</strong><br>
+                    <p style="text-align: center;">[Registros de datos ordenados]</p>
+                </div>
+            </div>
+        </div>
+        <p>Ejemplo de índices multinivel</p>
+        
+        <ul>
+            <li><strong>Índice basado en árboles B.</strong> Probablemente el índice de árbol B, junto con el árbol B+, son las estructuras de datos más utilizada para la indexación de base de datos. Se trata de árboles balanceados o equilibrados, esto es, en cada punto del árbol la altura de los dos subárboles difiere, como máximo, en un nivel. De hecho, el nombre de árbol B viene de Balanced tree.
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <div style="text-align: center;">
+                            <div style="display: inline-block; border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                                <strong>50</strong>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>20, 30</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>70, 90</strong>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; margin-top: 10px;">
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>10, 15</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>25</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>40, 45</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>60, 65</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>80</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>95, 99</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Ejemplo de árbol B</p>
+                
+                <p>Las características de un árbol B son las siguientes:</p>
+                <ul>
+                    <li>Todos los caminos desde la raíz a los nodos hoja tienen la misma longitud.</li>
+                    <li>Cada nodo interno (que no es raíz ni hoja) tiene entre n/2 y n hijos.</li>
+                    <li>Cada nodo hoja debe tener entre (n-1)/2 y (n-1) punteros o registros de datos.</li>
+                    <li>Todos los nodos de tipo hoja -finales- están en la misma capa (mismo nivel).</li>
+                </ul>
+            </li>
+            <li><strong>Índice basado en árboles B+.</strong> Este tipo de estructuras son muy similares a los árboles B con las siguientes diferencias:
+                <ul>
+                    <li>Los nodos no hoja tienen el mismo número de punteros de subárbol y palabras clave.</li>
+                    <li>Puntero de subárbol de nodo no hoja P [i], subárbol que apunta al valor clave {k [i], k [i + 1]}</li>
+                    <li>Los nodos no hoja solo se usan como índices, y los datos se almacenan en nodos hoja.</li>
+                    <li>Todos los nodos hoja tienen un puntero de cadena al siguiente nodo hoja.</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <div style="text-align: center;">
+                            <div style="display: inline-block; border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                                <strong>50</strong>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>20, 30</strong>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>70, 90</strong>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; margin-top: 10px;">
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>10, 15, 20</strong> →
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>25, 30</strong> →
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>40, 45, 50</strong> →
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>60, 65, 70</strong> →
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>80, 90</strong> →
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px; margin: 0 5px;">
+                                <strong>95, 99</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Ejemplo de árbol B+</p>
+                
+                <p>De esa forma, los principales algoritmos de operaciones de acceso a datos sobre árboles B son los siguientes:</p>
+                <ul>
+                    <li><strong>Operación de búsqueda</strong> (algoritmo de aproximación recursiva).
+                        <ol>
+                            <li>Situarse en el nodo raíz.</li>
+                            <li>(*) Comprobar si contiene la clave a buscar.
+                                <ol>
+                                    <li>SI encontrada, ENTONCES fin de procedimiento.</li>
+                                    <li>SI No encontrada, ENTONCES:
+                                        <ol>
+                                            <li>Si es hoja no existe la clave.</li>
+                                            <li>En otro caso el nodo actual es el hijo que corresponde:
+                                                <ol>
+                                                    <li>La clave a buscar k < k1: hijo izquierdo.</li>
+                                                    <li>La clave a buscar k > ki y k < ki+1 hijo iésimo.</li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>Volver a paso 2(*).</li>
+                        </ol>
+                    </li>
+                    <li><strong>Operación de inserción</strong> de un nuevo elemento.
+                        <ol>
+                            <li>Búsqueda en el árbol, para hallar el nodo hoja en el cual debería ubicarse el nuevo elemento.</li>
+                            <li>¿El nodo hoja tiene menos elementos que máximo de elementos permitidos?
+                                <ol type="a">
+                                    <li>SI: Entonces hay lugar para insertar directamente el nuevo elemento en el nodo, respetando el orden de los elementos.</li>
+                                    <li>NO: El nodo debe ser dividido en dos nodos, de la siguiente manera:
+                                        <ol type="i">
+                                            <li>Se escoge el valor medio entre los elementos del nodo y el nuevo elemento.</li>
+                                            <li>Los valores menores que el valor medio se colocan en el nuevo nodo izquierdo, y los valores mayores que el valor medio se colocan en el nuevo nodo derecho, actuando el valor medio como valor separador.</li>
+                                            <li>El valor separador se debe colocar en el nodo padre, lo que puede provocar que el padre sea dividido en dos, y así sucesivamente.</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><strong>Operación de eliminación.</strong>
+                        <p>En árboles-B+ este tipo de operaciones resulta más simple que en árboles-B, dado que los elementos a eliminar siempre se encontrarán en los nodos hoja. En general, deben distinguirse los dos siguientes casos, en función del número de elementos restantes que queden en el nodo tras el borrado del elemento:</p>
+                        <ul>
+                            <li>Si la cantidad de elementos restante que queda en el nodo tras el borrado es mayor o igual que el mínimo necesario entonces termina la operación.</li>
+                            <li>Si la cantidad de elementos restante que queda en el nodo tras el borrado es menor que el mínimo necesario, entonces debe realizarse una redistribución de elementos para volver a una situación balanceada.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </span>
+
+    <span id="4020207004">
+        <h3>2.7.3. OTROS TIPOS DE ÍNDICES</h3>
+        <p>A continuación, se describen otros tipos de índices adicionales:</p>
+        <ul>
+            <li><strong>Los índices ISAM</strong> -Index Sequential Access Method- o Método de Acceso Secuencial Indexado fueron originalmente diseñados por IBM. Se trata de un modelo que almacena los datos secuencialmente en bloques de tamaño fijo, manteniendo punteros, que actúan como índices, a ellos.</li>
+            <li><strong>Los índices de tipo clúster o agrupados</strong> son aquellos que se basan en el orden en el que se almacenan los datos. De esa forma, como es lógico, dado que los datos no pueden estar ordenados de dos formas diferentes, sobre una tabla sólo es posible tener un índice de tipo clúster.
+                <p>Adicionalmente, los nodos de los índices de tipo clúster no contienen punteros a los datos, sino que contienen los propios datos que se indexan. Esto hace que el acceso a los datos resulte más rápido puesto que se evita un nivel de indirección (resolución del puntero).</p>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; background-color: #f9f9f9; width: 45%;">
+                            <h4 style="text-align: center;">Índice Clustered (Agrupado)</h4>
+                            <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                                <strong>Índice</strong><br>
+                                <div style="display: flex; justify-content: space-around;">
+                                    <div>10</div>
+                                    <div>20</div>
+                                    <div>30</div>
+                                </div>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px;">
+                                <strong>Datos</strong><br>
+                                <div style="display: flex; flex-direction: column;">
+                                    <div>ID: 10, Nombre: Juan</div>
+                                    <div>ID: 15, Nombre: Pedro</div>
+                                    <div>ID: 20, Nombre: Ana</div>
+                                    <div>ID: 25, Nombre: María</div>
+                                    <div>ID: 30, Nombre: Luis</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; background-color: #f9f9f9; width: 45%;">
+                            <h4 style="text-align: center;">Índice Non-Clustered (No Agrupado)</h4>
+                            <div style="border: 1px solid #333; padding: 5px; margin-bottom: 10px;">
+                                <strong>Índice</strong><br>
+                                <div style="display: flex; justify-content: space-around;">
+                                    <div>Ana → </div>
+                                    <div>Juan → </div>
+                                    <div>Luis → </div>
+                                    <div>María → </div>
+                                    <div>Pedro → </div>
+                                </div>
+                            </div>
+                            <div style="border: 1px solid #333; padding: 5px;">
+                                <strong>Datos</strong><br>
+                                <div style="display: flex; flex-direction: column;">
+                                    <div>ID: 10, Nombre: Juan</div>
+                                    <div>ID: 15, Nombre: Pedro</div>
+                                    <div>ID: 20, Nombre: Ana</div>
+                                    <div>ID: 25, Nombre: María</div>
+                                    <div>ID: 30, Nombre: Luis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Comparativa de índice clustered (o agrupados) VS índice non-clustered (no agrupados)</p>
+            </li>
+            <li><strong>Índice bitmap o de mapa de bits</strong> que representan valores de ciertas columnas mediante valores binarios. Resultan especialmente indicados para casos de columnas con una cardinalidad baja, es decir, que presentan pocos valores diferentes (como son por ejemplo columnas que almacenan el sexo o columnas de sí o no).
+                <p>Por ejemplo, supongamos que tenemos la tabla Clientes siguiente, para la que la cardinalidad de la columna REGION es baja, tomando sólo 3 valores: NORTE, CENTRO Y SUR.</p>
+                
+                <table border="1" style="border-collapse: collapse; width: 80%; margin: 20px auto;">
+                    <caption>Tabla CLIENTES para ejemplo de índice BitMap</caption>
+                    <tr>
+                        <th>NUM_CLIENTE</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>REGION</th>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>ANTONIO</td>
+                        <td>PEREZ</td>
+                        <td>NORTE</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>JAVIER</td>
+                        <td>FERNANDEZ</td>
+                        <td>CENTRO</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>CARLOS</td>
+                        <td>GARCÍA</td>
+                        <td>SUR</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>JESÚS</td>
+                        <td>LÓPEZ</td>
+                        <td>SUR</td>
+                    </tr>
+                    <tr>
+                        <td>105</td>
+                        <td>MICHAEL</td>
+                        <td>SMITH</td>
+                        <td>CENTRO</td>
+                    </tr>
+                    <tr>
+                        <td>106</td>
+                        <td>ALBERT</td>
+                        <td>JONES</td>
+                        <td>CENTRO</td>
+                    </tr>
+                </table>
+                
+                <p>De esa forma, la siguiente tabla representa el índice BitMap para los valores de la columna REGION de la relación Clientes anterior. Como se puede observar existen tres mapas de bits, uno por cada uno de los valores -100 para el valor NORTE, 010 para el valor CENTRO y 001 para el valor SUR- que toma la columna REGION.</p>
+                
+                <table border="1" style="border-collapse: collapse; width: 50%; margin: 20px auto;">
+                    <caption>Índice BitMap sobre la columna REGION</caption>
+                    <tr>
+                        <th>NORTE</th>
+                        <th>CENTRO</th>
+                        <th>SUR</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                
+                <p>De esa forma, cuando se realiza una consulta sobre la tabla que involucra la columna REGION, como por ejemplo, la búsqueda del número de clientes que están en las regiones NORTE o SUR como la siguiente:</p>
+                <pre>SELECT COUNT(*) from CLIENTES WHERE REGION IN ('NORTE','SUR');</pre>
+                <p>Un índice bitmap es capaz de resolver sentencias similares a la anterior con una elevada eficiencia, construyendo, mediante operaciones binarias básicas (NORTE or SUR en el caso concreto de la consulta anterior), una tabla de mapa de bits, tal y como se muestra en la siguiente figura:</p>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <table border="1" style="border-collapse: collapse; margin: 0 auto;">
+                            <caption>Ejemplo de operaciones binarias con uso de índice BitMap</caption>
+                            <tr>
+                                <th colspan="3">MAPAS DE BITS COLUMNA REGIÓN</th>
+                                <th>VALORES BINARIOS CALCULADOS</th>
+                            </tr>
+                            <tr>
+                                <th>NORTE</th>
+                                <th>CENTRO</th>
+                                <th>SUR</th>
+                                <th>NORTE OR SUR</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <p>Las operaciones binarias básicas (OR y AND fundamentalmente) pueden generalmente realizarse de manera muy rápida y con un coste operacional bajo. De esa forma, concatenando estas columnas de valores a los de los atributos NUM_CLIENTE, NOMBRE y APELLIDO de la tabla inicial, resulta casi inmediata la obtención de cualquier resultado relacionado con el valor del atributo REGION.</p>
+            </li>
+            <li><strong>Índice Hash.</strong> Este tipo de índices se basa en la aplicación de funciones hash sobre los campos o atributos que se desean indexar. De esa forma, posteriormente, las operaciones (fundamentalmente de comparativa en búsquedas) que hacen uso de los valores hash obtenidos, resultan mucho más rápidas y cómodas de realizar que utilizando los valores reales de los datos contenidos inicialmente en las columnas (que podrían ser de tipos como cadenas de caracteres o similares).
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+                        <div style="display: flex; justify-content: space-around; align-items: center;">
+                            <div style="text-align: center;">
+                                <div>Datos</div>
+                                <div style="border: 1px solid #333; padding: 5px; margin: 5px;">
+                                    <div>"Juan"</div>
+                                    <div>"Ana"</div>
+                                    <div>"Pedro"</div>
+                                    <div>"María"</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div>Función Hash</div>
+                                <div style="border: 1px solid #333; padding: 5px; margin: 5px;">
+                                    <div>h(x)</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div>Valores Hash</div>
+                                <div style="border: 1px solid #333; padding: 5px; margin: 5px;">
+                                    <div>1234</div>
+                                    <div>5678</div>
+                                    <div>9012</div>
+                                    <div>3456</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Funciones hash asignadas a los datos</p>
+                
+                <p>En cualquier caso, los mecanismos de indexación basados en operaciones hash suelen presentar ciertas limitaciones, inherentes a las propiedades del funcionamiento de dichos tipos de funciones:</p>
+                <ul>
+                    <li>No se puede usar para ordenar y agrupar valores de datos.</li>
+                    <li>Solo admiten búsqueda precisa o idéntica sobre los datos, no búsqueda parcial o búsqueda de rango.</li>
+                </ul>
+                <p>En ambos casos, estas limitaciones se deben a que la ordenación o cercanía de los valores de los datos a indexar, con independencia de su dominio, no se mantendrá, para esos mismos valores, tras la aplicación de una función hash sobre ellos.</p>
+            </li>
+            <li><strong>Los índices documentales</strong> son aquellos que se utilizan en las bases de datos de documentos y suelen basarse en tokens o palabras clave que sirven para catalogar los documentos almacenados y, posteriormente, apoyar la realización de operaciones de acceso sobre ellos.</li>
+        </ul>
+    </span>
+</div>

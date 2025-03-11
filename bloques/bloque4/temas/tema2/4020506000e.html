@@ -1,0 +1,492 @@
+<div class="teoria">
+    <span id="4020506001">
+        <h2>5.6 PLANES DE RECUPERACIÓN ANTE DESASTRES Y DE CONTINUIDAD DE NEGOCIO: RTO Y RPO</h2>
+        <p>El plan de backup establece la estrategia de copias de seguridad ajustada a cada uno de los servicios TIC identificados y sus activos de información correspondientes. Así, esta estrategia de backup formará parte y apoyará otros planes de recuperación ante desastres mayores, como por ejemplo el Plan de Recuperación ante Desastres o DRP. De igual forma, los backups, especialmente aquellos que afectan a la información asociada a los procesos y servicios más críticos, deben formar parte de las políticas y planes de seguridad de la información de las organizaciones (por ejemplo, actuando ante ataques ransomware que cifren la información).</p>
+    </span>
+
+    <span id="4020506002">
+        <h3>5.6.1 PLAN DE RECUPERACIÓN ANTE DESASTRES (DRP)</h3>
+        <p>El Plan de Recuperación ante Desastres o Disaster Recovery Plan -DRP- en su terminología inglesa, como suele ser más conocido, incluye las acciones a llevar a cabo para restituir el funcionamiento de una cierta infraestructura o servicios TIC cuando el impacto de un cierto evento ha detenido su funcionamiento. Como vemos, se circunscribe al ámbito de las TIC.</p>
+        
+        <div class="drp-diagram">
+            <h4>Componentes principales de un DRP</h4>
+            <div class="diagram-container">
+                <div class="component">
+                    <div class="icon"><i class="fas fa-tasks"></i></div>
+                    <h5>Análisis de impacto</h5>
+                    <p>Identificación de sistemas críticos y evaluación de riesgos</p>
+                </div>
+                <div class="component">
+                    <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h5>Estrategia de recuperación</h5>
+                    <p>Definición de procedimientos y recursos necesarios</p>
+                </div>
+                <div class="component">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h5>Roles y responsabilidades</h5>
+                    <p>Asignación de tareas al personal durante la recuperación</p>
+                </div>
+                <div class="component">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h5>Procedimientos de recuperación</h5>
+                    <p>Pasos detallados para restaurar sistemas y servicios</p>
+                </div>
+                <div class="component">
+                    <div class="icon"><i class="fas fa-vial"></i></div>
+                    <h5>Pruebas periódicas</h5>
+                    <p>Verificación de la efectividad del plan</p>
+                </div>
+                <div class="component">
+                    <div class="icon"><i class="fas fa-book"></i></div>
+                    <h5>Documentación</h5>
+                    <p>Registro detallado de todos los aspectos del plan</p>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020506003">
+        <h3>5.6.2 PLAN DE CONTINUIDAD DE NEGOCIO (BCP)</h3>
+        <p>El Plan de Continuidad del Negocio o Bussiness Continuity Plan -BCP- en su terminología inglesa, incluye, junto con las acciones TIC del DRP anteriores, algunas de otros ámbitos que permitan la restitución de los procesos de negocio cuando se produce una interrupción de los mismos.</p>
+        
+        <p>Dado que los sistemas de información constituyen un eje principal para cualquier organización, el estándar internacional ISO 22301, que incluye los requisitos para implantar un Sistema de Gestión de Continuidad de Negocio, interrelaciona las TIC con las mejores prácticas en continuidad de negocio, para permitir a las organizaciones continuar con su actividad empresarial, pública o privada, ante incidentes críticos (resiliencia).</p>
+        
+        <div class="bcp-vs-drp">
+            <h4>Diferencias entre BCP y DRP</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Plan de Continuidad de Negocio (BCP)</th>
+                        <th>Plan de Recuperación ante Desastres (DRP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alcance</td>
+                        <td>Toda la organización y sus procesos de negocio</td>
+                        <td>Infraestructura y servicios TIC</td>
+                    </tr>
+                    <tr>
+                        <td>Objetivo</td>
+                        <td>Mantener operaciones críticas del negocio</td>
+                        <td>Restaurar sistemas y servicios TIC</td>
+                    </tr>
+                    <tr>
+                        <td>Enfoque</td>
+                        <td>Preventivo y reactivo</td>
+                        <td>Principalmente reactivo</td>
+                    </tr>
+                    <tr>
+                        <td>Responsables</td>
+                        <td>Alta dirección y responsables de áreas</td>
+                        <td>Departamento TIC</td>
+                    </tr>
+                    <tr>
+                        <td>Relación</td>
+                        <td>El BCP incluye al DRP como uno de sus componentes</td>
+                        <td>El DRP es parte del BCP</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </span>
+
+    <span id="4020506004">
+        <h3>5.6.3 CONCEPTOS CLAVE: SLA, RPO Y RTO</h3>
+        <p>En cualquier caso, la estrategia de copia de seguridad debe regirse por los acuerdos de niveles de servicio (SLA) que se aplican a una aplicación o servicio, con respecto al acceso/disponibilidad de datos, los objetivos de tiempo de recuperación (RTO) y los objetivos de punto de recuperación (RPO).</p>
+        
+        <div class="key-concepts">
+            <div class="concept">
+                <h4>SLA (Service Level Agreement)</h4>
+                <p>El Acuerdo de Nivel de Servicio o Service Level Agreement -SLA- es el contrato que establece los detalles del servicio que prestará el proveedor y que, por tanto, puede esperar la parte de la relación que actúa como cliente. Algunos ejemplos pueden ser: obligación de atención en 4 horas desde el reporte de un incidente, obligación de la aportación de ciertos medios informáticos para la prestación de un servicio, etc. Suele ser habitual que se establezcan penalizaciones para aquellos casos en los que el proveedor incumple lo establecido en los acuerdos de SLA.</p>
+            </div>
+            
+            <div class="concept">
+                <h4>RPO (Recovery Point Objective)</h4>
+                <p>Se trata del punto objetivo de recuperación y define la máxima cantidad de datos asumible que se pueden perder en un proceso de restauración tras la ocurrencia de un desastre, sin que dicha pérdida afecte al funcionamiento del negocio o del resto de los procesos.</p>
+                
+                <p>De esa forma, por supuesto el RPO dependerá de las políticas de backup que se hayan implementado para la información correspondiente. Así, por ejemplo, si tenemos una política de backup de cierta información que consiste en un full semanal e incrementales complementarios diarios, el RPO máximo esperable para ese caso será de 24 horas. Esto es, la situación más desfavorable sería que tras realizarse un backup a las 22h de un día, se produzca una pérdida de información a las 21:59h del día siguiente. En esa situación, sólo podríamos retrotraer la información a la situación del día anterior a las 22h.</p>
+            </div>
+            
+            <div class="concept">
+                <h4>RTO (Recovery Time Objective)</h4>
+                <p>Se trata del tiempo objetivo de recuperación y define el máximo tiempo que puede transcurrir desde que un servicio sufre un desastre hasta que este puede ser restaurado sin afectar al funcionamiento del negocio o del resto de los procesos.</p>
+                
+                <p>El RTO también dependerá de las políticas de backup y de las acciones a realizar que involucren. Lógicamente, cuanto más críticas sean los servicios o aplicaciones, se deberán establecer políticas de backup y mecanismos que traten de minimizar el RTO.</p>
+            </div>
+        </div>
+        
+        <div class="rpo-rto-diagram">
+            <h4>Visualización de RPO y RTO</h4>
+            <div class="timeline">
+                <div class="timeline-container">
+                    <div class="timeline-point backup">
+                        <div class="label">Último Backup</div>
+                        <div class="time">Día 1 - 22:00h</div>
+                    </div>
+                    <div class="timeline-point disaster">
+                        <div class="label">Desastre</div>
+                        <div class="time">Día 2 - 21:59h</div>
+                    </div>
+                    <div class="timeline-point recovery">
+                        <div class="label">Recuperación</div>
+                        <div class="time">Día 3 - 10:00h</div>
+                    </div>
+                    
+                    <div class="rpo-indicator">
+                        <div class="arrow-line"></div>
+                        <div class="label">RPO = 24h</div>
+                    </div>
+                    
+                    <div class="rto-indicator">
+                        <div class="arrow-line"></div>
+                        <div class="label">RTO = 12h</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-explanation">
+                    <p><strong>RPO (Recovery Point Objective):</strong> En este ejemplo, se pierden casi 24 horas de datos (desde el último backup hasta el momento del desastre).</p>
+                    <p><strong>RTO (Recovery Time Objective):</strong> El tiempo necesario para restaurar el servicio es de 12 horas (desde el momento del desastre hasta la recuperación completa).</p>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020506005">
+        <h3>5.6.4 LA SECURIZACIÓN DEL BACKUP Y SU PAPEL ANTE INCIDENTES Y ATAQUES LÓGICOS</h3>
+        <p>A continuación, se citan las principales medidas o acciones que los sistemas o mecanismos de backup podrían aportar ante incidentes de seguridad de la información o ataques lógicos. Es importante señalar que dicho listado no pretende ser ni exhaustivo, ni excluyente en cuanto a la aplicación de cada una de las medidas que incluye:</p>
+        
+        <div class="security-measures">
+            <div class="measure">
+                <h4>Funcionalidad principal</h4>
+                <p>Por supuesto, la principal funcionalidad del backup o copia de seguridad es restaurar la información que se haya perdido, ya sea por una causa accidental o intencionada.</p>
+            </div>
+            
+            <div class="measure">
+                <h4>Protocolos y espacios de almacenamiento diferentes</h4>
+                <p>Los protocolos y espacios de almacenamiento de backups suelen ser diferentes a los más habituales de los ficheros -NTFS, SMB, etc.-, lo que le aporta cierta protección ante los ataques más rudimentarios que tratan de alterar o cifrar la información.</p>
+            </div>
+            
+            <div class="measure">
+                <h4>WORM Backup</h4>
+                <p>Son las siglas de Write Only Read Many Backup, lo que significa que, una vez escrito, no puede modificarse. Se trata de un mecanismo de backup inmutable, lo cual proporciona protección ante ataques lógicos como ransomware que pretendan alterar o cifrar la información en general y la del backup en particular.</p>
+            </div>
+            
+            <div class="measure">
+                <h4>Copia del backup en ubicación desconectada</h4>
+                <p>Esto es, se realiza una copia del backup a una ubicación offsite, añadiendo como mecanismo adicional de seguridad, que dicha ubicación sólo estará conectada con el site original en aquellos momentos en los que resulte completamente imprescindible para realizar la copia. De esa forma, en caso de sufrir un ataque en el site principal, este no podría saltar a la ubicación desconectada, actuando dicha desconexión como cortafuegos entre ambas.</p>
+                
+                <p>Estos mecanismos suelen ser costosos en cuanto a recursos, por lo que habitualmente sólo suelen aplicarse para la información más crítica. Además, como mecanismos adicionales de seguridad, se recomienda que a estas "cajas fuertes de la información" sólo pueda acceder físicamente, con las correspondientes medidas de acceso, un personal muy reducido, siendo operadas además por personal diferente al que gestiona la infraestructura de la ubicación online.</p>
+            </div>
+            
+            <div class="measure">
+                <h4>Backup en la nube</h4>
+                <p>La realización de una segunda o, en la mayoría de las ocasiones, tercera copia de backup a la nube puede ser una opción más económica al planteamiento anterior. Dicha copia de seguridad puede quedar aislada mientras no resulte necesaria la conexión con ella o puede tratarse de un backup WORM. Dado que el consumo de este tipo de computación suele ser mediante servicios, es importante tener muy en cuenta el coste de cada uno de ellos (en los casos del almacenamiento de información en cloud, suele ser muy barato el almacenamiento y mucho más caro su trasiego).</p>
+            </div>
+        </div>
+        
+        <p>En cualquier caso, como se ha comentado, las medidas anteriores no tienen por qué ser excluyentes pudiendo llevar backup WORM a la nube o buscar una ubicación offsite en la nube que esté, además, desconectada del site original que alberga la primera copia del backup.</p>
+    </span>
+
+    <span id="4020506006">
+        <h3>5.6.5 EL PARADIGMA DE LA COMPUTACIÓN EN LA NUBE Y EL BACKUP</h3>
+        <p>En la actualidad, en el ámbito de la computación en la nube o cloud computing, han surgido algunos servicios relacionados con el respaldo y la salvaguarda de la información. Esto no debe resultarnos extraño, puesto que son prácticamente la totalidad de los servicios TIC los que ya cuentan con su versión en cloud (ya sea en formato PaaS, IaaS o SaaS).</p>
+        
+        <p>En el ámbito del backup, entre otros, podemos señalar el BaaS (Backup as a Service) y el RaaS (Recovery as a Service).</p>
+        
+        <div class="cloud-backup-services">
+            <div class="service">
+                <h4>BaaS (Backup as a Service)</h4>
+                <p>Se trata de un servicio que, a través de su prestación por un tercero proveedor, permite a las organizaciones externalizar su backup. Generalmente el almacenamiento utilizado para estas copias de seguridad es el de proveedores cloud o nube.</p>
+                
+                <p>En la mayoría de los casos podemos entender este servicio como un PaaS o plataforma como servicio. Se trata de un servicio estándar que permitirá a los clientes realizar ciertas configuraciones realizadas con el backup: información a copiar, ventanas, tipos de almacenamiento, políticas de backup, etc.</p>
+            </div>
+            
+            <div class="service">
+                <h4>RaaS (Recovery as a Service)</h4>
+                <p>Este servicio se centra en proporcionar capacidades de recuperación ante desastres en la nube. Permite a las organizaciones replicar y recuperar aplicaciones, datos e infraestructura en un entorno cloud cuando se produce un desastre.</p>
+            </div>
+        </div>
+        
+        <p>Finalmente, como en la prestación de cualquier servicio, cobran importancia dos puntos:</p>
+        <ul>
+            <li>Fijar claramente los SLAs o acuerdos de nivel de servicio que regirán durante la prestación del servicio.</li>
+            <li>Entender los modelos de facturación aplicables a cada caso, costes por volumen de almacenamiento, por trasiego de información ya sea en copia o respaldo, etc.</li>
+        </ul>
+    </span>
+
+    <span id="4020506007">
+        <h3>5.6.6 ALGUNAS DE LAS HERRAMIENTAS DE BACKUP MÁS COMUNES EN EL MERCADO</h3>
+        <p>A continuación, a modo de listado, se citan algunas de las herramientas de backup más conocidas actualmente en el mercado:</p>
+        
+        <div class="backup-tools">
+            <div class="tool">
+                <h4>Veeam</h4>
+                <p>Es una de las principales tendencias del mercado actualmente, ganándole una importante cuota a las otras dos opciones. Además, ha conseguido establecerse como la primera opción como backup en la nube y soluciones como Office 365.</p>
+            </div>
+            
+            <div class="tool">
+                <h4>Veritas NetBackup</h4>
+                <p>Se trata de la herramienta de backup del fabricante Veritas. Anteriormente era propiedad de Symantec. Se licencia por volumen de información respaldada y, junto con el software, también ofrece la posibilidad de adquirir appliances físicos que contienen también espacio de almacenamiento para copias de seguridad.</p>
+            </div>
+            
+            <div class="tool">
+                <h4>DELL IDPA</h4>
+                <p>Dado que el fabricante DELL compró hace unos años el fabricante de almacenamiento EMC, esta opción es algo diferente a las anteriores. Incluye, de forma compacta, tanto el software de backup como el almacenamiento asociado en el mismo equipamiento.</p>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* DRP Diagram Styles */
+        .drp-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .component {
+            flex: 1 1 30%;
+            min-width: 250px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .icon {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .component h5 {
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        /* BCP vs DRP Table Styles */
+        .bcp-vs-drp {
+            margin: 20px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Key Concepts Styles */
+        .key-concepts {
+            margin: 20px 0;
+        }
+        .concept {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .concept h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* RPO RTO Diagram Styles */
+        .rpo-rto-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .timeline {
+            margin-top: 15px;
+        }
+        .timeline-container {
+            position: relative;
+            height: 150px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        .timeline-point {
+            position: absolute;
+            bottom: 0;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .timeline-point::before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 20px;
+            background-color: #333;
+            margin: 0 auto 5px;
+        }
+        .timeline-point .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .timeline-point .time {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .backup {
+            left: 20%;
+            color: #28a745;
+        }
+        .disaster {
+            left: 60%;
+            color: #dc3545;
+        }
+        .recovery {
+            left: 80%;
+            color: #17a2b8;
+        }
+        .rpo-indicator, .rto-indicator {
+            position: absolute;
+            height: 40px;
+        }
+        .rpo-indicator {
+            left: 20%;
+            width: 40%;
+            bottom: 60px;
+        }
+        .rto-indicator {
+            left: 60%;
+            width: 20%;
+            bottom: 100px;
+        }
+        .arrow-line {
+            position: relative;
+            height: 2px;
+            background-color: #333;
+            width: 100%;
+        }
+        .arrow-line::before, .arrow-line::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background-color: #333;
+        }
+        .arrow-line::before {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: left bottom;
+        }
+        .arrow-line::after {
+            left: 0;
+            transform: rotate(-45deg);
+            transform-origin: left top;
+        }
+        .rpo-indicator .arrow-line::before, .rpo-indicator .arrow-line::after {
+            left: auto;
+            right: 0;
+            transform-origin: right bottom;
+            transform: rotate(-45deg);
+        }
+        .rpo-indicator .arrow-line::after {
+            transform-origin: right top;
+            transform: rotate(45deg);
+        }
+        .rpo-indicator .label, .rto-indicator .label {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .timeline-explanation {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        /* Security Measures Styles */
+        .security-measures {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .measure {
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .measure h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Cloud Backup Services Styles */
+        .cloud-backup-services {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .service {
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .service h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* Backup Tools Styles */
+        .backup-tools {
+            margin: 20px 0;
+        }
+        .tool {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .tool h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+    </style>
+</div>

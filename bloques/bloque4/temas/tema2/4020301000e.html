@@ -1,0 +1,255 @@
+<div class="teoria">
+    <span id="4020301001">
+        <h2>3. SISTEMAS DE ALMACENAMIENTO</h2>
+        <h3>3.1. CLASIFICACIÓN DE LOS SISTEMAS DE ALMACENAMIENTO</h3>
+        <p>Esta es una breve clasificación de los sistemas de almacenamiento DAS, NAS y SAN:</p>
+        
+        <ul>
+            <li><strong>Almacenamiento DAS.</strong> Este es el tipo de almacenamiento de conexión directa, de ahí su nombre Direct Attached Storage (DAS). Es el método de almacenamiento más sencillo: consiste en conectar el dispositivo de almacenamiento –fundamentalmente discos- directamente al servidor o host que lo va a utilizar, es decir, físicamente conectado al dispositivo que hace uso de él.
+                <p>Su bajo coste y facilidad de implementación –instalación y configuración- en comparación con NAS y SAN, son las principales ventajas del almacenamiento DAS.</p>
+                <p>Entre sus principales desventajas pueden citarse que convierte el almacenamiento en islas de información –no conectadas entre sí- o que la replicación de datos, en caso de resultar necesaria, corre a cargo del aplicativo que los utilice.</p>
+            </li>
+            
+            <li><strong>Almacenamiento NAS.</strong> Este es el tipo de almacenamiento conectado en red, Network Attached Storage (NAS). Los hosts suelen acceder al almacenamiento mediante una red que normalmente es TCP/IP. Usa protocolos de compartición de archivos como Network File System (NFS) o Microsoft Common Internet File System (CIFS).
+                <p>Tienen un coste relativamente bajo y facilidad de implementación –instalación y configuración- en comparación con SAN. Esto es así porque habitualmente hacen uso de una red TCP/IP ya desplegada.</p>
+                <p>Por el mismo motivo, entre sus principales desventajas pueden citarse las limitaciones de rendimiento y posible saturación por la compartición de las redes TCP/IP.</p>
+            </li>
+            
+            <li><strong>Almacenamiento SAN.</strong> Este tipo de almacenamiento se proporciona mediante la instalación de una red propia para el almacenamiento, independiente de las redes TCP/IP. El protocolo más habitual de este tipo de redes es el Fibre Channel –FC- y la vertebración de la red SAN se realiza a través de los switches de fibra. Los host que se vayan a conectar a la SAN deben disponer de tarjetas HBA que les conectará, mediante fibra, hasta los switches. El acceso se realiza a nivel de bloque.
+                <p>Las redes de almacenamiento SAN ofrecen unos niveles de rendimiento y tolerancia a fallos mucho más alta que los sistemas NAS. En cambio, son mucho más caras de implantar y costosas en cuanto a sus labores de configuración, administración y mantenimiento.</p>
+            </li>
+        </ul>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 30px 0;">
+            <div style="width: 30%; min-width: 250px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h3>DAS</h3>
+                <img src="/placeholder.svg?height=150&width=200" alt="Diagrama DAS" style="max-width: 100%; height: auto;">
+                <p><strong>Direct Attached Storage</strong></p>
+                <p>Conexión directa al servidor</p>
+                <p><strong>Ventajas:</strong> Bajo coste, fácil implementación</p>
+                <p><strong>Desventajas:</strong> Islas de información, replicación manual</p>
+            </div>
+            
+            <div style="width: 30%; min-width: 250px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h3>NAS</h3>
+                <img src="/placeholder.svg?height=150&width=200" alt="Diagrama NAS" style="max-width: 100%; height: auto;">
+                <p><strong>Network Attached Storage</strong></p>
+                <p>Conexión a través de red TCP/IP</p>
+                <p><strong>Ventajas:</strong> Coste moderado, uso de red existente</p>
+                <p><strong>Desventajas:</strong> Limitaciones de rendimiento, posible saturación</p>
+            </div>
+            
+            <div style="width: 30%; min-width: 250px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h3>SAN</h3>
+                <img src="/placeholder.svg?height=150&width=200" alt="Diagrama SAN" style="max-width: 100%; height: auto;">
+                <p><strong>Storage Area Network</strong></p>
+                <p>Red dedicada para almacenamiento</p>
+                <p><strong>Ventajas:</strong> Alto rendimiento, alta tolerancia a fallos</p>
+                <p><strong>Desventajas:</strong> Alto coste, compleja administración</p>
+            </div>
+        </div>
+        
+        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <caption>Comparativa de sistemas de almacenamiento</caption>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>DAS</th>
+                    <th>NAS</th>
+                    <th>SAN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tipo de conexión</td>
+                    <td>Directa al servidor</td>
+                    <td>Red TCP/IP</td>
+                    <td>Red dedicada (Fibre Channel)</td>
+                </tr>
+                <tr>
+                    <td>Nivel de acceso</td>
+                    <td>Bloque</td>
+                    <td>Archivo</td>
+                    <td>Bloque</td>
+                </tr>
+                <tr>
+                    <td>Coste</td>
+                    <td>Bajo</td>
+                    <td>Medio</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Complejidad</td>
+                    <td>Baja</td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Rendimiento</td>
+                    <td>Medio</td>
+                    <td>Medio</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Escalabilidad</td>
+                    <td>Baja</td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Tolerancia a fallos</td>
+                    <td>Baja</td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+
+    <span id="4020301002">
+        <h3>3.2. PROTOCOLOS DE ALMACENAMIENTO</h3>
+        <p>Los protocolos más comunes y consolidados en las redes de almacenamiento son los siguientes:</p>
+        
+        <ul>
+            <li><strong>SAN.</strong> El acceso a los datos se realiza a nivel de bloque.
+                <ul>
+                    <li><strong>Fibre Channel –FC-.</strong> Se trata del protocolo de bloques o SAN más utilizado, que se implementa en el 70 o el 80 % del mercado SAN total. En su infraestructura hay que incluir las HBAs para los host y los switches o directores de fibra.</li>
+                    <li><strong>SAN iSCSI.</strong> Es el siguiente protocolo de bloques o SAN en utilización, suponiendo aproximadamente alrededor del 10 o un 15 % del mercado. Los comandos SCSI se encapsulan dentro de una trama de Ethernet, y después utiliza una red Ethernet/IP para el transporte.</li>
+                    <li><strong>Fibre Channel sobre Ethernet –FcoE-.</strong> Supone menos del 5 % del mercado de SAN. Es similar al iSCSI, ya que encapsula una trama de FC dentro de un datagrama de Ethernet. Después, al igual que iSCSI, utiliza una red Ethernet/IP para el transporte.</li>
+                    <li><strong>Memoria no volátil exprés a través de Fibre Channel (FC-NVMe).</strong> Es un protocolo de interfaz para acceder al almacenamiento flash a través de un bus PCI Express (PCIe). A diferencia de las arquitecturas all-flash tradicionales, que están limitadas a una única cola de comandos en serie, NVMe admite decenas de miles de colas paralelas, cada una de las cuales incluye la capacidad de admitir decenas de miles de comandos concurrentes.</li>
+                </ul>
+            </li>
+            <li><strong>NAS.</strong> El acceso a los datos se realiza a nivel de fichero.
+                <ul>
+                    <li><strong>NFS.</strong> Se trata del protocolo de acceso a ficheros habitual en entornos UNIX/Linux.</li>
+                    <li><strong>SMB/CIFS.</strong> Se trata del protocolo de acceso a ficheros habitual en entornos Microsoft Windows.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 30px 0;">
+            <div style="width: 45%; min-width: 300px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h3>Protocolos SAN (nivel de bloque)</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>Fibre Channel (FC)</h4>
+                        <p>70-80% del mercado</p>
+                        <p>Requiere HBAs y switches de fibra</p>
+                    </div>
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>iSCSI</h4>
+                        <p>10-15% del mercado</p>
+                        <p>Comandos SCSI sobre Ethernet/IP</p>
+                    </div>
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>FCoE</h4>
+                        <p>< 5% del mercado</p>
+                        <p>FC sobre Ethernet/IP</p>
+                    </div>
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>FC-NVMe</h4>
+                        <p>Para almacenamiento flash</p>
+                        <p>Múltiples colas paralelas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="width: 45%; min-width: 300px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h3>Protocolos NAS (nivel de fichero)</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>NFS</h4>
+                        <p>Network File System</p>
+                        <p>Entornos UNIX/Linux</p>
+                    </div>
+                    <div style="width: 45%; min-width: 120px; margin: 10px; text-align: center; border: 1px solid #eee; padding: 10px;">
+                        <h4>SMB/CIFS</h4>
+                        <p>Common Internet File System</p>
+                        <p>Entornos Microsoft Windows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020301003">
+        <h3>3.3. ELEMENTOS BÁSICOS DE UNA RED SAN</h3>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="/placeholder.svg?height=400&width=600" alt="Elementos básicos de una red SAN" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+            <p>Elementos básicos de una red SAN</p>
+        </div>
+        
+        <p>Este diagrama muestra una red de almacenamiento SAN básica. En cualquier caso, resulta útil para identificar sus principales elementos.</p>
+        
+        <ul>
+            <li><strong>Mundo IP vs mundo FC.</strong> Las redes SAN son independientes de las redes IP. Un determinado servidor cuenta con tarjetas de red que le conectan a las redes IP –a través de los switches ethernet- y tarjetas HBA –Host Bus Adapter- que le conectan a la red de almacenamiento –a través de los switches de fibra-.
+                <p>A este respecto las WWN –World Wide Name- de las tarjetas HBA pueden entenderse como el equivalente de las MAC en las tarjetas de red del mundo IP.</p>
+                <p>El protocolo más habitual, aunque hay otros, de las redes SAN es Fibre Channel -FC-.</p>
+            </li>
+            
+            <li><strong>Principales elementos.</strong>
+                <ul>
+                    <li>Los <strong>switches de fibra</strong>, tecnología FC, son los elementos que vertebran la red de almacenamiento. Se conectan por un lado –hacia arriba- con los servidores o host que utilizan el almacenamiento y, por otro –hacia abajo-, con las cabinas de almacenamiento que contienen los discos.</li>
+                    <li>El <strong>servidor o host</strong>, para acceder a la red de almacenamiento, se conecta a los switches mediante tarjetas HBA –Host Bus Adpater-.</li>
+                    <li>Las <strong>cabinas de almacenamiento</strong> contienen los discos, para los cuales existen diferentes tecnologías –SSD, SAS, etc-. Los discos suelen dividirse en pools y sobre ellos se realizan configuraciones RAID.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 30px 0;">
+            <div style="width: 30%; min-width: 200px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h4>Servidores/Hosts</h4>
+                <img src="/placeholder.svg?height=100&width=100" alt="Servidor" style="max-width: 100px; height: auto;">
+                <p>Equipos que utilizan el almacenamiento</p>
+                <p>Requieren tarjetas HBA para conectarse a la SAN</p>
+            </div>
+            
+            <div style="width: 30%; min-width: 200px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h4>Switches de Fibra</h4>
+                <img src="/placeholder.svg?height=100&width=100" alt="Switch de Fibra" style="max-width: 100px; height: auto;">
+                <p>Vertebran la red de almacenamiento</p>
+                <p>Conectan servidores con cabinas de almacenamiento</p>
+            </div>
+            
+            <div style="width: 30%; min-width: 200px; margin: 10px; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <h4>Cabinas de Almacenamiento</h4>
+                <img src="/placeholder.svg?height=100&width=100" alt="Cabina de Almacenamiento" style="max-width: 100px; height: auto;">
+                <p>Contienen los discos (SSD, SAS, etc.)</p>
+                <p>Organizados en pools con configuraciones RAID</p>
+            </div>
+        </div>
+        
+        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <caption>Comparativa entre mundo IP y mundo FC</caption>
+            <thead>
+                <tr>
+                    <th>Mundo IP (Red de datos)</th>
+                    <th>Mundo FC (Red SAN)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tarjetas de red (NIC)</td>
+                    <td>Tarjetas HBA (Host Bus Adapter)</td>
+                </tr>
+                <tr>
+                    <td>Dirección MAC</td>
+                    <td>WWN (World Wide Name)</td>
+                </tr>
+                <tr>
+                    <td>Switches Ethernet</td>
+                    <td>Switches de Fibra</td>
+                </tr>
+                <tr>
+                    <td>Protocolo TCP/IP</td>
+                    <td>Protocolo Fibre Channel (FC)</td>
+                </tr>
+                <tr>
+                    <td>Acceso a nivel de archivo</td>
+                    <td>Acceso a nivel de bloque</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+</div>

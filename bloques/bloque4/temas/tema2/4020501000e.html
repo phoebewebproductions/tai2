@@ -1,0 +1,303 @@
+<div class="teoria">
+    <span id="4020501001">
+        <h2>5.1 POLÍTICAS, SISTEMAS Y PROCEDIMIENTOS DE BACKUP Y RECUPERACIÓN</h2>
+        <p>Tal y como se ha comentado al principio del presente tema, la importancia de las TIC en la propia supervivencia de la mayoría de las organizaciones actuales, ya sean estas empresas, organismos públicos u otras, es total.</p>
+        <p>En ese sentido, la información se ha convertido en el activo intangible más importante para la continuidad de procesos y la prestación de los servicios, por lo que cualquier acción en este ámbito encaminada a la mejora de su disponibilidad está más que justificada.</p>
+        <p>De esa forma, en este apartado se aporta una visión general de las políticas, sistemas y procedimientos de backup, entendido como herramienta o mecanismo preventivo de salvaguarda y seguridad ante la pérdida, ya sea accidental o intencionada, de información necesaria tanto para la continuidad de los procesos como para la prestación de los servicios de las organizaciones (ya sean estas empresas, organismos públicos o de algún otro tipo).</p>
+    </span>
+
+    <span id="4020501002">
+        <h3>5.1.1 JUSTIFICACIÓN DE LA NECESIDAD DE BACKUP DE LA INFORMACIÓN</h3>
+        <p>En la actualidad, no parece necesario resaltar la importancia que tienen los procesos y las actividades TIC como herramientas de apoyo en la consecución de los objetivos de las organizaciones, ya sean estas empresas, organismos públicos o de cualquier otro tipo.</p>
+        <p>De esa forma, tanto para la realización de los procesos internos como para la prestación de los servicios finales que tengan encomendados, la información se convierte en el principal activo intangible para dichas organizaciones. Pensemos en este punto, por ejemplo, en expedientes administrativos en los casos de las administraciones públicas, o información sobre productos, ventas o similares en el caso de empresas.</p>
+        <p>Por lo tanto, cualquier medida encaminada a mejorar la disponibilidad de dichos servicios o asegurar la continuidad de la prestación de los mismos, se convierte en fundamental. Una de las principales herramientas en ese sentido es el backup o copia de seguridad, entendido como mecanismo de protección preventivo ante incidentes que supongan pérdidas accidentales o intencionadas de información.</p>
+        <p>Ejemplos de pérdidas accidentales de información podrían ser borrados por despiste de los usuarios, mientras que las intencionadas se deberían a ataques que busquen el cifrado o corrupción de la información u otras acciones malintencionadas.</p>
+    </span>
+
+    <span id="4020501003">
+        <h3>5.1.2 PLANIFICACIÓN Y ESTRATEGIA DE LOS PROCEDIMIENTOS DE BACKUP</h3>
+        <p>Habitualmente, la planificación o estrategia de backup, forma parte del llamado Plan de Recuperación ante desastres o Disaster Recovery Plan -DRP- en terminología inglesa. Como su nombre indica, este plan se encarga de restituir las operaciones e infraestructuras TIC más críticas -aquellas que son imprescindibles o primordiales- cuando se ha producido una situación de ataque, catástrofe natural o cualquier otro incidente, cuyo impacto haya causado su interrupción.</p>
+        <p>De una forma similar, el DRP forma parte del Plan de Continuidad de Negocio o Bussiness Continuity Plan -BCP- en terminología inglesa, que resulta más amplio que el anterior, al incluir no sólo los sistemas e infraestructuras TIC, sino también muchos otros aspectos de los procesos y actividades que dan soporte al negocio de la organización.</p>
+        <p>En cualquier caso, para establecer una estrategia o planificación de backup o copia de seguridad resulta necesario dar los siguientes pasos:</p>
+        <ul>
+            <li>Identificar tanto los procesos internos como los servicios digitales prestados, estableciendo la prioridad de cada uno de ellos en función de su importancia para el negocio y, por tanto, de la criticidad de su continuidad.</li>
+            <li>Analizar y establecer los activos de información asociados a cada uno de los servicios y procesos anteriormente identificados.</li>
+            <li>Modelar, de acuerdo con la información identificada y con las características de cada servicio, las políticas de backup correspondiente a cada caso. Como más adelante veremos, esto incluye, entre otros, seleccionar la información a copiar y la forma de hacerlo, la frecuencia y las ventanas en las que se harán dichas copias, los soportes en los que se almacenarán o los períodos máximos durante los cuales será necesario conservar esas copias.</li>
+            <li>Realizar, periódicamente, pruebas de restauración de la información asociada a las políticas de backup definidas en el punto anterior. Esta acción busca asegurar que, en el momento de resultar necesario, el proceso de restauración funcionara adecuadamente y seremos capaces de ejecutarlo en un plazo de tiempo razonable.</li>
+        </ul>
+    </span>
+
+    <span id="4020501004">
+        <h3>5.1.3 TIPOS DE BACKUP</h3>
+        <p>Atendiendo al contenido o la parte de la información que se salvaguarda los backups se pueden configurar en los siguientes tipos:</p>
+        
+        <div class="tipos-backup">
+            <div class="tipo-backup">
+                <h4>Backup total o completo (full)</h4>
+                <p>Como su propio nombre indica, es aquel que realiza una copia completa o íntegra de la información a respaldar. Aunque se considera la copia de seguridad más confiable, lógicamente también es la que conlleva mayor tiempo de proceso y espacio de almacenamiento para su realización. En la mayoría de los casos no resulta viable (o asumible en cuanto a consumo de recursos y tiempos) la realización de una estrategia de backup válida basada exclusivamente en copias completas o full de la información a respaldar.</p>
+            </div>
+            
+            <div class="tipo-backup">
+                <h4>Backup incremental o progresivo</h4>
+                <p>Es aquel que realiza una salvaguarda de aquellos datos que se han modificado -que han cambiado- desde el último backup que se realizó (con independencia del tipo de backup previo del que hablemos). Lógicamente, al copiar una menor cantidad de datos, conlleva menor tiempo de proceso y de espacio de almacenamiento.</p>
+            </div>
+            
+            <div class="tipo-backup">
+                <h4>Backup diferencial</h4>
+                <p>Este tipo de backup podríamos decir que se encuentra a medio camino entre los dos anteriores. Realiza una copia de backup de los datos que se han modificado desde la última copia de backup completa realizada. Es decir, se diferencia del backup incremental a partir de la tercera copia, realizando una copia de los datos modificados, pero no desactivando sobre ellos la etiqueta de modificados.</p>
+            </div>
+        </div>
+        
+        <p>Como más adelante veremos, en la mayoría de las ocasiones se conjugan los tipos de backup anteriores para conformar una estrategia de backup o salvaguarda de una determinada información. Al conjunto de backups y restores que son necesarios para respaldar y recuperar una determinada información se le suele conocer con el nombre de cadena de backup.</p>
+        
+        <p>De esa forma, un planteamiento típico o habitual suele ser, por ejemplo, realizar una copia semanal completa de la información y backups incrementales o diferenciales complementarios el resto de los días de dicha semana. En este punto, la clave para establecer una estrategia óptima está en conocer la información a respaldar y el servicio asociado, en cuanto a tipología de los datos, actividad que conlleve cambios sobre ellos, las necesidades de restauración existentes, prioridades y criticidad del servicio en cuestión, etc.</p>
+    </span>
+
+    <span id="4020501005">
+        <h4>Ejemplo de estrategias de backup</h4>
+        <p>Vamos a poner un ejemplo para aclarar estos conceptos. Para ello, supongamos que queremos respaldar una cierta información, compuesta por los datos A - B - C - D - E - F, para la que, por lo tanto, necesitamos establecer una estrategia backup.</p>
+        
+        <div class="ejemplo-datos">
+            <code>A B C D E F</code> <span>Datos iniciales</span>
+        </div>
+        
+        <p>De esa forma, como estrategia de respaldo de esta información, se podría proponer:</p>
+        
+        <ul>
+            <li>
+                <p>Una vez a la semana (por ejemplo, el domingo por la noche) se realizaría un backup full o completo de la totalidad de los datos A - B - C - D - E - F que componen la información en cuestión.</p>
+                
+                <div class="ejemplo-datos">
+                    <code>A B C D E F</code> <span>Datos iniciales</span><br>
+                    <code>A B C D E F</code> <span>Backup FULL</span>
+                </div>
+                
+                <p>Como se puede observar el espacio ocupado por un backup full o completo, es, lógicamente, el mismo que los propios datos que se respaldan.</p>
+            </li>
+            
+            <li>
+                <p>El resto de los días de la semana (lunes, martes, miércoles, jueves y viernes), podría plantearse alguna de las dos siguientes opciones:</p>
+                
+                <ul>
+                    <li>
+                        <p><strong>Backup incremental diario</strong> de los datos que hayan cambiado desde el último backup previo -sea del tipo que éste sea- que se haya realizado.</p>
+                        
+                        <p>Por ejemplo, si, tras el full del domingo, el lunes se modifican los datos A y B, esa noche, se realizaría backup incremental diario de esos dos datos A y B. Y si el martes se modifican el B y el C, esa noche, se realizaría un backup incremental diario de esos dos datos B y C.</p>
+                        
+                        <div class="ejemplo-datos">
+                            <code>A   B   C   D E F</code> <span>Datos iniciales</span><br>
+                            <code>A   B   C   D E F</code> <span>Backup FULL domingo</span><br>
+                            <code>A'  B'  C   D E F</code> <span>Datos lunes</span><br>
+                            <code>A'  B'</code> <span>Backup incremental lunes</span><br>
+                            <code>A'  B'' C'  D E F</code> <span>Datos martes</span><br>
+                            <code>    B'' C'</code> <span>Backup incremental martes</span>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <p><strong>Backup diferencial diario</strong> de los datos que hayan cambiado desde el último backup completo semanal -en nuestro caso de ejemplo el realizado el domingo anterior-.</p>
+                        
+                        <p>Por ejemplo, si, tras el full del domingo, el lunes se modifican los datos A y B se realizaría un backup diferencial diario de esos dos datos A y B -hasta aquí se comporta igual que el incremental-; pero si el martes se modifican los datos B y C, se realizaría un backup diferencial diario de los datos A, B y C, que son aquellos datos modificados en comparación con el último backup full o completo.</p>
+                        
+                        <div class="ejemplo-datos">
+                            <code>A   B   C   D E F</code> <span>Datos</span><br>
+                            <code>A   B   C   D E F</code> <span>Backup FULL domingo</span><br>
+                            <code>A'  B'  C   D E F</code> <span>Datos lunes</span><br>
+                            <code>A'  B'</code> <span>Backup diferencial lunes</span><br>
+                            <code>A'  B'' C'  D E F</code> <span>Datos martes</span><br>
+                            <code>A'  B'' C'</code> <span>Backup diferencial martes</span>
+                        </div>
+                        
+                        <p>Como puede observarse, el diferencial diario guarda más información que su equivalente diario incremental, lo que nos lleva a que es una estrategia que consume un mayor espacio de almacenamiento. Pero, como contrapartida, como se explica a continuación, simplifica el proceso de restauración, siendo sólo necesaria la restauración del backup completo y del último diferencial.</p>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <p>En nuestro ejemplo, si en el caso de los sábados no hay modificación de los datos, puede que no resulte necesario realizar ningún tipo de backup ese día.</p>
+            </li>
+        </ul>
+        
+        <p>De esa forma, para cada uno de los casos anteriores la estrategia de backup quedaría de la siguiente forma:</p>
+        
+        <table class="tabla-estrategia">
+            <tr>
+                <th></th>
+                <th>Domingo</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+            </tr>
+            <tr>
+                <td>Estrategia incremental</td>
+                <td>B.F.</td>
+                <td>B.I.</td>
+                <td>B.I.</td>
+                <td>B.I.</td>
+                <td>B.I.</td>
+                <td>B.I.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Estrategia diferencial</td>
+                <td>B.F.</td>
+                <td>B.D.</td>
+                <td>B.D.</td>
+                <td>B.D.</td>
+                <td>B.D.</td>
+                <td>B.D.</td>
+                <td>-</td>
+            </tr>
+        </table>
+        
+        <p class="nota">B.F. = Backup Full / B.I. = Backup incremental / B.D. = Backup diferencial</p>
+    </span>
+
+    <span id="4020501006">
+        <h4>Ejemplo de restauración</h4>
+        <p>Por supuesto, la planificación de la estrategia de backup que se decida adoptar, afecta directamente a las características de la restauración de la información -en cuanto las acciones necesarias a realizar, junto con el RTO y el RPO que más adelante explicaremos con detalle-.</p>
+        
+        <p>Así, en nuestro caso de ejemplo, si durante la jornada del miércoles un usuario borra accidentalmente una determinada información y queremos restaurar una copia de la misma a la versión más actualizada que tengamos disponible, tendríamos la situación siguiente:</p>
+        
+        <p>El último backup que tendremos disponible será del martes, con lo cual podremos realizar un proceso de restauración para restaurar la información hasta ese nivel de actualización (RPO), perdiendo la información correspondiente de la jornada del miércoles, de la que aún no se ha hecho backup.</p>
+        
+        <p>Para lo cual, tendremos que realizar alguna de las dos acciones siguientes, dependiendo de si la política de backup la hemos construido a base de backups incrementales o diferenciales:</p>
+        
+        <ul>
+            <li>
+                <p><strong>Si la política de backup la hemos diseñado con un backup completo semanal y backups incrementales diarios</strong>, para restaurar al nivel del martes, será necesario restaurar el backup completo semanal y sobre él los incrementales del lunes y del martes.</p>
+                
+                <div class="ejemplo-datos">
+                    <code>A   B   C   D E F</code> <span>Restore backup FULL</span><br>
+                    <code>A'  B'</code> <span>Restore incremental lunes</span><br>
+                    <code>    B'' C'</code> <span>Restore incremental martes</span><br>
+                    <code>A'  B'' C'  D E F</code> <span>RESULTADO FINAL RESTORE</span>
+                </div>
+                
+                <p>Resultado que, como podemos comprobar efectivamente corresponde con los datos vigentes el miércoles.</p>
+            </li>
+            
+            <li>
+                <p><strong>Si la política de backup la hemos diseñado con un backup completo semanal y backups diferenciales diarios</strong>, para restaurar al nivel del martes, será necesario restaurar el backup completo semanal y sobre él, exclusivamente, el último diferencial, ya que, como hemos visto contiene todos los cambios desde el último completo.</p>
+                
+                <div class="ejemplo-datos">
+                    <code>A   B   C   D E F</code> <span>Restore FULL domingo</span><br>
+                    <code>A'  B'' C'</code> <span>Restore diferencial martes</span><br>
+                    <code>A'  B'' C'  D E F</code> <span>RESULTADO FINAL RESTORE</span>
+                </div>
+                
+                <p>Resultado que, como podemos comprobar efectivamente corresponde con los datos vigentes al comienzo del miércoles.</p>
+            </li>
+        </ul>
+        
+        <p>De esta forma, cada uno de los dos tipos de backup y restore anteriores, incremental vs diferencial, tiene sus ventajas e inconvenientes:</p>
+        
+        <ul>
+            <li>El backup diferencial consume mayor espacio de almacenamiento y de ventana temporal, puesto que respalda una mayor cantidad de datos que su equivalente incremental.</li>
+            <li>Por el contrario, la restauración basada en diferenciales es más rápida, siendo sólo necesaria la restauración del backup full junto con el último diferencial sobre él. En el caso de backups incrementales es necesario restaurar el full junto con todos los incrementales posteriores sobre él.</li>
+            <li>En cualquier caso, una estrategia basada sólo en backups full, no suele ser admisible en prácticamente ninguna ocasión (por el volumen de recursos que consume).</li>
+        </ul>
+        
+        <table class="tabla-comparativa">
+            <caption>Comparativa entre estrategias de backup</caption>
+            <tr>
+                <th>Característica</th>
+                <th>Backup Full</th>
+                <th>Backup Incremental</th>
+                <th>Backup Diferencial</th>
+            </tr>
+            <tr>
+                <td>Espacio de almacenamiento</td>
+                <td>Alto</td>
+                <td>Bajo</td>
+                <td>Medio</td>
+            </tr>
+            <tr>
+                <td>Tiempo de backup</td>
+                <td>Alto</td>
+                <td>Bajo</td>
+                <td>Medio</td>
+            </tr>
+            <tr>
+                <td>Complejidad de restauración</td>
+                <td>Baja</td>
+                <td>Alta</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Tiempo de restauración</td>
+                <td>Alto</td>
+                <td>Alto</td>
+                <td>Medio</td>
+            </tr>
+            <tr>
+                <td>Componentes necesarios para restaurar</td>
+                <td>Solo el backup full</td>
+                <td>Full + todos los incrementales</td>
+                <td>Full + último diferencial</td>
+            </tr>
+        </table>
+    </span>
+    
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .tipos-backup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .tipo-backup {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .tipo-backup h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .ejemplo-datos {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+        .ejemplo-datos code {
+            font-weight: bold;
+            min-width: 150px;
+            display: inline-block;
+        }
+        .tabla-estrategia, .tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .tabla-estrategia th, .tabla-estrategia td,
+        .tabla-comparativa th, .tabla-comparativa td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .tabla-estrategia th, .tabla-comparativa th {
+            background-color: #f2f2f2;
+        }
+        .nota {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</div>

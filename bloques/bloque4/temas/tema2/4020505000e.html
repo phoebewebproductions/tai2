@@ -1,0 +1,392 @@
+<div class="teoria">
+    <span id="4020505001">
+        <h2>5.5 PRINCIPALES PROTOCOLOS Y SERVICIOS RELACIONADOS CON LAS POLÍTICAS Y SISTEMAS DE BACKUP</h2>
+        <p>Algunos de los principales protocolos relacionados con los sistemas y procedimientos de backup son los siguientes:</p>
+    </span>
+
+    <span id="4020505002">
+        <h3>5.5.1 NVME (NO VOLATIL MEMORY EXPRESS)</h3>
+        <p>NVMe (No Volatil Memory Express o Memoria No Volátil Rápida) es un protocolo de transporte y acceso al almacenamiento para unidades flash y de estado sólido (Solid State Devices) de última generación que ofrece el rendimiento más alto y los tiempos de respuesta más bajos para la mayoría de cargas de trabajo.</p>
+        
+        <p>Para poder ofrecer una experiencia a los usuarios con un ancho de banda mayor y una menor latencia, el protocolo NVMe accede al almacenamiento flash a través del bus PCI Express (PCIe), que admite decenas de miles de colas de comando paralelas, de forma que adquiere una velocidad mucho mayor que la de los discos duros y las arquitecturas all-flash tradicionales, que están limitadas a una sola cola de comandos.</p>
+        
+        <p>De esta forma, las especificaciones NVMe se benefician de la memoria no volátil en todos los tipos de entornos de computación.</p>
+        
+        <div class="nvme-diagram">
+            <h4>Funcionamiento de NVMe vs Arquitecturas Tradicionales</h4>
+            <div class="diagram-container">
+                <div class="diagram-section">
+                    <h5>Arquitectura Tradicional</h5>
+                    <div class="diagram traditional">
+                        <div class="component app">Aplicación</div>
+                        <div class="arrow">↓</div>
+                        <div class="component os">Sistema Operativo</div>
+                        <div class="arrow">↓</div>
+                        <div class="component driver">Driver SATA/SAS</div>
+                        <div class="arrow">↓</div>
+                        <div class="component queue single">Cola Única de Comandos</div>
+                        <div class="arrow">↓</div>
+                        <div class="component storage">Almacenamiento</div>
+                    </div>
+                </div>
+                <div class="diagram-section">
+                    <h5>Arquitectura NVMe</h5>
+                    <div class="diagram nvme">
+                        <div class="component app">Aplicación</div>
+                        <div class="arrow">↓</div>
+                        <div class="component os">Sistema Operativo</div>
+                        <div class="arrow">↓</div>
+                        <div class="component driver">Driver NVMe</div>
+                        <div class="arrow">↓</div>
+                        <div class="component queue multiple">
+                            <div class="mini-queue">Cola 1</div>
+                            <div class="mini-queue">Cola 2</div>
+                            <div class="mini-queue">...</div>
+                            <div class="mini-queue">Cola N</div>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="component storage">Almacenamiento Flash</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">
+                <p>La arquitectura NVMe permite múltiples colas de comandos paralelas, lo que resulta en un rendimiento significativamente mayor para operaciones de lectura/escritura, especialmente beneficioso para operaciones de backup que requieren alta velocidad de transferencia de datos.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020505003">
+        <h3>5.5.2 SIMPLE STORAGE SERVICE (S3)</h3>
+        <p>Es un servicio de almacenamiento de objetos, inicialmente propuesto por Amazon en la cloud, que ofrece escalabilidad, disponibilidad de datos, seguridad y gran rendimiento.</p>
+        
+        <p>Mediante este servicio, clientes de todos los tipos y sectores pueden almacenar y proteger cualquier volumen de datos para los más variados fines, como usarlos en lagos de datos, sitios web, aplicaciones móviles, procesos de copia de seguridad y restauración, operaciones de archivado, aplicaciones empresariales, dispositivos IoT y análisis de big data.</p>
+        
+        <p>Los proveedores que lo ofrecen, suelen proporcionar una administración fácil de utilizar que permita al cliente organizar los datos y configurar sofisticados controles de acceso con objeto de satisfacer sus requisitos empresariales, organizativos y de conformidad o cumplimiento.</p>
+        
+        <p>Adicionalmente, la mayoría de los sistemas y software de backup actuales, como Veeam, Veritas NetBackup o IDPA, son compatibles con el protocolo S3, lo cual les permite desbordar o realizar copias de seguridad hacia almacenamientos en nube.</p>
+        
+        <div class="s3-features">
+            <h4>Características principales de S3</h4>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h5>Escalabilidad</h5>
+                    <p>Capacidad prácticamente ilimitada para almacenar y recuperar datos</p>
+                </div>
+                <div class="feature">
+                    <h5>Durabilidad</h5>
+                    <p>Diseñado para ofrecer 99,999999999% (11 nueves) de durabilidad</p>
+                </div>
+                <div class="feature">
+                    <h5>Disponibilidad</h5>
+                    <p>Alta disponibilidad con replicación automática en múltiples zonas</p>
+                </div>
+                <div class="feature">
+                    <h5>Seguridad</h5>
+                    <p>Múltiples niveles de seguridad, incluyendo cifrado en reposo y en tránsito</p>
+                </div>
+                <div class="feature">
+                    <h5>Clases de almacenamiento</h5>
+                    <p>Diferentes niveles según frecuencia de acceso y costes</p>
+                </div>
+                <div class="feature">
+                    <h5>Gestión del ciclo de vida</h5>
+                    <p>Políticas automáticas para mover o eliminar datos según su antigüedad</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="s3-backup-integration">
+            <h4>Integración de S3 con sistemas de backup</h4>
+            <p>Los principales sistemas de backup que mencionan compatibilidad con S3:</p>
+            <ul>
+                <li>Veeam Backup & Replication</li>
+                <li>Veritas NetBackup</li>
+                <li>Dell EMC IDPA (Integrated Data Protection Appliance)</li>
+                <li>Commvault</li>
+                <li>Rubrik</li>
+                <li>Cohesity</li>
+            </ul>
+        </div>
+    </span>
+
+    <span id="4020505004">
+        <h3>5.5.3 LA REGLA 3-2-1 DEL BACKUP</h3>
+        <p>Desde hace mucho tiempo, existe una regla relacionada con el backup y que aún se mantiene imperecedera en nuestros días es la denominada regla 3-2-1 del backup y que establece como recomendación:</p>
+        
+        <div class="regla-321">
+            <div class="regla-item">
+                <div class="numero">3</div>
+                <div class="descripcion">
+                    <h4>Contar con al menos 3 copias del backup</h4>
+                    <p>Como hemos visto esto no resulta descabellado en nuestros días, dado que muchos de los servicios ya se prestan desde dos ubicaciones, se trataría de buscar una tercera offsite.</p>
+                </div>
+            </div>
+            
+            <div class="regla-item">
+                <div class="numero">2</div>
+                <div class="descripcion">
+                    <h4>Almacenar dichas copias en al menos 2 soportes distintos</h4>
+                    <p>Esto actúa, a la vez, como mecanismo de seguridad y ante fallos, de forma que aún podremos restaurar si nos falla uno de ellos y, en caso de ataque, la corrupción o cifrado de los datos será más difícil al tenerlos en dos soportes distintos.</p>
+                </div>
+            </div>
+            
+            <div class="regla-item">
+                <div class="numero">1</div>
+                <div class="descripcion">
+                    <h4>Guardar una de esas copias en una ubicación offsite</h4>
+                    <p>Aunque pueda resultar obvio, la separación física de las copias es importante, no siendo buena idea mantener todos los sistemas de almacenamiento que albergan backup en la misma ubicación, ni junto con aquellos que albergan el almacenamiento de producción de los cuales actúan como copia de seguridad. Si esto se hace, en caso de producirse un incendio o evento similar sobre dicha ubicación, se perderían todos los datos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <p>De esa forma, diversificar las ubicaciones o sites para albergar las copias de seguridad es una buena práctica, existiendo opciones como:</p>
+        <ul>
+            <li>Almacenar los backups en una oficina remota disponible, ya sea guardando cintas de backup o bien, con un sistema de almacenamiento de backup a disco.</li>
+            <li>Almacenar los backups en la nube.</li>
+        </ul>
+        
+        <p>Por otro lado, de cara a la seguridad de la información de backup, resulta importante valorar el tipo de conectividad con la que van a contar estas ubicaciones offsite, teniendo en cuenta que, si ésta es permanente con la infraestructura principal, se puede propagar un ataque de tipo ransomware que cifre los datos de esa ubicación principal.</p>
+    </span>
+
+    <span id="4020505005">
+        <h3>5.5.4 BUENAS PRÁCTICAS Y ERRORES A EVITAR EN EL BACKUP</h3>
+        <p>Junto con la regla del 3-2-1 anterior del backup, se añaden una serie de buenas prácticas y errores a evitar relacionados con la planificación y realización de las tareas de backup.</p>
+        
+        <div class="buenas-practicas">
+            <div class="practica">
+                <h4>Ajustar el backup a las necesidades del servicio</h4>
+                <p>Disponer de un backup de los datos que realmente se ajuste a las necesidades del servicio de que se trate. Es importante identificar correctamente que datos son importantes en cada caso y aplicar una política adecuada para ellos:</p>
+                <ul>
+                    <li>Dependiendo de cada servicio será necesario establecer una estrategia de backup, identificando los ítems a respaldar (ficheros, bases de datos, configuraciones, etc.) y la forma de hacerlo para que el conjunto resultante sea consistente.</li>
+                    <li>Esto hará que se optimicen los recursos consumidos por las mismas, tanto en lo que se refiere a espacio de almacenamiento, como en operaciones y ventanas temporales.</li>
+                </ul>
+            </div>
+            
+            <div class="practica">
+                <h4>Separar almacenamiento productivo y de backup</h4>
+                <p>Aunque pueda resultar obvio, los datos correspondientes al backup no deben almacenarse en los mismos sistemas de storage que alojan la información productiva de un determinado servicio y de la cual son backup. De hacerlo sí, un fallo en dichos sistemas podría inutilizar de una vez tanto la información productiva como la del backup.</p>
+            </div>
+            
+            <div class="practica">
+                <h4>Documentar el plan de backup</h4>
+                <p>Tener documentado el plan de backup de, al menos, los servicios más críticos de tal forma que se pueda identificar rápidamente los actores involucrados o las responsabilidades de cada uno de ellos, junto con otras cuestiones como las pruebas o dónde guardamos nuestras copias.</p>
+            </div>
+            
+            <div class="practica">
+                <h4>Realizar restauraciones periódicas</h4>
+                <p>Realizar restauraciones periódicas, con el fin de verificar su utilidad y la integridad de los datos, de forma que se pueda afirmar que dichas copias son válidas y correctas.</p>
+            </div>
+            
+            <div class="practica">
+                <h4>Infraestructura adecuadamente dimensionada</h4>
+                <p>Contar con una infraestructura de backup adecuadamente dimensionada y redundada, de forma que pueda funcionar en alta disponibilidad, siendo tolerante a fallos y permitiendo la realización de labores de mantenimiento sobre ella (aplicación de parches, apagados de ciertos nodos, labores de configuración, etc.).</p>
+            </div>
+            
+            <div class="practica">
+                <h4>Cifrar los datos de los backups</h4>
+                <p>Como mecanismo de seguridad se recomienda cifrar los datos de los backups. Por supuesto, esto obliga al mantenimiento de una infraestructura de claves durante largos períodos de tiempo (la retención que se haya establecido para los bakups).</p>
+            </div>
+            
+            <div class="practica">
+                <h4>Servicios cloud no son suficientes como backup</h4>
+                <p>Existen ciertos casos como el servicio en formato PaaS de Microsoft, Office 365 (que permite el consumo de herramientas ofimáticas -correo electrónico, Teams, Word, Excel, etc.- en cloud) que, pese a contar con mecanismos de salvaguarda de cierta información borrada -papeleras de reciclaje de hasta 30 días-, no pueden considerarse como suficientes como sistemas de backup. Esto es, para el adecuado consumo de estos servicios debe programarse para ellos un sistema de backup adicional.</p>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* NVMe Diagram Styles */
+        .nvme-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .diagram-section {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .component {
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        .app {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        .os {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .driver {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        .queue {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+        }
+        .single {
+            height: 20px;
+        }
+        .multiple {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            min-height: 60px;
+        }
+        .mini-queue {
+            background-color: #f5c6cb;
+            border-radius: 3px;
+            padding: 3px;
+            font-size: 0.8em;
+            width: 45%;
+        }
+        .storage {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+        .arrow {
+            font-size: 20px;
+            color: #666;
+        }
+        .diagram-caption {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        /* S3 Features Styles */
+        .s3-features {
+            margin: 20px 0;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .feature {
+            flex: 1 1 30%;
+            min-width: 250px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .feature h5 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* S3 Backup Integration Styles */
+        .s3-backup-integration {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .s3-backup-integration ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        .s3-backup-integration li {
+            background-color: #e9ecef;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        /* Regla 3-2-1 Styles */
+        .regla-321 {
+            margin: 20px 0;
+        }
+        .regla-item {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .numero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+        }
+        .regla-item:nth-child(1) .numero {
+            background-color: #28a745;
+        }
+        .regla-item:nth-child(2) .numero {
+            background-color: #17a2b8;
+        }
+        .regla-item:nth-child(3) .numero {
+            background-color: #dc3545;
+        }
+        .descripcion {
+            flex: 1;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .descripcion h4 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        /* Buenas Prácticas Styles */
+        .buenas-practicas {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .practica {
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .practica h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+    </style>
+</div>

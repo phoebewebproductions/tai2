@@ -1,0 +1,429 @@
+<div class="teoria">
+    <span id="4020504001">
+        <h2>5.4 MEDIOS DE ALMACENAMIENTO PARA EL BACKUP</h2>
+        <p>No cabe duda de que los sistemas de backup generan, en forma de copias de seguridad, grandes volúmenes de información. De esa forma, la estrategia adoptada para el almacenamiento utilizado para alojar dichas copias toma una importante relevancia.</p>
+        
+        <p>En este sentido, deben tenerse en cuenta dos enfoques, tanto las opciones de almacenamiento existentes, como su utilización conjunta en la estrategia de backup diseñada, para garantizar la salvaguarda y disponibilidad de la información.</p>
+        
+        <p>De esa forma, por un lado, los medios de almacenamiento más comúnmente utilizados para backup en la actualidad son:</p>
+    </span>
+
+    <span id="4020504002">
+        <h3>5.4.1 BIBLIOTECAS DE CINTAS MAGNÉTICAS</h3>
+        <p>Se trata de robots o bibliotecas que permiten la grabación de los datos a cintas magnéticas. De esa forma, lo habitual, en las políticas de backup, suele ser realizar los primeros backup a disco y rotar a cinta aquellos datos de backup que cuenten ya con una cierta antigüedad, de forma que se espere una menor cantidad de solicitudes de recuperación sobre ellos.</p>
+        
+        <p>De esa forma, una vez grabadas las cintas magnéticas pueden sacarse del robot para enviarse a ubicaciones remotas donde se alojen adecuadamente -habitualmente en armarios ignífugos específicos para esta función-.</p>
+        
+        <p>Desde hace un tiempo las cintas magnéticas han caído en desuso frente a otras opciones como los discos, las VTLs o el almacenamiento en la nube, principalmente por las siguientes razones:</p>
+        
+        <ul>
+            <li>Se trata de un sistema que requiere, ante una petición de restore y frente a las otras opciones, de una cierta operación manual: localización de la cinta que requiere el restore, junto con su inserción en el robot en caso de no estarlo fundamentalmente.</li>
+            <li>Los robots de cintas son elementos hardware muy específicos, cuya gran componente mecánica -brazo que gestiona las cintas-, suele generar bastantes incidencias.</li>
+            <li>Además de que encontrar espacio suficiente para alojar adecuadamente un volumen alto de cintas puede ser complicado, estas pueden deteriorarse si las condiciones de su conservación no son buenas. Esto en comparación con el almacenamiento en disco, cuyo acceso continuo y prolongado en el tiempo está garantizado.</li>
+            <li>Como contrapartida a lo anterior, cuando ya no son necesarias al haber superado su contenido el período de retención, realizar un borrado seguro o destrucción de las cintas magnéticas resulta más costoso que de los discos.</li>
+        </ul>
+        
+        <p>En cualquier caso, ante los últimos ataques informáticos sufridos, las librerías de cintas han tomado de nuevo un cierto protagonismo al considerarse más seguras que los discos frente a ellos. Hay que tener en cuenta que las cintas que se encuentran fuera de la librería se mantendrían inalterables frente a dichos ataques de cifrado, borrado o corrupción. Aunque también es cierto que existen ataques que, aunque son más específicos y menos comunes, se centran en inutilizar los brazos robóticos de las librerías -con lo que dejaría como inutilizables las cintas que contienen la información de los backups-.</p>
+        
+        <p>De esa forma, las librerías de cinta magnéticas pueden ser aún un medio económico, escalable y seguro para proteger y retener a largo plazo los datos, cuyo acceso no resulta esencial y se produce con poca frecuencia.</p>
+        
+        <div class="ventajas-desventajas">
+            <div class="ventajas">
+                <h4>Ventajas de las cintas magnéticas</h4>
+                <ul>
+                    <li>Medio económico para almacenamiento a largo plazo</li>
+                    <li>Escalabilidad para grandes volúmenes de datos</li>
+                    <li>Mayor seguridad frente a ataques de cifrado o corrupción (cuando están fuera de la librería)</li>
+                    <li>Posibilidad de almacenamiento offsite</li>
+                </ul>
+            </div>
+            <div class="desventajas">
+                <h4>Desventajas de las cintas magnéticas</h4>
+                <ul>
+                    <li>Requiere operación manual para restauración</li>
+                    <li>Componentes mecánicos propensos a fallos</li>
+                    <li>Requiere condiciones específicas de conservación</li>
+                    <li>Borrado seguro más costoso</li>
+                    <li>Vulnerabilidad a ataques específicos contra los brazos robóticos</li>
+                </ul>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020504003">
+        <h3>5.4.2 CABINAS DE DISCO</h3>
+        <p>Como alternativa a las bibliotecas de unidades de cinta de copia de seguridad magnética surgieron los sistemas de copia de seguridad de disco a disco. En cualquier caso, no debemos verlos como opciones excluyentes, puesto que tanto el disco como la cinta todavía se continúan utilizando en la actualidad, con frecuencia de manera conjunta.</p>
+        
+        <p>Las ventajas de las cabinas de disco frente a las librerías de cinta son las contrarias a las que se han mencionado anteriormente como características negativas de estas últimas.</p>
+        
+        <p>Añadir que las cabinas de discos para backup suelen ser específicas para dicho cometido y diferentes, en cuanto a sus características, de las cabinas de almacenamiento online para entorno productivos. Así, en la mayoría de los casos, hacen uso de discos mecánicos -frente a opciones de estado sólido o SSD-, grandes -incluso de varios TB- y con una velocidad de rotación no excesiva (7200rpm como ejemplo aproximado).</p>
+        
+        <h4>Deduplicación</h4>
+        <p>Como ventaja adicional de las cabinas de almacenamiento en disco aparece, como mecanismo de ahorro y optimización del espacio, el concepto de deduplicación. Se trata de un proceso que divide la información a copiar en bloques o segmentos de datos de tamaño fijo, aplicando sobre cada uno de ellos una operación hash. De esa forma, el sistema ejecuta esta operación hash siempre que haya nuevos datos a ingestar, de forma que no copia aquellos bloques o segmentos cuyo resultado del hash coincida con alguno que ya tiene, añadiendo tan sólo un puntero a la información ya almacenada.</p>
+        
+        <p>La deduplicación, en entornos más o menos estándar, suele ofrecer unos ratios de compresión de entre 3 a 5:1, aunque su efectividad depende en gran medida de la tipología de los datos sobre los que se aplique. Así, funciona de forma bastante pobre sobre datos como imágenes -cuyos bloques de datos son muy diferentes entre ellos- y bastante bien entre otros como máquinas virtuales -todas ellas con una gran parte común- o ficheros -que en la mayoría de los casos se ha modificado una pequeña parte de ellos-.</p>
+        
+        <div class="ejemplo-deduplicacion">
+            <h4>Ejemplo de deduplicación</h4>
+            <p>Para aclarar estos conceptos vamos a poner un ejemplo. Supongamos que queremos hacer backup de tres máquinas virtuales cuyo fichero de contenido es similar (al ser el sistema operativo y otras configuraciones coincidentes):</p>
+            
+            <div class="maquina-virtual">
+                <p>Máquina virtual 1, formada por los bloques de datos A – B – C – D – E:</p>
+                <div class="bloques">
+                    <div class="bloque">A</div>
+                    <div class="bloque">B</div>
+                    <div class="bloque">C</div>
+                    <div class="bloque">D</div>
+                    <div class="bloque">E</div>
+                </div>
+            </div>
+            
+            <div class="maquina-virtual">
+                <p>Máquina virtual 2, formada por los bloques de datos A – B – F – G – H:</p>
+                <div class="bloques">
+                    <div class="bloque">A</div>
+                    <div class="bloque">B</div>
+                    <div class="bloque">F</div>
+                    <div class="bloque">G</div>
+                    <div class="bloque">H</div>
+                </div>
+            </div>
+            
+            <div class="maquina-virtual">
+                <p>Máquina virtual 3, formada por los bloques de datos A – B – I - J - E:</p>
+                <div class="bloques">
+                    <div class="bloque">A</div>
+                    <div class="bloque">B</div>
+                    <div class="bloque">I</div>
+                    <div class="bloque">J</div>
+                    <div class="bloque">E</div>
+                </div>
+            </div>
+            
+            <div class="proceso-deduplicacion">
+                <div class="paso">
+                    <p>Si realizamos un backup completo de la máquina virtual 1 tendremos:</p>
+                    <div class="bloques">
+                        <div class="bloque">A</div>
+                        <div class="bloque">B</div>
+                        <div class="bloque">C</div>
+                        <div class="bloque">D</div>
+                        <div class="bloque">E</div>
+                    </div>
+                    <p class="etiqueta">Backup completo de la máquina virtual 1</p>
+                </div>
+                
+                <div class="paso">
+                    <p>Si ahora queremos realizar un backup completo de la máquina virtual 2, tendríamos que copiar los datos A – B – F – G – H, pero los datos A y B ya están en nuestro sistema de backup, con lo que no es necesario copiarlos y tan sólo hace falta apuntar a ellos:</p>
+                    <div class="deduplicacion-diagram">
+                        <div class="bloques">
+                            <div class="bloque">A</div>
+                            <div class="bloque">B</div>
+                            <div class="bloque">C</div>
+                            <div class="bloque">D</div>
+                            <div class="bloque">E</div>
+                        </div>
+                        <p class="etiqueta">Backup completo de la máquina virtual 1</p>
+                        
+                        <div class="punteros">
+                            <div class="puntero">↑</div>
+                            <div class="puntero">↑</div>
+                            <div class="bloque">F</div>
+                            <div class="bloque">G</div>
+                            <div class="bloque">H</div>
+                        </div>
+                        <p class="etiqueta">Backup completo de la máquina virtual 2</p>
+                    </div>
+                </div>
+                
+                <div class="paso">
+                    <p>Lo mismo ocurre con el backup completo necesario para la máquina virtual 3, de la que, de los bloques A – B – I - J – E, tan sólo es necesario copiar de nuevo los dos intermedios:</p>
+                    <div class="deduplicacion-diagram">
+                        <div class="bloques">
+                            <div class="bloque">A</div>
+                            <div class="bloque">B</div>
+                            <div class="bloque">C</div>
+                            <div class="bloque">D</div>
+                            <div class="bloque">E</div>
+                        </div>
+                        <p class="etiqueta">Backup completo de la máquina virtual 1</p>
+                        
+                        <div class="punteros">
+                            <div class="puntero">↑</div>
+                            <div class="puntero">↑</div>
+                            <div class="bloque">F</div>
+                            <div class="bloque">G</div>
+                            <div class="bloque">H</div>
+                        </div>
+                        <p class="etiqueta">Backup completo de la máquina virtual 2</p>
+                        
+                        <div class="punteros">
+                            <div class="puntero">↑</div>
+                            <div class="puntero">↑</div>
+                            <div class="bloque">I</div>
+                            <div class="bloque">J</div>
+                            <div class="puntero">↑</div>
+                        </div>
+                        <p class="etiqueta">Backup completo de la máquina virtual 3</p>
+                    </div>
+                </div>
+                
+                <div class="resultado">
+                    <p>Como vemos en nuestro ejemplo, tenemos una reducción de 1,5 a 1 (1,5:1) ya que de los 15 datos a respaldar tan sólo ha resultado necesario copiar 10. Sería de esperar que a medida que el sistema de backup ingestara más datos, ese ratio se incrementara, al disponer de más datos con los que comparar.</p>
+                </div>
+            </div>
+        </div>
+        
+        <p>Finalmente, resulta importante no confundir los mecanismos de deduplicación y compresión, dado que, aunque ambas son técnicas que buscan reducir el volumen de los datos a almacenar, pero las técnicas utilizadas son muy diferentes en cada caso.</p>
+        
+        <div class="comparativa">
+            <h4>Comparativa: Deduplicación vs Compresión</h4>
+            <table>
+                <tr>
+                    <th>Característica</th>
+                    <th>Deduplicación</th>
+                    <th>Compresión</th>
+                </tr>
+                <tr>
+                    <td>Funcionamiento</td>
+                    <td>Elimina bloques de datos duplicados</td>
+                    <td>Reduce el tamaño de los datos mediante algoritmos</td>
+                </tr>
+                <tr>
+                    <td>Nivel de operación</td>
+                    <td>A nivel de bloques de datos</td>
+                    <td>A nivel de bits y bytes</td>
+                </tr>
+                <tr>
+                    <td>Efectividad según datos</td>
+                    <td>Alta en datos con muchas repeticiones (VMs, ficheros)</td>
+                    <td>Más uniforme en diferentes tipos de datos</td>
+                </tr>
+                <tr>
+                    <td>Recursos necesarios</td>
+                    <td>Mayor uso de CPU y memoria</td>
+                    <td>Menor uso de recursos</td>
+                </tr>
+            </table>
+        </div>
+    </span>
+
+    <span id="4020504004">
+        <h3>5.4.3 LIBRERÍAS DE CINTAS VIRTUALES (VTL)</h3>
+        <p>Las librerías de cintas virtuales o Virtual Tape Library -VTL- en la terminología inglesa podría decirse que es un híbrido entre las dos opciones de almacenamiento anteriores. Como su nombre indica, se trata de un sistema basado en disco cuyo comportamiento imita o emula al de una biblioteca de cintas físicas.</p>
+        
+        <div class="vtl-info">
+            <h4>Características de las VTL</h4>
+            <ul>
+                <li>Combinan la velocidad y facilidad de acceso de los discos</li>
+                <li>Mantienen la compatibilidad con software diseñado para cintas</li>
+                <li>Eliminan la necesidad de manipulación física de medios</li>
+                <li>Permiten una transición gradual de cintas físicas a almacenamiento en disco</li>
+                <li>Suelen incluir capacidades de deduplicación</li>
+            </ul>
+        </div>
+    </span>
+
+    <span id="4020504005">
+        <h3>5.4.4 ALMACENAMIENTO EN LA NUBE</h3>
+        <p>La búsqueda de ubicaciones offsite para alojar segundas o terceras copias del backup es un requisito creciente en nuestros días. Como más adelante veremos, las principales motivaciones para ello son tanto de seguridad como de garantías de recuperación.</p>
+        
+        <p>Para estos casos, el almacenamiento de una copia del backup aparece como una buena opción. Proveedores de computación en la nube, como pueden ser Amazon con AWS o Microsoft con Azure ofrecen el almacenamiento de este tipo de información como servicio, atendiendo a un pago mensual en función del volumen de información almacenada o del trasiego de la misma. En la mayoría de los casos, el mayor coste suele provenir de la descarga de dicha información al realizar su restauración, lo que lleva a que la información adecuada para este formato será aquella cuya probabilidad de restauración no es muy elevada.</p>
+        
+        <p>Otro punto a tener en cuenta es que, si tenemos el sistema de backup en instalaciones propias y una copia del backup en la nube, habrá que considerar el ancho de banda ofrecido por la conexión entre ambas instalaciones, pudiendo suponer un importante hándicap a la hora de realizar restauraciones de grandes volúmenes de información.</p>
+        
+        <div class="cloud-backup-info">
+            <h4>Consideraciones para el backup en la nube</h4>
+            <div class="consideraciones">
+                <div class="consideracion">
+                    <h5>Costes</h5>
+                    <ul>
+                        <li>Almacenamiento (generalmente bajo)</li>
+                        <li>Transferencia de datos (subida)</li>
+                        <li>Recuperación de datos (generalmente más costosa)</li>
+                        <li>Modelo de pago por uso</li>
+                    </ul>
+                </div>
+                <div class="consideracion">
+                    <h5>Conectividad</h5>
+                    <ul>
+                        <li>Ancho de banda necesario</li>
+                        <li>Latencia en la recuperación</li>
+                        <li>Dependencia de la conexión a Internet</li>
+                    </ul>
+                </div>
+                <div class="consideracion">
+                    <h5>Seguridad</h5>
+                    <ul>
+                        <li>Cifrado en tránsito y en reposo</li>
+                        <li>Aislamiento de los datos</li>
+                        <li>Cumplimiento normativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020504006">
+        <h3>5.4.5 ESTRATEGIAS DE UBICACIÓN DE COPIAS DE BACKUP</h3>
+        <p>Por otro lado, un punto importante en la estrategia de backup es cómo conjugar la ubicación de las diferentes copias del mismo.</p>
+        
+        <p>Lo habitual es disponer de una segunda o hasta tercera copia del backup. Dado que hoy en día los servicios, por razones de alta disponibilidad, suelen prestarse desde dos ubicaciones, contar con una copia de backup en cada una de esas instalaciones y una tercera en una ubicación offsite no resulta descabellado. Si dicha tercera copia no está continuamente accesible desde los sites principales, agrega además un mecanismo de seguridad ante ataques de cifrados o corrupción de datos, al actuar como cortafuegos.</p>
+        
+        <p>Para la organización de los medios de almacenamiento de esas tres posibles copias pueden darse varias configuraciones. Por ejemplo, las dos primeras a disco en ubicaciones propias -en caso de existir- junto con una tercera en una ubicación cloud. O bien, si disponemos de una librería de cintas magnéticas se podrían pasar a dicho soporte backup que ya tuvieran cierta anitgüedad y una probabilidad de restauración baja.</p>
+        
+        <div class="estrategias-ubicacion">
+            <h4>Ejemplos de estrategias de ubicación</h4>
+            <div class="estrategia">
+                <h5>Estrategia 3-2-1</h5>
+                <p>Una regla común en la industria es la estrategia 3-2-1:</p>
+                <ul>
+                    <li><strong>3</strong> copias de los datos (original + 2 backups)</li>
+                    <li><strong>2</strong> tipos diferentes de medios de almacenamiento</li>
+                    <li><strong>1</strong> copia fuera del sitio (offsite)</li>
+                </ul>
+            </div>
+            <div class="estrategia">
+                <h5>Estrategia por antigüedad</h5>
+                <p>Distribución según la antigüedad de los datos:</p>
+                <ul>
+                    <li>Datos recientes: almacenamiento en disco (rápido acceso)</li>
+                    <li>Datos intermedios: VTL o almacenamiento secundario</li>
+                    <li>Datos antiguos: cintas magnéticas o almacenamiento en la nube de bajo coste</li>
+                </ul>
+            </div>
+        </div>
+    </span>
+    
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .ventajas-desventajas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .ventajas, .desventajas {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .ventajas {
+            background-color: #f0f7f0;
+        }
+        .desventajas {
+            background-color: #fff0f0;
+        }
+        .ventajas h4, .desventajas h4 {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .ejemplo-deduplicacion {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .maquina-virtual {
+            margin-bottom: 15px;
+        }
+        .bloques, .punteros {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .bloque, .puntero {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .bloque {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        .puntero {
+            background-color: transparent;
+            font-size: 24px;
+        }
+        .etiqueta {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .proceso-deduplicacion {
+            margin-top: 20px;
+        }
+        .paso {
+            margin-bottom: 20px;
+        }
+        .deduplicacion-diagram {
+            margin-left: 20px;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .comparativa {
+            margin: 20px 0;
+        }
+        .comparativa table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparativa th, .comparativa td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparativa th {
+            background-color: #f2f2f2;
+        }
+        .vtl-info, .cloud-backup-info {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .consideraciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .consideracion {
+            flex: 1;
+            min-width: 250px;
+        }
+        .consideracion h5 {
+            margin-top: 0;
+            color: #333;
+        }
+        .estrategias-ubicacion {
+            margin: 20px 0;
+        }
+        .estrategia {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .estrategia h5 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</div>

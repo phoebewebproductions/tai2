@@ -1,0 +1,79 @@
+<div class="teoria">
+    <span id="4020401001">
+        <h2>4.1 DISCOS JBOD</h2>
+        <p>En los últimos tiempos se ha difundido el concepto de JBOD como sinónimo de almacenamiento barato para el uso de algunas aplicaciones. Este concepto de JBOD, acrónimo de Just a Bunch of Disks/Drives significa simplemente un puñado o conjunto de discos y se trata de una arquitectura que utiliza múltiples discos duros expuestos como dispositivos individuales.</p>
+        
+        <p>Frente a las configuraciones RAID, JBOD significa que los datos se almacenan en discos duros únicos e independientes, sin que existan mecanismos de redundancia adicionales, por lo que, si uno de dichos discos JBOD falla, los datos almacenados en ese disco probablemente se pierdan.</p>
+        
+        <p>En la mayoría de los casos, las aplicaciones que recomiendan o aceptan el uso de almacenamiento JBOD, suele ser porque la redundancia de la información que manejan es proporcionada por la propia aplicación mediante el mantenimiento de varios juegos de copia de la información.</p>
+        
+        <p>Este es el caso, por ejemplo, de las últimas versiones de la plataforma de correo Exchange Server del fabricante Microsoft, en la que la propia aplicación mantiene varias copias de las bases de datos de buzones de los usuarios, lo que minimiza el impacto de un posible fallo en uno de los discos que las almacena.</p>
+    </span>
+
+    <span id="4020401002">
+        <h2>4.2 DISCOS DE ESTADO SÓLIDO</h2>
+        <p>SSD es el acrónimo de Solid State Drive o lo que es lo mismo unidad de estado sólido. Este término se usa para denominar la nueva generación de dispositivos de almacenamiento. En estos al contrario que ocurre con los discos duros magnéticos mecánicos, se utiliza una memoria formada por semiconductores para almacenar la información parecida a la que puedes encontrar en otros dispositivos como tarjetas de memorias o USBs.</p>
+
+        <h3>Comparativa discos duros magnéticos (HDD) y discos de estado sólido (SSD)</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <table class="border-collapse border w-full">
+                <thead>
+                    <tr>
+                        <th class="border p-2 bg-gray-100">Característica</th>
+                        <th class="border p-2 bg-gray-100">SSD</th>
+                        <th class="border p-2 bg-gray-100">HDD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border p-2">Tiempo de acceso</td>
+                        <td class="border p-2 text-green-600">0.1 ms</td>
+                        <td class="border p-2 text-red-600">5.5 - 8.0 ms</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Rendimiento I/O aleatorio</td>
+                        <td class="border p-2 text-green-600">6000 io/s</td>
+                        <td class="border p-2 text-red-600">400 io/s</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Tasa de fallos</td>
+                        <td class="border p-2 text-green-600">0.5%</td>
+                        <td class="border p-2 text-red-600">2 - 5%</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Consumo de energía</td>
+                        <td class="border p-2 text-green-600">2 - 5 watts</td>
+                        <td class="border p-2 text-red-600">6 - 15 watts</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Uso de CPU (I/O wait)</td>
+                        <td class="border p-2 text-green-600">1%</td>
+                        <td class="border p-2 text-red-600">7%</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Tiempo de petición I/O en backup</td>
+                        <td class="border p-2 text-green-600">20 ms</td>
+                        <td class="border p-2 text-red-600">400 - 500 ms</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">Tiempo de backup completo</td>
+                        <td class="border p-2 text-green-600">6 horas</td>
+                        <td class="border p-2 text-red-600">20 - 24 horas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="border p-4 rounded-lg bg-gray-50">
+                <h4 class="font-bold mb-2">Puntos clave de la comparativa:</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Los SSD son aproximadamente 15 veces más rápidos que los HDD en rendimiento I/O aleatorio</li>
+                    <li>Los SSD son 4-10 veces más fiables que los HDD</li>
+                    <li>El ahorro energético en servidores grandes puede llegar a 100 watts</li>
+                    <li>Los SSD permiten un acceso a datos mucho más rápido</li>
+                    <li>Los backups son 3-5 veces más rápidos en SSD</li>
+                </ul>
+            </div>
+        </div>
+    </span>
+</div>

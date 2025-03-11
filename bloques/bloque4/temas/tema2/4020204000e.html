@@ -1,0 +1,178 @@
+<div class="teoria">
+    <span id="4020204001">
+        <h2>2.4. LENGUAJE DEL MODELO RELACIONAL</h2>
+        <p>El Structured Query Language o SQL es un lenguaje declarativo de acceso a bases de datos que combina construcciones del álgebra relacional y el cálculo relacional. Actualmente es el estándar de facto de los SGBD comerciales y cumple con la anterior regla 5 de Codd.</p>
+        <p>Fue originalmente desarrollado en los años 70 del siglo pasado por IBM en su Research Laboratory de San José, a partir del cálculo de predicados creado por Codd.</p>
+        <p>Durante este tiempo sus principales hitos de desarrollo y estándares han sido los siguientes:</p>
+        <ul>
+            <li>SEQUEL (Structured English QUEry Language). Creación por IBM en el año 1976.</li>
+            <li>SQL-86 (ANSI SQL). Versión de la American National Standards Institute. (1986).</li>
+            <li>SQL-89 (SQL1). Revisión del estándar el año 1989.</li>
+            <li>SQL-92 (SQL2). Se realiza una revisión profunda del estándar (1992).</li>
+            <li>SQL:1999 (SQL3). Añade disparadores junto con funcionalidad de la orientación a objetos.</li>
+            <li>SQL:2003. Incorpora el lenguaje XML, junto a secuencias y columnas auto-numéricas.</li>
+        </ul>
+        <p>Las operaciones o sentencias de SQL se engloban en los diferentes tipos:</p>
+        <ul>
+            <li>DDL. Sentencias de definición de datos o Data Definition Language. Engloba las operaciones de CREATE, ALTER, DROP, TRUNCATE y RENAME.</li>
+            <li>DML. Sentencias de manipulación de datos o Data Manipulation Language. Engloba las operaciones de SELECT, INSERT, UPDATE y DELETE.</li>
+            <li>DCL. Sentencias de control de la seguridad e integridad de los datos o Data Control Language. Engloba las operaciones de GRANT y REVOKE.</li>
+            <li>TCL. Sentencias de control de las transacciones o Transaction Control Language. Engloba las operaciones de COMMIT y ROLLBACK.</li>
+        </ul>
+        <p>Sentencias del lenguaje SQL: Statement Query Language</p>
+    </span>
+
+    <span id="4020204002">
+        <h3>2.4.1. LENGUAJES DE DEFINICIÓN DE DATOS O DDL</h3>
+        <p>Los comandos del lenguaje de definición de datos -Data Definition Language o DDL- se utilizan para definir o modificar la estructura de los objetos del modelo de la base de datos:</p>
+        <ul>
+            <li><strong>CREATE.</strong> Permite la creación de nuevos objetos, tales como bases de datos, tablas, vistas o procedimientos almacenados.
+                <p>Ejemplo de creación de una base de datos: CREATE DATABASE db_curso o de creación una tabla: CREATE TABLE alumnos</p>
+            </li>
+            <li><strong>ALTER.</strong> Permite modificar (alterar) la estructura de un cierto objeto.
+                <p>Ejemplo: Agregación de campos a una tabla: ALTER TABLE alumnos ADD edad INT, o modificación de un trigger -disparador--: ALTER TRIGGER matricula ENABLE.</p>
+            </li>
+            <li><strong>DROP.</strong> Elimina un objeto (tabla, vista, índice, trigger, función, procedimiento o cualquier otro objeto) de la base de datos.
+                <p>Ejemplo: Eliminación de una tabla: DROP TABLE alumnos.</p>
+            </li>
+            <li><strong>TRUNCATE.</strong> Sólo aplica a tablas y su función es borrar el contenido completo de la tabla especificada. En comparación con DELETE:
+                <ul>
+                    <li>Es mucho más rápido, especialmente si la tabla es muy grande.</li>
+                    <li>Sólo sirve cuando se quiere eliminar absolutamente todos los registros, ya que TRUNCATE no permite la cláusula WHERE.</li>
+                </ul>
+                <p>Pese a parecer una sentencia DML es DDL, ya que internamente, el comando TRUNCATE borra la tabla y la vuelve a crear, sin ejecutar ninguna transacción.</p>
+                <p>Ejemplo: TRUNCATE TABLE alumnos.</p>
+            </li>
+        </ul>
+    </span>
+
+    <span id="4020204003">
+        <h3>2.4.2. LENGUAJES DE MODIFICACIÓN DE DATOS O DML</h3>
+        <p>Los comandos del lenguaje de manipulación de los datos o Data Manipulation Language -DML- se utilizan para manipular los datos del modelo de la base de datos:</p>
+        <ul>
+            <li><strong>SELECT.</strong> Permite consultar los datos almacenados en una tabla de la base de datos. Su estructura básica es la siguiente:
+                <pre>
+SELECT [{ALL|DISTINCT}]
+&lt;nombre_campo&gt;[, &lt;nombre_campo&gt;...]
+FROM {&lt;nombre_tabla&gt;|&lt;nombre_vista&gt;}[,
+{&lt;nombre_tabla&gt;|&lt;nombre_vista&gt;}...]
+[WHERE &lt;condición&gt; [{AND|OR} &lt;condición&gt;...]]
+[GROUP BY &lt;nombre_campo&gt;[, &lt;nombre_campo&gt;...]]
+[HAVING &lt;condición&gt; [{AND|OR} &lt;condición&gt;...]]
+[ORDER BY {&lt;nombre_campo&gt;|&lt;indice_campo&gt;} [{ASC|DESC}][,
+{&lt;nombre_campo&gt;|&lt;indice_campo&gt;} [{ASC|DESC}]]];
+                </pre>
+                <ul>
+                    <li>SELECT. Palabra clave que identifica la sentencia de SQL de selección.</li>
+                    <li>ALL. Indica que se seleccionarán todos los valores (por defecto, no suele incluirse).</li>
+                    <li>DISTINCT. Indica que queremos seleccionar solo los valores distintos.</li>
+                    <li>FROM Indica la tabla (o tablas) de las que se recuperarán los datos.</li>
+                    <li>WHERE. Especifica la condición a cumplir por los datos a recuperar por la consulta. Admite los operadores lógicos AND y OR.</li>
+                    <li>GROUP BY. Especifica la agrupación que se da a los datos. Se usa siempre en combinación con funciones agregadas.</li>
+                    <li>HAVING. Especifica una condición que debe cumplirse para el conjunto de los datos devueltos por la consulta. Debe aplicarse siempre junto a GROUP BY y la condición debe estar referida a los campos contenidos en ella.</li>
+                    <li>ORDER BY. Ordena (ascendente ASC o descendente DESC) el resultado de la consulta las columnas indicadas. El valor predeterminado es ASC.</li>
+                </ul>
+                <p>Ejemplo:</p>
+                <pre>
+SELECT nombre, apellidos, direccion, edad
+FROM alumnos
+WHERE edad > 20
+ORDER BY edad DESC
+                </pre>
+            </li>
+            <li><strong>INSERT.</strong> Agrega uno o más registros a una tabla en una base de datos relacional. En un comando INSERT la agregación se hará sobre una única tabla. Su estructura básica es la siguiente:
+                <pre>
+INSERT INTO tabla(columnaA, [columnaB, ...])
+VALUES ('valor1', ['valor2', ...]);
+                </pre>
+                <ul>
+                    <li>INSERT. Palabra clave que identifica la sentencia de SQL de inserción.</li>
+                    <li>VALUES. Especifica los valores que se insertarán.</li>
+                    <li>El número de columnas y valores en la sentencia debe ser el mismo.</li>
+                </ul>
+                <p>Ejemplo:</p>
+                <pre>
+INSERT INTO alumnos (nombre, apellido1, apellidos2, edad)
+VALUES ('pepito','perez','gonzalez', 22);
+                </pre>
+            </li>
+            <li><strong>UPDATE.</strong> Modifica los valores de un conjunto de registros existentes en una tabla. Su estructura básica es la siguiente:
+                <pre>
+UPDATE table SET field1 = 'updated value' WHERE field2 = 'N';
+                </pre>
+                <ul>
+                    <li>UPDATE. Palabra clave que identifica la sentencia de SQL de actualización.</li>
+                    <li>SET. Establece los campos a modificar junto con los nuevos valores para ellos.</li>
+                    <li>WHERE. Condición que selecciona las tuplas que se modificarán con la sentencia.</li>
+                </ul>
+                <p>Ejemplo: UPDATE alumnos SET edad = 23 WHERE nombre='Pepito';</p>
+            </li>
+            <li><strong>DELETE.</strong> Borra uno o más registros existentes en una tabla. Su estructura básica es la siguiente:
+                <pre>
+DELETE FROM tabla WHERE columna1 = 'valor1';
+                </pre>
+                <ul>
+                    <li>DELETE. Palabra clave que identifica la sentencia de SQL de borrado.</li>
+                    <li>FROM. Indica la tabla (o tablas) de las que se borrarán los datos.</li>
+                    <li>WHERE. Condición que selecciona las tuplas que se borrarán con la sentencia.</li>
+                </ul>
+                <p>Ejemplo: DELETE FROM alumnos WHERE edad < 18;</p>
+            </li>
+            <li><strong>RENAME.</strong> Permite cambiar de nombre un objeto de la base de datos. Su estructura básica es la siguiente:
+                <pre>
+RENAME OBJECT `current_table_name` TO` new_table_name`
+                </pre>
+                <ul>
+                    <li>RENAME. Palabra clave que identifica la sentencia de SQL de renombrado.</li>
+                    <li>OBJECT. Indica el tipo de objeto que se renombrará, pudiendo ser TABLE, DATABASE, COLUMN, INDEX, TRIGGER, etc.</li>
+                    <li>TO. Establece el nuevo nombre que tomará el objeto afectado por el cambio.</li>
+                </ul>
+                <p>Ejemplo: RENAME TABLE `current_table_name` TO` new_table_name`;</p>
+            </li>
+        </ul>
+    </span>
+
+    <span id="4020204004">
+        <h3>2.4.3. LENGUAJES DE CONTROL DE DATOS O DCL</h3>
+        <p>Los comandos del lenguaje de control de los datos o Data Control Language -DCL- se utilizan para manipular los datos del modelo de la base de datos:</p>
+        <ul>
+            <li><strong>GRANT.</strong> Asigna permisos a uno o varios usuarios o roles sobre para realizar ciertas operaciones sobre una base de datos. Su estructura básica es la siguiente:
+                <pre>
+GRANT &lt;derecho1&gt;, &lt;derecho2&gt;…
+ON TABLE &lt;nombre tabla&gt;
+TO &lt;usuario1&gt;, &lt;usuario2&gt; ...;
+                </pre>
+                <ul>
+                    <li>GRANT. Palabra clave que identifica la sentencia SQL de asignación de permisos.</li>
+                    <li>ALL/CREATE/INSERT/UPDATE/SELECT. Tipo de permiso que se asignará.</li>
+                    <li>ON. Identifica el objeto de la base de datos sobre el que se asignarán los permisos.</li>
+                    <li>TO. Identifica el usuario de la base de datos al que se asignarán los permisos.</li>
+                </ul>
+                <p>Ejemplo: GRANT ALL/INSERT/UPDATE/SELECT ON alumnos TO user_administrator;</p>
+            </li>
+            <li><strong>REVOKE.</strong> Retira los permisos a uno o varios usuarios o roles sobre para realizar ciertas operaciones sobre una base de datos. Su estructura básica es la siguiente:
+                <pre>
+REVOKE &lt;derecho1&gt;, &lt;derecho2&gt;, ...
+ON TABLE &lt;nombre tabla&gt;
+FROM &lt;usuario1&gt;, &lt;usuario2&gt; ...;
+                </pre>
+                <ul>
+                    <li>REVOKE. Palabra clave que identifica la sentencia SQL de retirada de permisos.</li>
+                    <li>ALL/CREATE/INSERT/UPDATE/SELECT. Tipo de permiso que se asignará.</li>
+                    <li>ON. Identifica el objeto de la base de datos sobre el que se asignarán los permisos.</li>
+                    <li>TO. Identifica el usuario de la base de datos al que se asignarán los permisos.</li>
+                </ul>
+                <p>Ejemplo: REVOKE ALL/INSERT/UPDATE/SELECT ON alumnos TO user_administrator;</p>
+            </li>
+        </ul>
+    </span>
+
+    <span id="4020204005">
+        <h3>2.4.4. LENGUAJES DE CONTROL DE LAS TRANSACCIONES O TCL</h3>
+        <p>Los comandos del lenguaje de control de las transacciones o Transaction Control Language -TCL- se utilizan para gestionar el estado de las transacciones que se ejecutan sobre la base de datos.</p>
+        <ul>
+            <li><strong>COMMIT.</strong> Finaliza una transacción sobre una base de datos, haciendo permanentes sus cambios sobre ella.</li>
+            <li><strong>ROLLBACK.</strong> Realiza una reversión de los cambios efectuados por una transacción sobre una base de datos hasta el momento del último COMMIT. De esa forma, los cambios revertidos quedan sin efecto sobre la base de datos.</li>
+        </ul>
+    </span>
+</div>

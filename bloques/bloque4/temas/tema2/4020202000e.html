@@ -1,0 +1,56 @@
+<div class="teoria">
+    <span id="4020202001">
+        <h2>2.2. REGLAS DE INTEGRIDAD EN EL MODELO RELACIONAL</h2>
+        <p>Para asegurar que los datos almacenados en la base de datos son correctos y consistentes en todo momento, el modelo relacional debe tener en cuenta las siguientes reglas de integridad (también conocidas como integrity constraints).</p>
+        <p>Para una mejor comprensión vamos a utilizar este mismo caso anterior de las relaciones Empleados y Centros a modo de ejemplo.</p>
+        <p>Claves primarias y foráneas en las relaciones</p>
+    </span>
+    
+    <span id="4020202002">
+        <h3>2.2.1. REGLA DE INTEGRIDAD DE ENTIDAD</h3>
+        <p>Regla de integridad de entidad (entity integrity constraint). Establece que la clave primaria o primary key de una relación:</p>
+        <ul>
+            <li>La o las columnas que forman la clave primaria, no pueden aceptar NULL.</li>
+            <li>No se pueden repetir valores en la o las columnas, deben ser únicos.</li>
+            <li>Solamente puede existir una clave primaria por cada relación.</li>
+        </ul>
+        <p>Ejemplo: En el caso anterior se cumple esta regla de integridad, puesto que tanto el atributo clave Id_empleado de la relación Empleados, como el atributo clave NombreC de la relación Centros, toman valores no nulos en todos los casos.</p>
+    </span>
+    
+    <span id="4020202003">
+        <h3>2.2.2. REGLA DE INTEGRIDAD REFERENCIAL</h3>
+        <p>Regla de integridad referencial (referential integrity constraint). Un atributo que actúa como clave foránea en una relación, referencia a una clave primaria de otra relación, por lo que debe asegurarse de que ese valor referenciado existe en la otra relación.</p>
+        <p>Ejemplo: En el caso anterior se cumple esta regla de integridad, puesto que el atributo Centros, clave foránea en la relación Empleados, toma en todos los casos valores existentes en el atributo NombreC, clave primaria de la relación Centros a la que hace referencia.</p>
+        <p>Adicionalmente, para mantener la integridad referencial, resulta necesario que, cuando se opera (borrados o actualizaciones) sobre una clave primaria con cierto valor, se tome alguna acción con respecto a la clave foránea correspondiente, con esos valores, en caso de existir. Las opciones habituales en este sentido son las siguientes:</p>
+        <ul>
+            <li><strong>RESTRICT.</strong> No permite borrar un registro cuyo valor de clave primaria exista como clave secundaria en otra relación. Por ejemplo, la sentencia DELETE FROM Centros WHERE NombreC='Informatica'; daría un mensaje similar al de abajo, puesto que ese borrado provocaría una inconsistencia dejando huérfanos de Centro a varios registros de la tabla Empleados:
+                <p>cannot delete or update a parent row: a foreign key constraint fails (database, CONSTRAINT xxx_xxx_X FOREIGN KEY (centros) REFERENCES Centros (NombreC))</p>
+                <p>De esa forma, para poder borrar un registro cuyo valor de clave primaria estuviese actuando también como clave foránea en otra tabla, habría que borrar primero todos los registros de esa segunda tabla que tuvieran el mismo valor que la clave primaria en la primera tabla. Esto es, para borrar de la tabla Centros el elemento cuyo NombreC='Informatica' habría que borrar primero los elementos de la tabla Empleados asociados a ese Centro (valor del atributo Centro='Informatica').</p>
+                <p>En cambio, esta aproximación sí permitiría el borrado o la modificación de un registro cuyo valor de la clave primaria no existiera como valor de ninguna clave foránea. Por ejemplo, DELETE FROM Centros WHERE NombreC='Medicina'; en caso de existir ese centro en la tabla de Centros.</p>
+            </li>
+            <li><strong>CASCADE.</strong> Borra o actualiza los registros de la tabla dependiente cuando se borra o actualiza el registro con el valor correspondiente de la clave referenciada.
+                <p>Con este enfoque, la sentencia DELETE FROM Centros WHERE NombreC='Informatica'; borraría también, en cascada, el primer y último registro de la tabla Empleados cuyo valor del campo Centro es igual a 'Informatica'.</p>
+                <p>De la misma forma, una sentencia de actualización como, por ejemplo, UPDATE Centros SET NombreC = 'TIC' WHERE NombreC = 'Informatica'; haría que el valor del campo Centro de la primera y última fila de la tabla Empleados pasase a tener ese mismo valor 'TIC'.</p>
+            </li>
+            <li><strong>SET NULL.</strong> Establece a valor NULL el campo clave foránea de los registros afectados de la tabla dependiente cuando se borra o actualiza el registro con el valor correspondiente de la clave referenciada.
+                <p>Con este enfoque, la sentencia DELETE FROM Centros WHERE NombreC='Informatica'; pondría a valor NULL el primer y último registro de la tabla Empleados cuyo valor del campo Centro es igual a 'Informatica'.</p>
+                <p>De la misma forma, una sentencia de actualización como, por ejemplo, UPDATE Centros SET NombreC = 'TIC' WHERE NombreC = 'Informatica'; haría que el valor del campo Centro de la primera y última fila de la tabla Empleados pasase a tener valor NULL.</p>
+            </li>
+        </ul>
+    </span>
+    
+    <span id="4020202004">
+        <h3>2.2.3. REGLA DE INTEGRIDAD DE LA CLAVE</h3>
+        <p>Regla de integridad de la clave (key integrity constraint). Cada relación debe tener una clave que identifique de manera única cada tupla de dicha relación.</p>
+        <p>Ejemplo: En el caso anterior se cumple esta regla de integridad, puesto que tanto el atributo clave Id_empleado de la relación Empleados, como el atributo clave NombreC de la relación Centros, actúan como identificadores de las tuplas de cada relación.</p>
+    </span>
+    
+    <span id="4020202005">
+        <h3>2.2.4. REGLAS DE INTEGRIDAD PARA RESTRINGIR LOS VALORES ADMITIDOS</h3>
+        <p>Reglas de integridad para restringir los valores admitidos para un determinado atributo. Permite restringir los valores que podrá tomar un determinado atributo. Un ejemplo de definición de este tipo de constraint es el que se muestra abajo, en el que, mediante la restricción tablaPrueba_Restriccion1, se establece que el atributo columna1 de la tabla tablaPrueba debe tomar forzosamente un valor igual a 10, 20, 30 o 40.</p>
+        <pre>
+ALTER TABLE tablaPrueba
+ADD CONSTRAINT tablaPrueba_Restriccion1 CHECK (columna1 IN (10,20,30,40));
+        </pre>
+    </span>
+</div>

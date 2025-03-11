@@ -1,0 +1,311 @@
+<div class="teoria">
+    <span id="4020503001">
+        <h2>5.3 SISTEMAS DE BACKUP: PRINCIPALES ROLES Y ELEMENTOS</h2>
+        <p>Los sistemas de backup modernos están compuestos por diversos elementos y roles que trabajan conjuntamente para garantizar la correcta salvaguarda y recuperación de la información. En esta sección analizaremos los principales componentes de estos sistemas.</p>
+    </span>
+
+    <span id="4020503002">
+        <h3>5.3.1 EL CATÁLOGO DE BACKUP</h3>
+        <p>El catálogo de backup es el elemento del sistema que guarda la información sobre el histórico del backup. Esto es, se trata de una especie de índice de backups, que es utilizado por el sistema para seguirles la pista y poder realizar su gestión.</p>
+        
+        <p>De esa forma, el catálogo permite al sistema de backup:</p>
+        <ul>
+            <li>Conocer los backups que se han realizado anteriormente, junto con su información principal, de forma que le permita tomar decisiones, como, por ejemplo, establecer si una determinada operación de restore es factible.</li>
+            <li>Conocer los recursos asociados a cada uno de dichos backups, esto es medios o unidades de almacenamiento, cintas magnéticas en caso de que aplique, estados del backup o logs asociados, etc.</li>
+        </ul>
+        
+        <p>De alguna forma, el catálogo de backup actúa como índice de los backup, de tal forma que permite al sistema la realización de su gestión (estado de los backups, apoyo en la realización de restores, consumo de los recursos como los medios de almacenamiento, etc.).</p>
+        
+        <p>Aunque pueda resultar paradójico, al resultar una pieza fundamental del sistema, resulta necesario establecer una política de backup para el propio catálogo de backup.</p>
+        
+        <div class="tabla-container">
+            <h4>Contenido del catálogo de backup</h4>
+            <table class="tabla-contenido">
+                <tr>
+                    <th>Contenido del catálogo</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Backups creados para un cierto elemento</td>
+                    <td>Incluye un índice completo de todos los backups realizados para un determinado elemento, con independencia del tipo que sea.</td>
+                </tr>
+                <tr>
+                    <td>ID de cada backups</td>
+                    <td>Mecanismo de identificación de los backups</td>
+                </tr>
+                <tr>
+                    <td>Indicador de si un backup está aún ejecutándose</td>
+                    <td>Flag que indica si aún un backup se encuentra en ejecución -running-.</td>
+                </tr>
+                <tr>
+                    <td>Tiempos de inicio y finalización de los backups</td>
+                    <td>El sistema conoce los tiempos de inicio y de finalización.</td>
+                </tr>
+                <tr>
+                    <td>Estado o Status de los backup</td>
+                    <td>Los principales estados (status) de los backup suelen ser: running, successfull, failed, canceled o pending.</td>
+                </tr>
+                <tr>
+                    <td>Volúmenes de cada backup</td>
+                    <td>Los backups pueden agruparse en diferentes volúmenes.</td>
+                </tr>
+                <tr>
+                    <td>Destino de los backup y sus tamaños</td>
+                    <td>El sistema debe ser capaz de ubicar en qué unidad de almacenamiento se encuentran los backup y su tamaño.</td>
+                </tr>
+                <tr>
+                    <td>Enlaces a los logs de los backups</td>
+                    <td>Ubicación de los logs de actividad de cada backup.</td>
+                </tr>
+                <tr>
+                    <td>Ubicación de la raíz y cadena de encriptación</td>
+                    <td>En el caso de que los backups estén cifrados, resulta necesario acceder tanto a la raíz como a la cadena de encriptación para realizar ciertas operaciones sobre ellos.</td>
+                </tr>
+            </table>
+        </div>
+    </span>
+
+    <span id="4020503003">
+        <h3>5.3.2 PRINCIPALES ROLES DE LOS NODOS DE PROCESO DE LOS SISTEMAS DE BACKUP</h3>
+        <p>En un sistema de backup, los roles de los nodos de proceso más habituales son los siguientes:</p>
+        
+        <div class="roles-container">
+            <div class="rol-card">
+                <h4>Master server o cerebro del backup</h4>
+                <p>Es el principal rol gestor del sistema de backup. Desde este rol se realizan tanto las principales labores de administración -procesos de backup, parcheado, actualizaciones, etc- y operación del sistema como las principales configuraciones (catálogo de backup, políticas de backup, espacios de almacenamiento, etc.).</p>
+                <p>Además, en la mayoría de los casos, la realización de las propias tareas de backup y restore depende de la disponibilidad de los masters servers. Por eso, dada la importancia de este rol, suelen configurarse para él soluciones de alta disponibilidad -clusters, balanceo de carga o, al menos, planes manuales de contingencia dependiendo de la compatibilidad del producto de backup concreto de que se trate-.</p>
+            </div>
+            
+            <div class="rol-card">
+                <h4>Media Server</h4>
+                <p>Son los nodos del sistema de backup que tienen acceso a la capa de almacenamiento -ya sean cintas físicas, cintas virtuales o discos-. De esa forma, al ver y tener acceso a dichos espacios de almacenamiento, pueden realizar sus propios backup hacia ellos directamente, junto con la posibilidad de realizar también el backup de otros clientes, que los usan como acceso al almacenamiento.</p>
+                <p>Aquellos nodos que manejen un volumen muy alto de información a respaldar serán los candidatos ideales para convertirse en media server. De esa forma, se evita el trasiego de toda esa información hacia los nodos master server anteriores. Ejemplo de este tipo de servidores serían los que alojen bases de datos, ficheros o nodos que alberguen buzones de correo electrónico.</p>
+            </div>
+            
+            <div class="rol-card">
+                <h4>Clientes del backup</h4>
+                <p>Son aquellos servidores o nodos de cuya información se hace backup por parte del sistema. En ocasiones puede resultar necesario instalarles un agente de backup y registrarlos ante el servidor master de backup. En cualquier caso, deben comunicarse con dicho rol para realizar tanto el backup como la restauración de su información.</p>
+            </div>
+        </div>
+        
+        <div class="arquitectura-backup">
+            <h4>Arquitectura típica de un sistema de backup</h4>
+            <div class="diagrama">
+                <div class="nivel nivel-1">
+                    <div class="nodo master">Master Server</div>
+                </div>
+                <div class="nivel nivel-2">
+                    <div class="nodo media">Media Server 1</div>
+                    <div class="nodo media">Media Server 2</div>
+                </div>
+                <div class="nivel nivel-3">
+                    <div class="nodo cliente">Cliente 1</div>
+                    <div class="nodo cliente">Cliente 2</div>
+                    <div class="nodo cliente">Cliente 3</div>
+                    <div class="nodo cliente">Cliente 4</div>
+                </div>
+                <div class="nivel nivel-4">
+                    <div class="almacenamiento">Unidades de almacenamiento (discos, cintas, etc.)</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020503004">
+        <h3>5.3.3 LA CONFIGURACIÓN DE LAS POLÍTICAS DE BACKUP</h3>
+        <p>La política de backup es el conjunto de definiciones o configuraciones que marcan las principales características de la salvaguarda que se aplicará a una cierta información. Suelen incluir:</p>
+        
+        <div class="politicas-container">
+            <div class="politica-item">
+                <h4>Ventana de backup</h4>
+                <p>Franja temporal en la que se realizará la copia de seguridad de los datos. Suele definirse como el momento de inicio del proceso de copia, por ejemplo, backup full el domingo a la 1h A.M.</p>
+            </div>
+            
+            <div class="politica-item">
+                <h4>Establecimiento de la cadena de backup a realizar</h4>
+                <p>Por supuesto, como ya se ha visto, esta estrategia dependerá de las necesidades de restauración y de la periodicidad de los cambios en los datos de la información objeto del backup.</p>
+                <p>Como ejemplo, se podría planificar un backup full o completo semanal -por ejemplo, los domingos-, e incrementales o diferenciales el resto de los días.</p>
+            </div>
+            
+            <div class="politica-item">
+                <h4>Período de retención</h4>
+                <p>Se trata del período en el que las copias de seguridad o backup realizados se mantendrán en el sistema. De esa forma, si por ejemplo tenemos obligación legal de disponer de cierta información hasta pasados 5 años -como ocurre con la información de tipo fiscal, por ejemplo-, ese sería el período de retención para dicha información.</p>
+                <p>Sin embargo, eso no significa que debamos mantener esos backup de forma completa. Así, por ejemplo, una posible estrategia de retención podría ser:</p>
+                <ul>
+                    <li>Durante el año vigente se mantendrán todos los backups de la información, ya sean completos, incrementales o diferenciales. Tendríamos de esa forma un RPO mínimo para estos casos.</li>
+                    <li>Cuando los backups cumplan un año de antigüedad se mantendrán exclusivamente las copias de seguridad semanales completas.</li>
+                    <li>Cuando los backups tengan más de tres años, se mantendrá para ellos exclusivamente un backup completo mensual.</li>
+                    <li>Cuando se cumplan cinco años, exclusivamente se mantendrá para ellos un backup completo anual.</li>
+                </ul>
+                <p>Esta política de retención de la información se basa en que, habitualmente, la posibilidad de necesidad de restauración de cierta información es inversamente proporcional a su antigüedad. Esto es, cuanto más antigua es cierta información, menor será la probabilidad de que tengamos que nos soliciten su restauración.</p>
+            </div>
+            
+            <div class="politica-item">
+                <h4>Unidad de almacenamiento a utilizar -storage unit-</h4>
+                <p>Como más adelante veremos, los discos, cintas o unidades de almacenamiento necesarias se presentarán a los sistemas de backup. Desde estos sistemas se les asignará un nombre lógico, cuyo uso desde las políticas de backup aportará gestión, orden y organización al sistema.</p>
+            </div>
+            
+            <div class="politica-item">
+                <h4>Rotación de la información</h4>
+                <p>Con esta configuración se aporta información sobre las segundas y terceras copias que se realizarán de una cierta información de la que se realiza backup.</p>
+            </div>
+            
+            <div class="politica-item">
+                <h4>Mecanismos de cifrado del backup</h4>
+                <p>En caso de que se decida su aplicación. En este sentido, en caso de utilizarse cifrado y dado el largo período de retención en algunos casos de los backups, suele ser necesario mantener las claves de cifrado durante mucho tiempo, lo que exige contar con un procedimiento ajustado, sobre todo en caso de cambios.</p>
+            </div>
+        </div>
+        
+        <div class="ejemplo-retencion">
+            <h4>Ejemplo de política de retención</h4>
+            <table class="tabla-retencion">
+                <tr>
+                    <th>Antigüedad</th>
+                    <th>Tipo de backup a conservar</th>
+                    <th>Frecuencia</th>
+                </tr>
+                <tr>
+                    <td>0-1 año</td>
+                    <td>Todos (full, incremental, diferencial)</td>
+                    <td>Diaria</td>
+                </tr>
+                <tr>
+                    <td>1-3 años</td>
+                    <td>Solo backups completos</td>
+                    <td>Semanal</td>
+                </tr>
+                <tr>
+                    <td>3-5 años</td>
+                    <td>Solo backups completos</td>
+                    <td>Mensual</td>
+                </tr>
+                <tr>
+                    <td>Más de 5 años</td>
+                    <td>Solo backups completos</td>
+                    <td>Anual</td>
+                </tr>
+            </table>
+        </div>
+    </span>
+    
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .tabla-container {
+            margin: 20px 0;
+        }
+        .tabla-contenido {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tabla-contenido th, .tabla-contenido td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .tabla-contenido th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .roles-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .rol-card {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .rol-card h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .arquitectura-backup {
+            margin: 30px 0;
+        }
+        .diagrama {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .nivel {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        .nodo {
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 150px;
+        }
+        .master {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .media {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        .cliente {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        .almacenamiento {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            width: 80%;
+        }
+        .politicas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .politica-item {
+            flex: 1 1 45%;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .politica-item h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .ejemplo-retencion {
+            margin: 30px 0;
+        }
+        .tabla-retencion {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tabla-retencion th, .tabla-retencion td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .tabla-retencion th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</div>

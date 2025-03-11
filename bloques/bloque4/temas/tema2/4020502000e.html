@@ -1,0 +1,360 @@
+<div class="teoria">
+    <span id="4020502001">
+        <h2>5.2 SNAPSHOTS</h2>
+        <p>Los snapshot son instantáneas o fotografías de los datos en un momento dado. En este caso, realmente y a diferencia de los backups tradicionales, no se trata de una copia de los datos, si no que se copian los punteros a los diferentes bloques de información que se quieren respaldar a través de dicho método.</p>
+        
+        <p>Este mecanismo hace que este tipo de backup cuente con las siguientes características:</p>
+        <ul>
+            <li>Son muy rápidos tanto de realizar como de restaurar.</li>
+            <li>No necesitan espacio mucho adicional, como si ocurre con el backup tradicional.</li>
+            <li>Su bondad de funcionamiento depende mucho del grado de cambios que sufren los datos.</li>
+        </ul>
+    </span>
+
+    <span id="4020502002">
+        <h3>Funcionamiento de los snapshots</h3>
+        <p>Para una mejor comprensión vamos a poner un ejemplo del modo de funcionamiento de este tipo de backup:</p>
+        
+        <p>Supongamos que contamos con una determinada información que está compuesta por los bloques de datos A - B - C - D - E - F:</p>
+        
+        <div class="ejemplo-datos">
+            <code>A B C D E F</code> <span>Datos</span>
+        </div>
+        
+        <p>En este momento, para realizar un snapshot de esta información, bastaría con generar, de una forma casi inmediata, nuevos punteros a dichos datos A - B - C - D - E - F, los cuales formarían el snapshot. De esa forma, con la misma ocupación de espacio de almacenamiento, se tendría que:</p>
+        
+        <div class="snapshot-diagram">
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td class="label">Datos</td>
+                </tr>
+                <tr class="arrows">
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6"></td>
+                    <td class="label">Snapshot 1</td>
+                </tr>
+            </table>
+        </div>
+    </span>
+
+    <span id="4020502003">
+        <p>Si, posteriormente, el propio funcionamiento del servicio conlleva una modificación de los datos a una nueva versión compuesta por A' - B - C' - D - E - F, para mantener el snapshot anterior habría que conservar el contenido de los bloques A y C, junto con su puntero correspondiente.</p>
+        
+        <div class="snapshot-diagram">
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td class="label">Datos originales</td>
+                </tr>
+                <tr class="arrows">
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6"></td>
+                    <td class="label">Snapshot 1</td>
+                </tr>
+            </table>
+            
+            <div class="arrow-down">↓</div>
+            
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td class="label">Datos originales</td>
+                </tr>
+                <tr>
+                    <td>A'</td>
+                    <td></td>
+                    <td>C'</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="label">Datos modificados</td>
+                </tr>
+                <tr class="arrows">
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6"></td>
+                    <td class="label">Snapshot 1</td>
+                </tr>
+            </table>
+        </div>
+        
+        <p>Los datos A' y C' son nuevos y pasan a añadirse a la información correspondiente. De esta forma, se consigue mantener un snapshot completo de los datos anteriores copiando tan sólo estos dos datos que se han modificado.</p>
+    </span>
+
+    <span id="4020502004">
+        <p>Adicionalmente, si a continuación se modifican los datos a una nueva versión compuesta por A' - B - C' - D - E - F - G (se añade el bloque G), y, posteriormente decidimos realizar un segundo snapshot, tendríamos:</p>
+        
+        <div class="snapshot-diagram">
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td></td>
+                    <td class="label">Datos originales</td>
+                </tr>
+                <tr>
+                    <td>A'</td>
+                    <td></td>
+                    <td>C'</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>G</td>
+                    <td class="label">Datos modificados</td>
+                </tr>
+                <tr class="arrows">
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                    <td class="label">Snapshot 1</td>
+                </tr>
+                <tr class="arrows">
+                    <td></td>
+                    <td>↑</td>
+                    <td></td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td>↑</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>↑</td>
+                    <td></td>
+                    <td>↑</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                    <td class="label">Snapshot 2</td>
+                </tr>
+            </table>
+        </div>
+    </span>
+
+    <span id="4020502005">
+        <p>Por otro lado, es importante comentar que, de forma similar a lo que ocurre con la deduplicación (eliminar copias o duplicados), dependerá en gran medida del volumen de cambios que sufran los datos. De esa forma, aquella información que presenta bloques muy similares entre sí -como por ejemplo las máquinas virtuales o ficheros con baja tasa de modificación-, se beneficiará de una gran manera de este tipo de copia.</p>
+        
+        <p>En cualquier caso, esta técnica presenta ventajas e inconvenientes con respecto al backup tradicional, por lo que no debe ser entendida ni como una sustitución del mismo, ni como una técnica que pueda ser de aplicación a cualquier caso.</p>
+        
+        <div class="ventajas-inconvenientes">
+            <div class="ventajas">
+                <h4>Ventajas de los snapshots</h4>
+                <ul>
+                    <li>Rapidez en la creación y restauración</li>
+                    <li>Menor consumo de espacio de almacenamiento</li>
+                    <li>Ideal para datos con baja tasa de modificación</li>
+                    <li>Permite múltiples puntos de restauración con bajo coste</li>
+                </ul>
+            </div>
+            <div class="inconvenientes">
+                <h4>Inconvenientes de los snapshots</h4>
+                <ul>
+                    <li>Eficacia reducida con datos que cambian frecuentemente</li>
+                    <li>Dependencia del almacenamiento original</li>
+                    <li>No sustituye a un backup tradicional completo</li>
+                    <li>Puede afectar al rendimiento del sistema en algunos casos</li>
+                </ul>
+            </div>
+        </div>
+    </span>
+
+    <span id="4020502006">
+        <h3>5.2.1 MECANISMOS DE RESPALDO DE LA INFORMACIÓN QUE NO SON BACKUP</h3>
+        <p>Aunque, como se ha comentado, el backup es una herramienta de salvaguarda de la información que tiene como objetivo apoyar la prestación y continuidad de los procesos y servicios, existen otras muchas técnicas o herramientas que buscan un fin similar, pero que no pueden considerarse backup o copia de seguridad:</p>
+        
+        <ul>
+            <li><strong>La replicación o sincronización de los datos entre dos ubicaciones físicas.</strong> Aunque esta solución aporta alta disponibilidad a los servicios, no puede considerarse un backup de la información, dado que, además, si se produce una corrupción o borrado de datos en el site activo, está se replicará casi inmediatamente al otro site.</li>
+            <li><strong>Otras herramientas de alta disponibilidad</strong> como balanceo de carga, clusters o similares no son herramientas de backup.</li>
+        </ul>
+        
+        <table class="tabla-comparativa">
+            <caption>Comparativa entre mecanismos de respaldo</caption>
+            <tr>
+                <th>Característica</th>
+                <th>Backup tradicional</th>
+                <th>Snapshot</th>
+                <th>Replicación</th>
+            </tr>
+            <tr>
+                <td>Objetivo principal</td>
+                <td>Recuperación ante desastres</td>
+                <td>Recuperación rápida de datos</td>
+                <td>Alta disponibilidad</td>
+            </tr>
+            <tr>
+                <td>Copia completa de datos</td>
+                <td>Sí</td>
+                <td>No (solo punteros)</td>
+                <td>Sí</td>
+            </tr>
+            <tr>
+                <td>Protección contra borrado accidental</td>
+                <td>Sí</td>
+                <td>Sí</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Protección contra corrupción de datos</td>
+                <td>Sí</td>
+                <td>Sí</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Velocidad de creación</td>
+                <td>Lenta</td>
+                <td>Rápida</td>
+                <td>Continua</td>
+            </tr>
+            <tr>
+                <td>Espacio requerido</td>
+                <td>Alto</td>
+                <td>Bajo</td>
+                <td>Alto</td>
+            </tr>
+        </table>
+    </span>
+    
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .ejemplo-datos {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+        .ejemplo-datos code {
+            font-weight: bold;
+            min-width: 150px;
+            display: inline-block;
+        }
+        .snapshot-diagram {
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        .snapshot-diagram table {
+            border-collapse: collapse;
+            margin: 10px 0;
+            width: auto;
+        }
+        .snapshot-diagram td {
+            padding: 8px 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .snapshot-diagram .label {
+            text-align: left;
+            font-style: italic;
+            padding-left: 20px;
+        }
+        .snapshot-diagram .arrows td {
+            padding: 0 15px;
+        }
+        .arrow-down {
+            text-align: center;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .ventajas-inconvenientes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .ventajas, .inconvenientes {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .ventajas {
+            background-color: #f0f7f0;
+        }
+        .inconvenientes {
+            background-color: #fff0f0;
+        }
+        .ventajas h4, .inconvenientes h4 {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .tabla-comparativa caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .tabla-comparativa th, .tabla-comparativa td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .tabla-comparativa th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</div>
