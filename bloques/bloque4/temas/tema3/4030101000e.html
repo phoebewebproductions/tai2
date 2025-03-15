@@ -1,0 +1,642 @@
+<div class="teoria">
+    <span id="4030101001">
+        <h2>1.1 ADMINISTRACIÓN DE SERVIDORES DE CORREO ELECTRÓNICO. SUS PROTOCOLOS</h2>
+        <h3>1.1.1 ORIGEN DEL CORREO ELECTRÓNICO</h3>
+        <p>El correo electrónico es anterior a la creación de Internet. El primer antecedente data de 1962, cuando el Instituto Tecnológico de Massachusetts adquirió una computadora de tiempo compartido modelo IBM 7090 (actualizado en 1963 a un IBM 7094) que permitía a varios usuarios iniciar sesión desde terminales remotas, y así guardar archivos en el disco. Este sistema se utilizó informalmente para intercambiar mensajes, pero ya en 1965 se desarrolló el servicio MAIL, que facilitaba el envío de mensajes entre los usuarios de esta máquina.</p>
+        
+        <div class="email-history-timeline">
+            <h4>Evolución histórica del correo electrónico</h4>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1962</div>
+                    <div class="timeline-content">
+                        <h5>Primer antecedente</h5>
+                        <p>MIT adquiere IBM 7090 que permite intercambio informal de mensajes entre usuarios</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1965</div>
+                    <div class="timeline-content">
+                        <h5>Servicio MAIL</h5>
+                        <p>Desarrollo del servicio MAIL para facilitar el envío de mensajes entre usuarios de la misma máquina</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1971</div>
+                    <div class="timeline-content">
+                        <h5>Primer mensaje a través de una red</h5>
+                        <p>Ray Tomlinson envía "QWERTYUIOP" a través de ARPANET e introduce el uso de la arroba (@)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1977</div>
+                    <div class="timeline-content">
+                        <h5>Estandarización</h5>
+                        <p>El correo electrónico se convierte en un servicio de red estandarizado con la especificación RFC 733</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p>El primer mensaje de correo electrónico genuinamente enviado a través de una red data del año 1971. El mensaje, que contenía únicamente el texto «QWERTYUIOP», se envió a través de la red ARPANET, aunque las máquinas estaban físicamente una junto a la otra. La idea del correo electrónico sobre redes se debe a Ray Tomlinson, quien utilizó el protocolo experimental CYPNET para enviar por red los mensajes, que hasta ese momento solo comunicaban a los usuarios de una misma computadora.</p>
+        
+        <p>Fue así mismo Tomlinson quien incorporó el uso de la arroba (@) como divisor entre el usuario y la computadora en la que se aloja la cuenta del usuario de destino. Anteriormente no había necesidad de especificar la máquina de destino puesto que todos los mensajes que se enviaban eran locales; sin embargo, con el nuevo sistema era preciso distinguir el correo local del correo de red. El motivo de elegir este símbolo fue que en inglés la arroba se lee «at» (en español en). Así, la dirección ejemplo@máquina.com se lee ejemplo en máquina punto com.</p>
+        
+        <p>En 1977, el correo electrónico se convirtió en un servicio de red estandarizado, gracias a diversos estándares parciales, que culminaron con la especificación RFC 733.</p>
+    </span>
+
+    <span id="4030101002">
+        <h3>1.1.2 SERVIDORES DE CORREO ELECTRÓNICO</h3>
+        <p>El correo electrónico gira en torno al uso de buzones de correo electrónico. Cuando se envía un correo electrónico, la información pasa de servidor a servidor, hasta el servidor de correo electrónico del destinatario.</p>
+        
+        <p>El usuario utiliza un cliente de correo electrónico o MUA (Mail User Agent) con el que redacta el mensaje que envía al servidor de correo. Ejemplos de clientes de correo electrónico son:</p>
+        
+        <ul class="email-clients">
+            <li>Lotus Notes (IBM)</li>
+            <li>Microsoft Outlook</li>
+            <li>Mozilla Thunderbird (Fundación Mozilla)</li>
+            <li>Outlook Express (Microsoft)</li>
+            <li>Windows Mail Desktop (Microsoft)</li>
+            <li>Gmail (Google)</li>
+        </ul>
+        
+        <div class="email-system-diagram">
+            <h4>Arquitectura de un sistema de correo electrónico</h4>
+            <div class="diagram-container">
+                <div class="sender-side">
+                    <div class="user-agent">
+                        <div class="component-label">MUA (Cliente)</div>
+                        <div class="component-icon">💻</div>
+                        <div class="component-description">Mail User Agent</div>
+                    </div>
+                    <div class="arrow">↓</div>
+                    <div class="transfer-agent">
+                        <div class="component-label">MTA (Servidor de envío)</div>
+                        <div class="component-icon">🖥️</div>
+                        <div class="component-description">Mail Transfer Agent</div>
+                    </div>
+                </div>
+                <div class="network">
+                    <div class="network-icon">☁️</div>
+                    <div class="network-label">Internet</div>
+                    <div class="protocol-label">SMTP</div>
+                </div>
+                <div class="receiver-side">
+                    <div class="transfer-agent">
+                        <div class="component-label">MTA (Servidor de recepción)</div>
+                        <div class="component-icon">🖥️</div>
+                        <div class="component-description">Mail Transfer Agent</div>
+                    </div>
+                    <div class="arrow">↓</div>
+                    <div class="delivery-agent">
+                        <div class="component-label">MDA</div>
+                        <div class="component-icon">📬</div>
+                        <div class="component-description">Mail Delivery Agent</div>
+                    </div>
+                    <div class="arrow">↓</div>
+                    <div class="user-agent">
+                        <div class="component-label">MUA (Cliente)</div>
+                        <div class="component-icon">💻</div>
+                        <div class="component-description">Mail User Agent</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">
+                <p>Flujo de un mensaje de correo electrónico desde el remitente hasta el destinatario a través de los diferentes componentes del sistema.</p>
+            </div>
+        </div>
+        
+        <p>En el servidor de correo reside el agente de transferencia de correo (MTA o Mail Transfer Agent), que se ocupa de enviar el mensaje al MTA del destinatario.</p>
+        
+        <p>De forma predeterminada, el protocolo estándar para la transferencia de correos entre agentes MTA es el Protocolo Simple de Transferencia de Correo (Simple Mail Transfer Protocol, SMTP). Está definido en el RFC 5321 y es un estándar oficial de Internet. Por eso en ocasiones a los servidores de correo se les denomina servidores SMTP.</p>
+        
+        <p>Una vez recibido el mensaje, el MTA del destinatario lo entregará al servidor de recepción de correo (llamado Agente de entrega de correo (MDA)), y el MDA guardará el correo electrónico y esperará a que el usuario lo reciba. El usuario recibirá el correo a través de su cliente de correo o MUA.</p>
+        
+        <div class="open-relay-warning">
+            <h4>Advertencia sobre relés abiertos</h4>
+            <p>Por relé abierto (open relay) se entiende generalmente un servidor que permite que los mensajes de correo electrónico de cualquier remitente se envíen a cualquier destinatario sin necesidad de autenticación, y que en el pasado solía corresponder a la configuración estándar de un servidor. Esto supone un riesgo considerable, ya que estos servidores suelen ser utilizados por terceros para enviar SPAM. Por esta razón, la mayoría de los proveedores no aceptan correos de servidores conocidos como relés abiertos.</p>
+        </div>
+    </span>
+
+    <span id="4030101003">
+        <h3>1.1.3 PROTOCOLOS DE CORREO ELECTRÓNICO</h3>
+        <h4>1.1.3.1 SMTP (SIMPLE MAIL TRANSFER PROTOCOL)</h4>
+        <p>En 1982 se diseñó el primer sistema basado en SMTP para intercambiar correos electrónicos en ARPANET, definido en los RFC 821 y RFC 822. La primera de ellas define este protocolo y la segunda la forma del mensaje que este protocolo debía transportar. Actualmente está definido en la RFC 5321.</p>
+        
+        <p>SMTP se basa en el modelo cliente-servidor, donde un cliente envía un mensaje a uno o varios receptores. La comunicación entre el cliente y el servidor consiste enteramente en líneas de texto compuestas por caracteres Unicode, aunque originalmente estaba compuesto por caracteres ASCII. El tamaño máximo permitido para estas líneas es de 1000 caracteres.</p>
+        
+        <p>SMTP es un protocolo, en el que un remitente de correo se comunica con un receptor de correo electrónico mediante la emisión de secuencias de comandos y el suministro de los datos necesarios en un canal de flujo de datos ordenado fiable, normalmente un protocolo de control de transmisión de conexión (TCP).</p>
+        
+        <div class="smtp-session">
+            <h4>Estructura de una sesión SMTP</h4>
+            <p>Una sesión SMTP consiste en comandos originados por un cliente SMTP (el agente de inicio, emisor o transmisor) y las respuestas correspondientes del SMTP del servidor (el agente de escucha, o receptor) para que la sesión se abra y se intercambian los parámetros de la sesión.</p>
+            
+            <p>Una sesión puede incluir cero o más transacciones SMTP. Una transacción de SMTP se compone de tres secuencias de comando/respuesta:</p>
+            
+            <ol>
+                <li><strong>MAIL FROM:</strong> comando para establecer la dirección de retorno, también conocido como Return-Path, remitente o sobre. Esta es la dirección para mensajes de despedida.</li>
+                <li><strong>RCPT TO:</strong> comando, para establecer un destinatario de este mensaje. Este mandato puede emitirse varias veces, una para cada destinatario. Estas direcciones son también parte de la envolvente.</li>
+                <li><strong>DATA:</strong> para enviar el mensaje de texto. Este es el contenido del mensaje, en lugar de su envoltura. Se compone de una cabecera de mensaje y el cuerpo del mensaje separado por una línea en blanco. DATA es en realidad un grupo de comandos, y el servidor responde dos veces: una vez para reconocer que está listo para recibir el texto, y la segunda vez después de la secuencia final de los datos, para aceptar o rechazar todo el mensaje.</li>
+            </ol>
+        </div>
+        
+        <p>Para evitar la falsificación de direcciones en el envío de correo electrónico se usa el protocolo SPF (Sender Policy Framework) que identifica, a través de los registros de nombres de dominio (DNS), a los servidores de correo SMTP autorizados para el transporte de los mensajes.</p>
+        
+        <div class="smtp-flow">
+            <h4>Flujo de comunicación SMTP</h4>
+            <p>Un resumen simple del funcionamiento del protocolo SMTP es el siguiente:</p>
+            
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-description">
+                        <p>Cuando un cliente establece una conexión con el servidor SMTP, espera a que este envíe un mensaje "220 Service ready" o "421 Service non available".</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-description">
+                        <p>Se envía un HELO desde el cliente. Con ello el servidor se identifica. Esto puede usarse para comprobar si se conectó con el servidor SMTP correcto.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-description">
+                        <p>El cliente comienza la transacción del correo con la orden MAIL FROM. Como argumento de esta orden se puede pasar la dirección de correo al que el servidor notificará cualquier fallo en el envío del correo (Por ejemplo, MAIL FROM:&lt;fuente@host0&gt;). Luego si el servidor comprueba que el origen es válido, el servidor responde "250 OK".</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-description">
+                        <p>Ya le hemos dicho al servidor que queremos mandar un correo, ahora hay que comunicarle a quien. La orden para esto es RCPT TO:&lt;destino@host&gt;. Se pueden mandar tantas órdenes RCPT como destinatarios del correo queramos. Por cada destinatario, el servidor contestará "250 OK" o bien "550 No such user here", si no encuentra al destinatario.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-description">
+                        <p>Una vez enviados todos los RCPT, el cliente envía una orden DATA para indicar que a continuación se envían los contenidos del mensaje. El servidor responde "354 Start mail input, end with &lt;CRLF&gt;.&lt;CRLF&gt;" Esto indica al cliente como ha de notificar el fin del mensaje.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-description">
+                        <p>Ahora el cliente envía el cuerpo del mensaje, línea a línea. Una vez finalizado, se termina con un &lt;CRLF&gt;.&lt;CRLF&gt; (la última línea será un punto), a lo que el servidor contestará "250 OK", o un mensaje de error apropiado.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">7</div>
+                    <div class="step-description">
+                        <p>Tras el envío, el cliente, si no tiene que enviar más correos, con la orden QUIT corta la conexión. También puede usar la orden TURN, con lo que el cliente pasa a ser el servidor, y el servidor se convierte en cliente. Finalmente, si tiene más mensajes que enviar, repite el proceso hasta completarlos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="smtp-commands">
+            <h4>Comandos SMTP</h4>
+            <div class="commands-grid">
+                <div class="command">
+                    <div class="command-name">HELO</div>
+                    <div class="command-description">Para abrir una sesión con el servidor</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">EHLO</div>
+                    <div class="command-description">Para abrir una sesión, en el caso de que el servidor soporte extensiones definidas en el RFC 1651</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">MAIL FROM</div>
+                    <div class="command-description">Para indicar quien envía el mensaje</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">RCPT TO</div>
+                    <div class="command-description">Para indicar el destinatario del mensaje</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">DATA</div>
+                    <div class="command-description">Para indicar el comienzo del mensaje, éste finalizará cuando haya una línea únicamente con un punto</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">QUIT</div>
+                    <div class="command-description">Para cerrar la sesión</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">RSET</div>
+                    <div class="command-description">Aborta la transacción en curso y borra todos los registros</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">SEND</div>
+                    <div class="command-description">Inicia una transacción en la cual el mensaje se entrega a una terminal</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">SOML</div>
+                    <div class="command-description">El mensaje se entrega a un terminal o a un buzón</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">SAML</div>
+                    <div class="command-description">El mensaje se entrega a un terminal y a un buzón</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">VRFY</div>
+                    <div class="command-description">Solicita al servidor la verificación de todo un argumento</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">EXPN</div>
+                    <div class="command-description">Solicita al servidor la confirmación del argumento</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">HELP</div>
+                    <div class="command-description">Permite solicitar información sobre un comando</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">NOOP</div>
+                    <div class="command-description">No decir nada, se emplea para mantener la sesión abierta</div>
+                </div>
+                <div class="command">
+                    <div class="command-name">TURN</div>
+                    <div class="command-description">Solicita al servidor que intercambien los papeles</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="smtp-response-codes">
+            <h4>Códigos de respuesta SMTP</h4>
+            <p>La respuesta se identifica por un código numérico de tres dígitos. De los tres dígitos del código numérico, el primero indica la categoría de la respuesta, estando definidas las siguientes categorías:</p>
+            
+            <div class="response-codes">
+                <div class="response-code">
+                    <div class="code">2XX</div>
+                    <div class="code-description">La operación solicitada mediante el comando anterior ha sido concluida con éxito</div>
+                </div>
+                <div class="response-code">
+                    <div class="code">3XX</div>
+                    <div class="code-description">La orden ha sido aceptada, pero el servidor esta pendiente de que el cliente le envíe nuevos datos para terminar la operación</div>
+                </div>
+                <div class="response-code">
+                    <div class="code">4XX</div>
+                    <div class="code-description">Para una respuesta de error, pero se espera a que se repita la instrucción</div>
+                </div>
+                <div class="response-code">
+                    <div class="code">5XX</div>
+                    <div class="code-description">Para indicar una condición de error permanente, por lo que no debe repetirse la orden</div>
+                </div>
+            </div>
+        </div>
+        
+        <p>Una vez que el servidor recibe el mensaje finalizado con un punto puede almacenarlo si es para un destinatario que pertenece a su dominio, o bien retransmitirlo a otro servidor para que finalmente llegue a un servidor del dominio del receptor.</p>
+        
+        <div class="smtp-ports">
+            <h4>Puertos utilizados por SMTP</h4>
+            <div class="ports-table">
+                <div class="port-row">
+                    <div class="port-number">25</div>
+                    <div class="port-description">Puerto histórico de SMTP, usado para retransmisión pero a menudo bloqueado para envío para evitar SPAM</div>
+                </div>
+                <div class="port-row">
+                    <div class="port-number">465</div>
+                    <div class="port-description">SMTP seguro (con SSL), aunque actualmente este puerto ha sido desaprobado</div>
+                </div>
+                <div class="port-row">
+                    <div class="port-number">587</div>
+                    <div class="port-description">Puerto que permite la presentación sobre internet y también admite TLS</div>
+                </div>
+                <div class="port-row">
+                    <div class="port-number">2525</div>
+                    <div class="port-description">Usado ocasionalmente, aunque no ha sido aprobado oficialmente</div>
+                </div>
+            </div>
+        </div>
+        
+        <p>La autenticación SMTP, a menudo abreviada SMTP AUTH, es una extensión del SMTP mediante el cual un cliente puede iniciar sesión utilizando cualquier mecanismo de autenticación compatible con el servidor. Lo utilizan principalmente los servidores de envío, donde la autenticación es obligatoria.</p>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Email History Timeline Styles */
+        .email-history-timeline {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #0078d7;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: white;
+            background-color: #0078d7;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            left: 0;
+            top: 15px;
+            z-index: 1;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            border-left: 4px solid #0078d7;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-left: 60px;
+        }
+        .timeline-content h5 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+        
+        /* Email Clients List Styles */
+        .email-clients {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .email-clients li {
+            background-color: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+        
+        /* Email System Diagram Styles */
+        .email-system-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .sender-side, .receiver-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 2;
+        }
+        .network {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+            background-color: #e6f7ff;
+            border-radius: 10px;
+            margin: 0 20px;
+        }
+        .network-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .network-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .protocol-label {
+            background-color: #0078d7;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+        .user-agent, .transfer-agent, .delivery-agent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        .component-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .component-icon {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .component-description {
+            font-size: 0.8em;
+            color: #666;
+        }
+        .arrow {
+            font-size: 24px;
+            margin: 5px 0;
+            color: #666;
+        }
+        .diagram-caption {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Open Relay Warning Styles */
+        .open-relay-warning {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .open-relay-warning h4 {
+            color: #721c24;
+            margin-top: 0;
+        }
+        
+        /* SMTP Session Styles */
+        .smtp-session {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .smtp-session ol {
+            margin-bottom: 0;
+        }
+        .smtp-session li {
+            margin-bottom: 10px;
+        }
+        
+        /* SMTP Flow Styles */
+        .smtp-flow {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .flow-diagram {
+            margin-top: 15px;
+        }
+        .flow-step {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        .step-number {
+            background-color: #0078d7;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-description {
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 3px solid #0078d7;
+            flex-grow: 1;
+        }
+        .step-description p {
+            margin: 0;
+        }
+        
+        /* SMTP Commands Styles */
+        .smtp-commands {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .command {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        .command-name {
+            font-weight: bold;
+            color: #0078d7;
+            margin-bottom: 5px;
+        }
+        .command-description {
+            font-size: 0.9em;
+        }
+        
+        /* SMTP Response Codes Styles */
+        .smtp-response-codes {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .response-codes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .response-code {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        .code {
+            font-weight: bold;
+            color: #0078d7;
+            margin-bottom: 5px;
+        }
+        .code-description {
+            font-size: 0.9em;
+        }
+        
+        /* SMTP Ports Styles */
+        .smtp-ports {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .ports-table {
+            margin-top: 15px;
+        }
+        .port-row {
+            display: flex;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .port-number {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .port-description {
+            padding: 10px;
+            flex-grow: 1;
+        }
+    </style>
+</div>

@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Remota de Puestos de Usuario</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050502001">
+            <h2>5.2 GESTIÓN REMOTA DE PUESTOS DE USUARIO</h2>
+            <p>Como se ha visto en el epígrafe anterior, en algunas ocasiones, el técnico de soporte necesita conocer de primera mano las incidencias que se están produciendo en los equipos de los usuarios o prestar un apoyo para la ejecución de determinadas acciones.</p>
+            
+            <div class="remoto-concepto-clave">
+                <div class="remoto-icono">🖥️</div>
+                <div class="remoto-definicion">
+                    <h4>Gestión Remota</h4>
+                    <p>Conjunto de herramientas y técnicas que permiten a un técnico de soporte conectarse a un equipo de usuario a distancia para diagnosticar problemas, realizar mantenimiento o proporcionar asistencia sin necesidad de estar físicamente presente.</p>
+                </div>
+            </div>
+            
+            <p>Para ello, el técnico puede utilizar determinadas herramientas o aplicaciones para conectarse al puesto de usuario, y, llegado el caso, controlarlo.</p>
+            
+            <div class="remoto-arquitectura">
+                <h4>Arquitectura Cliente/Servidor</h4>
+                <p>Las herramientas de gestión de puesto de usuario suelen ser del tipo cliente/servidor, por lo que requieren que previamente en el usuario se haya instalado la aplicación cliente, con la que se conectará el servidor instalado en el puesto de soporte.</p>
+                
+                <div class="remoto-diagrama-arquitectura">
+                    <div class="remoto-equipo remoto-equipo-usuario">
+                        <div class="remoto-icono-equipo">💻</div>
+                        <div class="remoto-texto-equipo">Equipo del Usuario</div>
+                        <div class="remoto-componente remoto-cliente">
+                            <div class="remoto-icono-componente">📡</div>
+                            <div class="remoto-texto-componente">Cliente</div>
+                        </div>
+                    </div>
+                    <div class="remoto-conexion">
+                        <div class="remoto-linea-conexion"></div>
+                        <div class="remoto-texto-conexion">Conexión a través de Internet/Red</div>
+                    </div>
+                    <div class="remoto-equipo remoto-equipo-soporte">
+                        <div class="remoto-icono-equipo">🖥️</div>
+                        <div class="remoto-texto-equipo">Equipo de Soporte</div>
+                        <div class="remoto-componente remoto-servidor">
+                            <div class="remoto-icono-componente">🔌</div>
+                            <div class="remoto-texto-componente">Servidor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="remoto-herramientas-intro">
+                <h4>Herramientas de Gestión Remota</h4>
+                <p>A continuación se describen algunas de las herramientas más utilizadas para la gestión remota de puestos de usuario:</p>
+            </div>
+        </span>
+        
+        <span id="4050502002">
+            <h3>5.2.1 VNC (Virtual Network Computing)</h3>
+            
+            <div class="remoto-herramienta">
+                <div class="remoto-cabecera-herramienta">
+                    <div class="remoto-logo-herramienta">VNC</div>
+                    <div class="remoto-tipo-herramienta">Opensource</div>
+                </div>
+                
+                <div class="remoto-descripcion-herramienta">
+                    <p>Se trata de una opción Opensource basada en una estructura cliente-servidor que permite observar las acciones del ordenador servidor remotamente a través de un ordenador cliente.</p>
+                    <p>VNC no impone restricciones en el sistema operativo del ordenador servidor con respecto al del cliente: es posible compartir la pantalla de una máquina con cualquier sistema operativo que admita VNC conectándose desde otro ordenador o dispositivo que disponga de un cliente VNC portado.</p>
+                </div>
+                
+                <div class="remoto-componentes">
+                    <h4>Componentes de un sistema VNC</h4>
+                    <div class="remoto-componentes-vnc">
+                        <div class="remoto-componente-vnc">
+                            <div class="remoto-icono-componente-vnc">🖥️</div>
+                            <div class="remoto-titulo-componente-vnc">VNC Servidor</div>
+                            <div class="remoto-descripcion-componente-vnc">Es el programa en el equipo que comparte su pantalla. El servidor de forma pasiva permite al cliente tomar el control de la misma.</div>
+                        </div>
+                        <div class="remoto-componente-vnc">
+                            <div class="remoto-icono-componente-vnc">👁️</div>
+                            <div class="remoto-titulo-componente-vnc">VNC Cliente (o espectador)</div>
+                            <div class="remoto-descripcion-componente-vnc">Es el programa que vigila, controla e interactúa con el servidor. El cliente controla al servidor.</div>
+                        </div>
+                        <div class="remoto-componente-vnc">
+                            <div class="remoto-icono-componente-vnc">🔄</div>
+                            <div class="remoto-titulo-componente-vnc">VNC Protocolo (RFB)</div>
+                            <div class="remoto-descripcion-componente-vnc">Es muy simple, basado en una primitiva gráfica del servidor al cliente y mensajes de eventos desde el cliente al servidor.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-funcionamiento">
+                    <h4>Funcionamiento de VNC</h4>
+                    <div class="remoto-metodo-operacion">
+                        <p>En el método normal de operación, un visor (espectador) se conecta a un puerto en el servidor (puerto por defecto 5900). Alternativamente, un navegador puede conectarse al servidor (dependiendo de la implementación) (puerto por defecto 5800). Y un servidor puede conectarse a un espectador en "modo de escucha" en el puerto 5500.</p>
+                    </div>
+                    
+                    <div class="remoto-diagrama-puertos">
+                        <div class="remoto-puerto">
+                            <div class="remoto-numero-puerto">5900</div>
+                            <div class="remoto-descripcion-puerto">Puerto por defecto para conexión cliente-servidor</div>
+                        </div>
+                        <div class="remoto-puerto">
+                            <div class="remoto-numero-puerto">5800</div>
+                            <div class="remoto-descripcion-puerto">Puerto por defecto para conexión vía navegador</div>
+                        </div>
+                        <div class="remoto-puerto">
+                            <div class="remoto-numero-puerto">5500</div>
+                            <div class="remoto-descripcion-puerto">Puerto para "modo de escucha"</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-seguridad">
+                    <h4>Seguridad en VNC</h4>
+                    <div class="remoto-alerta-seguridad">
+                        <div class="remoto-icono-alerta">⚠️</div>
+                        <div class="remoto-texto-alerta">
+                            <p>Por defecto, VNC no es un protocolo seguro. Como las contraseñas se envían en texto plano (como en telnet), el intento de romper o agrietar (cracking) la contraseña puede tener éxito si tanto la clave de cifrado y la contraseña cifrada es capturada desde una red.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="remoto-recomendaciones">
+                        <div class="remoto-recomendacion">
+                            <div class="remoto-icono-recomendacion">🔑</div>
+                            <div class="remoto-texto-recomendacion">Se recomienda utilizar una contraseña de al menos 8 caracteres.</div>
+                        </div>
+                        <div class="remoto-recomendacion">
+                            <div class="remoto-icono-recomendacion">🔒</div>
+                            <div class="remoto-texto-recomendacion">Existen versiones comerciales que incluyen cifrado.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050502003">
+            <h3>5.2.2 TeamViewer</h3>
+            
+            <div class="remoto-herramienta">
+                <div class="remoto-cabecera-herramienta">
+                    <div class="remoto-logo-herramienta">TeamViewer</div>
+                    <div class="remoto-tipo-herramienta">Comercial (con versión gratuita para uso personal)</div>
+                </div>
+                
+                <div class="remoto-descripcion-herramienta">
+                    <p>Permite conectarse a otro equipo y entre sus funciones están: compartir y controlar escritorios, reuniones en línea, videoconferencias y transferencia de archivos entre ordenadores.</p>
+                </div>
+                
+                <div class="remoto-compatibilidad">
+                    <h4>Compatibilidad con Sistemas Operativos</h4>
+                    <div class="remoto-sistemas-operativos">
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">🪟</div>
+                            <div class="remoto-nombre-so">Windows</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">🍎</div>
+                            <div class="remoto-nombre-so">Mac OS X</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">🐧</div>
+                            <div class="remoto-nombre-so">Linux</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">📱</div>
+                            <div class="remoto-nombre-so">iOS</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">🤖</div>
+                            <div class="remoto-nombre-so">Android</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">📱</div>
+                            <div class="remoto-nombre-so">Windows Phone</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">📱</div>
+                            <div class="remoto-nombre-so">Windows RT</div>
+                        </div>
+                        <div class="remoto-sistema-operativo">
+                            <div class="remoto-icono-so">📱</div>
+                            <div class="remoto-nombre-so">BlackBerry</div>
+                        </div>
+                    </div>
+                    <div class="remoto-nota-compatibilidad">
+                        <div class="remoto-icono-nota">📝</div>
+                        <div class="remoto-texto-nota">También es posible el acceso a un equipo remoto mediante un navegador web.</div>
+                    </div>
+                </div>
+                
+                <div class="remoto-funcionalidades">
+                    <h4>Funcionalidades</h4>
+                    <p>Aunque el principal cometido de la aplicación es el control remoto, también incluye funciones de trabajo en equipo y presentación.</p>
+                    <div class="remoto-lista-funcionalidades">
+                        <div class="remoto-funcionalidad">
+                            <div class="remoto-icono-funcionalidad">🖥️</div>
+                            <div class="remoto-texto-funcionalidad">Control remoto de escritorios</div>
+                        </div>
+                        <div class="remoto-funcionalidad">
+                            <div class="remoto-icono-funcionalidad">👥</div>
+                            <div class="remoto-texto-funcionalidad">Reuniones en línea</div>
+                        </div>
+                        <div class="remoto-funcionalidad">
+                            <div class="remoto-icono-funcionalidad">🎥</div>
+                            <div class="remoto-texto-funcionalidad">Videoconferencias</div>
+                        </div>
+                        <div class="remoto-funcionalidad">
+                            <div class="remoto-icono-funcionalidad">📂</div>
+                            <div class="remoto-texto-funcionalidad">Transferencia de archivos</div>
+                        </div>
+                        <div class="remoto-funcionalidad">
+                            <div class="remoto-icono-funcionalidad">📊</div>
+                            <div class="remoto-texto-funcionalidad">Presentaciones</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-funcionamiento-teamviewer">
+                    <h4>Funcionamiento</h4>
+                    <div class="remoto-pasos-conexion">
+                        <div class="remoto-paso">
+                            <div class="remoto-numero-paso">1</div>
+                            <div class="remoto-descripcion-paso">
+                                <p>Cuando se inicia en un equipo, el programa genera una ID y una contraseña (también permite que el usuario establezca su propia contraseña).</p>
+                                <div class="remoto-imagen-paso">
+                                    <div class="remoto-pantalla-teamviewer">
+                                        <div class="remoto-barra-titulo">TeamViewer</div>
+                                        <div class="remoto-contenido-pantalla">
+                                            <div class="remoto-campo">
+                                                <div class="remoto-etiqueta">Su ID:</div>
+                                                <div class="remoto-valor">123 456 789</div>
+                                            </div>
+                                            <div class="remoto-campo">
+                                                <div class="remoto-etiqueta">Contraseña:</div>
+                                                <div class="remoto-valor">a7b9c3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="remoto-flecha-paso">↓</div>
+                        <div class="remoto-paso">
+                            <div class="remoto-numero-paso">2</div>
+                            <div class="remoto-descripcion-paso">
+                                <p>Para establecer una conexión entre un equipo local y otro remoto, el usuario del equipo local debe ponerse en contacto con el otro y este debe indicarle la ID y la contraseña.</p>
+                            </div>
+                        </div>
+                        <div class="remoto-flecha-paso">↓</div>
+                        <div class="remoto-paso">
+                            <div class="remoto-numero-paso">3</div>
+                            <div class="remoto-descripcion-paso">
+                                <p>Una vez hecho esto, se introducen en el programa TeamViewer que se está ejecutado en el ordenador local.</p>
+                                <div class="remoto-imagen-paso">
+                                    <div class="remoto-pantalla-teamviewer">
+                                        <div class="remoto-barra-titulo">TeamViewer - Control remoto</div>
+                                        <div class="remoto-contenido-pantalla">
+                                            <div class="remoto-campo">
+                                                <div class="remoto-etiqueta">ID del asociado:</div>
+                                                <div class="remoto-valor-input">123 456 789</div>
+                                            </div>
+                                            <div class="remoto-campo">
+                                                <div class="remoto-etiqueta">Contraseña:</div>
+                                                <div class="remoto-valor-input">••••••</div>
+                                            </div>
+                                            <div class="remoto-boton">Conectar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-seguridad-teamviewer">
+                    <h4>Seguridad</h4>
+                    <div class="remoto-cifrado">
+                        <div class="remoto-icono-cifrado">🔒</div>
+                        <div class="remoto-texto-cifrado">
+                            <p>Las sesiones de TeamViewer están codificadas mediante:</p>
+                            <div class="remoto-metodos-cifrado">
+                                <div class="remoto-metodo">
+                                    <div class="remoto-nombre-metodo">Infraestructura de clave pública RSA</div>
+                                    <div class="remoto-bits-metodo">1024-bit</div>
+                                </div>
+                                <div class="remoto-y">y</div>
+                                <div class="remoto-metodo">
+                                    <div class="remoto-nombre-metodo">Clave privada AES</div>
+                                    <div class="remoto-bits-metodo">256-bit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050502004">
+            <h3>5.2.3 AnyDesk</h3>
+            
+            <div class="remoto-herramienta">
+                <div class="remoto-cabecera-herramienta">
+                    <div class="remoto-logo-herramienta">AnyDesk</div>
+                    <div class="remoto-tipo-herramienta">Comercial (con versión gratuita para uso personal)</div>
+                </div>
+                
+                <div class="remoto-descripcion-herramienta">
+                    <p>Permite acceso remoto desde Windows, macOS y FreeBSD, así como desde móviles iOS y Android.</p>
+                </div>
+                
+                <div class="remoto-caracteristicas-anydesk">
+                    <div class="remoto-caracteristica">
+                        <div class="remoto-icono-caracteristica">🔒</div>
+                        <div class="remoto-texto-caracteristica">
+                            <h5>Seguridad</h5>
+                            <p>Utiliza el protocolo TLS 1.2 para las sesiones.</p>
+                        </div>
+                    </div>
+                    <div class="remoto-caracteristica">
+                        <div class="remoto-icono-caracteristica">📂</div>
+                        <div class="remoto-texto-caracteristica">
+                            <h5>Transferencia de archivos</h5>
+                            <p>Permite transferir archivos entre los equipos conectados.</p>
+                        </div>
+                    </div>
+                    <div class="remoto-caracteristica">
+                        <div class="remoto-icono-caracteristica">💬</div>
+                        <div class="remoto-texto-caracteristica">
+                            <h5>Chat</h5>
+                            <p>Incluye un chat de cliente a cliente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-compatibilidad-anydesk">
+                    <h4>Compatibilidad con Sistemas Operativos</h4>
+                    <div class="remoto-sistemas-anydesk">
+                        <div class="remoto-sistema-anydesk">
+                            <div class="remoto-icono-sistema">🪟</div>
+                            <div class="remoto-nombre-sistema">Windows</div>
+                        </div>
+                        <div class="remoto-sistema-anydesk">
+                            <div class="remoto-icono-sistema">🍎</div>
+                            <div class="remoto-nombre-sistema">macOS</div>
+                        </div>
+                        <div class="remoto-sistema-anydesk">
+                            <div class="remoto-icono-sistema">🐧</div>
+                            <div class="remoto-nombre-sistema">FreeBSD</div>
+                        </div>
+                        <div class="remoto-sistema-anydesk">
+                            <div class="remoto-icono-sistema">📱</div>
+                            <div class="remoto-nombre-sistema">iOS</div>
+                        </div>
+                        <div class="remoto-sistema-anydesk">
+                            <div class="remoto-icono-sistema">🤖</div>
+                            <div class="remoto-nombre-sistema">Android</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050502005">
+            <h3>5.2.4 Escritorio remoto de Microsoft</h3>
+            
+            <div class="remoto-herramienta">
+                <div class="remoto-cabecera-herramienta">
+                    <div class="remoto-logo-herramienta">Escritorio remoto de Microsoft</div>
+                    <div class="remoto-tipo-herramienta">Incluido en Windows</div>
+                </div>
+                
+                <div class="remoto-descripcion-herramienta">
+                    <p>Se trata de uno de los servicios de Microsoft, que está disponible en los equipos con sistema operativo Windows 10, excepto la versión Home. Esta herramienta permite la apertura de una sesión con usuario y contraseña en otro equipo con sistema operativo Microsoft.</p>
+                </div>
+                
+                <div class="remoto-diferencia-clave">
+                    <div class="remoto-icono-diferencia">⚠️</div>
+                    <div class="remoto-texto-diferencia">
+                        <p>A diferencia de los programas anteriores, no se accede a la sesión de un usuario, sino que se abre una propia, y permite acceder al sistema y ejecutar aplicaciones.</p>
+                    </div>
+                </div>
+                
+                <div class="remoto-disponibilidad">
+                    <h4>Disponibilidad</h4>
+                    <div class="remoto-versiones-windows">
+                        <div class="remoto-version disponible">
+                            <div class="remoto-nombre-version">Windows 10 Pro</div>
+                            <div class="remoto-estado-version">✅ Disponible</div>
+                        </div>
+                        <div class="remoto-version disponible">
+                            <div class="remoto-nombre-version">Windows 10 Enterprise</div>
+                            <div class="remoto-estado-version">✅ Disponible</div>
+                        </div>
+                        <div class="remoto-version disponible">
+                            <div class="remoto-nombre-version">Windows 10 Education</div>
+                            <div class="remoto-estado-version">✅ Disponible</div>
+                        </div>
+                        <div class="remoto-version no-disponible">
+                            <div class="remoto-nombre-version">Windows 10 Home</div>
+                            <div class="remoto-estado-version">❌ No disponible</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-funcionamiento-rdp">
+                    <h4>Funcionamiento</h4>
+                    <div class="remoto-pasos-rdp">
+                        <div class="remoto-paso-rdp">
+                            <div class="remoto-numero-paso-rdp">1</div>
+                            <div class="remoto-descripcion-paso-rdp">
+                                <p>Habilitar el servicio de Escritorio remoto en el equipo al que se quiere acceder.</p>
+                                <div class="remoto-imagen-paso-rdp">
+                                    <div class="remoto-pantalla-windows">
+                                        <div class="remoto-barra-titulo-windows">Propiedades del sistema</div>
+                                        <div class="remoto-contenido-pantalla-windows">
+                                            <div class="remoto-opcion-windows">
+                                                <div class="remoto-checkbox checked"></div>
+                                                <div class="remoto-texto-opcion">Permitir conexiones remotas a este equipo</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="remoto-flecha-paso-rdp">↓</div>
+                        <div class="remoto-paso-rdp">
+                            <div class="remoto-numero-paso-rdp">2</div>
+                            <div class="remoto-descripcion-paso-rdp">
+                                <p>Abrir la aplicación "Conexión a Escritorio remoto" en el equipo desde el que se quiere acceder.</p>
+                                <div class="remoto-imagen-paso-rdp">
+                                    <div class="remoto-pantalla-windows">
+                                        <div class="remoto-barra-titulo-windows">Conexión a Escritorio remoto</div>
+                                        <div class="remoto-contenido-pantalla-windows">
+                                            <div class="remoto-campo-windows">
+                                                <div class="remoto-etiqueta-windows">Equipo:</div>
+                                                <div class="remoto-valor-input-windows">192.168.1.100</div>
+                                            </div>
+                                            <div class="remoto-campo-windows">
+                                                <div class="remoto-etiqueta-windows">Usuario:</div>
+                                                <div class="remoto-valor-input-windows">administrador</div>
+                                            </div>
+                                            <div class="remoto-boton-windows">Conectar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="remoto-flecha-paso-rdp">↓</div>
+                        <div class="remoto-paso-rdp">
+                            <div class="remoto-numero-paso-rdp">3</div>
+                            <div class="remoto-descripcion-paso-rdp">
+                                <p>Introducir las credenciales de usuario y contraseña para iniciar sesión en el equipo remoto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050502006">
+            <h3>5.2.5 Escritorio remoto de Chrome</h3>
+            
+            <div class="remoto-herramienta">
+                <div class="remoto-cabecera-herramienta">
+                    <div class="remoto-logo-herramienta">Escritorio remoto de Chrome</div>
+                    <div class="remoto-tipo-herramienta">Gratuito</div>
+                </div>
+                
+                <div class="remoto-descripcion-herramienta">
+                    <p>Chrome Remote Desktop es una herramienta de software de escritorio remoto desarrollada por Google que permite a un usuario controlar de forma remota otro ordenador a través de un protocolo propietario desarrollado por Google llamado extraoficialmente "Chromoting".</p>
+                </div>
+                
+                <div class="remoto-funcionamiento-chrome">
+                    <h4>Funcionamiento</h4>
+                    <p>Transmite los eventos del teclado y el mouse de un ordenador a otro, retransmitiendo las actualizaciones de la pantalla gráfica en la otra dirección, a través de una red.</p>
+                    
+                    <div class="remoto-componentes-chrome">
+                        <div class="remoto-componente-chrome">
+                            <div class="remoto-icono-componente-chrome">🖥️</div>
+                            <div class="remoto-titulo-componente-chrome">Componente de servidor</div>
+                            <div class="remoto-descripcion-componente-chrome">Para el ordenador de usuario donde se accede.</div>
+                        </div>
+                        <div class="remoto-componente-chrome">
+                            <div class="remoto-icono-componente-chrome">💻</div>
+                            <div class="remoto-titulo-componente-chrome">Componente de cliente</div>
+                            <div class="remoto-descripcion-componente-chrome">En el ordenador que accede al ordenador remoto.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-evolucion-chrome">
+                    <h4>Evolución</h4>
+                    <div class="remoto-historia-chrome">
+                        <div class="remoto-fase">
+                            <div class="remoto-periodo">Originalmente</div>
+                            <div class="remoto-descripcion-fase">El cliente de Escritorio remoto de Chrome era originalmente una extensión de Chrome de Chrome Web Store que requería Google Chrome.</div>
+                        </div>
+                        <div class="remoto-flecha-evolucion">↓</div>
+                        <div class="remoto-fase">
+                            <div class="remoto-periodo">Actualmente</div>
+                            <div class="remoto-descripcion-fase">La extensión está obsoleta y hay un "portal" web disponible en remotedesktop.google.com.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="remoto-acceso-chrome">
+                    <h4>Acceso</h4>
+                    <div class="remoto-metodos-acceso">
+                        <div class="remoto-metodo-acceso">
+                            <div class="remoto-icono-metodo">🌐</div>
+                            <div class="remoto-texto-metodo">
+                                <p>A través del portal web: remotedesktop.google.com</p>
+                            </div>
+                        </div>
+                        <div class="remoto-metodo-acceso">
+                            <div class="remoto-icono-metodo">🔑</div>
+                            <div class="remoto-texto-metodo">
+                                <p>Requiere una cuenta de Google para la autenticación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050502007">
+            <h3>5.2.6 Comparativa de Herramientas de Gestión Remota</h3>
+            
+            <div class="remoto-tabla-comparativa">
+                <div class="remoto-fila-tabla remoto-cabecera-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Característica</div>
+                    <div class="remoto-celda-tabla">VNC</div>
+                    <div class="remoto-celda-tabla">TeamViewer</div>
+                    <div class="remoto-celda-tabla">AnyDesk</div>
+                    <div class="remoto-celda-tabla">Escritorio remoto de Microsoft</div>
+                    <div class="remoto-celda-tabla">Escritorio remoto de Chrome</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Tipo</div>
+                    <div class="remoto-celda-tabla">Opensource</div>
+                    <div class="remoto-celda-tabla">Comercial (con versión gratuita)</div>
+                    <div class="remoto-celda-tabla">Comercial (con versión gratuita)</div>
+                    <div class="remoto-celda-tabla">Incluido en Windows</div>
+                    <div class="remoto-celda-tabla">Gratuito</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Multiplataforma</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">❌ (Solo Windows)</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Seguridad</div>
+                    <div class="remoto-celda-tabla">Básica (versiones comerciales con cifrado)</div>
+                    <div class="remoto-celda-tabla">RSA 1024-bit y AES 256-bit</div>
+                    <div class="remoto-celda-tabla">TLS 1.2</div>
+                    <div class="remoto-celda-tabla">Autenticación de Windows</div>
+                    <div class="remoto-celda-tabla">Autenticación de Google</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Transferencia de archivos</div>
+                    <div class="remoto-celda-tabla">Depende de la implementación</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">❌</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Acceso a sesión actual</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">❌ (Nueva sesión)</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                </div>
+                <div class="remoto-fila-tabla">
+                    <div class="remoto-celda-tabla remoto-celda-caracteristica">Acceso vía navegador</div>
+                    <div class="remoto-celda-tabla">Depende de la implementación</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                    <div class="remoto-celda-tabla">❌</div>
+                    <div class="remoto-celda-tabla">❌</div>
+                    <div class="remoto-celda-tabla">✅</div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para gestión remota de puestos de usuario - usando clases únicas */
+        .remoto-concepto-clave {
+            display: flex;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .remoto-concepto-clave .remoto-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .remoto-concepto-clave .remoto-definicion {
+            flex: 1;
+        }
+        
+        .remoto-concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Arquitectura cliente/servidor */
+        .remoto-arquitectura {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-diagrama-arquitectura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .remoto-equipo {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+        
+        .remoto-icono-equipo {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-equipo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .remoto-componente {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-componente {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-componente {
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .remoto-conexion {
+            flex: 0 0 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        
+        .remoto-linea-conexion {
+            height: 2px;
+            background-color: #1890ff;
+            width: 100%;
+            position: relative;
+        }
+        
+        .remoto-linea-conexion::before,
+        .remoto-linea-conexion::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            top: -3px;
+        }
+        
+        .remoto-linea-conexion::before {
+            left: 0;
+        }
+        
+        .remoto-linea-conexion::after {
+            right: 0;
+        }
+        
+        .remoto-texto-conexion {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Herramientas de gestión remota */
+        .remoto-herramientas-intro {
+            margin: 25px 0;
+        }
+        
+        .remoto-herramienta {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-cabecera-herramienta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .remoto-logo-herramienta {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1890ff;
+            margin-right: 15px;
+        }
+        
+        .remoto-tipo-herramienta {
+            background-color: #e6f7ff;
+            color: #1890ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Componentes VNC */
+        .remoto-componentes {
+            margin: 25px 0;
+        }
+        
+        .remoto-componentes-vnc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-componente-vnc {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-componente-vnc {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .remoto-titulo-componente-vnc {
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .remoto-descripcion-componente-vnc {
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Funcionamiento VNC */
+        .remoto-funcionamiento {
+            margin: 25px 0;
+        }
+        
+        .remoto-metodo-operacion {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-diagrama-puertos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-puerto {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-numero-puerto {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1890ff;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-descripcion-puerto {
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Seguridad VNC */
+        .remoto-seguridad {
+            margin: 25px 0;
+        }
+        
+        .remoto-alerta-seguridad {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff2e8;
+            border-left: 4px solid #fa8c16;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .remoto-icono-alerta {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #fa8c16;
+        }
+        
+        .remoto-texto-alerta {
+            flex: 1;
+        }
+        
+        .remoto-texto-alerta p {
+            margin: 0;
+        }
+        
+        .remoto-recomendaciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-recomendacion {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f6ffed;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-recomendacion {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #52c41a;
+        }
+        
+        .remoto-texto-recomendacion {
+            flex: 1;
+        }
+        
+        /* Compatibilidad TeamViewer */
+        .remoto-compatibilidad {
+            margin: 25px 0;
+        }
+        
+        .remoto-sistemas-operativos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .remoto-sistema-operativo {
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-so {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .remoto-nombre-so {
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .remoto-nota-compatibilidad {
+            display: flex;
+            align-items: center;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-nota {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-nota {
+            flex: 1;
+        }
+        
+        /* Funcionalidades TeamViewer */
+        .remoto-funcionalidades {
+            margin: 25px 0;
+        }
+        
+        .remoto-lista-funcionalidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-funcionalidad {
+            flex: 1;
+            min-width: 150px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-funcionalidad {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-funcionalidad {
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* Funcionamiento TeamViewer */
+        .remoto-funcionamiento-teamviewer {
+            margin: 25px 0;
+        }
+        
+        .remoto-pasos-conexion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .remoto-paso {
+            width: 100%;
+            max-width: 600px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-numero-paso {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .remoto-descripcion-paso {
+            flex: 1;
+        }
+        
+        .remoto-descripcion-paso p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .remoto-flecha-paso {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 5px 0;
+        }
+        
+        .remoto-imagen-paso {
+            margin-top: 15px;
+        }
+        
+        .remoto-pantalla-teamviewer {
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .remoto-barra-titulo {
+            background-color: #1890ff;
+            color: white;
+            padding: 8px 15px;
+            font-weight: 500;
+        }
+        
+        .remoto-contenido-pantalla {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .remoto-campo {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-etiqueta {
+            width: 100px;
+            font-weight: 500;
+        }
+        
+        .remoto-valor {
+            flex: 1;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        
+        .remoto-valor-input {
+            flex: 1;
+            background-color: #f5f5f5;
+            border: 1px solid #d9d9d9;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-family: monospace;
+        }
+        
+        .remoto-boton {
+            background-color: #1890ff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            text-align: center;
+            font-weight: 500;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+        /* Seguridad TeamViewer */
+        .remoto-seguridad-teamviewer {
+            margin: 25px 0;
+        }
+        
+        .remoto-cifrado {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f6ffed;
+            border-left: 4px solid #52c41a;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .remoto-icono-cifrado {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #52c41a;
+        }
+        
+        .remoto-texto-cifrado {
+            flex: 1;
+        }
+        
+        .remoto-texto-cifrado p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-metodos-cifrado {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .remoto-metodo {
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-nombre-metodo {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .remoto-bits-metodo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .remoto-y {
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        
+        /* Características AnyDesk */
+        .remoto-caracteristicas-anydesk {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .remoto-caracteristica {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-caracteristica {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-caracteristica {
+            flex: 1;
+        }
+        
+        .remoto-texto-caracteristica h5 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-caracteristica p {
+            margin: 0;
+        }
+        
+        /* Compatibilidad AnyDesk */
+        .remoto-compatibilidad-anydesk {
+            margin: 25px 0;
+        }
+        
+        .remoto-sistemas-anydesk {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .remoto-sistema-anydesk {
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-sistema {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .remoto-nombre-sistema {
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* Escritorio remoto de Microsoft */
+        .remoto-diferencia-clave {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff2e8;
+            border-left: 4px solid #fa8c16;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .remoto-icono-diferencia {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #fa8c16;
+        }
+        
+        .remoto-texto-diferencia {
+            flex: 1;
+        }
+        
+        .remoto-texto-diferencia p {
+            margin: 0;
+        }
+        
+        /* Disponibilidad */
+        .remoto-disponibilidad {
+            margin: 25px 0;
+        }
+        
+        .remoto-versiones-windows {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-version {
+            flex: 1;
+            min-width: 200px;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-version.disponible {
+            background-color: #f6ffed;
+        }
+        
+        .remoto-version.no-disponible {
+            background-color: #fff1f0;
+        }
+        
+        .remoto-nombre-version {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-estado-version {
+            font-weight: 500;
+        }
+        
+        .disponible .remoto-estado-version {
+            color: #52c41a;
+        }
+        
+        .no-disponible .remoto-estado-version {
+            color: #f5222d;
+        }
+        
+        /* Funcionamiento RDP */
+        .remoto-funcionamiento-rdp {
+            margin: 25px 0;
+        }
+        
+        .remoto-pasos-rdp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .remoto-paso-rdp {
+            width: 100%;
+            max-width: 600px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-numero-paso-rdp {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .remoto-descripcion-paso-rdp {
+            flex: 1;
+        }
+        
+        .remoto-descripcion-paso-rdp p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .remoto-flecha-paso-rdp {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 5px 0;
+        }
+        
+        .remoto-imagen-paso-rdp {
+            margin-top: 15px;
+        }
+        
+        .remoto-pantalla-windows {
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .remoto-barra-titulo-windows {
+            background-color: #0078d7;
+            color: white;
+            padding: 8px 15px;
+            font-weight: 500;
+        }
+        
+        .remoto-contenido-pantalla-windows {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .remoto-opcion-windows {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #d9d9d9;
+            border-radius: 3px;
+            margin-right: 10px;
+            position: relative;
+        }
+        
+        .remoto-checkbox.checked::after {
+            content: "✓";
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: #0078d7;
+            font-weight: bold;
+        }
+        
+        .remoto-texto-opcion {
+            flex: 1;
+        }
+        
+        .remoto-campo-windows {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-etiqueta-windows {
+            width: 100px;
+            font-weight: 500;
+        }
+        
+        .remoto-valor-input-windows {
+            flex: 1;
+            background-color: #f5f5f5;
+            border: 1px solid #d9d9d9;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-family: monospace;
+        }
+        
+        .remoto-boton-windows {
+            background-color: #0078d7;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            text-align: center;
+            font-weight: 500;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+        /* Escritorio remoto de Chrome */
+        .remoto-funcionamiento-chrome {
+            margin: 25px 0;
+        }
+        
+        .remoto-componentes-chrome {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-componente-chrome {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-componente-chrome {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .remoto-titulo-componente-chrome {
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .remoto-descripcion-componente-chrome {
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Evolución Chrome Remote Desktop */
+        .remoto-evolucion-chrome {
+            margin: 25px 0;
+        }
+        
+        .remoto-historia-chrome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .remoto-fase {
+            width: 100%;
+            max-width: 600px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-periodo {
+            font-weight: 500;
+            color: #1890ff;
+            margin-bottom: 10px;
+        }
+        
+        .remoto-descripcion-fase {
+            color: #666;
+        }
+        
+        .remoto-flecha-evolucion {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 5px 0;
+        }
+        
+        /* Acceso Chrome Remote Desktop */
+        .remoto-acceso-chrome {
+            margin: 25px 0;
+        }
+        
+        .remoto-metodos-acceso {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .remoto-metodo-acceso {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .remoto-icono-metodo {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .remoto-texto-metodo {
+            flex: 1;
+        }
+        
+        .remoto-texto-metodo p {
+            margin: 0;
+        }
+        
+        /* Tabla comparativa */
+        .remoto-tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .remoto-fila-tabla {
+            display: flex;
+            flex-wrap: nowrap;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .remoto-cabecera-tabla {
+            background-color: #f0f5ff;
+            font-weight: bold;
+        }
+        
+        .remoto-celda-tabla {
+            flex: 1;
+            padding: 10px;
+            min-width: 120px;
+            border-right: 1px solid #d9d9d9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .remoto-celda-caracteristica {
+            background-color: #f0f5ff;
+            font-weight: 500;
+            min-width: 150px;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .remoto-diagrama-arquitectura {
+                flex-direction: column;
+            }
+            
+            .remoto-conexion {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+            
+            .remoto-metodos-cifrado {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .remoto-y {
+                margin: 10px 0;
+            }
+            
+            .remoto-fila-tabla {
+                flex-direction: column;
+            }
+            
+            .remoto-celda-tabla {
+                border-right: none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,706 @@
+<div class="teoria">
+    <span id="4030302001">
+        <h2>3.5 ARQUITECTURA</h2>
+        <p>Kubernetes sigue una arquitectura maestro-esclavo. Los componentes de Kubernetes pueden ser divididos en aquellos que administran un nodo individual y aquellos que son partes de un panel de control (Control Plane).</p>
+        
+        <p>El conjunto del panel de control y el nodo o nodos es lo que se conoce como cluster de kubernetes.</p>
+        
+        <div class="kubernetes-architecture">
+            <h3>Arquitectura de Kubernetes</h3>
+            <div class="architecture-diagram">
+                <div class="control-plane">
+                    <div class="plane-header">Panel de Control (Master)</div>
+                    <div class="master-components">
+                        <div class="component etcd">
+                            <div class="component-name">etcd</div>
+                            <div class="component-desc">Almacén de datos clave-valor</div>
+                        </div>
+                        <div class="component api-server">
+                            <div class="component-name">API Server</div>
+                            <div class="component-desc">Interfaz REST</div>
+                        </div>
+                        <div class="component scheduler">
+                            <div class="component-name">Scheduler</div>
+                            <div class="component-desc">Planificador de pods</div>
+                        </div>
+                        <div class="component controller-manager">
+                            <div class="component-name">Controller Manager</div>
+                            <div class="component-desc">Gestión de controladores</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nodes">
+                    <div class="node">
+                        <div class="node-header">Nodo (Worker)</div>
+                        <div class="node-components">
+                            <div class="component kubelet">
+                                <div class="component-name">Kubelet</div>
+                                <div class="component-desc">Gestión de pods</div>
+                            </div>
+                            <div class="component kube-proxy">
+                                <div class="component-name">Kube-Proxy</div>
+                                <div class="component-desc">Proxy de red</div>
+                            </div>
+                            <div class="component cadvisor">
+                                <div class="component-name">cAdvisor</div>
+                                <div class="component-desc">Monitorización</div>
+                            </div>
+                        </div>
+                        <div class="pods">
+                            <div class="pod">Pod</div>
+                            <div class="pod">Pod</div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <div class="node-header">Nodo (Worker)</div>
+                        <div class="node-components">
+                            <div class="component kubelet">
+                                <div class="component-name">Kubelet</div>
+                                <div class="component-desc">Gestión de pods</div>
+                            </div>
+                            <div class="component kube-proxy">
+                                <div class="component-name">Kube-Proxy</div>
+                                <div class="component-desc">Proxy de red</div>
+                            </div>
+                            <div class="component cadvisor">
+                                <div class="component-name">cAdvisor</div>
+                                <div class="component-desc">Monitorización</div>
+                            </div>
+                        </div>
+                        <div class="pods">
+                            <div class="pod">Pod</div>
+                            <div class="pod">Pod</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="communication-arrows">
+                    <div class="arrow master-node1">↓</div>
+                    <div class="arrow master-node2">↓</div>
+                </div>
+            </div>
+            <div class="architecture-description">
+                <p>La arquitectura de Kubernetes se divide en dos partes principales: el Panel de Control (Master) que gestiona el cluster, y los Nodos (Workers) que ejecutan las aplicaciones en contenedores.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030302002">
+        <h3>3.5.1 COMPONENTES DEL PANEL DE CONTROL</h3>
+        <p>Los componentes que son partes del panel de control son los siguientes:</p>
+        
+        <div class="control-plane-components">
+            <div class="component">
+                <h4>a) Etcd</h4>
+                <p>Etcd es un almacén de datos persistente, liviano, distribuido de clave-valor desarrollado por CoreOS que almacena de manera confiable los datos de configuración del clúster, representando el estado general del cluster en un punto del tiempo dado. Otros componentes escuchan los cambios en este almacén para avanzar al estado deseado.</p>
+                <div class="component-diagram">
+                    <div class="etcd-store">
+                        <div class="store-header">etcd</div>
+                        <div class="key-value-pairs">
+                            <div class="pair">
+                                <div class="key">clave1</div>
+                                <div class="value">valor1</div>
+                            </div>
+                            <div class="pair">
+                                <div class="key">clave2</div>
+                                <div class="value">valor2</div>
+                            </div>
+                            <div class="pair">
+                                <div class="key">clave3</div>
+                                <div class="value">valor3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h4>b) Servidor de API (API server)</h4>
+                <p>El servidor API es un componente central y sirve a la API de Kubernetes utilizando JSON sobre HTTP, que proveen la interfaz interna y externa de Kubernetes. El servidor API procesa y valida las peticiones REST y actualiza el estado de los objetos API en etcd, así permitiendo a los clientes configurar flujos de trabajos y contenedores a través de los nodos esclavos.</p>
+                <div class="component-diagram">
+                    <div class="api-server">
+                        <div class="server-header">API Server</div>
+                        <div class="server-functions">
+                            <div class="function">Procesar peticiones REST</div>
+                            <div class="function">Validar peticiones</div>
+                            <div class="function">Actualizar objetos en etcd</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h4>c) Planificador (Scheduler)</h4>
+                <p>El planificador es el componente que selecciona sobre qué nodo deberá correr un pod basado en la disponibilidad de recursos. Para este propósito, el planificador debe conocer los requerimientos de recursos, la disponibilidad de recursos y una variedad de restricciones y políticas directivas.</p>
+                <div class="component-diagram">
+                    <div class="scheduler">
+                        <div class="scheduler-header">Scheduler</div>
+                        <div class="scheduler-process">
+                            <div class="process-step">1. Filtrar nodos</div>
+                            <div class="process-step">2. Puntuar nodos</div>
+                            <div class="process-step">3. Seleccionar mejor nodo</div>
+                            <div class="process-step">4. Asignar pod</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h4>d) Administrador de controladores (Controller Manager)</h4>
+                <p>El administrador de controladores es el proceso sobre el cual el núcleo de los controladores Kubernetes se ejecuta.</p>
+                <div class="component-diagram">
+                    <div class="controller-manager">
+                        <div class="manager-header">Controller Manager</div>
+                        <div class="controllers">
+                            <div class="controller">Node Controller</div>
+                            <div class="controller">Replication Controller</div>
+                            <div class="controller">Endpoints Controller</div>
+                            <div class="controller">Service Account Controller</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030302003">
+        <h3>3.5.2 COMPONENTES DEL NODO</h3>
+        <p>El nodo, también conocido como esclavo o worker, es la máquina física (o virtual) donde los pods (flujos de trabajos) son desplegados. Cada nodo en el clúster debe ejecutar la rutina de tiempo de ejecución (como Docker), para comunicarse con el maestro (control plane) para la configuración en red de estos contenedores.</p>
+        
+        <div class="node-components">
+            <div class="component">
+                <h4>e) Kubelet</h4>
+                <p>Kubelet es responsable por el estado de ejecución de cada nodo. Se encarga del inicio, la detención y el mantenimiento de los contenedores de aplicaciones (organizados como pods). Kubelet monitoriza el estado de un pod y, si no se encuentra en el estado deseado, el pod será desplegado nuevamente al mismo nodo. El estado del nodo es comunicado al maestro cada pocos segundos mediante una señal periódica ("heartbeat"). Una vez que el nodo detecta la falla de un nodo, el Replication Controller observa este cambio de estado y lanza pods en otros nodos sanos.</p>
+                <div class="component-diagram">
+                    <div class="kubelet">
+                        <div class="kubelet-header">Kubelet</div>
+                        <div class="kubelet-functions">
+                            <div class="function">Monitorizar pods</div>
+                            <div class="function">Iniciar contenedores</div>
+                            <div class="function">Detener contenedores</div>
+                            <div class="function">Enviar heartbeat al master</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h4>f) Kube-Proxy</h4>
+                <p>Kube-Proxy es la implementación de un proxy de red y balanceador de carga soportando la abstracción del servicio junto con otras operaciones de red. Es responsable del enrutamiento del tráfico hacia el contenedor correcto basado en la dirección IP y el número de puerto indicados en el pedido.</p>
+                <div class="component-diagram">
+                    <div class="kube-proxy">
+                        <div class="proxy-header">Kube-Proxy</div>
+                        <div class="proxy-functions">
+                            <div class="function">Balanceo de carga</div>
+                            <div class="function">Enrutamiento de tráfico</div>
+                            <div class="function">Gestión de reglas de red</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h4>g) cAdvisor</h4>
+                <p>cAdvisor es un agente que monitorea y recoge métricas de utilización de recursos y rendimiento como CPU, memoria, uso de archivos y red de los contenedores en cada nodo.</p>
+                <div class="component-diagram">
+                    <div class="cadvisor">
+                        <div class="cadvisor-header">cAdvisor</div>
+                        <div class="cadvisor-metrics">
+                            <div class="metric">CPU</div>
+                            <div class="metric">Memoria</div>
+                            <div class="metric">Uso de archivos</div>
+                            <div class="metric">Red</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030302004">
+        <h3>3.5.3 APACHE MESOS</h3>
+        <p>Mesos es un administrador de clúster de códígo abierto escalable que usa los Cgroups de Linux para proveer aislamiento para CPU, memoria, I/O y el sistema de archivos. Mesos es la base para un numerosos sistemas distribuidos. Estos sistemas distribuidos son llamados frameworks.</p>
+        
+        <p>Mesos utiliza un mecanismo de dos niveles de planificación en donde se ofrecen recursos a frameworks. Cada nodo agente (esclavo) le informa al nodo maestro cuantos recursos disponibles tiene. El nodo maestro posee una lista de todos esos recursos disponibles y decide cuántos recursos puede ofrecer a cada framework, mientras que cada framework determina los recursos que acepta y qué aplicación ejecutar en estos recursos. Este método de asignación de recursos permite un acercamiento óptimo de la ubicación de datos cuándo se comparte un clúster de nodos entre frameworks diversos.</p>
+        
+        <p>Algunos de los frameworks de Mesos son Apache Aurora, Chronos, Cloud Foundry y Marathon.</p>
+        
+        <div class="mesos-architecture">
+            <h4>Arquitectura de Apache Mesos</h4>
+            <div class="architecture-diagram">
+                <div class="mesos-master">
+                    <div class="master-header">Mesos Master</div>
+                    <div class="master-components">
+                        <div class="component allocator">
+                            <div class="component-name">Allocator</div>
+                        </div>
+                        <div class="component frameworks">
+                            <div class="component-name">Frameworks</div>
+                            <div class="frameworks-list">
+                                <div class="framework">Marathon</div>
+                                <div class="framework">Chronos</div>
+                                <div class="framework">Aurora</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mesos-agents">
+                    <div class="agent">
+                        <div class="agent-header">Mesos Agent</div>
+                        <div class="agent-resources">
+                            <div class="resource">CPU</div>
+                            <div class="resource">Memoria</div>
+                            <div class="resource">Disco</div>
+                        </div>
+                        <div class="agent-tasks">
+                            <div class="task">Tarea 1</div>
+                            <div class="task">Tarea 2</div>
+                        </div>
+                    </div>
+                    <div class="agent">
+                        <div class="agent-header">Mesos Agent</div>
+                        <div class="agent-resources">
+                            <div class="resource">CPU</div>
+                            <div class="resource">Memoria</div>
+                            <div class="resource">Disco</div>
+                        </div>
+                        <div class="agent-tasks">
+                            <div class="task">Tarea 3</div>
+                            <div class="task">Tarea 4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="communication-arrows">
+                    <div class="arrow master-agent1">↓</div>
+                    <div class="arrow master-agent2">↓</div>
+                </div>
+            </div>
+            <div class="architecture-description">
+                <p>Apache Mesos utiliza un modelo de dos niveles de planificación donde el Mesos Master ofrece recursos a los frameworks, y estos deciden qué tareas ejecutar en los recursos aceptados.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030302005">
+        <h3>3.5.4 OPENSHIFT</h3>
+        <p>OpenShift es una plataforma como servicio (PaaS) de RedHat que aprovecha el empaquetado basado en contenedores Docker para implementar orquestación de contenedores y capacidades de administración informática para Kubernetes.</p>
+        
+        <p>Soporta programas binarios que sean aplicaciones Web, con tal de que se puedan ejecutar en RHEL Linux. Esto permite el uso de lenguajes arbitrarios y frameworks.</p>
+        
+        <p>OpenShift se encarga de mantener los servicios subyacentes a la aplicación y la escalabilidad de la aplicación como se necesite.</p>
+        
+        <div class="openshift-architecture">
+            <h4>Arquitectura de OpenShift</h4>
+            <div class="architecture-diagram">
+                <div class="openshift-layers">
+                    <div class="layer applications">
+                        <div class="layer-header">Aplicaciones</div>
+                        <div class="layer-items">
+                            <div class="item">Aplicación Web 1</div>
+                            <div class="item">Aplicación Web 2</div>
+                            <div class="item">Aplicación Web 3</div>
+                        </div>
+                    </div>
+                    <div class="layer services">
+                        <div class="layer-header">Servicios</div>
+                        <div class="layer-items">
+                            <div class="item">Base de Datos</div>
+                            <div class="item">Caché</div>
+                            <div class="item">Mensajería</div>
+                        </div>
+                    </div>
+                    <div class="layer platform">
+                        <div class="layer-header">Plataforma</div>
+                        <div class="layer-items">
+                            <div class="item">Kubernetes</div>
+                            <div class="item">Docker</div>
+                            <div class="item">Servicios OpenShift</div>
+                        </div>
+                    </div>
+                    <div class="layer infrastructure">
+                        <div class="layer-header">Infraestructura</div>
+                        <div class="layer-items">
+                            <div class="item">RHEL</div>
+                            <div class="item">Nube</div>
+                            <div class="item">Virtualización</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="architecture-description">
+                <p>OpenShift proporciona una plataforma completa para desarrollar, desplegar y gestionar aplicaciones en contenedores, construida sobre Kubernetes y Docker, con servicios adicionales de Red Hat.</p>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Kubernetes Architecture Styles */
+        .kubernetes-architecture {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .architecture-diagram {
+            position: relative;
+            margin: 15px 0;
+        }
+        .control-plane {
+            width: 80%;
+            margin: 0 auto 30px;
+            padding: 15px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .plane-header, .node-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .master-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .component {
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+            flex: 1 1 45%;
+        }
+        .component-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .component-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .nodes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .node {
+            width: 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .node-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .pods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .pod {
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .communication-arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        .arrow {
+            position: absolute;
+            font-size: 24px;
+            color: #0078d7;
+        }
+        .arrow.master-node1 {
+            top: 50%;
+            left: 30%;
+        }
+        .arrow.master-node2 {
+            top: 50%;
+            right: 30%;
+        }
+        .architecture-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Control Plane Components Styles */
+        .control-plane-components {
+            margin: 20px 0;
+        }
+        .control-plane-components .component {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex: 1 1 100%;
+        }
+        .control-plane-components .component h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .component-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .etcd-store, .api-server, .scheduler, .controller-manager {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .store-header, .server-header, .scheduler-header, .manager-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .key-value-pairs {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .pair {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .key, .value {
+            padding: 5px;
+            text-align: center;
+            flex: 1;
+        }
+        .key {
+            background-color: #f2f2f2;
+            border-right: 1px solid #ddd;
+        }
+        .server-functions, .scheduler-process, .controllers {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .function, .process-step, .controller {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        /* Node Components Styles */
+        .node-components {
+            margin: 20px 0;
+        }
+        .node-components .component {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex: 1 1 100%;
+        }
+        .node-components .component h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .kubelet, .kube-proxy, .cadvisor {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .kubelet-header, .proxy-header, .cadvisor-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .kubelet-functions, .proxy-functions, .cadvisor-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .function, .metric {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        /* Mesos Architecture Styles */
+        .mesos-architecture {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .mesos-master {
+            width: 80%;
+            margin: 0 auto 30px;
+            padding: 15px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .master-header, .agent-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .master-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .allocator, .frameworks {
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+            flex: 1 1 45%;
+        }
+        .frameworks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .framework {
+            padding: 3px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .mesos-agents {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .agent {
+            width: 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .agent-resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .resource {
+            padding: 3px 8px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .agent-tasks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .task {
+            padding: 3px 8px;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 3px;
+        }
+        .arrow.master-agent1 {
+            top: 50%;
+            left: 30%;
+        }
+        .arrow.master-agent2 {
+            top: 50%;
+            right: 30%;
+        }
+        
+        /* OpenShift Architecture Styles */
+        .openshift-architecture {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .openshift-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .layer {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .layer-header {
+            width: 150px;
+            padding: 10px;
+            background-color: #0078d7;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .layer-items {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 10px;
+        }
+        .item {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+    </style>
+</div>

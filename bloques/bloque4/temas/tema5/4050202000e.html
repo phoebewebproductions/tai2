@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolos Seguros</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050202001">
+            <h2>2.2 PROTOCOLOS SEGUROS</h2>
+            <h3>2.2.1 IPSEC (INTERNET PROTOCOL SECURITY)</h3>
+            <p>Se trata de un conjunto de protocolos que opera en la capa 3 del modelo OSI y cuya función es asegurar las comunicaciones sobre el Protocolo de Internet (IP) autenticando y/o cifrando cada paquete IP en un flujo de datos.</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">🔒</div>
+                <div class="proto-definicion">
+                    <h4>IPsec</h4>
+                    <p>Conjunto de protocolos que opera en la capa 3 del modelo OSI para asegurar las comunicaciones sobre IP autenticando y/o cifrando cada paquete IP en un flujo de datos.</p>
+                </div>
+            </div>
+            
+            <p>IPsec consta de tres protocolos que han sido desarrollados para proporcionar seguridad a nivel de paquete, tanto para IPv4 como para IPv6:</p>
+        </span>
+        
+        <span id="4050202002">
+            <h4>Internet Key Exchange (IKE)</h4>
+            <p>IKE emplea un intercambio secreto de claves de tipo Diffie-Hellman para establecer el secreto compartido de la sesión. El objetivo es generar la asociación de seguridad (SA), con el conjunto de algoritmos y parámetros necesarios para AH y ESP. IKE opera en dos fases:</p>
+            
+            <div class="proto-fases">
+                <div class="proto-fase">
+                    <div class="proto-fase-titulo">
+                        <div class="proto-numero">1</div>
+                        <h5>Fase 1</h5>
+                    </div>
+                    <div class="proto-fase-contenido">
+                        <p>Los dos extremos negocian aspectos como la función hash (MD5 o SHA1), el mecanismo de autenticación (certificados o claves compartidas), el grupo Diffie-Hellman y el algoritmo de cifrado (DES, 3DES o AES). Se intercambian las claves usando Diffie-Hellman y se autentican para finalizar estableciendo un canal seguro (túnel ISAKMP). Esta fase puede ejecutarse en modo normal o en modo agresivo.</p>
+                    </div>
+                </div>
+                
+                <div class="proto-fase">
+                    <div class="proto-fase-titulo">
+                        <div class="proto-numero">2</div>
+                        <h5>Fase 2</h5>
+                    </div>
+                    <div class="proto-fase-contenido">
+                        <p>Se usa el canal seguro anterior para establecer dos asociaciones de seguridad (SA) unidireccionales de IPSec en las que se basará la comunicación, negociando dentro del canal seguro los parámetros para cada una de ellas:</p>
+                        <ul class="proto-lista">
+                            <li><span class="proto-bullet">•</span> Protocolo IPSec (AH o ESP)</li>
+                            <li><span class="proto-bullet">•</span> Modo de operación (transporte o túnel)</li>
+                            <li><span class="proto-bullet">•</span> Claves criptográficas</li>
+                            <li><span class="proto-bullet">•</span> Algoritmos criptográficos (DES, 3DES o AES)</li>
+                            <li><span class="proto-bullet">•</span> Tiempo de vida de las claves</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Una vez finalizado IKE, se usan los protocolos AH o ESP, en sus modos de transporte o túnel, según se haya establecido en las SA.</p>
+        </span>
+        
+        <span id="4050202003">
+            <h4>IKEv2 - Mejoras</h4>
+            <p>En la segunda versión, IKEv2, el proceso de negociación se simplifica, y además:</p>
+            
+            <div class="proto-mejoras">
+                <div class="proto-mejora">
+                    <div class="proto-icono">🔄</div>
+                    <div class="proto-texto">Necesita sólo de cuatro mensajes en la fase 1, en la versión inicial se necesitaban 8.</div>
+                </div>
+                
+                <div class="proto-mejora">
+                    <div class="proto-icono">🧱</div>
+                    <div class="proto-texto">Incorpora mejoras para el NAT transversal, lo que permite facilitar la comunicación y traspasar firewalls en general.</div>
+                </div>
+                
+                <div class="proto-mejora">
+                    <div class="proto-icono">📱</div>
+                    <div class="proto-texto">Hay una extensión estándar para IKEv2 llamada MOBIKE, que es utilizada para soportar movilidad y multiorigen (multihoming en inglés), especialmente para túneles IPsec. Mediante esta extensión IKEv2 e IPsec pueden ser utilizados por dispositivos móviles.</div>
+                </div>
+                
+                <div class="proto-mejora">
+                    <div class="proto-icono">🔊</div>
+                    <div class="proto-texto">Permite el uso de SCTP para VoIP.</div>
+                </div>
+                
+                <div class="proto-mejora">
+                    <div class="proto-icono">🔐</div>
+                    <div class="proto-texto">Tiene menos mecanismos criptográficos que IKEv1 permitiendo solamente los más seguros.</div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202004">
+            <h4>Authentication Header (AH)</h4>
+            <p>Está dirigido a garantizar integridad, sin conexión y autenticación de los datos de origen de los datagramas IP. Para ello, calcula un Hash Message Authentication Code (HMAC) a través de algún algoritmo hash operando sobre una clave secreta compartida, el contenido del paquete IP y las partes inmutables del datagrama. No garantiza la confidencialidad, ya que no cifra los datos.</p>
+            
+            <div class="proto-advertencia">
+                <div class="proto-icono">⚠️</div>
+                <div class="proto-texto">
+                    <p>Un problema con este protocolo es que no funciona bien con NAT, ya que hace el hash de la dirección IP y el número de puerto del paquete, y como estos pueden cambiar con NAT, la comprobación del hash fallará. Para que funcione es necesario habilitar un NAT transversal.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202005">
+            <h4>Encapsulating Security Payload (ESP)</h4>
+            <p>El protocolo ESP proporciona autenticidad de origen, integridad y protección de confidencialidad de un paquete, ya que al contrario que AH sí puede cifrar los datos. ESP también soporta configuraciones de solo cifrado y solo autenticación. Al contrario que con AH, la cabecera del paquete IP no está protegida por ESP.</p>
+            
+            <div class="proto-nota">
+                <div class="proto-icono">📝</div>
+                <div class="proto-texto">
+                    <p>Los protocolos AH y ESP pueden usarse conjuntamente en el mismo paquete.</p>
+                </div>
+            </div>
+            
+            <div class="proto-tabla-comparativa">
+                <h4>Comparación entre AH y ESP</h4>
+                <table class="proto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Authentication Header (AH)</th>
+                            <th>Encapsulating Security Payload (ESP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Integridad</td>
+                            <td><span class="proto-check">✓</span></td>
+                            <td><span class="proto-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Autenticación</td>
+                            <td><span class="proto-check">✓</span></td>
+                            <td><span class="proto-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Confidencialidad</td>
+                            <td><span class="proto-cross">✗</span></td>
+                            <td><span class="proto-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Protección de cabecera IP</td>
+                            <td><span class="proto-check">✓</span></td>
+                            <td><span class="proto-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Compatibilidad con NAT</td>
+                            <td><span class="proto-cross">✗</span></td>
+                            <td><span class="proto-check">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050202006">
+            <h4>Modos de funcionamiento de IPSec</h4>
+            <p>IPSec dispone de dos modos de funcionamiento, que pueden ser usados en los protocolos AH o ESP:</p>
+            
+            <div class="proto-modos">
+                <div class="proto-modo">
+                    <h5>Modo transporte</h5>
+                    <p>Solo la carga útil del paquete IP es cifrada o autenticada. El enrutamiento permanece intacto, ya que no se modifica ni se cifra la cabecera IP. Las capas de transporte y aplicación están siempre aseguradas por un hash, de forma que no pueden ser modificadas de ninguna manera, y no se puede traducir el número de puerto TCP o UDP. El modo transporte se utiliza para comunicaciones ordenador a ordenador.</p>
+                    
+                    <div class="proto-diagrama">
+                        <div class="proto-paquete-transporte">
+                            <div class="proto-cabecera-ip">Cabecera IP original</div>
+                            <div class="proto-cabecera-ah-esp">Cabecera AH/ESP</div>
+                            <div class="proto-datos-protegidos">Datos protegidos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proto-modo">
+                    <h5>Modo túnel</h5>
+                    <p>Todo el paquete IP (datos más cabeceras del mensaje) es cifrado o autenticado. Debe ser entonces encapsulado en un nuevo paquete IP para que funcione el enrutamiento. El modo túnel se utiliza para comunicaciones red a red (túneles seguros entre routers).</p>
+                    
+                    <div class="proto-diagrama">
+                        <div class="proto-paquete-tunel">
+                            <div class="proto-cabecera-ip-nueva">Nueva cabecera IP</div>
+                            <div class="proto-cabecera-ah-esp">Cabecera AH/ESP</div>
+                            <div class="proto-paquete-original">
+                                <div class="proto-cabecera-ip-original">Cabecera IP original</div>
+                                <div class="proto-datos-originales">Datos originales</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Los algoritmos criptográficos definidos para usar con IPSec incluyen HMAC-SHA-1 para protección de la integridad, y Triple DES-CBC y AES-CBC para la confidencialidad.</p>
+        </span>
+        
+        <span id="4050202007">
+            <h3>2.2.2 SSL Y TLS</h3>
+            <p>SSL (Secure Sockets Layer) es un protocolo que opera en el nivel 4 del modelo OSI que proporciona autenticación y privacidad de la información entre extremos sobre Internet mediante el uso de criptografía. Normalmente funciona sobre TCP, pero también puede funcionar sobre UDP.</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">🔒</div>
+                <div class="proto-definicion">
+                    <h4>SSL/TLS</h4>
+                    <p>Protocolos que operan en el nivel 4 del modelo OSI para proporcionar autenticación y privacidad de la información entre extremos sobre Internet mediante el uso de criptografía.</p>
+                </div>
+            </div>
+            
+            <p>El protocolo SSL intercambia registros. Opcionalmente, cada registro puede ser comprimido, cifrado y empaquetado con un código de autenticación del mensaje (MAC).</p>
+        </span>
+        
+        <span id="4050202008">
+            <h4>Funcionamiento de SSL</h4>
+            <p>El funcionamiento de SSL implica una serie de fases básicas:</p>
+            
+            <div class="proto-proceso">
+                <div class="proto-paso">
+                    <div class="proto-numero">1</div>
+                    <div class="proto-descripcion">Opcionalmente el servidor anuncia su disponibilidad con el mensaje HelloRequest.</div>
+                </div>
+                
+                <div class="proto-paso">
+                    <div class="proto-numero">2</div>
+                    <div class="proto-descripcion">Comienza la negociación entre el cliente y el servidor, mediante un protocolo handshake, en el que el cliente (ClientHello) envía al servidor las diferentes opciones criptográficas y el servidor (ServerHello) responde con los parámetros escogidos.</div>
+                </div>
+                
+                <div class="proto-paso">
+                    <div class="proto-numero">3</div>
+                    <div class="proto-descripcion">Obtención de una clave maestra (master secret o premaster secret).</div>
+                </div>
+                
+                <div class="proto-paso">
+                    <div class="proto-numero">4</div>
+                    <div class="proto-descripcion">Todos los datos de claves restantes son derivados a partir de este master secret, y son pasados a través una función pseudoaleatoria, que los divide en dos mitades y las procesa con algoritmos hash diferentes (MD5 y SHA), después realiza sobre ellos una operación XOR.</div>
+                </div>
+                
+                <div class="proto-paso">
+                    <div class="proto-numero">5</div>
+                    <div class="proto-descripcion">Cifrado del tráfico basado en cifrado simétrico con los datos anteriores.</div>
+                </div>
+            </div>
+            
+            <div class="proto-diagrama-ssl">
+                <h4>Proceso de Handshake SSL/TLS</h4>
+                <div class="proto-handshake">
+                    <div class="proto-cliente">
+                        <div class="proto-titulo">Cliente</div>
+                    </div>
+                    <div class="proto-servidor">
+                        <div class="proto-titulo">Servidor</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-cliente-to-servidor">
+                        <div class="proto-flecha">→</div>
+                        <div class="proto-contenido">ClientHello</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-servidor-to-cliente">
+                        <div class="proto-flecha">←</div>
+                        <div class="proto-contenido">ServerHello</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-servidor-to-cliente">
+                        <div class="proto-flecha">←</div>
+                        <div class="proto-contenido">Certificado</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-servidor-to-cliente">
+                        <div class="proto-flecha">←</div>
+                        <div class="proto-contenido">ServerHelloDone</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-cliente-to-servidor">
+                        <div class="proto-flecha">→</div>
+                        <div class="proto-contenido">ClientKeyExchange</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-cliente-to-servidor">
+                        <div class="proto-flecha">→</div>
+                        <div class="proto-contenido">ChangeCipherSpec</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-cliente-to-servidor">
+                        <div class="proto-flecha">→</div>
+                        <div class="proto-contenido">Finished</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-servidor-to-cliente">
+                        <div class="proto-flecha">←</div>
+                        <div class="proto-contenido">ChangeCipherSpec</div>
+                    </div>
+                    
+                    <div class="proto-mensaje proto-servidor-to-cliente">
+                        <div class="proto-flecha">←</div>
+                        <div class="proto-contenido">Finished</div>
+                    </div>
+                    
+                    <div class="proto-comunicacion-segura">
+                        <div class="proto-flecha-doble">↔</div>
+                        <div class="proto-contenido">Comunicación segura</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202009">
+            <p>Durante la primera fase, el cliente y el servidor negocian qué algoritmos criptográficos se van a usar. Las implementaciones actuales proporcionan las siguientes opciones:</p>
+            
+            <div class="proto-algoritmos">
+                <div class="proto-algoritmo">
+                    <div class="proto-icono">🔑</div>
+                    <div class="proto-categoria">Criptografía de clave pública</div>
+                    <div class="proto-opciones">RSA, Diffie-Hellman, DSA o Fortezza</div>
+                </div>
+                
+                <div class="proto-algoritmo">
+                    <div class="proto-icono">🔒</div>
+                    <div class="proto-categoria">Cifrado simétrico</div>
+                    <div class="proto-opciones">RC2, RC4, IDEA, DES, TDES y AES</div>
+                </div>
+                
+                <div class="proto-algoritmo">
+                    <div class="proto-icono">🔄</div>
+                    <div class="proto-categoria">Funciones hash</div>
+                    <div class="proto-opciones">MD5 o de la familia SHA</div>
+                </div>
+            </div>
+            
+            <p>Incluye una serie de medidas adicionales de seguridad:</p>
+            
+            <div class="proto-medidas">
+                <div class="proto-medida">
+                    <div class="proto-icono">🔢</div>
+                    <div class="proto-texto">Numeración de todos los registros y uso de ese número de secuencia en el MAC.</div>
+                </div>
+                
+                <div class="proto-medida">
+                    <div class="proto-icono">🔐</div>
+                    <div class="proto-texto">Uso de un resumen de mensaje mejorado con una clave (de forma que solo con dicha clave se pueda comprobar el MAC).</div>
+                </div>
+                
+                <div class="proto-medida">
+                    <div class="proto-icono">🛡️</div>
+                    <div class="proto-texto">Protección contra varios ataques conocidos (incluyendo ataques man-in-the-middle).</div>
+                </div>
+                
+                <div class="proto-medida">
+                    <div class="proto-icono">✅</div>
+                    <div class="proto-texto">El mensaje que finaliza el protocolo handshake (Finished) envía un hash de todos los datos intercambiados y vistos por ambas partes.</div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202010">
+            <h4>TLS (Transport Layer Security)</h4>
+            <p>TLS (Transport Layer Security) fue definido en la RFC 2246 y es una actualización de SSL versión 3. La versión actual es TLS 1.3 (RFC 8446). Introduce algunas mejoras sobre SSL, usa una nueva función pseudoaleatoria, y HMAC en vez de MAC, introduce nuevas versiones de los algoritmos de cifrado y parches contra vulnerabilidades descubiertas en SSL, particularmente:</p>
+            
+            <div class="proto-mejoras-tls">
+                <div class="proto-mejora-tls">
+                    <div class="proto-icono">🛡️</div>
+                    <div class="proto-texto">Defensa contra ataques CBC (ataque Poodle)</div>
+                </div>
+                
+                <div class="proto-mejora-tls">
+                    <div class="proto-icono">🛡️</div>
+                    <div class="proto-texto">Defensa contra ataques Beast, a partir de TLS 1.1</div>
+                </div>
+            </div>
+            
+            <div class="proto-tabla-comparativa">
+                <h4>Evolución de SSL/TLS</h4>
+                <table class="proto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Versión</th>
+                            <th>Año</th>
+                            <th>Estado</th>
+                            <th>Características principales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SSL 1.0</td>
+                            <td>1994</td>
+                            <td>Obsoleto</td>
+                            <td>Nunca se publicó debido a fallos de seguridad</td>
+                        </tr>
+                        <tr>
+                            <td>SSL 2.0</td>
+                            <td>1995</td>
+                            <td>Obsoleto</td>
+                            <td>Primera versión pública, con vulnerabilidades</td>
+                        </tr>
+                        <tr>
+                            <td>SSL 3.0</td>
+                            <td>1996</td>
+                            <td>Obsoleto</td>
+                            <td>Rediseño completo, vulnerable a POODLE</td>
+                        </tr>
+                        <tr>
+                            <td>TLS 1.0</td>
+                            <td>1999</td>
+                            <td>Obsoleto</td>
+                            <td>Actualización de SSL 3.0, vulnerable a BEAST</td>
+                        </tr>
+                        <tr>
+                            <td>TLS 1.1</td>
+                            <td>2006</td>
+                            <td>Obsoleto</td>
+                            <td>Protección contra ataques CBC</td>
+                        </tr>
+                        <tr>
+                            <td>TLS 1.2</td>
+                            <td>2008</td>
+                            <td>Ampliamente usado</td>
+                            <td>Mejoras en funciones hash y cifrado</td>
+                        </tr>
+                        <tr>
+                            <td>TLS 1.3</td>
+                            <td>2018</td>
+                            <td>Actual</td>
+                            <td>Handshake más rápido, eliminación de algoritmos inseguros</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050202011">
+            <h3>2.2.3 HTTPS</h3>
+            <p>El protocolo seguro de transferencia de hipertexto (Hypertext Transfer Protocol Secure o HTTPS) es un protocolo de aplicación basado en el protocolo HTTP, destinado a la transferencia segura de datos de hipertexto, es decir, es la versión segura de HTTP (RFC 2818).</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">🔒</div>
+                <div class="proto-definicion">
+                    <h4>HTTPS</h4>
+                    <p>Protocolo de aplicación basado en HTTP, destinado a la transferencia segura de datos de hipertexto mediante el uso de SSL/TLS.</p>
+                </div>
+            </div>
+            
+            <p>HTTPS usa SSL/TLS para crear un canal cuyo nivel de cifrado depende del servidor remoto y del navegador utilizado por el cliente. Es más apropiado para el tráfico de información sensible que el protocolo HTTP. De este modo se consigue que la información sensible (usuario y claves de paso normalmente) no pueda ser usada por un atacante que haya conseguido interceptar la transferencia de datos de la conexión, ya que lo único que obtendrá será un flujo de datos cifrados que le resultará imposible de descifrar.</p>
+            
+            <p>HTTPS opera en el nivel de aplicación, por encima de SSL o TLS, que se sitúa entre HTTPS y el nivel de transporte. El puerto estándar para este protocolo es el 443.</p>
+            
+            <div class="proto-pila">
+                <h4>Pila de protocolos HTTPS</h4>
+                <div class="proto-capas">
+                    <div class="proto-capa">HTTPS</div>
+                    <div class="proto-capa">SSL/TLS</div>
+                    <div class="proto-capa">TCP</div>
+                    <div class="proto-capa">IP</div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202012">
+            <h4>HTTP Strict Transport Security (HSTS)</h4>
+            <p>HTTP Strict Transport Security o HTTP con Seguridad de Transporte Estricta (HSTS), es una política de seguridad web establecida para evitar ataques que puedan interceptar comunicaciones, cookies, etc. Según este mecanismo un servidor web declara que los agentes de usuario compatibles (es decir, los navegadores), solamente pueden interactuar con ellos mediante conexiones HTTP seguras (es decir, en HTTP sobre TLS/SSL). HSTS es un estándar del IETF y se especifica en el RFC 6797.</p>
+            
+            <div class="proto-diagrama-hsts">
+                <h4>Funcionamiento de HSTS</h4>
+                <div class="proto-flujo-hsts">
+                    <div class="proto-paso-hsts">
+                        <div class="proto-icono">🌐</div>
+                        <div class="proto-texto">Usuario accede a https://ejemplo.com</div>
+                    </div>
+                    <div class="proto-flecha">↓</div>
+                    <div class="proto-paso-hsts">
+                        <div class="proto-icono">🔒</div>
+                        <div class="proto-texto">Servidor responde con cabecera HSTS</div>
+                    </div>
+                    <div class="proto-flecha">↓</div>
+                    <div class="proto-paso-hsts">
+                        <div class="proto-icono">💾</div>
+                        <div class="proto-texto">Navegador almacena política HSTS para el dominio</div>
+                    </div>
+                    <div class="proto-flecha">↓</div>
+                    <div class="proto-paso-hsts">
+                        <div class="proto-icono">🔄</div>
+                        <div class="proto-texto">Futuras peticiones a ejemplo.com se convierten automáticamente a HTTPS</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202013">
+            <h3>2.2.4 SSTP (SECURE SOCKETS TUNNEL PROTOCOL)</h3>
+            <p>El Protocolo de túnel de sockets seguros (SSTP) es una forma de túnel de red privada virtual (VPN) que proporciona un mecanismo para transportar el tráfico PPP a través de un canal SSL/TLS. SSL/TLS proporciona seguridad a nivel de transporte con negociación de claves, cifrado y comprobación de la integridad del tráfico. El uso de SSL/TLS sobre el puerto TCP 443 (de forma predeterminada, el puerto se puede cambiar) permite que SSTP pase a través de prácticamente todos los firewalls y servidores proxy, excepto los proxies web autenticados.</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">🔒</div>
+                <div class="proto-definicion">
+                    <h4>SSTP</h4>
+                    <p>Protocolo de túnel de red privada virtual (VPN) que proporciona un mecanismo para transportar el tráfico PPP a través de un canal SSL/TLS.</p>
+                </div>
+            </div>
+            
+            <div class="proto-ventajas">
+                <h4>Ventajas de SSTP</h4>
+                <div class="proto-ventaja-item">
+                    <div class="proto-icono">🔒</div>
+                    <div class="proto-texto">Atraviesa fácilmente firewalls que bloquean otros protocolos VPN</div>
+                </div>
+                
+                <div class="proto-ventaja-item">
+                    <div class="proto-icono">🛡️</div>
+                    <div class="proto-texto">Utiliza la seguridad de SSL/TLS para la autenticación y el cifrado</div>
+                </div>
+                
+                <div class="proto-ventaja-item">
+                    <div class="proto-icono">🌐</div>
+                    <div class="proto-texto">Funciona a través del puerto 443, que generalmente está abierto en la mayoría de las redes</div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202014">
+            <h3>2.2.5 SSH (SECURE SHELL)</h3>
+            <p>SSH es el nombre de un protocolo y del programa que lo implementa cuya principal función es el acceso remoto a un servidor por medio de un canal seguro en el que toda la información está cifrada. Además de la conexión a otros dispositivos, SSH permite copiar datos de forma segura (tanto archivos sueltos como simular sesiones FTP cifradas), gestionar claves RSA para no escribir contraseñas al conectar a los dispositivos y pasar los datos de cualquier otra aplicación por un canal seguro tunelizado mediante SSH. El puerto TCP asignado es el 22.</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">🔒</div>
+                <div class="proto-definicion">
+                    <h4>SSH</h4>
+                    <p>Protocolo que permite el acceso remoto a un servidor por medio de un canal seguro en el que toda la información está cifrada.</p>
+                </div>
+            </div>
+            
+            <div class="proto-usos">
+                <h4>Usos comunes de SSH</h4>
+                <div class="proto-uso">
+                    <div class="proto-icono">💻</div>
+                    <div class="proto-texto">Acceso remoto a servidores</div>
+                </div>
+                
+                <div class="proto-uso">
+                    <div class="proto-icono">📂</div>
+                    <div class="proto-texto">Transferencia segura de archivos (SCP, SFTP)</div>
+                </div>
+                
+                <div class="proto-uso">
+                    <div class="proto-icono">🔑</div>
+                    <div class="proto-texto">Gestión de claves RSA para autenticación sin contraseña</div>
+                </div>
+                
+                <div class="proto-uso">
+                    <div class="proto-icono">🔄</div>
+                    <div class="proto-texto">Túneles seguros para otras aplicaciones</div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050202015">
+            <h3>2.2.6 S/MIME (SECURE MULTIPURPOSE INTERNET MAIL EXTENSIONS)</h3>
+            <p>Se trata de un estándar para la transmisión segura de correo electrónico mediante el cifrado de los mensajes con criptografía asimétrica.</p>
+            
+            <div class="proto-concepto-clave">
+                <div class="proto-icono">✉️</div>
+                <div class="proto-definicion">
+                    <h4>S/MIME</h4>
+                    <p>Estándar para la transmisión segura de correo electrónico mediante el cifrado de los mensajes con criptografía asimétrica.</p>
+                </div>
+            </div>
+            
+            <p>S/MIME incluye dos funciones de seguridad:</p>
+            
+            <div class="proto-funciones">
+                <div class="proto-funcion">
+                    <div class="proto-icono">🔒</div>
+                    <div class="proto-texto">
+                        <h5>Email Encryption (Encriptado de correo electrónico)</h5>
+                        <p>Cifra el contenido del correo electrónico enviado entre dos usuarios con S/MIME para que únicamente el destinatario original pueda leerlo.</p>
+                    </div>
+                </div>
+                
+                <div class="proto-funcion">
+                    <div class="proto-icono">✅</div>
+                    <div class="proto-texto">
+                        <h5>Digital Signature (Firma digital)</h5>
+                        <p>Firma digitalmente los correos electrónicos enviados entre dos usuarios con S/MIME para eliminar cualquier riesgo de suplantación de identidad.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="proto-diagrama-smime">
+                <h4>Funcionamiento de S/MIME</h4>
+                <div class="proto-proceso-smime">
+                    <div class="proto-paso-smime">
+                        <div class="proto-numero">1</div>
+                        <div class="proto-descripcion">El emisor obtiene un certificado digital que contiene su clave pública</div>
+                    </div>
+                    
+                    <div class="proto-paso-smime">
+                        <div class="proto-numero">2</div>
+                        <div class="proto-descripcion">Para cifrar un mensaje, el emisor usa la clave pública del destinatario</div>
+                    </div>
+                    
+                    <div class="proto-paso-smime">
+                        <div class="proto-numero">3</div>
+                        <div class="proto-descripcion">Para firmar un mensaje, el emisor usa su clave privada</div>
+                    </div>
+                    
+                    <div class="proto-paso-smime">
+                        <div class="proto-numero">4</div>
+                        <div class="proto-descripcion">El destinatario usa su clave privada para descifrar el mensaje</div>
+                    </div>
+                    
+                    <div class="proto-paso-smime">
+                        <div class="proto-numero">5</div>
+                        <div class="proto-descripcion">El destinatario usa la clave pública del emisor para verificar la firma</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para protocolos seguros - usando clases únicas */
+        .proto-concepto-clave {
+            display: flex;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .proto-concepto-clave .proto-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .proto-concepto-clave .proto-definicion {
+            flex: 1;
+        }
+        
+        .proto-concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Fases */
+        .proto-fases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .proto-fase {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-fase-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .proto-numero {
+            background-color: #1890ff;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .proto-fase-titulo h5 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .proto-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        
+        .proto-lista li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .proto-bullet {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1890ff;
+            font-weight: bold;
+        }
+        
+        /* Mejoras */
+        .proto-mejoras, .proto-mejoras-tls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .proto-mejora, .proto-mejora-tls {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-mejora .proto-icono, .proto-mejora-tls .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .proto-mejora .proto-texto, .proto-mejora-tls .proto-texto {
+            flex: 1;
+        }
+        
+        /* Advertencia y Nota */
+        .proto-advertencia, .proto-nota {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff2e8;
+            border-left: 4px solid #fa8c16;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .proto-nota {
+            background-color: #f6ffed;
+            border-left-color: #52c41a;
+        }
+        
+        .proto-advertencia .proto-icono, .proto-nota .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #fa8c16;
+        }
+        
+        .proto-nota .proto-icono {
+            color: #52c41a;
+        }
+        
+        .proto-advertencia .proto-texto, .proto-nota .proto-texto {
+            flex: 1;
+        }
+        
+        .proto-advertencia p, .proto-nota p {
+            margin: 0;
+        }
+        
+        /* Tablas */
+        .proto-tabla-comparativa {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        .proto-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-tabla th {
+            background-color: #1890ff;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .proto-tabla td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .proto-tabla tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .proto-tabla tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        .proto-check {
+            color: #52c41a;
+            font-weight: bold;
+        }
+        
+        .proto-cross {
+            color: #f5222d;
+            font-weight: bold;
+        }
+        
+        /* Modos */
+        .proto-modos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .proto-modo {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-modo h5 {
+            color: #1890ff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        /* Diagramas */
+        .proto-diagrama {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .proto-paquete-transporte, .proto-paquete-tunel {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            border: 2px solid #1890ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .proto-cabecera-ip, .proto-cabecera-ah-esp, .proto-datos-protegidos,
+        .proto-cabecera-ip-nueva, .proto-paquete-original, .proto-cabecera-ip-original, .proto-datos-originales {
+            padding: 10px;
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .proto-cabecera-ip, .proto-cabecera-ip-nueva, .proto-cabecera-ip-original {
+            background-color: #e6f7ff;
+            font-weight: bold;
+        }
+        
+        .proto-cabecera-ah-esp {
+            background-color: #fff7e6;
+            font-weight: bold;
+        }
+        
+        .proto-datos-protegidos, .proto-datos-originales {
+            background-color: #f6ffed;
+        }
+        
+        .proto-paquete-original {
+            display: flex;
+            flex: 1;
+            background-color: #f0f5ff;
+            border-left: 1px dashed #1890ff;
+        }
+        
+        /* Proceso SSL */
+        .proto-proceso {
+            margin: 20px 0;
+        }
+        
+        .proto-paso {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .proto-paso .proto-numero {
+            margin-top: 2px;
+        }
+        
+        .proto-paso .proto-descripcion {
+            flex: 1;
+            padding-left: 10px;
+        }
+        
+        /* Diagrama SSL */
+        .proto-diagrama-ssl {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-handshake {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .proto-cliente, .proto-servidor {
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .proto-mensaje {
+            grid-column: 1 / span 2;
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        .proto-cliente-to-servidor {
+            justify-content: flex-end;
+        }
+        
+        .proto-servidor-to-cliente {
+            justify-content: flex-start;
+        }
+        
+        .proto-flecha {
+            margin: 0 10px;
+            color: #1890ff;
+            font-weight: bold;
+        }
+        
+        .proto-contenido {
+            background-color: #f0f5ff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .proto-comunicacion-segura {
+            grid-column: 1 / span 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .proto-flecha-doble {
+            margin: 0 10px;
+            color: #52c41a;
+            font-weight: bold;
+        }
+        
+        /* Algoritmos */
+        .proto-algoritmos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .proto-algoritmo {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-algoritmo .proto-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .proto-algoritmo .proto-categoria {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .proto-algoritmo .proto-opciones {
+            font-size: 0.9rem;
+        }
+        
+        /* Medidas */
+        .proto-medidas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .proto-medida {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-medida .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .proto-medida .proto-texto {
+            flex: 1;
+        }
+        
+        /* Pila de protocolos */
+        .proto-pila {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-capas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .proto-capa {
+            background-color: #e6f7ff;
+            border: 1px solid #1890ff;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: -1px;
+        }
+        
+        .proto-capa:first-child {
+            border-radius: 8px 8px 0 0;
+            background-color: #f0f5ff;
+        }
+        
+        .proto-capa:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+        
+        /* HSTS */
+        .proto-diagrama-hsts {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-flujo-hsts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .proto-paso-hsts {
+            display: flex;
+            align-items: center;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 10px 15px;
+            width: 80%;
+            margin: 5px 0;
+        }
+        
+        .proto-paso-hsts .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .proto-paso-hsts .proto-texto {
+            flex: 1;
+        }
+        
+        /* Ventajas */
+        .proto-ventajas {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-ventaja-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .proto-ventaja-item .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .proto-ventaja-item .proto-texto {
+            flex: 1;
+        }
+        
+        /* Usos */
+        .proto-usos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .proto-uso {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-uso .proto-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .proto-uso .proto-texto {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        /* Funciones */
+        .proto-funciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .proto-funcion {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .proto-funcion .proto-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .proto-funcion .proto-texto {
+            flex: 1;
+        }
+        
+        .proto-funcion h5 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .proto-funcion p {
+            margin: 0;
+        }
+        
+        /* S/MIME */
+        .proto-diagrama-smime {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proto-proceso-smime {
+            margin-top: 15px;
+        }
+        
+        .proto-paso-smime {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .proto-paso-smime .proto-numero {
+            margin-top: 2px;
+        }
+        
+        .proto-paso-smime .proto-descripcion {
+            flex: 1;
+            padding-left: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .proto-fases, .proto-mejoras, .proto-mejoras-tls, .proto-modos, .proto-algoritmos, .proto-medidas {
+                flex-direction: column;
+            }
+            
+            .proto-paquete-transporte, .proto-paquete-tunel {
+                flex-direction: column;
+            }
+            
+            .proto-handshake {
+                grid-template-columns: 1fr;
+            }
+            
+            .proto-mensaje {
+                grid-column: 1;
+            }
+            
+            .proto-comunicacion-segura {
+                grid-column: 1;
+            }
+        }
+    </style>
+</body>
+</html>

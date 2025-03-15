@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad de los sistemas de información</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050101001">
+            <h2>1.1. CONCEPTOS BÁSICOS</h2>
+            <p>Según el Anexo IV del Esquema Nacional de Seguridad (ENS), un <strong>activo</strong> es "un componente o funcionalidad de un sistema de información susceptible de ser atacado deliberada o accidentalmente con consecuencias para la organización. Incluye: información, datos, servicios, aplicaciones (software), equipos (hardware), comunicaciones, recursos administrativos, recursos físicos y recursos humanos".</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">🔍</div>
+                <div class="definicion">
+                    <h4>Activo</h4>
+                    <p>Componente o funcionalidad de un sistema de información susceptible de ser atacado con consecuencias para la organización.</p>
+                </div>
+            </div>
+            
+            <p>En el mismo Anexo IV se define <strong>riesgo</strong> como la "Estimación del grado de exposición a que una amenaza se materialice sobre uno o más activos causando daños o perjuicios a la organización". También se conoce como la probabilidad de materialización de una amenaza sobre un activo.</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">⚠️</div>
+                <div class="definicion">
+                    <h4>Riesgo</h4>
+                    <p>Estimación del grado de exposición a que una amenaza se materialice sobre uno o más activos causando daños o perjuicios a la organización.</p>
+                </div>
+            </div>
+            
+            <p>Se define también el <strong>Análisis de riesgos</strong> como el "estudio de las consecuencias previsibles de un posible incidente de seguridad, considerando su impacto en la organización (en la protección de sus activos, en su misión, en su imagen o reputación, o en sus funciones) y la probabilidad de que ocurra".</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">📊</div>
+                <div class="definicion">
+                    <h4>Análisis de riesgos</h4>
+                    <p>Estudio de las consecuencias previsibles de un posible incidente de seguridad, considerando su impacto en la organización y la probabilidad de que ocurra.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050101002">
+            <h3>OWASP Top 10</h3>
+            <p>Cabe destacar en el análisis de riesgos de sistemas de información la iniciativa OWASP Top 10. OWASP (Open Web Application Security Project) es una organización sin ánimo de lucro que ayuda con la seguridad de las aplicaciones. Está formada por empresas, organizaciones, fabricantes de seguridad y particulares que aportan sus conocimientos para poder generar artículos, metodologías, documentación, herramientas y tecnologías que son liberadas para ayudar al resto de los usuarios a implementar seguridad en sus aplicaciones.</p>
+            
+            <p>OWASP Top 10 es un proyecto que expone los diez principales riesgos de seguridad en aplicaciones que se deben de tener en cuenta, y se actualiza cada tres o cuatro años por los propios expertos de la comunidad de OWASP. En la edición de 2021 se actualizan los siguientes sobre 2017.</p>
+            
+            <div class="tabla-comparativa">
+                <h4>OWASP Top 10 (2021)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Riesgo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A01</td>
+                            <td>Broken Access Control</td>
+                            <td>Fallos en el control de acceso</td>
+                        </tr>
+                        <tr>
+                            <td>A02</td>
+                            <td>Cryptographic Failures</td>
+                            <td>Fallos criptográficos</td>
+                        </tr>
+                        <tr>
+                            <td>A03</td>
+                            <td>Injection</td>
+                            <td>Inyección de código</td>
+                        </tr>
+                        <tr>
+                            <td>A04</td>
+                            <td>Insecure Design</td>
+                            <td>Diseño inseguro</td>
+                        </tr>
+                        <tr>
+                            <td>A05</td>
+                            <td>Security Misconfiguration</td>
+                            <td>Configuración de seguridad incorrecta</td>
+                        </tr>
+                        <tr>
+                            <td>A06</td>
+                            <td>Vulnerable and Outdated Components</td>
+                            <td>Componentes vulnerables y obsoletos</td>
+                        </tr>
+                        <tr>
+                            <td>A07</td>
+                            <td>Identification and Authentication Failures</td>
+                            <td>Fallos de identificación y autenticación</td>
+                        </tr>
+                        <tr>
+                            <td>A08</td>
+                            <td>Software and Data Integrity Failures</td>
+                            <td>Fallos de integridad de software y datos</td>
+                        </tr>
+                        <tr>
+                            <td>A09</td>
+                            <td>Security Logging and Monitoring Failures</td>
+                            <td>Fallos en el registro y monitorización</td>
+                        </tr>
+                        <tr>
+                            <td>A10</td>
+                            <td>Server-Side Request Forgery</td>
+                            <td>Falsificación de solicitudes del lado del servidor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050101003">
+            <h2>1.2. LAS DIMENSIONES DE LA SEGURIDAD DE LA INFORMACIÓN</h2>
+            <p>En el aspecto de la seguridad de la información, el estándar ISO/IEC 27001 determina cuales son aquellas dimensiones que debe abarcar:</p>
+            
+            <div class="diagrama-dimensiones">
+                <div class="dimension-cia">
+                    <h3>Dimensiones básicas (CIA)</h3>
+                    <div class="dimension">
+                        <div class="icono">🔒</div>
+                        <div class="contenido">
+                            <h4>Confidencialidad</h4>
+                            <p>Acceso a la información únicamente por aquellos que están autorizados para ello.</p>
+                        </div>
+                    </div>
+                    <div class="dimension">
+                        <div class="icono">⚖️</div>
+                        <div class="contenido">
+                            <h4>Integridad</h4>
+                            <p>La información no ha sido manipulada de manera no autorizada.</p>
+                        </div>
+                    </div>
+                    <div class="dimension">
+                        <div class="icono">🔄</div>
+                        <div class="contenido">
+                            <h4>Disponibilidad</h4>
+                            <p>Acceso a la información y a los sistemas que la procesan por las personas autorizadas cuando lo necesitan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>En inglés el conjunto de estas dimensiones se conoce como CIA (Confidentiality, Integrity, Availability).</p>
+                
+                <p>El Esquema Nacional de Seguridad (ENS), a fin de determinar el impacto que tendría en la organización un incidente de seguridad, amplia estas dimensiones en dos más:</p>
+                
+                <div class="dimension-adicional">
+                    <div class="dimension">
+                        <div class="icono">🔐</div>
+                        <div class="contenido">
+                            <h4>Autenticidad</h4>
+                            <p>Garantiza que los usuarios que tienen acceso son quienes dicen ser.</p>
+                        </div>
+                    </div>
+                    <div class="dimension">
+                        <div class="icono">👣</div>
+                        <div class="contenido">
+                            <h4>Trazabilidad</h4>
+                            <p>Posibilita el seguimiento de los accesos indebidos a la organización.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050101004">
+            <h2>1.3. SEGURIDAD FÍSICA Y SEGURIDAD LÓGICA</h2>
+            <p>Conocemos la seguridad física de los sistemas de información todos aquellos aspectos, relacionados con la preservación de los datos almacenados en estos sistemas frente amenazas de naturaleza física, como es el caso de pérdida o destrucción de dispositivos de almacenamiento, incendios, inundaciones, corte del fluido eléctrico o acceso físico no autorizado a estos sistemas.</p>
+            
+            <p>Como seguridad lógica, conocemos todos aquellos aspectos que tienen que ver con las medidas de protección dirigidas a la preservación de los datos que se encuentran en un sistema de información, frente a ciberataques y otras amenazas de naturaleza lógica.</p>
+            
+            <div class="comparativa-seguridad">
+                <div class="seguridad-tipo">
+                    <h3>Seguridad Física vs. Seguridad Lógica</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Seguridad Física</th>
+                                <th>Seguridad Lógica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Protege contra amenazas físicas</td>
+                                <td>Protege contra amenazas lógicas</td>
+                            </tr>
+                            <tr>
+                                <td>Incendios, inundaciones</td>
+                                <td>Malware, ciberataques</td>
+                            </tr>
+                            <tr>
+                                <td>Acceso físico no autorizado</td>
+                                <td>Acceso lógico no autorizado</td>
+                            </tr>
+                            <tr>
+                                <td>Cortes eléctricos</td>
+                                <td>Vulnerabilidades de software</td>
+                            </tr>
+                            <tr>
+                                <td>Robo de equipos</td>
+                                <td>Robo de información</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050101005">
+            <h3>1.3.1 MEDIDAS DE SEGURIDAD FÍSICA</h3>
+            <p>La norma ISO/IEC 27001 establece los siguientes controles para la seguridad física:</p>
+            
+            <div class="medidas-seguridad">
+                <h4>Áreas Seguras</h4>
+                <ul class="lista-medidas">
+                    <li><span class="icono">🚪</span> Un perímetro de seguridad física (barreras como tarjetas identificativas o servicios de seguridad de acceso) se deberá utilizar para proteger áreas que contienen información o infraestructuras de procesamiento.</li>
+                    <li><span class="icono">🔑</span> Las áreas seguras deberán estar protegidas por los controles de acceso adecuados para garantizar que sólo el personal autorizado puede acceder a ellas.</li>
+                    <li><span class="icono">🏢</span> La seguridad física deberá aplicarse a todas las áreas de trabajo: oficinas, estancias e infraestructuras.</li>
+                    <li><span class="icono">🔥</span> Se deberá diseñar y aplicar protección física contra daños por fuego, inundación, terremotos, explosiones, disturbios civiles y otras formas de desastres naturales u originados por el hombre.</li>
+                    <li><span class="icono">📦</span> Los puntos de acceso al público o al personal no autorizado, como son las zonas de carga y descarga deberán estar controlados o aislados para prevenir el acceso no autorizado.</li>
+                </ul>
+            </div>
+        </span>
+        
+        <span id="4050101006">
+            <h4>Seguridad del Equipamiento</h4>
+            <div class="medidas-seguridad">
+                <ul class="lista-medidas">
+                    <li><span class="icono">💻</span> El equipamiento deberá estar situado o protegido para reducir los riesgos de amenazas y peligros ambientales, así como las oportunidades de acceso no autorizado.</li>
+                    <li><span class="icono">⚡</span> El equipamiento deberá estar protegido frente a interrupciones del suministro eléctrico o de otros servicios de apoyo.</li>
+                    <li><span class="icono">🔌</span> El cableado de suministro eléctrico o de telecomunicaciones que transmitan datos o presten algún tipo de servicio deberán estar protegidos contra daños o interceptación.</li>
+                    <li><span class="icono">🔧</span> El equipamiento deberá contar con un mantenimiento que asegure su disponibilidad continua y su integridad.</li>
+                    <li><span class="icono">📱</span> Los equipos, dispositivos y software o cualquier otro activo no deberán ser retirados o desinstalados sin autorización previa.</li>
+                    <li><span class="icono">🗑️</span> Todos los elementos de los equipo que contienen medios de almacenamiento se deben verificar para asegurarse de que los datos confidenciales y el software con licencia se hayan eliminado o sobrescrito de manera segura antes de su eliminación definitiva.</li>
+                    <li><span class="icono">🏠</span> La seguridad deberá aplicarse igualmente a los equipos que se usen fuera de las instalaciones.</li>
+                    <li><span class="icono">🔒</span> Los usuarios deberán asegurarse que los equipos sin personal asignado cuentan con la protección segura.</li>
+                    <li><span class="icono">🖥️</span> Deberá existir una política de escritorio y pantallas limpios.</li>
+                </ul>
+            </div>
+        </span>
+        
+        <span id="4050101007">
+            <h3>1.3.2 MEDIDAS DE SEGURIDAD LÓGICA</h3>
+            <p>Las medidas de seguridad lógica son un reflejo de los controles anteriores, utilizando sistemas de control perimetral, bastionado de equipos y control del acceso a la información. Ejemplos de medidas de seguridad lógica son las siguientes:</p>
+            
+            <div class="medidas-seguridad">
+                <ul class="lista-medidas">
+                    <li><span class="icono">🔐</span> Empleo de métodos de identificación adecuados para los usuarios, con una política de contraseñas robusta y varios factores de autenticación.</li>
+                    <li><span class="icono">🔒</span> Compartimentación de la información, limitando el acceso a los datos únicamente a las personas que lo necesitan.</li>
+                    <li><span class="icono">🔄</span> Actualización continua del software de base, incluyendo sistemas operativos.</li>
+                    <li><span class="icono">🦠</span> Uso de programas antivirus.</li>
+                    <li><span class="icono">🛡️</span> Establecimiento de una política de seguridad perimetral en las redes de comunicaciones, mediante firewalls y sistemas de detección y prevención de intrusiones.</li>
+                </ul>
+                
+                <div class="diagrama-flujo">
+                    <h4>Proceso de Implementación de Seguridad Lógica</h4>
+                    <div class="proceso">
+                        <div class="paso">
+                            <div class="numero">1</div>
+                            <div class="descripcion">Identificación de activos</div>
+                        </div>
+                        <div class="flecha">↓</div>
+                        <div class="paso">
+                            <div class="numero">2</div>
+                            <div class="descripcion">Análisis de riesgos</div>
+                        </div>
+                        <div class="flecha">↓</div>
+                        <div class="paso">
+                            <div class="numero">3</div>
+                            <div class="descripcion">Implementación de controles</div>
+                        </div>
+                        <div class="flecha">↓</div>
+                        <div class="paso">
+                            <div class="numero">4</div>
+                            <div class="descripcion">Monitorización continua</div>
+                        </div>
+                        <div class="flecha">↓</div>
+                        <div class="paso">
+                            <div class="numero">5</div>
+                            <div class="descripcion">Actualización de medidas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .teoria {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        
+        h4 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        /* Conceptos clave */
+        .concepto-clave {
+            display: flex;
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .concepto-clave .icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .concepto-clave .definicion {
+            flex: 1;
+        }
+        
+        .concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+        
+        /* Tablas */
+        .tabla-comparativa {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        /* Dimensiones de seguridad */
+        .diagrama-dimensiones {
+            margin: 25px 0;
+        }
+        
+        .dimension-cia, .dimension-adicional {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .dimension {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .dimension .icono {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .dimension .contenido h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        /* Comparativa seguridad */
+        .comparativa-seguridad {
+            margin: 25px 0;
+        }
+        
+        /* Medidas de seguridad */
+        .medidas-seguridad {
+            margin: 20px 0;
+        }
+        
+        .lista-medidas {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .lista-medidas li {
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .lista-medidas .icono {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+        }
+        
+        /* Diagrama de flujo */
+        .diagrama-flujo {
+            margin: 30px 0;
+        }
+        
+        .proceso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .paso {
+            display: flex;
+            align-items: center;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 80%;
+            margin: 5px 0;
+        }
+        
+        .paso .numero {
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .flecha {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin: 5px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dimension-cia, .dimension-adicional {
+                flex-direction: column;
+            }
+            
+            .paso {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

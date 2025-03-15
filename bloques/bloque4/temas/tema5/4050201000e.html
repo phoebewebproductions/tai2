@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografía</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050201001">
+            <h2>2.1 CRIPTOGRAFÍA</h2>
+            <p>La criptografía consiste en la alteración de la información mediante su combinación con otra información a la que denominamos clave. Existen los siguientes tipos:</p>
+            
+            <div class="cripto-concepto-clave">
+                <div class="cripto-icono">🔐</div>
+                <div class="cripto-definicion">
+                    <h4>Criptografía</h4>
+                    <p>Alteración de la información mediante su combinación con otra información a la que denominamos clave.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050201002">
+            <h3>2.1.1 CRIPTOGRAFÍA SIMÉTRICA</h3>
+            <p>La criptografía simétrica utiliza la misma clave para cifrar y descifrar la información, que deben conocer el emisor y el receptor de un mensaje, siendo este el punto débil del sistema, el intercambio de la clave, ya que en ese proceso la clave puede ser interceptada.</p>
+            
+            <div class="cripto-diagrama">
+                <h4>Proceso de Cifrado Simétrico</h4>
+                <div class="cripto-proceso-simetrico">
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento emisor">
+                            <div class="cripto-icono">👤</div>
+                            <div class="cripto-texto">Emisor</div>
+                        </div>
+                        <div class="cripto-accion">
+                            <div class="cripto-icono">🔒</div>
+                            <div class="cripto-texto">Cifra con clave K</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">→</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento mensaje">
+                            <div class="cripto-icono">📦</div>
+                            <div class="cripto-texto">Mensaje cifrado</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">→</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento receptor">
+                            <div class="cripto-icono">👤</div>
+                            <div class="cripto-texto">Receptor</div>
+                        </div>
+                        <div class="cripto-accion">
+                            <div class="cripto-icono">🔓</div>
+                            <div class="cripto-texto">Descifra con clave K</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>La criptografía simétrica se efectúa con los siguientes métodos:</p>
+        </span>
+        
+        <span id="4050201003">
+            <h4>Cifrado por bloques</h4>
+            <p>El cifrado se ejecuta sobre grupos de bits de longitud fija denominados bloques. Se toma un bloque de texto plano como entrada y se devuelve un bloque cifrado de la misma longitud de salida. Este método tiene varios modos de operación:</p>
+            
+            <div class="cripto-modos">
+                <div class="cripto-modo">
+                    <h5>Electronic codebook (ECB)</h5>
+                    <p>Los mensajes se dividen en bloques y cada uno de ellos es cifrado por separado utilizando la misma clave K.</p>
+                    <div class="cripto-ilustracion">
+                        <div class="cripto-bloque">Bloque 1</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-cifrado">Cifrado con K</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-bloque-cifrado">Bloque cifrado 1</div>
+                    </div>
+                </div>
+                
+                <div class="cripto-modo">
+                    <h5>Cipher-block chaining (CBC)</h5>
+                    <p>A cada bloque de texto plano antes de ser cifrado se le aplica una operación XOR con el bloque cifrado anterior. De esta forma, cada bloque de texto cifrado depende de todo el texto en claro procesado hasta este punto. Como no se dispone de un texto para el primer mensaje, se emplea un vector de inicialización.</p>
+                    <div class="cripto-ilustracion">
+                        <div class="cripto-bloque">Bloque 1</div>
+                        <div class="cripto-operacion">⊕ Vector de inicialización</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-cifrado">Cifrado con K</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-bloque-cifrado">Bloque cifrado 1</div>
+                        <div class="cripto-flecha-derecha">→</div>
+                        <div class="cripto-bloque">Bloque 2</div>
+                        <div class="cripto-operacion">⊕ Bloque cifrado 1</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-cifrado">Cifrado con K</div>
+                        <div class="cripto-flecha-abajo">↓</div>
+                        <div class="cripto-bloque-cifrado">Bloque cifrado 2</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050201004">
+            <h4>Algoritmos de cifrado por bloques</h4>
+            
+            <div class="cripto-tabla-comparativa">
+                <table class="cripto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Algoritmo de cifrado</th>
+                            <th>Longitud de bloque (bits)</th>
+                            <th>Longitud de clave (bits)</th>
+                            <th>Características</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DES</td>
+                            <td>64</td>
+                            <td>64</td>
+                            <td>Estándar antiguo, actualmente inseguro</td>
+                        </tr>
+                        <tr>
+                            <td>3DES</td>
+                            <td>64</td>
+                            <td>168</td>
+                            <td>Triple cifrado DES, sustituyó a DES</td>
+                        </tr>
+                        <tr>
+                            <td>IDEA</td>
+                            <td>64</td>
+                            <td>128</td>
+                            <td>International Data Encryption Algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>AES (Rijndael)</td>
+                            <td>128</td>
+                            <td>128, 192 y 256</td>
+                            <td>Uno de los algoritmos más populares</td>
+                        </tr>
+                        <tr>
+                            <td>RC2, RC5 y RC6</td>
+                            <td>32, 64 y 128</td>
+                            <td>128, 192 y 256</td>
+                            <td>Cifrado de Rivest, publicados por RSA</td>
+                        </tr>
+                        <tr>
+                            <td>GOST (Magma)</td>
+                            <td>64, 128</td>
+                            <td>256</td>
+                            <td>Estándar del gobierno soviético y ruso</td>
+                        </tr>
+                        <tr>
+                            <td>Blowfish</td>
+                            <td>64</td>
+                            <td>32-448</td>
+                            <td>No patentado, de uso general</td>
+                        </tr>
+                        <tr>
+                            <td>Twofish</td>
+                            <td>64</td>
+                            <td>256</td>
+                            <td>Sucesor de Blowfish, popular en dispositivos con recursos limitados</td>
+                        </tr>
+                        <tr>
+                            <td>Camellia</td>
+                            <td>128</td>
+                            <td>128, 192 y 256</td>
+                            <td>Desarrollado por Mitsubishi Electric y NTT de Japón</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050201005">
+            <h4>Cifrado de flujo</h4>
+            <p>En este modo no existen bloques, sino que un flujo de claves (keystream) opera sobre dígitos individuales. Existen las siguientes variantes:</p>
+            
+            <div class="cripto-modos">
+                <div class="cripto-modo">
+                    <h5>Counter Mode (CTR)</h5>
+                    <p>Se usa un cifrado de bloque para producir el flujo de claves. Este flujo se combina con el texto plano mediante XOR dando lugar al cifrado. Para generar el flujo de claves se cifra un contador combinado con un número aleatorio (nonce) mediante ECB y se va incrementando.</p>
+                </div>
+                
+                <div class="cripto-modo">
+                    <h5>Output Feedback (OFB)</h5>
+                    <p>El flujo de claves se genera cifrando el bloque anterior del flujo de claves, dando lugar al siguiente bloque. El primer bloque de flujo de claves se crea cifrando un vector de inicialización.</p>
+                </div>
+                
+                <div class="cripto-modo">
+                    <h5>Cipher feedback (CFB)</h5>
+                    <p>Para producir el flujo de claves, cifra el último bloque de cifrado, en lugar del último bloque del flujo de claves.</p>
+                </div>
+            </div>
+            
+            <p>Un ejemplo de uso de cifrado de flujo es el algoritmo ChaCha20, que usa claves de 128 y 256 bits.</p>
+        </span>
+        
+        <span id="4050201006">
+            <h3>2.1.2 CRIPTOGRAFÍA ASIMÉTRICA O DE CLAVE PÚBLICA</h3>
+            <p>La criptografía asimétrica es el método criptográfico que usa un par de claves para el envío de mensajes. Las dos claves pertenecen a la misma persona que recibirá el mensaje. Una clave es pública y se puede entregar a cualquier persona, la otra clave es privada y el propietario debe guardarla de modo que nadie tenga acceso a ella. De esta forma se consigue:</p>
+            
+            <div class="cripto-ventajas">
+                <div class="cripto-ventaja">
+                    <div class="cripto-icono">🔒</div>
+                    <div class="cripto-texto">
+                        <h5>Confidencialidad</h5>
+                        <p>Si se manda un mensaje cifrado con la clave pública del destinatario, sólo este será capaz de descifrarlo con su clave privada.</p>
+                    </div>
+                </div>
+                
+                <div class="cripto-ventaja">
+                    <div class="cripto-icono">✅</div>
+                    <div class="cripto-texto">
+                        <h5>Autenticación del emisor</h5>
+                        <p>Si el emisor cifra un mensaje con su clave privada, puede ser descifrado por cualquiera con su clave pública, y su relación con esta clave le identificará como el autor del mensaje.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cripto-diagrama">
+                <h4>Proceso de Cifrado Asimétrico</h4>
+                <div class="cripto-proceso-asimetrico">
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento emisor">
+                            <div class="cripto-icono">👤</div>
+                            <div class="cripto-texto">Emisor</div>
+                        </div>
+                        <div class="cripto-accion">
+                            <div class="cripto-icono">🔒</div>
+                            <div class="cripto-texto">Cifra con clave pública del receptor</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">→</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento mensaje">
+                            <div class="cripto-icono">📦</div>
+                            <div class="cripto-texto">Mensaje cifrado</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">→</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento receptor">
+                            <div class="cripto-icono">👤</div>
+                            <div class="cripto-texto">Receptor</div>
+                        </div>
+                        <div class="cripto-accion">
+                            <div class="cripto-icono">🔓</div>
+                            <div class="cripto-texto">Descifra con su clave privada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050201007">
+            <p>Los sistemas de clave pública nacieron para resolver el problema del intercambio de claves en la criptografía simétrica. Los estándares de criptografía de clave pública se denominan PKCS (Public Key Cryptographic Standard) y especifican diferentes aspectos de esta técnica. Los más importantes son:</p>
+            
+            <div class="cripto-tabla-comparativa">
+                <table class="cripto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Estándar</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PKCS #3</td>
+                            <td>Estándar de intercambio de claves Diffie-Hellman</td>
+                        </tr>
+                        <tr>
+                            <td>PKCS #5</td>
+                            <td>Estándar de cifrado basado en contraseñas</td>
+                        </tr>
+                        <tr>
+                            <td>PKCS #7</td>
+                            <td>Estándar sobre la sintaxis del mensaje criptográfico. Usado para la firma digital.</td>
+                        </tr>
+                        <tr>
+                            <td>PKCS #11</td>
+                            <td>Interfaz de dispositivo criptográfico</td>
+                        </tr>
+                        <tr>
+                            <td>PKCS #12</td>
+                            <td>Estándar de sintaxis de intercambio de información personal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050201008">
+            <p>El fundamento matemático de los algoritmos de cifrado asimétrico está en funciones de una sola dirección, en las que obtener un resultado desde un origen es fácil, pero obtener el origen desde el resultado es prácticamente imposible. De esta forma, se obtiene una clave a partir de la otra, pero no es posible realizar la operación inversa. Las funciones matemáticas en que se basan son:</p>
+            
+            <div class="cripto-fundamentos">
+                <div class="cripto-fundamento">
+                    <div class="cripto-icono">🔢</div>
+                    <div class="cripto-texto">
+                        <h5>Factorización de enteros</h5>
+                        <p>Se basa en que obtener un número mediante la multiplicación de números primos (factores) es fácil. Pero la operación inversa, obtener los factores primos de un número es muy difícil.</p>
+                    </div>
+                </div>
+                
+                <div class="cripto-fundamento">
+                    <div class="cripto-icono">📊</div>
+                    <div class="cripto-texto">
+                        <h5>Logaritmos discretos</h5>
+                        <p>Se basan en que la exponenciación en una operación fácil, pero su inversa, el logaritmo, es una operación difícil.</p>
+                    </div>
+                </div>
+                
+                <div class="cripto-fundamento">
+                    <div class="cripto-icono">📈</div>
+                    <div class="cripto-texto">
+                        <h5>Logaritmos discretos de curva elíptica</h5>
+                        <p>Es una variación del problema anterior más cara computacionalmente, lo que permite usar claves más pequeñas que mejoran las prestaciones de los algoritmos y reducen el tamaño de los textos cifrados.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>El algoritmo RSA (Rivest, Shamir y Adleman) es un ejemplo de algoritmo de criptografía asimétrica de factorización de enteros y usa claves de 2048 y 4096 bits. El algoritmo ElGamal es otro ejemplo de criptografía asimétrica que usa logaritmos discretos. El algoritmo de Diffie-Hellman puede usar logaritmos discretos y logaritmos discretos de curva elíptica.</p>
+            
+            <div class="cripto-tabla-comparativa">
+                <table class="cripto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Algoritmo asimétrico</th>
+                            <th>Función matemática para generación de la clave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RSA</td>
+                            <td>Factorización de enteros</td>
+                        </tr>
+                        <tr>
+                            <td>DSA</td>
+                            <td>Logaritmos discretos</td>
+                        </tr>
+                        <tr>
+                            <td>ElGamal</td>
+                            <td>Logaritmos discretos</td>
+                        </tr>
+                        <tr>
+                            <td>Diffie-Hellman</td>
+                            <td>Logaritmos discretos y de curva elíptica</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050201009">
+            <h3>2.1.3 CRIPTOGRAFÍA HÍBRIDA</h3>
+            <p>La criptografía híbrida es un método que usa tanto el cifrado simétrico como el asimétrico. Emplea el cifrado asimétrico para compartir una clave para el cifrado simétrico. La clave de cifrado simétrico se cifra usando su propia clave privada, luego el mensaje cifrado se envía al destinatario. Ya que compartir una clave simétrica no es seguro, ésta es diferente para cada sesión.</p>
+            
+            <div class="cripto-diagrama">
+                <h4>Proceso de Cifrado Híbrido</h4>
+                <div class="cripto-proceso-hibrido">
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento">
+                            <div class="cripto-icono">🔑</div>
+                            <div class="cripto-texto">Generación de clave simétrica de sesión</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">↓</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento">
+                            <div class="cripto-icono">🔒</div>
+                            <div class="cripto-texto">Cifrado de la clave de sesión con clave pública del receptor</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">↓</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento">
+                            <div class="cripto-icono">📄</div>
+                            <div class="cripto-texto">Cifrado del mensaje con la clave simétrica de sesión</div>
+                        </div>
+                    </div>
+                    <div class="cripto-flecha">↓</div>
+                    <div class="cripto-paso">
+                        <div class="cripto-elemento">
+                            <div class="cripto-icono">📦</div>
+                            <div class="cripto-texto">Envío de la clave cifrada y el mensaje cifrado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>PGP (Pretty Good Privacy) y GnuPG son ejemplos del uso de la criptografía híbrida.</p>
+        </span>
+        
+        <span id="4050201010">
+            <h2>3.2 FUNCIONES HASH</h2>
+            <p>Una función hash o resumen tiene como entrada un conjunto de caracteres y lo convierte en otro conjunto de caracteres de longitud fija.</p>
+            
+            <div class="cripto-formula">
+                <p>x -> h(x)</p>
+            </div>
+            
+            <div class="cripto-diagrama">
+                <h4>Funcionamiento de una Función Hash</h4>
+                <div class="cripto-hash-proceso">
+                    <div class="cripto-entrada">
+                        <div class="cripto-texto-variable">Texto de entrada (longitud variable)</div>
+                    </div>
+                    <div class="cripto-flecha">↓</div>
+                    <div class="cripto-funcion">
+                        <div class="cripto-icono">🔄</div>
+                        <div class="cripto-texto">Función Hash</div>
+                    </div>
+                    <div class="cripto-flecha">↓</div>
+                    <div class="cripto-salida">
+                        <div class="cripto-texto-fijo">Resumen (longitud fija)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>En criptografía las propiedades fundamentales de las funciones hash son:</p>
+            
+            <div class="cripto-propiedades">
+                <div class="cripto-propiedad">
+                    <div class="cripto-icono">🛡️</div>
+                    <div class="cripto-texto">
+                        <h5>Resistencia a las colisiones</h5>
+                        <p>Dos grupos de caracteres diferentes no pueden tener el mismo resumen.</p>
+                    </div>
+                </div>
+                
+                <div class="cripto-propiedad">
+                    <div class="cripto-icono">🔄</div>
+                    <div class="cripto-texto">
+                        <h5>Función de un único sentido</h5>
+                        <p>Dado un resumen especificado, no se pueda encontrar la entrada que lo generó.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Las funciones hash se usan para detectar cambios en la información que se transmite. Al enviar un bloque de caracteres, se envía también su función hash, y si el mensaje es interceptado y modificado, puede detectarse al efectuar la función hash de lo que se recibe en el destinatario.</p>
+        </span>
+        
+        <span id="4050201011">
+            <p>Funciones hash muy conocidas son:</p>
+            
+            <div class="cripto-tabla-comparativa">
+                <table class="cripto-tabla">
+                    <thead>
+                        <tr>
+                            <th>Función Hash</th>
+                            <th>Tamaño del resumen (bits)</th>
+                            <th>Características</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MD5</td>
+                            <td>128</td>
+                            <td>Obsoleta por vulnerabilidades de seguridad</td>
+                        </tr>
+                        <tr>
+                            <td>SHA1</td>
+                            <td>160</td>
+                            <td>Obsoleta por vulnerabilidades de seguridad</td>
+                        </tr>
+                        <tr>
+                            <td>SHA2 (SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256)</td>
+                            <td>224, 256, 384 o 512</td>
+                            <td>Ampliamente utilizada, sin vulnerabilidades conocidas</td>
+                        </tr>
+                        <tr>
+                            <td>SHA3</td>
+                            <td>224, 256, 384 o 512</td>
+                            <td>Estándar desde 2015, no ha demostrado ser más rápido ni mejor que SHA2</td>
+                        </tr>
+                        <tr>
+                            <td>BLAKE (BLAKE-224, BLAKE-256, BLAKE-384, BLAKE-512)</td>
+                            <td>224, 256, 384 o 512</td>
+                            <td>Basada en el cifrado de flujo ChaCha, más rápida que MD-5, SHA1 y SHA2</td>
+                        </tr>
+                        <tr>
+                            <td>BLAKE2 y BLAKE3</td>
+                            <td>Variable</td>
+                            <td>Sucesores de BLAKE</td>
+                        </tr>
+                        <tr>
+                            <td>Poly1305</td>
+                            <td>Variable</td>
+                            <td>Familia universal de funciones hash de un solo uso para autenticar mensajes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050201012">
+            <h2>3.3 ESTEGANOGRAFÍA</h2>
+            <p>La esteganografía es una técnica que permite ocultar mensajes en objetos, denominados portadores, de forma que pasen inadvertidos. Existen numerosos métodos y algoritmos utilizados para ocultar la información dentro de archivos multimedia: imágenes, audio y video. Algunas de las técnicas más usadas son:</p>
+            
+            <div class="cripto-concepto-clave">
+                <div class="cripto-icono">🕵️</div>
+                <div class="cripto-definicion">
+                    <h4>Esteganografía</h4>
+                    <p>Técnica que permite ocultar mensajes en objetos, denominados portadores, de forma que pasen inadvertidos.</p>
+                </div>
+            </div>
+            
+            <div class="cripto-tecnicas">
+                <div class="cripto-tecnica">
+                    <div class="cripto-icono">🖼️</div>
+                    <div class="cripto-texto">
+                        <h5>Marcas de agua en imágenes</h5>
+                        <p>Enmascaramiento mediante marcas de agua en imágenes, con información de la propiedad intelectual, derechos de autor, etc.</p>
+                    </div>
+                </div>
+                
+                <div class="cripto-tecnica">
+                    <div class="cripto-icono">🔍</div>
+                    <div class="cripto-texto">
+                        <h5>Bit menos significativo (LSB)</h5>
+                        <p>Uso del bit menos significativo (LSB, Least Significant Bit) en cada pixel de una imagen digital para esconder un mensaje, de esta forma la distorsión de la imagen se mantiene al mínimo, y el mensaje se distribuye en todos sus pixeles.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cripto-diagrama">
+                <h4>Comparación entre Criptografía y Esteganografía</h4>
+                <div class="cripto-comparacion">
+                    <div class="cripto-metodo">
+                        <div class="cripto-icono">🔒</div>
+                        <div class="cripto-nombre">Criptografía</div>
+                        <div class="cripto-descripcion">Oculta el contenido del mensaje</div>
+                    </div>
+                    <div class="cripto-metodo">
+                        <div class="cripto-icono">🕵️</div>
+                        <div class="cripto-nombre">Esteganografía</div>
+                        <div class="cripto-descripcion">Oculta la existencia del mensaje</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para criptografía - usando clases únicas */
+        .cripto-concepto-clave {
+            display: flex;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .cripto-concepto-clave .cripto-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cripto-concepto-clave .cripto-definicion {
+            flex: 1;
+        }
+        
+        .cripto-concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Diagramas */
+        .cripto-diagrama {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cripto-proceso-simetrico, .cripto-proceso-asimetrico, .cripto-proceso-hibrido, .cripto-hash-proceso {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .cripto-paso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+        
+        .cripto-elemento {
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .cripto-accion {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .cripto-flecha {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 0 10px;
+        }
+        
+        .cripto-icono {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .cripto-texto {
+            font-weight: 500;
+        }
+        
+        /* Tablas */
+        .cripto-tabla-comparativa {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        .cripto-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cripto-tabla th {
+            background-color: #1890ff;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .cripto-tabla td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cripto-tabla tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .cripto-tabla tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        /* Modos de cifrado */
+        .cripto-modos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .cripto-modo {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cripto-modo h5 {
+            color: #1890ff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .cripto-ilustracion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .cripto-bloque, .cripto-bloque-cifrado {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            text-align: center;
+            width: 150px;
+        }
+        
+        .cripto-cifrado {
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            text-align: center;
+            width: 150px;
+        }
+        
+        .cripto-operacion {
+            background-color: #fff7e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .cripto-flecha-abajo {
+            font-size: 1.2rem;
+            color: #1890ff;
+            margin: 5px 0;
+        }
+        
+        .cripto-flecha-derecha {
+            font-size: 1.2rem;
+            color: #1890ff;
+            margin: 0 10px;
+        }
+        
+        /* Ventajas y fundamentos */
+        .cripto-ventajas, .cripto-fundamentos, .cripto-propiedades, .cripto-tecnicas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .cripto-ventaja, .cripto-fundamento, .cripto-propiedad, .cripto-tecnica {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .cripto-ventaja .cripto-icono, .cripto-fundamento .cripto-icono, .cripto-propiedad .cripto-icono, .cripto-tecnica .cripto-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .cripto-ventaja .cripto-texto, .cripto-fundamento .cripto-texto, .cripto-propiedad .cripto-texto, .cripto-tecnica .cripto-texto {
+            flex: 1;
+        }
+        
+        .cripto-ventaja h5, .cripto-fundamento h5, .cripto-propiedad h5, .cripto-tecnica h5 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Función hash */
+        .cripto-formula {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .cripto-entrada, .cripto-salida, .cripto-funcion {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .cripto-texto-variable, .cripto-texto-fijo {
+            font-weight: 500;
+        }
+        
+        /* Comparación */
+        .cripto-comparacion {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .cripto-metodo {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cripto-metodo .cripto-icono {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .cripto-metodo .cripto-nombre {
+            font-weight: bold;
+            color: #1890ff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .cripto-metodo .cripto-descripcion {
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cripto-proceso-simetrico, .cripto-proceso-asimetrico, .cripto-proceso-hibrido {
+                flex-direction: column;
+            }
+            
+            .cripto-flecha {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .cripto-ventajas, .cripto-fundamentos, .cripto-propiedades, .cripto-tecnicas {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,1500 @@
+<div class="teoria">
+    <span id="4040201001">
+        <h2>2.1 GESTIÓN DE USUARIOS</h2>
+        <p>La gestión de usuarios es un componente fundamental en la administración de redes y sistemas informáticos. Comprende la creación, modificación y eliminación de cuentas de usuario, así como la asignación de derechos y privilegios que determinan qué operaciones pueden realizar los usuarios y a qué recursos pueden acceder.</p>
+        
+        <div class="user-management-overview">
+            <h3>Visión General de la Gestión de Usuarios</h3>
+            <div class="management-diagram">
+                <div class="management-components">
+                    <div class="component accounts">
+                        <div class="component-header">Cuentas de Usuario</div>
+                        <div class="component-items">
+                            <div class="item">Credenciales</div>
+                            <div class="item">Perfiles</div>
+                            <div class="item">Políticas</div>
+                        </div>
+                    </div>
+                    <div class="component rights">
+                        <div class="component-header">Derechos</div>
+                        <div class="component-items">
+                            <div class="item">Operaciones</div>
+                            <div class="item">Funciones</div>
+                            <div class="item">Acciones</div>
+                        </div>
+                    </div>
+                    <div class="component privileges">
+                        <div class="component-header">Privilegios</div>
+                        <div class="component-items">
+                            <div class="item">Recursos</div>
+                            <div class="item">Permisos</div>
+                            <div class="item">Accesos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="management-description">
+                <p>La gestión de usuarios implica administrar las cuentas, definir los derechos sobre operaciones y asignar privilegios sobre recursos, garantizando un acceso seguro y controlado a la red.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040201002">
+        <h3>3.1. CUENTAS DE USUARIO</h3>
+        <p>Las cuentas de usuario son el modo usual de personalizar el acceso a la red. Toda persona que utilice la red debe tener una cuenta de usuario. Para que el control de este acceso sea suficientemente bueno, las cuentas deben ser personales, esto es, cada usuario debe tener su propia cuenta, que no debe compartir con otro.</p>
+        
+        <p>La cuenta proporciona el acceso a la red y lleva asociado el perfil del usuario, con los datos necesarios para su identificación y localización. Cada sistema de gestión de red tiene unos parámetros concretos en sus cuentas de usuario, aunque forma genérica podemos destacar los siguientes:</p>
+        
+        <div class="user-account-parameters">
+            <div class="parameter">
+                <h4>a) Nombre o login</h4>
+                <p>Es el nombre único atribuido al usuario que le sirve para identificarse en la red. Suele ser una cadena corta de caracteres.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Ejemplos de nombres de usuario</div>
+                    <div class="example-items">
+                        <div class="example-item">jsmith</div>
+                        <div class="example-item">maria.garcia</div>
+                        <div class="example-item">user42</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>b) Contraseña, clave o password</h4>
+                <p>Es la cadena de caracteres que codifica una clave secreta de acceso a la red para cada usuario. La contraseña va ligada al nombre del usuario.</p>
+                <p>El usuario y la contraseña, un certificado digital o cualquier forma de autenticación en la red es lo que se conoce como credenciales de usuario.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Características de una contraseña segura</div>
+                    <div class="example-items">
+                        <div class="example-item">Longitud mínima (8+ caracteres)</div>
+                        <div class="example-item">Combinación de mayúsculas y minúsculas</div>
+                        <div class="example-item">Inclusión de números y símbolos</div>
+                        <div class="example-item">No usar información personal</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>c) Nombre completo del usuario</h4>
+                <p>Que es una o varias cadenas de caracteres que contiene el nombre, y normalmente también los apellidos. A veces, también otros datos, como el alias, extensión telefónica, correo electrónico, puesto en la organización u oficina donde está físicamente ubicado.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Información de perfil de usuario</div>
+                    <div class="example-profile">
+                        <div class="profile-field">
+                            <div class="field-name">Nombre completo:</div>
+                            <div class="field-value">Juan Pérez García</div>
+                        </div>
+                        <div class="profile-field">
+                            <div class="field-name">Correo electrónico:</div>
+                            <div class="field-value">juan.perez@empresa.com</div>
+                        </div>
+                        <div class="profile-field">
+                            <div class="field-name">Departamento:</div>
+                            <div class="field-value">Sistemas</div>
+                        </div>
+                        <div class="profile-field">
+                            <div class="field-name">Extensión:</div>
+                            <div class="field-value">2345</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>d) Horario permitido de acceso a la red</h4>
+                <p>Son campos que describen los días que el usuario puede utilizar la red y sus recursos. Por seguridad, en entornos corporativos se suele limitar con el horario laboral, de esta forma se evita que usuarios no autorizados accedan a la red en momentos en que las oficinas carecen de vigilancia.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Configuración de horario de acceso</div>
+                    <div class="example-schedule">
+                        <div class="schedule-days">
+                            <div class="day">Lun</div>
+                            <div class="day">Mar</div>
+                            <div class="day">Mié</div>
+                            <div class="day">Jue</div>
+                            <div class="day">Vie</div>
+                            <div class="day">Sáb</div>
+                            <div class="day">Dom</div>
+                        </div>
+                        <div class="schedule-hours">
+                            <div class="hour-block allowed">8:00-14:00</div>
+                            <div class="hour-block allowed">15:00-18:00</div>
+                            <div class="hour-block allowed">8:00-14:00</div>
+                            <div class="hour-block allowed">15:00-18:00</div>
+                            <div class="hour-block allowed">8:00-14:00</div>
+                            <div class="hour-block denied">No permitido</div>
+                            <div class="hour-block denied">No permitido</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>e) Caducidad</h4>
+                <p>Describe la fecha en que la contraseña expirará. Como norma general se recomienda establecer una clave con caducidad limitada, y se obliga a que el usuario la cambie cada cierto tiempo, como medida de seguridad para evitar accesos no deseados por robo de contraseñas.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Política de caducidad de contraseñas</div>
+                    <div class="example-expiry">
+                        <div class="expiry-setting">
+                            <div class="setting-name">Duración máxima:</div>
+                            <div class="setting-value">90 días</div>
+                        </div>
+                        <div class="expiry-setting">
+                            <div class="setting-name">Aviso previo:</div>
+                            <div class="setting-value">14 días antes</div>
+                        </div>
+                        <div class="expiry-setting">
+                            <div class="setting-name">Historial:</div>
+                            <div class="setting-value">No repetir últimas 5 contraseñas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>f) Directorio o carpeta del usuario</h4>
+                <p>Parte del sistema de ficheros y directorios que el usuario puede usar para almacenar sus documentos. Normalmente es la parte de la red donde el usuario accede por defecto al identificarse.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Estructura de directorios de usuario</div>
+                    <div class="example-directory">
+                        <div class="directory-tree">
+                            <div class="directory-root">
+                                <div class="directory-name">/home/jsmith/</div>
+                                <div class="directory-contents">
+                                    <div class="directory-item folder">Documentos</div>
+                                    <div class="directory-item folder">Imágenes</div>
+                                    <div class="directory-item folder">Descargas</div>
+                                    <div class="directory-item file">.profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>g) Inicio de sesión</h4>
+                <p>Conjunto de aplicaciones o programas que se ejecutarán cuando el usuario acceda a la red. También puede figurar aquí sus preferencias de escritorio, impresoras predeterminadas o su carpeta por defecto.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Script de inicio de sesión</div>
+                    <div class="example-script">
+                        <div class="script-content">
+                            <div class="script-line">@echo off</div>
+                            <div class="script-line">net use H: \\servidor\usuarios\%username%</div>
+                            <div class="script-line">net use P: \\servidor\proyectos</div>
+                            <div class="script-line">start outlook.exe</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parameter">
+                <h4>h) Otros parámetros</h4>
+                <p>En sistemas con muchos usuarios y limitación de recursos se pueden configurar parámetros como la cuota de disco en la red, limitación de uso de la CPU, conectividad de periféricos, etc.</p>
+                <div class="parameter-example">
+                    <div class="example-header">Configuración de cuotas y límites</div>
+                    <div class="example-quotas">
+                        <div class="quota-setting">
+                            <div class="setting-name">Cuota de disco:</div>
+                            <div class="setting-value">500 MB</div>
+                        </div>
+                        <div class="quota-setting">
+                            <div class="setting-name">Límite de CPU:</div>
+                            <div class="setting-value">50% máximo</div>
+                        </div>
+                        <div class="quota-setting">
+                            <div class="setting-name">Ancho de banda:</div>
+                            <div class="setting-value">10 Mbps máximo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040201003">
+        <h4>Políticas de usuario generales</h4>
+        <p>Además de lo anterior, el administrador puede establecer condiciones o políticas de usuario generales, que afectan a todos los usuarios de una red. Algunas de las más usadas son:</p>
+        
+        <div class="user-policies">
+            <ul>
+                <li>Cambio de la contraseña en el siguiente inicio de sesión.</li>
+                <li>La contraseña no caducará nunca.</li>
+                <li>El usuario no puede cambiar su contraseña.</li>
+                <li>Desactivación de la cuenta tras un periodo de tiempo.</li>
+                <li>Bloqueo de la cuenta tras varios intentos fallidos de inicio de la sesión.</li>
+                <li>Acceso a determinadas opciones de configuración del equipo o de conexión de la red.</li>
+            </ul>
+            
+            <div class="policy-example">
+                <div class="example-header">Ejemplo de política de bloqueo de cuenta</div>
+                <div class="example-policy">
+                    <div class="policy-setting">
+                        <div class="setting-name">Intentos permitidos:</div>
+                        <div class="setting-value">3 intentos</div>
+                    </div>
+                    <div class="policy-setting">
+                        <div class="setting-name">Tiempo de bloqueo:</div>
+                        <div class="setting-value">30 minutos</div>
+                    </div>
+                    <div class="policy-setting">
+                        <div class="setting-name">Reinicio de contador:</div>
+                        <div class="setting-value">15 minutos después del último intento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="user-creation-parameters">
+            <h4>Parámetros de creación de usuarios en diferentes sistemas</h4>
+            
+            <div class="active-directory">
+                <h5>Active Directory de Microsoft</h5>
+                <div class="parameter-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Argumento</th>
+                                <th>Opcionales</th>
+                                <th>Valor predeterminado</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Parent directory entry</td>
+                                <td>No</td>
+                                <td>Sí</td>
+                                <td>Entrada primaria del servidor de Active Directory<br>Ubicación en la que se creará el grupo</td>
+                            </tr>
+                            <tr>
+                                <td>First name</td>
+                                <td>No</td>
+                                <td>Sí</td>
+                                <td>Nombre de pila del usuario</td>
+                            </tr>
+                            <tr>
+                                <td>Initials</td>
+                                <td>No</td>
+                                <td>Sí</td>
+                                <td>Iniciales del usuario</td>
+                            </tr>
+                            <tr>
+                                <td>Last name</td>
+                                <td>No</td>
+                                <td>Sí</td>
+                                <td>Apellidos del usuario</td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>No</td>
+                                <td>N/D</td>
+                                <td>Nombre del usuario</td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>No</td>
+                                <td>N/D</td>
+                                <td>Contraseña del usuario</td>
+                            </tr>
+                            <tr>
+                                <td>Password never expires</td>
+                                <td>N/D</td>
+                                <td>False</td>
+                                <td>Especifica si la contraseña del usuario expirará</td>
+                            </tr>
+                            <tr>
+                                <td>Disabled account</td>
+                                <td>N/D</td>
+                                <td>False</td>
+                                <td>Especifica si se deshabilitará la cuenta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="unix-system">
+                <h5>Sistema Operativo Unix</h5>
+                <p>En el caso del sistema operativo Unix, los argumentos de línea de comandos que se pasan al crear un usuario son:</p>
+                <div class="unix-parameters">
+                    <ul>
+                        <li><strong>-d</strong> Directorio home del usuario</li>
+                        <li><strong>-s</strong> Shell del usuario</li>
+                        <li><strong>-p</strong> Password</li>
+                        <li><strong>-g</strong> Grupo primario al que asignamos el usuario</li>
+                        <li><strong>-G</strong> Grupos a los que también pertenece el usuario</li>
+                        <li><strong>-m</strong> Forzamos la creación del directorio en su home</li>
+                    </ul>
+                </div>
+                <div class="unix-example">
+                    <div class="example-header">Ejemplo de creación de usuario en Unix</div>
+                    <div class="example-command">
+                        <code>useradd -m -d /home/jsmith -s /bin/bash -g users -G wheel,developers jsmith</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040201004">
+        <h4>Usuarios especiales</h4>
+        <p>Los sistemas operativos de red incluyen unos usuarios especiales con funcionalidades específicas, que normalmente no pueden ser borrados, aunque si desactivados o modificados. Entre estas cuentas se encuentran:</p>
+        
+        <div class="special-users">
+            <div class="user-type">
+                <h5>a) El supervisor (en Novell), administrador (en Microsoft Windows) o root (en UNIX o Linux)</h5>
+                <p>Es la cuenta privilegiada por excelencia y que suele ser utilizada por el administrador del sistema.</p>
+                <div class="user-example">
+                    <div class="example-header">Características del usuario administrador</div>
+                    <div class="example-characteristics">
+                        <div class="characteristic">
+                            <div class="characteristic-icon">🔑</div>
+                            <div class="characteristic-desc">Acceso total al sistema</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">⚙️</div>
+                            <div class="characteristic-desc">Puede modificar cualquier configuración</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">👥</div>
+                            <div class="characteristic-desc">Gestiona usuarios y permisos</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">🛡️</div>
+                            <div class="characteristic-desc">Controla la seguridad del sistema</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="user-type">
+                <h5>b) Invitado</h5>
+                <p>Es una cuenta a la que normalmente no se le asocia contraseña y que carece de privilegios. Sirve para que aquellos usuarios sin cuenta en el sistema puedan acceder a los recursos mínimos. Normalmente se trata de una cuenta que se encuentra desactivada al instalar el sistema operativo al objeto de evitar brechas en la seguridad.</p>
+                <div class="user-example">
+                    <div class="example-header">Características del usuario invitado</div>
+                    <div class="example-characteristics">
+                        <div class="characteristic">
+                            <div class="characteristic-icon">🔒</div>
+                            <div class="characteristic-desc">Acceso limitado al sistema</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">📁</div>
+                            <div class="characteristic-desc">Solo puede acceder a recursos públicos</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">⚠️</div>
+                            <div class="characteristic-desc">Normalmente desactivado por seguridad</div>
+                        </div>
+                        <div class="characteristic">
+                            <div class="characteristic-icon">👤</div>
+                            <div class="characteristic-desc">No requiere autenticación específica</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="domain-integration">
+            <h4>Integración con dominios o servicios de directorio</h4>
+            <p>En sistemas integrados con dominios o servicios de directorio, como es el caso del Directorio Activo de Microsoft Windows, es posible crear cuentas de usuario tanto en los equipos locales como en el dominio. De forma que algunos usuarios puedan acceder sólo a recursos de la estación de trabajo local y otros a los recursos de todo el dominio. Asimismo, un mismo usuario puede disponer de cuentas tanto a nivel local como en el dominio.</p>
+            
+            <div class="domain-diagram">
+                <div class="diagram-header">Estructura de cuentas en un dominio</div>
+                <div class="diagram-content">
+                    <div class="domain-controller">
+                        <div class="controller-header">Controlador de Dominio</div>
+                        <div class="domain-accounts">
+                            <div class="account">Usuario de Dominio 1</div>
+                            <div class="account">Usuario de Dominio 2</div>
+                            <div class="account">Grupo de Dominio A</div>
+                        </div>
+                    </div>
+                    <div class="workstations">
+                        <div class="workstation">
+                            <div class="workstation-header">Estación de Trabajo 1</div>
+                            <div class="local-accounts">
+                                <div class="account">Usuario Local 1</div>
+                                <div class="account">Administrador Local</div>
+                            </div>
+                        </div>
+                        <div class="workstation">
+                            <div class="workstation-header">Estación de Trabajo 2</div>
+                            <div class="local-accounts">
+                                <div class="account">Usuario Local 2</div>
+                                <div class="account">Administrador Local</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040201005">
+        <h4>Identificadores únicos de usuario</h4>
+        <p>En el núcleo del sistema operativo cada usuario tiene un identificador único, normalmente numérico. En el caso de Linux es el UID (User ID). Para Microsoft Windows es el SID (Secure Identificator). Este identificador no cambia incluso si cambian las credenciales del usuario.</p>
+        
+        <div class="user-identifiers">
+            <div class="identifier-type">
+                <h5>UID en Linux</h5>
+                <p>El UID (User ID) es un número entero que identifica de manera única a cada usuario en un sistema Linux. Los UIDs por debajo de 1000 suelen estar reservados para usuarios del sistema.</p>
+                <div class="identifier-example">
+                    <div class="example-header">Ejemplo de UIDs en Linux</div>
+                    <div class="example-output">
+                        <code>
+                            root:x:0:0:root:/root:/bin/bash<br>
+                            daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin<br>
+                            bin:x:2:2:bin:/bin:/usr/sbin/nologin<br>
+                            jsmith:x:1001:1001:Juan Smith:/home/jsmith:/bin/bash<br>
+                            mgarcia:x:1002:1002:Maria Garcia:/home/mgarcia:/bin/bash
+                        </code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="identifier-type">
+                <h5>SID en Windows</h5>
+                <p>El SID (Security Identifier) es una cadena alfanumérica única que identifica a cada usuario en un sistema Windows. El SID incluye información sobre el dominio y es más complejo que el UID de Linux.</p>
+                <div class="identifier-example">
+                    <div class="example-header">Ejemplo de SID en Windows</div>
+                    <div class="example-output">
+                        <code>
+                            S-1-5-21-3623811015-3361044348-30300820-1013
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="unix-configuration">
+            <h4>Archivos de configuración de usuarios en Unix</h4>
+            <p>En el sistema Unix, la configuración de los usuarios permanece en los siguientes archivos:</p>
+            
+            <div class="config-file">
+                <h5>a) /etc/passwd</h5>
+                <p>Todas las cuentas se encuentran definidas en el archivo de configuración 'passwd', ubicado dentro del directorio /etc. Este archivo es de texto tipo ASCII, se crea al momento de la instalación con el usuario root (que tiene UID=0) y las cuentas especiales, más las cuentas de usuarios normales que se hayan indicado al momento de la instalación.</p>
+                <div class="file-example">
+                    <div class="example-header">Estructura del archivo /etc/passwd</div>
+                    <div class="example-content">
+                        <code>
+                            username:password:UID:GID:comment:home_directory:shell<br><br>
+                            Ejemplo:<br>
+                            jsmith:x:1001:1001:Juan Smith:/home/jsmith:/bin/bash
+                        </code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-file">
+                <h5>b) /etc/shadow</h5>
+                <p>Anteriormente las contraseñas cifradas se almacenaban en el mismo /etc/passwd. El problema es que 'passwd' es un archivo que puede ser leído por cualquier usuario del sistema, aunque solo puede ser modificado por root. El archivo 'shadow', resuelve el problema ya que solo puede ser leído por root. Considérese a 'shadow' como una extensión de 'passwd' ya que no solo almacena la contraseña encriptada, sino que tiene otros campos de control de contraseñas.</p>
+                <div class="file-example">
+                    <div class="example-header">Estructura del archivo /etc/shadow</div>
+                    <div class="example-content">
+                        <code>
+                            username:encrypted_password:lastchange:min:max:warn:inactive:expire:flag<br><br>
+                            Ejemplo:<br>
+                            jsmith:$6$salt$hash:18144:0:99999:7:::
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sso-authentication">
+            <h4>Autenticación única (SSO)</h4>
+            <p>Algunos sistemas operativos implementan SSO (Single-Sign On), o autenticación única, que permite a los usuarios acceder a varios recursos y aplicaciones sin tener que identificarse más que una vez, en el inicio de la sesión en la red.</p>
+            
+            <div class="sso-diagram">
+                <div class="diagram-header">Funcionamiento de SSO</div>
+                <div class="diagram-content">
+                    <div class="sso-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-desc">Usuario se autentica una vez</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-desc">Servidor de autenticación valida credenciales</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-desc">Se genera token de sesión</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-desc">Token permite acceso a múltiples aplicaciones</div>
+                        </div>
+                    </div>
+                    <div class="sso-applications">
+                        <div class="application">Correo electrónico</div>
+                        <div class="application">Intranet</div>
+                        <div class="application">CRM</div>
+                        <div class="application">ERP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040201006">
+        <h3>3.2. DERECHOS DE LOS USUARIOS Y PRIVILEGIOS</h3>
+        <p>Con la determinación de los derechos de los usuarios, el administrador de la red configura las operaciones que cada usuario puede hacer en la red. Algunas de estas operaciones son el acceso remoto a equipos en la red, apagar de manera remota algún equipo, cambiar la fecha y la hora del sistema, etc.</p>
+        
+        <p>Con los permisos o privilegios, el administrador de la red puede determinar el acceso de los usuarios a determinados recursos de la red. A diferencia de los derechos de los usuarios, que se refieren a las operaciones, los permisos están asociados a los recursos y forman parte de las propiedades de seguridad de los mismos.</p>
+        
+        <div class="rights-privileges-difference">
+            <h4>Diferencia entre derechos y privilegios</h4>
+            <div class="difference-diagram">
+                <div class="difference-item rights">
+                    <div class="item-header">Derechos de Usuario</div>
+                    <div class="item-description">
+                        <p>Se refieren a las <strong>operaciones</strong> que un usuario puede realizar en el sistema.</p>
+                    </div>
+                    <div class="item-examples">
+                        <div class="example">Acceso remoto a equipos</div>
+                        <div class="example">Apagado remoto de equipos</div>
+                        <div class="example">Cambio de fecha y hora</div>
+                        <div class="example">Realizar copias de seguridad</div>
+                    </div>
+                </div>
+                <div class="difference-item privileges">
+                    <div class="item-header">Privilegios o Permisos</div>
+                    <div class="item-description">
+                        <p>Se refieren al <strong>acceso</strong> a determinados recursos del sistema.</p>
+                    </div>
+                    <div class="item-examples">
+                        <div class="example">Lectura de archivos</div>
+                        <div class="example">Escritura en directorios</div>
+                        <div class="example">Ejecución de programas</div>
+                        <div class="example">Modificación de permisos</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example-scenario">
+                <div class="scenario-header">Ejemplo práctico</div>
+                <div class="scenario-content">
+                    <p>Un operador de consola puede tener <strong>derecho</strong> a hacer una copia de seguridad sobre un disco, pero puede tener el acceso restringido a ciertos directorios porque no tiene <strong>privilegios</strong> de lectura o escritura sobre ellos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rights-assignment">
+            <h4>Asignación de derechos y privilegios</h4>
+            <p>Normalmente, en primer lugar se asignan los derechos sobre las operaciones que puede efectuar un determinado usuario, y a continuación se configuran los privilegios que va a tener ese usuario sobre los recursos (carpetas, directorios) en los que va a realizar estas operaciones.</p>
+            
+            <div class="assignment-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-description">
+                        <h5>Asignación de derechos</h5>
+                        <p>Se determinan las operaciones que el usuario puede realizar en el sistema.</p>
+                    </div>
+                </div>
+                <div class="process-arrow">↓</div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-description">
+                        <h5>Asignación de privilegios</h5>
+                        <p>Se configuran los permisos sobre los recursos a los que el usuario puede acceder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="privileges-configuration">
+            <h4>Configuración de privilegios</h4>
+            <p>Los privilegios o permisos se configuran usando marcas sobre cada objeto, que dependen del sistema operativo, pero en general son:</p>
+            
+            <div class="privileges-list">
+                <ul>
+                    <li><strong>Lectura (r)</strong>: Permite ver el contenido de un archivo o directorio.</li>
+                    <li><strong>Escritura (w)</strong>: Permite modificar o crear archivos o directorios.</li>
+                    <li><strong>Ejecución (x)</strong>: Permite ejecutar un archivo o acceder a un directorio.</li>
+                    <li><strong>Borrado</strong>: Permite eliminar archivos o directorios.</li>
+                    <li><strong>Modificación de permisos</strong>: Permite cambiar los permisos de un archivo o directorio.</li>
+                    <li><strong>Toma de posesión</strong>: Permite cambiar el propietario de un archivo o directorio.</li>
+                </ul>
+            </div>
+            
+            <div class="privileges-examples">
+                <div class="example-linux">
+                    <h5>Ejemplo de permisos en Linux</h5>
+                    <div class="example-image">
+                        <div class="linux-permissions">
+                            <div class="permissions-header">Listado de directorio con permisos</div>
+                            <div class="permissions-content">
+                                <code>
+                                    drwxr-xr-x 2 jsmith users 4096 Mar 15 10:30 Documentos<br>
+                                    -rw-r--r-- 1 jsmith users 2048 Mar 14 15:45 informe.txt<br>
+                                    -rwxr-xr-x 1 jsmith users 8192 Mar 13 09:20 programa.sh
+                                </code>
+                            </div>
+                            <div class="permissions-explanation">
+                                <p>En el ejemplo anterior:</p>
+                                <ul>
+                                    <li><code>d</code>: Indica que es un directorio</li>
+                                    <li><code>rwx</code>: Permisos del propietario (lectura, escritura, ejecución)</li>
+                                    <li><code>r-x</code>: Permisos del grupo (lectura, ejecución)</li>
+                                    <li><code>r-x</code>: Permisos de otros usuarios (lectura, ejecución)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-windows">
+                    <h5>Ejemplo de permisos en Active Directory (Microsoft)</h5>
+                    <div class="example-image">
+                        <div class="windows-permissions">
+                            <div class="permissions-header">Diálogo de permisos en Windows</div>
+                            <div class="permissions-dialog">
+                                <div class="dialog-title">Permisos para Documentos</div>
+                                <div class="dialog-content">
+                                    <div class="permissions-table">
+                                        <div class="table-header">
+                                            <div class="header-cell">Nombre</div>
+                                            <div class="header-cell">Permisos</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="row-cell">Administradores</div>
+                                            <div class="row-cell">Control total</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="row-cell">Usuarios</div>
+                                            <div class="row-cell">Leer y ejecutar</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="row-cell">Grupo Proyectos</div>
+                                            <div class="row-cell">Modificar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dialog-buttons">
+                                    <div class="button">Aceptar</div>
+                                    <div class="button">Cancelar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* User Management Overview Styles */
+        .user-management-overview {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .management-diagram {
+            margin: 15px 0;
+        }
+        .management-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .component {
+            flex: 1 1 30%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 200px;
+        }
+        .component-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .component-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .item {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .management-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* User Account Parameters Styles */
+        .user-account-parameters {
+            margin: 20px 0;
+        }
+        .parameter {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .parameter h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .parameter-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .example-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+        .example-item {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        /* Profile Example Styles */
+        .example-profile {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .profile-field {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .field-name, .field-value {
+            padding: 5px 10px;
+        }
+        .field-name {
+            width: 40%;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border-right: 1px solid #ddd;
+        }
+        .field-value {
+            width: 60%;
+        }
+        
+        /* Schedule Example Styles */
+        .example-schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .schedule-days {
+            display: flex;
+            justify-content: space-between;
+        }
+        .day {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px 3px 0 0;
+            font-weight: bold;
+        }
+        .schedule-hours {
+            display: flex;
+            justify-content: space-between;
+        }
+        .hour-block {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 3px 3px;
+        }
+        .hour-block.allowed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .hour-block.denied {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Expiry Example Styles */
+        .example-expiry {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .expiry-setting {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .setting-name, .setting-value {
+            padding: 5px 10px;
+        }
+        .setting-name {
+            width: 40%;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border-right: 1px solid #ddd;
+        }
+        .setting-value {
+            width: 60%;
+        }
+        
+        /* Directory Example Styles */
+        .example-directory {
+            padding: 10px;
+        }
+        .directory-tree {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+        }
+        .directory-root {
+            margin-bottom: 5px;
+        }
+        .directory-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .directory-contents {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .directory-item {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .directory-item.folder {
+            background-color: #e6f7ff;
+        }
+        .directory-item.file {
+            background-color: #f2f2f2;
+        }
+        
+        /* Script Example Styles */
+        .example-script {
+            padding: 10px;
+        }
+        .script-content {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            font-family: monospace;
+        }
+        .script-line {
+            margin-bottom: 5px;
+        }
+        
+        /* Quotas Example Styles */
+        .example-quotas {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .quota-setting {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .setting-name, .setting-value {
+            padding: 5px 10px;
+        }
+        .setting-name {
+            width: 40%;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border-right: 1px solid #ddd;
+        }
+        .setting-value {
+            width: 60%;
+        }
+        
+        /* User Policies Styles */
+        .user-policies {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .policy-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-policy {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        /* User Creation Parameters Styles */
+        .user-creation-parameters {
+            margin: 20px 0;
+        }
+        .active-directory, .unix-system {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .parameter-table {
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .parameter-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .parameter-table th, .parameter-table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .parameter-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .parameter-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .unix-parameters {
+            margin: 15px 0;
+        }
+        .unix-parameters ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .unix-parameters li {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .unix-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-command {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        /* Special Users Styles */
+        .special-users {
+            margin: 20px 0;
+        }
+        .user-type {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .user-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-characteristics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .characteristic {
+            flex: 1 1 45%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            min-width: 200px;
+        }
+        .characteristic-icon {
+            font-size: 1.5em;
+        }
+        
+        /* Domain Integration Styles */
+        .domain-integration {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .domain-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .diagram-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .diagram-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .domain-controller {
+            padding: 15px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+        .controller-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .domain-accounts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .workstations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .workstation {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            min-width: 200px;
+        }
+        .workstation-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .local-accounts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .account {
+            padding: 5px 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        /* User Identifiers Styles */
+        .user-identifiers {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .identifier-type {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-width: 300px;
+        }
+        .identifier-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-output {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        /* Unix Configuration Styles */
+        .unix-configuration {
+            margin: 20px 0;
+        }
+        .config-file {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .file-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .example-content {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        /* SSO Authentication Styles */
+        .sso-authentication {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .sso-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .sso-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .flow-step {
+            flex: 1 1 20%;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+            min-width: 150px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        .flow-arrow {
+            font-size: 1.5em;
+            color: #0078d7;
+        }
+        .sso-applications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .application {
+            padding: 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        /* Rights and Privileges Styles */
+        .rights-privileges-difference {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .difference-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .difference-item {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 300px;
+        }
+        .item-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .item-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .example {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .example-scenario {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .scenario-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        /* Rights Assignment Styles */
+        .rights-assignment {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .assignment-process {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .process-step {
+            width: 80%;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            gap: 15px;
+        }
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .process-arrow {
+            font-size: 1.5em;
+            color: #0078d7;
+        }
+        
+        /* Privileges Configuration Styles */
+        .privileges-configuration {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .privileges-list {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .privileges-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .example-linux, .example-windows {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 300px;
+        }
+        .linux-permissions, .windows-permissions {
+            margin: 15px 0;
+        }
+        .permissions-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .permissions-content {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+        .permissions-explanation {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .permissions-dialog {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+        }
+        .dialog-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f2f2f2;
+            border-radius: 3px 3px 0 0;
+            padding: 5px;
+        }
+        .dialog-content {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .permissions-table {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .table-header {
+            display: flex;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-cell {
+            flex: 1;
+            padding: 5px 10px;
+            text-align: center;
+            border-right: 1px solid #ddd;
+        }
+        .header-cell:last-child {
+            border-right: none;
+        }
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        .row-cell {
+            flex: 1;
+            padding: 5px 10px;
+            text-align: center;
+            border-right: 1px solid #ddd;
+        }
+        .row-cell:last-child {
+            border-right: none;
+        }
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .button {
+            padding: 5px 15px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</div>

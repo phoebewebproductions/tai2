@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos Terminales y Equipos de Interconexión y Conmutación</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4060301001">
+            <h2>3.1 EQUIPOS TERMINALES Y EQUIPOS DE INTERCONEXIÓN Y CONMUTACIÓN</h2>
+            
+            <div class="equip-introduccion">
+                <p>En Comunicaciones, entendemos por equipo terminal de datos o ETD aquel componente del circuito que es origen o destino del flujo de información. Generalmente entendemos por ETD un ordenador, terminal o computadora, pero cualquier dispositivo con capacidades de envío y recepción de información a través de la red puede ser un ETD, desde una tablet hasta una impresora. Además, si un dispositivo participa en la comunicación pero no es ni el ETD origen ni el ETD destino de la información, lo denominamos Equipo Terminal de Circuito de Datos o ETCD. Por ejemplo, un módem conectado al ETD origen es un ETCD.</p>
+                <p>Existen, además, múltiples dispositivos y equipos de interconexión y conmutación que pueden formar parte de la comunicación, y que vemos a continuación.</p>
+            </div>
+            
+            <div class="equip-terminales">
+                <h3>Equipos Terminales</h3>
+                
+                <div class="equip-tipos-terminales">
+                    <div class="equip-tipo-terminal">
+                        <div class="equip-titulo-tipo">ETD (Equipo Terminal de Datos)</div>
+                        <div class="equip-descripcion-tipo">
+                            <p>Componente del circuito que es origen o destino del flujo de información.</p>
+                        </div>
+                        <div class="equip-ejemplos-tipo">
+                            <div class="equip-titulo-ejemplos">Ejemplos:</div>
+                            <ul class="equip-lista-ejemplos">
+                                <li>Ordenadores</li>
+                                <li>Servidores</li>
+                                <li>Impresoras</li>
+                                <li>Tablets</li>
+                                <li>Smartphones</li>
+                            </ul>
+                        </div>
+                        <div class="equip-visualizacion-tipo">
+                            <div class="equip-icono-etd"></div>
+                            <div class="equip-etiqueta-tipo">ETD</div>
+                        </div>
+                    </div>
+                    
+                    <div class="equip-tipo-terminal">
+                        <div class="equip-titulo-tipo">ETCD (Equipo Terminal de Circuito de Datos)</div>
+                        <div class="equip-descripcion-tipo">
+                            <p>Dispositivo que participa en la comunicación pero no es ni el origen ni el destino de la información.</p>
+                        </div>
+                        <div class="equip-ejemplos-tipo">
+                            <div class="equip-titulo-ejemplos">Ejemplos:</div>
+                            <ul class="equip-lista-ejemplos">
+                                <li>Módems</li>
+                                <li>Adaptadores de red</li>
+                                <li>Tarjetas de interfaz</li>
+                                <li>Transceptores</li>
+                            </ul>
+                        </div>
+                        <div class="equip-visualizacion-tipo">
+                            <div class="equip-icono-etcd"></div>
+                            <div class="equip-etiqueta-tipo">ETCD</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="equip-esquema-comunicacion">
+                    <div class="equip-titulo-esquema">Esquema de comunicación ETD-ETCD</div>
+                    <div class="equip-visualizacion-esquema">
+                        <div class="equip-etd-origen">
+                            <div class="equip-icono-etd-mini"></div>
+                            <div class="equip-etiqueta-mini">ETD Origen</div>
+                        </div>
+                        <div class="equip-flecha-esquema"></div>
+                        <div class="equip-etcd-origen">
+                            <div class="equip-icono-etcd-mini"></div>
+                            <div class="equip-etiqueta-mini">ETCD</div>
+                        </div>
+                        <div class="equip-nube-red">
+                            <div class="equip-etiqueta-red">Red</div>
+                        </div>
+                        <div class="equip-etcd-destino">
+                            <div class="equip-icono-etcd-mini"></div>
+                            <div class="equip-etiqueta-mini">ETCD</div>
+                        </div>
+                        <div class="equip-flecha-esquema"></div>
+                        <div class="equip-etd-destino">
+                            <div class="equip-icono-etd-mini"></div>
+                            <div class="equip-etiqueta-mini">ETD Destino</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301002">
+            <h3>3.1.1 REPETIDORES</h3>
+            <div class="equip-dispositivo">
+                <div class="equip-info-dispositivo">
+                    <p>Un repetidor es un dispositivo electrónico que conecta dos segmentos de la misma red, retransmitiendo el tráfico de un extremo al otro.</p>
+                    <p>El repetidor solventa los problemas asociados a las limitaciones de la longitud que puede tener un segmento, así como las distancias máximas de transmisión en las redes inalámbricas como Wifi.</p>
+                    <p>Actúa únicamente en el nivel físico (Nivel 1) del modelo OSI.</p>
+                    
+                    <div class="equip-caracteristicas-dispositivo">
+                        <div class="equip-titulo-caracteristicas">Características principales:</div>
+                        <ul class="equip-lista-caracteristicas">
+                            <li>Trabaja en el nivel físico (Nivel 1) del modelo OSI</li>
+                            <li>Regenera y amplifica la señal</li>
+                            <li>Extiende el alcance de la red</li>
+                            <li>No filtra el tráfico</li>
+                            <li>No separa dominios de colisión</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equip-visualizacion-dispositivo">
+                    <div class="equip-imagen-dispositivo equip-imagen-repetidor"></div>
+                    <div class="equip-etiqueta-imagen">Repetidor inalámbrico</div>
+                </div>
+            </div>
+            
+            <div class="equip-funcionamiento">
+                <div class="equip-titulo-funcionamiento">Funcionamiento de un repetidor</div>
+                <div class="equip-esquema-funcionamiento">
+                    <div class="equip-segmento">Segmento A</div>
+                    <div class="equip-icono-repetidor"></div>
+                    <div class="equip-segmento">Segmento B</div>
+                </div>
+                <div class="equip-descripcion-funcionamiento">
+                    <p>El repetidor recibe la señal del segmento A, la regenera (amplifica) y la retransmite al segmento B, extendiendo así el alcance de la red.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301003">
+            <h3>3.1.2 HUBS</h3>
+            <div class="equip-dispositivo">
+                <div class="equip-info-dispositivo">
+                    <p>Un hub o concentrador es un dispositivo que distribuye la información que recibe a través de un puerto por todos los demás, regenerándola al igual que hacen los repetidores. Trabaja únicamente a nivel 1, y actualmente su uso es residual debido a que han sido reemplazados por los switches, que ofrecen funcionalidades adicionales. Tanto los hubs como los repetidores pueden conectarse en cascada.</p>
+                    
+                    <div class="equip-caracteristicas-dispositivo">
+                        <div class="equip-titulo-caracteristicas">Características principales:</div>
+                        <ul class="equip-lista-caracteristicas">
+                            <li>Trabaja en el nivel físico (Nivel 1) del modelo OSI</li>
+                            <li>Distribuye la información por todos los puertos</li>
+                            <li>No filtra el tráfico</li>
+                            <li>No separa dominios de colisión</li>
+                            <li>Puede conectarse en cascada</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equip-visualizacion-dispositivo">
+                    <div class="equip-imagen-dispositivo equip-imagen-hub"></div>
+                    <div class="equip-etiqueta-imagen">Hub o concentrador</div>
+                </div>
+            </div>
+            
+            <div class="equip-funcionamiento">
+                <div class="equip-titulo-funcionamiento">Funcionamiento de un hub</div>
+                <div class="equip-esquema-funcionamiento-hub">
+                    <div class="equip-nodo-hub">Nodo A</div>
+                    <div class="equip-nodo-hub">Nodo B</div>
+                    <div class="equip-hub-central">
+                        <div class="equip-etiqueta-hub">HUB</div>
+                    </div>
+                    <div class="equip-nodo-hub">Nodo C</div>
+                    <div class="equip-nodo-hub">Nodo D</div>
+                    <div class="equip-transmision-hub">
+                        <div class="equip-origen-transmision">A envía datos</div>
+                        <div class="equip-destino-transmision">Todos reciben (B, C, D)</div>
+                    </div>
+                </div>
+                <div class="equip-descripcion-funcionamiento">
+                    <p>Cuando un nodo envía datos al hub, éste los retransmite por todos sus puertos, independientemente del destino real de los datos. Esto genera tráfico innecesario y posibles colisiones.</p>
+                </div>
+            </div>
+            
+            <div class="equip-cascada">
+                <div class="equip-titulo-cascada">Hubs conectados en cascada</div>
+                <div class="equip-esquema-cascada">
+                    <div class="equip-hub-cascada">
+                        <div class="equip-etiqueta-hub">HUB 1</div>
+                    </div>
+                    <div class="equip-conexion-cascada"></div>
+                    <div class="equip-hub-cascada">
+                        <div class="equip-etiqueta-hub">HUB 2</div>
+                    </div>
+                    <div class="equip-conexion-cascada"></div>
+                    <div class="equip-hub-cascada">
+                        <div class="equip-etiqueta-hub">HUB 3</div>
+                    </div>
+                </div>
+                <div class="equip-descripcion-cascada">
+                    <p>Los hubs pueden conectarse entre sí para aumentar el número de puertos disponibles, aunque esto incrementa el dominio de colisión y puede afectar al rendimiento de la red.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301004">
+            <h3>3.1.3 BRIDGES</h3>
+            <div class="equip-dispositivo">
+                <div class="equip-info-dispositivo">
+                    <p>Un bridge o puente une dos segmentos de red, pero no retransmite toda la información, sino que únicamente deja pasar aquella información cuyo destino es el otro segmento, copiando el contenido de la trama en el segmento correspondiente. Trabajan en el nivel 2 del modelo OSI.</p>
+                    
+                    <div class="equip-caracteristicas-dispositivo">
+                        <div class="equip-titulo-caracteristicas">Características principales:</div>
+                        <ul class="equip-lista-caracteristicas">
+                            <li>Trabaja en el nivel de enlace (Nivel 2) del modelo OSI</li>
+                            <li>Filtra el tráfico basándose en direcciones MAC</li>
+                            <li>Separa dominios de colisión</li>
+                            <li>No separa dominios de difusión</li>
+                            <li>Conecta solo dos segmentos de red</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equip-visualizacion-dispositivo">
+                    <div class="equip-imagen-dispositivo equip-imagen-bridge"></div>
+                    <div class="equip-etiqueta-imagen">Bridge o puente</div>
+                </div>
+            </div>
+            
+            <div class="equip-funcionamiento">
+                <div class="equip-titulo-funcionamiento">Funcionamiento de un bridge</div>
+                <div class="equip-esquema-funcionamiento-bridge">
+                    <div class="equip-segmento-bridge">
+                        <div class="equip-nodo-bridge">Nodo A</div>
+                        <div class="equip-nodo-bridge">Nodo B</div>
+                        <div class="equip-etiqueta-segmento">Segmento 1</div>
+                    </div>
+                    <div class="equip-bridge-central">
+                        <div class="equip-etiqueta-bridge">BRIDGE</div>
+                        <div class="equip-tabla-mac">
+                            <div class="equip-titulo-tabla">Tabla MAC</div>
+                        </div>
+                    </div>
+                    <div class="equip-segmento-bridge">
+                        <div class="equip-nodo-bridge">Nodo C</div>
+                        <div class="equip-nodo-bridge">Nodo D</div>
+                        <div class="equip-etiqueta-segmento">Segmento 2</div>
+                    </div>
+                    <div class="equip-transmision-bridge">
+                        <div class="equip-origen-transmision">A envía a C</div>
+                        <div class="equip-destino-transmision">Bridge reenvía solo al segmento 2</div>
+                    </div>
+                </div>
+                <div class="equip-descripcion-funcionamiento">
+                    <p>El bridge aprende las direcciones MAC de los dispositivos en cada segmento y solo reenvía el tráfico al segmento donde se encuentra el destinatario, reduciendo así el tráfico innecesario y separando los dominios de colisión.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301005">
+            <h3>3.1.4 SWITCHES</h3>
+            <div class="equip-dispositivo">
+                <div class="equip-info-dispositivo">
+                    <p>Un conmutador o switch une varios segmentos de red, trasladando la información al segmento correspondiente basándose en su dirección de nivel 2. Trabaja, por tanto, a nivel de capa de enlace del modelo OSI. Su funcionamiento es similar al de un puente pero puede interconectar más de dos redes.</p>
+                    <p>Un switch es conceptualmente parecido a un hub, pero tiene la capacidad de discriminar sobre qué bocas o puertos de salida es necesario remitir la información, reduciendo la carga de tráfico que soporta cada uno de los segmentos conectados.</p>
+                    
+                    <div class="equip-caracteristicas-dispositivo">
+                        <div class="equip-titulo-caracteristicas">Características principales:</div>
+                        <ul class="equip-lista-caracteristicas">
+                            <li>Trabaja en el nivel de enlace (Nivel 2) del modelo OSI</li>
+                            <li>Filtra el tráfico basándose en direcciones MAC</li>
+                            <li>Separa dominios de colisión</li>
+                            <li>No separa dominios de difusión</li>
+                            <li>Puede conectar múltiples segmentos de red</li>
+                            <li>Mayor rendimiento que los hubs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equip-visualizacion-dispositivo">
+                    <div class="equip-imagen-dispositivo equip-imagen-switch"></div>
+                    <div class="equip-etiqueta-imagen">Switch o conmutador</div>
+                </div>
+            </div>
+            
+            <div class="equip-funcionamiento">
+                <div class="equip-titulo-funcionamiento">Funcionamiento de un switch</div>
+                <div class="equip-esquema-funcionamiento-switch">
+                    <div class="equip-nodo-switch">Nodo A</div>
+                    <div class="equip-nodo-switch">Nodo B</div>
+                    <div class="equip-nodo-switch">Nodo C</div>
+                    <div class="equip-switch-central">
+                        <div class="equip-etiqueta-switch">SWITCH</div>
+                        <div class="equip-tabla-mac">
+                            <div class="equip-titulo-tabla">Tabla MAC</div>
+                        </div>
+                    </div>
+                    <div class="equip-nodo-switch">Nodo D</div>
+                    <div class="equip-nodo-switch">Nodo E</div>
+                    <div class="equip-nodo-switch">Nodo F</div>
+                    <div class="equip-transmision-switch">
+                        <div class="equip-origen-transmision">A envía a D</div>
+                        <div class="equip-destino-transmision">Switch reenvía solo a D</div>
+                    </div>
+                </div>
+                <div class="equip-descripcion-funcionamiento">
+                    <p>El switch mantiene una tabla de direcciones MAC asociadas a cada puerto. Cuando recibe una trama, consulta la dirección MAC de destino y la reenvía únicamente al puerto donde está conectado el dispositivo destinatario.</p>
+                </div>
+            </div>
+            
+            <div class="equip-comparativa">
+                <div class="equip-titulo-comparativa">Comparativa entre Hub y Switch</div>
+                <div class="equip-esquema-comparativa">
+                    <div class="equip-lado-comparativa">
+                        <div class="equip-titulo-lado">HUB</div>
+                        <div class="equip-esquema-hub">
+                            <div class="equip-hub-mini"></div>
+                            <div class="equip-transmision-hub-mini">
+                                <div class="equip-flecha-hub"></div>
+                                <div class="equip-flecha-hub"></div>
+                                <div class="equip-flecha-hub"></div>
+                            </div>
+                        </div>
+                        <div class="equip-descripcion-lado">
+                            <p>Reenvía los datos a todos los puertos</p>
+                            <p>No filtra el tráfico</p>
+                            <p>Un solo dominio de colisión</p>
+                        </div>
+                    </div>
+                    <div class="equip-lado-comparativa">
+                        <div class="equip-titulo-lado">SWITCH</div>
+                        <div class="equip-esquema-switch">
+                            <div class="equip-switch-mini"></div>
+                            <div class="equip-transmision-switch-mini">
+                                <div class="equip-flecha-switch"></div>
+                            </div>
+                        </div>
+                        <div class="equip-descripcion-lado">
+                            <p>Reenvía los datos solo al puerto de destino</p>
+                            <p>Filtra el tráfico basándose en direcciones MAC</p>
+                            <p>Cada puerto es un dominio de colisión separado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301006">
+            <h3>3.1.5 ROUTERS</h3>
+            <div class="equip-dispositivo">
+                <div class="equip-info-dispositivo">
+                    <p>Un router o enrutador es un dispositivo que trabaja a nivel de red (nivel 3) de la capa OSI y que permite establecer rutas de encaminamiento, decidiendo el camino por el que irá cada paquete dentro de la red.</p>
+                    <p>Cuando un router recibe un paquete, consultará en las cabeceras la dirección de red (generalmente una dirección IP) y en base a ésta consultará su tabla de rutas, decidiendo hacia qué camino debe enviarse el paquete.</p>
+                    <p>Las tablas de rutas pueden establecerse de manera estática, definiendo rutas específicas para que los paquetes con un destino determinado se remitan por la ruta deseada, o definirse dinámicamente, a través de un protocolo automático de enrutamiento que rellena la tabla de rutas en base a un algoritmo de cálculo, como el Algoritmo de Dijkstra o el de Bellman-Ford.</p>
+                    
+                    <div class="equip-caracteristicas-dispositivo">
+                        <div class="equip-titulo-caracteristicas">Características principales:</div>
+                        <ul class="equip-lista-caracteristicas">
+                            <li>Trabaja en el nivel de red (Nivel 3) del modelo OSI</li>
+                            <li>Encamina paquetes basándose en direcciones IP</li>
+                            <li>Separa dominios de colisión</li>
+                            <li>Separa dominios de difusión</li>
+                            <li>Conecta redes diferentes</li>
+                            <li>Utiliza tablas de enrutamiento</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equip-visualizacion-dispositivo">
+                    <div class="equip-imagen-dispositivo equip-imagen-router"></div>
+                    <div class="equip-etiqueta-imagen">Router o enrutador</div>
+                </div>
+            </div>
+            
+            <div class="equip-funcionamiento">
+                <div class="equip-titulo-funcionamiento">Funcionamiento de un router</div>
+                <div class="equip-esquema-funcionamiento-router">
+                    <div class="equip-red-router">
+                        <div class="equip-nodo-router">192.168.1.2</div>
+                        <div class="equip-nodo-router">192.168.1.3</div>
+                        <div class="equip-etiqueta-red-router">Red 192.168.1.0/24</div>
+                    </div>
+                    <div class="equip-router-central">
+                        <div class="equip-etiqueta-router">ROUTER</div>
+                        <div class="equip-tabla-rutas">
+                            <div class="equip-titulo-tabla">Tabla de rutas</div>
+                        </div>
+                    </div>
+                    <div class="equip-red-router">
+                        <div class="equip-nodo-router">192.168.2.2</div>
+                        <div class="equip-nodo-router">192.168.2.3</div>
+                        <div class="equip-etiqueta-red-router">Red 192.168.2.0/24</div>
+                    </div>
+                    <div class="equip-transmision-router">
+                        <div class="equip-origen-transmision">192.168.1.2 envía a 192.168.2.3</div>
+                        <div class="equip-destino-transmision">Router encamina el paquete a la red correcta</div>
+                    </div>
+                </div>
+                <div class="equip-descripcion-funcionamiento">
+                    <p>El router examina la dirección IP de destino de cada paquete y consulta su tabla de rutas para determinar la mejor ruta hacia ese destino. Esto permite la comunicación entre redes diferentes.</p>
+                </div>
+            </div>
+            
+            <div class="equip-tabla-rutas-ejemplo">
+                <div class="equip-titulo-tabla-rutas">Ejemplo de tabla de rutas</div>
+                <div class="equip-contenido-tabla-rutas">
+                    <div class="equip-fila-tabla-rutas equip-cabecera-tabla-rutas">
+                        <div class="equip-celda-tabla-rutas">Red destino</div>
+                        <div class="equip-celda-tabla-rutas">Máscara</div>
+                        <div class="equip-celda-tabla-rutas">Gateway</div>
+                        <div class="equip-celda-tabla-rutas">Interfaz</div>
+                        <div class="equip-celda-tabla-rutas">Métrica</div>
+                    </div>
+                    <div class="equip-fila-tabla-rutas">
+                        <div class="equip-celda-tabla-rutas">192.168.1.0</div>
+                        <div class="equip-celda-tabla-rutas">255.255.255.0</div>
+                        <div class="equip-celda-tabla-rutas">0.0.0.0</div>
+                        <div class="equip-celda-tabla-rutas">eth0</div>
+                        <div class="equip-celda-tabla-rutas">0</div>
+                    </div>
+                    <div class="equip-fila-tabla-rutas">
+                        <div class="equip-celda-tabla-rutas">192.168.2.0</div>
+                        <div class="equip-celda-tabla-rutas">255.255.255.0</div>
+                        <div class="equip-celda-tabla-rutas">0.0.0.0</div>
+                        <div class="equip-celda-tabla-rutas">eth1</div>
+                        <div class="equip-celda-tabla-rutas">0</div>
+                    </div>
+                    <div class="equip-fila-tabla-rutas">
+                        <div class="equip-celda-tabla-rutas">0.0.0.0</div>
+                        <div class="equip-celda-tabla-rutas">0.0.0.0</div>
+                        <div class="equip-celda-tabla-rutas">192.168.1.1</div>
+                        <div class="equip-celda-tabla-rutas">eth0</div>
+                        <div class="equip-celda-tabla-rutas">1</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301007">
+            <h3>3.1.6 RESUMEN DE DISPOSITIVOS</h3>
+            <div class="equip-tabla-resumen">
+                <div class="equip-titulo-tabla-resumen">Tabla Resumen de Tipos de Dispositivos</div>
+                <div class="equip-contenido-tabla-resumen">
+                    <div class="equip-fila-tabla-resumen equip-cabecera-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Dispositivo</div>
+                        <div class="equip-celda-tabla-resumen">Nivel OSI</div>
+                        <div class="equip-celda-tabla-resumen">Separa dominios de colisión</div>
+                        <div class="equip-celda-tabla-resumen">Separa dominios de difusión</div>
+                    </div>
+                    <div class="equip-fila-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Repetidor</div>
+                        <div class="equip-celda-tabla-resumen">Capa 1 (Física)</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                    </div>
+                    <div class="equip-fila-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Hub o Concentrador</div>
+                        <div class="equip-celda-tabla-resumen">Capa 1 (Física)</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                    </div>
+                    <div class="equip-fila-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Bridge o Puente</div>
+                        <div class="equip-celda-tabla-resumen">Capa 2 (Enlace)</div>
+                        <div class="equip-celda-tabla-resumen">Sí</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                    </div>
+                    <div class="equip-fila-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Switch o Conmutador</div>
+                        <div class="equip-celda-tabla-resumen">Capa 2 (Enlace)</div>
+                        <div class="equip-celda-tabla-resumen">Sí</div>
+                        <div class="equip-celda-tabla-resumen">No</div>
+                    </div>
+                    <div class="equip-fila-tabla-resumen">
+                        <div class="equip-celda-tabla-resumen">Router o Enrutador</div>
+                        <div class="equip-celda-tabla-resumen">Capa 3 (Red)</div>
+                        <div class="equip-celda-tabla-resumen">Sí</div>
+                        <div class="equip-celda-tabla-resumen">Sí</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060301008">
+            <h3>3.1.7 DOMINIOS DE COLISIÓN Y DE DIFUSIÓN</h3>
+            <div class="equip-dominios">
+                <p>Cuando los nodos se comunican, introducen información a la red con destino el resto de nodos (ya sea uno o varios de éstos). Esta información se mueve en el ámbito que permitan los dispositivos de interconexión, y sirve para definir dos conceptos:</p>
+                
+                <div class="equip-tipo-dominio">
+                    <div class="equip-titulo-dominio">Dominio de colisión</div>
+                    <div class="equip-descripcion-dominio">
+                        <p>El dominio de colisión es aquella ubicación de la red donde las señales que emite un nodo pueden coincidir en el medio de transmisión con las enviadas por otro nodo. En este caso, se dice que se produce una colisión debido a que las señales interfieren cada una con la otra y la comunicación no puede llevarse a cabo adecuadamente.</p>
+                        <p>Algunos dispositivos, por su funcionamiento, sirven para separar dominios de colisión, al reducir el tráfico de red en cada uno de los segmentos conectados a ellos, por lo que además de interconexionar segmentos esto permite mejorar el rendimiento de los segmentos conectados.</p>
+                    </div>
+                    <div class="equip-visualizacion-dominio">
+                        <div class="equip-esquema-colision">
+                            <div class="equip-nodo-colision">Nodo A</div>
+                            <div class="equip-medio-colision">
+                                <div class="equip-senal-colision-1"></div>
+                                <div class="equip-senal-colision-2"></div>
+                                <div class="equip-punto-colision"></div>
+                            </div>
+                            <div class="equip-nodo-colision">Nodo B</div>
+                        </div>
+                        <div class="equip-etiqueta-colision">Colisión de señales en el medio compartido</div>
+                    </div>
+                </div>
+                
+                <div class="equip-csma-cd">
+                    <div class="equip-titulo-csma">CSMA/CD (Carrier Sense Multiple Access with Collision Detection)</div>
+                    <div class="equip-descripcion-csma">
+                        <p>Para evitar que existan colisiones, los dispositivos utilizan un método de acceso al medio compartido. El método de acceso al medio más extendido es CSMA/CD (Carrier Sense Multiple Access with Collision Detection). En CSMA/CD, los dispositivos realizan una escucha del medio antes de transmitir, para comprobar si éste se encuentra disponible, y en caso de que se detecte una colisión durante la transmisión, se deja de transmitir y se espera un tiempo aleatorio denominado ventana de contención antes de volver a transmitir. Si se produce una nueva colisión, esta ventana se duplica antes de volver a reintentar.</p>
+                    </div>
+                    <div class="equip-pasos-csma">
+                        <div class="equip-paso-csma">
+                            <div class="equip-numero-paso">1</div>
+                            <div class="equip-descripcion-paso">Escuchar el medio</div>
+                        </div>
+                        <div class="equip-paso-csma">
+                            <div class="equip-numero-paso">2</div>
+                            <div class="equip-descripcion-paso">Si está libre, transmitir</div>
+                        </div>
+                        <div class="equip-paso-csma">
+                            <div class="equip-numero-paso">3</div>
+                            <div class="equip-descripcion-paso">Si se detecta colisión, detener transmisión</div>
+                        </div>
+                        <div class="equip-paso-csma">
+                            <div class="equip-numero-paso">4</div>
+                            <div class="equip-descripcion-paso">Esperar tiempo aleatorio (ventana de contención)</div>
+                        </div>
+                        <div class="equip-paso-csma">
+                            <div class="equip-numero-paso">5</div>
+                            <div class="equip-descripcion-paso">Reintentar transmisión</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="equip-tipo-dominio">
+                    <div class="equip-titulo-dominio">Dominio de difusión</div>
+                    <div class="equip-descripcion-dominio">
+                        <p>Son ubicaciones de red que se separan de acuerdo a las direcciones de los dispositivos que se encuentran conectados a ella. Habitualmente un dominio de difusión se considera a nivel 3 (nivel de red). Los distintos dispositivos de interconexión que se conectan a una red son los que mantienen separados los distintos dominios de difusión.</p>
+                        <p>Un switch mantiene separados los dominios de colisión (al remitir las tramas únicamente en su ubicación de destino) pero sin embargo al trabajar a nivel 2 o de enlace de datos del modelo OSI, no separa los dominios de difusión.</p>
+                    </div>
+                    <div class="equip-visualizacion-dominio">
+                        <div class="equip-esquema-difusion">
+                            <div class="equip-red-difusion">
+                                <div class="equip-nodo-difusion">Nodo A</div>
+                                <div class="equip-nodo-difusion">Nodo B</div>
+                                <div class="equip-nodo-difusion">Nodo C</div>
+                                <div class="equip-etiqueta-red-difusion">Dominio de difusión 1</div>
+                            </div>
+                            <div class="equip-router-difusion">
+                                <div class="equip-etiqueta-router">ROUTER</div>
+                            </div>
+                            <div class="equip-red-difusion">
+                                <div class="equip-nodo-difusion">Nodo D</div>
+                                <div class="equip-nodo-difusion">Nodo E</div>
+                                <div class="equip-nodo-difusion">Nodo F</div>
+                                <div class="equip-etiqueta-red-difusion">Dominio de difusión 2</div>
+                            </div>
+                        </div>
+                        <div class="equip-etiqueta-difusion">El router separa dominios de difusión</div>
+                    </div>
+                </div>
+                
+                <div class="equip-ejemplo-dominios">
+                    <div class="equip-titulo-ejemplo">Ejemplo de dominios de colisión y difusión</div>
+                    <div class="equip-esquema-ejemplo">
+                        <div class="equip-red-ejemplo">
+                            <div class="equip-switch-ejemplo">
+                                <div class="equip-etiqueta-switch">SWITCH 1</div>
+                            </div>
+                            <div class="equip-nodos-ejemplo">
+                                <div class="equip-nodo-ejemplo">A</div>
+                                <div class="equip-nodo-ejemplo">B</div>
+                                <div class="equip-nodo-ejemplo">C</div>
+                            </div>
+                            <div class="equip-etiqueta-dominio">Dominio de difusión 1</div>
+                            <div class="equip-etiqueta-colision">3 dominios de colisión</div>
+                        </div>
+                        <div class="equip-router-ejemplo">
+                            <div class="equip-etiqueta-router">ROUTER</div>
+                        </div>
+                        <div class="equip-red-ejemplo">
+                            <div class="equip-switch-ejemplo">
+                                <div class="equip-etiqueta-switch">SWITCH 2</div>
+                            </div>
+                            <div class="equip-nodos-ejemplo">
+                                <div class="equip-nodo-ejemplo">D</div>
+                                <div class="equip-nodo-ejemplo">E</div>
+                                <div class="equip-nodo-ejemplo">F</div>
+                            </div>
+                            <div class="equip-etiqueta-dominio">Dominio de difusión 2</div>
+                            <div class="equip-etiqueta-colision">3 dominios de colisión</div>
+                        </div>
+                    </div>
+                    <div class="equip-descripcion-ejemplo">
+                        <p>En este ejemplo, cada nodo conectado a un switch tiene su propio dominio de colisión. Sin embargo, todos los nodos conectados al mismo switch comparten un dominio de difusión. El router separa los dominios de difusión entre las dos redes.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para equipos terminales e interconexión - usando clases únicas */
+        .equip-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Equipos terminales */
+        .equip-terminales {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-tipos-terminales {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .equip-tipo-terminal {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-tipo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .equip-descripcion-tipo {
+            margin-bottom: 15px;
+        }
+        
+        .equip-ejemplos-tipo {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-titulo-ejemplos {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .equip-lista-ejemplos {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .equip-lista-ejemplos li {
+            margin-bottom: 5px;
+        }
+        
+        .equip-visualizacion-tipo {
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-icono-etd, .equip-icono-etcd {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .equip-icono-etd {
+            background-color: #1890ff;
+        }
+        
+        .equip-icono-etd::before {
+            content: "💻";
+        }
+        
+        .equip-icono-etcd {
+            background-color: #52c41a;
+        }
+        
+        .equip-icono-etcd::before {
+            content: "📶";
+        }
+        
+        .equip-etiqueta-tipo {
+            font-weight: 500;
+            color: #666;
+        }
+        
+        /* Esquema de comunicación */
+        .equip-esquema-comunicacion {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-esquema {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-visualizacion-esquema {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 150px;
+            position: relative;
+        }
+        
+        .equip-etd-origen, .equip-etd-destino, .equip-etcd-origen, .equip-etcd-destino, .equip-nube-red {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .equip-icono-etd-mini, .equip-icono-etcd-mini {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .equip-icono-etd-mini {
+            background-color: #1890ff;
+        }
+        
+        .equip-icono-etd-mini::before {
+            content: "💻";
+        }
+        
+        .equip-icono-etcd-mini {
+            background-color: #52c41a;
+        }
+        
+        .equip-icono-etcd-mini::before {
+            content: "📶";
+        }
+        
+        .equip-etiqueta-mini {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .equip-nube-red {
+            width: 120px;
+            height: 80px;
+            background-color: #f0f5ff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .equip-nube-red::before, .equip-nube-red::after {
+            content: "";
+            position: absolute;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+        }
+        
+        .equip-nube-red::before {
+            width: 40px;
+            height: 40px;
+            top: -15px;
+            left: 20px;
+        }
+        
+        .equip-nube-red::after {
+            width: 30px;
+            height: 30px;
+            top: -10px;
+            right: 25px;
+        }
+        
+        .equip-etiqueta-red {
+            font-weight: 500;
+            color: #1890ff;
+            z-index: 1;
+        }
+        
+        .equip-flecha-esquema {
+            width: 40px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .equip-flecha-esquema::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 8px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        /* Dispositivos */
+        .equip-dispositivo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-info-dispositivo {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .equip-visualizacion-dispositivo {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-imagen-dispositivo {
+            width: 150px;
+            height: 100px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .equip-imagen-repetidor::before {
+            content: "📡";
+        }
+        
+        .equip-imagen-hub::before {
+            content: "🔌";
+        }
+        
+        .equip-imagen-bridge::before {
+            content: "🌉";
+        }
+        
+        .equip-imagen-switch::before {
+            content: "🔄";
+        }
+        
+        .equip-imagen-router::before {
+            content: "🌐";
+        }
+        
+        .equip-etiqueta-imagen {
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .equip-caracteristicas-dispositivo {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .equip-titulo-caracteristicas {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .equip-lista-caracteristicas {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .equip-lista-caracteristicas li {
+            margin-bottom: 5px;
+        }
+        
+        /* Funcionamiento */
+        .equip-funcionamiento {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-funcionamiento {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-esquema-funcionamiento {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-segmento {
+            width: 120px;
+            height: 60px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .equip-icono-repetidor {
+            width: 60px;
+            height: 60px;
+            background-color: #52c41a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .equip-icono-repetidor::before {
+            content: "📡";
+        }
+        
+        .equip-descripcion-funcionamiento {
+            margin-top: 15px;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Hub */
+        .equip-esquema-funcionamiento-hub {
+            position: relative;
+            height: 200px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-hub-central {
+            width: 80px;
+            height: 80px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-etiqueta-hub {
+            font-weight: 500;
+            color: white;
+        }
+        
+        .equip-nodo-hub {
+            width: 60px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #1890ff;
+            position: absolute;
+        }
+        
+        .equip-nodo-hub:nth-child(1) {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-nodo-hub:nth-child(2) {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+        
+        .equip-nodo-hub:nth-child(3) {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-nodo-hub:nth-child(4) {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+        
+        .equip-transmision-hub {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .equip-origen-transmision, .equip-destino-transmision {
+            font-size: 0.8rem;
+            color: #666;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        /* Cascada */
+        .equip-cascada {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-cascada {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-esquema-cascada {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-hub-cascada {
+            width: 80px;
+            height: 80px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-conexion-cascada {
+            width: 50px;
+            height: 5px;
+            background-color: #52c41a;
+        }
+        
+        .equip-descripcion-cascada {
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Bridge */
+        .equip-esquema-funcionamiento-bridge {
+            position: relative;
+            height: 200px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .equip-segmento-bridge {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+        }
+        
+        .equip-nodo-bridge {
+            width: 60px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #1890ff;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-etiqueta-segmento {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #666;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .equip-bridge-central {
+            width: 100px;
+            height: 100px;
+            background-color: #52c41a;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .equip-etiqueta-bridge {
+            font-weight: 500;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .equip-tabla-mac {
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .equip-titulo-tabla {
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .equip-transmision-bridge {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        /* Switch */
+        .equip-esquema-funcionamiento-switch {
+            position: relative;
+            height: 250px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-switch-central {
+            width: 120px;
+            height: 120px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .equip-etiqueta-switch {
+            font-weight: 500;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .equip-nodo-switch {
+            width: 60px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #1890ff;
+            position: absolute;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-nodo-switch:nth-child(1) {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .equip-nodo-switch:nth-child(2) {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-nodo-switch:nth-child(3) {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .equip-nodo-switch:nth-child(5) {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .equip-nodo-switch:nth-child(6) {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-nodo-switch:nth-child(7) {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .equip-transmision-switch {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        /* Comparativa */
+        .equip-comparativa {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-esquema-comparativa {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .equip-lado-comparativa {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-lado {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-esquema-hub, .equip-esquema-switch {
+            height: 100px;
+            position: relative;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-hub-mini, .equip-switch-mini {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .equip-hub-mini {
+            background-color: #1890ff;
+        }
+        
+        .equip-hub-mini::before {
+            content: "🔌";
+        }
+        
+        .equip-switch-mini {
+            background-color: #52c41a;
+        }
+        
+        .equip-switch-mini::before {
+            content: "🔄";
+        }
+        
+        .equip-transmision-hub-mini, .equip-transmision-switch-mini {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .equip-flecha-hub, .equip-flecha-switch {
+            width: 30px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .equip-flecha-hub::after, .equip-flecha-switch::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-left: 6px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .equip-descripcion-lado {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .equip-descripcion-lado p {
+            margin-bottom: 5px;
+        }
+        
+        /* Router */
+        .equip-esquema-funcionamiento-router {
+            position: relative;
+            height: 200px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .equip-red-router {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-nodo-router {
+            width: 120px;
+            height: 30px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #1890ff;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-etiqueta-red-router {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #666;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .equip-router-central {
+            width: 100px;
+            height: 100px;
+            background-color: #ff4d4f;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .equip-etiqueta-router {
+            font-weight: 500;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .equip-tabla-rutas {
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .equip-transmision-router {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        /* Tabla de rutas */
+        .equip-tabla-rutas-ejemplo {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-tabla-rutas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-contenido-tabla-rutas {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .equip-fila-tabla-rutas {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .equip-cabecera-tabla-rutas {
+            background-color: #f0f5ff;
+            font-weight: bold;
+        }
+        
+        .equip-celda-tabla-rutas {
+            flex: 1;
+            padding: 10px;
+            min-width: 100px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 0.9rem;
+        }
+        
+        /* Tabla resumen */
+        .equip-tabla-resumen {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-tabla-resumen {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-contenido-tabla-resumen {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .equip-fila-tabla-resumen {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .equip-cabecera-tabla-resumen {
+            background-color: #f0f5ff;
+            font-weight: bold;
+        }
+        
+        .equip-celda-tabla-resumen {
+            flex: 1;
+            padding: 10px;
+            min-width: 100px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 0.9rem;
+        }
+        
+        /* Dominios */
+        .equip-dominios {
+            margin: 25px 0;
+        }
+        
+        .equip-tipo-dominio {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-dominio {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.1rem;
+        }
+        
+        .equip-descripcion-dominio {
+            margin-bottom: 20px;
+        }
+        
+        .equip-visualizacion-dominio {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .equip-esquema-colision {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .equip-nodo-colision {
+            width: 80px;
+            height: 50px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #1890ff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-medio-colision {
+            flex: 1;
+            height: 10px;
+            background-color: #d9d9d9;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .equip-senal-colision-1, .equip-senal-colision-2 {
+            position: absolute;
+            height: 20px;
+            width: 40%;
+            top: -5px;
+        }
+        
+        .equip-senal-colision-1 {
+            left: 0;
+            background: linear-gradient(to right, #52c41a, transparent);
+        }
+        
+        .equip-senal-colision-2 {
+            right: 0;
+            background: linear-gradient(to left, #ff4d4f, transparent);
+        }
+        
+        .equip-punto-colision {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faad14;
+            border-radius: 50%;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-etiqueta-colision {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* CSMA/CD */
+        .equip-csma-cd {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-csma {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-descripcion-csma {
+            margin-bottom: 20px;
+        }
+        
+        .equip-pasos-csma {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .equip-paso-csma {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            flex: 1;
+        }
+        
+        .equip-numero-paso {
+            width: 25px;
+            height: 25px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        
+        .equip-descripcion-paso {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Dominio de difusión */
+        .equip-esquema-difusion {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .equip-red-difusion {
+            width: 200px;
+            height: 150px;
+            background-color: white;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-content: flex-start;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-nodo-difusion {
+            width: 50px;
+            height: 30px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #1890ff;
+        }
+        
+        .equip-etiqueta-red-difusion {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #666;
+            background-color: rgba(240, 245, 255, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .equip-router-difusion {
+            width: 80px;
+            height: 80px;
+            background-color: #ff4d4f;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-etiqueta-difusion {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Ejemplo dominios */
+        .equip-ejemplo-dominios {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-titulo-ejemplo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .equip-esquema-ejemplo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .equip-red-ejemplo {
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equip-switch-ejemplo {
+            width: 80px;
+            height: 40px;
+            background-color: #1890ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .equip-nodos-ejemplo {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .equip-nodo-ejemplo {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #1890ff;
+        }
+        
+        .equip-router-ejemplo {
+            width: 80px;
+            height: 80px;
+            background-color: #ff4d4f;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .equip-etiqueta-dominio, .equip-etiqueta-colision {
+            position: absolute;
+            font-size: 0.8rem;
+            color: #666;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .equip-etiqueta-dominio {
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-etiqueta-colision {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .equip-descripcion-ejemplo {
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .equip-tipos-terminales {
+                flex-direction: column;
+            }
+            
+            .equip-visualizacion-esquema {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-dispositivo {
+                flex-direction: column;
+            }
+            
+            .equip-esquema-funcionamiento {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-esquema-cascada {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-esquema-funcionamiento-bridge {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-esquema-funcionamiento-router {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-fila-tabla-rutas, .equip-fila-tabla-resumen {
+                flex-direction: column;
+            }
+            
+            .equip-celda-tabla-rutas, .equip-celda-tabla-resumen {
+                border-right: none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+            
+            .equip-esquema-colision {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-medio-colision {
+                width: 80%;
+                height: 50px;
+                margin: 0;
+            }
+            
+            .equip-senal-colision-1, .equip-senal-colision-2 {
+                height: 40%;
+                width: 20px;
+                top: 0;
+            }
+            
+            .equip-punto-colision {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .equip-esquema-difusion {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .equip-esquema-ejemplo {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

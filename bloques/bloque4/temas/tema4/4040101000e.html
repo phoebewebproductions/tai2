@@ -1,0 +1,1095 @@
+<div class="teoria">
+    <span id="4040101001">
+        <h2>1.1 ADMINISTRACIÓN DE REDES DE ÁREA LOCAL</h2>
+        <p>La administración de redes de área local comprende un conjunto de tareas y responsabilidades orientadas a garantizar el correcto funcionamiento, seguridad y eficiencia de la infraestructura de red. Estas tareas incluyen la organización de la red, la gestión de usuarios, la gestión de dispositivos y la monitorización del rendimiento.</p>
+        
+        <div class="network-admin-overview">
+            <h3>Visión General de la Administración de Redes</h3>
+            <div class="admin-diagram">
+                <div class="admin-components">
+                    <div class="component organization">
+                        <div class="component-header">Organización de la Red</div>
+                        <div class="component-items">
+                            <div class="item">Análisis de necesidades</div>
+                            <div class="item">Diseño físico y lógico</div>
+                            <div class="item">Seguridad de la información</div>
+                        </div>
+                    </div>
+                    <div class="component user-management">
+                        <div class="component-header">Gestión de Usuarios</div>
+                        <div class="component-items">
+                            <div class="item">Identificación y acceso</div>
+                            <div class="item">Roles y perfiles</div>
+                            <div class="item">Asignación de recursos</div>
+                        </div>
+                    </div>
+                    <div class="component device-management">
+                        <div class="component-header">Gestión de Dispositivos</div>
+                        <div class="component-items">
+                            <div class="item">Consola de administración</div>
+                            <div class="item">Acceso remoto</div>
+                            <div class="item">Registro de incidencias</div>
+                        </div>
+                    </div>
+                    <div class="component monitoring">
+                        <div class="component-header">Monitorización</div>
+                        <div class="component-items">
+                            <div class="item">Análisis de tráfico</div>
+                            <div class="item">Rendimiento</div>
+                            <div class="item">Alertas y estadísticas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-description">
+                <p>La administración de redes requiere un enfoque integral que abarca desde la planificación inicial hasta la monitorización continua, pasando por la gestión de usuarios y dispositivos.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040101002">
+        <h3>2.1. LA ORGANIZACIÓN DE LA RED</h3>
+        <p>La primera parte de la administración de la red consiste en una organización funcional de la misma. Se trata de analizar las necesidades actuales de compartir información de la organización, así como prever necesidades futuras para determinar. Concretamente, se deberá estudiar:</p>
+        
+        <ul>
+            <li>La función que van a realizar los equipos y los usuarios que estarán conectados a la red.</li>
+            <li>Las características físicas de las canalizaciones y espacios donde se ubicarán los medios de transmisión.</li>
+            <li>Los requisitos de seguridad de la información.</li>
+        </ul>
+        
+        <p>A partir de todo ello se obtendrá:</p>
+        
+        <div class="organization-results">
+            <div class="result">
+                <h4>a) Planos de situación de los elementos</h4>
+                <p>En caso de que no existieran previamente, se elaborarán planos detallados que muestren la ubicación física de todos los componentes de la red.</p>
+                <div class="result-diagram">
+                    <div class="floor-plan">
+                        <div class="plan-header">Plano de Red</div>
+                        <div class="plan-content">
+                            <div class="office-space">
+                                <div class="workstation">PC</div>
+                                <div class="workstation">PC</div>
+                                <div class="network-device">Switch</div>
+                            </div>
+                            <div class="server-room">
+                                <div class="server">Servidor</div>
+                                <div class="network-device">Router</div>
+                            </div>
+                            <div class="cabling">
+                                <div class="cable horizontal"></div>
+                                <div class="cable vertical"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result">
+                <h4>b) Los requisitos técnicos de la red</h4>
+                <p>Capacidad de transferencia de la información, características de los medios de transmisión, ubicación, tipo y redundancia de los elementos, etc.</p>
+                <div class="result-diagram">
+                    <div class="technical-requirements">
+                        <div class="requirement">
+                            <div class="requirement-name">Ancho de banda</div>
+                            <div class="requirement-value">1 Gbps</div>
+                        </div>
+                        <div class="requirement">
+                            <div class="requirement-name">Medio de transmisión</div>
+                            <div class="requirement-value">Cat 6A UTP</div>
+                        </div>
+                        <div class="requirement">
+                            <div class="requirement-name">Redundancia</div>
+                            <div class="requirement-value">Enlaces dobles</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result">
+                <h4>c) La división de la red</h4>
+                <p>Grupos de usuarios, grupos de equipos, elementos de interconexión y filtrado de la información.</p>
+                <div class="result-diagram">
+                    <div class="network-division">
+                        <div class="division-header">División Lógica</div>
+                        <div class="division-content">
+                            <div class="vlan admin">
+                                <div class="vlan-name">VLAN Administración</div>
+                                <div class="vlan-devices">
+                                    <div class="device">PC Admin</div>
+                                    <div class="device">Servidor</div>
+                                </div>
+                            </div>
+                            <div class="vlan users">
+                                <div class="vlan-name">VLAN Usuarios</div>
+                                <div class="vlan-devices">
+                                    <div class="device">PC Usuario 1</div>
+                                    <div class="device">PC Usuario 2</div>
+                                </div>
+                            </div>
+                            <div class="vlan guests">
+                                <div class="vlan-name">VLAN Invitados</div>
+                                <div class="vlan-devices">
+                                    <div class="device">WiFi Invitados</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result">
+                <h4>d) Ubicación física y características técnicas</h4>
+                <p>De los recintos y puntos de conexión con el exterior.</p>
+                <div class="result-diagram">
+                    <div class="physical-location">
+                        <div class="location-header">Ubicaciones Físicas</div>
+                        <div class="location-content">
+                            <div class="location">
+                                <div class="location-name">CPD Principal</div>
+                                <div class="location-specs">
+                                    <div class="spec">Acceso controlado</div>
+                                    <div class="spec">Climatización</div>
+                                    <div class="spec">SAI</div>
+                                </div>
+                            </div>
+                            <div class="location">
+                                <div class="location-name">Armario de comunicaciones</div>
+                                <div class="location-specs">
+                                    <div class="spec">Rack 42U</div>
+                                    <div class="spec">Ventilación</div>
+                                </div>
+                            </div>
+                            <div class="location">
+                                <div class="location-name">Punto de entrada ISP</div>
+                                <div class="location-specs">
+                                    <div class="spec">Fibra óptica</div>
+                                    <div class="spec">Router borde</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040101003">
+        <h3>2.2. LA GESTIÓN DE LOS USUARIOS</h3>
+        <p>La gestión de los usuarios en una red de área local la suele realizar los administradores de esta, y consiste generalmente en las siguientes tareas:</p>
+        
+        <div class="user-management">
+            <div class="management-tasks">
+                <div class="task">
+                    <h4>Determinación del sistema de identificación</h4>
+                    <p>Determinación del sistema de identificación de los usuarios en la red, así como la política de seguridad en el acceso.</p>
+                    <div class="task-diagram">
+                        <div class="identification-system">
+                            <div class="system-header">Sistema de Identificación</div>
+                            <div class="system-methods">
+                                <div class="method">
+                                    <div class="method-name">Usuario/Contraseña</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">Autenticación de dos factores</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">Certificado digital</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="task">
+                    <h4>Determinación de roles y perfiles</h4>
+                    <p>Determinación de los roles y perfiles de los usuarios en la red, con sus privilegios de acceso a los recursos.</p>
+                    <div class="task-diagram">
+                        <div class="roles-profiles">
+                            <div class="roles-header">Roles y Perfiles</div>
+                            <div class="roles-list">
+                                <div class="role">
+                                    <div class="role-name">Administrador</div>
+                                    <div class="role-privileges">Acceso total</div>
+                                </div>
+                                <div class="role">
+                                    <div class="role-name">Usuario estándar</div>
+                                    <div class="role-privileges">Acceso limitado</div>
+                                </div>
+                                <div class="role">
+                                    <div class="role-name">Invitado</div>
+                                    <div class="role-privileges">Solo Internet</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="task">
+                    <h4>Configuración de grupos</h4>
+                    <p>Configuración de los grupos de usuarios y permisos de acceso a los recursos.</p>
+                    <div class="task-diagram">
+                        <div class="user-groups">
+                            <div class="groups-header">Grupos de Usuarios</div>
+                            <div class="groups-list">
+                                <div class="group">
+                                    <div class="group-name">Dirección</div>
+                                    <div class="group-members">
+                                        <div class="member">Director</div>
+                                        <div class="member">Subdirector</div>
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <div class="group-name">Técnicos</div>
+                                    <div class="group-members">
+                                        <div class="member">Técnico 1</div>
+                                        <div class="member">Técnico 2</div>
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <div class="group-name">Administrativos</div>
+                                    <div class="group-members">
+                                        <div class="member">Admin 1</div>
+                                        <div class="member">Admin 2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="task">
+                    <h4>Asignación de recursos por grupos</h4>
+                    <p>Asignación de recursos por grupos de usuarios.</p>
+                    <div class="task-diagram">
+                        <div class="resource-assignment">
+                            <div class="assignment-header">Asignación de Recursos</div>
+                            <div class="assignment-list">
+                                <div class="assignment">
+                                    <div class="group-name">Dirección</div>
+                                    <div class="resources">
+                                        <div class="resource">Carpeta Proyectos</div>
+                                        <div class="resource">Impresora Color</div>
+                                    </div>
+                                </div>
+                                <div class="assignment">
+                                    <div class="group-name">Técnicos</div>
+                                    <div class="resources">
+                                        <div class="resource">Carpeta Técnica</div>
+                                        <div class="resource">Software Especializado</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="task">
+                    <h4>Alta, baja y modificación de usuarios</h4>
+                    <p>Alta, baja y modificación de los usuarios, según las peticiones de la dirección o de los recursos humanos.</p>
+                </div>
+                
+                <div class="task">
+                    <h4>Asignación de recursos específicos</h4>
+                    <p>Asignación de recursos específicos por usuarios.</p>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040101004">
+        <h3>2.3. LA GESTIÓN DE LOS DISPOSITIVOS</h3>
+        <p>La gestión de los dispositivos de una red se efectúa mediante aplicaciones específicas, que implementan arquitecturas de red estandarizadas o propietarias, basadas en una aplicación centralizada que recoge la información de agentes instalados en cada uno de los elementos de red. De manera genérica, estas aplicaciones de gestión de la red incluyen:</p>
+        
+        <div class="device-management">
+            <div class="management-features">
+                <div class="feature">
+                    <h4>Consola de administración</h4>
+                    <p>Una consola de administración de todos los elementos de la red, donde puede comprobarse su estado en tiempo real.</p>
+                    <div class="feature-diagram">
+                        <div class="admin-console">
+                            <div class="console-header">Consola de Administración</div>
+                            <div class="console-display">
+                                <div class="device-status">
+                                    <div class="device">
+                                        <div class="device-name">Router Principal</div>
+                                        <div class="status online">En línea</div>
+                                    </div>
+                                    <div class="device">
+                                        <div class="device-name">Switch Planta 1</div>
+                                        <div class="status online">En línea</div>
+                                    </div>
+                                    <div class="device">
+                                        <div class="device-name">Switch Planta 2</div>
+                                        <div class="status warning">Advertencia</div>
+                                    </div>
+                                    <div class="device">
+                                        <div class="device-name">AP WiFi Recepción</div>
+                                        <div class="status offline">Desconectado</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <h4>Identificación unívoca</h4>
+                    <p>Una identificación unívoca de cada uno de los elementos de la red.</p>
+                    <div class="feature-diagram">
+                        <div class="device-identification">
+                            <div class="identification-header">Identificación de Dispositivos</div>
+                            <div class="identification-methods">
+                                <div class="method">
+                                    <div class="method-name">Dirección MAC</div>
+                                    <div class="method-example">00:1A:2B:3C:4D:5E</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">Dirección IP</div>
+                                    <div class="method-example">192.168.1.10</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">Nombre de host</div>
+                                    <div class="method-example">SWITCH-PLANTA1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <h4>Capacidad de acceso remoto</h4>
+                    <p>La capacidad de acceso remoto para la administración de los equipos.</p>
+                    <div class="feature-diagram">
+                        <div class="remote-access">
+                            <div class="access-header">Acceso Remoto</div>
+                            <div class="access-methods">
+                                <div class="method">
+                                    <div class="method-name">SSH</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">HTTPS</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">SNMP</div>
+                                </div>
+                                <div class="method">
+                                    <div class="method-name">Telnet</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <h4>Informes de actividad</h4>
+                    <p>Informes de la actividad de los usuarios y los equipos.</p>
+                    <div class="feature-diagram">
+                        <div class="activity-reports">
+                            <div class="reports-header">Informes de Actividad</div>
+                            <div class="reports-types">
+                                <div class="report-type">
+                                    <div class="type-name">Uso de ancho de banda</div>
+                                </div>
+                                <div class="report-type">
+                                    <div class="type-name">Accesos de usuarios</div>
+                                </div>
+                                <div class="report-type">
+                                    <div class="type-name">Rendimiento de dispositivos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <h4>Registro de alertas e incidencias</h4>
+                    <p>Registro de alertas, incidencias y ficheros de log.</p>
+                    <div class="feature-diagram">
+                        <div class="alerts-logs">
+                            <div class="logs-header">Alertas y Logs</div>
+                            <div class="logs-entries">
+                                <div class="log-entry error">
+                                    <div class="entry-time">10:15</div>
+                                    <div class="entry-message">Error de autenticación - Usuario: jsmith</div>
+                                </div>
+                                <div class="log-entry warning">
+                                    <div class="entry-time">11:30</div>
+                                    <div class="entry-message">Uso de CPU elevado - Servidor: SRV01</div>
+                                </div>
+                                <div class="log-entry info">
+                                    <div class="entry-time">12:45</div>
+                                    <div class="entry-message">Actualización completada - Switch: SW02</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Debido, por una parte, a la diversidad de dispositivos que actualmente se conectan a una red, y por otra, al uso de tecnologías propietarias, que se centran en su propio sector del mercado, es habitual que en una misma red física se concentren varios sistemas de gestión de dispositivos: para ordenadores personales, terminales móviles o electrónica de red.</p>
+        </div>
+    </span>
+
+    <span id="4040101005">
+        <h3>2.4. LA MONITORIZACIÓN DE LA RED</h3>
+        <p>Uno de los objetivos del administrador de la red es garantizar la fiabilidad y la eficiencia de la misma. Algunas redes se comportan mal cuando están sobrecargadas. Esto obliga a la observación periódica del tráfico de la red y de los parámetros por los que se regula. Estos parámetros son muy variados y dependen del tipo de protocolo y del tipo de red, así como de la topología de la misma.</p>
+        
+        <p>En el mercado existen aplicaciones que analizan el tráfico de red. A veces, incluso vienen incorporadas con el propio sistema operativo. Algunas de estas aplicaciones generan tráfico controlado para observar la respuesta de la red en situaciones concretas. La mayor parte de ellas son capaces de elaborar estadísticas del tráfico que observan en la red, determinando qué tramas han sido generadas por cada protocolo que convive en la red.</p>
+        
+        <div class="network-monitoring">
+            <h4>Herramientas de Monitorización de Red</h4>
+            <div class="monitoring-tools">
+                <div class="tool">
+                    <div class="tool-header">Analizadores de Tráfico</div>
+                    <div class="tool-description">
+                        <p>Capturan y analizan los paquetes que circulan por la red, permitiendo identificar protocolos, origen y destino del tráfico.</p>
+                    </div>
+                    <div class="tool-examples">
+                        <div class="example">Wireshark</div>
+                        <div class="example">tcpdump</div>
+                    </div>
+                </div>
+                
+                <div class="tool">
+                    <div class="tool-header">Monitores de Rendimiento</div>
+                    <div class="tool-description">
+                        <p>Miden parámetros como ancho de banda, latencia, pérdida de paquetes y jitter para evaluar el rendimiento de la red.</p>
+                    </div>
+                    <div class="tool-examples">
+                        <div class="example">PRTG</div>
+                        <div class="example">Nagios</div>
+                    </div>
+                </div>
+                
+                <div class="tool">
+                    <div class="tool-header">Generadores de Tráfico</div>
+                    <div class="tool-description">
+                        <p>Crean tráfico controlado para probar el comportamiento de la red bajo diferentes condiciones de carga.</p>
+                    </div>
+                    <div class="tool-examples">
+                        <div class="example">iperf</div>
+                        <div class="example">JMeter</div>
+                    </div>
+                </div>
+                
+                <div class="tool">
+                    <div class="tool-header">Sistemas de Alertas</div>
+                    <div class="tool-description">
+                        <p>Notifican al administrador cuando se detectan anomalías o se superan umbrales predefinidos.</p>
+                    </div>
+                    <div class="tool-examples">
+                        <div class="example">Zabbix</div>
+                        <div class="example">Prometheus</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="monitoring-dashboard">
+                <div class="dashboard-header">Panel de Monitorización</div>
+                <div class="dashboard-content">
+                    <div class="metric">
+                        <div class="metric-name">Uso de Ancho de Banda</div>
+                        <div class="metric-graph">
+                            <div class="graph-bar" style="height: 70%"></div>
+                            <div class="graph-bar" style="height: 85%"></div>
+                            <div class="graph-bar" style="height: 60%"></div>
+                            <div class="graph-bar" style="height: 90%"></div>
+                            <div class="graph-bar" style="height: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-name">Latencia (ms)</div>
+                        <div class="metric-graph">
+                            <div class="graph-line"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-name">Distribución de Protocolos</div>
+                        <div class="metric-pie">
+                            <div class="pie-segment http"></div>
+                            <div class="pie-segment https"></div>
+                            <div class="pie-segment dns"></div>
+                            <div class="pie-segment other"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Network Admin Overview Styles */
+        .network-admin-overview {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .admin-diagram {
+            margin: 15px 0;
+        }
+        .admin-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .component {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 200px;
+        }
+        .component-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .component-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .item {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .admin-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Organization Results Styles */
+        .organization-results {
+            margin: 20px 0;
+        }
+        .result {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .result-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Floor Plan Styles */
+        .floor-plan {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .plan-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .plan-content {
+            position: relative;
+            height: 150px;
+            border: 1px dashed #ddd;
+        }
+        .office-space {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60%;
+            height: 80%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .server-room {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 25%;
+            height: 80%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .workstation, .server, .network-device {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .cabling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        .cable {
+            position: absolute;
+            background-color: #0078d7;
+        }
+        .cable.horizontal {
+            height: 2px;
+            width: 50px;
+            top: 50%;
+            left: 70%;
+        }
+        .cable.vertical {
+            width: 2px;
+            height: 50px;
+            top: 25%;
+            left: 70%;
+        }
+        
+        /* Technical Requirements Styles */
+        .technical-requirements {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .requirement {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .requirement-name, .requirement-value {
+            padding: 5px 10px;
+            text-align: center;
+            flex: 1;
+        }
+        .requirement-name {
+            background-color: #f2f2f2;
+            border-right: 1px solid #ddd;
+            font-weight: bold;
+        }
+        
+        /* Network Division Styles */
+        .network-division {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .division-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .division-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .vlan {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .vlan-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .vlan-devices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .device {
+            padding: 3px 8px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .vlan.admin {
+            background-color: #ffeeee;
+        }
+        .vlan.users {
+            background-color: #eeffee;
+        }
+        .vlan.guests {
+            background-color: #eeeeff;
+        }
+        
+        /* Physical Location Styles */
+        .physical-location {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .location-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .location-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .location {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .location-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .location-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .spec {
+            padding: 3px 8px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* User Management Styles */
+        .user-management {
+            margin: 20px 0;
+        }
+        .management-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .task {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .task h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .task-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Identification System Styles */
+        .identification-system, .roles-profiles, .user-groups, .resource-assignment {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .system-header, .roles-header, .groups-header, .assignment-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .system-methods, .roles-list, .groups-list, .assignment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .method, .role, .group, .assignment {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+        .method-name, .role-name, .group-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .role-privileges {
+            font-style: italic;
+            color: #666;
+        }
+        .group-members, .resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .member, .resource {
+            padding: 3px 8px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Device Management Styles */
+        .device-management {
+            margin: 20px 0;
+        }
+        .management-features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .feature {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .feature h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .feature-diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Admin Console Styles */
+        .admin-console, .device-identification, .remote-access, .activity-reports, .alerts-logs {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .console-header, .identification-header, .access-header, .reports-header, .logs-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .console-display, .identification-methods, .access-methods, .reports-types, .logs-entries {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .device-status {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .device {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #f2f2f2;
+        }
+        .device-name {
+            font-weight: bold;
+        }
+        .status {
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .status.online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status.offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .method-example {
+            font-family: monospace;
+            color: #666;
+        }
+        .log-entry {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            display: flex;
+            gap: 10px;
+        }
+        .log-entry.error {
+            background-color: #f8d7da;
+        }
+        .log-entry.warning {
+            background-color: #fff3cd;
+        }
+        .log-entry.info {
+            background-color: #d1ecf1;
+        }
+        .entry-time {
+            font-weight: bold;
+        }
+        
+        /* Network Monitoring Styles */
+        .network-monitoring {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .monitoring-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .tool {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 200px;
+        }
+        .tool-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .tool-description {
+            margin-bottom: 10px;
+        }
+        .tool-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .example {
+            padding: 3px 8px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .monitoring-dashboard {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            margin-top: 20px;
+        }
+        .dashboard-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .dashboard-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .metric {
+            flex: 1 1 30%;
+            min-width: 150px;
+        }
+        .metric-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .metric-graph {
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 5px;
+        }
+        .graph-bar {
+            width: 15%;
+            background-color: #0078d7;
+            border-radius: 3px 3px 0 0;
+        }
+        .graph-line {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background-color: #0078d7;
+            top: 50%;
+        }
+        .metric-pie {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .pie-segment {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .pie-segment.http {
+            background-color: #0078d7;
+            clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+        .pie-segment.https {
+            background-color: #00a1d7;
+            clip-path: polygon(50% 50%, 100% 100%, 0% 100%, 0% 50%);
+        }
+        .pie-segment.dns {
+            background-color: #00d7a1;
+            clip-path: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%);
+        }
+        .pie-segment.other {
+            background-color: #d7a100;
+            clip-path: polygon(50% 50%, 50% 0%, 0% 0%);
+        }
+    </style>
+</div>

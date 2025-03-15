@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicaciones Móviles e Inalámbricas</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4060501001">
+            <h2>5.1 COMUNICACIONES MÓVILES E INALÁMBRICAS</h2>
+            
+            <h3>5.1.1 GENERACIONES DE TELEFONÍA MÓVIL</h3>
+            
+            <div class="movil-introduccion">
+                <p>Los teléfonos móviles son receptores y transmisores de las ondas electromagnéticas de radiofrecuencia, recibiendo y enviando señales a las antenas repetidoras del operador. Para ello, las redes inalámbricas de telefonías dividen el terreno en unas cuadrículas denominadas celdas o células, que pueden tener un tamaño pequeño en ciudades muy pobladas o ser grandes en extensiones poco pobladas. Habitualmente el diseño topológico de celdas es hexagonal para no dejar regiones ni áreas sin cobertura y asegurando una cobertura equivalente en todo el territorio.</p>
+            </div>
+            
+            <div class="movil-estructura-celular">
+                <div class="movil-titulo-seccion">Estructura celular de redes móviles</div>
+                <div class="movil-esquema-celular">
+                    <div class="movil-celdas">
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                        <div class="movil-celda">
+                            <div class="movil-antena"></div>
+                        </div>
+                    </div>
+                    <div class="movil-leyenda-celular">
+                        <div class="movil-item-leyenda">
+                            <div class="movil-simbolo-leyenda movil-simbolo-celda"></div>
+                            <div class="movil-texto-leyenda">Celda (área de cobertura)</div>
+                        </div>
+                        <div class="movil-item-leyenda">
+                            <div class="movil-simbolo-leyenda movil-simbolo-antena"></div>
+                            <div class="movil-texto-leyenda">Estación Base (EB)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="movil-descripcion-celular">
+                    <p>Dentro de cada celda hay una estación base o EB que consta de una serie de antenas receptoras y emisoras. Las antenas se sitúan habitualmente en el centro de la celda, pero pueden colocarse en otras zonas para mejorar la cobertura. Estas antenas son pequeñas y es muy común que se instalen en tejados de edificios. Para poder funcionar, un teléfono siempre tiene que estar conectado a una EB, para lo que se realiza un proceso de autenticación e identificación con los datos proporcionados por la compañía telefónica.</p>
+                    <p>Además, cada operador dispone de un Mobile Telephone Switching Office o MTSO, que es el centro de control que se encarga de la interconexión y canalización de las conexiones en un grupo de celdas de modo que se pueda encaminar al resto de la red.</p>
+                </div>
+            </div>
+            
+            <div class="movil-proceso-llamada">
+                <div class="movil-titulo-seccion">Proceso de llamada y handoff</div>
+                <div class="movil-esquema-llamada">
+                    <div class="movil-paso-llamada">
+                        <div class="movil-numero-paso">1</div>
+                        <div class="movil-descripcion-paso">
+                            <p>El teléfono móvil del llamante se pone en contacto con la EB más cercana</p>
+                        </div>
+                        <div class="movil-ilustracion-paso">
+                            <div class="movil-telefono"></div>
+                            <div class="movil-senal"></div>
+                            <div class="movil-antena-eb"></div>
+                        </div>
+                    </div>
+                    <div class="movil-paso-llamada">
+                        <div class="movil-numero-paso">2</div>
+                        <div class="movil-descripcion-paso">
+                            <p>La EB remite el mensaje al MTSO de la zona</p>
+                        </div>
+                        <div class="movil-ilustracion-paso">
+                            <div class="movil-antena-eb"></div>
+                            <div class="movil-senal"></div>
+                            <div class="movil-mtso"></div>
+                        </div>
+                    </div>
+                    <div class="movil-paso-llamada">
+                        <div class="movil-numero-paso">3</div>
+                        <div class="movil-descripcion-paso">
+                            <p>Al recibir una llamada, el MTSO envía mensajes a las distintas EBs para localizar la más cercana al terminal</p>
+                        </div>
+                        <div class="movil-ilustracion-paso">
+                            <div class="movil-mtso"></div>
+                            <div class="movil-senales-multiples">
+                                <div class="movil-senal-multiple"></div>
+                                <div class="movil-senal-multiple"></div>
+                                <div class="movil-senal-multiple"></div>
+                            </div>
+                            <div class="movil-antenas-multiples">
+                                <div class="movil-antena-eb-pequena"></div>
+                                <div class="movil-antena-eb-pequena"></div>
+                                <div class="movil-antena-eb-pequena"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movil-paso-llamada">
+                        <div class="movil-numero-paso">4</div>
+                        <div class="movil-descripcion-paso">
+                            <p>Durante el desplazamiento, se produce un proceso de handoff que traslada la llamada a una nueva EB</p>
+                        </div>
+                        <div class="movil-ilustracion-paso">
+                            <div class="movil-celda-handoff">
+                                <div class="movil-antena-eb-pequena"></div>
+                                <div class="movil-telefono-pequeno movil-telefono-origen"></div>
+                                <div class="movil-flecha-movimiento"></div>
+                                <div class="movil-telefono-pequeno movil-telefono-destino"></div>
+                                <div class="movil-antena-eb-pequena"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movil-generaciones">
+                <div class="movil-titulo-seccion">Generaciones de telefonía móvil</div>
+                <div class="movil-descripcion-generaciones">
+                    <p>La telefonía móvil, además, permite la utilización de dispositivos de radiotelefonía para otros servicios asociados, tales como videoconferencia, consumo multimedia o acceso a internet. La progresiva disminución del tamaño de los dispositivos electrónicos a partir de los años 50 unidos a la reducción del consumo han permitido la portabilidad suficiente junto con la introducción de nuevos servicios gracias al incremento de la conectividad y la irrupción de Internet.</p>
+                </div>
+                <div class="movil-tabla-generaciones">
+                    <div class="movil-fila-tabla movil-cabecera-tabla">
+                        <div class="movil-celda-tabla">Generación</div>
+                        <div class="movil-celda-tabla">Estándares</div>
+                        <div class="movil-celda-tabla">Velocidad</div>
+                        <div class="movil-celda-tabla">Bandas de Frecuencia</div>
+                        <div class="movil-celda-tabla">Técnicas de Multiplexación</div>
+                        <div class="movil-celda-tabla">Servicios</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">1G (1970-1980)</div>
+                        <div class="movil-celda-tabla">AMPS (Advanced Mobile Phone System)</div>
+                        <div class="movil-celda-tabla">1-2.4 kbps</div>
+                        <div class="movil-celda-tabla">800-900 MHz</div>
+                        <div class="movil-celda-tabla">FDMA (Multiplexación por frecuencia)</div>
+                        <div class="movil-celda-tabla">Sólo voz. Tecnología analógica.</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">2G (1980-1990)</div>
+                        <div class="movil-celda-tabla">GSM (Sistema Global para Comunicaciones Móviles)<br>IS-95 (CDMA)<br>JDC (Japón)</div>
+                        <div class="movil-celda-tabla">14-64 kbps</div>
+                        <div class="movil-celda-tabla">850-1900 MHz<br>825-849 MHz (CDMA)</div>
+                        <div class="movil-celda-tabla">TDMA y CDMA (Multiplexación por tiempo y por código)</div>
+                        <div class="movil-celda-tabla">Voz digital, SMS, roaming, llamada en espera, transferencia y bloqueo de llamadas, grupos de usuarios, facturación por servicios</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">2.5G (2000-2003)</div>
+                        <div class="movil-celda-tabla">GPRS (Servicio General de Paquetes de Radio)<br>EDGE (GSM Mejorado)</div>
+                        <div class="movil-celda-tabla">115 kbps (GPRS)<br>384 kpbs (EDGE)</div>
+                        <div class="movil-celda-tabla">850-1900 MHz</div>
+                        <div class="movil-celda-tabla">GMSK (GPRS)<br>8-PSK (EDGE)</div>
+                        <div class="movil-celda-tabla">Multimedia, pulsar para hablar, WAP, MMS, Correo Electrónico, Videoconferencia</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">3G (2000-)</div>
+                        <div class="movil-celda-tabla">UMTS<br>HSPA<br>HSPA+</div>
+                        <div class="movil-celda-tabla">384 kbps – 2 Mbps (UMTS)<br>5.76-14.4 Mbps (HSPA)<br>22-168 Mbps (HSPA+)</div>
+                        <div class="movil-celda-tabla">900 MHz y 2100 MHz</div>
+                        <div class="movil-celda-tabla">WCDMA (Multiplexación por división de código de banda ancha)</div>
+                        <div class="movil-celda-tabla">Acceso a internet de alta velocidad, fax, música y vídeos</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">4G (2010-)</div>
+                        <div class="movil-celda-tabla">LTE<br>WiMAX móvil</div>
+                        <div class="movil-celda-tabla">100 Mbps-1Gpbs</div>
+                        <div class="movil-celda-tabla">800 MHz<br>1500 MHz<br>1800 MHz<br>2600 MHz</div>
+                        <div class="movil-celda-tabla">OFDM (Multiplexación por Frecuencias Ortogonales)</div>
+                        <div class="movil-celda-tabla">Juegos online, TV en HD, Computación en la nube</div>
+                    </div>
+                    <div class="movil-fila-tabla">
+                        <div class="movil-celda-tabla">5G (2015-)</div>
+                        <div class="movil-celda-tabla">Banda ancha IP</div>
+                        <div class="movil-celda-tabla">1 Gpbs-10 Gbps</div>
+                        <div class="movil-celda-tabla">700 MHz<br>1500 MHz<br>3500 MHz</div>
+                        <div class="movil-celda-tabla">MC-CDMA (CDMA Multicarrier)<br>BDMA (Multiplexación Espacial basada en Haces o Beams)</div>
+                        <div class="movil-celda-tabla">Internet de las cosas y conexión a internet permanente</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movil-evolucion-visual">
+                <div class="movil-titulo-seccion">Evolución visual de las generaciones móviles</div>
+                <div class="movil-linea-tiempo">
+                    <div class="movil-punto-tiempo movil-punto-1g">
+                        <div class="movil-etiqueta-tiempo">1G</div>
+                        <div class="movil-icono-tiempo movil-icono-1g"></div>
+                        <div class="movil-descripcion-tiempo">
+                            <div class="movil-titulo-tiempo">1970-1980</div>
+                            <div class="movil-texto-tiempo">Sólo voz analógica</div>
+                        </div>
+                    </div>
+                    <div class="movil-punto-tiempo movil-punto-2g">
+                        <div class="movil-etiqueta-tiempo">2G</div>
+                        <div class="movil-icono-tiempo movil-icono-2g"></div>
+                        <div class="movil-descripcion-tiempo">
+                            <div class="movil-titulo-tiempo">1980-1990</div>
+                            <div class="movil-texto-tiempo">Voz digital y SMS</div>
+                        </div>
+                    </div>
+                    <div class="movil-punto-tiempo movil-punto-3g">
+                        <div class="movil-etiqueta-tiempo">3G</div>
+                        <div class="movil-icono-tiempo movil-icono-3g"></div>
+                        <div class="movil-descripcion-tiempo">
+                            <div class="movil-titulo-tiempo">2000-</div>
+                            <div class="movil-texto-tiempo">Internet móvil</div>
+                        </div>
+                    </div>
+                    <div class="movil-punto-tiempo movil-punto-4g">
+                        <div class="movil-etiqueta-tiempo">4G</div>
+                        <div class="movil-icono-tiempo movil-icono-4g"></div>
+                        <div class="movil-descripcion-tiempo">
+                            <div class="movil-titulo-tiempo">2010-</div>
+                            <div class="movil-texto-tiempo">Banda ancha móvil</div>
+                        </div>
+                    </div>
+                    <div class="movil-punto-tiempo movil-punto-5g">
+                        <div class="movil-etiqueta-tiempo">5G</div>
+                        <div class="movil-icono-tiempo movil-icono-5g"></div>
+                        <div class="movil-descripcion-tiempo">
+                            <div class="movil-titulo-tiempo">2015-</div>
+                            <div class="movil-texto-tiempo">IoT y ultra banda ancha</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060501002">
+            <h3>5.1.2 TELEFONÍA SIN HILOS Y DECT</h3>
+            
+            <div class="movil-dect">
+                <div class="movil-descripcion-dect">
+                    <p>DECT o Digital Enhanced Cordless Telecommunication es un estándar para teléfonos inalámbricos que define su uso en entornos residenciales y corporativos, utilizado actualmente por la mayoría de teléfonos inalámbricos en hogares. Se basa en el uso de radiofrecuencia para el envío de las señales de voz.</p>
+                    <p>Para la comunicación se utiliza el rango de radiofrecuencias desde 1.880 MHz hasta 1.950 MHz, con una potencia de emisión muy baja de hasta 0.12 watios, lo que permite una comunicación perfecta en circunstancias ideales de unos 300 metros.</p>
+                    <p>La comunicación en DECT se realiza a través de TDMA o Acceso Múltiple por División de Tiempo, lo que permite conectar a una estación base más de un terminal, pudiéndose incluso realizar varias llamadas simultáneas si la estación base lo soporta.</p>
+                </div>
+                
+                <div class="movil-esquema-dect">
+                    <div class="movil-titulo-esquema">Esquema DECT</div>
+                    <div class="movil-diagrama-dect">
+                        <div class="movil-estacion-base">
+                            <div class="movil-etiqueta-estacion">Estación Base</div>
+                        </div>
+                        <div class="movil-senales-dect">
+                            <div class="movil-senal-dect"></div>
+                            <div class="movil-senal-dect"></div>
+                            <div class="movil-senal-dect"></div>
+                        </div>
+                        <div class="movil-terminales-dect">
+                            <div class="movil-terminal-dect">
+                                <div class="movil-etiqueta-terminal">Terminal 1</div>
+                            </div>
+                            <div class="movil-terminal-dect">
+                                <div class="movil-etiqueta-terminal">Terminal 2</div>
+                            </div>
+                            <div class="movil-terminal-dect">
+                                <div class="movil-etiqueta-terminal">Terminal 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movil-caracteristicas-dect">
+                        <div class="movil-titulo-caracteristicas">Características principales</div>
+                        <div class="movil-lista-caracteristicas">
+                            <div class="movil-caracteristica">
+                                <div class="movil-icono-caracteristica"></div>
+                                <div class="movil-texto-caracteristica">Frecuencia: 1.880 - 1.950 MHz</div>
+                            </div>
+                            <div class="movil-caracteristica">
+                                <div class="movil-icono-caracteristica"></div>
+                                <div class="movil-texto-caracteristica">Potencia: hasta 0.12 watios</div>
+                            </div>
+                            <div class="movil-caracteristica">
+                                <div class="movil-icono-caracteristica"></div>
+                                <div class="movil-texto-caracteristica">Alcance: hasta 300 metros en condiciones ideales</div>
+                            </div>
+                            <div class="movil-caracteristica">
+                                <div class="movil-icono-caracteristica"></div>
+                                <div class="movil-texto-caracteristica">Multiplexación: TDMA (Acceso Múltiple por División de Tiempo)</div>
+                            </div>
+                            <div class="movil-caracteristica">
+                                <div class="movil-icono-caracteristica"></div>
+                                <div class="movil-texto-caracteristica">Posibilidad de múltiples terminales por base</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060501003">
+            <h3>5.1.3 RADIOCOMUNICACIONES</h3>
+            
+            <div class="movil-radiocomunicaciones">
+                <div class="movil-descripcion-radio">
+                    <p>Las radiocomunicaciones son telecomunicaciones que hacen uso de las ondas hertzianas para realizar la comunicación. La parte del espectro que utilizan las radiocomunicaciones es el espectro de radiofrecuencia o RF, que es la porción del espectro situada entre los 3 Hz y los 300 GHz.</p>
+                    <p>La transmisión en radiocomunicaciones se basa en la emisión de ondas de radio. Cuando estas ondas de radio son recibidas por un conductor eléctrico (en este caso una antena) se induce un movimiento de la carga eléctrica que circula por ésta, pudiendo entonces transformar estos movimientos en las distintas señales de información.</p>
+                </div>
+                
+                <div class="movil-tecnologias-radio">
+                    <div class="movil-titulo-tecnologias">Tecnologías de radiocomunicación</div>
+                    
+                    <div class="movil-tecnologia-radio">
+                        <div class="movil-titulo-tecnologia">Radio AM y FM</div>
+                        <div class="movil-descripcion-tecnologia">
+                            <p>Según se superponga a la onda portadora una señal modulada en amplitud (AM) o modulada en frecuencia (FM) se puede hacer uso de las distintas bandas de radiofrecuencia asignadas a este tipo de emisiones para el envío de señales de radio.</p>
+                        </div>
+                        <div class="movil-tabla-frecuencias">
+                            <div class="movil-fila-frecuencia">
+                                <div class="movil-tipo-frecuencia">RANGO DE FRECUENCIAS AM</div>
+                                <div class="movil-valor-frecuencia">535-1.705 KHz</div>
+                            </div>
+                            <div class="movil-fila-frecuencia">
+                                <div class="movil-tipo-frecuencia">RANGO DE FRECUENCIAS FM</div>
+                                <div class="movil-valor-frecuencia">88.1-108.1 MHz</div>
+                            </div>
+                        </div>
+                        <div class="movil-ilustracion-tecnologia">
+                            <div class="movil-modulacion-am">
+                                <div class="movil-etiqueta-modulacion">Modulación AM</div>
+                                <div class="movil-grafico-am">
+                                    <div class="movil-onda-am"></div>
+                                </div>
+                            </div>
+                            <div class="movil-modulacion-fm">
+                                <div class="movil-etiqueta-modulacion">Modulación FM</div>
+                                <div class="movil-grafico-fm">
+                                    <div class="movil-onda-fm"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="movil-tecnologia-radio">
+                        <div class="movil-titulo-tecnologia">Emisión de onda corta (SW)</div>
+                        <div class="movil-descripcion-tecnologia">
+                            <p>La onda corta es una frecuencia que se propaga en línea recta y que puede rebotar en la ionosfera permitiendo su recepción a muy largas distancias, por lo que se utiliza habitualmente para emisiones de radio internacional. Su banda de radiofrecuencia es 2.300-29.999 KHz.</p>
+                        </div>
+                        <div class="movil-ilustracion-tecnologia">
+                            <div class="movil-esquema-onda-corta">
+                                <div class="movil-emisor-onda-corta">
+                                    <div class="movil-etiqueta-emisor">Emisor</div>
+                                </div>
+                                <div class="movil-onda-rebote">
+                                    <div class="movil-etiqueta-rebote">Rebote en ionosfera</div>
+                                </div>
+                                <div class="movil-receptor-onda-corta">
+                                    <div class="movil-etiqueta-receptor">Receptor</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="movil-tecnologia-radio">
+                        <div class="movil-titulo-tecnologia">Radioafición</div>
+                        <div class="movil-descripcion-tecnologia">
+                            <p>La radioafición es la comunicación por personas autorizadas para uso personal y sin fines de lucro, que utilizan equipos de radiocomunicaciones para comunicarse con otros aficionados. En España, está permitida la radioafición en las bandas de 137 KHz y 1.8, 3.5, 5, 7, 10, 14, 18, 21, 24 y 28 MHz. Además, la banda ciudadana o CB, que corresponde a los 27 MHz, se utiliza habitualmente para las emisoras privadas que se pueden encontrar por ejemplo en vehículos.</p>
+                        </div>
+                        <div class="movil-ilustracion-tecnologia">
+                            <div class="movil-emisora-cb">
+                                <div class="movil-etiqueta-emisora">Emisora CB-27</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="movil-tecnologia-radio">
+                        <div class="movil-titulo-tecnologia">Televisión</div>
+                        <div class="movil-descripcion-tecnologia">
+                            <p>En España, las emisiones de TDT o Televisión Terrestre Digital en definición estándar y alta definición utilizan las frecuencias entre los 470 MHz y los 694 MHz para las emisiones. Este uso del espectro en un principio era mayor y llegaba hasta los 862 MHz, pero se ha ido reduciendo en un proceso denominado Dividendo Digital para permitir su uso por los servicios de telefonía, aprovechando además la reducción del ancho de banda necesario para la emisión de las señales con los nuevos estándares de codificación de la señal de TV.</p>
+                        </div>
+                        <div class="movil-ilustracion-tecnologia">
+                            <div class="movil-dividendo-digital">
+                                <div class="movil-etiqueta-dividendo">Dividendo Digital</div>
+                                <div class="movil-espectro-original">
+                                    <div class="movil-etiqueta-espectro">Espectro original: 470-862 MHz</div>
+                                    <div class="movil-barra-espectro-original"></div>
+                                </div>
+                                <div class="movil-espectro-actual">
+                                    <div class="movil-etiqueta-espectro">Espectro actual: 470-694 MHz</div>
+                                    <div class="movil-barra-espectro-actual"></div>
+                                </div>
+                                <div class="movil-espectro-liberado">
+                                    <div class="movil-etiqueta-espectro">Espectro liberado para telefonía</div>
+                                    <div class="movil-barra-espectro-liberado"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="movil-tecnologia-radio">
+                        <div class="movil-titulo-tecnologia">TETRA (Trans European Trunked Radio)</div>
+                        <div class="movil-descripcion-tecnologia">
+                            <p>En Europa se dispone del sistema TETRA o Trans European Trunked Radio, que es un estándar definido por ETSI y en funcionamiento en multitud de países incluyendo España, y que es un estándar orientado a entornos profesionales, en especial servicios de urgencias y emergencias tales como policía, ambulancia o bomberos.</p>
+                        </div>
+                        <div class="movil-ilustracion-tecnologia">
+                            <div class="movil-frecuencias-tetra">
+                                <div class="movil-etiqueta-frecuencias">Frecuencias TETRA en Europa</div>
+                                <div class="movil-bandas-tetra">
+                                    <div class="movil-banda-tetra">
+                                        <div class="movil-rango-banda">380-383 MHz</div>
+                                        <div class="movil-uso-banda">Uplink</div>
+                                    </div>
+                                    <div class="movil-banda-tetra">
+                                        <div class="movil-rango-banda">390-393 MHz</div>
+                                        <div class="movil-uso-banda">Downlink</div>
+                                    </div>
+                                    <div class="movil-banda-tetra">
+                                        <div class="movil-rango-banda">410-430 MHz</div>
+                                        <div class="movil-uso-banda">Uso civil</div>
+                                    </div>
+                                    <div class="movil-banda-tetra">
+                                        <div class="movil-rango-banda">450-470 MHz</div>
+                                        <div class="movil-uso-banda">Uso civil</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para comunicaciones móviles e inalámbricas - usando clases únicas */
+        .movil-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Estructura celular */
+        .movil-estructura-celular {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .movil-esquema-celular {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .movil-celdas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        
+        .movil-celda {
+            width: 100px;
+            height: 100px;
+            background-color: #e6f7ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            margin: -10px 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .movil-antena {
+            width: 10px;
+            height: 30px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .movil-antena::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            width: 20px;
+            height: 10px;
+            background-color: #1890ff;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .movil-leyenda-celular {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .movil-item-leyenda {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .movil-simbolo-leyenda {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .movil-simbolo-celda {
+            background-color: #e6f7ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        
+        .movil-simbolo-antena {
+            width: 5px;
+            height: 15px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .movil-simbolo-antena::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -2.5px;
+            width: 10px;
+            height: 5px;
+            background-color: #1890ff;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .movil-texto-leyenda {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .movil-descripcion-celular {
+            margin-top: 20px;
+        }
+        
+        /* Proceso de llamada */
+        .movil-proceso-llamada {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-esquema-llamada {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .movil-paso-llamada {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .movil-numero-paso {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .movil-descripcion-paso {
+            margin-bottom: 15px;
+        }
+        
+        .movil-ilustracion-paso {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 80px;
+        }
+        
+        .movil-telefono {
+            width: 30px;
+            height: 50px;
+            background-color: #52c41a;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .movil-telefono::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 20px;
+            height: 10px;
+            background-color: white;
+            border-radius: 2px;
+        }
+        
+        .movil-senal {
+            width: 40px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .movil-senal::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 8px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .movil-antena-eb {
+            width: 15px;
+            height: 60px;
+            background-color: #faad14;
+            position: relative;
+        }
+        
+        .movil-antena-eb::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -7.5px;
+            width: 30px;
+            height: 10px;
+            background-color: #faad14;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .movil-mtso {
+            width: 60px;
+            height: 40px;
+            background-color: #ff4d4f;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .movil-mtso::before {
+            content: "MTSO";
+        }
+        
+        .movil-senales-multiples {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .movil-senal-multiple {
+            width: 30px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .movil-senal-multiple::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-left: 6px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .movil-antenas-multiples {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .movil-antena-eb-pequena {
+            width: 10px;
+            height: 40px;
+            background-color: #faad14;
+            position: relative;
+        }
+        
+        .movil-antena-eb-pequena::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 20px;
+            height: 5px;
+            background-color: #faad14;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .movil-celda-handoff {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .movil-telefono-pequeno {
+            width: 20px;
+            height: 30px;
+            background-color: #52c41a;
+            border-radius: 3px;
+            position: relative;
+        }
+        
+        .movil-telefono-pequeno::before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 6px;
+            background-color: white;
+            border-radius: 1px;
+        }
+        
+        .movil-telefono-origen {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .movil-telefono-destino {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .movil-flecha-movimiento {
+            width: 60%;
+            height: 2px;
+            background-color: #52c41a;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .movil-flecha-movimiento::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 8px solid #52c41a;
+            transform: translateY(-50%);
+        }
+        
+        /* Generaciones de telefonía móvil */
+        .movil-generaciones {
+            margin: 25px 0;
+        }
+        
+        .movil-descripcion-generaciones {
+            margin-bottom: 20px;
+        }
+        
+        .movil-tabla-generaciones {
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+            margin-bottom: 25px;
+        }
+        
+        .movil-fila-tabla {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .movil-cabecera-tabla {
+            background-color: #f0f5ff;
+            font-weight: bold;
+        }
+        
+        .movil-celda-tabla {
+            flex: 1;
+            padding: 10px;
+            min-width: 150px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 0.9rem;
+        }
+        
+        /* Evolución visual */
+        .movil-evolucion-visual {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-linea-tiempo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+        
+        .movil-linea-tiempo::before {
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #d9d9d9;
+        }
+        
+        .movil-punto-tiempo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            min-width: 100px;
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .movil-etiqueta-tiempo {
+            font-weight: bold;
+            color: white;
+            background-color: #1890ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .movil-punto-1g .movil-etiqueta-tiempo {
+            background-color: #ff4d4f;
+        }
+        
+        .movil-punto-2g .movil-etiqueta-tiempo {
+            background-color: #faad14;
+        }
+        
+        .movil-punto-3g .movil-etiqueta-tiempo {
+            background-color: #52c41a;
+        }
+        
+        .movil-punto-4g .movil-etiqueta-tiempo {
+            background-color: #1890ff;
+        }
+        
+        .movil-punto-5g .movil-etiqueta-tiempo {
+            background-color: #722ed1;
+        }
+        
+        .movil-icono-tiempo {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        
+        .movil-icono-1g::before {
+            content: "📞";
+        }
+        
+        .movil-icono-2g::before {
+            content: "📱";
+        }
+        
+        .movil-icono-3g::before {
+            content: "🌐";
+        }
+        
+        .movil-icono-4g::before {
+            content: "📲";
+        }
+        
+        .movil-icono-5g::before {
+            content: "🚀";
+        }
+        
+        .movil-descripcion-tiempo {
+            text-align: center;
+        }
+        
+        .movil-titulo-tiempo {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .movil-texto-tiempo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* DECT */
+        .movil-dect {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-descripcion-dect {
+            margin-bottom: 20px;
+        }
+        
+        .movil-esquema-dect {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .movil-titulo-esquema {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .movil-diagrama-dect {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .movil-estacion-base {
+            width: 80px;
+            height: 120px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .movil-etiqueta-estacion {
+            position: absolute;
+            bottom: -25px;
+            font-size: 0.9rem;
+            color: #1890ff;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .movil-senales-dect {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .movil-senal-dect {
+            width: 60px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .movil-senal-dect::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 8px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .movil-terminales-dect {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .movil-terminal-dect {
+            width: 40px;
+            height: 60px;
+            background-color: #52c41a;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .movil-terminal-dect::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            height: 15px;
+            background-color: white;
+            border-radius: 2px;
+        }
+        
+        .movil-etiqueta-terminal {
+            position: absolute;
+            right: -70px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .movil-caracteristicas-dect {
+            margin-top: 30px;
+        }
+        
+        .movil-titulo-caracteristicas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .movil-lista-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .movil-caracteristica {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-icono-caracteristica {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .movil-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .movil-texto-caracteristica {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Radiocomunicaciones */
+        .movil-radiocomunicaciones {
+            margin: 25px 0;
+        }
+        
+        .movil-descripcion-radio {
+            margin-bottom: 20px;
+        }
+        
+        .movil-tecnologias-radio {
+            margin: 25px 0;
+        }
+        
+        .movil-titulo-tecnologias {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .movil-tecnologia-radio {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movil-titulo-tecnologia {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .movil-descripcion-tecnologia {
+            margin-bottom: 15px;
+        }
+        
+        .movil-tabla-frecuencias {
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .movil-fila-frecuencia {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .movil-tipo-frecuencia {
+            flex: 1;
+            font-weight: 500;
+            padding-right: 10px;
+        }
+        
+        .movil-valor-frecuencia {
+            flex: 1;
+            color: #1890ff;
+        }
+        
+        .movil-ilustracion-tecnologia {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .movil-modulacion-am, .movil-modulacion-fm {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .movil-etiqueta-modulacion {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .movil-grafico-am, .movil-grafico-fm {
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .movil-onda-am, .movil-onda-fm {
+            width: 80%;
+            height: 40px;
+            position: relative;
+        }
+        
+        .movil-onda-am::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .movil-onda-am::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 30%, #1890ff 50%, transparent 70%);
+            mask: repeating-linear-gradient(90deg, transparent, transparent 5px, black 5px, black 15px);
+            -webkit-mask: repeating-linear-gradient(90deg, transparent, transparent 5px, black 5px, black 15px);
+        }
+        
+        .movil-onda-fm::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #52c41a;
+            transform: translateY(-50%);
+        }
+        
+        .movil-onda-fm::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #52c41a;
+            mask: repeating-linear-gradient(90deg, transparent, transparent 5px, black 5px, black 15px);
+            -webkit-mask: repeating-linear-gradient(90deg, transparent, transparent 5px, black 5px, black 15px);
+            clip-path: path('M0,20 Q5,0 10,20 Q15,40 20,20 Q25,0 30,20 Q35,40 40,20 Q45,0 50,20 Q55,40 60,20 Q65,0 70,20 Q75,40 80,20 Q85,0 90,20 Q95,40 100,20');
+        }
+        
+        .movil-esquema-onda-corta {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .movil-emisor-onda-corta, .movil-receptor-onda-corta {
+            width: 40px;
+            height: 80px;
+            background-color: #1890ff;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .movil-etiqueta-emisor, .movil-etiqueta-receptor {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #1890ff;
+            white-space: nowrap;
+        }
+        
+        .movil-onda-rebote {
+            flex: 1;
+            height: 100%;
+            position: relative;
+        }
+        
+        .movil-onda-rebote::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-color: #faad14;
+            border-radius: 10px;
+        }
+        
+        .movil-onda-rebote::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            width: 80%;
+            height: 80px;
+            border: 2px solid #1890ff;
+            border-top: none;
+            border-radius: 0 0 100px 100px;
+        }
+        
+        .movil-etiqueta-rebote {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #faad14;
+            white-space: nowrap;
+        }
+        
+        .movil-emisora-cb {
+            width: 150px;
+            height: 80px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .movil-emisora-cb::before {
+            content: "CB-27";
+            color: white;
+            font-weight: bold;
+        }
+        
+        .movil-etiqueta-emisora {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #1890ff;
+            white-space: nowrap;
+        }
+        
+        .movil-dividendo-digital {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .movil-etiqueta-dividendo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .movil-espectro-original, .movil-espectro-actual, .movil-espectro-liberado {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .movil-etiqueta-espectro {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .movil-barra-espectro-original {
+            width: 100%;
+            height: 20px;
+            background-color: #1890ff;
+            border-radius: 5px;
+        }
+        
+        .movil-barra-espectro-actual {
+            width: 60%;
+            height: 20px;
+            background-color: #52c41a;
+            border-radius: 5px;
+        }
+        
+        .movil-barra-espectro-liberado {
+            width: 40%;
+            height: 20px;
+            background-color: #ff4d4f;
+            border-radius: 5px;
+            margin-left: 60%;
+        }
+        
+        .movil-frecuencias-tetra {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .movil-etiqueta-frecuencias {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .movil-bandas-tetra {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .movil-banda-tetra {
+            flex: 1;
+            min-width: 120px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .movil-rango-banda {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .movil-uso-banda {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .movil-celdas {
+                max-width: 300px;
+            }
+            
+            .movil-celda {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .movil-fila-tabla {
+                flex-direction: column;
+            }
+            
+            .movil-celda-tabla {
+                border-right: none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+            
+            .movil-linea-tiempo {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .movil-linea-tiempo::before {
+                width: 2px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+            
+            .movil-punto-tiempo {
+                margin-bottom: 40px;
+            }
+            
+            .movil-diagrama-dect {
+                flex-direction: column;
+            }
+            
+            .movil-senales-dect {
+                flex-direction: row;
+            }
+            
+            .movil-senal-dect {
+                transform: rotate(90deg);
+            }
+            
+            .movil-terminales-dect {
+                flex-direction: row;
+            }
+            
+            .movil-etiqueta-terminal {
+                right: auto;
+                bottom: -25px;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</body>
+</html>

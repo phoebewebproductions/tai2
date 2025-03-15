@@ -1,0 +1,588 @@
+<div class="teoria">
+    <span id="4030201001">
+        <h2>3.1 MICROSERVICIOS</h2>
+        <p>El concepto de microservicios fue creado por James Lewis y Martin Fowler como un enfoque para desarrollar una única aplicación como un conjunto de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose con mecanismos ligeros, a menudo una API a través de HTTP.</p>
+        
+        <p>Estos servicios se desarrollan alrededor de capacidades de negocio y se pueden implementar de forma independiente y completamente automatizada. Existe un mínimo de administración centralizada, que puede escribirse en diferentes lenguajes de programación y utilizando diferentes tecnologías de almacenamiento de datos.</p>
+        
+        <p>En otras palabras, se trata de dividir la aplicación en sus componentes más pequeños, llamados servicios, para que estos puedan ser mantenidos, ejecutados y distribuidos de forma totalmente independiente.</p>
+        
+        <p>A diferencia del enfoque monolítico en el que todo se integra en una única pieza, que suele tener una fuerte dependencia de una tecnología, los microservicios son independientes y se comunican entre sí.</p>
+        
+        <div class="microservices-vs-monolithic">
+            <h4>Arquitectura Monolítica vs Microservicios</h4>
+            <div class="comparison-diagram">
+                <div class="architecture-column">
+                    <div class="architecture-header">Monolítica</div>
+                    <div class="architecture-diagram monolithic">
+                        <div class="monolithic-app">
+                            <div class="app-layer">Interfaz de Usuario</div>
+                            <div class="app-layer">Lógica de Negocio</div>
+                            <div class="app-layer">Acceso a Datos</div>
+                            <div class="app-layer">Base de Datos</div>
+                        </div>
+                    </div>
+                    <div class="architecture-description">
+                        <p>Una única aplicación integrada donde todos los componentes están fuertemente acoplados.</p>
+                    </div>
+                </div>
+                <div class="architecture-column">
+                    <div class="architecture-header">Microservicios</div>
+                    <div class="architecture-diagram microservices">
+                        <div class="microservice">
+                            <div class="service-name">Servicio A</div>
+                            <div class="service-db">BD A</div>
+                        </div>
+                        <div class="microservice">
+                            <div class="service-name">Servicio B</div>
+                            <div class="service-db">BD B</div>
+                        </div>
+                        <div class="microservice">
+                            <div class="service-name">Servicio C</div>
+                            <div class="service-db">BD C</div>
+                        </div>
+                        <div class="api-gateway">API Gateway</div>
+                        <div class="client">Cliente</div>
+                    </div>
+                    <div class="architecture-description">
+                        <p>Múltiples servicios independientes que se comunican a través de APIs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030201002">
+        <h3>3.1.1 VENTAJAS E INCONVENIENTES</h3>
+        <p>Las ventajas e inconvenientes de la arquitectura de microservicios son evidentes:</p>
+        
+        <div class="pros-cons">
+            <div class="pros-cons-column">
+                <h4>Ventajas</h4>
+                <ul class="pros-list">
+                    <li>
+                        <strong>Escalabilidad:</strong> se adapta con facilidad a las cambiantes necesidades de rendimiento, ya que permite lanzar nuevas instancias y/o eliminar las que ya no son necesarias.
+                    </li>
+                    <li>
+                        <strong>Versatilidad:</strong> las aplicaciones son más abiertas, ya que los microservicios permiten el uso de diferentes tecnologías y lenguajes. De este modo, es posible seleccionar una u otra tecnología en función de las necesidades de cada servicio.
+                    </li>
+                    <li>
+                        <strong>Rapidez de respuesta:</strong> una arquitectura de microservicios agiliza los procesos de implementación y actualización de las aplicaciones, gracias a la reducción de los ciclos de desarrollo.
+                    </li>
+                    <li>
+                        <strong>Tolerancia a fallos:</strong> Al ser independientes, el fallo de un microservicio no compromete la integridad y el buen funcionamiento de los demás. La caída de una instancia puede superarse desplegando rápidamente nuevas instancias.
+                    </li>
+                    <li>
+                        <strong>Portabilidad:</strong> Las aplicaciones que se ejecutan en contenedores se pueden poner en marcha fácilmente en sistemas operativos y plataformas de hardware diferentes.
+                    </li>
+                    <li>
+                        <strong>Especialización:</strong> cada microservicio corresponde a un equipo de desarrollo diferente, de manera que los equipos ganan en independencia y pueden centrarse en tareas más concretas.
+                    </li>
+                </ul>
+            </div>
+            <div class="pros-cons-column">
+                <h4>Inconvenientes</h4>
+                <ul class="cons-list">
+                    <li>
+                        <strong>Comunicaciones:</strong> los mensajes entre servicios sobre la misma red tienen un costo mayor en términos de latencia y tiempo de procesamiento de mensajes comparado con un proceso de servidor monolítico.
+                    </li>
+                    <li>
+                        <strong>Pruebas:</strong> las pruebas y el despliegue son más complicados en el modelo de microservicios.
+                    </li>
+                    <li>
+                        <strong>Integración:</strong> mover responsabilidades entre servicios es difícil. Puede requerir comunicación entre distintos equipos, reescribir funcionalidades en diferentes lenguajes o cambiar la funcionalidad para que funcione en otra infraestructura.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030201003">
+        <h3>3.1.2 PATRONES DE MICROSERVICIOS</h3>
+        <p>El diseño y desarrollo de microservicios se realiza usando patrones que facilitan la comprensión y reutilización del código. A continuación se exponen algunos de los más usados.</p>
+        
+        <h4>3.1.2.1 PATRONES DE DESCOMPOSICIÓN</h4>
+        <div class="patterns-section">
+            <div class="pattern">
+                <h5>a) Descomposición por capacidad empresarial</h5>
+                <p>Los microservicios intentan reducir el acoplamiento, aplicando el principio de responsabilidad única (SRP - Single Responsability Principle) que establece que cada módulo debe tener responsabilidad sobre una sola parte de la funcionalidad proporcionada por el software y esta responsabilidad debe estar encapsulada en su totalidad, descomponiendo los servicios por competencias empresariales.</p>
+            </div>
+            <div class="pattern">
+                <h5>b) Descomposición por subdominios</h5>
+                <p>Parte de la anterior, pero llega a un mayor nivel de descomposición, descomponiendo las capacidades de negocio en subdominios.</p>
+            </div>
+            <div class="pattern">
+                <h5>c) Descomposición por transacciones / Two-phase commit (2pc) pattern</h5>
+                <p>Se descomponen los servicios por cada tipo de transacciones del sistema.</p>
+            </div>
+            <div class="pattern">
+                <h5>d) Strangler</h5>
+                <p>Se usa para el efectuar el paso de una arquitectura monolítica a una arquitectura basada en microservicios.</p>
+            </div>
+            <div class="pattern">
+                <h5>e) Bulkhead</h5>
+                <p>Aisla los elementos de una aplicación de forma que si uno falla, el resto continuará funcionando.</p>
+            </div>
+            <div class="pattern">
+                <h5>f) Sidecar</h5>
+                <p>Despliega los componentes de una aplicación en procesadores separados, para proporcionar aislamiento y encapsulación. Posibilita a las aplicaciones su composición de componentes y tecnologías heterogéneas.</p>
+            </div>
+        </div>
+        
+        <h4>3.1.2.2 PATRONES DE INTEGRACIÓN</h4>
+        <div class="patterns-section">
+            <div class="pattern">
+                <h5>a) API Gateway</h5>
+                <p>Proporciona un único punto de entrada para todas las llamadas de los servicios a través de las APIs.</p>
+            </div>
+            <div class="pattern">
+                <h5>b) Aggregator</h5>
+                <p>Permite agregar datos de los diferentes servicios y enviar una respuesta final al consumidor.</p>
+            </div>
+            <div class="pattern">
+                <h5>c) Proxy</h5>
+                <p>Parecido al agregador, pero no realizamos una agregación para el consumidor, sino que creamos un microservicio que invoca otros microservicios. Es parecido a la función de proxy inverso.</p>
+            </div>
+            <div class="pattern">
+                <h5>d) Chain</h5>
+                <p>Cuando la respuesta es consolidada de la salida encadenada de varios microservicios.</p>
+            </div>
+            <div class="pattern">
+                <h5>e) Branch</h5>
+                <p>Es una unión de los patrones Agregator y Chain y permite varias peticiones/respuesta de los microservicios, al contrario.</p>
+            </div>
+            <div class="pattern">
+                <h5>f) Client-Side UI</h5>
+                <p>Es una arquitectura de microservicios, también la interfaz de usuario se descompone en varios microservicios, comenzando por un esqueleto o estructura básica, a la que se le añaden múltiples regiones y zonas.</p>
+            </div>
+        </div>
+        
+        <h4>3.1.2.3 PATRONES DE BASES DE DATOS</h4>
+        <div class="patterns-section">
+            <div class="pattern">
+                <h5>a) Base de datos por microservicio</h5>
+                <p>Este patrón implica una única base de datos privada por microservicio, que debería ser accedida por una única API de microservicio. No puede ser accedida por otros microservicios.</p>
+            </div>
+            <div class="pattern">
+                <h5>b) Base de datos compartida por servicio</h5>
+                <p>Este patrón va en contra de la filosofía de los microservicios, pero puede ser la única solución si no podemos usar el patrón anterior.</p>
+            </div>
+            <div class="pattern">
+                <h5>c) Command Query Responsibility Segregation (CQRS)</h5>
+                <p>En el caso que una vez se ha implementado el patrón de una base de datos por servicio, se comprueba que para algunas consultas es necesario unir los datos de diferentes servicios, se puede dividir la aplicación en una parte para la consulta y otra para las operaciones Actualizar, Crear y Borrar.</p>
+            </div>
+            <div class="pattern">
+                <h5>d) Event Sourcing</h5>
+                <p>Gestiona operaciones en los datos que están dirigidas por una secuencia de eventos. Cada evento supone un cambio en los datos.</p>
+            </div>
+            <div class="pattern">
+                <h5>e) Saga</h5>
+                <p>Este patrón asegura la consistencia de los datos cuando una transacción de negocio afecta a diferentes servicios, cada cual con su propia base de datos.</p>
+            </div>
+        </div>
+        
+        <h4>3.1.2.4 PATRONES DE OBSERVACIÓN</h4>
+        <div class="patterns-section">
+            <div class="pattern">
+                <h5>a) Log Aggregation</h5>
+                <p>Existe un servicio que efectúa la agregación de logs del resto de los servicios.</p>
+            </div>
+            <div class="pattern">
+                <h5>b) Performance metrics</h5>
+                <p>Servicio que obtiene métricas acerca de operaciones individuales. Proporciona informes y alertas.</p>
+            </div>
+            <div class="pattern">
+                <h5>c) Distributed Tracing</h5>
+                <p>Introduce trazas de ejecución en los microservicios.</p>
+            </div>
+            <div class="pattern">
+                <h5>d) Health Check</h5>
+                <p>Introduce en los microservicios un endpoint para asegurar el funcionamiento de la aplicación.</p>
+            </div>
+        </div>
+        
+        <h4>3.1.2.5 PATRONES CROSS-CUTTING CONCERN</h4>
+        <div class="patterns-section">
+            <div class="pattern">
+                <h5>a) External Configuration</h5>
+                <p>Este patrón externaliza toda la configuración para evitar que los cambios en la misma requieran un rediseño y un nuevo despliegue de un microservicio.</p>
+            </div>
+            <div class="pattern">
+                <h5>b) Service Discovery</h5>
+                <p>Este patrón crea un registro que mantiene los metadatos de cada servicio, de forma que pueda ser fácilmente ubicado por los consumidores.</p>
+            </div>
+            <div class="pattern">
+                <h5>c) Circuit Breaker</h5>
+                <p>Limita las llamadas a un servicio remoto a un determinado umbral y por un tiempo, para que en caso de que esté caído no consuma los recursos de red.</p>
+            </div>
+            <div class="pattern">
+                <h5>d) Blue-Green Deployment</h5>
+                <p>Este patrón contempla dos entornos idénticos de producción, Azul y Verde. En cualquier momento sólo uno de ellos está ejecutándose, y el otro se usa para el despliegue de las nuevas versiones. De esta forma se evita que el despliegue de versiones afecte a la explotación.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030201004">
+        <h3>3.1.3 INTEGRACIÓN DE SERVICIOS</h3>
+        <p>Cuando tratamos con situaciones complejas, es necesario tratar con el problema de manejar procesos de negocio que involucran a varios servicios. Hay dos formas de abordar este tipo de problemas:</p>
+        
+        <div class="integration-approaches">
+            <div class="approach">
+                <h4>a) Orquestación</h4>
+                <p>Con orquestación lo que hacemos es tener un software que guíe y dirija el proceso, de forma similar a como lo hace un director de orquesta. La orquestación de servicios representa un único proceso ejecutable centralizado (el orquestador) que coordina la interacción entre los diferentes servicios. El orquestador es responsable de invocar y combinar los servicios. La relación entre todos los servicios participantes se describe mediante un único punto final (es decir, el servicio compuesto). La orquestación incluye la gestión de transacciones entre servicios individuales.</p>
+                
+                <div class="approach-diagram orchestration">
+                    <div class="orchestrator">Orquestador</div>
+                    <div class="services-container">
+                        <div class="service">Servicio A</div>
+                        <div class="service">Servicio B</div>
+                        <div class="service">Servicio C</div>
+                    </div>
+                    <div class="arrows">
+                        <div class="arrow a">↓↑</div>
+                        <div class="arrow b">↓↑</div>
+                        <div class="arrow c">↓↑</div>
+                    </div>
+                </div>
+                
+                <div class="approach-pros-cons">
+                    <div class="approach-pros">
+                        <h5>Ventajas</h5>
+                        <ul>
+                            <li>Es simple y fácil de mantener.</li>
+                            <li>Proporciona una buena manera de controlar todo el flujo de la aplicación en procesos síncronos.</li>
+                        </ul>
+                    </div>
+                    <div class="approach-cons">
+                        <h5>Inconvenientes</h5>
+                        <ul>
+                            <li>En el caso en el que tengamos un orquestador único para todas las peticiones, tenemos un punto de fallo. Si el orquestador se cae, se vendría abajo todo el sistema.</li>
+                            <li>Al tener un sistema síncrono para todas las peticiones, si un servicio quiere realizar una petición que pasa a través de varios servicios, el tiempo de respuesta, será la suma de todos los servicios por lo que pasa.</li>
+                            <li>Por lo general en microservicios, se piensa en realizar servicios que estén desacoplados y sean independientes, por lo general con este tipo de arquitectura, estamos haciendo un fuerte acoplamiento entre servicios.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="approach">
+                <h4>b) Coreografía</h4>
+                <p>Con coreografía lo que hacemos es dejar que cada parte del sistema realice su trabajo y se les deja trabajar en los detalles, como hacen los bailarines en un ballet. La coreografía de servicios es una descripción global de los servicios participantes, que se define mediante el intercambio de mensajes, reglas de interacción y acuerdos entre dos o más puntos finales. La coreografía emplea un enfoque descentralizado para la composición del servicio. Es más adaptado a la arquitectura de microservicios que cada servicio sepa cómo actuar en cada momento, e interactúe con otros, en lugar de tener a alguien que los coordine.</p>
+                
+                <div class="approach-diagram choreography">
+                    <div class="service service-a">Servicio A</div>
+                    <div class="service service-b">Servicio B</div>
+                    <div class="service service-c">Servicio C</div>
+                    <div class="arrows">
+                        <div class="arrow ab">↔</div>
+                        <div class="arrow bc">↔</div>
+                        <div class="arrow ac">↔</div>
+                    </div>
+                </div>
+                
+                <div class="approach-pros-cons">
+                    <div class="approach-pros">
+                        <h5>Ventajas</h5>
+                        <ul>
+                            <li>Por lo general el desarrollo en este tipo de arquitectura es más ágil, y nos permite un mayor desacople, facilitando el desarrollo.</li>
+                            <li>El control del sistema es distribuido, por lo que no hay un único punto de fallo.</li>
+                            <li>Los equipos se pueden encargar de diferentes microservicios.</li>
+                            <li>Permite la utilización de patrones de diseño orientados a eventos.</li>
+                        </ul>
+                    </div>
+                    <div class="approach-cons">
+                        <h5>Inconvenientes</h5>
+                        <ul>
+                            <li>Es más complejo de implementar y mantener.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p>En general, los sistemas que utilizan el enfoque del tipo coreografía, están débilmente acoplados, son más flexibles y más susceptibles de cambiar. Sin embargo, es necesario diseñar un sistema de monitorización para controlar y seguir los procesos a través de los límites del sistema.</p>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Microservices vs Monolithic Styles */
+        .microservices-vs-monolithic {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .comparison-diagram {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .architecture-column {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .architecture-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .architecture-diagram {
+            padding: 15px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .monolithic-app {
+            width: 80%;
+            border: 2px solid #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .app-layer {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            background-color: #f2f2f2;
+        }
+        .app-layer:last-child {
+            border-bottom: none;
+        }
+        .microservices {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .microservice {
+            width: 80%;
+            margin-bottom: 10px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .service-name {
+            padding: 10px;
+            text-align: center;
+            background-color: #0078d7;
+            color: white;
+        }
+        .service-db {
+            padding: 5px;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-top: 1px solid #ddd;
+        }
+        .api-gateway {
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .client {
+            width: 60%;
+            padding: 10px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .architecture-description {
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        
+        /* Pros and Cons Styles */
+        .pros-cons {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pros-cons-column {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .pros-cons-column h4 {
+            margin-top: 0;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .pros-list li {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .pros-list li strong {
+            color: #333;
+        }
+        .cons-list li {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        .cons-list li strong {
+            color: #333;
+        }
+        
+        /* Patterns Styles */
+        .patterns-section {
+            margin-bottom: 20px;
+        }
+        .pattern {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #0078d7;
+            border-radius: 0 5px 5px 0;
+        }
+        .pattern h5 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .pattern p {
+            margin-bottom: 0;
+        }
+        
+        /* Integration Approaches Styles */
+        .integration-approaches {
+            margin: 20px 0;
+        }
+        .approach {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .approach h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .approach-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            position: relative;
+            min-height: 200px;
+        }
+        .orchestration .orchestrator {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .orchestration .services-container {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .orchestration .service {
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .orchestration .arrows {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .orchestration .arrow {
+            font-size: 24px;
+            color: #0078d7;
+        }
+        .choreography {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .choreography .service {
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .choreography .arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .choreography .arrow {
+            position: absolute;
+            font-size: 24px;
+            color: #0078d7;
+        }
+        .choreography .arrow.ab {
+            top: 40%;
+            left: 35%;
+        }
+        .choreography .arrow.bc {
+            top: 40%;
+            right: 35%;
+        }
+        .choreography .arrow.ac {
+            bottom: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .approach-pros-cons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .approach-pros, .approach-cons {
+            flex: 1;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .approach-pros h5 {
+            color: #28a745;
+            margin-top: 0;
+        }
+        .approach-cons h5 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+    </style>
+</div>

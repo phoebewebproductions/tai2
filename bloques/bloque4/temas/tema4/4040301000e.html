@@ -1,0 +1,1401 @@
+<div class="teoria">
+    <span id="4040301001">
+        <h2>3.1 GESTIÓN DE DISPOSITIVOS</h2>
+        <p>La gestión de dispositivos es un componente fundamental en la administración de redes, que permite supervisar, controlar y mantener todos los elementos que conforman la infraestructura de red. Esta gestión facilita la detección temprana de problemas, la optimización del rendimiento y la implementación de medidas de seguridad adecuadas.</p>
+        
+        <div class="device-management-overview">
+            <h3>Visión General de la Gestión de Dispositivos</h3>
+            <div class="management-diagram">
+                <div class="management-components">
+                    <div class="component centralized">
+                        <div class="component-header">Gestión Centralizada</div>
+                        <div class="component-items">
+                            <div class="item">Monitorización</div>
+                            <div class="item">Control remoto</div>
+                            <div class="item">Alertas</div>
+                        </div>
+                    </div>
+                    <div class="component protocols">
+                        <div class="component-header">Protocolos</div>
+                        <div class="component-items">
+                            <div class="item">SNMP</div>
+                            <div class="item">RMON</div>
+                            <div class="item">NetFlow</div>
+                        </div>
+                    </div>
+                    <div class="component areas">
+                        <div class="component-header">Áreas de Control</div>
+                        <div class="component-items">
+                            <div class="item">Rendimiento</div>
+                            <div class="item">Fallos</div>
+                            <div class="item">Seguridad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="management-description">
+                <p>La gestión de dispositivos implica la supervisión y control de todos los elementos de red desde un punto centralizado, utilizando protocolos específicos y abarcando diversas áreas de control para garantizar el funcionamiento óptimo de la infraestructura.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040301002">
+        <h3>4.1. GESTIÓN CENTRALIZADA</h3>
+        <p>El objetivo de la gestión centralizada de la red es posibilitar que un único operador o administrador de red pueda desde una localización, que no tiene porqué ser fija, conocer el estado de cada uno de los elementos de la red, la actividad que realiza en tiempo real, recibir mensajes y alarmas desde ellos y efectuar operaciones sobre los mismos.</p>
+        
+        <div class="centralized-management">
+            <div class="management-image">
+                <div class="image-caption">Figura 3. Gestión centralizada.</div>
+                <div class="network-diagram">
+                    <div class="central-console">
+                        <div class="console-label">Consola de Gestión</div>
+                        <div class="console-icon">🖥️</div>
+                    </div>
+                    <div class="network-connections">
+                        <div class="connection-line vertical"></div>
+                        <div class="connection-line horizontal left"></div>
+                        <div class="connection-line horizontal right"></div>
+                    </div>
+                    <div class="network-devices">
+                        <div class="device">
+                            <div class="device-icon">🖧</div>
+                            <div class="device-label">Router</div>
+                        </div>
+                        <div class="device">
+                            <div class="device-icon">🖧</div>
+                            <div class="device-label">Switch</div>
+                        </div>
+                        <div class="device">
+                            <div class="device-icon">🖧</div>
+                            <div class="device-label">Servidor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Los dispositivos gestionados en una red disponen de un agente o servicio que envía alarmas si detecta problemas o situaciones anormales en la red. Por otro lado, existen equipos que hacen la función de servidores o controladores de red que interpretan estas alarmas y ponen en marcha los mecanismos oportunos para informar al administrador de red.</p>
+            
+            <p>Además los servidores de red preguntan de forma periódica a los agentes acerca del estado de la red, y sus respuestas pueden servir para almacenar datos en ficheros de log o incluso elaborar informes con diferentes indicadores acerca del rendimiento de la red. Esta información permitirá al administrador de red tomar decisiones estratégicas para mejorar seguridad u optimizar el uso de los recursos de la misma.</p>
+            
+            <div class="management-workflow">
+                <div class="workflow-header">Flujo de Trabajo en la Gestión Centralizada</div>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-description">
+                            <div class="step-title">Monitorización</div>
+                            <div class="step-detail">Los agentes en los dispositivos recopilan información sobre su estado y rendimiento.</div>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-description">
+                            <div class="step-title">Notificación</div>
+                            <div class="step-detail">Los agentes envían alarmas o responden a consultas del servidor de gestión.</div>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-description">
+                            <div class="step-title">Procesamiento</div>
+                            <div class="step-detail">El servidor de gestión procesa la información y genera alertas o informes.</div>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-description">
+                            <div class="step-title">Acción</div>
+                            <div class="step-detail">El administrador toma decisiones basadas en la información recibida.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="management-areas">
+            <h4>Áreas de Control para Aplicaciones de Gestión de Redes</h4>
+            <p>La ISO ha sugerido cinco áreas de control para aplicaciones de gestión de redes (Áreas Funcionales de Gestión Específica, también conocido como modelo FCAPS: Fault, Configuration, Accounting, Performance and Security):</p>
+            
+            <div class="areas-container">
+                <div class="area">
+                    <div class="area-header">
+                        <div class="area-icon">📊</div>
+                        <div class="area-title">Gestión del rendimiento</div>
+                    </div>
+                    <div class="area-description">
+                        <p>Facilidades para monitorizar y evaluar el rendimiento de la red.</p>
+                        <div class="area-examples">
+                            <div class="example">Medición de ancho de banda</div>
+                            <div class="example">Análisis de latencia</div>
+                            <div class="example">Monitorización de uso de CPU</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="area">
+                    <div class="area-header">
+                        <div class="area-icon">🔧</div>
+                        <div class="area-title">Gestión de fallos</div>
+                    </div>
+                    <div class="area-description">
+                        <p>Capacidad de detectar, aislar y corregir problemas de red.</p>
+                        <div class="area-examples">
+                            <div class="example">Detección de caídas de servicio</div>
+                            <div class="example">Diagnóstico de problemas</div>
+                            <div class="example">Recuperación automática</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="area">
+                    <div class="area-header">
+                        <div class="area-icon">⚙️</div>
+                        <div class="area-title">Gestión de la configuración</div>
+                    </div>
+                    <div class="area-description">
+                        <p>Capacidad de cambiar la configuración de elementos remotos.</p>
+                        <div class="area-examples">
+                            <div class="example">Actualización de firmware</div>
+                            <div class="example">Configuración de parámetros</div>
+                            <div class="example">Gestión de cambios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="area">
+                    <div class="area-header">
+                        <div class="area-icon">💰</div>
+                        <div class="area-title">Gestión de la contabilidad</div>
+                    </div>
+                    <div class="area-description">
+                        <p>Posibilita tarificar a los usuarios por el uso de los recursos de la red y limitar su uso.</p>
+                        <div class="area-examples">
+                            <div class="example">Medición de uso de recursos</div>
+                            <div class="example">Facturación por consumo</div>
+                            <div class="example">Establecimiento de cuotas</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="area">
+                    <div class="area-header">
+                        <div class="area-icon">🔒</div>
+                        <div class="area-title">Gestión de la seguridad</div>
+                    </div>
+                    <div class="area-description">
+                        <p>Control del acceso, autenticación, encriptación, gestión de claves y contraseñas, etc.</p>
+                        <div class="area-examples">
+                            <div class="example">Control de acceso</div>
+                            <div class="example">Cifrado de datos</div>
+                            <div class="example">Detección de intrusiones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040301003">
+        <h3>4.2. PROTOCOLOS DE GESTIÓN DE RED</h3>
+        <p>Para realizar las funciones a las que hace referencia el epígrafe anterior han surgido varios protocolos. Veamos los más importantes:</p>
+        
+        <h4>4.2.1. SNMP (SIMPLE NETWORK MANAGEMENT PROTOCOL)</h4>
+        <p>El Protocolo simple de administración de red o SNMP es un protocolo de la capa de aplicación que facilita el intercambio de información de administración entre dispositivos de red. Los dispositivos que normalmente soportan SNMP incluyen routers, switches, servidores, estaciones de trabajo, impresoras, y muchos más. Permite a los administradores supervisar el funcionamiento de la red, buscar y resolver sus problemas, y planear su crecimiento.</p>
+        
+        <p>SNMP es un componente de la suite de protocolo de Internet como se define por el IETF (RFC 1157 SNMP, RFC 1901 SNMPv2 y RFC 3410 SNMPv3). Se compone de un conjunto de normas para la gestión de la red, incluyendo una capa de aplicación del protocolo, una base de datos de esquema, y un conjunto de objetos de datos.</p>
+        
+        <div class="snmp-overview">
+            <div class="protocol-details">
+                <h5>Características del protocolo SNMP</h5>
+                <ul>
+                    <li>Opera en la capa de aplicación del conjunto de protocolos de Internet (capa 7 del modelo OSI).</li>
+                    <li>El agente SNMP recibe solicitudes en el puerto UDP 161.</li>
+                    <li>El administrador recibe notificaciones (Traps e InformRequests) en el puerto 162.</li>
+                    <li>Cuando se utiliza con Transport Layer Security (TLS) las solicitudes se reciben en el puerto 10161 y traps se envían al puerto 10162.</li>
+                </ul>
+            </div>
+            
+            <div class="snmp-versions">
+                <h5>Versiones de SNMP</h5>
+                <div class="version-comparison">
+                    <div class="version">
+                        <div class="version-header">SNMPv1</div>
+                        <div class="version-features">
+                            <div class="feature">Implementación inicial del protocolo</div>
+                            <div class="feature">Opera a través de UDP, IP, CLNS, DDP e IPX</div>
+                            <div class="feature">Ampliamente utilizado</div>
+                            <div class="feature">Seguridad básica basada en comunidades</div>
+                        </div>
+                    </div>
+                    
+                    <div class="version">
+                        <div class="version-header">SNMPv2</div>
+                        <div class="version-features">
+                            <div class="feature">Mejoras en rendimiento y seguridad</div>
+                            <div class="feature">Introdujo GetBulkRequest</div>
+                            <div class="feature">Sistema de seguridad basado en partidos</div>
+                            <div class="feature">Contraseñas en texto claro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="version">
+                        <div class="version-header">SNMPv3</div>
+                        <div class="version-features">
+                            <div class="feature">Mejoras significativas en seguridad</div>
+                            <div class="feature">Mejoras de configuración remota</div>
+                            <div class="feature">Abandona la concepción agente-gestor</div>
+                            <div class="feature">Introduce entidades SNMP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040301004">
+        <h4>Estructura de SNMPv3</h4>
+        <p>Una entidad SNMP se considera compuesta por un motor y unas aplicaciones que al menos son generador de comandos, respuesta a comandos, receptor de notificaciones, emisor de notificaciones y proxy forwarder. A su vez el motor se divide en cuatro módulos: dispatcher, subsistema de proceso de mensajes, subsistema de seguridad y subsistema de control de acceso.</p>
+        
+        <div class="snmpv3-structure">
+            <div class="structure-diagram">
+                <div class="structure-header">Estructura de una Entidad SNMPv3</div>
+                <div class="structure-content">
+                    <div class="entity-engine">
+                        <div class="engine-header">Motor SNMP</div>
+                        <div class="engine-modules">
+                            <div class="module">
+                                <div class="module-name">Dispatcher</div>
+                            </div>
+                            <div class="module">
+                                <div class="module-name">Subsistema de proceso de mensajes</div>
+                            </div>
+                            <div class="module">
+                                <div class="module-name">Subsistema de seguridad</div>
+                            </div>
+                            <div class="module">
+                                <div class="module-name">Subsistema de control de acceso</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="entity-applications">
+                        <div class="applications-header">Aplicaciones SNMP</div>
+                        <div class="applications-list">
+                            <div class="application">
+                                <div class="application-name">Generador de comandos</div>
+                            </div>
+                            <div class="application">
+                                <div class="application-name">Respuesta a comandos</div>
+                            </div>
+                            <div class="application">
+                                <div class="application-name">Receptor de notificaciones</div>
+                            </div>
+                            <div class="application">
+                                <div class="application-name">Emisor de notificaciones</div>
+                            </div>
+                            <div class="application">
+                                <div class="application-name">Proxy forwarder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="snmp-security">
+            <h4>Seguridad en SNMP</h4>
+            <p>La seguridad en SNMP se revisó a partir de la versión 3 del protocolo, introduciendo mecanismos para garantizar la autenticación y la privacidad, que pueden aplicarse en diferentes niveles y usuarios.</p>
+            
+            <p>Se define un modelo estándar para seguridad basada en usuarios, USM (User-based Security Model) y otro para control de acceso basado en vistas, VACM (View-based Access Control Model).</p>
+            
+            <div class="security-models">
+                <div class="security-model">
+                    <h5>1. Modelo de seguridad basado en el usuario (USM)</h5>
+                    <p>El modelo de seguridad basado en el usuario (USM) proporciona los servicios de autentificación y privacidad. El protocolo de autentificación puede ser el HMAC-MD5-96 o el HMAC-SHA-96, compartiendo una clave secreta entre el emisor y el receptor que ha sido previamente configurada. También facilita la privacidad mediante la encriptación de mensajes con el algoritmo CBC de DES.</p>
+                    
+                    <div class="security-levels">
+                        <div class="level-header">Se contemplan tres niveles de seguridad para los usuarios:</div>
+                        <div class="security-level">
+                            <div class="level-name">NoAuthPriv</div>
+                            <div class="level-description">Sin autenticación ni privacidad.</div>
+                        </div>
+                        <div class="security-level">
+                            <div class="level-name">authNoPriv</div>
+                            <div class="level-description">Con autenticación, pero sin privacidad (con MD5 y SHA).</div>
+                        </div>
+                        <div class="security-level">
+                            <div class="level-name">authPriv</div>
+                            <div class="level-description">Con autenticación y privacidad (MD5 y SHA para autenticación, DES y AES para privacidad).</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-model">
+                    <h5>2. Modelo de seguridad basado en vistas (VACM)</h5>
+                    <p>El modelo de control de acceso basado en vistas (VACM) permite proporcionar diferentes niveles de acceso a las MIB de los agentes. El modelo VACM utiliza los campos msgFlags, msgSecurityModel y scopedPdu del mensaje SNMPv3 para determinar el tipo de acceso que tiene el mensaje. Si el acceso no es permitido a dicho tipo de solicitud, entonces se envía una notificación de error.</p>
+                </div>
+                
+                <div class="security-model">
+                    <h5>3. Modelo de seguridad basado en transporte (TSM)</h5>
+                    <p>Este un complemento adicional a SNMPv3 (RFC 5591) y proporciona un método para la autenticación y el cifrado de mensajes a través de los protocolos en la capa de transporte. Dos protocolos que proporcionan seguridad en esta capas a través de criptografía asimétrica, SSH y TLS/DTLS, han definido como hacen uso de la especificación de TSM. Por ejemplo, the Transport Layer Security Transport Model (TLSTM) define el uso de TLS y DTLS con SNMP.</p>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040301005">
+        <h4>Componentes de SNMP</h4>
+        <p>Una red administrada a través de SNMP en su versión original (v1) consta de tres componentes clave:</p>
+        
+        <div class="snmp-components">
+            <div class="component">
+                <h5>a) Sistemas administradores de red (Network Management Systems, NMS)</h5>
+                <p>Ejecutan aplicaciones que supervisan y controlan a los dispositivos administrados. Los NMS's proporcionan el volumen de recursos de procesamiento y memoria requeridos para la administración de la red. Uno o más NMS's deben existir en cualquier red administrada.</p>
+                <div class="component-illustration">
+                    <div class="illustration-icon">🖥️</div>
+                    <div class="illustration-label">Sistema de Gestión de Red</div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h5>b) Dispositivos administrados</h5>
+                <p>Son dispositivos que contienen un agente SNMP y reside en una red administrada. Estos recogen y almacenan información de administración, la cual es puesta a disposición de los NMS's usando SNMP.</p>
+                <div class="component-illustration">
+                    <div class="illustration-icon">🔌</div>
+                    <div class="illustration-label">Dispositivo Administrado</div>
+                </div>
+            </div>
+            
+            <div class="component">
+                <h5>c) Agentes</h5>
+                <p>Un agente es un módulo de software de administración de red que reside en un dispositivo administrado. Un agente posee un conocimiento local de información de administración (memoria libre, número de paquetes IP recibidos, rutas, etcétera), la cual es traducida a un formato compatible con SNMP y organizada en jerarquías en la MIB.</p>
+                <div class="component-illustration">
+                    <div class="illustration-icon">📊</div>
+                    <div class="illustration-label">Agente SNMP</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="snmp-diagram">
+            <div class="diagram-header">Componentes SNMP</div>
+            <div class="diagram-image">
+                <div class="nms">
+                    <div class="nms-label">NMS</div>
+                    <div class="nms-icon">🖥️</div>
+                </div>
+                <div class="communication-arrows">
+                    <div class="arrow down">↓</div>
+                    <div class="arrow up">↑</div>
+                </div>
+                <div class="managed-devices">
+                    <div class="device">
+                        <div class="device-icon">🖧</div>
+                        <div class="device-label">Router</div>
+                        <div class="agent-label">Agente SNMP</div>
+                    </div>
+                    <div class="device">
+                        <div class="device-icon">🖧</div>
+                        <div class="device-label">Switch</div>
+                        <div class="agent-label">Agente SNMP</div>
+                    </div>
+                    <div class="device">
+                        <div class="device-icon">🖧</div>
+                        <div class="device-label">Servidor</div>
+                        <div class="agent-label">Agente SNMP</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">Figura 5. Componentes SNMP. Fuente: Huawei.</div>
+        </div>
+    </span>
+
+    <span id="4040301006">
+        <h4>MIB (Management Information Base)</h4>
+        <p>La información recogida acerca de los dispositivos se almacena en una base de datos denominada MIB (Management Information Base), que es una colección jerárquica de objetos en forma de árbol. Existen dos tipos de nodos en el árbol:</p>
+        
+        <ul>
+            <li><strong>Estructurales</strong>: que sólo tienen descrita su posición en el árbol.</li>
+            <li><strong>Con información</strong>: de ellos no cuelga ningún nodo y están basados en la macro OBJECT TYPE.</li>
+        </ul>
+        
+        <p>Cada objeto manejado en un MIB tiene un identificador de objeto único (OID) e incluye el tipo de objeto (tal como contador, secuencia o gauge), el nivel de acceso (tal como lectura y escritura), restricciones de tamaño, y la información del rango del objeto. Los objetos en la MIB se definen usando un fragmento de ASN.1.</p>
+        
+        <div class="mib-structure">
+            <div class="structure-header">Árbol representativo de MIB y OID</div>
+            <div class="structure-diagram">
+                <div class="tree-root">
+                    <div class="node">
+                        <div class="node-name">root</div>
+                        <div class="node-oid">.</div>
+                    </div>
+                    <div class="tree-branches">
+                        <div class="branch">
+                            <div class="node">
+                                <div class="node-name">ccitt</div>
+                                <div class="node-oid">.0</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <div class="node">
+                                <div class="node-name">iso</div>
+                                <div class="node-oid">.1</div>
+                            </div>
+                            <div class="sub-branches">
+                                <div class="branch">
+                                    <div class="node">
+                                        <div class="node-name">org</div>
+                                        <div class="node-oid">.1.3</div>
+                                    </div>
+                                    <div class="sub-branches">
+                                        <div class="branch">
+                                            <div class="node">
+                                                <div class="node-name">dod</div>
+                                                <div class="node-oid">.1.3.6</div>
+                                            </div>
+                                            <div class="sub-branches">
+                                                <div class="branch">
+                                                    <div class="node">
+                                                        <div class="node-name">internet</div>
+                                                        <div class="node-oid">.1.3.6.1</div>
+                                                    </div>
+                                                    <div class="sub-branches">
+                                                        <div class="branch">
+                                                            <div class="node">
+                                                                <div class="node-name">directory</div>
+                                                                <div class="node-oid">.1.3.6.1.1</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="branch">
+                                                            <div class="node">
+                                                                <div class="node-name">mgmt</div>
+                                                                <div class="node-oid">.1.3.6.1.2</div>
+                                                            </div>
+                                                            <div class="sub-branches">
+                                                                <div class="branch">
+                                                                    <div class="node">
+                                                                        <div class="node-name">mib-2</div>
+                                                                        <div class="node-oid">.1.3.6.1.2.1</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="branch">
+                                                            <div class="node">
+                                                                <div class="node-name">experimental</div>
+                                                                <div class="node-oid">.1.3.6.1.3</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="branch">
+                                                            <div class="node">
+                                                                <div class="node-name">private</div>
+                                                                <div class="node-oid">.1.3.6.1.4</div>
+                                                            </div>
+                                                            <div class="sub-branches">
+                                                                <div class="branch">
+                                                                    <div class="node">
+                                                                        <div class="node-name">enterprises</div>
+                                                                        <div class="node-oid">.1.3.6.1.4.1</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <div class="node">
+                                <div class="node-name">joint-iso-ccitt</div>
+                                <div class="node-oid">.2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">Figura 6. Árbol representativo de MIB y OID. Fuente: INCIBE-CERT.</div>
+        </div>
+    </span>
+
+    <span id="4040301007">
+        <h4>Comandos y Mensajes SNMP</h4>
+        <p>Los dispositivos administrados son supervisados y controlados usando cuatro comandos SNMP básicos: lectura, escritura, notificación y operaciones transversales.</p>
+        
+        <div class="snmp-commands">
+            <ul>
+                <li><strong>El comando de lectura</strong> es usado por un NMS para supervisar elementos de red. El NMS examina diferentes variables que son mantenidas por los dispositivos administrados.</li>
+                <li><strong>El comando de escritura</strong> es usado por un NMS para controlar elementos de red. El NMS cambia los valores de las variables almacenadas dentro de los dispositivos administrados.</li>
+                <li><strong>El comando de notificación</strong> es usado por los dispositivos administrados para reportar eventos en forma asíncrona a un NMS. Cuando cierto tipo de evento ocurre, un dispositivo administrado envía una notificación al NMS.</li>
+                <li><strong>Las operaciones transversales</strong> son usadas por el NMS para determinar qué variables soporta un dispositivo administrado y para recoger secuencialmente información en tablas de variables, como por ejemplo, una tabla de rutas.</li>
+            </ul>
+        </div>
+        
+        <p>Para realizar las operaciones básicas de administración anteriormente nombradas, el protocolo SNMP utiliza el protocolo UDP para enviar un pequeño grupo de mensajes denominados PDUs o Protocol Data Units entre los administradores y agentes. Los mensajes son los siguientes:</p>
+        
+        <div class="snmp-messages">
+            <div class="message">
+                <h5>a) GetRequest</h5>
+                <p>A través de este mensaje el NMS solicita al agente retornar el valor de un objeto de interés mediante su nombre. En respuesta el agente envía una respuesta indicando el éxito o fracaso de la petición. Si la petición fue correcta, el mensaje resultante también contendrá el valor del objeto solicitado.</p>
+            </div>
+            
+            <div class="message">
+                <h5>b) GetNextRequest</h5>
+                <p>Este mensaje es usado para recorrer una tabla de objetos.</p>
+            </div>
+            
+            <div class="message">
+                <h5>c) SetRequest</h5>
+                <p>Este tipo de mensaje es utilizado por el NMS para solicitar a un agente modificar valores de objetos.</p>
+            </div>
+            
+            <div class="message">
+                <h5>d) GetResponse</h5>
+                <p>Este mensaje es usado por el agente para responder un mensaje GetRequest, GetNextRequest, o SetRequest.</p>
+            </div>
+            
+            <div class="message">
+                <h5>e) Trap</h5>
+                <p>Una trap es generado por el agente para reportar ciertas condiciones y cambios de estado a un proceso de administración. Permite enviar varios tipos de alarmas 'start', 'stop', 'warm start', 'failure', etc, y configurar un gran número de eventos, dependiendo del dispositivo en concreto.</p>
+            </div>
+            
+            <p>En las versiones 2 y 3 de SNMP se añadieron los siguientes mensajes:</p>
+            
+            <div class="message">
+                <h5>f) GetBulkRequest</h5>
+                <p>Este mensaje es usado por un NMS cuando es requerida una larga transmisión de datos, tal como la recuperación de largas tablas.</p>
+            </div>
+            
+            <div class="message">
+                <h5>g) InformRequest</h5>
+                <p>Mensaje entre NMS´s, para notificar información sobre objetos administrados, utilizando el protocolo de nivel 4 TCP.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4040301008">
+        <h4>Formato de Paquetes SNMP</h4>
+        <p>Los paquetes utilizados para enviar consultas y respuestas SNMP poseen el siguiente formato:</p>
+        
+        <div class="packet-format">
+            <div class="format-header">Formato de Paquete SNMP</div>
+            <div class="format-fields">
+                <div class="field">
+                    <div class="field-name">Version</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Comunidad</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">SNMP PDU</div>
+                </div>
+            </div>
+        </div>
+        
+        <p>Los mensajes GetRequest, GetNextRequest, SetRequest y GetResponse utilizan la siguiente estructura en el campo SNMP PDU:</p>
+        
+        <div class="pdu-format">
+            <div class="format-header">Estructura del campo SNMP PDU</div>
+            <div class="format-fields">
+                <div class="field">
+                    <div class="field-name">Tipo</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Identificador</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Estado de error (0-5)</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Índice de error (0-5)</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Enlazado de variables</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pdu-fields-explanation">
+            <ul>
+                <li><strong>Identificador</strong>: Es un número utilizado por el NMS y el agente para enviar solicitudes y respuesta diferentes en forma simultánea;</li>
+                <li><strong>Estado e índice de error</strong>: Sólo se usan en los mensajes GetResponse (en las consultas siempre se utiliza cero). El campo "índice de error" sólo se usa cuando "estado de error" es distinto de 0 y posee el objetivo de proporcionar información adicional sobre la causa del problema. El campo "estado de error" puede tener los siguientes valores:
+                    <ul>
+                        <li>0: No hay error;</li>
+                        <li>1: Demasiado grande;</li>
+                        <li>2: No existe esa variable;</li>
+                        <li>3: Valor incorrecto;</li>
+                        <li>4: El valor es de solo lectura;</li>
+                        <li>5: Error genérico.</li>
+                    </ul>
+                </li>
+                <li><strong>Enlazado de variables</strong>: Es una serie de nombres de variables con sus valores correspondientes (codificados en ASN.1).</li>
+            </ul>
+        </div>
+        
+        <p>El formato del mensaje de trap es diferente del resto de los mensajes de SNMP, y contiene los siguientes campos:</p>
+        
+        <div class="trap-format">
+            <div class="format-header">Formato del mensaje Trap</div>
+            <div class="format-fields">
+                <div class="field">
+                    <div class="field-name">Tipo</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Enterprise</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Dirección del agente</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Tipo genérico de trap</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Tipo específico de trap</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Timestamp</div>
+                </div>
+                <div class="field">
+                    <div class="field-name">Enlazado de variables</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trap-fields-explanation">
+            <ul>
+                <li><strong>Enterprise</strong>: Identificación del subsistema de gestión que ha emitido el trap.</li>
+                <li><strong>Dirección del agente</strong>: Dirección IP del agente que ha emitido el trap.</li>
+                <li><strong>Tipo genérico de trap</strong>:
+                    <ul>
+                        <li>Cold start (0): Indica que el agente ha sido inicializado o reinicializado.</li>
+                        <li>Warm start (1): Indica que la configuración del agente ha cambiado.</li>
+                        <li>Link down (2): Indica que una interfaz de comunicación se encuentra fuera de servicio (inactiva).</li>
+                        <li>Link up (3): Indica que una interfaz de comunicación se encuentra en servicio (activa).</li>
+                        <li>Authentication failure (4): Indica que el agente ha recibido un requerimiento de un NMS no autorizado (normalmente controlado por una comunidad).</li>
+                        <li>EGP neighbor loss (5): Indica que en sistemas en que los routers están utilizando el protocolo EGP, un equipo colindante se encuentra fuera de servicio.</li>
+                        <li>Enterprise (6): En esta categoría se encuentran todos los nuevos traps incluidos por los vendedores.</li>
+                    </ul>
+                </li>
+                <li><strong>Tipo específico de trap</strong>: Es usado para traps privados (de fabricantes), así como para precisar la información de un determinado trap genérico.</li>
+                <li><strong>Timestamp</strong>: Indica el tiempo que ha transcurrido entre la reinicialización del agente y la generación del trap.</li>
+                <li><strong>Enlazado de variables</strong>: Se utiliza para proporcionar información adicional sobre la causa del mensaje.</li>
+            </ul>
+        </div>
+        
+        <p>Utilizando los campos de tipo genérico o específico del trap, cada fabricante de los sistemas de gestión de red puede determinar las incidencias que van a ser notificadas de manera automática.</p>
+        
+        <div class="snmp-messages-diagram">
+            <div class="diagram-header">Mensajes SNMP</div>
+            <div class="diagram-image">
+                <div class="nms-side">
+                    <div class="nms-label">NMS</div>
+                    <div class="messages-sent">
+                        <div class="message">GetRequest</div>
+                        <div class="message">GetNextRequest</div>
+                        <div class="message">SetRequest</div>
+                        <div class="message">GetBulkRequest</div>
+                    </div>
+                </div>
+                <div class="communication-arrows">
+                    <div class="arrow right">→</div>
+                    <div class="arrow left">←</div>
+                </div>
+                <div class="agent-side">
+                    <div class="agent-label">Agente</div>
+                    <div class="messages-sent">
+                        <div class="message">GetResponse</div>
+                        <div class="message">Trap</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-caption">Figura 6. Mensajes SNMP. Fuente: TCP/IP Illustrated. Vol I: The protocols (Addison-Wesley Professional Computing Series)</div>
+        </div>
+        
+        <div class="snmp-tools">
+            <h4>Herramientas que implementan SNMP</h4>
+            <p>Algunas de las herramientas que implementan SNMP son Nagios, Tivolí (IBM), CA Performance Management y Solarwinds.</p>
+            
+            <div class="tools-list">
+                <div class="tool">
+                    <div class="tool-name">Nagios</div>
+                    <div class="tool-description">Sistema de monitorización de código abierto que permite supervisar hosts, servicios y redes.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Tivolí (IBM)</div>
+                    <div class="tool-description">Suite de gestión de sistemas que proporciona monitorización, automatización y gestión de servicios.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">CA Performance Management</div>
+                    <div class="tool-description">Plataforma de monitorización de rendimiento que proporciona visibilidad de la infraestructura de red y aplicaciones.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Solarwinds</div>
+                    <div class="tool-description">Suite de herramientas de gestión de red que incluye monitorización, configuración y gestión de fallos.</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Device Management Overview Styles */
+        .device-management-overview {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .management-diagram {
+            margin: 15px 0;
+        }
+        .management-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .component {
+            flex: 1 1 30%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 200px;
+        }
+        .component-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .component-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .item {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .management-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Centralized Management Styles */
+        .centralized-management {
+            margin: 20px 0;
+        }
+        .management-image {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .image-caption {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .network-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .central-console {
+            padding: 15px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .console-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .console-icon {
+            font-size: 2em;
+        }
+        .network-connections {
+            position: relative;
+            width: 100%;
+            height: 50px;
+        }
+        .connection-line {
+            position: absolute;
+            background-color: #0078d7;
+        }
+        .connection-line.vertical {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .connection-line.horizontal {
+            height: 2px;
+            width: 40%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .connection-line.horizontal.left {
+            left: 10%;
+        }
+        .connection-line.horizontal.right {
+            right: 10%;
+        }
+        .network-devices {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .device {
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .device-icon {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .device-label {
+            font-weight: bold;
+        }
+        
+        /* Management Workflow Styles */
+        .management-workflow {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .workflow-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .workflow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .workflow-step {
+            flex: 1 1 20%;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 150px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .workflow-arrow {
+            font-size: 1.5em;
+            color: #0078d7;
+        }
+        
+        /* Management Areas Styles */
+        .management-areas {
+            margin: 20px 0;
+        }
+        .areas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .area {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-width: 300px;
+        }
+        .area-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .area-icon {
+            font-size: 1.5em;
+        }
+        .area-title {
+            font-weight: bold;
+            color: #0078d7;
+        }
+        .area-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .example {
+            padding: 5px 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* SNMP Overview Styles */
+        .snmp-overview {
+            margin: 20px 0;
+        }
+        .protocol-details {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .snmp-versions {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .version-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .version {
+            flex: 1 1 30%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 200px;
+        }
+        .version-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .version-features {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .feature {
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        /* SNMPv3 Structure Styles */
+        .snmpv3-structure {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .structure-diagram {
+            margin: 15px 0;
+        }
+        .structure-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .structure-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .entity-engine, .entity-applications {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .engine-header, .applications-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            color: #0078d7;
+        }
+        .engine-modules, .applications-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .module, .application {
+            flex: 1 1 45%;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            min-width: 200px;
+        }
+        .module-name, .application-name {
+            text-align: center;
+        }
+        
+        /* SNMP Security Styles */
+        .snmp-security {
+            margin: 20px 0;
+        }
+        .security-models {
+            margin: 15px 0;
+        }
+        .security-model {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .security-levels {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .level-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .security-level {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .level-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0078d7;
+        }
+        
+        /* SNMP Components Styles */
+        .snmp-components {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .component {
+            flex: 1 1 30%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-width: 250px;
+        }
+        .component-illustration {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .illustration-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        .illustration-label {
+            font-weight: bold;
+        }
+        
+        /* SNMP Diagram Styles */
+        .snmp-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .diagram-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .nms {
+            padding: 15px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .nms-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .nms-icon {
+            font-size: 2em;
+        }
+        .communication-arrows {
+            display: flex;
+            gap: 10px;
+        }
+        .arrow {
+            font-size: 1.5em;
+            color: #0078d7;
+        }
+        .managed-devices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .agent-label {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .diagram-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* MIB Structure Styles */
+        .mib-structure {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .structure-diagram {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .tree-root {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .node {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .node-name {
+            font-weight: bold;
+        }
+        .node-oid {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .tree-branches {
+            display: flex;
+            gap: 20px;
+        }
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sub-branches {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        /* SNMP Commands Styles */
+        .snmp-commands {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        /* SNMP Messages Styles */
+        .snmp-messages {
+            margin: 20px 0;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .message h5 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        
+        /* Packet Format Styles */
+        .packet-format, .pdu-format, .trap-format {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .format-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .format-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .field {
+            flex: 1 1 auto;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+            min-width: 100px;
+        }
+        .field-name {
+            font-weight: bold;
+        }
+        
+        /* PDU Fields Explanation Styles */
+        .pdu-fields-explanation, .trap-fields-explanation {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        /* SNMP Messages Diagram Styles */
+        .snmp-messages-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .nms-side, .agent-side {
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 45%;
+        }
+        .nms-label, .agent-label {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .messages-sent {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .arrow.right, .arrow.left {
+            font-size: 2em;
+        }
+        
+        /* SNMP Tools Styles */
+        .snmp-tools {
+            margin: 20px 0;
+        }
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .tool {
+            flex: 1 1 45%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-width: 250px;
+        }
+        .tool-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0078d7;
+        }
+    </style>
+</div>

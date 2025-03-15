@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de Comunicaciones</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4060401001">
+            <h2>4.1 REDES DE COMUNICACIONES</h2>
+            
+            <div class="redes-introduccion">
+                <p>Existen distintos tipos de redes que se clasifican atendiendo a la extensión física que ocupan, ya sea ésta más reducida o mayor.</p>
+            </div>
+            
+            <h3>4.1.1 CLASIFICACIÓN DE REDES</h3>
+            
+            <div class="redes-clasificacion">
+                <div class="redes-tipo">
+                    <div class="redes-titulo-tipo">LAN (Local Area Network)</div>
+                    <div class="redes-descripcion-tipo">
+                        <p>La red de área local o LAN es una red de corto alcance, puede ser una pequeña red doméstica o un edificio corporativo, pero siempre se trata de un ámbito relativamente reducido en el que todos los elementos están habitualmente bajo el control del mismo equipo de administración, y permite con facilidad la compartición de elementos como impresoras, recursos de red como NAS o SMB. Su velocidad de transmisión suele ser muy alta al tratarse de un ámbito controlado, y es muy común que estén basadas en tecnología Ethernet.</p>
+                    </div>
+                    <div class="redes-visualizacion-tipo">
+                        <div class="redes-esquema-lan">
+                            <div class="redes-edificio">
+                                <div class="redes-titulo-edificio">Edificio corporativo</div>
+                                <div class="redes-contenido-edificio">
+                                    <div class="redes-dispositivo redes-servidor"></div>
+                                    <div class="redes-dispositivo redes-switch"></div>
+                                    <div class="redes-dispositivo redes-pc"></div>
+                                    <div class="redes-dispositivo redes-pc"></div>
+                                    <div class="redes-dispositivo redes-impresora"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-caracteristicas">
+                            <div class="redes-titulo-caracteristicas">Características:</div>
+                            <ul class="redes-lista-caracteristicas">
+                                <li>Ámbito geográfico reducido</li>
+                                <li>Alta velocidad de transmisión</li>
+                                <li>Control centralizado</li>
+                                <li>Compartición de recursos</li>
+                                <li>Tecnología común: Ethernet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-tipo">
+                    <div class="redes-titulo-tipo">MAN (Metropolitan Area Network)</div>
+                    <div class="redes-descripcion-tipo">
+                        <p>Una red de área metropolitana o MAN es una red que conecta varias LAN que se encuentran relativamente cerca, a una distancia máxima de unos 50 kilómetros, lo que permite utilizar conexiones de alta velocidad. En una MAN, dos nodos cualesquiera pueden comunicarse del mismo modo que lo harían en una LAN. Un ejemplo sería una empresa con varias sedes repartidas por una ciudad.</p>
+                    </div>
+                    <div class="redes-visualizacion-tipo">
+                        <div class="redes-esquema-man">
+                            <div class="redes-ciudad">
+                                <div class="redes-titulo-ciudad">Ciudad</div>
+                                <div class="redes-contenido-ciudad">
+                                    <div class="redes-edificio-mini">
+                                        <div class="redes-titulo-edificio-mini">Sede A</div>
+                                        <div class="redes-lan-mini"></div>
+                                    </div>
+                                    <div class="redes-conexion-man"></div>
+                                    <div class="redes-edificio-mini">
+                                        <div class="redes-titulo-edificio-mini">Sede B</div>
+                                        <div class="redes-lan-mini"></div>
+                                    </div>
+                                    <div class="redes-conexion-man"></div>
+                                    <div class="redes-edificio-mini">
+                                        <div class="redes-titulo-edificio-mini">Sede C</div>
+                                        <div class="redes-lan-mini"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-caracteristicas">
+                            <div class="redes-titulo-caracteristicas">Características:</div>
+                            <ul class="redes-lista-caracteristicas">
+                                <li>Conecta varias LAN cercanas</li>
+                                <li>Distancia máxima: ~50 km</li>
+                                <li>Alta velocidad de transmisión</li>
+                                <li>Comunicación directa entre nodos</li>
+                                <li>Ejemplo: Empresa con varias sedes en una ciudad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-tipo">
+                    <div class="redes-titulo-tipo">WAN (Wide Area Network)</div>
+                    <div class="redes-descripcion-tipo">
+                        <p>Una red de área extensa o WAN es una red que ocupa un amplio ámbito geográfico. Este ámbito puede ser una región, un país o incluso una red mundial. En el caso de las WAN, es común que las comunicaciones viajen fuera del ámbito del control privado de la organización, haciendo uso de proveedores de acceso a internet o Internet Service Providers (ISPs) por lo que es importante la implementación de medidas de seguridad adecuadas. Un ejemplo de este tipo de red es Internet.</p>
+                        <p>Habitualmente se utiliza una WAN para interconexionar las LANs de la misma organización, en cuyo caso se puede hacer uso de redes privadas virtuales para establecer la comunicación de manera transparente, extendiendo la intranet privada a través de la red pública.</p>
+                    </div>
+                    <div class="redes-visualizacion-tipo">
+                        <div class="redes-esquema-wan">
+                            <div class="redes-mapa-mundial">
+                                <div class="redes-titulo-mapa">Red mundial</div>
+                                <div class="redes-contenido-mapa">
+                                    <div class="redes-continente">
+                                        <div class="redes-titulo-continente">Europa</div>
+                                        <div class="redes-oficina-wan"></div>
+                                    </div>
+                                    <div class="redes-conexion-wan"></div>
+                                    <div class="redes-nube-internet">
+                                        <div class="redes-titulo-nube">Internet</div>
+                                    </div>
+                                    <div class="redes-conexion-wan"></div>
+                                    <div class="redes-continente">
+                                        <div class="redes-titulo-continente">América</div>
+                                        <div class="redes-oficina-wan"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-caracteristicas">
+                            <div class="redes-titulo-caracteristicas">Características:</div>
+                            <ul class="redes-lista-caracteristicas">
+                                <li>Amplio ámbito geográfico</li>
+                                <li>Comunicaciones a través de ISPs</li>
+                                <li>Requiere medidas de seguridad</li>
+                                <li>Uso común de VPNs</li>
+                                <li>Ejemplo: Internet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-comparativa">
+                    <div class="redes-titulo-comparativa">Comparativa de tipos de redes</div>
+                    <div class="redes-tabla-comparativa">
+                        <div class="redes-fila-tabla redes-cabecera-tabla">
+                            <div class="redes-celda-tabla">Característica</div>
+                            <div class="redes-celda-tabla">LAN</div>
+                            <div class="redes-celda-tabla">MAN</div>
+                            <div class="redes-celda-tabla">WAN</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Alcance geográfico</div>
+                            <div class="redes-celda-tabla">Edificio o campus</div>
+                            <div class="redes-celda-tabla">Ciudad (hasta 50 km)</div>
+                            <div class="redes-celda-tabla">País, continente o mundial</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Velocidad</div>
+                            <div class="redes-celda-tabla">Alta (10 Mbps - 10 Gbps)</div>
+                            <div class="redes-celda-tabla">Media-Alta (10 Mbps - 1 Gbps)</div>
+                            <div class="redes-celda-tabla">Variable (64 Kbps - 100 Mbps)</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Propiedad</div>
+                            <div class="redes-celda-tabla">Privada</div>
+                            <div class="redes-celda-tabla">Privada o compartida</div>
+                            <div class="redes-celda-tabla">Pública o compartida</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Tecnologías comunes</div>
+                            <div class="redes-celda-tabla">Ethernet, Wi-Fi</div>
+                            <div class="redes-celda-tabla">Ethernet, FDDI, ATM</div>
+                            <div class="redes-celda-tabla">ATM, Frame Relay, MPLS</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Congestión</div>
+                            <div class="redes-celda-tabla">Baja</div>
+                            <div class="redes-celda-tabla">Media</div>
+                            <div class="redes-celda-tabla">Alta</div>
+                        </div>
+                        <div class="redes-fila-tabla">
+                            <div class="redes-celda-tabla">Tolerancia a fallos</div>
+                            <div class="redes-celda-tabla">Baja</div>
+                            <div class="redes-celda-tabla">Media</div>
+                            <div class="redes-celda-tabla">Alta</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4060401002">
+            <h3>4.1.2 REDES CABLEADAS</h3>
+            
+            <div class="redes-cableadas">
+                <div class="redes-tecnologia">
+                    <div class="redes-titulo-tecnologia">Ethernet</div>
+                    <div class="redes-descripcion-tecnologia">
+                        <p>Ethernet es uno de los estándares de redes más extendidos, en especial en los ámbitos de las redes de área local. Consiste en una familia de tecnologías definidas dentro de los estándares IEEE 802.2 y 802.3, y que abarcan protocolos de capa 2 y tecnologías de capa 1.</p>
+                        
+                        <div class="redes-estandares">
+                            <div class="redes-titulo-estandares">Estándares principales de la familia 802.2 y 802.3</div>
+                            <div class="redes-tabla-estandares">
+                                <div class="redes-fila-estandar redes-cabecera-estandar">
+                                    <div class="redes-celda-estandar">Estándar</div>
+                                    <div class="redes-celda-estandar">Descripción</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.2</div>
+                                    <div class="redes-celda-estandar">Control de enlace lógico (LLC)</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3</div>
+                                    <div class="redes-celda-estandar">CSMA / CD (ETHERNET)</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3a</div>
+                                    <div class="redes-celda-estandar">Ethernet delgada 10Base2</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3i</div>
+                                    <div class="redes-celda-estandar">Ethernet de par trenzado 10BaseT</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3u</div>
+                                    <div class="redes-celda-estandar">Fast Ethernet 100BaseT</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3z</div>
+                                    <div class="redes-celda-estandar">Gigabit Ethernet parámetros para 1000 Mbps</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3ab</div>
+                                    <div class="redes-celda-estandar">Gigabit Ethernet sobre 4 pares de cable UTP Cat5e o superior</div>
+                                </div>
+                                <div class="redes-fila-estandar">
+                                    <div class="redes-celda-estandar">IEEE 802.3ae</div>
+                                    <div class="redes-celda-estandar">10 Gigabit Ethernet</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>LLC o Logical Link Control (Control de Enlace Lógico) es una subcapa perteneciente al nivel de enlace que se encarga del control del enlace lógico, lo que incluye funcionalidades de:</p>
+                        <ul>
+                            <li>Detección y corrección de errores en la transmisión</li>
+                            <li>Composición de las tramas</li>
+                            <li>Gestión del direccionamiento de nivel de enlace basado en direcciones MAC</li>
+                            <li>Control del proceso de diálogo entre los extremos</li>
+                        </ul>
+                        <p>Su cabecera se compone de los campos DSAP (Destination Service Access Point) y SSAP (Source Service Access Point), que permiten la multiplexación de distintos servicios en las capas superiores, y un campo de Control de Flujo.</p>
+                    </div>
+                    
+                    <div class="redes-trama-ethernet">
+                        <div class="redes-titulo-trama">Formato de la trama Ethernet</div>
+                        <div class="redes-esquema-trama">
+                            <div class="redes-campo-trama redes-preambulo">
+                                <div class="redes-nombre-campo">Preámbulo</div>
+                                <div class="redes-bytes-campo">7 bytes</div>
+                            </div>
+                            <div class="redes-campo-trama redes-sof">
+                                <div class="redes-nombre-campo">SOF</div>
+                                <div class="redes-bytes-campo">1 byte</div>
+                            </div>
+                            <div class="redes-campo-trama redes-destino">
+                                <div class="redes-nombre-campo">Dirección destino</div>
+                                <div class="redes-bytes-campo">6 bytes</div>
+                            </div>
+                            <div class="redes-campo-trama redes-origen">
+                                <div class="redes-nombre-campo">Dirección origen</div>
+                                <div class="redes-bytes-campo">6 bytes</div>
+                            </div>
+                            <div class="redes-campo-trama redes-tipo">
+                                <div class="redes-nombre-campo">Tipo</div>
+                                <div class="redes-bytes-campo">2 bytes</div>
+                            </div>
+                            <div class="redes-campo-trama redes-datos">
+                                <div class="redes-nombre-campo">Datos</div>
+                                <div class="redes-bytes-campo">46-1500 bytes</div>
+                            </div>
+                            <div class="redes-campo-trama redes-fcs">
+                                <div class="redes-nombre-campo">FCS</div>
+                                <div class="redes-bytes-campo">4 bytes</div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-campos">
+                            <p>El formato de la trama Ethernet se compone de los siguientes campos:</p>
+                            <ul>
+                                <li><strong>Preámbulo:</strong> Se trata de un patrón único de unos y ceros que indica al receptor si la trama pertenece al estándar Ethernet o al 802.3, ya que existen ligeras diferencias entre ambas.</li>
+                                <li><strong>Inicio de trama (SOF):</strong> Sirve de apoyo para que los distintos receptores se puedan sincronizar.</li>
+                                <li><strong>Direcciones destino y origen:</strong> Direcciones MAC de la máquina que envía la trama y de la máquina destino. La de destino puede ser de broadcast y remitirse a más de un nodo.</li>
+                                <li><strong>Tipo:</strong> Describe el protocolo de capa superior que recibirá la información.</li>
+                                <li><strong>Longitud:</strong> Cantidad de bytes de datos que se incluyen a continuación.</li>
+                                <li><strong>Datos:</strong> Incluye el payload o datos a enviar. Si los datos no son suficientes para completar una trama mínima de 64 bytes, se insertan bytes de relleno hasta completarlos.</li>
+                                <li><strong>Secuencia de verificación de trama (FCS):</strong> Valor de verificación CRC (Control de Redundancia Cíclica) de 4 bytes, que se calcula por el dispositivo emisor y se recalcula por el dispositivo receptor, y sirve para detectar tramas dañadas durante la transmisión.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-direcciones-mac">
+                        <div class="redes-titulo-mac">Direcciones MAC</div>
+                        <div class="redes-esquema-mac">
+                            <div class="redes-mac-completa">
+                                <div class="redes-parte-mac redes-oui">
+                                    <div class="redes-nombre-parte">OUI</div>
+                                    <div class="redes-bytes-parte">24 bits</div>
+                                </div>
+                                <div class="redes-parte-mac redes-nic">
+                                    <div class="redes-nombre-parte">NIC</div>
+                                    <div class="redes-bytes-parte">24 bits</div>
+                                </div>
+                            </div>
+                            <div class="redes-ejemplo-mac">
+                                <div class="redes-titulo-ejemplo">Ejemplo: 00:1A:2B:3C:4D:5E</div>
+                                <div class="redes-partes-ejemplo">
+                                    <div class="redes-parte-ejemplo">00:1A:2B</div>
+                                    <div class="redes-parte-ejemplo">3C:4D:5E</div>
+                                </div>
+                                <div class="redes-etiquetas-ejemplo">
+                                    <div class="redes-etiqueta-ejemplo">Identificador de fabricante</div>
+                                    <div class="redes-etiqueta-ejemplo">Número de serie</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-mac">
+                            <p>Las direcciones MAC son únicas y se componen de 48 bits, tanto para destino como para origen. Los primeros 24 bits se denominan OUI u Organizationally Unique Identifier (Identificador Único de Organización), que asigna el IEEE y es único para cada organización que quiera fabricar interfaces de red o NICs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-arquitectura-ethernet">
+                        <div class="redes-titulo-arquitectura">Arquitectura de red Ethernet</div>
+                        <div class="redes-esquema-arquitectura">
+                            <div class="redes-componente-arquitectura">
+                                <div class="redes-nombre-componente">DTE</div>
+                                <div class="redes-descripcion-componente">Data Terminal Equipment</div>
+                            </div>
+                            <div class="redes-flecha-arquitectura"></div>
+                            <div class="redes-componente-arquitectura">
+                                <div class="redes-nombre-componente">AUI</div>
+                                <div class="redes-descripcion-componente">Attachment Unit Interface</div>
+                            </div>
+                            <div class="redes-flecha-arquitectura"></div>
+                            <div class="redes-componente-arquitectura">
+                                <div class="redes-nombre-componente">PMA</div>
+                                <div class="redes-descripcion-componente">Physical Medium Attachment</div>
+                            </div>
+                            <div class="redes-flecha-arquitectura"></div>
+                            <div class="redes-componente-arquitectura">
+                                <div class="redes-nombre-componente">MDI</div>
+                                <div class="redes-descripcion-componente">Medium Dependent Interface</div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-arquitectura">
+                            <p>En la arquitectura de red Ethernet encontramos los siguientes elementos:</p>
+                            <ul>
+                                <li><strong>DTE (Data Terminal Equipment)</strong> o Equipo Terminal de Datos, que siempre debe estar equipado con una NIC o Network Interface Card compatible Ethernet</li>
+                                <li><strong>AUI (Attachment Unit Interface)</strong> o Interfaz de Unidad de Conexión, que une las NICs con el PMA</li>
+                                <li><strong>PMA (Physical Medium Attachment)</strong> o conexión al medio físico</li>
+                                <li><strong>MDI (Medium Dependent Interface)</strong> o MDI, que es el conector físico que une la PMA con el medio de transmisión</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-tecnologia">
+                    <div class="redes-titulo-tecnologia">ATM (Asynchronous Transfer Mode)</div>
+                    <div class="redes-descripcion-tecnologia">
+                        <p>ATM o Asynchronous Transfer Mode es un estándar para redes de alta velocidad, ampliamente utilizado para el tráfico a través de las redes de fibra óptica del ámbito WAN. Al contrario que Ethernet, ATM utiliza dispositivos hardware dedicados denominados Switches ATM para establecer conexiones directas punto a punto entre los extremos, razón por la cual ATM nunca ha sido ampliamente utilizado en redes LAN, dado el alto coste que ello supondría.</p>
+                        <p>El tráfico en ATM se basa en el envío de unas celdas de tamaño fijo de 53 bytes (5 bytes de cabecera y 48 bytes de datos o payload). La cabecera incluye información tal como el identificador de tipo de tráfico, la prioridad solicitada, el canal virtual de ATM o el checksum de la cabecera. Asimismo, existen dos tipos de celdas: UNI (User-Network Interface) para el tráfico entre usuario y switch ATM, y NNI (Network-Network Interface) para el tráfico interswitch.</p>
+                    </div>
+                    
+                    <div class="redes-celda-atm">
+                        <div class="redes-titulo-celda">Estructura de una celda ATM</div>
+                        <div class="redes-esquema-celda">
+                            <div class="redes-campo-celda redes-cabecera-celda">
+                                <div class="redes-nombre-campo-celda">Cabecera</div>
+                                <div class="redes-bytes-campo-celda">5 bytes</div>
+                            </div>
+                            <div class="redes-campo-celda redes-datos-celda">
+                                <div class="redes-nombre-campo-celda">Datos (Payload)</div>
+                                <div class="redes-bytes-campo-celda">48 bytes</div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-celda">
+                            <p>Las celdas ATM tienen un tamaño fijo de 53 bytes, divididos en 5 bytes de cabecera y 48 bytes de datos. Este tamaño fijo facilita el procesamiento en hardware y reduce la latencia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-circuitos-virtuales">
+                        <div class="redes-titulo-circuitos">Circuitos Virtuales en ATM</div>
+                        <div class="redes-tipos-circuitos">
+                            <div class="redes-tipo-circuito">
+                                <div class="redes-nombre-circuito">PVC (Permanent Virtual Circuit)</div>
+                                <div class="redes-descripcion-circuito">
+                                    <p>En los PVCs el enrutamiento ATM es manual y no existe señalización en los extremos para establecer el circuito.</p>
+                                </div>
+                            </div>
+                            <div class="redes-tipo-circuito">
+                                <div class="redes-nombre-circuito">SVC (Switched Virtual Circuit)</div>
+                                <div class="redes-descripcion-circuito">
+                                    <p>En SVC se utiliza el protocolo P-NNI (Private Network-to-Network Interface) para establecer la ruta que atravesará la celda a través de los switches.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-capas-atm">
+                        <div class="redes-titulo-capas">Modelo de capas ATM</div>
+                        <div class="redes-esquema-capas">
+                            <div class="redes-capa">
+                                <div class="redes-nombre-capa">Capa de aplicación</div>
+                                <div class="redes-descripcion-capa">Tráfico final (ej. IP)</div>
+                            </div>
+                            <div class="redes-capa">
+                                <div class="redes-nombre-capa">Capa AAL (ATM Adaptation Layer)</div>
+                                <div class="redes-subcapas">
+                                    <div class="redes-subcapa">
+                                        <div class="redes-nombre-subcapa">SAR (Segmentation and Reassembly)</div>
+                                    </div>
+                                    <div class="redes-subcapa">
+                                        <div class="redes-nombre-subcapa">CS (Convergence Sublayer)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="redes-capa">
+                                <div class="redes-nombre-capa">Capa ATM</div>
+                                <div class="redes-descripcion-capa">Señalización, transporte y control de congestión</div>
+                            </div>
+                            <div class="redes-capa">
+                                <div class="redes-nombre-capa">Capa Física</div>
+                                <div class="redes-subcapas">
+                                    <div class="redes-subcapa">
+                                        <div class="redes-nombre-subcapa">TC (Transmission Convergence)</div>
+                                    </div>
+                                    <div class="redes-subcapa">
+                                        <div class="redes-nombre-subcapa">PMD (Physical Media Dependent)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-capas">
+                            <p>ATM define su propio modelo de capas, equivalentes a algunas de las capas OSI:</p>
+                            <ol>
+                                <li><strong>Capa Física</strong>, que se divide en dos subcapas:
+                                    <ul>
+                                        <li>PMD (Physical Media Dependent), equivalente a la capa física OSI</li>
+                                        <li>TC (Transmission Convergence), que equivale a la capa de enlace OSI</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Capa ATM</strong>, para señalización, transporte y control de congestión</li>
+                                <li><strong>Capa AAL</strong> o ATM Adaptation Layer, equivalente a la capa de transporte OSI. Se divide en dos subcapas:
+                                    <ul>
+                                        <li>SAR (Segmentation and Reassembly), se encarga de dividir el tráfico en celdas y reensamblarlo en destino</li>
+                                        <li>CS (Convergence Sublayer), se encarga de ofrecer los servicios ATM al cliente</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Capa de aplicación</strong>, en la que va el tráfico final, como por ejemplo IP.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-qos-atm">
+                        <div class="redes-titulo-qos">Calidad de Servicio (QoS) en ATM</div>
+                        <div class="redes-modalidades-qos">
+                            <div class="redes-modalidad-qos">
+                                <div class="redes-nombre-modalidad">De transmisión constante</div>
+                                <div class="redes-descripcion-modalidad">
+                                    <p>Este modo se utiliza cuando una aplicación quiere reservar un ancho de banda fijo para su transmisión. Se utiliza por ejemplo en casos de videoconferencia.</p>
+                                </div>
+                            </div>
+                            <div class="redes-modalidad-qos">
+                                <div class="redes-nombre-modalidad">De transmisión variable</div>
+                                <div class="redes-descripcion-modalidad">
+                                    <p>La aplicación especifica un ancho de banda mínimo y máximo, manteniéndose el ratio entre ambos valores a lo largo de toda la transmisión.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-tipos-qos">
+                            <div class="redes-titulo-tipos-qos">Tipos de compromisos de calidad</div>
+                            <div class="redes-lista-tipos-qos">
+                                <div class="redes-tipo-qos">
+                                    <div class="redes-nombre-tipo-qos">CBR (Constant Bit Rate)</div>
+                                    <div class="redes-descripcion-tipo-qos">Garantiza la capacidad de ancho de banda disponible</div>
+                                </div>
+                                <div class="redes-tipo-qos">
+                                    <div class="redes-nombre-tipo-qos">VBR (Variable Bit Rate)</div>
+                                    <div class="redes-descripcion-tipo-qos">Garantiza un ancho de banda medio. Se utiliza normalmente para tráfico a ráfagas.</div>
+                                </div>
+                                <div class="redes-tipo-qos">
+                                    <div class="redes-nombre-tipo-qos">ABR (Available Bit Rate)</div>
+                                    <div class="redes-descripcion-tipo-qos">Fija un mínimo o un máximo siempre que esté disponible.</div>
+                                </div>
+                                <div class="redes-tipo-qos">
+                                    <div class="redes-nombre-tipo-qos">UBR (Unspecified Bit Rate)</div>
+                                    <div class="redes-descripcion-tipo-qos">Sin garantías de ancho de banda.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-comparativa-ethernet-atm">
+                        <div class="redes-titulo-comparativa">Comparativa entre Ethernet y ATM</div>
+                        <div class="redes-tabla-comparativa">
+                            <div class="redes-fila-tabla redes-cabecera-tabla">
+                                <div class="redes-celda-tabla"></div>
+                                <div class="redes-celda-tabla">Ethernet</div>
+                                <div class="redes-celda-tabla">ATM</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Ampliamente utilizado en</div>
+                                <div class="redes-celda-tabla">Ámbito LAN</div>
+                                <div class="redes-celda-tabla">Ámbito WAN</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Requiere dispositivos hardware dedicados</div>
+                                <div class="redes-celda-tabla">NO</div>
+                                <div class="redes-celda-tabla">SI (Switches ATM)</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Tamaño de la celda</div>
+                                <div class="redes-celda-tabla">Variable (Payload máximo 1.500 bytes)</div>
+                                <div class="redes-celda-tabla">Fijo (53 bytes)</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Soporta QoS</div>
+                                <div class="redes-celda-tabla">NO</div>
+                                <div class="redes-celda-tabla">SI</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Ancho de banda ofrecido</div>
+                                <div class="redes-celda-tabla">Fijo</div>
+                                <div class="redes-celda-tabla">Dinámico</div>
+                            </div>
+                            <div class="redes-fila-tabla">
+                                <div class="redes-celda-tabla">Coste</div>
+                                <div class="redes-celda-tabla">Bajo</div>
+                                <div class="redes-celda-tabla">De moderado a alto</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-tecnologia">
+                    <div class="redes-titulo-tecnologia">RDSI (Red Digital de Servicios Integrados)</div>
+                    <div class="redes-descripcion-tecnologia">
+                        <p>RDSI es una tecnología que permite la utilización de las redes POTS (Plain Old Telephone Service) para establecer una comunicación digital de voz o datos. Su auge se produjo en los años 90 (aunque el estándar data de 1988) y permitía establecer de manera muy sencilla y a bajo coste líneas muy estables de comunicaciones de baja o media velocidad, por lo que se utilizó en sus inicios para aplicaciones de voz profesionales y líneas de datos digitales como alternativa a la comunicaciones módem clásicas, que se basaban en otros estándares como V.32, V.34 o V.90, que realizaban una transmisión analógica de la información.</p>
+                    </div>
+                    
+                    <div class="redes-canales-rdsi">
+                        <div class="redes-titulo-canales">Canales RDSI</div>
+                        <div class="redes-tipos-canales">
+                            <div class="redes-tipo-canal">
+                                <div class="redes-nombre-canal">Canal D</div>
+                                <div class="redes-descripcion-canal">
+                                    <p>Son canales de señalización, de 16 o 64 Kbps, aunque pueden utilizarse también para envío de datos cuando no hay información de control en curso.</p>
+                                </div>
+                            </div>
+                            <div class="redes-tipo-canal">
+                                <div class="redes-nombre-canal">Canal B</div>
+                                <div class="redes-descripcion-canal">
+                                    <p>Son canales de datos, siempre de 64 Kbps, que transportan la información propiamente dicha.</p>
+                                </div>
+                            </div>
+                            <div class="redes-tipo-canal">
+                                <div class="redes-nombre-canal">Canal H</div>
+                                <div class="redes-descripcion-canal">
+                                    <p>Son agregaciones de canales B, que sirven para alcanzar velocidades mayores combinando el ancho de banda de varios canales B. Pueden ser de tipo H0 (6 canales B o 384 Kbps), H10 (23 canales B o 1.472 Kbps), H11 (24 canales B o 1.536 Kbps) o H12 (30 canales B o 1.920 Kbps).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-servicios-rdsi">
+                        <div class="redes-titulo-servicios">Tipos de servicio RDSI</div>
+                        <div class="redes-tipos-servicios">
+                            <div class="redes-tipo-servicio">
+                                <div class="redes-nombre-servicio">Acceso básico (BRI - Basic Rate Interface)</div>
+                                <div class="redes-descripcion-servicio">
+                                    <p>Es de dos canales B y un canal D. Es el acceso más común (128 Kbps).</p>
+                                </div>
+                                <div class="redes-esquema-servicio">
+                                    <div class="redes-canal-servicio redes-canal-b">B (64 Kbps)</div>
+                                    <div class="redes-canal-servicio redes-canal-b">B (64 Kbps)</div>
+                                    <div class="redes-canal-servicio redes-canal-d">D (16 Kbps)</div>
+                                </div>
+                            </div>
+                            <div class="redes-tipo-servicio">
+                                <div class="redes-nombre-servicio">Acceso primario (PRI - Primary Rate Interface)</div>
+                                <div class="redes-descripcion-servicio">
+                                    <p>Compuesto por 30 canales B y un canal D. Para alcanzar los 30 canales se pueden utilizar agregaciones de canales H.</p>
+                                </div>
+                                <div class="redes-esquema-servicio">
+                                    <div class="redes-canales-multiples">
+                                        <div class="redes-etiqueta-canales">30 canales B (64 Kbps cada uno)</div>
+                                    </div>
+                                    <div class="redes-canal-servicio redes-canal-d">D (64 Kbps)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="redes-tecnologia">
+                    <div class="redes-titulo-tecnologia">xDSL (Digital Subscriber Line)</div>
+                    <div class="redes-descripcion-tecnologia">
+                        <p>xDSL o X Digital Subscriber Line es un grupo de tecnologías que permite la utilización del par trenzado tradicional de la línea telefónica que se utiliza para el denominado POTS o plain old telephone service para el envío de información a alta velocidad, convirtiendo en la práctica la línea telefónica analógica en una línea digital.</p>
+                        <p>El uso de esta tecnología permite soportar un ancho de banda relativamente alto con unos costes de inversión muy bajos, ya que trabaja sobre líneas ya existentes y no requiere de amplificadores ni repetidores de señal a lo largo del cableado.</p>
+                        <p>La conexión xDSL requiere de un dispositivo módem terminal que sea capaz de recibir y transmitir el formato digital superponiéndolo sobre una señal analógica portadora. Existen distintos estándares xDSL pero como norma general se requiere que la distancia entre el terminal y la central telefónica no supere los 6 kms. de distancia, lo que unido a la calidad de la línea permitirá mayor o menor ancho de banda.</p>
+                    </div>
+                    
+                    <div class="redes-arquitectura-xdsl">
+                        <div class="redes-titulo-arquitectura">Arquitectura xDSL</div>
+                        <div class="redes-esquema-arquitectura-xdsl">
+                            <div class="redes-lado-cliente">
+                                <div class="redes-titulo-lado">Cliente</div>
+                                <div class="redes-componentes-lado">
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-pc"></div>
+                                        <div class="redes-nombre-componente-xdsl">PC</div>
+                                    </div>
+                                    <div class="redes-flecha-xdsl"></div>
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-modem"></div>
+                                        <div class="redes-nombre-componente-xdsl">Módem xDSL</div>
+                                    </div>
+                                    <div class="redes-flecha-xdsl"></div>
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-splitter"></div>
+                                        <div class="redes-nombre-componente-xdsl">Splitter</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="redes-linea-telefonica">
+                                <div class="redes-titulo-linea">Línea telefónica</div>
+                                <div class="redes-dibujo-linea"></div>
+                            </div>
+                            <div class="redes-lado-central">
+                                <div class="redes-titulo-lado">Central telefónica</div>
+                                <div class="redes-componentes-lado">
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-splitter"></div>
+                                        <div class="redes-nombre-componente-xdsl">Splitter</div>
+                                    </div>
+                                    <div class="redes-flecha-xdsl"></div>
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-dslam"></div>
+                                        <div class="redes-nombre-componente-xdsl">DSLAM</div>
+                                    </div>
+                                    <div class="redes-flecha-xdsl"></div>
+                                    <div class="redes-componente-xdsl">
+                                        <div class="redes-icono-componente redes-icono-internet"></div>
+                                        <div class="redes-nombre-componente-xdsl">Internet</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-descripcion-arquitectura-xdsl">
+                            <p>El <strong>splitter</strong> es un dispositivo intermedio que se ubica por delante del módem y permite la utilización simultánea de los servicios de telefonía y voz. Está formado por dos filtros, uno de paso bajo y otro de paso alto que separan las señales de alta frecuencia (los datos xDSL) de las señales de baja frecuencia de la voz (entre 300 y 3.400 Hz).</p>
+                            <p>Por último, en la arquitectura xDSL se ubica en la central un elemento denominado <strong>DSLAM</strong> o Digital Subscriber Line Access Multiplexer, que se encarga de concentrar físicamente las conexiones de los distintos abonados, así como de la conversión de protocolos entre el extremo del cliente y el de la red WAN que se encuentra al otro extremo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-tipos-xdsl">
+                        <div class="redes-titulo-tipos-xdsl">Tipos de tecnologías xDSL</div>
+                        <div class="redes-categorias-xdsl">
+                            <div class="redes-categoria-xdsl">
+                                <div class="redes-titulo-categoria">DSL Simétrico</div>
+                                <div class="redes-descripcion-categoria">
+                                    <p>Mismo ancho de banda de subida y bajada.</p>
+                                </div>
+                                <div class="redes-ejemplos-categoria">
+                                    <div class="redes-ejemplo-xdsl">
+                                        <div class="redes-nombre-ejemplo">SDSL</div>
+                                        <div class="redes-descripcion-ejemplo">Symmetric DSL</div>
+                                    </div>
+                                    <div class="redes-ejemplo-xdsl">
+                                        <div class="redes-nombre-ejemplo">HDSL</div>
+                                        <div class="redes-descripcion-ejemplo">High-bit-rate DSL</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="redes-categoria-xdsl">
+                                <div class="redes-titulo-categoria">DSL Asimétrico</div>
+                                <div class="redes-descripcion-categoria">
+                                    <p>Un canal descendente de alta velocidad y un canal ascendente de velocidad media.</p>
+                                </div>
+                                <div class="redes-ejemplos-categoria">
+                                    <div class="redes-ejemplo-xdsl">
+                                        <div class="redes-nombre-ejemplo">ADSL</div>
+                                        <div class="redes-descripcion-ejemplo">Asymmetric DSL</div>
+                                    </div>
+                                    <div class="redes-ejemplo-xdsl">
+                                        <div class="redes-nombre-ejemplo">RADSL</div>
+                                        <div class="redes-descripcion-ejemplo">Rate-Adaptative DSL</div>
+                                    </div>
+                                    <div class="redes-ejemplo-xdsl">
+                                        <div class="redes-nombre-ejemplo">VDSL</div>
+                                        <div class="redes-descripcion-ejemplo">Very High-Speed DSL</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="redes-detalles-xdsl-asimetrico">
+                            <div class="redes-titulo-detalles">Tecnologías de DSL Asimétrico</div>
+                            <div class="redes-lista-detalles">
+                                <div class="redes-detalle-xdsl">
+                                    <div class="redes-nombre-detalle">ADSL o Asymmetric DSL</div>
+                                    <div class="redes-descripcion-detalle">
+                                        <p>El primer estándar que surgió, únicamente requiere instalación de los equipos en ambos extremos de la comunicación sin necesidad de ningún tipo de ajuste adicional.</p>
+                                    </div>
+                                </div>
+                                <div class="redes-detalle-xdsl">
+                                    <div class="redes-nombre-detalle">RADSL o Rate-Adaptative DSL</div>
+                                    <div class="redes-descripcion-detalle">
+                                        <p>Permite ajustar el ancho de banda al proveedor según la demanda subyacente o las condiciones de la línea.</p>
+                                    </div>
+                                </div>
+                                <div class="redes-detalle-xdsl">
+                                    <div class="redes-nombre-detalle">VDSL o Very High-Speed DSL</div>
+                                    <div class="redes-descripcion-detalle">
+                                        <p>Se trata de un estándar que permite aplicar mayores velocidades de subida, pero requiere buena calidad de línea y corta distancia hasta la central (no más de 1.5 kms).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para redes de comunicaciones - usando clases únicas */
+        .redes-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Clasificación de redes */
+        .redes-clasificacion {
+            margin: 25px 0;
+        }
+        
+        .redes-tipo {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-tipo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.2rem;
+        }
+        
+        .redes-descripcion-tipo {
+            margin-bottom: 20px;
+        }
+        
+        .redes-visualizacion-tipo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .redes-esquema-lan, .redes-esquema-man, .redes-esquema-wan {
+            flex: 2;
+            min-width: 300px;
+            height: 200px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .redes-caracteristicas {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-caracteristicas {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .redes-lista-caracteristicas {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .redes-lista-caracteristicas li {
+            margin-bottom: 5px;
+        }
+        
+        /* LAN */
+        .redes-edificio {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #1890ff;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .redes-titulo-edificio {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #f0f5ff;
+            padding: 0 5px;
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .redes-contenido-edificio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .redes-dispositivo {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-servidor::before {
+            content: "🖥️";
+        }
+        
+        .redes-switch::before {
+            content: "🔄";
+        }
+        
+        .redes-pc::before {
+            content: "💻";
+        }
+        
+        .redes-impresora::before {
+            content: "🖨️";
+        }
+        
+        /* MAN */
+        .redes-ciudad {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #52c41a;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .redes-titulo-ciudad {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #f0f5ff;
+            padding: 0 5px;
+            font-weight: 500;
+            color: #52c41a;
+        }
+        
+        .redes-contenido-ciudad {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .redes-edificio-mini {
+            width: 60px;
+            height: 80px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-edificio-mini {
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .redes-lan-mini {
+            width: 40px;
+            height: 40px;
+            background-color: #1890ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+        }
+        
+        .redes-lan-mini::before {
+            content: "LAN";
+        }
+        
+        .redes-conexion-man {
+            width: 40px;
+            height: 2px;
+            background-color: #52c41a;
+        }
+        
+        /* WAN */
+        .redes-mapa-mundial {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #ff4d4f;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .redes-titulo-mapa {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #f0f5ff;
+            padding: 0 5px;
+            font-weight: 500;
+            color: #ff4d4f;
+        }
+        
+        .redes-contenido-mapa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .redes-continente {
+            width: 80px;
+            height: 100px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-continente {
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .redes-oficina-wan {
+            width: 60px;
+            height: 60px;
+            background-color: #1890ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+        }
+        
+        .redes-oficina-wan::before {
+            content: "Oficina";
+            font-size: 0.7rem;
+        }
+        
+        .redes-nube-internet {
+            width: 80px;
+            height: 60px;
+            background-color: #ff4d4f;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .redes-nube-internet::before, .redes-nube-internet::after {
+            content: "";
+            position: absolute;
+            background-color: #ff4d4f;
+            border-radius: 50%;
+        }
+        
+        .redes-nube-internet::before {
+            width: 30px;
+            height: 30px;
+            top: -10px;
+            left: 15px;
+        }
+        
+        .redes-nube-internet::after {
+            width: 20px;
+            height: 20px;
+            top: -5px;
+            right: 20px;
+        }
+        
+        .redes-titulo-nube {
+            font-size: 0.8rem;
+            color: white;
+            z-index: 1;
+        }
+        
+        .redes-conexion-wan {
+            width: 40px;
+            height: 2px;
+            background-color: #ff4d4f;
+        }
+        
+        /* Comparativa */
+        .redes-comparativa {
+            margin: 30px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-tabla-comparativa {
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .redes-fila-tabla {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .redes-cabecera-tabla {
+            background-color: #f0f5ff;
+            font-weight: bold;
+        }
+        
+        .redes-celda-tabla {
+            flex: 1;
+            padding: 10px;
+            min-width: 100px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 0.9rem;
+        }
+        
+        /* Redes cableadas */
+        .redes-cableadas {
+            margin: 25px 0;
+        }
+        
+        .redes-tecnologia {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-tecnologia {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.2rem;
+        }
+        
+        .redes-descripcion-tecnologia {
+            margin-bottom: 20px;
+        }
+        
+        /* Estándares Ethernet */
+        .redes-estandares {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-estandares {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-tabla-estandares {
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .redes-fila-estandar {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .redes-cabecera-estandar {
+            background-color: #1890ff;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .redes-celda-estandar {
+            flex: 1;
+            padding: 8px;
+            min-width: 100px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 0.9rem;
+        }
+        
+        /* Trama Ethernet */
+        .redes-trama-ethernet {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-trama {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-trama {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+        
+        .redes-campo-trama {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #d9d9d9;
+            background-color: white;
+        }
+        
+        .redes-nombre-campo {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .redes-bytes-campo {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .redes-preambulo {
+            background-color: #e6f7ff;
+        }
+        
+        .redes-sof {
+            background-color: #bae7ff;
+        }
+        
+        .redes-destino {
+            background-color: #91d5ff;
+        }
+        
+        .redes-origen {
+            background-color: #69c0ff;
+        }
+        
+        .redes-tipo {
+            background-color: #40a9ff;
+            color: white;
+        }
+        
+        .redes-datos {
+            background-color: #1890ff;
+            color: white;
+            flex: 1;
+        }
+        
+        .redes-fcs {
+            background-color: #096dd9;
+            color: white;
+        }
+        
+        .redes-descripcion-campos {
+            margin-top: 15px;
+        }
+        
+        /* Direcciones MAC */
+        .redes-direcciones-mac {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-mac {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-mac {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .redes-mac-completa {
+            display: flex;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        
+        .redes-parte-mac {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #d9d9d9;
+            background-color: white;
+        }
+        
+        .redes-oui {
+            background-color: #91d5ff;
+        }
+        
+        .redes-nic {
+            background-color: #69c0ff;
+        }
+        
+        .redes-nombre-parte {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .redes-bytes-parte {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .redes-ejemplo-mac {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .redes-titulo-ejemplo {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .redes-partes-ejemplo {
+            display: flex;
+            width: 100%;
+        }
+        
+        .redes-parte-ejemplo {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #d9d9d9;
+            background-color: white;
+        }
+        
+        .redes-etiquetas-ejemplo {
+            display: flex;
+            width: 100%;
+        }
+        
+        .redes-etiqueta-ejemplo {
+            flex: 1;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Arquitectura Ethernet */
+        .redes-arquitectura-ethernet {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-arquitectura {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-arquitectura {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .redes-componente-arquitectura {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #d9d9d9;
+            background-color: white;
+            border-radius: 5px;
+            min-width: 100px;
+        }
+        
+        .redes-nombre-componente {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .redes-descripcion-componente {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .redes-flecha-arquitectura {
+            width: 20px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .redes-flecha-arquitectura::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 8px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        /* Celda ATM */
+        .redes-celda-atm {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-celda {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-celda {
+            display: flex;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 15px;
+        }
+        
+        .redes-campo-celda {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #d9d9d9;
+            background-color: white;
+        }
+        
+        .redes-cabecera-celda {
+            flex: 1;
+            background-color: #91d5ff;
+        }
+        
+        .redes-datos-celda {
+            flex: 9.6;
+            background-color: #69c0ff;
+        }
+        
+        .redes-nombre-campo-celda {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .redes-bytes-campo-celda {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Circuitos virtuales */
+        .redes-circuitos-virtuales {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-circuitos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-tipos-circuitos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .redes-tipo-circuito {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-nombre-circuito {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Capas ATM */
+        .redes-capas-atm {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-capas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-capas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .redes-capa {
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-nombre-capa {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .redes-descripcion-capa {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .redes-subcapas {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .redes-subcapa {
+            padding: 5px 10px;
+            background-color: #f0f5ff;
+            border-radius: 3px;
+        }
+        
+        .redes-nombre-subcapa {
+            font-size: 0.9rem;
+        }
+        
+        /* QoS ATM */
+        .redes-qos-atm {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-qos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-modalidades-qos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .redes-modalidad-qos {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-nombre-modalidad {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .redes-tipos-qos {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-tipos-qos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-lista-tipos-qos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .redes-tipo-qos {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .redes-nombre-tipo-qos {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .redes-descripcion-tipo-qos {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Canales RDSI */
+        .redes-canales-rdsi {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-canales {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-tipos-canales {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .redes-tipo-canal {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-nombre-canal {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Servicios RDSI */
+        .redes-servicios-rdsi {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-servicios {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-tipos-servicios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .redes-tipo-servicio {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-nombre-servicio {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .redes-esquema-servicio {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .redes-canal-servicio {
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .redes-canal-b {
+            background-color: #91d5ff;
+        }
+        
+        .redes-canal-d {
+            background-color: #69c0ff;
+        }
+        
+        .redes-canales-multiples {
+            padding: 10px;
+            background-color: #91d5ff;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .redes-etiqueta-canales {
+            font-size: 0.9rem;
+        }
+        
+        /* Arquitectura xDSL */
+        .redes-arquitectura-xdsl {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-arquitectura {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-esquema-arquitectura-xdsl {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .redes-lado-cliente, .redes-lado-central {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-lado {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-componentes-lado {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .redes-componente-xdsl {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .redes-icono-componente {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .redes-icono-pc::before {
+            content: "💻";
+        }
+        
+        .redes-icono-modem::before {
+            content: "📶";
+        }
+        
+        .redes-icono-splitter::before {
+            content: "🔌";
+        }
+        
+        .redes-icono-dslam::before {
+            content: "🔄";
+        }
+        
+        .redes-icono-internet::before {
+            content: "🌐";
+        }
+        
+        .redes-nombre-componente-xdsl {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .redes-flecha-xdsl {
+            width: 20px;
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .redes-flecha-xdsl::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-left: 6px solid #1890ff;
+            transform: translateY(-50%);
+        }
+        
+        .redes-linea-telefonica {
+            flex: 0 0 100%;
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .redes-titulo-linea {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .redes-dibujo-linea {
+            height: 2px;
+            background-color: #1890ff;
+            margin: 0 20px;
+        }
+        
+        /* Tipos xDSL */
+        .redes-tipos-xdsl {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .redes-titulo-tipos-xdsl {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-categorias-xdsl {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .redes-categoria-xdsl {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-categoria {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-descripcion-categoria {
+            margin-bottom: 15px;
+        }
+        
+        .redes-ejemplos-categoria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .redes-ejemplo-xdsl {
+            flex: 1;
+            min-width: 100px;
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .redes-nombre-ejemplo {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .redes-descripcion-ejemplo {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .redes-detalles-xdsl-asimetrico {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .redes-titulo-detalles {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .redes-lista-detalles {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .redes-detalle-xdsl {
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .redes-nombre-detalle {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .redes-visualizacion-tipo {
+                flex-direction: column;
+            }
+            
+            .redes-contenido-ciudad, .redes-contenido-mapa {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .redes-conexion-man, .redes-conexion-wan {
+                width: 2px;
+                height: 20px;
+            }
+            
+            .redes-fila-tabla, .redes-fila-estandar {
+                flex-direction: column;
+            }
+            
+            .redes-celda-tabla, .redes-celda-estandar {
+                border-right: none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+            
+            .redes-esquema-arquitectura, .redes-esquema-arquitectura-xdsl {
+                flex-direction: column;
+            }
+            
+            .redes-flecha-arquitectura, .redes-flecha-xdsl {
+                width: 2px;
+                height: 20px;
+                margin: 5px 0;
+            }
+            
+            .redes-flecha-arquitectura::after, .redes-flecha-xdsl::after {
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 8px solid #1890ff;
+                border-bottom: none;
+            }
+        }
+    </style>
+</body>
+</html>

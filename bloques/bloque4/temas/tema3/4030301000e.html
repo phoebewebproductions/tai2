@@ -1,0 +1,908 @@
+<div class="teoria">
+    <span id="4030301001">
+        <h2>3.4 PRINCIPALES PLATAFORMAS DE CONTENEDORES Y MICROSERVICIOS</h2>
+        <p>Una plataforma de microservicios ofrece funcionalidades como el descubrimiento, un directorio y la monitorización de los servicios. Esto es fundamental sobre todo cuando un servicio está en mantenimiento o se escala, caso en el cual la plataforma se ocupa de comunicar la información de ubicación actualizada a todos los demás microservicios para que puedan establecer o restablecer rápidamente la comunicación.</p>
+        
+        <p>Además, una plataforma de microservicios traslada automáticamente las instancias a máquinas virtuales o a otros servidores cuando el software o hardware en el que se ejecutan fallan o deben reiniciarse para realizar actualizaciones.</p>
+        
+        <p>Estas son algunas de las principales plataformas más populares para desarrollar e implementar aplicaciones de microservicios:</p>
+        
+        <div class="platform-overview">
+            <div class="platform-diagram">
+                <div class="platform-layer infrastructure">
+                    <div class="layer-title">Infraestructura</div>
+                    <div class="layer-items">
+                        <div class="item">Servidores Físicos</div>
+                        <div class="item">Máquinas Virtuales</div>
+                        <div class="item">Nube</div>
+                    </div>
+                </div>
+                <div class="platform-layer container-runtime">
+                    <div class="layer-title">Runtime de Contenedores</div>
+                    <div class="layer-items">
+                        <div class="item">Docker</div>
+                        <div class="item">containerd</div>
+                        <div class="item">CRI-O</div>
+                    </div>
+                </div>
+                <div class="platform-layer orchestration">
+                    <div class="layer-title">Orquestación</div>
+                    <div class="layer-items">
+                        <div class="item">Kubernetes</div>
+                        <div class="item">Docker Swarm</div>
+                        <div class="item">Apache Mesos</div>
+                    </div>
+                </div>
+                <div class="platform-layer services">
+                    <div class="layer-title">Servicios de Plataforma</div>
+                    <div class="layer-items">
+                        <div class="item">Descubrimiento de Servicios</div>
+                        <div class="item">Balanceo de Carga</div>
+                        <div class="item">Monitorización</div>
+                        <div class="item">Escalado Automático</div>
+                    </div>
+                </div>
+                <div class="platform-layer applications">
+                    <div class="layer-title">Aplicaciones</div>
+                    <div class="layer-items">
+                        <div class="item">Microservicios</div>
+                        <div class="item">Aplicaciones Contenerizadas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="platform-description">
+                <p>Una plataforma de microservicios completa incluye múltiples capas, desde la infraestructura subyacente hasta los servicios de orquestación y gestión que permiten el funcionamiento eficiente de las aplicaciones basadas en microservicios.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030301002">
+        <h3>3.4.1 DOCKER</h3>
+        <p>Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos.</p>
+        
+        <p>Construido sobre las facilidades proporcionadas por el kernel Linux (principalmente cgroups y namespaces), un contenedor Docker, no requiere incluir un sistema operativo independiente. En su lugar, se basa en las funcionalidades del kernel y utiliza el aislamiento de recursos (CPU, la memoria, el bloque E/S, red, etc.) y namespaces separados para aislar la vista de una aplicación del sistema operativo. Docker accede a la virtualización del kernel Linux ya sea directamente a través de la biblioteca libcontainer (disponible desde Docker 0.9), o indirectamente a través de libvirt, LXC o systemd-nspawn.</p>
+        
+        <p>Actualmente existe una aplicación Docker de escritorio para Windows y Mac denominada Docker Desktop.</p>
+        
+        <div class="docker-architecture">
+            <h4>Arquitectura de Docker</h4>
+            <div class="architecture-diagram">
+                <div class="docker-client">Cliente Docker</div>
+                <div class="docker-host">
+                    <div class="host-header">Host Docker</div>
+                    <div class="docker-daemon">Docker Daemon</div>
+                    <div class="containers">
+                        <div class="container">
+                            <div class="container-header">Contenedor</div>
+                            <div class="app">Aplicación</div>
+                        </div>
+                        <div class="container">
+                            <div class="container-header">Contenedor</div>
+                            <div class="app">Aplicación</div>
+                        </div>
+                        <div class="container">
+                            <div class="container-header">Contenedor</div>
+                            <div class="app">Aplicación</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docker-registry">
+                    <div class="registry-header">Registro Docker</div>
+                    <div class="images">
+                        <div class="image">Imagen 1</div>
+                        <div class="image">Imagen 2</div>
+                        <div class="image">Imagen 3</div>
+                    </div>
+                </div>
+                <div class="arrows">
+                    <div class="arrow client-host">←→</div>
+                    <div class="arrow host-registry">←→</div>
+                </div>
+            </div>
+            <div class="architecture-description">
+                <p>La arquitectura de Docker se compone de tres componentes principales: el Cliente Docker, que envía comandos; el Host Docker, que ejecuta el daemon y los contenedores; y el Registro Docker, que almacena las imágenes de contenedores.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030301003">
+        <h4>3.4.1.1 DOCKER SWARM</h4>
+        <p>Docker Swarm representa el soporte integrado de Docker para administrar colecciones de motores Docker. Un Docker Swarm constituye una colección de máquinas físicas o virtuales donde se ejecuta la aplicación Docker y estas máquinas están configuradas para colaborar como un clúster. Una vez que las máquinas estén unidas como un clúster, sus comandos habituales de Docker aún se pueden usar, pero ahora serán ejecutados por las máquinas dentro del clúster. Las operaciones del clúster son supervisadas por un administrador de swarm y las máquinas que forman parte del clúster se denominan nodos.</p>
+        
+        <p>Un Docker Swarm se refiere a una colección de máquinas físicas o virtuales que funcionan juntas como un clúster. Cuando una máquina pasa a formar parte de este clúster, asume el papel de un nodo en el Docker Swarm.</p>
+        
+        <div class="docker-swarm">
+            <h4>Estructura de Docker Swarm</h4>
+            <div class="swarm-diagram">
+                <div class="swarm-manager">
+                    <div class="node-header">Nodo Manager</div>
+                    <div class="node-services">
+                        <div class="service">Servicio de Orquestación</div>
+                        <div class="service">Servicio de Programación</div>
+                    </div>
+                </div>
+                <div class="swarm-workers">
+                    <div class="worker-node">
+                        <div class="node-header">Nodo Worker</div>
+                        <div class="containers">
+                            <div class="container">Contenedor</div>
+                            <div class="container">Contenedor</div>
+                        </div>
+                    </div>
+                    <div class="worker-node">
+                        <div class="node-header">Nodo Worker</div>
+                        <div class="containers">
+                            <div class="container">Contenedor</div>
+                            <div class="container">Contenedor</div>
+                        </div>
+                    </div>
+                    <div class="worker-node">
+                        <div class="node-header">Nodo Worker</div>
+                        <div class="containers">
+                            <div class="container">Contenedor</div>
+                            <div class="container">Contenedor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrows">
+                    <div class="arrow manager-worker1">↓</div>
+                    <div class="arrow manager-worker2">↓</div>
+                    <div class="arrow manager-worker3">↓</div>
+                </div>
+            </div>
+        </div>
+        
+        <h5>a) Nodos</h5>
+        <p>El sistema Docker swarm reconoce dos tipos de nodos, cada uno de los cuales tiene responsabilidades específicas dentro del mismo:</p>
+        
+        <div class="node-types">
+            <div class="node-type">
+                <h6>1. Nodo administrador (manager)</h6>
+                <p>Los nodos administradores manejan principalmente la asignación de tareas a los nodos trabajadores. También realizan algunas de las tareas administrativas necesarias para operar el swarm. Docker recomienda un máximo de siete nodos administradores para un swarm.</p>
+            </div>
+            <div class="node-type">
+                <h6>2. Nodo trabajador (worker)</h6>
+                <p>En un Docker swarm con múltiples hosts, cada nodo trabajador recibe y ejecuta las tareas que le asignan los nodos administradores. De forma predeterminada, todos los nodos administradores también actúan como nodos trabajadores y pueden ejecutar tareas cuando tienen recursos disponibles.</p>
+            </div>
+        </div>
+        
+        <h5>b) Servicios y Tareas</h5>
+        <p>Un servicio define las tareas que se ejecutarán en los nodos administrador o trabajador. Sirve como estructura central del sistema y es la interfaz principal para la interacción del usuario con el swarm. Al crear un servicio, los usuarios especifican la imagen del contenedor que se utilizará y los comandos que se ejecutarán dentro de los contenedores en ejecución.</p>
+        
+        <p>Una tarea encapsula un contenedor Docker y los comandos que se ejecutarán dentro del contenedor. Es la unidad fundamental de programación dentro del swarm. Los nodos administradores asignan tareas a los nodos trabajadores según la cantidad de réplicas establecidas en la escala de servicio. Una vez que se asigna una tarea a un nodo, permanece en ese nodo y no puede moverse a otro nodo. Se ejecutará en el nodo asignado o fallará.</p>
+        
+        <h5>c) Balanceo de carga</h5>
+        <p>El administrador de swarm utiliza el balanceo de carga de entrada para exponer los servicios externamente. El administrador puede asignar automáticamente al servicio un puerto publicado o los usuarios pueden configurar un puerto publicado específico para el servicio.</p>
+    </span>
+
+    <span id="4030301004">
+        <h3>3.4.2 KUBERNETES</h3>
+        <p>Kubernetes es un sistema de código abierto que automatiza la implementación, las operaciones y el escalado de las aplicaciones en contenedores. Originalmente desarrollado por Google, se basa en sus experiencias en servicios como Google Search y Gmail. Soporta diferentes entornos para la ejecución de contenedores, incluido Docker.</p>
+        
+        <div class="kubernetes-overview">
+            <h4>Visión General de Kubernetes</h4>
+            <div class="kubernetes-diagram">
+                <div class="kubernetes-cluster">
+                    <div class="master-node">
+                        <div class="node-header">Nodo Master</div>
+                        <div class="master-components">
+                            <div class="component">API Server</div>
+                            <div class="component">Scheduler</div>
+                            <div class="component">Controller Manager</div>
+                            <div class="component">etcd</div>
+                        </div>
+                    </div>
+                    <div class="worker-nodes">
+                        <div class="worker-node">
+                            <div class="node-header">Nodo Worker</div>
+                            <div class="node-components">
+                                <div class="component">Kubelet</div>
+                                <div class="component">Kube-proxy</div>
+                                <div class="pods">
+                                    <div class="pod">Pod</div>
+                                    <div class="pod">Pod</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worker-node">
+                            <div class="node-header">Nodo Worker</div>
+                            <div class="node-components">
+                                <div class="component">Kubelet</div>
+                                <div class="component">Kube-proxy</div>
+                                <div class="pods">
+                                    <div class="pod">Pod</div>
+                                    <div class="pod">Pod</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kubernetes-description">
+                <p>Kubernetes organiza los contenedores en unidades llamadas Pods y proporciona mecanismos para desplegar, mantener y escalar aplicaciones. Los componentes principales incluyen el API Server, Scheduler, Controller Manager y etcd en el nodo master, y Kubelet y Kube-proxy en los nodos worker.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030301005">
+        <h4>3.4.2.1 DISEÑO</h4>
+        <p>Kubernetes define un conjunto de bloques de construcción (primitivas) que conjuntamente proveen los mecanismos para el despliegue, mantenimiento y escalado de aplicaciones. Estas primitivas son las siguientes:</p>
+        
+        <div class="kubernetes-primitives">
+            <div class="primitive">
+                <h5>a) Objetos</h5>
+                <p>Los Objetos de Kubernetes son entidades persistentes dentro del sistema de Kubernetes. Kubernetes utiliza estas entidades para representar el estado del clúster. Específicamente, pueden describir:</p>
+                <ul>
+                    <li>Qué aplicaciones corren en contenedores (y en qué nodos)</li>
+                    <li>Los recursos disponibles para dichas aplicaciones</li>
+                    <li>Las políticas acerca de cómo dichas aplicaciones se comportan, como las políticas de reinicio, actualización, y tolerancia a fallos</li>
+                </ul>
+                
+                <p>Un objeto de Kubernetes es un "registro de intención" -- una vez que se ha creado el objeto, el sistema de Kubernetes se pondrá en marcha para asegurar que el objeto existe.</p>
+                
+                <p>Cada objeto de Kubernetes incluye dos campos como objetos anidados que determinan la configuración del objeto: el campo de objeto spec y el campo de objeto status. El campo spec, que es obligatorio, describe el estado deseado del objeto (las características que se quiere que tenga el objeto). El campo status describe el estado actual del objeto, y se suministra y actualiza directamente por el sistema de Kubernetes.</p>
+                
+                <p>Cuando se crea un objeto en Kubernetes, se debe especificar la spec del objeto que describe su estado deseado, así como información básica del mismo (como el nombre).</p>
+                
+                <div class="code-example">
+                    <h6>Ejemplo de archivo YAML para un Deployment de Kubernetes:</h6>
+                    <pre>
+apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 # indica al controlador que ejecute 2 pods
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+                    </pre>
+                </div>
+                
+                <p>En el archivo YAML del objeto de Kubernetes obligatoriamente se tiene que indicar los valores de los siguientes campos (como mínimo):</p>
+                <ul>
+                    <li>apiVersion - Qué versión de la API de Kubernetes se está usando para crear este objeto</li>
+                    <li>kind - Qué clase de objeto se quiere crear</li>
+                    <li>metadata - Datos que permiten identificar unívocamente al objeto, incluyendo una cadena de texto para el name, UID, y opcionalmente el namespace</li>
+                    <li>spec - Estado deseado del objeto</li>
+                </ul>
+                
+                <p>Todos los objetos de la API REST de Kubernetes se identifican de forma inequívoca mediante un Nombre y un UID.</p>
+                
+                <p>Los objetos básicos de kubernetes incluyen pod, services, volumen y namespaces, que vemos a continuación.</p>
+            </div>
+            
+            <div class="primitive">
+                <h5>b) Cápsulas (pod)</h5>
+                <p>El objeto básico en Kubernetes se denomina cápsula o pod. Un pod consta de uno o más contenedores en los que se garantiza su ubicación en el mismo equipo anfitrión y pueden compartir recursos. Cada pod en Kubernetes es asignado a una única dirección IP que permite a las aplicaciones utilizar puertos sin riesgos de conflictos. Un pod puede definir un volumen, como puede ser un directorio de disco local o un disco de red, y exponerlo a los contenedores dentro del pod.</p>
+                
+                <div class="pod-diagram">
+                    <div class="pod">
+                        <div class="pod-header">Pod</div>
+                        <div class="pod-ip">IP: 10.0.0.1</div>
+                        <div class="pod-containers">
+                            <div class="container">
+                                <div class="container-header">Contenedor 1</div>
+                                <div class="container-app">Aplicación</div>
+                            </div>
+                            <div class="container">
+                                <div class="container-header">Contenedor 2</div>
+                                <div class="container-app">Aplicación</div>
+                            </div>
+                        </div>
+                        <div class="pod-volume">Volumen Compartido</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="primitive">
+                <h5>c) Espacios de nombre (namespaces)</h5>
+                <p>Son objetos que proporcionan un mecanismo para aislar grupos de recursos dentro de un mismo cluster. Los nombres de recursos tienen que ser únicos dentro de un namespace, pero pueden coincidir en varios namespaces. Kubernetes se inicia con los siguientes namespaces:</p>
+                <ul>
+                    <li>Default, creado por defecto.</li>
+                    <li>kube-node-lease: incluye los objetos de tipo lease asociados con cada nodo.</li>
+                    <li>kube-public: puede ser leído por todos los clientes del cluster.</li>
+                    <li>kube-system: para objetos del sistema.</li>
+                </ul>
+            </div>
+            
+            <div class="primitive">
+                <h5>d) Servicios (services)</h5>
+                <p>Un servicio Kubernetes es un objeto que representa un conjunto de pods que trabajan en conjunto, como una capa de una aplicación multicapas. El conjunto de pods que constituyen un servicio está definido por el selector de etiquetas.</p>
+                
+                <div class="service-diagram">
+                    <div class="service">
+                        <div class="service-header">Servicio</div>
+                        <div class="service-ip">ClusterIP: 10.0.1.1</div>
+                        <div class="service-pods">
+                            <div class="pod">
+                                <div class="pod-header">Pod</div>
+                                <div class="pod-ip">IP: 10.0.0.1</div>
+                            </div>
+                            <div class="pod">
+                                <div class="pod-header">Pod</div>
+                                <div class="pod-ip">IP: 10.0.0.2</div>
+                            </div>
+                            <div class="pod">
+                                <div class="pod-header">Pod</div>
+                                <div class="pod-ip">IP: 10.0.0.3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="primitive">
+                <h5>e) Volumenes (Volumes)</h5>
+                <p>Un volumen es un directorio, que es accesible a todos los contenedores en un pod. Los archivos localizados dentro de un contenedor son efímeros, lo cual presenta problemas para aplicaciones no triviales cuando se ejecutan en contenedores. Un problema es la pérdida de archivos cuando el contenedor termina. Kubelet reinicia el contenedor con un estado limpio. Un segundo problema ocurre cuando compartimos ficheros entre contenedores corriendo juntos dentro de un Pod. La abstracción volume de Kubernetes resuelve ambos problemas.</p>
+            </div>
+            
+            <div class="primitive">
+                <h5>Controladores</h5>
+                <p>Además de estos objetos básicos, Kubernetes incluye objetos que son abstracciónes de nivel superior llamadas Controladores. Los Controladores se basan en los objetos básicos y proporcionan funcionalidades adicionales sobre ellos. Son controladores:</p>
+                
+                <div class="controllers">
+                    <div class="controller">
+                        <h6>ReplicaSet</h6>
+                        <p>Mantiene un conjunto estable de réplicas de Pods ejecutándose en todo momento. Así, se usa en numerosas ocasiones para garantizar la disponibilidad de un número específico de Pods idénticos.</p>
+                    </div>
+                    <div class="controller">
+                        <h6>Deployment</h6>
+                        <p>Proporciona actualizaciones declarativas para los Pods y los ReplicaSets. Cuando se describe el estado deseado en un objeto Deployment, el controlador del Deployment se encarga de cambiar el estado actual al estado deseado de forma controlada.</p>
+                    </div>
+                    <div class="controller">
+                        <h6>StatefulSet</h6>
+                        <p>Gestiona pods que se basan en una especificación idéntica de contenedor. A diferencia de un Deployment, un StatefulSet mantiene una identidad asociada a sus Pods.</p>
+                    </div>
+                    <div class="controller">
+                        <h6>DaemonSet</h6>
+                        <p>Garantiza que todos (o algunos) de los nodos ejecuten una copia de un Pod. Conforme se añade más nodos al clúster, nuevos Pods son añadidos a los mismos. Conforme se elimina nodos del clúster, dichos Pods se destruyen.</p>
+                    </div>
+                    <div class="controller">
+                        <h6>Jobs</h6>
+                        <p>Un Job crea uno o más Pods y se asegura de que un número específico de ellos termina de forma satisfactoria.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="primitive">
+                <h5>Otras primitivas de Kubernetes</h5>
+                
+                <div class="other-primitives">
+                    <div class="primitive">
+                        <h6>f) Etiquetas y selectores</h6>
+                        <p>Kubernetes permite a los clientes (usuarios o componentes internos) vincular pares clave-valor llamados etiquetas (en inglés label) a cualquier objeto en el sistema, como pods o nodos. El propósito de las etiquetas es permitir identificar atributos de los objetos que son relevantes y significativos para los usuarios. A través del selector de etiqueta, el cliente/usuario puede identificar un conjunto de objetos. El selector de etiqueta es la primitiva principal de agrupación en Kubernetes, y son utilizados para determinar los componentes sobre los cuales aplica una operación.</p>
+                    </div>
+                    <div class="primitive">
+                        <h6>g) Anotaciones</h6>
+                        <p>Se pueden usar las anotaciones de Kubernetes para adjuntar metadatos arbitrarios a los objetos, de tal forma que clientes como herramientas y librerías puedan obtener fácilmente dichos metadatos.</p>
+                    </div>
+                    <div class="primitive">
+                        <h6>h) Selectores de campo</h6>
+                        <p>Permiten seleccionar recursos basados en el valor de uno o más campos del recurso. Por ejemplo, este comando kubectl selecciona todos los Pods para los cuales el valor del campo status.phase es igual a Running:</p>
+                        <pre>kubectl get pods --field-selector status.phase=Running</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Platform Overview Styles */
+        .platform-overview {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .platform-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .platform-layer {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .layer-title {
+            width: 150px;
+            padding: 10px;
+            background-color: #0078d7;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .layer-items {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 10px;
+        }
+        .item {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .platform-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Docker Architecture Styles */
+        .docker-architecture {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .architecture-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            position: relative;
+        }
+        .docker-client, .docker-host, .docker-registry {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .docker-client {
+            width: 20%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .docker-host {
+            width: 40%;
+        }
+        .docker-registry {
+            width: 20%;
+        }
+        .host-header, .registry-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .docker-daemon {
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .containers, .images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .container, .image {
+            width: 45%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .container-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .app {
+            padding: 5px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        .arrow {
+            position: absolute;
+            font-size: 24px;
+            color: #0078d7;
+        }
+        .arrow.client-host {
+            top: 50%;
+            left: 25%;
+        }
+        .arrow.host-registry {
+            top: 50%;
+            right: 25%;
+        }
+        .architecture-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Docker Swarm Styles */
+        .docker-swarm {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .swarm-diagram {
+            position: relative;
+            margin: 15px 0;
+        }
+        .swarm-manager {
+            width: 80%;
+            margin: 0 auto 30px;
+            padding: 15px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .node-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .node-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .service {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .swarm-workers {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .worker-node {
+            width: 30%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .containers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .container {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        .arrow {
+            position: absolute;
+            font-size: 24px;
+            color: #0078d7;
+        }
+        .arrow.manager-worker1 {
+            top: 50%;
+            left: 20%;
+        }
+        .arrow.manager-worker2 {
+            top: 50%;
+            left: 50%;
+        }
+        .arrow.manager-worker3 {
+            top: 50%;
+            right: 20%;
+        }
+        
+        /* Node Types Styles */
+        .node-types {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .node-type {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .node-type h6 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        
+        /* Kubernetes Overview Styles */
+        .kubernetes-overview {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .kubernetes-diagram {
+            margin: 15px 0;
+        }
+        .kubernetes-cluster {
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .master-node {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .master-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .component {
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .worker-nodes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px;
+        }
+        .worker-node {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .node-components {
+            margin-top: 10px;
+        }
+        .pods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .pod {
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .kubernetes-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Kubernetes Primitives Styles */
+        .kubernetes-primitives {
+            margin: 20px 0;
+        }
+        .primitive {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .primitive h5 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .code-example {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .code-example h6 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .code-example pre {
+            margin: 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        
+        /* Pod Diagram Styles */
+        .pod-diagram {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .pod {
+            width: 300px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        .pod-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .pod-ip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e6f7ff;
+            border-bottom: 1px solid #91d5ff;
+        }
+        .pod-containers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+        }
+        .container {
+            width: 45%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .container-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .container-app {
+            padding: 5px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .pod-volume {
+            padding: 10px;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-top: 1px solid #ddd;
+            font-weight: bold;
+        }
+        
+        /* Service Diagram Styles */
+        .service-diagram {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .service {
+            width: 300px;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        .service-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .service-ip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e6f7ff;
+            border-bottom: 1px solid #91d5ff;
+        }
+        .service-pods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+        }
+        
+        /* Controllers Styles */
+        .controllers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .controller {
+            flex: 1 1 45%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .controller h6 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        
+        /* Other Primitives Styles */
+        .other-primitives {
+            margin: 15px 0;
+        }
+        .other-primitives .primitive {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .other-primitives .primitive h6 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .other-primitives .primitive pre {
+            margin: 10px 0;
+            padding: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</div>

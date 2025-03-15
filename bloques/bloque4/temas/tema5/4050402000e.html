@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infraestructura de la Sala de Servidores</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050402001">
+            <h2>4.2 INFRAESTRUCTURA DE LA SALA DE SERVIDORES</h2>
+            <p>La sala de servidores deberá contar con suelo y techo técnicos, que faciliten el tendido del cableado, y deberá estar dotada de su propio cuadro de alimentación eléctrica con protectores inmunizados, según la potencia requerida por el equipamiento que está previsto albergar en la misma.</p>
+            
+            <div class="sala-concepto-clave">
+                <div class="sala-icono">🏢</div>
+                <div class="sala-definicion">
+                    <h4>Sala de Servidores</h4>
+                    <p>Espacio físico dedicado a albergar los equipos informáticos y de comunicaciones que dan soporte a los servicios de una organización. Requiere condiciones especiales de infraestructura, alimentación eléctrica, climatización y seguridad.</p>
+                </div>
+            </div>
+            
+            <div class="sala-elementos-basicos">
+                <div class="sala-elemento">
+                    <div class="sala-elemento-titulo">
+                        <div class="sala-icono">🔌</div>
+                        <h4>Suelo Técnico</h4>
+                    </div>
+                    <div class="sala-elemento-descripcion">
+                        <p>Sistema de suelo elevado que crea un espacio entre el suelo base y el suelo visible, permitiendo el paso de cableado eléctrico, de datos y sistemas de refrigeración.</p>
+                        <div class="sala-imagen-container">
+                            <div class="sala-imagen sala-suelo-tecnico">
+                                <div class="sala-suelo-base"></div>
+                                <div class="sala-espacio-cables">
+                                    <div class="sala-cable sala-cable-electrico"></div>
+                                    <div class="sala-cable sala-cable-datos"></div>
+                                    <div class="sala-conducto-aire"></div>
+                                </div>
+                                <div class="sala-baldosas">
+                                    <div class="sala-baldosa"></div>
+                                    <div class="sala-baldosa"></div>
+                                    <div class="sala-baldosa sala-baldosa-rejilla"></div>
+                                    <div class="sala-baldosa"></div>
+                                    <div class="sala-baldosa"></div>
+                                </div>
+                            </div>
+                            <div class="sala-leyenda">
+                                <div class="sala-leyenda-item">
+                                    <span class="sala-color-muestra sala-color-electrico"></span>
+                                    <span>Cableado eléctrico</span>
+                                </div>
+                                <div class="sala-leyenda-item">
+                                    <span class="sala-color-muestra sala-color-datos"></span>
+                                    <span>Cableado de datos</span>
+                                </div>
+                                <div class="sala-leyenda-item">
+                                    <span class="sala-color-muestra sala-color-aire"></span>
+                                    <span>Conducto de aire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sala-elemento">
+                    <div class="sala-elemento-titulo">
+                        <div class="sala-icono">⚡</div>
+                        <h4>Alimentación Eléctrica</h4>
+                    </div>
+                    <div class="sala-elemento-descripcion">
+                        <p>La sala debe contar con su propio cuadro eléctrico con protectores inmunizados, dimensionado según la potencia requerida por el equipamiento.</p>
+                    </div>
+                </div>
+                
+                <div class="sala-elemento">
+                    <div class="sala-elemento-titulo">
+                        <div class="sala-icono">🔝</div>
+                        <h4>Techo Técnico</h4>
+                    </div>
+                    <div class="sala-elemento-descripcion">
+                        <p>Falso techo que permite el paso de cableado, conductos de aire acondicionado y otros sistemas como detección y extinción de incendios.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050402002">
+            <h3>Alimentación Eléctrica</h3>
+            <p>La alimentación eléctrica deberá venir de dos fuentes diferentes con líneas dedicadas a los servidores, una de la propia acometida general del edificio, y otra de un Sistema de Alimentación Ininterrumpida con regulación de picos de corriente y que sea capaz de suministrar la potencia necesaria a los servidores. Este sistema deberá estar situado en el edificio, pero no en la misma sala y deberá contar con un nivel de baterías suficiente para soportar cortes eléctricos de una duración de 15-20 minutos. Deberá estar previsto un procedimiento para el cambio de las baterías. La sala deberá contar con un cuadro eléctrico específico para ella.</p>
+            
+            <div class="sala-diagrama-electrico">
+                <h4>Esquema de Alimentación Eléctrica de una Sala de Servidores</h4>
+                <div class="sala-esquema">
+                    <div class="sala-componente sala-red-electrica">
+                        <div class="sala-icono-esquema">⚡</div>
+                        <div class="sala-texto-esquema">Red Eléctrica</div>
+                    </div>
+                    <div class="sala-flecha-esquema">↓</div>
+                    <div class="sala-componentes-paralelos">
+                        <div class="sala-componente sala-acometida">
+                            <div class="sala-icono-esquema">🔌</div>
+                            <div class="sala-texto-esquema">Acometida General</div>
+                        </div>
+                        <div class="sala-flecha-esquema-horizontal">→</div>
+                        <div class="sala-componente sala-ups">
+                            <div class="sala-icono-esquema">🔋</div>
+                            <div class="sala-texto-esquema">UPS</div>
+                            <div class="sala-subtexto-esquema">Fuera de la sala de servidores</div>
+                            <div class="sala-subtexto-esquema">Autonomía: 15-20 min</div>
+                        </div>
+                    </div>
+                    <div class="sala-flecha-esquema">↓</div>
+                    <div class="sala-componente sala-cuadro">
+                        <div class="sala-icono-esquema">📊</div>
+                        <div class="sala-texto-esquema">Cuadro Eléctrico Específico</div>
+                        <div class="sala-subtexto-esquema">Con protectores inmunizados</div>
+                    </div>
+                    <div class="sala-flecha-esquema">↓</div>
+                    <div class="sala-componente sala-servidores">
+                        <div class="sala-icono-esquema">🖥️</div>
+                        <div class="sala-texto-esquema">Servidores y Equipamiento</div>
+                    </div>
+                </div>
+                
+                <div class="sala-ups-imagen">
+                    <div class="sala-ups-titulo">Sistema de Alimentación Ininterrumpida (UPS)</div>
+                    <div class="sala-ups-caracteristicas">
+                        <div class="sala-ups-caracteristica">
+                            <div class="sala-icono-ups">⚡</div>
+                            <div class="sala-texto-ups">Regulación de picos de corriente</div>
+                        </div>
+                        <div class="sala-ups-caracteristica">
+                            <div class="sala-icono-ups">🔋</div>
+                            <div class="sala-texto-ups">Baterías para 15-20 minutos de autonomía</div>
+                        </div>
+                        <div class="sala-ups-caracteristica">
+                            <div class="sala-icono-ups">🔄</div>
+                            <div class="sala-texto-ups">Procedimiento para cambio de baterías</div>
+                        </div>
+                        <div class="sala-ups-caracteristica">
+                            <div class="sala-icono-ups">📍</div>
+                            <div class="sala-texto-ups">Ubicado fuera de la sala de servidores</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050402003">
+            <h3>Acceso a la Sala</h3>
+            <p>El acceso a la sala deberá ser lo suficientemente ancho para permitir el paso de los racks y el resto de los equipos que se van a instalar en su interior. Según ANSI/TIA-942, las puertas deberán tener un ancho mínimo de 3 pies (1m) y una altura mínima de 7 pies (2,13m). Si hay puestos de trabajo para el personal que va a administrar los sistemas, la sala debería estar ubicada tras paneles transparentes para poder ver su interior en todo momento, y de esta forma detectar anomalías en el funcionamiento a simple vista.</p>
+            
+            <div class="sala-acceso">
+                <div class="sala-acceso-dimensiones">
+                    <h4>Dimensiones Mínimas de Acceso según ANSI/TIA-942</h4>
+                    <div class="sala-puerta">
+                        <div class="sala-puerta-medidas">
+                            <div class="sala-medida-ancho">
+                                <div class="sala-flecha-medida">↔</div>
+                                <div class="sala-valor-medida">3 pies (1m)</div>
+                            </div>
+                            <div class="sala-medida-alto">
+                                <div class="sala-flecha-medida">↕</div>
+                                <div class="sala-valor-medida">7 pies (2,13m)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sala-visualizacion">
+                    <h4>Visualización de la Sala</h4>
+                    <div class="sala-panel-transparente">
+                        <div class="sala-administradores">
+                            <div class="sala-admin">👨‍💻</div>
+                            <div class="sala-admin">👩‍💻</div>
+                        </div>
+                        <div class="sala-panel">
+                            <div class="sala-interior-sala">
+                                <div class="sala-rack-mini"></div>
+                                <div class="sala-rack-mini"></div>
+                                <div class="sala-rack-mini"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="sala-nota">Paneles transparentes para visualizar el interior y detectar anomalías</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050402004">
+            <h3>4.4 MEDIDAS DE PROTECCIÓN FÍSICA</h3>
+            <h4>Ubicación</h4>
+            <p>La sala del CPD no deberá ubicarse a nivel del suelo ni en el subsuelo, por el riesgo de inundación, pero tampoco en plantas elevadas, por la dificultad del movimiento de material y equipos, y las vibraciones que pueda sufrir el edificio por el tráfico rodado.</p>
+            
+            <div class="sala-ubicacion-optima">
+                <h4>Ubicación Óptima de la Sala de Servidores</h4>
+                <div class="sala-edificio">
+                    <div class="sala-planta sala-planta-alta">
+                        <div class="sala-texto-planta">Plantas altas</div>
+                        <div class="sala-problema">
+                            <div class="sala-icono-problema">⚠️</div>
+                            <div class="sala-texto-problema">Dificultad para mover equipos</div>
+                        </div>
+                        <div class="sala-problema">
+                            <div class="sala-icono-problema">⚠️</div>
+                            <div class="sala-texto-problema">Vibraciones por tráfico</div>
+                        </div>
+                    </div>
+                    <div class="sala-planta sala-planta-media">
+                        <div class="sala-texto-planta">Plantas intermedias</div>
+                        <div class="sala-ventaja">
+                            <div class="sala-icono-ventaja">✅</div>
+                            <div class="sala-texto-ventaja">Ubicación óptima</div>
+                        </div>
+                        <div class="sala-cpd-ubicacion">
+                            <div class="sala-icono-cpd">🖥️</div>
+                            <div class="sala-texto-cpd">CPD</div>
+                        </div>
+                    </div>
+                    <div class="sala-planta sala-planta-baja">
+                        <div class="sala-texto-planta">Planta baja / Subsuelo</div>
+                        <div class="sala-problema">
+                            <div class="sala-icono-problema">⚠️</div>
+                            <div class="sala-texto-problema">Riesgo de inundación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Control de Acceso</h4>
+            <p>La zona donde estén ubicados los servidores deberá tener un acceso restringido a un grupo determinado de personas. Se usarán sistemas de identificación mediante tarjeta, biométricos y dispositivos de doble puerta tipo mantrap, para evitar el robo o sustracción de dispositivos de almacenamiento de la información.</p>
+            
+            <div class="sala-control-acceso">
+                <h4>Sistemas de Control de Acceso</h4>
+                <div class="sala-sistemas-acceso">
+                    <div class="sala-sistema-acceso">
+                        <div class="sala-icono-acceso">🔑</div>
+                        <div class="sala-texto-acceso">Tarjetas de identificación</div>
+                    </div>
+                    <div class="sala-sistema-acceso">
+                        <div class="sala-icono-acceso">👆</div>
+                        <div class="sala-texto-acceso">Sistemas biométricos</div>
+                    </div>
+                    <div class="sala-sistema-acceso">
+                        <div class="sala-icono-acceso">🚪</div>
+                        <div class="sala-texto-acceso">Doble puerta (mantrap)</div>
+                    </div>
+                </div>
+                
+                <div class="sala-mantrap">
+                    <h5>Sistema de Doble Puerta (Mantrap)</h5>
+                    <div class="sala-diagrama-mantrap">
+                        <div class="sala-exterior">Exterior</div>
+                        <div class="sala-puerta-mantrap sala-puerta1">Puerta 1</div>
+                        <div class="sala-esclusa">Esclusa</div>
+                        <div class="sala-puerta-mantrap sala-puerta2">Puerta 2</div>
+                        <div class="sala-interior">Sala de Servidores</div>
+                    </div>
+                    <p class="sala-nota-mantrap">Solo se puede abrir una puerta a la vez, evitando el acceso no autorizado y el "tailgating" (entrada de personas no autorizadas siguiendo a alguien autorizado).</p>
+                </div>
+            </div>
+            
+            <h4>Condiciones Ambientales</h4>
+            <p>El interior de la sala de servidores deberá mantenerse libre de polvo y de cargas de electricidad estática, además deberá estar acondicionada para mantener siempre una temperatura entre 20 y 25° C. Los armarios o racks de servidores se ubicarán fondo contra fondo y frontal contra frontal, creando pasillos de frío-calor que favorezcan la circulación del aire.</p>
+            
+            <div class="sala-nota-temperatura">
+                <div class="sala-icono-nota">📝</div>
+                <div class="sala-texto-nota">
+                    <p>De acuerdo con las recomendaciones de la ASHRAE (American Society of Heating, Refrigerating and Air Conditioning Engineers), en 2021 el rango de temperatura recomendado para un CPD oscila entre los 18 °C y 27 °C.</p>
+                </div>
+            </div>
+            
+            <div class="sala-condiciones">
+                <div class="sala-condicion">
+                    <div class="sala-icono-condicion">🌡️</div>
+                    <div class="sala-texto-condicion">
+                        <h5>Temperatura</h5>
+                        <p>Entre 20 y 25°C (ASHRAE: 18-27°C)</p>
+                    </div>
+                </div>
+                <div class="sala-condicion">
+                    <div class="sala-icono-condicion">💨</div>
+                    <div class="sala-texto-condicion">
+                        <h5>Polvo</h5>
+                        <p>Ambiente libre de polvo</p>
+                    </div>
+                </div>
+                <div class="sala-condicion">
+                    <div class="sala-icono-condicion">⚡</div>
+                    <div class="sala-texto-condicion">
+                        <h5>Electricidad estática</h5>
+                        <p>Control de cargas de electricidad estática</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sala-pasillos-frio-calor">
+                <h4>Pasillos Frío-Calor</h4>
+                <div class="sala-diagrama-pasillos">
+                    <div class="sala-pasillo sala-pasillo-frio">
+                        <div class="sala-texto-pasillo">Pasillo Frío</div>
+                        <div class="sala-aire-frio">❄️</div>
+                    </div>
+                    <div class="sala-racks-fila">
+                        <div class="sala-rack-diagrama">
+                            <div class="sala-frontal">Frontal</div>
+                            <div class="sala-fondo">Fondo</div>
+                        </div>
+                        <div class="sala-rack-diagrama">
+                            <div class="sala-frontal">Frontal</div>
+                            <div class="sala-fondo">Fondo</div>
+                        </div>
+                    </div>
+                    <div class="sala-pasillo sala-pasillo-caliente">
+                        <div class="sala-texto-pasillo">Pasillo Caliente</div>
+                        <div class="sala-aire-caliente">🔥</div>
+                    </div>
+                    <div class="sala-racks-fila">
+                        <div class="sala-rack-diagrama">
+                            <div class="sala-fondo">Fondo</div>
+                            <div class="sala-frontal">Frontal</div>
+                        </div>
+                        <div class="sala-rack-diagrama">
+                            <div class="sala-fondo">Fondo</div>
+                            <div class="sala-frontal">Frontal</div>
+                        </div>
+                    </div>
+                    <div class="sala-pasillo sala-pasillo-frio">
+                        <div class="sala-texto-pasillo">Pasillo Frío</div>
+                        <div class="sala-aire-frio">❄️</div>
+                    </div>
+                </div>
+                <div class="sala-leyenda-pasillos">
+                    <div class="sala-leyenda-item">
+                        <span class="sala-color-muestra sala-color-frio"></span>
+                        <span>Pasillo frío: El aire frío entra por la parte frontal de los racks</span>
+                    </div>
+                    <div class="sala-leyenda-item">
+                        <span class="sala-color-muestra sala-color-caliente"></span>
+                        <span>Pasillo caliente: El aire caliente sale por la parte trasera de los racks</span>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050402005">
+            <h4>Protección contra Incendios</h4>
+            <p>La principal causa de incendios en un CPD es la electricidad. Una fuente de alimentación o un condensador averiado, u otros componentes, pueden generar un cortocircuito que provoque un incendio. La presencia en estas instalaciones de falsos suelos/techos o acumulación de cableado, y la ventilación continua de la sala, dificultan la detección de humo en caso de incendio.</p>
+            
+            <p>El sistema de protección contra incendios en un CPD, puede ser un sistema de extinción para toda la sala, o a nivel de armario/rack. En caso de plantear un sistema de sala, hay que plantear el conjunto de manera que sea rápido y eficaz.</p>
+            
+            <div class="sala-proteccion-incendios">
+                <div class="sala-estrategias">
+                    <h4>Estrategias de Protección contra Incendios</h4>
+                    <div class="sala-estrategia">
+                        <div class="sala-icono-estrategia">🛡️</div>
+                        <div class="sala-texto-estrategia">
+                            <h5>Protección Pasiva</h5>
+                            <ul class="sala-lista">
+                                <li><span class="sala-bullet">•</span> Materiales ignífugos en la sala y su perímetro</li>
+                                <li><span class="sala-bullet">•</span> Evitar acumulación de papel u otro material combustible</li>
+                                <li><span class="sala-bullet">•</span> Tabiques que impidan la circulación de aire</li>
+                                <li><span class="sala-bullet">•</span> Sistema de apagado automático del suministro eléctrico</li>
+                                <li><span class="sala-bullet">•</span> Impedir la propagación del incendio fuera del CPD</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sala-estrategia">
+                        <div class="sala-icono-estrategia">🧯</div>
+                        <div class="sala-texto-estrategia">
+                            <h5>Sistemas de Extinción</h5>
+                            <ul class="sala-lista">
+                                <li><span class="sala-bullet">•</span> Agentes extintores que no afecten a la electrónica</li>
+                                <li><span class="sala-bullet">•</span> Propiedades dieléctricas</li>
+                                <li><span class="sala-bullet">•</span> Baja reducción de oxígeno</li>
+                                <li><span class="sala-bullet">•</span> Seguros para personas y medioambiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sala-agentes-extintores">
+                    <h4>Agentes Extintores</h4>
+                    <div class="sala-agentes">
+                        <div class="sala-agente">
+                            <div class="sala-agente-titulo">
+                                <div class="sala-icono-agente">💧</div>
+                                <h5>Novec 1230</h5>
+                            </div>
+                            <div class="sala-agente-caracteristicas">
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Funciona mediante desplazamiento del oxígeno</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Ocupa poco espacio (almacenado en estado líquido)</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Respetuoso con el medioambiente</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Seguro para las personas</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sala-agente">
+                            <div class="sala-agente-titulo">
+                                <div class="sala-icono-agente">💦</div>
+                                <h5>Agua Nebulizada</h5>
+                            </div>
+                            <div class="sala-agente-caracteristicas">
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Partículas de agua menores a 1000 micras</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Reduce consumo de agua y posibles daños</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Activación inmediata</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Gran reducción de temperatura</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sala-agente">
+                            <div class="sala-agente-titulo">
+                                <div class="sala-icono-agente">🌬️</div>
+                                <h5>Reducción de Oxígeno</h5>
+                            </div>
+                            <div class="sala-agente-caracteristicas">
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Reduce nivel de combustión</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">No peligroso para personas</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Permite acceso a la sala protegida</div>
+                                </div>
+                                <div class="sala-agente-caracteristica">
+                                    <div class="sala-icono-caracteristica">✅</div>
+                                    <div class="sala-texto-caracteristica">Puede reducir más el oxígeno cuando no hay personal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sala-armario-ignifugo">
+                    <div class="sala-armario-titulo">
+                        <div class="sala-icono-armario">🔥</div>
+                        <h4>Armario Ignífugo</h4>
+                    </div>
+                    <div class="sala-armario-descripcion">
+                        <p>Es conveniente que la propia sala cuente también con un armario ignifugo para almacenar todos los activos que deban preservarse del fuego, como es el caso de las copias de seguridad.</p>
+                        <div class="sala-armario-imagen">
+                            <div class="sala-armario-dibujo">
+                                <div class="sala-armario-puerta"></div>
+                                <div class="sala-armario-contenido">
+                                    <div class="sala-backup">💾</div>
+                                    <div class="sala-backup">💾</div>
+                                    <div class="sala-backup">💾</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050402006">
+            <h3>4.5 EQUIPAMIENTO DE LA SALA DE SERVIDORES</h3>
+            <p>Lo habitual es disponer los servidores de la sala en armarios rack. Un rack es un armario especial para albergar materiales y equipos tecnológicos. Tienen la particularidad de cumplir con unos estándares de medida que permite alojar diversos equipos, aunque sean de fabricantes distintos. Siendo está una de sus principales virtudes.</p>
+            
+            <div class="sala-concepto-clave">
+                <div class="sala-icono">🔧</div>
+                <div class="sala-definicion">
+                    <h4>Rack</h4>
+                    <p>Armario especial para albergar equipos tecnológicos, que cumple con estándares de medida que permiten alojar diversos equipos de diferentes fabricantes.</p>
+                </div>
+            </div>
+            
+            <div class="sala-unidad-rack">
+                <h4>Unidad Rack (U)</h4>
+                <p>Cada armario se mide en unidades rack. Una unidad rack o simplemente U es una unidad de medida usada para describir la altura del equipamiento preparado para ser montado en un rack de 19 o 23 pulgadas de ancho (48,26 cm o 58,42 cm). Una unidad rack equivale a 1,75 pulgadas (4,445 cm) de alto.</p>
+                
+                <div class="sala-medidas-rack">
+                    <div class="sala-medida-rack">
+                        <div class="sala-etiqueta-medida">Ancho estándar:</div>
+                        <div class="sala-valor-medida">19 pulgadas (48,26 cm)</div>
+                    </div>
+                    <div class="sala-medida-rack">
+                        <div class="sala-etiqueta-medida">Ancho alternativo:</div>
+                        <div class="sala-valor-medida">23 pulgadas (58,42 cm)</div>
+                    </div>
+                    <div class="sala-medida-rack">
+                        <div class="sala-etiqueta-medida">1 Unidad Rack (1U):</div>
+                        <div class="sala-valor-medida">1,75 pulgadas (4,445 cm) de alto</div>
+                    </div>
+                </div>
+                
+                <div class="sala-ejemplo-rack">
+                    <div class="sala-rack-unidades">
+                        <div class="sala-u sala-u-1">1U</div>
+                        <div class="sala-u sala-u-2">2U</div>
+                        <div class="sala-u sala-u-4">4U</div>
+                    </div>
+                    <div class="sala-leyenda-rack">
+                        <div class="sala-leyenda-item">
+                            <span class="sala-color-muestra sala-color-1u"></span>
+                            <span>Servidor 1U: 1,75 pulgadas (4,445 cm)</span>
+                        </div>
+                        <div class="sala-leyenda-item">
+                            <span class="sala-color-muestra sala-color-2u"></span>
+                            <span>Servidor 2U: 3,5 pulgadas (8,89 cm)</span>
+                        </div>
+                        <div class="sala-leyenda-item">
+                            <span class="sala-color-muestra sala-color-4u"></span>
+                            <span>Servidor 4U: 7 pulgadas (17,78 cm)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sala-tipos-rack">
+                <h4>Tipos de Rack</h4>
+                <p>Podemos diferenciar entre dos tipos de rack: rack mural y rack de suelo.</p>
+                
+                <div class="sala-comparativa-racks">
+                    <div class="sala-tipo-rack">
+                        <div class="sala-tipo-rack-titulo">
+                            <div class="sala-icono-rack">🏢</div>
+                            <h5>Rack Mural</h5>
+                        </div>
+                        <div class="sala-tipo-rack-caracteristicas">
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Más compactos y ligeros</div>
+                            </div>
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Se pueden colgar en una pared</div>
+                            </div>
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Ideal para instalaciones pequeñas</div>
+                            </div>
+                        </div>
+                        <div class="sala-imagen-rack sala-imagen-rack-mural"></div>
+                    </div>
+                    
+                    <div class="sala-tipo-rack">
+                        <div class="sala-tipo-rack-titulo">
+                            <div class="sala-icono-rack">🏢</div>
+                            <h5>Rack de Suelo</h5>
+                        </div>
+                        <div class="sala-tipo-rack-caracteristicas">
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Más grande y con mayor capacidad</div>
+                            </div>
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Se coloca directamente en el suelo</div>
+                            </div>
+                            <div class="sala-tipo-rack-caracteristica">
+                                <div class="sala-icono-caracteristica">✅</div>
+                                <div class="sala-texto-caracteristica">Puede incluir ruedas para facilitar su movimiento</div>
+                            </div>
+                        </div>
+                        <div class="sala-imagen-rack sala-imagen-rack-suelo"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sala-equipamiento-adicional">
+                <h4>Equipamiento Adicional en Racks</h4>
+                <p>Además de servidores, en un rack se pueden ubicar switches, routers, paneles de parcheo para las conexiones de la LAN, bandejas, etc.</p>
+                
+                <div class="sala-elementos-rack">
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">🔄</div>
+                        <div class="sala-texto-elemento">Switches</div>
+                    </div>
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">📡</div>
+                        <div class="sala-texto-elemento">Routers</div>
+                    </div>
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">🔌</div>
+                        <div class="sala-texto-elemento">Paneles de parcheo</div>
+                    </div>
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">📊</div>
+                        <div class="sala-texto-elemento">Bandejas</div>
+                    </div>
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">⚡</div>
+                        <div class="sala-texto-elemento">PDUs (Unidades de Distribución de Energía)</div>
+                    </div>
+                    <div class="sala-elemento-rack">
+                        <div class="sala-icono-elemento">🔋</div>
+                        <div class="sala-texto-elemento">UPS para rack</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para infraestructura de la sala de servidores - usando clases únicas */
+        .sala-concepto-clave {
+            display: flex;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .sala-concepto-clave .sala-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sala-concepto-clave .sala-definicion {
+            flex: 1;
+        }
+        
+        .sala-concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Elementos básicos */
+        .sala-elementos-basicos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .sala-elemento {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-elemento-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sala-elemento-titulo .sala-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-elemento-titulo h4 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .sala-elemento-descripcion p {
+            margin: 0 0 15px 0;
+        }
+        
+        /* Suelo técnico */
+        .sala-imagen-container {
+            margin-top: 15px;
+        }
+        
+        .sala-suelo-tecnico {
+            position: relative;
+            height: 150px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .sala-suelo-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background-color: #d9d9d9;
+        }
+        
+        .sala-espacio-cables {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .sala-cable {
+            height: 5px;
+            width: 80%;
+            position: absolute;
+        }
+        
+        .sala-cable-electrico {
+            background-color: #ff4d4f;
+            top: 15px;
+        }
+        
+        .sala-cable-datos {
+            background-color: #1890ff;
+            top: 30px;
+        }
+        
+        .sala-conducto-aire {
+            height: 20px;
+            width: 30px;
+            background-color: #52c41a;
+            border-radius: 5px;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        
+        .sala-baldosas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .sala-baldosa {
+            width: 18%;
+            height: 100%;
+            background-color: #e6f7ff;
+            border: 1px solid #d9d9d9;
+        }
+        
+        .sala-baldosa-rejilla {
+            background-color: #e6f7ff;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px);
+        }
+        
+        .sala-leyenda {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sala-leyenda-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .sala-color-muestra {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        
+        .sala-color-electrico {
+            background-color: #ff4d4f;
+        }
+        
+        .sala-color-datos {
+            background-color: #1890ff;
+        }
+        
+        .sala-color-aire {
+            background-color: #52c41a;
+        }
+        
+        /* Diagrama eléctrico */
+        .sala-diagrama-electrico {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-esquema {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .sala-componente {
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .sala-componentes-paralelos {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .sala-flecha-esquema {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 10px 0;
+        }
+        
+        .sala-flecha-esquema-horizontal {
+            font-size: 1.5rem;
+            color: #1890ff;
+        }
+        
+        .sala-icono-esquema {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .sala-texto-esquema {
+            font-weight: 500;
+        }
+        
+        .sala-subtexto-esquema {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* UPS */
+        .sala-ups-imagen {
+            margin-top: 30px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .sala-ups-titulo {
+            font-weight: bold;
+            color: #1890ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .sala-ups-caracteristicas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sala-ups-caracteristica {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-ups {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        /* Acceso a la sala */
+        .sala-acceso {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .sala-acceso-dimensiones, .sala-visualizacion {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-puerta {
+            margin-top: 20px;
+            height: 200px;
+            background-color: #e6f7ff;
+            border: 2px solid #1890ff;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .sala-puerta-medidas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .sala-medida-ancho, .sala-medida-alto {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .sala-flecha-medida {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin-right: 10px;
+        }
+        
+        .sala-valor-medida {
+            font-weight: 500;
+        }
+        
+        .sala-panel-transparente {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sala-administradores {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-right: 20px;
+        }
+        
+        .sala-admin {
+            font-size: 2rem;
+        }
+        
+        .sala-panel {
+            width: 150px;
+            height: 150px;
+            background-color: rgba(24, 144, 255, 0.1);
+            border: 1px solid #1890ff;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .sala-interior-sala {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .sala-rack-mini {
+            width: 20px;
+            height: 40px;
+            background-color: #1890ff;
+            border-radius: 2px;
+        }
+        
+        .sala-nota {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Ubicación óptima */
+        .sala-ubicacion-optima {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-edificio {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .sala-planta {
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .sala-planta-alta {
+            background-color: #fff1f0;
+            border: 1px solid #ffccc7;
+        }
+        
+        .sala-planta-media {
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+        }
+        
+        .sala-planta-baja {
+            background-color: #fff1f0;
+            border: 1px solid #ffccc7;
+        }
+        
+        .sala-texto-planta {
+            font-weight: bold;
+            min-width: 150px;
+        }
+        
+        .sala-problema, .sala-ventaja {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-problema, .sala-icono-ventaja {
+            margin-right: 10px;
+        }
+        
+        .sala-cpd-ubicacion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin-left: auto;
+        }
+        
+        .sala-icono-cpd {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Control de acceso */
+        .sala-control-acceso {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-sistemas-acceso {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .sala-sistema-acceso {
+            flex: 1;
+            min-width: 200px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-acceso {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-mantrap {
+            margin-top: 30px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .sala-diagrama-mantrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-exterior, .sala-interior {
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .sala-puerta-mantrap {
+            width: 10px;
+            height: 40px;
+            background-color: #1890ff;
+            border-radius: 3px;
+        }
+        
+        .sala-esclusa {
+            padding: 10px;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .sala-nota-mantrap {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Condiciones ambientales */
+        .sala-nota-temperatura {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f6ffed;
+            border-left: 4px solid #52c41a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .sala-nota-temperatura .sala-icono-nota {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #52c41a;
+        }
+        
+        .sala-nota-temperatura .sala-texto-nota {
+            flex: 1;
+        }
+        
+        .sala-nota-temperatura p {
+            margin: 0;
+        }
+        
+        .sala-condiciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .sala-condicion {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-condicion {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-texto-condicion {
+            flex: 1;
+        }
+        
+        .sala-texto-condicion h5 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .sala-texto-condicion p {
+            margin: 0;
+        }
+        
+        /* Pasillos frío-calor */
+        .sala-pasillos-frio-calor {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-diagrama-pasillos {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .sala-pasillo {
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sala-pasillo-frio {
+            background-color: #e6f7ff;
+        }
+        
+        .sala-pasillo-caliente {
+            background-color: #fff1f0;
+        }
+        
+        .sala-texto-pasillo {
+            font-weight: 500;
+        }
+        
+        .sala-racks-fila {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .sala-rack-diagrama {
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .sala-frontal, .sala-fondo {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        
+        .sala-frontal {
+            background-color: #e6f7ff;
+            color: #1890ff;
+        }
+        
+        .sala-fondo {
+            background-color: #fff1f0;
+            color: #ff4d4f;
+        }
+        
+        .sala-leyenda-pasillos {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sala-color-frio {
+            background-color: #e6f7ff;
+        }
+        
+        .sala-color-caliente {
+            background-color: #fff1f0;
+        }
+        
+        /* Protección contra incendios */
+        .sala-proteccion-incendios {
+            margin: 25px 0;
+        }
+        
+        .sala-estrategias {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sala-estrategia {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .sala-icono-estrategia {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .sala-texto-estrategia {
+            flex: 1;
+        }
+        
+        .sala-texto-estrategia h5 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        
+        .sala-lista li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .sala-bullet {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1890ff;
+        }
+        
+        .sala-agentes-extintores {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sala-agentes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .sala-agente {
+            flex: 1;
+            min-width: 250px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-agente-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .sala-icono-agente {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-agente-titulo h5 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .sala-agente-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .sala-agente-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-caracteristica {
+            margin-right: 10px;
+            color: #52c41a;
+        }
+        
+        .sala-armario-ignifugo {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-armario-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sala-icono-armario {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-armario-titulo h4 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .sala-armario-imagen {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .sala-armario-dibujo {
+            width: 150px;
+            height: 200px;
+            background-color: #d9d9d9;
+            border-radius: 5px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .sala-armario-puerta {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            border: 2px solid #8c8c8c;
+        }
+        
+        .sala-armario-contenido {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .sala-backup {
+            font-size: 1.5rem;
+        }
+        
+        /* Unidad rack */
+        .sala-unidad-rack {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-medidas-rack {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .sala-medida-rack {
+            flex: 1;
+            min-width: 250px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .sala-etiqueta-medida {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .sala-ejemplo-rack {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .sala-rack-unidades {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        .sala-u {
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+            font-weight: 500;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        .sala-u-1 {
+            background-color: #1890ff;
+            height: 30px;
+        }
+        
+        .sala-u-2 {
+            background-color: #52c41a;
+            height: 60px;
+        }
+        
+        .sala-u-4 {
+            background-color: #fa8c16;
+            height: 120px;
+        }
+        
+        .sala-leyenda-rack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sala-color-1u {
+            background-color: #1890ff;
+        }
+        
+        .sala-color-2u {
+            background-color: #52c41a;
+        }
+        
+        .sala-color-4u {
+            background-color: #fa8c16;
+        }
+        
+        /* Tipos de rack */
+        .sala-tipos-rack {
+            margin: 25px 0;
+        }
+        
+        .sala-comparativa-racks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .sala-tipo-rack {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-tipo-rack-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sala-icono-rack {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .sala-tipo-rack-titulo h5 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .sala-tipo-rack-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .sala-tipo-rack-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-imagen-rack {
+            height: 150px;
+            border-radius: 5px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .sala-imagen-rack-mural {
+            background-color: #e6f7ff;
+            position: relative;
+        }
+        
+        .sala-imagen-rack-mural::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background-color: #1890ff;
+            border-radius: 5px;
+        }
+        
+        .sala-imagen-rack-suelo {
+            background-color: #e6f7ff;
+            position: relative;
+        }
+        
+        .sala-imagen-rack-suelo::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 130px;
+            background-color: #1890ff;
+            border-radius: 5px;
+        }
+        
+        /* Equipamiento adicional */
+        .sala-equipamiento-adicional {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-elementos-rack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .sala-elemento-rack {
+            flex: 1;
+            min-width: 200px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sala-icono-elemento {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sala-componentes-paralelos {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .sala-flecha-esquema-horizontal {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .sala-diagrama-mantrap {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .sala-puerta-mantrap {
+                width: 40px;
+                height: 10px;
+            }
+            
+            .sala-diagrama-pasillos {
+                gap: 5px;
+            }
+            
+            .sala-rack-diagrama {
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

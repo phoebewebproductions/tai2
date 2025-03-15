@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanismos de Firma Digital</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050301001">
+            <h2>3. MECANISMOS DE FIRMA DIGITAL</h2>
+            <p>Como Firma Digital se entiende un método criptográfico que asocia la identidad de una persona o de un dispositivo electrónico a un mensaje o documento. En función del tipo de firma, puede, además, asegurar la integridad del documento o mensaje. La firma digital es un método de criptografía de clave pública y sus especificaciones están definidas en el estándar PKCS #7.</p>
+            
+            <div class="firma-concepto-clave">
+                <div class="firma-icono">🔏</div>
+                <div class="firma-definicion">
+                    <h4>Firma Digital</h4>
+                    <p>Método criptográfico que asocia la identidad de una persona o dispositivo electrónico a un mensaje o documento, asegurando su integridad. Se basa en criptografía de clave pública (estándar PKCS #7).</p>
+                </div>
+            </div>
+            
+            <p>En ocasiones se confunde este término con firma electrónica. La firma electrónica es un concepto con implicaciones legales acerca de la identidad del firmante de un documento. La firma digital es un concepto que se refiere a los procedimientos de cifrado y autenticación para obtener la firma electrónica.</p>
+            
+            <div class="firma-comparativa">
+                <div class="firma-tipo">
+                    <div class="firma-titulo">Firma Digital</div>
+                    <div class="firma-descripcion">
+                        <p>Concepto técnico</p>
+                        <p>Se refiere a los procedimientos de cifrado y autenticación</p>
+                        <p>Basada en criptografía de clave pública</p>
+                    </div>
+                </div>
+                <div class="firma-vs">vs</div>
+                <div class="firma-tipo">
+                    <div class="firma-titulo">Firma Electrónica</div>
+                    <div class="firma-descripcion">
+                        <p>Concepto legal</p>
+                        <p>Implicaciones legales sobre la identidad del firmante</p>
+                        <p>Regulada por normativas específicas</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301002">
+            <h3>Procedimiento de firma digital</h3>
+            <p>El procedimiento de firma digital de un documento consiste en aplicar una función hash a su contenido para obtener un resumen y, seguidamente, aplicar el algoritmo de firma al resumen obtenido en el que se emplea una clave privada del firmante del documento al resumen obtenido de la operación anterior, generando la firma digital que se añade al documento, que queda firmado.</p>
+            
+            <div class="firma-diagrama">
+                <h4>Mecanismo de Firma Digital</h4>
+                <div class="firma-proceso">
+                    <div class="firma-paso">
+                        <div class="firma-icono">📄</div>
+                        <div class="firma-texto">Documento original</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso">
+                        <div class="firma-icono">🔄</div>
+                        <div class="firma-texto">Función hash</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso">
+                        <div class="firma-icono">📊</div>
+                        <div class="firma-texto">Resumen (hash)</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso">
+                        <div class="firma-icono">🔐</div>
+                        <div class="firma-texto">Cifrado con clave privada</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso">
+                        <div class="firma-icono">🔏</div>
+                        <div class="firma-texto">Firma digital</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso">
+                        <div class="firma-icono">📑</div>
+                        <div class="firma-texto">Documento firmado (documento original + firma digital)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Una firma electrónica es un fichero que contiene información sobre el documento original, el firmante, la fecha de la firma, algoritmos utilizados y posible caducidad de la firma.</p>
+        </span>
+        
+        <span id="4050301003">
+            <h3>Marco legal</h3>
+            <p>La firma electrónica se regula en nuestro ordenamiento jurídico mediante la aplicación de la Ley 6/2020, de 11 de noviembre, reguladora de determinados aspectos de los servicios electrónicos de confianza y el Reglamento (UE) Nº 910/2014 del Parlamento Europeo y del Consejo, de 23 de julio de 2014 (eIDAS), relativo a la identificación electrónica y los servicios de confianza en las transacciones electrónicas en el mercado interior y por el que se deroga la Directiva 1999/93/CE.</p>
+            
+            <div class="firma-nota">
+                <div class="firma-icono">📝</div>
+                <div class="firma-texto">
+                    <p>Debemos destacar que la reciente Ley 6/2020 ha derogado la Ley 59/2003, de 19 de diciembre, de firma electrónica, y con ella aquellos preceptos incompatibles con el Reglamento eIDAS que es de aplicación directa.</p>
+                </div>
+            </div>
+            
+            <div class="firma-marco-legal">
+                <h4>Marco Legal de la Firma Electrónica</h4>
+                <div class="firma-normativa">
+                    <div class="firma-normativa-item">
+                        <div class="firma-icono">🇪🇺</div>
+                        <div class="firma-texto">
+                            <h5>Reglamento (UE) Nº 910/2014 (eIDAS)</h5>
+                            <p>Relativo a la identificación electrónica y los servicios de confianza en las transacciones electrónicas en el mercado interior.</p>
+                        </div>
+                    </div>
+                    <div class="firma-normativa-item">
+                        <div class="firma-icono">🇪🇸</div>
+                        <div class="firma-texto">
+                            <h5>Ley 6/2020, de 11 de noviembre</h5>
+                            <p>Reguladora de determinados aspectos de los servicios electrónicos de confianza.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301004">
+            <h3>3.1 CERTIFICADOS ELECTRÓNICOS</h3>
+            <p>Técnicamente, para certificar que una firma electrónica pertenece a una persona física o jurídica, una tercera parte de confianza o prestador de servicios de certificación comprueba que la clave pública de un firmante se corresponde a su identidad, y expide un certificado con estos datos que firma con su propia firma electrónica.</p>
+            
+            <div class="firma-concepto-clave">
+                <div class="firma-icono">🔐</div>
+                <div class="firma-definicion">
+                    <h4>Certificado Electrónico</h4>
+                    <p>Documento digital emitido por un prestador de servicios de certificación que vincula una clave pública con la identidad de su titular, confirmando su identidad.</p>
+                </div>
+            </div>
+            
+            <div class="firma-diagrama">
+                <h4>Proceso de Emisión de un Certificado Electrónico</h4>
+                <div class="firma-proceso-certificado">
+                    <div class="firma-paso-certificado">
+                        <div class="firma-icono">👤</div>
+                        <div class="firma-texto">Usuario genera par de claves (pública y privada)</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso-certificado">
+                        <div class="firma-icono">📋</div>
+                        <div class="firma-texto">Usuario solicita certificado a la Autoridad de Certificación</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso-certificado">
+                        <div class="firma-icono">🔍</div>
+                        <div class="firma-texto">Autoridad verifica identidad del solicitante</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso-certificado">
+                        <div class="firma-icono">🔏</div>
+                        <div class="firma-texto">Autoridad firma la clave pública del usuario con su clave privada</div>
+                    </div>
+                    <div class="firma-flecha">↓</div>
+                    <div class="firma-paso-certificado">
+                        <div class="firma-icono">📜</div>
+                        <div class="firma-texto">Emisión del certificado electrónico</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301005">
+            <h3>3.2 FORMATOS DE FIRMA</h3>
+            <p>La estructura del formato de firma digital viene determinada por distintos formatos:</p>
+            
+            <div class="firma-formatos">
+                <div class="firma-formato">
+                    <div class="firma-formato-titulo">
+                        <div class="firma-icono">📁</div>
+                        <h4>CAdES</h4>
+                    </div>
+                    <div class="firma-formato-descripcion">
+                        <p><strong>CMS Avanzado</strong>. Es la evolución del primer formato de firma estandarizado. Es apropiado para firmar ficheros grandes, especialmente si la firma contiene el documento original porque optimiza el espacio de la información. Tras firmar, no se puede ver la información firmada, porque la información se guarda de forma binaria.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-formato">
+                    <div class="firma-formato-titulo">
+                        <div class="firma-icono">📄</div>
+                        <h4>XAdES</h4>
+                    </div>
+                    <div class="firma-formato-descripcion">
+                        <p><strong>XML Avanzado</strong>. El resultado es un fichero de texto XML. Los documentos obtenidos suelen ser más grandes que en el caso de CAdES, por eso no es adecuado cuando el fichero original es muy grande.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-formato">
+                    <div class="firma-formato-titulo">
+                        <div class="firma-icono">📑</div>
+                        <h4>PAdES</h4>
+                    </div>
+                    <div class="firma-formato-descripcion">
+                        <p><strong>PDF Avanzado</strong>. Este es el formato más adecuado cuando el documento original es un PDF. El destinatario de la firma puede comprobar fácilmente la firma y el documento firmado. Con los formatos anteriores esto no es posible si no se utilizan herramientas externas.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-formato">
+                    <div class="firma-formato-titulo">
+                        <div class="firma-icono">📊</div>
+                        <h4>OOXML y ODF</h4>
+                    </div>
+                    <div class="firma-formato-descripcion">
+                        <p>Son los formatos de firma que utilizan Microsoft Office y Open Office, respectivamente.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301006">
+            <h3>Inclusión del documento original</h3>
+            <p>Según cómo se referencie o dónde se guarde el documento original en el fichero de firma, podemos tener dos casos:</p>
+            
+            <div class="firma-inclusion">
+                <div class="firma-inclusion-tipo">
+                    <div class="firma-icono">📦</div>
+                    <div class="firma-texto">
+                        <h4>Documento incluido en la firma</h4>
+                        <p>El documento original se incluye en el fichero de firma, con lo que no es necesario guardar el documento original y el fichero de firma, ya que aquel está incluido en éste, pero si el tamaño del fichero es elevado se consume más espacio de almacenamiento.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-inclusion-tipo">
+                    <div class="firma-icono">🔗</div>
+                    <div class="firma-texto">
+                        <h4>Documento no incluido en la firma</h4>
+                        <p>El documento no se incluye en la firma, en este caso, el documento no se incluye en el resultado de firma o solamente se incluye una referencia al lugar en el que se encuentra para que el documento pueda ser localizado. Por tanto, se obtienen ficheros de tamaño más reducido, pero, por el contrario, el documento original siempre hay que guardarlo junto a la firma.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="firma-terminologia">
+                <div class="firma-terminologia-grupo">
+                    <h4>Terminología en CAdES</h4>
+                    <div class="firma-terminologia-item">
+                        <div class="firma-icono">📥</div>
+                        <div class="firma-texto">
+                            <h5>Firmas implícitas</h5>
+                            <p>La firma incluye el documento original.</p>
+                        </div>
+                    </div>
+                    <div class="firma-terminologia-item">
+                        <div class="firma-icono">📤</div>
+                        <div class="firma-texto">
+                            <h5>Firmas explícitas</h5>
+                            <p>La firma no incluye el documento original.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="firma-terminologia-grupo">
+                    <h4>Terminología en XAdES</h4>
+                    <div class="firma-terminologia-item">
+                        <div class="firma-icono">🔄</div>
+                        <div class="firma-texto">
+                            <h5>Firmas despegadas (detached)</h5>
+                            <p>La firma está separada del documento original.</p>
+                        </div>
+                    </div>
+                    <div class="firma-terminologia-item">
+                        <div class="firma-icono">📦</div>
+                        <div class="firma-texto">
+                            <h5>Firmas envolventes (enveloping)</h5>
+                            <p>Las firmas incluyen al documento original.</p>
+                        </div>
+                    </div>
+                    <div class="firma-terminologia-item">
+                        <div class="firma-icono">📥</div>
+                        <div class="firma-texto">
+                            <h5>Firmas envueltas (enveloped)</h5>
+                            <p>Las firmas están incluidas en el documento original.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301007">
+            <h3>3.3 FIRMAS MÚLTIPLES</h3>
+            <p>En el mundo del papel y de la firma manuscrita, un documento puede contener la firma de varias personas. El equivalente a esas firmas en el mundo electrónico son las firmas múltiples. Atendiendo al criterio del número de firmantes podemos tener:</p>
+            
+            <div class="firma-tipos-multiples">
+                <div class="firma-tipo-multiple">
+                    <div class="firma-icono">👤</div>
+                    <div class="firma-texto">
+                        <h4>Firmas simples</h4>
+                        <p>Firmas básicas que contienen la firma de un solo firmante.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-tipo-multiple">
+                    <div class="firma-icono">👥</div>
+                    <div class="firma-texto">
+                        <h4>Co-firma o firma en línea</h4>
+                        <p>La firma múltiple en la que todos los firmantes están al mismo nivel y en la que no importa el orden en el que se firma. La co-firma se utiliza en la firma de documentos que son resultados de reuniones, conferencias o comités.</p>
+                        <div class="firma-diagrama-simple">
+                            <div class="firma-firmante">Firmante A</div>
+                            <div class="firma-firmante">Firmante B</div>
+                            <div class="firma-firmante">Firmante C</div>
+                            <div class="firma-documento">Documento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="firma-tipo-multiple">
+                    <div class="firma-icono">👥</div>
+                    <div class="firma-texto">
+                        <h4>Contra-firma o firma en cascada</h4>
+                        <p>Firma múltiple en la que el orden en el que se firma es importante, ya que cada firma debe refrendar o certificar la firma del firmante anterior. La contra-firma se utiliza especialmente en aplicaciones como los Porta Firmas, en los que un documento debe seguir una línea específica a través de varios firmantes hasta que todo el proceso es aprobado.</p>
+                        <div class="firma-diagrama-simple">
+                            <div class="firma-firmante">Firmante A</div>
+                            <div class="firma-flecha-simple">↓</div>
+                            <div class="firma-firmante">Firmante B</div>
+                            <div class="firma-flecha-simple">↓</div>
+                            <div class="firma-firmante">Firmante C</div>
+                            <div class="firma-flecha-simple">↓</div>
+                            <div class="firma-documento">Documento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301008">
+            <h3>3.4 FIRMAS LONGEVAS Y SELLO DE TIEMPO</h3>
+            <p>Para verificar una firma es necesario:</p>
+            <ul class="firma-lista">
+                <li><span class="firma-bullet">•</span> Comprobar la integridad de los datos firmados asegurando que éstos no hayan sufrido ninguna modificación.</li>
+                <li><span class="firma-bullet">•</span> Comprobar que el estado del certificado digital con el que se firmó era el correcto, es decir, era vigente en el momento de la operación.</li>
+            </ul>
+            
+            <p>En el caso de la firma electrónica básica, si el certificado que le otorga validez está caducado automáticamente se da la firma como no válida. Sin embargo, es necesario disponer de procedimientos que permitan conocer si el certificado estaba vigente en momento que se efectuó la firma.</p>
+            
+            <div class="firma-concepto-clave">
+                <div class="firma-icono">⏱️</div>
+                <div class="firma-definicion">
+                    <h4>Sello de Tiempo</h4>
+                    <p>Es una firma de una Autoridad de Sellado de Tiempo (TSA), que actúa como tercera parte de confianza testificando la existencia de dichos datos electrónicos en una fecha y hora concretos.</p>
+                </div>
+            </div>
+            
+            <p>Puesto que el Sello de Tiempo es una firma realizada con el certificado electrónico de la Autoridad de Sellado, cuando ese certificado caduca, el sello y, por tanto, la firma dejan de ser válidas. Por eso, antes de que el certificado de la TSA caduque es necesario resellar o aplicar de nuevo el Sello Temporal para mantener la validez temporal de la firma.</p>
+            
+            <div class="firma-nota">
+                <div class="firma-icono">📝</div>
+                <div class="firma-texto">
+                    <p>El sellado de tiempo proporciona un valor añadido a la utilización de firma digital, ya que la firma por sí sola no proporciona ninguna información acerca del momento de creación de la firma, y en el caso de que el firmante la incluyese, ésta habría sido proporcionada por una de las partes, cuando lo recomendable es que la marca de tiempo sea proporcionada por una tercera parte de confianza.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301009">
+            <h3>Formatos de firma longeva</h3>
+            <p>Los formatos AdES (forma genérica de llamar a los formatos CAdES, XAdES y PAdES) contemplan la posibilidad de incorporar a las firmas electrónicas información adicional que garantiza la validez de una firma a largo plazo, una vez vencido el periodo de validez del certificado.</p>
+            
+            <p>Estos formatos añaden a la firma evidencias de terceros (de autoridades de certificación) y certificaciones de tiempo, que realmente certifican cuál era el estado del certificado en el momento de la firma.</p>
+            
+            <p>Concretamente, existen distintos formatos de firma que van incrementando la calidad de la misma hasta conseguir una firma que pueda ser verificada a largo plazo (de forma indefinida) con plenas garantías jurídicas:</p>
+            
+            <div class="firma-formatos-longeva">
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">📄</div>
+                        <h4>Firma Básica (AdES - BES)</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Es el formato básico para satisfacer los requisitos de la firma electrónica avanzada.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-flecha-formato">↓</div>
+                
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">⏱️</div>
+                        <h4>AdES-T</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Se añade un sellado de tiempo (T de TimeStamp) con el fin de situar en el tiempo el instante en que se firma un documento.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-flecha-formato">↓</div>
+                
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">🔗</div>
+                        <h4>AdES-C</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Añade un conjunto de referencias a los certificados de la cadena de certificación y su estado, como base para una verificación longeva (C de Cadena).</p>
+                    </div>
+                </div>
+                
+                <div class="firma-flecha-formato">↓</div>
+                
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">🔄</div>
+                        <h4>AdES-X</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Añade sellos de tiempo a las referencias creadas en el paso anterior (X de eXtendida).</p>
+                    </div>
+                </div>
+                
+                <div class="firma-flecha-formato">↓</div>
+                
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">📊</div>
+                        <h4>AdES-XL</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Añade los certificados y la información de revocación de los mismos, para su validación a largo plazo (XL de eXtendido Largo plazo).</p>
+                    </div>
+                </div>
+                
+                <div class="firma-flecha-formato">↓</div>
+                
+                <div class="firma-formato-longevo">
+                    <div class="firma-formato-longevo-titulo">
+                        <div class="firma-icono">🗄️</div>
+                        <h4>AdES-A</h4>
+                    </div>
+                    <div class="firma-formato-longevo-descripcion">
+                        <p>Permite la adición de sellos de tiempo periódicos para garantizar la integridad de la firma archivada o guardada para futuras verificaciones (A de Archivo).</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050301010">
+            <h3>Validación a largo plazo</h3>
+            <p>Para el caso del formato PAdES, el formato de resellado se denomina LTV (Long-Time Validation). A nivel tecnológico, en el cálculo del algoritmo de firma electrónica en el documento firmado se incrustan dos informaciones fundamentales:</p>
+            
+            <div class="firma-informacion-ltv">
+                <div class="firma-info-item">
+                    <div class="firma-icono">🔍</div>
+                    <div class="firma-texto">
+                        <p>La validación del estado de revocación del certificado en el momento de la firma: se accede a la consulta OCSP y la Autoridad de Certificación nos dice si este certificado digital está caducado o revocado.</p>
+                    </div>
+                </div>
+                
+                <div class="firma-info-item">
+                    <div class="firma-icono">⏱️</div>
+                    <div class="firma-texto">
+                        <p>El sello de tiempo, o TimeStamp, mediante el que un tercero de confianza nos dice la hora exacta del momento de la firma.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>De esta forma, se incorporan en el momento firmar los certificados de la cadena de confianza y el resultado de la comprobación de validez de los mismos.</p>
+        </span>
+        
+        <span id="4050301011">
+            <h3>Formatos Baseline</h3>
+            <p>La normativa de desarrollo del Reglamento (UE) nº 910/2014 (eIDAS) incluye la definición de los nuevos tipos de firma Baseline. Estos tipos son equivalentes a los formatos tradicionales siempre y cuando las firmas incluyan una serie de requisitos determinados.</p>
+            
+            <p>El nuevo formato representa un perfil más genérico y se utiliza para garantizar la interoperabilidad transfronteriza de las firmas electrónicas en el contexto de la Directiva 2006/123/CE del Parlamento Europeo y del Consejo del 12 de diciembre de 2006 relativo a los servicios en el mercado interior.</p>
+            
+            <div class="firma-tabla-comparativa">
+                <h4>Equivalencia entre los perfiles tradicionales y Baseline de firma</h4>
+                <table class="firma-tabla">
+                    <thead>
+                        <tr>
+                            <th>Formato tradicional</th>
+                            <th>Formato Baseline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CAdES-BES/-EPES</td>
+                            <td>CAdES B-Level</td>
+                        </tr>
+                        <tr>
+                            <td>CAdES-T</td>
+                            <td>CAdES T-Level</td>
+                        </tr>
+                        <tr>
+                            <td>XAdES-BES/-EPES</td>
+                            <td>XAdES B-Level</td>
+                        </tr>
+                        <tr>
+                            <td>XAdES-T</td>
+                            <td>XAdES T-Level</td>
+                        </tr>
+                        <tr>
+                            <td>XAdES-X-L</td>
+                            <td>XAdES LT-Level</td>
+                        </tr>
+                        <tr>
+                            <td>XAdES-A</td>
+                            <td>XAdES LTA-Level</td>
+                        </tr>
+                        <tr>
+                            <td>PAdES-BES/-EPES</td>
+                            <td>PAdES B-Level</td>
+                        </tr>
+                        <tr>
+                            <td>PAdES-LTV</td>
+                            <td>PAdES T-Level/LT-Level/LTA-Level</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para mecanismos de firma digital - usando clases únicas */
+        .firma-concepto-clave {
+            display: flex;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .firma-concepto-clave .firma-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .firma-concepto-clave .firma-definicion {
+            flex: 1;
+        }
+        
+        .firma-concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Comparativa */
+        .firma-comparativa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .firma-tipo {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-titulo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1890ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .firma-descripcion p {
+            margin: 5px 0;
+        }
+        
+        .firma-vs {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1890ff;
+            margin: 0 20px;
+        }
+        
+        /* Diagrama */
+        .firma-diagrama {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-proceso, .firma-proceso-certificado {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .firma-paso, .firma-paso-certificado {
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        .firma-paso .firma-icono, .firma-paso-certificado .firma-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .firma-flecha {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 10px 0;
+        }
+        
+        /* Nota */
+        .firma-nota {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f6ffed;
+            border-left: 4px solid #52c41a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .firma-nota .firma-icono {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #52c41a;
+        }
+        
+        .firma-nota .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-nota p {
+            margin: 0;
+        }
+        
+        /* Marco legal */
+        .firma-marco-legal {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-normativa {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .firma-normativa-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .firma-normativa-item .firma-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .firma-normativa-item .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-normativa-item h5 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Formatos */
+        .firma-formatos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .firma-formato {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-formato-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .firma-formato-titulo .firma-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .firma-formato-titulo h4 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .firma-formato-descripcion p {
+            margin: 0;
+        }
+        
+        /* Inclusión */
+        .firma-inclusion {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .firma-inclusion-tipo {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-inclusion-tipo .firma-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .firma-inclusion-tipo .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-inclusion-tipo h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        /* Terminología */
+        .firma-terminologia {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .firma-terminologia-grupo {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-terminologia-grupo h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .firma-terminologia-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .firma-terminologia-item .firma-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .firma-terminologia-item .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-terminologia-item h5 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        
+        .firma-terminologia-item p {
+            margin: 0;
+        }
+        
+        /* Firmas múltiples */
+        .firma-tipos-multiples {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .firma-tipo-multiple {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-tipo-multiple .firma-icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .firma-tipo-multiple .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-tipo-multiple h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .firma-diagrama-simple {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .firma-firmante {
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        
+        .firma-documento {
+            background-color: #f6ffed;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        
+        .firma-flecha-simple {
+            font-size: 1.2rem;
+            color: #1890ff;
+            margin: 2px 0;
+        }
+        
+        /* Lista */
+        .firma-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .firma-lista li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .firma-bullet {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1890ff;
+            font-weight: bold;
+        }
+        
+        /* Formatos longeva */
+        .firma-formatos-longeva {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 25px 0;
+        }
+        
+        .firma-formato-longevo {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-formato-longevo-titulo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .firma-formato-longevo-titulo .firma-icono {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1890ff;
+        }
+        
+        .firma-formato-longevo-titulo h4 {
+            margin: 0;
+            color: #1890ff;
+        }
+        
+        .firma-formato-longevo-descripcion p {
+            margin: 0;
+        }
+        
+        .firma-flecha-formato {
+            font-size: 1.5rem;
+            color: #1890ff;
+            margin: 10px 0;
+        }
+        
+        /* Información LTV */
+        .firma-informacion-ltv {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .firma-info-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-info-item .firma-icono {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #1890ff;
+        }
+        
+        .firma-info-item .firma-texto {
+            flex: 1;
+        }
+        
+        .firma-info-item p {
+            margin: 0;
+        }
+        
+        /* Tabla */
+        .firma-tabla-comparativa {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        .firma-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firma-tabla th {
+            background-color: #1890ff;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .firma-tabla td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .firma-tabla tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .firma-tabla tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .firma-comparativa {
+                flex-direction: column;
+            }
+            
+            .firma-vs {
+                margin: 15px 0;
+            }
+            
+            .firma-paso, .firma-paso-certificado, .firma-formato-longevo {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

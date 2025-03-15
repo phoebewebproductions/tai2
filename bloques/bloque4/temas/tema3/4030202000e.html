@@ -1,0 +1,439 @@
+<div class="teoria">
+    <span id="4030202001">
+        <h2>3.2 CONTENEDORES</h2>
+        <p>La virtualización a nivel de sistema operativo, también llamada virtualización basada en contenedores, es un método de virtualización en el que, sobre el núcleo del sistema operativo se ejecuta una capa de virtualización que permite que existan múltiples instancias aisladas de espacios de usuario, en lugar de solo uno. Tales instancias, las cuales son llamadas contenedores, pueden verse y sentirse como un servidor real desde el punto de vista de sus dueños y usuarios. Al software que permite el alojamiento de distintos contenedores se le llama motor de contenedores.</p>
+        
+        <div class="container-vs-vm">
+            <h4>Contenedores vs Máquinas Virtuales</h4>
+            <div class="comparison-diagram">
+                <div class="architecture-column">
+                    <div class="architecture-header">Máquinas Virtuales</div>
+                    <div class="architecture-diagram vm">
+                        <div class="hardware">Hardware</div>
+                        <div class="host-os">Sistema Operativo Host</div>
+                        <div class="hypervisor">Hipervisor</div>
+                        <div class="vms-container">
+                            <div class="vm-instance">
+                                <div class="guest-os">SO Invitado</div>
+                                <div class="app">App A</div>
+                            </div>
+                            <div class="vm-instance">
+                                <div class="guest-os">SO Invitado</div>
+                                <div class="app">App B</div>
+                            </div>
+                            <div class="vm-instance">
+                                <div class="guest-os">SO Invitado</div>
+                                <div class="app">App C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="architecture-column">
+                    <div class="architecture-header">Contenedores</div>
+                    <div class="architecture-diagram containers">
+                        <div class="hardware">Hardware</div>
+                        <div class="host-os">Sistema Operativo Host</div>
+                        <div class="container-engine">Motor de Contenedores</div>
+                        <div class="containers-container">
+                            <div class="container-instance">
+                                <div class="app">App A</div>
+                            </div>
+                            <div class="container-instance">
+                                <div class="app">App B</div>
+                            </div>
+                            <div class="container-instance">
+                                <div class="app">App C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-description">
+                <p>En las máquinas virtuales, cada instancia incluye una copia completa del sistema operativo, mientras que en los contenedores, todas las instancias comparten el mismo kernel del sistema operativo host, lo que los hace más ligeros y eficientes.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030202002">
+        <h3>3.2.1 CARACTERÍSTICAS</h3>
+        <div class="characteristics">
+            <div class="characteristic">
+                <h4>a) Sobrecarga</h4>
+                <p>Los contenedores normalmente imponen poca o ninguna sobrecarga, porque los programas en particiones virtuales utilizan la interfaz de llamada del sistema operativo y no necesitan de emulación o ser ejecutados en una máquina virtual intermedia. Esta forma de virtualización además no requiere soporte en hardware para actuar eficientemente.</p>
+            </div>
+            <div class="characteristic">
+                <h4>b) Flexibilidad</h4>
+                <p>Los contenedores no son tan flexibles como otros enfoques de virtualización porque no puede hospedar un sistema operativo diferente del anfitrión o un kernel distinto.</p>
+            </div>
+            <div class="characteristic">
+                <h4>c) Almacenamiento</h4>
+                <p>Algunas implementaciones de contenedores proporcionan mecanismos copy-on-write a nivel de archivos. Con este sistema es más sencillo realizar copias de seguridad, además, hace un uso más eficiente del espacio en disco y resulta más sencillo de guardar en caché que los esquemas copy-on-write a nivel de bloque, comunes en virtualizadores a sistema completo. Los virtualizadores a sistema completo, sin embargo, pueden trabajar con sistemas de archivos no nativos y crear y restaurar copias del estado actual completo del sistema.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030202003">
+        <h3>3.2.2 TIPOS DE CONTENEDORES</h3>
+        <div class="container-types">
+            <div class="container-type">
+                <h4>a) Contenedores de infraestructura o sistema de contenedores</h4>
+                <p>Ofrecen un servicio que permite ejecutar múltiples instancias de sistemas operativos de manera aislada. Ofrece todo lo necesario para que el sistema "contenido" pueda trabajar, tales como CPU, network, I/O. Es similar a una máquina virtual pero más rápido y ligero. Ejemplos de estos sistemas son LXC y LXD.</p>
+                <div class="examples">
+                    <div class="example">LXC</div>
+                    <div class="example">LXD</div>
+                </div>
+            </div>
+            <div class="container-type">
+                <h4>b) Contenedores de procesos o de aplicaciones</h4>
+                <p>Ofrecen un sistema para empaquetar aplicaciones y todas sus dependencias y, por tanto, son muy útiles para el desarrollo y distribución de aplicaciones. Este tipo de contenedores son muy usados en la computación en la nube para distribuir las aplicaciones. Ejemplos de estos sistemas son Docker y systemd-nspawn.</p>
+                <div class="examples">
+                    <div class="example">Docker</div>
+                    <div class="example">systemd-nspawn</div>
+                </div>
+            </div>
+            <div class="container-type">
+                <h4>c) Contenedores sandbox</h4>
+                <p>Enfocados en proveer aislamiento mediante un entorno que permita ejecutar contenedores en un espacio encapsulado donde tiene acceso restringido a recursos del sistema operativo o datos del usuario (sandbox). Ejemplos de estos sistemas son Firejail, nsroot, nsjail, FreeBSD jail, sandboxie y Bubblewrap.</p>
+                <div class="examples">
+                    <div class="example">Firejail</div>
+                    <div class="example">nsroot</div>
+                    <div class="example">nsjail</div>
+                    <div class="example">FreeBSD jail</div>
+                    <div class="example">sandboxie</div>
+                    <div class="example">Bubblewrap</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030202004">
+        <h3>3.2.3 VENTAJAS E INCONVENIENTES DE LOS CONTENEDORES</h3>
+        <div class="pros-cons">
+            <div class="pros-cons-column">
+                <h4>Ventajas</h4>
+                <ul class="pros-list">
+                    <li>
+                        Los contenedores pueden llegar a tener un rendimiento en la ejecución muy próximo al nativo reduciendo, debido a que un solo kernel controla el acceso a los dispositivos y recursos.
+                    </li>
+                    <li>
+                        No requieren un hipervisor para funcionar.
+                    </li>
+                    <li>
+                        No requieren ningún mecanismo hardware.
+                    </li>
+                    <li>
+                        Permiten un mayor control desde fuera (desde el anfitrión) del que se pueda tener usando máquinas virtuales.
+                    </li>
+                    <li>
+                        Las aplicaciones que se ejecutan en contenedores se pueden poner en marcha fácilmente en sistemas operativos y plataformas de hardware diferentes.
+                    </li>
+                    <li>
+                        Permiten poner en marcha, aplicar parches o escalar las aplicaciones con mayor rapidez.
+                    </li>
+                </ul>
+            </div>
+            <div class="pros-cons-column">
+                <h4>Inconvenientes</h4>
+                <ul class="cons-list">
+                    <li>
+                        Un fallo en el kernel puede provocar la caída de la totalidad de los contenedores alojados (único punto de fallo).
+                    </li>
+                    <li>
+                        Las librerías, herramientas, utilidades,... que ejecuten los servidores virtuales deben estar compilados para el mismo juego de instrucciones y hardware que utiliza el sistema operativo anfitrión.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030202005">
+        <h3>3.3 CONTENEDORES Y MICROSERVICIOS</h3>
+        <p>Los microservicios están íntimamente ligados al concepto de contenedores. Esto sucede en la medida que los contenedores permiten empaquetar todo lo necesario para que un servicio se ejecute de manera encapsulada dentro de una sola imagen completamente independiente del servidor anfitrión. Es decir, aseguran la disponibilidad del servicio sin importar el sistema operativo en el que esté alojado.</p>
+        
+        <div class="microservices-container">
+            <h4>Aplicación de referencia de tienda virtual en un contenedor</h4>
+            <div class="container-diagram">
+                <div class="docker-host">
+                    <div class="host-header">Docker Host</div>
+                    <div class="services-layer">
+                        <div class="service">
+                            <div class="service-name">Servicio de Identificación</div>
+                            <div class="service-db">Base de Datos</div>
+                        </div>
+                        <div class="service">
+                            <div class="service-name">Servicio de Catálogo</div>
+                            <div class="service-db">Base de Datos</div>
+                        </div>
+                        <div class="service">
+                            <div class="service-name">Servicio de Encargos</div>
+                            <div class="service-db">Base de Datos</div>
+                        </div>
+                        <div class="service">
+                            <div class="service-name">Servicio de Cesta de Compra</div>
+                            <div class="service-db">Base de Datos</div>
+                        </div>
+                    </div>
+                    <div class="common-layer">
+                        <div class="common-component">API</div>
+                        <div class="common-component">App</div>
+                        <div class="common-component">Sistema de Intercambio de Mensajes</div>
+                        <div class="common-component">Servicios Horizontales</div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-description">
+                <p>En la figura podemos ver como en el contenedor Docker Host se almacenan los servicios de identificación, catálogo, encargos y cesta de la compra, cada uno de ellos conteniendo la base de datos que precisan para trabajar, pero además de ello en el contenedor está la API, la App, y el sistema de intercambio de mensajes entre los microservicios, además de servicios horizontales que son comunes a todos los microservicios.</p>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Container vs VM Styles */
+        .container-vs-vm {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .comparison-diagram {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .architecture-column {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .architecture-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .architecture-diagram {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hardware, .host-os, .hypervisor, .container-engine {
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .hardware {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .host-os {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        .hypervisor {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .container-engine {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .vms-container, .containers-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .vm-instance, .container-instance {
+            width: 30%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .vm-instance {
+            border: 1px solid #ffeeba;
+        }
+        .container-instance {
+            border: 1px solid #b8daff;
+            background-color: #cce5ff;
+        }
+        .guest-os {
+            padding: 5px;
+            text-align: center;
+            background-color: #fff3cd;
+            border-bottom: 1px solid #ffeeba;
+        }
+        .app {
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Characteristics Styles */
+        .characteristics {
+            margin: 20px 0;
+        }
+        .characteristic {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .characteristic h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        
+        /* Container Types Styles */
+        .container-types {
+            margin: 20px 0;
+        }
+        .container-type {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .container-type h4 {
+            margin-top: 0;
+            color: #0078d7;
+        }
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .example {
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Pros and Cons Styles */
+        .pros-cons {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pros-cons-column {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .pros-cons-column h4 {
+            margin-top: 0;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .pros-list li {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .cons-list li {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        
+        /* Microservices Container Styles */
+        .microservices-container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .container-diagram {
+            margin: 15px 0;
+        }
+        .docker-host {
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .host-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .services-layer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 15px;
+            background-color: #f2f2f2;
+        }
+        .service {
+            width: 45%;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .service-name {
+            padding: 10px;
+            text-align: center;
+            background-color: #0078d7;
+            color: white;
+            font-weight: bold;
+        }
+        .service-db {
+            padding: 5px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+        .common-layer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-top: 1px solid #ddd;
+        }
+        .common-component {
+            width: 45%;
+            margin-bottom: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .diagram-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</div>

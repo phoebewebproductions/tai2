@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerabilidades y Amenazas</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4050102001">
+            <h2>1.2. VULNERABILIDADES Y AMENAZAS</h2>
+            <h3>1.2.1 VULNERABILIDADES</h3>
+            <p>Según la norma ISO/IEC 27001, una <strong>vulnerabilidad</strong> es la "debilidad de un activo o control que puede ser explotada por una o más amenazas". El Esquema Nacional de Seguridad (ENS) adopta esta misma definición.</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">🔓</div>
+                <div class="definicion">
+                    <h4>Vulnerabilidad</h4>
+                    <p>Debilidad de un activo o control que puede ser explotada por una o más amenazas.</p>
+                </div>
+            </div>
+            
+            <p>Desde el punto de vista de la seguridad lógica son especialmente peligrosas las vulnerabilidades conocidas como <strong>vulnerabilidad de día cero</strong> o <strong>Zero Day</strong>. Es un tipo de vulnerabilidad que acaba de ser descubierta y que aún no tiene un parche que la solucione. La principal amenaza reside en que, hasta que se lanza dicho parche correctivo y los usuarios lo instalan en sus equipos, los atacantes tienen vía libre para explotar la vulnerabilidad y sacar provecho del fallo de seguridad. A este tipo de ataques, se les denomina <strong>ataques de día cero</strong> o <strong>Zero day attack</strong>.</p>
+            
+            <div class="diagrama-proceso">
+                <h4>Ciclo de vida de una vulnerabilidad Zero Day</h4>
+                <div class="proceso">
+                    <div class="paso">
+                        <div class="numero">1</div>
+                        <div class="descripcion">Descubrimiento de la vulnerabilidad</div>
+                    </div>
+                    <div class="flecha">↓</div>
+                    <div class="paso">
+                        <div class="numero">2</div>
+                        <div class="descripcion">Explotación por atacantes (periodo de riesgo máximo)</div>
+                    </div>
+                    <div class="flecha">↓</div>
+                    <div class="paso">
+                        <div class="numero">3</div>
+                        <div class="descripcion">Desarrollo del parche por el fabricante</div>
+                    </div>
+                    <div class="flecha">↓</div>
+                    <div class="paso">
+                        <div class="numero">4</div>
+                        <div class="descripcion">Lanzamiento del parche</div>
+                    </div>
+                    <div class="flecha">↓</div>
+                    <div class="paso">
+                        <div class="numero">5</div>
+                        <div class="descripcion">Instalación del parche por los usuarios</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102002">
+            <p>A finales de 2021 se descubrió una vulnerabilidad en la librería de Apache Log4j. Log4j es una utilidad de registro de código abierto basada en Java, ampliamente utilizada por aplicaciones empresariales y servicios en la nube. Un error en dicha librería permitiría la ejecución de código remoto no autorizado.</p>
+            
+            <p>Los programas que aprovechan estas vulnerabilidades se denominan <strong>exploits</strong>. Un exploit es un fragmento de código destinado a aprovechar una vulnerabilidad conocida de una aplicación para conseguir un comportamiento no deseado de la misma. Su uso principal es como vector para la inyección de una carga útil (<strong>payload</strong>) que ofrezca al atacante algún tipo de acceso y/o control del equipo comprometido. Un payload puede ser utilizado por varios exploits y un mismo exploit puede utilizar varios payloads.</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">⚡</div>
+                <div class="definicion">
+                    <h4>Exploit</h4>
+                    <p>Fragmento de código destinado a aprovechar una vulnerabilidad conocida de una aplicación para conseguir un comportamiento no deseado de la misma.</p>
+                </div>
+            </div>
+            
+            <p>Un tipo de vulnerabilidad que no requiere necesariamente de un exploit son los <strong>Backdoors</strong> o <strong>puerta trasera</strong>, que es como se denomina a cualquier método por el que un usuario no autorizado es capaz de evitar las medidas de seguridad usuales y obtener un acceso privilegiado a un sistema. Normalmente responden a vulnerabilidades del sistema o de las aplicaciones, pero pueden ser implantados a propósito para usos personales o de pruebas. La actualización de los sistemas operativos y los antivirus constituyen una buena defensa frente a las backdoors.</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">🚪</div>
+                <div class="definicion">
+                    <h4>Backdoor (Puerta trasera)</h4>
+                    <p>Método por el que un usuario no autorizado es capaz de evitar las medidas de seguridad usuales y obtener un acceso privilegiado a un sistema.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102003">
+            <h4>Algunos ciberataques que han aprovechado vulnerabilidades:</h4>
+            
+            <div class="tabla-comparativa">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ataque</th>
+                            <th>Descripción</th>
+                            <th>Sistemas afectados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Land attack</strong></td>
+                            <td>Envía un paquete TCP SYN con la misma dirección IP y número de puerto en los campos origen y destino, al servidor objetivo, de forma que se responde a sí mismo continuamente.</td>
+                            <td>Windows 2003, Windows XP</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ping de la muerte</strong></td>
+                            <td>Consiste en enviar un paquete ping cuyo tamaño real supere el máximo autorizado (64 KB). Cuando se envía a un sistema que contiene una pila vulnerable de protocolos TCP/IP, produce la caída del sistema.</td>
+                            <td>Sistemas operativos antiguos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wannacry</strong></td>
+                            <td>Ransomware que en 2017 aprovechó una vulnerabilidad del sistema operativo Windows para cifrar los archivos y pedir un rescate por su recuperación. Tenía la posibilidad de autopropagarse y en un solo día infectó a 230.000 PCs.</td>
+                            <td>Windows (principalmente sistemas sin actualizar)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050102004">
+            <h3>1.2.2 AMENAZAS</h3>
+            <p>Según la norma ISO/IEC 27001, una <strong>amenaza</strong> es una "Causa potencial de un incidente no deseado, que puede provocar daños a un sistema o a la organización".</p>
+            
+            <div class="concepto-clave">
+                <div class="icono">⚠️</div>
+                <div class="definicion">
+                    <h4>Amenaza</h4>
+                    <p>Causa potencial de un incidente no deseado, que puede provocar daños a un sistema o a la organización.</p>
+                </div>
+            </div>
+            
+            <p>La consecuencia de la materialización de una amenaza sobre un activo se conoce como <strong>impacto</strong>.</p>
+            
+            <p>Las amenazas se diferencian de las vulnerabilidades en que estas últimas dependen del activo que es vulnerable, las amenazas son externas al activo.</p>
+            
+            <div class="diagrama-relacion">
+                <h4>Relación entre Amenaza, Vulnerabilidad e Impacto</h4>
+                <div class="relacion">
+                    <div class="elemento">
+                        <div class="icono">⚠️</div>
+                        <div class="texto">Amenaza</div>
+                    </div>
+                    <div class="flecha">→</div>
+                    <div class="elemento">
+                        <div class="icono">🔓</div>
+                        <div class="texto">Vulnerabilidad</div>
+                    </div>
+                    <div class="flecha">→</div>
+                    <div class="elemento">
+                        <div class="icono">💥</div>
+                        <div class="texto">Impacto</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102005">
+            <h4>Tipos de Amenazas</h4>
+            
+            <div class="tipos-amenazas">
+                <div class="tipo-amenaza">
+                    <h5>Amenazas Accidentales</h5>
+                    <p>No existe una planificación o premeditación en la ocurrencia de estas, y suelen coincidir con fenómenos naturales y amenazas a la seguridad física.</p>
+                    
+                    <ul class="lista-amenazas">
+                        <li><span class="icono">🌋</span> Terremotos, incendios, inundaciones.</li>
+                        <li><span class="icono">👥</span> Huelga o marcha del personal estratégico.</li>
+                        <li><span class="icono">🖥️</span> Avería u obsolescencia de los servidores, dispositivos o sistemas auxiliares.</li>
+                        <li><span class="icono">⚡</span> Corte del fluido eléctrico.</li>
+                        <li><span class="icono">❌</span> Errores y fallos en la operación.</li>
+                    </ul>
+                </div>
+                
+                <div class="tipo-amenaza">
+                    <h5>Amenazas Intencionadas</h5>
+                    <p>Se trata de actos de sabotaje o espionaje industrial y empresarial, e incluso extorsión y dentro de esta categoría cabrían los ciberataques más conocidos.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102006">
+            <h3>1.2.2.1 ACCESO NO AUTORIZADO A LA INFORMACIÓN</h3>
+            <p>Se trata de ataques que utilizan diversas técnicas para sortear los sistemas de identificación y control de acceso:</p>
+            
+            <div class="tabla-ataques">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de ataque</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>APT</strong> (Advanced Persistent Threats)</td>
+                            <td>Ataques avanzados y coordinados dirigidos contra una empresa u organización, que tratan de robar o filtrar información sin ser identificados.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Baiting</strong></td>
+                            <td>Ataque de ingeniería social consistente en ofrecer un cebo (bait), que puede ser cualquier cosa que la víctima desee (por ejemplo, un disco USB), que suele estar infectada con malware, y que se usa como vector para acceder al sistema o perjudicar su integridad.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vishing</strong></td>
+                            <td>Consiste en el uso de la línea telefónica convencional para engañar personas y obtener información delicada como puede ser información financiera o información útil para el robo de identidad.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port mapping</strong></td>
+                            <td>Consiste en determinar si un puerto en un servidor está abierto, cerrado o protegido por un firewall, y de esta forma tratar de establecer una conexión TCP/IP no autorizada a través de este.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sniffing</strong></td>
+                            <td>Captura de todos los paquetes que pasan por un punto específico de la red, y que permite visualizar tanto su cabecera como el contenido.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SQL injection</strong></td>
+                            <td>Consiste en aprovechar una vulnerabilidad web para acceder a una base de datos mediante la introducción de palabras reservadas de SQL en los campos de un formulario.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Path traversal</strong></td>
+                            <td>Consiste en acceder a directorios y ficheros fuera de un servidor web manipulando variables en una URL que hacen referencia a ficheros con secuencias dot-dot slash (../) y sus variaciones, o a rutas absolutas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fuerza bruta</strong></td>
+                            <td>Buscan revelar la contraseña de un usuario (normalmente administrador), simplemente usando un programa que prueba combinaciones de caracteres diferentes. Normalmente esto se combina con técnicas de ingeniería social o con ataques de diccionario.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+        
+        <span id="4050102007">
+            <h3>1.2.2.2 SUPLANTACIÓN DE LA IDENTIDAD</h3>
+            <p>Se trata de ataques que buscan la usurpación de la identidad de un usuario legítimo para obtener información privilegiada o cometer actos delictivos.</p>
+            
+            <div class="tabla-ataques">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de ataque</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Man-in-the-middle</strong></td>
+                            <td>Consiste en escucha de la conversación no cifrada entre dos extremos que usan claves para identificarse mediante la firma de sus mensajes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Spoofing</strong></td>
+                            <td>Usurpación de la identidad electrónica para ocultar la propia y cometer delitos en internet.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phishing</strong></td>
+                            <td>Suplantación de la identidad de un sitio confiable mediante una falsificación de una característica identificativa como una imagen corporativa, una página Web, una URL, etc., enviando correos electrónicos con esta identidad.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smshing</strong></td>
+                            <td>Es idéntico a phising, pero usando mensajes SMS.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Whaling</strong></td>
+                            <td>Consiste en simular ocupar cargos de nivel superior en una organización y así atacar directamente a los altos ejecutivos u otras personas importantes dentro de ella.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pharming</strong></td>
+                            <td>Consiste en infectar un equipo para redirigir sus peticiones a una página web falsificada que simula una página legítima.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Session Hijacking</strong></td>
+                            <td>A veces también conocido como secuestro de cookie es la explotación de una sesión de ordenador válida para obtener acceso no autorizado a información o servicios.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clickjacking</strong></td>
+                            <td>Se basa en engañar al usuario para que marque (haga un click con el ratón) en un objeto diferente al que está percibiendo, potencialmente revelando información confidencial o permitiendo a otros tomar el control de su ordenador.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="diagrama-comparativo">
+                <h4>Comparativa de ataques de suplantación de identidad</h4>
+                <div class="comparativa">
+                    <div class="ataque">
+                        <div class="icono">📧</div>
+                        <div class="nombre">Phishing</div>
+                        <div class="medio">Correo electrónico</div>
+                    </div>
+                    <div class="ataque">
+                        <div class="icono">📱</div>
+                        <div class="nombre">Smshing</div>
+                        <div class="medio">Mensajes SMS</div>
+                    </div>
+                    <div class="ataque">
+                        <div class="icono">👔</div>
+                        <div class="nombre">Whaling</div>
+                        <div class="medio">Dirigido a ejecutivos</div>
+                    </div>
+                    <div class="ataque">
+                        <div class="icono">☎️</div>
+                        <div class="nombre">Vishing</div>
+                        <div class="medio">Llamadas telefónicas</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102008">
+            <h3>1.2.2.3 ATAQUES A LA DISPONIBILIDAD</h3>
+            <p>Se trata de sabotajes contra los sistemas de la información de algunas organizaciones, con el objetivo de dañar su imagen u obtener cierta ventaja empresarial. Algunos de estos ataques son:</p>
+            
+            <div class="tabla-ataques">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de ataque</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Denial of Service (DoS)</strong></td>
+                            <td>Este ataque tiene como objetivo saturar los servicios del sistema de forma que queden inhabilitados por un tiempo. Los ataques DoS se generan mediante la saturación de los puertos con múltiples flujos de información, haciendo que el servidor se sobrecargue y no pueda seguir prestando su servicio.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smurf</strong></td>
+                            <td>El atacante dirige paquetes ICMP tipo "echo request" (ping) a una dirección IP de difusión (broadcast), usando como dirección IP origen la dirección de la víctima (IP Spoofing). Se espera que los equipos conectados respondan a la petición, usando Echo reply, a la máquina origen (víctima). El efecto es amplificado, debido a que la cantidad de respuestas obtenidas corresponde a la cantidad de equipos en la red que puedan responder.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cryptojacking</strong></td>
+                            <td>Es una amenaza emergente de Internet que se oculta en un ordenador o en un dispositivo móvil, y utiliza los recursos de la máquina para "extraer" diversas formas de monedas digitales conocidas como criptomonedas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="diagrama-ataque">
+                <h4>Funcionamiento de un ataque DDoS</h4>
+                <div class="ataque-ddos">
+                    <div class="elemento atacante">
+                        <div class="icono">👤</div>
+                        <div class="texto">Atacante</div>
+                    </div>
+                    <div class="flecha">→</div>
+                    <div class="elemento botnet">
+                        <div class="icono">🖥️</div>
+                        <div class="texto">Botnet (red de equipos comprometidos)</div>
+                    </div>
+                    <div class="flecha">→</div>
+                    <div class="elemento victima">
+                        <div class="icono">🏢</div>
+                        <div class="texto">Servidor víctima</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4050102009">
+            <h3>1.2.2.4 MALWARE</h3>
+            <p>En este caso, no se trata de ataques propiamente dichos, sino de programas y aplicaciones para perpetrarlos. En esta clasificación podemos encontrar varios tipos de amenazas:</p>
+            
+            <div class="tabla-malware">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de malware</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Virus</strong></td>
+                            <td>Es un tipo de malware cuyo objetivo es alterar el correcto funcionamiento de un sistema. Un virus necesita ser ejecutado por el usuario pensando que es una aplicación legítima, y una vez lo hace, puede replicarse e infectar el equipo. Puede ser inocuo o sólo una broma, pero también puede borrar o modificar archivos, afectando seriamente al funcionamiento del sistema.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gusano (worm)</strong></td>
+                            <td>No necesita de la intervención del usuario ni modificar ningún archivo existente, y también puede replicarse a sí mismo y enviar copias a otros equipos conectados a ese en el que están o que estén en su lista de contactos. Se suelen utilizar para crear botnets, redes de ordenadores zombies que pueden actuar de forma simultánea cuando un operador le da la orden.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Troyano (trojan)</strong></td>
+                            <td>Se oculta normalmente como líneas de código dentro de una aplicación legítima, para pasar desapercibido. Estas líneas de código efectúan posteriormente acciones no autorizadas cuando se ejecuta la aplicación.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Keylogger</strong></td>
+                            <td>No se trata de un malware, pero si puede usarse para fines no lícitos. Registran cada tecla que se pulsa en un ordenador, a menudo sin permiso o conocimiento del usuario.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rootkit</strong></td>
+                            <td>Es un software que se instala en un equipo para proporcionar acceso remoto al mismo a un usuario no autorizado con privilegios de administrador, quedando el equipo totalmente bajo su control y pasando inadvertido a los administradores legítimos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ransomware</strong></td>
+                            <td>Se trata de un malware que efectúa una encriptación con clave de los archivos de una red para deshabilitar el acceso de la víctima a sus datos. Normalmente suele pedir un rescate a cambio de la clave para recuperar los datos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="diagrama-comparativo">
+                <h4>Comparativa de tipos de malware</h4>
+                <div class="comparativa-malware">
+                    <div class="malware">
+                        <div class="icono">🦠</div>
+                        <div class="nombre">Virus</div>
+                        <div class="caracteristica">Requiere ejecución del usuario</div>
+                    </div>
+                    <div class="malware">
+                        <div class="icono">🐛</div>
+                        <div class="nombre">Gusano</div>
+                        <div class="caracteristica">Se propaga automáticamente</div>
+                    </div>
+                    <div class="malware">
+                        <div class="icono">🐴</div>
+                        <div class="nombre">Troyano</div>
+                        <div class="caracteristica">Se oculta en aplicaciones legítimas</div>
+                    </div>
+                    <div class="malware">
+                        <div class="icono">🔒</div>
+                        <div class="nombre">Ransomware</div>
+                        <div class="caracteristica">Cifra archivos y pide rescate</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+
+        
+        .teoria {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+      
+        
+        /* Conceptos clave */
+        .concepto-clave {
+            display: flex;
+            background-color: #fdeaea;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .concepto-clave .icono {
+            font-size: 2rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .concepto-clave .definicion {
+            flex: 1;
+        }
+        
+        .concepto-clave h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #c0392b;
+        }
+        
+        /* Tablas */
+        .tabla-comparativa, .tabla-ataques, .tabla-malware {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        th {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #fdeaea;
+        }
+        
+        /* Diagramas de proceso */
+        .diagrama-proceso {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proceso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .paso {
+            display: flex;
+            align-items: center;
+            background-color: #fdeaea;
+            border-radius: 8px;
+            padding: 15px;
+            width: 80%;
+            margin: 5px 0;
+        }
+        
+        .paso .numero {
+            background-color: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .flecha {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            margin: 5px 0;
+        }
+        
+        /* Diagrama de relación */
+        .diagrama-relacion {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .relacion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .elemento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fdeaea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 5px;
+            min-width: 120px;
+        }
+        
+        .elemento .icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .elemento .texto {
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* Tipos de amenazas */
+        .tipos-amenazas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .tipo-amenaza {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .lista-amenazas {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .lista-amenazas li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .lista-amenazas .icono {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Diagrama de ataque */
+        .diagrama-ataque {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ataque-ddos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        /* Diagrama comparativo */
+        .diagrama-comparativo {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparativa, .comparativa-malware {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .ataque, .malware {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            background-color: #fdeaea;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .ataque .icono, .malware .icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .ataque .nombre, .malware .nombre {
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 5px;
+        }
+        
+        .ataque .medio, .malware .caracteristica {
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tipos-amenazas {
+                flex-direction: column;
+            }
+            
+            .paso {
+                width: 100%;
+            }
+            
+            .relacion {
+                flex-direction: column;
+            }
+            
+            .flecha {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<div class="teoria">
+    <span id="4030102001">
+        <h3>1.2.1 POP3 (POST OFFICE PROTOCOL, VERSIÓN 3)</h3>
+        <p>POP3 es un protocolo cliente/servidor en el que un cliente se conecta al servidor, obtiene todos los mensajes, los almacena en el ordenador del usuario como mensajes nuevos, los elimina del servidor y finalmente se desconecta. Se encuentra especificado en la RFC 1939.</p>
+        
+        <p>POP3 usa el puerto 110 por defecto, y el puerto 995 en caso de usarse con cifrado.</p>
+        
+        <div class="pop3-workflow">
+            <h4>Flujo de trabajo POP3</h4>
+            <div class="workflow-diagram">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-description">
+                        <h5>Conexión</h5>
+                        <p>El cliente abre una conexión TCP al puerto 110 del servidor</p>
+                    </div>
+                </div>
+                <div class="workflow-arrow">↓</div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-description">
+                        <h5>Autenticación</h5>
+                        <p>El cliente envía nombre de usuario y contraseña</p>
+                    </div>
+                </div>
+                <div class="workflow-arrow">↓</div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-description">
+                        <h5>Transacción</h5>
+                        <p>El cliente usa comandos LIST, RETR y DELE para gestionar mensajes</p>
+                    </div>
+                </div>
+                <div class="workflow-arrow">↓</div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-description">
+                        <h5>Actualización</h5>
+                        <p>Al enviar QUIT, el servidor elimina los mensajes marcados y limpia recursos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p>Para establecer una conexión a un servidor POP3, el cliente de correo abre una conexión TCP en el puerto 110 del servidor. Cuando la conexión se ha establecido, las dos máquinas se envían entre sí las órdenes y respuestas que se especifican en el protocolo. Como parte de esta comunicación, al cliente POP3 se autentifica (Estado de autenticación), enviando el nombre del usuario y la contraseña al servidor. Si la autenticación es correcta, el cliente pasa al Estado de transacción, en este estado se pueden utilizar órdenes LIST, RETR y DELE para mostrar, descargar y eliminar mensajes del servidor, respectivamente. Los mensajes definidos para su eliminación no se quitan realmente del servidor hasta que el cliente envía la orden QUIT para terminar la sesión. En ese momento, el servidor POP pasa al Estado de actualización, fase en la que se eliminan los mensajes marcados y se limpian todos los recursos restantes de la sesión.</p>
+        
+        <p>Es posible conectarse manualmente al servidor POP3 haciendo Telnet al puerto 110. Es muy útil cuando envían un mensaje con un fichero muy largo que no se quiere recibir.</p>
+        
+        <div class="pop3-commands">
+            <h4>Comandos POP3</h4>
+            <div class="commands-table">
+                <div class="command-row">
+                    <div class="command-name">USER &lt;nombre&gt;</div>
+                    <div class="command-description">Identificación de usuario (Solo se realiza una vez)</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">PASS &lt;password&gt;</div>
+                    <div class="command-description">Envía la clave del servidor</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">STAT</div>
+                    <div class="command-description">Da el número de mensajes no borrados en el buzón y su longitud total</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">LIST</div>
+                    <div class="command-description">Muestra todos los mensajes no borrados con su longitud</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">RETR &lt;número&gt;</div>
+                    <div class="command-description">Solicita el envío del mensaje especificando el número (no se borra del buzón)</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">TOP &lt;número&gt; &lt;líneas&gt;</div>
+                    <div class="command-description">Muestra la cabecera y el número de líneas requerido del mensaje especificando el número</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">DELE &lt;número&gt;</div>
+                    <div class="command-description">Borra el mensaje especificando el número</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">RSET</div>
+                    <div class="command-description">Recupera los mensajes borrados (en la conexión actual)</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">UIDL &lt;número&gt;</div>
+                    <div class="command-description">Devuelve una cadena identificatoria del mensaje persistente a través de las sesiones. Si no se especifica &lt;número&gt; se devuelve una lista con los números de mensajes y su cadena identificatoria de los mensajes no borrados</div>
+                </div>
+                <div class="command-row">
+                    <div class="command-name">QUIT</div>
+                    <div class="command-description">Salir</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pop3-security">
+            <h4>Seguridad en POP3</h4>
+            <p>Al igual que otros viejos protocolos de internet, POP3 utilizaba un mecanismo de firmado sin cifrado. La transmisión de contraseñas de POP3 en texto plano aún se da. En la actualidad POP3 cuenta con diversos métodos de autenticación que ofrecen una diversa gama de niveles de protección contra los accesos ilegales al buzón de correo de los usuarios. Uno de estos es APOP, el cual utiliza funciones MD5 para evitar los ataques de contraseñas. Otro puede ser el uso de SSL/TLS, que cifra la comunicación.</p>
+        </div>
+    </span>
+
+    <span id="4030102002">
+        <h3>1.2.2 IMAP (INTERNET MESSAGE ACCESS PROTOCOL)</h3>
+        <p>IMAP es un protocolo de cliente de correo que permite el acceso a mensajes almacenados en un servidor de correo que normalmente se encuentra en Internet. Mediante IMAP se puede tener acceso al correo electrónico desde cualquier equipo que tenga una conexión a Internet.</p>
+        
+        <p>IMAP fue diseñado como una moderna alternativa a POP en el año 1986. Fundamentalmente, los dos protocolos les permiten a los clientes de correo acceder a los mensajes almacenados en un servidor de correo. La versión actual de IMAP, IMAP versión 4 revisión 1 (IMAP4rev1), está definida por el RFC 3501.</p>
+        
+        <p>IMAP tiene varias ventajas sobre POP. Por ejemplo, es posible especificar en IMAP carpetas del lado del servidor. Por otro lado, es más complejo que POP ya que permite visualizar los mensajes de manera remota y no descargando los mensajes como lo hace POP.</p>
+        
+        <div class="imap-vs-pop">
+            <h4>IMAP vs POP: Diferencias en el funcionamiento</h4>
+            <div class="comparison-diagram">
+                <div class="protocol-column">
+                    <div class="protocol-header">POP3</div>
+                    <div class="protocol-workflow">
+                        <div class="workflow-step">
+                            <div class="step-icon">🔄</div>
+                            <div class="step-description">Conexión breve al servidor</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">⬇️</div>
+                            <div class="step-description">Descarga todos los mensajes</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">🗑️</div>
+                            <div class="step-description">Elimina mensajes del servidor</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">💻</div>
+                            <div class="step-description">Almacena mensajes localmente</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="protocol-column">
+                    <div class="protocol-header">IMAP</div>
+                    <div class="protocol-workflow">
+                        <div class="workflow-step">
+                            <div class="step-icon">🔄</div>
+                            <div class="step-description">Conexión permanente al servidor</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">👁️</div>
+                            <div class="step-description">Visualiza mensajes remotamente</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">📂</div>
+                            <div class="step-description">Gestiona carpetas en el servidor</div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">⬇️</div>
+                            <div class="step-description">Descarga mensajes bajo demanda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p>Al utilizar POP, los clientes se conectan brevemente al servidor de correo, solamente el tiempo que les tome descargar los nuevos mensajes. Al utilizar IMAP, los clientes permanecen conectados el tiempo que su interfaz permanezca activa y descargan los mensajes bajo demanda. Esta manera de trabajar de IMAP puede dar tiempos de respuesta más rápidos para usuarios que tienen una gran cantidad de mensajes o mensajes grandes.</p>
+        
+        <p>IMAP IDLE es una extensión de IMAP que sirve para que el servidor avise al cliente cuando ha llegado un correo y se sincronicen. La alternativa sería que el cliente lea cada poco tiempo el servidor para ver si hay correos. Esta funcionalidad se encuentra descrita en el RFC-2177 IMAP4-IDLE.</p>
+        
+        <p>Por defecto, el protocolo IMAP funciona con dos puertos, el predeterminado, 143, y el usado para su forma segura, 993, para cifrado sobre TLS.</p>
+        
+        <div class="email-protocols-diagram">
+            <h4>Funcionamiento de los protocolos de correo</h4>
+            <div class="diagram-container">
+                <div class="mail-server">
+                    <div class="server-label">Servidor de Correo</div>
+                    <div class="protocols">
+                        <div class="protocol">
+                            <div class="protocol-label">SMTP</div>
+                            <div class="protocol-arrow outgoing">↑</div>
+                            <div class="protocol-description">Envío de correos</div>
+                        </div>
+                        <div class="protocol">
+                            <div class="protocol-label">POP3/IMAP</div>
+                            <div class="protocol-arrow incoming">↓</div>
+                            <div class="protocol-description">Recepción de correos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mail-clients">
+                    <div class="client">
+                        <div class="client-icon">💻</div>
+                        <div class="client-label">Cliente de Correo</div>
+                    </div>
+                    <div class="client">
+                        <div class="client-icon">📱</div>
+                        <div class="client-label">Dispositivo Móvil</div>
+                    </div>
+                    <div class="client">
+                        <div class="client-icon">🌐</div>
+                        <div class="client-label">Webmail</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="imap-pop-comparison">
+            <h4>Comparativa entre los protocolos IMAP y POP3</h4>
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div class="header-cell"></div>
+                    <div class="header-cell">IMAP</div>
+                    <div class="header-cell">POP3</div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Conexión</div>
+                    <div class="cell">
+                        <div class="advantage">Trabaja en modo de conexión permanente, por lo que avisa inmediatamente de la llegada de nuevo correo</div>
+                    </div>
+                    <div class="cell">
+                        <div class="disadvantage">Sólo se conecta periódicamente cada X minutos para buscar por nuevo correo</div>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Descarga</div>
+                    <div class="cell">
+                        <div class="advantage">Transmite solo las cabeceras por lo que el usuario puede decidir su borrado inmediato</div>
+                        <div class="advantage">La bajada del mensaje se produce solo cuando el usuario quiere leerlo</div>
+                    </div>
+                    <div class="cell">
+                        <div class="disadvantage">La conexión periódica provoca un aumento del tráfico y un retraso en la respuesta del cliente (esperar la descarga completa)</div>
+                        <div class="disadvantage">En cada conexión, se baja todos los correos nuevos, vayan a ser después leídos o no</div>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Almacenamiento</div>
+                    <div class="cell">
+                        <div class="advantage">El almacenamiento local del mensaje es opcional (una opción del cliente de correo)</div>
+                        <div class="disadvantage">Todos los mensajes ocupan espacio en disco del servidor</div>
+                    </div>
+                    <div class="cell">
+                        <div class="advantage">Los correos aparecen inmediatamente porque quedan residentes en el dispositivo (una vez descargados)</div>
+                        <div class="advantage">Permite ahorrar espacio en el disco del servidor si se configura para eliminar los mensajes descargados al cliente</div>
+                        <div class="disadvantage">Los correos ocupan espacio local del dispositivo</div>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Organización</div>
+                    <div class="cell">
+                        <div class="advantage">Gestiona carpetas, plantillas y borradores en el servidor</div>
+                        <div class="advantage">El almacenamiento de mensajes y carpetas en el servidor permite su uso desde múltiples dispositivos y de forma simultánea</div>
+                        <div class="advantage">Permite la búsqueda de mensajes por medio de palabras claves</div>
+                        <div class="advantage">Los mensajes se pueden etiquetar. El marcado queda en el servidor</div>
+                        <div class="advantage">Se pueden crear carpetas compartidas con otros usuarios (depende del servidor)</div>
+                    </div>
+                    <div class="cell">
+                        <div class="disadvantage">Las carpetas, plantillas y borradores no podrán ser leídos usando POP (excepto la Bandeja de entrada)</div>
+                        <div class="disadvantage">Por defecto, elimina los mensajes del servidor, haciendo imposible el acceso a ellos desde otro dispositivo</div>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Rendimiento</div>
+                    <div class="cell">
+                        <div class="disadvantage">Necesita una transacción por cada correo que se quiera leer</div>
+                        <div class="disadvantage">Hay un retraso en la aparición del mensaje en la pantalla del usuario, mientras se descarga</div>
+                        <div class="disadvantage">Si se pierde la conexión, no se podrá ver el mensaje salvo si el cliente de correo lo haya almacenado en local</div>
+                    </div>
+                    <div class="cell">
+                        <div class="advantage">Los correos aparecen inmediatamente porque quedan residentes en el dispositivo (una vez descargados)</div>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="row-header">Compatibilidad</div>
+                    <div class="cell">
+                        <div class="disadvantage">No todos los clientes de correo soporta la extensión IMAP IDLE (aviso de nuevos correos)</div>
+                    </div>
+                    <div class="cell"></div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4030102003">
+        <h3>1.2.3 EXCHANGE ACTIVESYNC</h3>
+        <p>Exchange ActiveSync es un protocolo de sincronización de Microsoft Exchange que está optimizado para funcionar con redes de alta latencia y ancho de banda bajo. El protocolo, basado en HTTP y XML, permite que los teléfonos móviles obtengan acceso a la información en un servidor que ejecuta Microsoft Exchange.</p>
+        
+        <p>Exchange ActiveSync permite que los usuarios de teléfonos móviles obtengan acceso al correo electrónico, el calendario, los contactos, las tareas y que puedan obtener acceso a esta información cuando trabajan sin conexión.</p>
+        
+        <p>Exchange ActiveSync no admite buzones compartidos ni acceso delegado.</p>
+        
+        <div class="activesync-features">
+            <h4>Características de Exchange ActiveSync</h4>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-description">Compatibilidad con mensajes HTML</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚩</div>
+                    <div class="feature-description">Compatibilidad con marcadores de seguimiento</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-description">Agrupación de conversaciones de mensajes de correo electrónico</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-description">Capacidad para sincronizar o no sincronizar una conversación completa</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-description">Sincronización de los mensajes del servicio de mensajes cortos (SMS) con el buzón de un usuario de Exchange</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-description">Compatibilidad con la visualización del estado de respuesta de mensajes</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-description">Compatibilidad con la recuperación rápida de mensajes</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-description">Información de asistentes a reuniones</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-description">Detección automática para la provisión a través del aire</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏖️</div>
+                    <div class="feature-description">Compatibilidad con la configuración de respuestas automáticas cuando los usuarios están ausentes, de vacaciones o fuera de la oficina</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-description">Compatibilidad con la sincronización de tareas</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-description">Compatibilidad con la información de disponibilidad de los contactos</div>
+                </div>
+            </div>
+        </div>
+        
+        <p>Se puede configurar Exchange ActiveSync para utilizar el cifrado SSL a fin de establecer la comunicación entre el servidor Exchange y el dispositivo móvil.</p>
+        
+        <div class="activesync-security">
+            <h4>Características de seguridad de Exchange ActiveSync</h4>
+            <p>Además de la capacidad para configurar las opciones de seguridad de las comunicaciones entre el servidor de Exchange y los dispositivos móviles, Exchange ActiveSync ofrece las siguientes características para mejorar la seguridad de los dispositivos móviles:</p>
+            
+            <div class="security-features">
+                <div class="security-feature">
+                    <div class="feature-icon">🗑️</div>
+                    <div class="feature-title">Borrado remoto</div>
+                    <div class="feature-description">Si un dispositivo móvil se pierde, se roba o se pone en peligro de otro modo, puedes emitir un comando de borrado remoto desde el equipo Exchange Server o desde cualquier explorador web mediante Outlook Web App. Este comando borra todos los datos del dispositivo móvil.</div>
+                </div>
+                <div class="security-feature">
+                    <div class="feature-icon">🔑</div>
+                    <div class="feature-title">Directivas de contraseña de dispositivo</div>
+                    <div class="feature-description">Exchange ActiveSync te permite configurar varias opciones para las contraseñas de dispositivo.</div>
+                </div>
+                <div class="security-feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Directivas de cifrado de dispositivos</div>
+                    <div class="feature-description">Hay varias directivas de cifrado de dispositivos móviles que puedes aplicar para un grupo de usuarios.</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <style>
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* POP3 Workflow Styles */
+        .pop3-workflow {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .workflow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 5px;
+        }
+        .step-number {
+            background-color: #0078d7;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .step-description {
+            flex-grow: 1;
+        }
+        .step-description h5 {
+            margin: 0 0 5px 0;
+            color: #0078d7;
+        }
+        .step-description p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        .workflow-arrow {
+            font-size: 24px;
+            color: #0078d7;
+            margin: 5px 0;
+        }
+        
+        /* POP3 Commands Styles */
+        .pop3-commands {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .commands-table {
+            margin-top: 15px;
+        }
+        .command-row {
+            display: flex;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .command-name {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+        }
+        .command-description {
+            padding: 10px;
+            flex-grow: 1;
+        }
+        
+        /* POP3 Security Styles */
+        .pop3-security {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .pop3-security h4 {
+            color: #721c24;
+            margin-top: 0;
+        }
+        
+        /* IMAP vs POP Styles */
+        .imap-vs-pop {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .comparison-diagram {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .protocol-column {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .protocol-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .protocol-workflow {
+            padding: 15px;
+        }
+        .protocol-workflow .workflow-step {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .step-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        /* Email Protocols Diagram Styles */
+        .email-protocols-diagram {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .mail-server {
+            background-color: white;
+            border: 2px solid #0078d7;
+            border-radius: 5px;
+            padding: 15px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .server-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #0078d7;
+        }
+        .protocols {
+            display: flex;
+            justify-content: space-around;
+        }
+        .protocol {
+            text-align: center;
+        }
+        .protocol-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .protocol-arrow {
+            font-size: 24px;
+            margin: 5px 0;
+        }
+        .protocol-arrow.outgoing {
+            color: #28a745;
+        }
+        .protocol-arrow.incoming {
+            color: #dc3545;
+        }
+        .protocol-description {
+            font-size: 0.9em;
+        }
+        .mail-clients {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .client {
+            text-align: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 30%;
+        }
+        .client-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .client-label {
+            font-weight: bold;
+        }
+        
+        /* IMAP vs POP Comparison Table Styles */
+        .imap-pop-comparison {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .table-header {
+            display: flex;
+            background-color: #0078d7;
+            color: white;
+        }
+        .header-cell {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #0078d7;
+        }
+        .header-cell:first-child {
+            flex: 0.5;
+        }
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .row-header {
+            flex: 0.5;
+            padding: 10px;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+        .cell {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .advantage {
+            color: #28a745;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .advantage:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+        .disadvantage {
+            color: #dc3545;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .disadvantage:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #dc3545;
+        }
+        
+        /* ActiveSync Features Styles */
+        .activesync-features {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .feature-description {
+            flex-grow: 1;
+        }
+        
+        /* ActiveSync Security Styles */
+        .activesync-security {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .activesync-security h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+        .security-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .security-feature {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .feature-title {
+            font-weight: bold;
+            margin: 10px 0;
+            color: #155724;
+        }
+    </style>
+</div>
