@@ -1,24 +1,127 @@
 <div class="teoria">
-<!-- Punto 2.3: Características del Tribunal Constitucional -->
-<article>
-    <span id="1020203001" >
-    <p >El Tribunal Constitucional, aunque no se integra en el Poder Judicial, presenta importantes similitudes con los órganos judiciales y es un auténtico tribunal:</p>
-    <ul>
-        <li>Carece por sí solo de acción (para actuar necesita un impulso externo, una demanda de parte);</li>
-        <li>Los procedimientos a través de los cuales actúa son similares a los de un órgano judicial;</li>
-        <li>Sus resoluciones revisten la forma de sentencias, siendo expresión de actos de conocimiento de derecho, no de voluntad política: su misión es la de interpretar y aplicar una norma previa, la Constitución, y no la de dirigir políticamente el Estado.</li>
-    </ul>
-</span>
+    <article class="caracteristicas-tc">
+      <div class="ctc-section">
+        <div class="ctc-content" id="1020203001">
+          <p class="ctc-paragraph">El Tribunal Constitucional, aunque no se integra en el Poder Judicial, presenta importantes similitudes con los órganos judiciales y es un auténtico tribunal:</p>
+          
+          <div class="ctc-similarities">
+            <div class="ctc-similarity-card">
+              <div class="ctc-similarity-icon">⚖️</div>
+              <div class="ctc-similarity-text">Carece por sí solo de acción (para actuar necesita un impulso externo, una demanda de parte);</div>
+            </div>
+            
+            <div class="ctc-similarity-card">
+              <div class="ctc-similarity-icon">📜</div>
+              <div class="ctc-similarity-text">Los procedimientos a través de los cuales actúa son similares a los de un órgano judicial;</div>
+            </div>
+            
+            <div class="ctc-similarity-card">
+              <div class="ctc-similarity-icon">📝</div>
+              <div class="ctc-similarity-text">Sus resoluciones revisten la forma de sentencias, siendo expresión de actos de conocimiento de derecho, no de voluntad política: su misión es la de interpretar y aplicar una norma previa, la Constitución, y no la de dirigir políticamente el Estado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ctc-section">
+        <div class="ctc-content">
+          <p id="1020203002" class="ctc-paragraph">El Ministerio Fiscal interviene en las cuestiones de inconstitucionalidad promovidas por Jueces y Tribunales y está legitimado para interponer recursos de amparo y es parte en todos los procedimientos de esa naturaleza en defensa de la legalidad, de los derechos de los ciudadanos y del interés público tutelado por la ley.</p>
+        </div>
+      </div>
+      
+      <div class="ctc-section" id="1020203003">
+        <div class="ctc-content">
+          <p class="ctc-paragraph">Además de estas similitudes con los juzgados y tribunales ordinarios, también presenta importantes diferencias con éstos:</p>
+          
+          <div class="ctc-differences" id="1020203004">
+            <div class="ctc-difference-card">
+              <div class="ctc-difference-icon">📋</div>
+              <div class="ctc-difference-text">Sus resoluciones, pese a revestir la forma de sentencias, no son asimilables a las de otros tribunales, porque la eficacia general de determinadas sentencias (por ejemplo, de anulación de normas) producen los efectos más propios de un acto de legislación que de jurisdicción;</div>
+            </div>
+            
+            <div class="ctc-difference-card">
+              <div class="ctc-difference-icon">👥</div>
+              <div class="ctc-difference-text">El procedimiento de selección de sus miembros es distinto;</div>
+            </div>
+            
+            <div class="ctc-difference-card">
+              <div class="ctc-difference-icon">👨‍⚖️</div>
+              <div class="ctc-difference-text">Para formar parte del TC no es requisito indispensable ser juez.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  
+  <style>
+    .teoria {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+    }
     
-    <p id="1020203002">El Ministerio Fiscal interviene en las cuestiones de inconstitucionalidad promovidas por Jueces y Tribunales y está legitimado para interponer recursos de amparo y es parte en todos los procedimientos de esa naturaleza en defensa de la legalidad, de los derechos de los ciudadanos y del interés público tutelado por la ley.</p>
-    <span id="1020203003">    
-        <p >Además de estas similitudes con los juzgados y tribunales ordinarios, también presenta importantes diferencias con éstos:</p>
-    <ul id="1020203004">
-        <li>Sus resoluciones, pese a revestir la forma de sentencias, no son asimilables a las de otros tribunales, porque la eficacia general de determinadas sentencias (por ejemplo, de anulación de normas) producen los efectos más propios de un acto de legislación que de jurisdicción;</li>
-        <li >El procedimiento de selección de sus miembros es distinto;</li>
-        <li>Para formar parte del TC no es requisito indispensable ser juez.</li>
-    </ul>
-</span>
-
-</article>
-</div>
+    .caracteristicas-tc {
+      margin-bottom: 30px;
+    }
+    
+    .ctc-section {
+      margin: 25px 0;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    
+    .ctc-paragraph {
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+    
+    .ctc-similarities, .ctc-differences {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    
+    .ctc-similarity-card, .ctc-difference-card {
+      display: flex;
+      align-items: flex-start;
+      background-color: white;
+      border: 1px solid #e9ecef;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    
+    .ctc-similarity-card:hover, .ctc-difference-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .ctc-similarity-icon, .ctc-difference-icon {
+      font-size: 1.5em;
+      margin-right: 15px;
+      color: #3498db;
+    }
+    
+    .ctc-similarity-text, .ctc-difference-text {
+      flex: 1;
+    }
+    
+    .ctc-similarity-card {
+      border-left: 5px solid #3498db;
+    }
+    
+    .ctc-difference-card {
+      border-left: 5px solid #e74c3c;
+    }
+  </style>
+  </div>

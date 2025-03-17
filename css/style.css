@@ -90,6 +90,10 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
 }
+.titulo h2{
+  color: var(--color-background);
+  text-align: left;
+}
 .headerPrincipal{
 position: relative;
 top: 0;

@@ -1,14 +1,219 @@
-
-
-        <div class="teoria">
-            <!-- Punto 1.7 -->
-            <article>
-                <p id="1020107001">En lo relativo a la disolución de las Cortes Generales, cabe señalar la potestad que la Constitución atribuye al Presidente del Gobierno (art. 115 CE):</p>
+<div class="teoria">
+    <article class="disolucion-cortes">
+        <div class="dc-container">
+            <div class="dc-header">
+                <h3 class="dc-title">Disolución de las Cortes Generales</h3>
+                <div class="dc-icon">🏛️</div>
+            </div>
+            
+            <div class="dc-content">
+                <p id="1020107001" class="dc-paragraph">En lo relativo a la disolución de las Cortes Generales, cabe señalar la potestad que la Constitución atribuye al Presidente del Gobierno (art. 115 CE):</p>
                 
-                <ol>
-                    <li id="1020107002">El Presidente del Gobierno, previa deliberación del Consejo de Ministros, y bajo su exclusiva responsabilidad, podrá proponer la disolución del Congreso, del Senado o de las Cortes Generales, que será decretada por el Rey. El decreto de disolución fijará la fecha de las elecciones.</li>
+                <div class="dc-article-box">
+                    <div class="dc-article-item" id="1020107002">
+                        <div class="dc-article-number">1</div>
+                        <div class="dc-article-text">
+                            <p class="dc-paragraph">El Presidente del Gobierno, previa deliberación del Consejo de Ministros, y bajo su exclusiva responsabilidad, podrá proponer la disolución del Congreso, del Senado o de las Cortes Generales, que será decretada por el Rey. El decreto de disolución fijará la fecha de las elecciones.</p>
+                        </div>
+                    </div>
                     
-                    <li id="1020107003">La propuesta de disolución no podrá presentarse cuando esté en trámite una moción de censura.</li>
-                </ol>
-            </article>
+                    <div class="dc-article-item" id="1020107003">
+                        <div class="dc-article-number">2</div>
+                        <div class="dc-article-text">
+                            <p class="dc-paragraph">La propuesta de disolución no podrá presentarse cuando esté en trámite una moción de censura.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dc-process-flow">
+                    <div class="dc-process-step">
+                        <div class="dc-step-icon">👨‍💼</div>
+                        <div class="dc-step-text">Deliberación del Consejo de Ministros</div>
+                    </div>
+                    <div class="dc-arrow">→</div>
+                    <div class="dc-process-step">
+                        <div class="dc-step-icon">📝</div>
+                        <div class="dc-step-text">Propuesta del Presidente</div>
+                    </div>
+                    <div class="dc-arrow">→</div>
+                    <div class="dc-process-step">
+                        <div class="dc-step-icon">👑</div>
+                        <div class="dc-step-text">Decreto del Rey</div>
+                    </div>
+                    <div class="dc-arrow">→</div>
+                    <div class="dc-process-step">
+                        <div class="dc-step-icon">🗳️</div>
+                        <div class="dc-step-text">Convocatoria de elecciones</div>
+                    </div>
+                </div>
+                
+                <div class="dc-note-box">
+                    <div class="dc-note-icon">⚠️</div>
+                    <div class="dc-note-text">
+                        <p class="dc-paragraph">Limitación importante: No se puede proponer la disolución cuando esté en trámite una moción de censura.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </article>
+
+<style>
+    .teoria {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+    }
+    
+    .disolucion-cortes {
+        margin-bottom: 30px;
+    }
+    
+    .dc-container {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .dc-header {
+        background-color: #3498db;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .dc-title {
+        margin: 0;
+        font-size: 1.3em;
+    }
+    
+    .dc-icon {
+        font-size: 1.8em;
+    }
+    
+    .dc-content {
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+    
+    .dc-paragraph {
+        margin-bottom: 1em;
+        text-align: justify;
+    }
+    
+    .dc-article-box {
+        margin: 20px 0;
+    }
+    
+    .dc-article-item {
+        display: flex;
+        margin-bottom: 15px;
+        background-color: white;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .dc-article-number {
+        background-color: #3498db;
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        min-width: 40px;
+    }
+    
+    .dc-article-text {
+        padding: 15px;
+        flex: 1;
+    }
+    
+    .dc-article-text p {
+        margin: 0;
+    }
+    
+    .dc-process-flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 25px 0;
+        gap: 10px;
+    }
+    
+    .dc-process-step {
+        background-color: white;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: 120px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .dc-step-icon {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        color: #3498db;
+    }
+    
+    .dc-step-text {
+        font-size: 0.9em;
+        color: #555;
+    }
+    
+    .dc-arrow {
+        font-size: 1.5em;
+        color: #3498db;
+    }
+    
+    .dc-note-box {
+        background-color: #fff8e1;
+        border-left: 5px solid #ffc107;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .dc-note-icon {
+        font-size: 1.5em;
+        margin-right: 15px;
+        color: #ffc107;
+    }
+    
+    .dc-note-text {
+        flex: 1;
+    }
+    
+    .dc-note-text p {
+        margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .dc-process-flow {
+            flex-direction: column;
+        }
+        
+        .dc-arrow {
+            transform: rotate(90deg);
+        }
+        
+        .dc-process-step {
+            width: 100%;
+        }
+    }
+</style>
+</div>
