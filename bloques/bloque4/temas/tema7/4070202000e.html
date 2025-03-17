@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo IP</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070202000">
+            <h2>3.7 IP (INTERNET PROTOCOL)</h2>
+            
+            <div class="ip-introduccion">
+                <p>El protocolo IP se engloba dentro del nivel de red (capa 3) del modelo OSI o del nivel de internet (capa 2) del modelo TCP/IP.</p>
+                <p>IP es el protocolo encargado del transporte de paquetes desde el origen hasta el destino en una comunicación, y a estos paquetes de información se les llama datagramas.</p>
+            </div>
+            
+            <div class="ip-ubicacion">
+                <div class="ip-titulo-seccion">Ubicación del Protocolo IP en los Modelos de Red</div>
+                <div class="ip-modelos-comparativa">
+                    <div class="ip-modelo ip-modelo-osi">
+                        <div class="ip-titulo-modelo">Modelo OSI</div>
+                        <div class="ip-capas-modelo">
+                            <div class="ip-capa-modelo ip-capa-aplicacion">
+                                <div class="ip-numero-capa">7</div>
+                                <div class="ip-nombre-capa">Aplicación</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-presentacion">
+                                <div class="ip-numero-capa">6</div>
+                                <div class="ip-nombre-capa">Presentación</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-sesion">
+                                <div class="ip-numero-capa">5</div>
+                                <div class="ip-nombre-capa">Sesión</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-transporte">
+                                <div class="ip-numero-capa">4</div>
+                                <div class="ip-nombre-capa">Transporte</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-red ip-capa-destacada">
+                                <div class="ip-numero-capa">3</div>
+                                <div class="ip-nombre-capa">Red</div>
+                                <div class="ip-protocolo-capa">Protocolo IP</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-enlace">
+                                <div class="ip-numero-capa">2</div>
+                                <div class="ip-nombre-capa">Enlace de Datos</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-fisica">
+                                <div class="ip-numero-capa">1</div>
+                                <div class="ip-nombre-capa">Física</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ip-modelo ip-modelo-tcpip">
+                        <div class="ip-titulo-modelo">Modelo TCP/IP</div>
+                        <div class="ip-capas-modelo">
+                            <div class="ip-capa-modelo ip-capa-aplicacion-tcp">
+                                <div class="ip-numero-capa">4</div>
+                                <div class="ip-nombre-capa">Aplicación</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-transporte-tcp">
+                                <div class="ip-numero-capa">3</div>
+                                <div class="ip-nombre-capa">Transporte</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-internet ip-capa-destacada">
+                                <div class="ip-numero-capa">2</div>
+                                <div class="ip-nombre-capa">Internet</div>
+                                <div class="ip-protocolo-capa">Protocolo IP</div>
+                            </div>
+                            <div class="ip-capa-modelo ip-capa-acceso">
+                                <div class="ip-numero-capa">1</div>
+                                <div class="ip-nombre-capa">Acceso a Red</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ip-caracteristicas" id="4070202001">
+                <div class="ip-titulo-seccion">3.7.1 CARACTERÍSTICAS DEL PROTOCOLO IP</div>
+                <div class="ip-descripcion-caracteristicas">
+                    <p>Es el protocolo de red más utilizado tanto en redes LAN como en redes WAN. Algunas de las características más importantes del protocolo IP son:</p>
+                </div>
+                
+                <div class="ip-lista-caracteristicas">
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Protocolo de comunicación de datos perteneciente a la capa de red según el modelo OSI.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Protocolo orientado a no conexión: el envío de información de un extremo al otro puede realizarse directamente, sin necesidad de haber acordado nada previamente.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Fragmenta paquetes si es necesario.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Direccionamiento mediante direcciones lógicas IP de 32 bits (IPv4) o de 128 bits (IPv6).</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Si un paquete no es recibido, este permanecerá en la red durante un tiempo finito.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">No fiable: Realiza el "mejor esfuerzo" para la distribución de paquetes, pero no ofrece garantías de que el paquete llegue a destino.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">El protocolo IP no tiene ningún mecanismo para asegurar que un paquete enviado llega al destino correctamente.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Tamaño máximo del paquete de 65635 bytes (IPv4).</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Sólo ser realiza verificación por suma al encabezado del paquete, no a los datos éste que contiene.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Un paquete puede llegar alterado al destino, llegar desordenado con respecto a otros paquetes, llegar duplicado o simplemente no llegar.</div>
+                    </div>
+                    <div class="ip-caracteristica">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">Basado en datagrama: un datagrama IP está formado por una cabecera y los propios datos que se quieren enviar al destino.</div>
+                    </div>
+                </div>
+                
+                <div class="ip-datagrama">
+                    <div class="ip-titulo-datagrama">Estructura de un Datagrama IP</div>
+                    <div class="ip-estructura-datagrama">
+                        <div class="ip-cabecera-datagrama">
+                            <div class="ip-etiqueta-parte">Cabecera IP</div>
+                            <div class="ip-campos-cabecera">
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Versión</div>
+                                    <div class="ip-bits-campo">4 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Longitud de cabecera</div>
+                                    <div class="ip-bits-campo">4 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Tipo de servicio</div>
+                                    <div class="ip-bits-campo">8 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Longitud total</div>
+                                    <div class="ip-bits-campo">16 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Identificación</div>
+                                    <div class="ip-bits-campo">16 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Flags</div>
+                                    <div class="ip-bits-campo">3 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Desplazamiento de fragmento</div>
+                                    <div class="ip-bits-campo">13 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Tiempo de vida (TTL)</div>
+                                    <div class="ip-bits-campo">8 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Protocolo</div>
+                                    <div class="ip-bits-campo">8 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Suma de verificación</div>
+                                    <div class="ip-bits-campo">16 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Dirección IP origen</div>
+                                    <div class="ip-bits-campo">32 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Dirección IP destino</div>
+                                    <div class="ip-bits-campo">32 bits</div>
+                                </div>
+                                <div class="ip-campo-cabecera">
+                                    <div class="ip-nombre-campo">Opciones (variable)</div>
+                                    <div class="ip-bits-campo">Variable</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ip-datos-datagrama">
+                            <div class="ip-etiqueta-parte">Datos</div>
+                            <div class="ip-contenido-datos">Datos del paquete (payload)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-versiones">
+                    <div class="ip-titulo-versiones">Versiones del Protocolo IP</div>
+                    <div class="ip-lista-versiones">
+                        <div class="ip-version">
+                            <div class="ip-nombre-version">IPv4</div>
+                            <div class="ip-descripcion-version">Versión 4 del protocolo IP, utilizada desde la década de 1970.</div>
+                        </div>
+                        <div class="ip-version">
+                            <div class="ip-nombre-version">IPv6</div>
+                            <div class="ip-descripcion-version">Versión 6 del protocolo IP, desarrollada para solucionar el agotamiento de direcciones IPv4.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ip-ipv4" id="4070202002">
+                <div class="ip-titulo-seccion">3.7.2 CARACTERÍSTICAS DEL PROTOCOLO IPV4</div>
+                <div class="ip-descripcion-ipv4">
+                    <p>IPv4 está definido en el RFC 791 con fecha de 1981. Sus características principales son:</p>
+                </div>
+                
+                <div class="ip-lista-caracteristicas-ipv4">
+                    <div class="ip-caracteristica-ipv4">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv4">Basado en direcciones de 32 bits</div>
+                            <div class="ip-descripcion-caracteristica-ipv4">Cada dirección IP en versión 4 se representa en notación punto decimal, cuatro números separados por un punto, donde cada uno de ellos está en el rango de 0 a 255 (es decir, 8 bits). Ejemplos: 193.57.27.38 o 172.16.31.253</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv4">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv4">Identificador de red y máscara</div>
+                            <div class="ip-descripcion-caracteristica-ipv4">Cada dirección IP está dividida en dos partes, una identifica la red y otra identifica al equipo dentro de esa red. Esto se define con la máscara de red. Ejemplo: 192.168.67.32/24</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv4">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv4">Redes privadas</div>
+                            <div class="ip-descripcion-caracteristica-ipv4">Hay varios rangos de IP predefinidos que identifican a redes privadas, no enrutables a través de redes públicas como Internet. Rangos: 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv4">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv4">Dirección de loopback</div>
+                            <div class="ip-descripcion-caracteristica-ipv4">Existe un rango especialmente definido para comunicaciones internas dentro de un equipo: 127.0.0.0/8</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-direccion-ipv4">
+                    <div class="ip-titulo-direccion">Estructura de una Dirección IPv4</div>
+                    <div class="ip-ejemplo-direccion">192.168.1.10</div>
+                    <div class="ip-estructura-direccion">
+                        <div class="ip-octeto">
+                            <div class="ip-valor-octeto">192</div>
+                            <div class="ip-bits-octeto">
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                            </div>
+                        </div>
+                        <div class="ip-octeto">
+                            <div class="ip-valor-octeto">168</div>
+                            <div class="ip-bits-octeto">
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                            </div>
+                        </div>
+                        <div class="ip-octeto">
+                            <div class="ip-valor-octeto">1</div>
+                            <div class="ip-bits-octeto">
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">1</div>
+                            </div>
+                        </div>
+                        <div class="ip-octeto">
+                            <div class="ip-valor-octeto">10</div>
+                            <div class="ip-bits-octeto">
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                                <div class="ip-bit">1</div>
+                                <div class="ip-bit">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ip-mascara-direccion">
+                        <div class="ip-titulo-mascara">Máscara de red: /24 (255.255.255.0)</div>
+                        <div class="ip-partes-direccion">
+                            <div class="ip-parte-red">
+                                <div class="ip-etiqueta-parte">Parte de red</div>
+                                <div class="ip-valor-parte">192.168.1</div>
+                            </div>
+                            <div class="ip-parte-host">
+                                <div class="ip-etiqueta-parte">Parte de host</div>
+                                <div class="ip-valor-parte">10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-redes-privadas">
+                    <div class="ip-titulo-redes">Redes Privadas IPv4</div>
+                    <div class="ip-lista-redes">
+                        <div class="ip-red-privada">
+                            <div class="ip-rango-red">10.0.0.0/8</div>
+                            <div class="ip-descripcion-red">Rango: 10.0.0.0 - 10.255.255.255</div>
+                            <div class="ip-uso-red">Usado en grandes redes corporativas</div>
+                        </div>
+                        <div class="ip-red-privada">
+                            <div class="ip-rango-red">172.16.0.0/12</div>
+                            <div class="ip-descripcion-red">Rango: 172.16.0.0 - 172.31.255.255</div>
+                            <div class="ip-uso-red">Usado en redes corporativas medianas</div>
+                        </div>
+                        <div class="ip-red-privada">
+                            <div class="ip-rango-red">192.168.0.0/16</div>
+                            <div class="ip-descripcion-red">Rango: 192.168.0.0 - 192.168.255.255</div>
+                            <div class="ip-uso-red">Usado en redes domésticas y pequeñas oficinas</div>
+                        </div>
+                        <div class="ip-red-privada">
+                            <div class="ip-rango-red">127.0.0.0/8</div>
+                            <div class="ip-descripcion-red">Rango: 127.0.0.0 - 127.255.255.255</div>
+                            <div class="ip-uso-red">Loopback (comunicación interna del equipo)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-rfc-ipv4">
+                    <div class="ip-titulo-rfc">RFCs relacionados con IPv4</div>
+                    <div class="ip-lista-rfc">
+                        <div class="ip-rfc">
+                            <div class="ip-numero-rfc">RFC 791</div>
+                            <div class="ip-descripcion-rfc">Especificaciones de protocolo</div>
+                        </div>
+                        <div class="ip-rfc">
+                            <div class="ip-numero-rfc">RFC 1349</div>
+                            <div class="ip-descripcion-rfc">Modificación del protocolo introduciendo el campo ToS (Type of Service)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ip-ipv6" id="4070202004">
+                <div class="ip-titulo-seccion">3.7.4 CARACTERÍSTICAS DEL PROTOCOLO IPV6</div>
+                <div class="ip-descripcion-ipv6">
+                    <p>El protocolo IPv6 surgió durante la década de los 90 como solución al gran problema que se detectó con IPv4, que consistía en el agotamiento de direcciones IP disponibles. En IPv4, con sus direcciones de 32 bits, se define un total aproximado de 4.3 miles de millones de direcciones IPv4, que con la comercialización de las comunicaciones durante los 90 y la expansión posterior se identifica como el gran problema de este protocolo IP.</p>
+                    <p>Para solucionar este problema y algunos otros, se definen las siguientes características de IPv6:</p>
+                </div>
+                
+                <div class="ip-lista-caracteristicas-ipv6">
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Basado en direcciones de 128 bits</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">El número de direcciones disponibles es muchísimo más grande que en el protocolo anterior, aproximadamente 3.4 x 10^38. Esto permite un espacio de direcciones del orden de 6 x 10^23 por metro cuadrado de la superficie de la Tierra.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">No es compatible con IPv4</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">Un equipo que use IPv4 no podrá comunicarse con otro que utilice IPv6, utilizan algo por medio que permita estas comunicaciones. Este es el gran problema con el despliegue del nuevo protocolo.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Multicast y Broadcast</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">IPv6 implementa una funcionalidad para enviar un paquete a varios destinos con un solo envío. IPv6 no implementa el tradicional envío Broadcast de IPv4, sino que utiliza el protocolo Multicast para este tipo de envíos.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Cifrado IPSec</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">El cifrado de paquetes está definido como una característica de IPv6 desde el inicio, porque se diseñó con la seguridad en mente, no como se hizo en IPv4.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Movilidad</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">Aunque se ha implementado Mobile IPv4, la implementación que se diseñó en IPv6 es nativa, y evita problemas típicos en algunos escenarios de Mobile IPv6.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Más eficiente</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">IPv6 está diseñado para ser más eficiente que IPv4, permitiendo realizar tareas con menos carga de trabajo para los equipos de red involucrados, como los routers.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Mecanismo de opciones mejorado</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">Las opciones de IPv6 se encuentran en cabeceras opcionales separadas situadas entre la cabecera IPv6 y la cabecera de la capa de transporte.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Direcciones de autoconfiguración</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">Proporciona una asignación dinámica de direcciones IPv6.</div>
+                        </div>
+                    </div>
+                    <div class="ip-caracteristica-ipv6">
+                        <div class="ip-icono-caracteristica"></div>
+                        <div class="ip-texto-caracteristica">
+                            <div class="ip-titulo-caracteristica-ipv6">Facilidad para la asignación de recursos</div>
+                            <div class="ip-descripcion-caracteristica-ipv6">IPv6 sustituye el campo tipo de servicio por el etiquetado de paquetes como pertenecientes a un flujo particular para el que el emisor solicita un tratamiento especial.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-direccion-ipv6">
+                    <div class="ip-titulo-direccion">Estructura de una Dirección IPv6</div>
+                    <div class="ip-ejemplo-direccion">2001:0db8:85a3:0000:0000:8a2e:0370:7334</div>
+                    <div class="ip-ejemplo-direccion-abreviada">2001:db8:85a3::8a2e:370:7334</div>
+                    <div class="ip-estructura-direccion-ipv6">
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">2001</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">0db8</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">85a3</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">0000</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">0000</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">8a2e</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">0370</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                        <div class="ip-grupo-hexadecimal">
+                            <div class="ip-valor-grupo">7334</div>
+                            <div class="ip-bits-grupo">16 bits</div>
+                        </div>
+                    </div>
+                    <div class="ip-partes-direccion-ipv6">
+                        <div class="ip-parte-prefijo">
+                            <div class="ip-etiqueta-parte">Prefijo de red</div>
+                            <div class="ip-valor-parte">2001:0db8:85a3::/48</div>
+                        </div>
+                        <div class="ip-parte-subred">
+                            <div class="ip-etiqueta-parte">ID de subred</div>
+                            <div class="ip-valor-parte">0000::/16</div>
+                        </div>
+                        <div class="ip-parte-interfaz">
+                            <div class="ip-etiqueta-parte">ID de interfaz</div>
+                            <div class="ip-valor-parte">0000:8a2e:0370:7334/64</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-comparativa">
+                    <div class="ip-titulo-comparativa">Comparativa IPv4 vs IPv6</div>
+                    <div class="ip-tabla-comparativa">
+                        <div class="ip-fila-encabezado">
+                            <div class="ip-celda-encabezado">Característica</div>
+                            <div class="ip-celda-encabezado">IPv4</div>
+                            <div class="ip-celda-encabezado">IPv6</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Bits de dirección</div>
+                            <div class="ip-celda">32 bits</div>
+                            <div class="ip-celda">128 bits</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Número de direcciones</div>
+                            <div class="ip-celda">4.3 x 10^9</div>
+                            <div class="ip-celda">3.4 x 10^38</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Formato de dirección</div>
+                            <div class="ip-celda">Decimal con puntos (192.168.1.1)</div>
+                            <div class="ip-celda">Hexadecimal con dos puntos (2001:db8::1)</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Checksum en cabecera</div>
+                            <div class="ip-celda">Sí</div>
+                            <div class="ip-celda">No (mejorar rendimiento)</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Fragmentación</div>
+                            <div class="ip-celda">En routers y host origen</div>
+                            <div class="ip-celda">Solo en host origen</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Broadcast</div>
+                            <div class="ip-celda">Sí</div>
+                            <div class="ip-celda">No (usa multicast)</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Configuración</div>
+                            <div class="ip-celda">Manual o DHCP</div>
+                            <div class="ip-celda">Autoconfiguración o DHCPv6</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Seguridad (IPSec)</div>
+                            <div class="ip-celda">Opcional</div>
+                            <div class="ip-celda">Integrado</div>
+                        </div>
+                        <div class="ip-fila">
+                            <div class="ip-celda">Calidad de servicio</div>
+                            <div class="ip-celda">Limitada (ToS)</div>
+                            <div class="ip-celda">Mejorada (Flow Label)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ip-rfc-ipv6">
+                    <div class="ip-titulo-rfc">RFCs relacionados con IPv6</div>
+                    <div class="ip-lista-rfc">
+                        <div class="ip-rfc">
+                            <div class="ip-numero-rfc">RFC 2460</div>
+                            <div class="ip-descripcion-rfc">Especificaciones de protocolo</div>
+                        </div>
+                        <div class="ip-rfc">
+                            <div class="ip-numero-rfc">RFC 2373</div>
+                            <div class="ip-descripcion-rfc">Direccionamiento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el protocolo IP - usando clases únicas */
+        .ip-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Ubicación del protocolo IP */
+        .ip-ubicacion {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .ip-modelos-comparativa {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .ip-modelo {
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .ip-titulo-modelo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-capas-modelo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .ip-capa-modelo {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .ip-capa-destacada {
+            border: 2px solid #1890ff;
+            background-color: #e6f7ff;
+        }
+        
+        .ip-capa-aplicacion, .ip-capa-aplicacion-tcp {
+            background-color: #f0f5ff;
+        }
+        
+        .ip-capa-presentacion {
+            background-color: #e6f7ff;
+        }
+        
+        .ip-capa-sesion {
+            background-color: #e6fffb;
+        }
+        
+        .ip-capa-transporte, .ip-capa-transporte-tcp {
+            background-color: #f6ffed;
+        }
+        
+        .ip-capa-red, .ip-capa-internet {
+            background-color: #fffbe6;
+        }
+        
+        .ip-capa-enlace {
+            background-color: #fff2e8;
+        }
+        
+        .ip-capa-fisica, .ip-capa-acceso {
+            background-color: #fff1f0;
+        }
+        
+        .ip-numero-capa {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .ip-nombre-capa {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .ip-protocolo-capa {
+            position: absolute;
+            right: 10px;
+            font-size: 0.8rem;
+            color: #1890ff;
+            font-weight: 500;
+        }
+        
+        /* Características del protocolo IP */
+        .ip-caracteristicas {
+            margin: 25px 0;
+        }
+        
+        .ip-descripcion-caracteristicas {
+            margin-bottom: 20px;
+        }
+        
+        .ip-lista-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .ip-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-icono-caracteristica {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ip-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .ip-texto-caracteristica {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Datagrama IP */
+        .ip-datagrama {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-datagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-estructura-datagrama {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .ip-cabecera-datagrama, .ip-datos-datagrama {
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .ip-etiqueta-parte {
+            background-color: #1890ff;
+            color: white;
+            padding: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .ip-campos-cabecera {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px;
+            background-color: #f0f5ff;
+        }
+        
+        .ip-campo-cabecera {
+            flex: 1;
+            min-width: 150px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-nombre-campo {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .ip-bits-campo {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .ip-contenido-datos {
+            padding: 20px;
+            text-align: center;
+            background-color: #f6ffed;
+            color: #666;
+        }
+        
+        /* Versiones del protocolo IP */
+        .ip-versiones {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-versiones {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-lista-versiones {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .ip-version {
+            flex: 1;
+            max-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .ip-nombre-version {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            font-size: 1.2rem;
+        }
+        
+        .ip-descripcion-version {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* IPv4 */
+        .ip-ipv4 {
+            margin: 25px 0;
+        }
+        
+        .ip-descripcion-ipv4 {
+            margin-bottom: 20px;
+        }
+        
+        .ip-lista-caracteristicas-ipv4 {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .ip-caracteristica-ipv4 {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-caracteristica-ipv4 {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ip-descripcion-caracteristica-ipv4 {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Dirección IPv4 */
+        .ip-direccion-ipv4 {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-direccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-ejemplo-direccion {
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1890ff;
+        }
+        
+        .ip-estructura-direccion {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .ip-octeto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ip-valor-octeto {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .ip-bits-octeto {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .ip-bit {
+            width: 20px;
+            height: 20px;
+            background-color: #f0f5ff;
+            border: 1px solid #1890ff;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .ip-mascara-direccion {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .ip-titulo-mascara {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ip-partes-direccion {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .ip-parte-red, .ip-parte-host {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+        
+        .ip-etiqueta-parte {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .ip-valor-parte {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Redes privadas IPv4 */
+        .ip-redes-privadas {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-redes {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-lista-redes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .ip-red-privada {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .ip-rango-red {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            font-size: 1.1rem;
+        }
+        
+        .ip-descripcion-red {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .ip-uso-red {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* RFCs */
+        .ip-rfc-ipv4, .ip-rfc-ipv6 {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-rfc {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-lista-rfc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .ip-rfc {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .ip-numero-rfc {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ip-descripcion-rfc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* IPv6 */
+        .ip-ipv6 {
+            margin: 25px 0;
+        }
+        
+        .ip-descripcion-ipv6 {
+            margin-bottom: 20px;
+        }
+        
+        .ip-lista-caracteristicas-ipv6 {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .ip-caracteristica-ipv6 {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-caracteristica-ipv6 {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ip-descripcion-caracteristica-ipv6 {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Dirección IPv6 */
+        .ip-direccion-ipv6 {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-ejemplo-direccion-abreviada {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #52c41a;
+        }
+        
+        .ip-estructura-direccion-ipv6 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .ip-grupo-hexadecimal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ip-valor-grupo {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .ip-bits-grupo {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .ip-partes-direccion-ipv6 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .ip-parte-prefijo, .ip-parte-subred, .ip-parte-interfaz {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        /* Comparativa IPv4 vs IPv6 */
+        .ip-comparativa {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ip-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ip-tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .ip-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .ip-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .ip-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .ip-celda-encabezado, .ip-celda {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .ip-celda-encabezado:first-child, .ip-celda:first-child {
+            flex: 2;
+            text-align: left;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ip-modelos-comparativa {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ip-modelo {
+                max-width: 100%;
+            }
+            
+            .ip-estructura-direccion, .ip-estructura-direccion-ipv6 {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ip-fila {
+                flex-direction: column;
+            }
+            
+            .ip-celda-encabezado, .ip-celda {
+                text-align: center;
+            }
+            
+            .ip-celda-encabezado:first-child, .ip-celda:first-child {
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

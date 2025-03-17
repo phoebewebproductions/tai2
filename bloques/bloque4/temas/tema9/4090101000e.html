@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad y Protección en Redes de Comunicaciones</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4090101001">
+            <h2>1.1. SEGURIDAD Y PROTECCIÓN EN REDES DE COMUNICACIONES</h2>
+            <h3>1.1. LAS DIMENSIONES DE LA SEGURIDAD EN LAS REDES DE COMUNICACIONES</h3>
+            <p>Las redes de comunicaciones constituyen las autopistas a través de las cuales los diferentes equipos y usuarios intercambian todo tipo de datos, y sus extremos constituyen una puerta de entrada y salida de los sistemas de información. No es de extrañar, por tanto, que en paralelo a su desarrollo y expansión, haya crecido una preocupación en lo relativo a la seguridad de la información.</p>
+            
+            <div class="concepto-clave">
+                <h4>🔐 Dimensiones de la Seguridad</h4>
+                <p>En el aspecto de la seguridad de la información, el estándar ISO/IEC 27001 determina cuales son aquellas dimensiones que debe abarcar:</p>
+            </div>
+            
+            <div class="tarjetas-dimensiones">
+                <div class="tarjeta">
+                    <div class="tarjeta-header">
+                        <span class="icono">🔒</span>
+                        <h4>Confidencialidad</h4>
+                    </div>
+                    <p>Se refiere al acceso a la información únicamente por aquellos que están autorizados para ello.</p>
+                </div>
+                
+                <div class="tarjeta">
+                    <div class="tarjeta-header">
+                        <span class="icono">⏱️</span>
+                        <h4>Disponibilidad</h4>
+                    </div>
+                    <p>Se refiere al acceso a la información y a los sistemas que la procesan por las personas autorizadas cuando lo necesitan.</p>
+                </div>
+                
+                <div class="tarjeta">
+                    <div class="tarjeta-header">
+                        <span class="icono">🛡️</span>
+                        <h4>Integridad</h4>
+                    </div>
+                    <p>Se refiere a que la información no ha sido manipulada de manera no autorizada.</p>
+                </div>
+            </div>
+            
+            <div class="nota-ens">
+                <h4>📝 Dimensiones adicionales según el ENS</h4>
+                <p>El Esquema Nacional de Seguridad (ENS), a fin de determinar el impacto que tendría en la organización un incidente de seguridad, amplia estas dimensiones en dos más:</p>
+                
+                <div class="tarjetas-dimensiones">
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                            <span class="icono">🔐</span>
+                            <h4>Autenticidad</h4>
+                        </div>
+                        <p>Garantiza que los usuarios que tienen acceso son quienes dicen ser.</p>
+                    </div>
+                    
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                            <span class="icono">🔍</span>
+                            <h4>Trazabilidad</h4>
+                        </div>
+                        <p>Posibilita el seguimiento de los accesos indebidos a la organización.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Es objeto de este tema el estudio de los ataques que se efectúan a las redes de comunicaciones, y a los equipos de usuario que producen un impacto en las dimensiones anteriores, introduciendo las medidas de defensa más extendidas para cada uno de ellos.</p>
+        </span>
+        
+        <span id="4090101002">
+            <h3>1.1.1. LOS ATAQUES A LAS REDES DE COMUNICACIONES</h3>
+            <p>A continuación se clasificarán los ataques según afectan a la autenticidad, disponibilidad, confidencialidad e integridad.</p>
+            
+            <div class="diagrama-ataques">
+                <h4>Clasificación de Ataques por Dimensión Afectada</h4>
+                <div class="diagrama">
+                    <div class="nodo principal">Ataques a Redes</div>
+                    <div class="conexiones">
+                        <div class="linea"></div>
+                        <div class="linea"></div>
+                        <div class="linea"></div>
+                        <div class="linea"></div>
+                    </div>
+                    <div class="nodos-secundarios">
+                        <div class="nodo">Confidencialidad</div>
+                        <div class="nodo">Integridad</div>
+                        <div class="nodo">Disponibilidad</div>
+                        <div class="nodo">Autenticidad</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>1.1.1.1. ATAQUES A LA CONFIDENCIALIDAD</h3>
+            <p>Los ataques a la confidencialidad tienen como objetivo la obtención de información. Entre ellos destacan:</p>
+        </span>
+        
+        <span id="4090101003">
+            <h4>1.1.1.1.1. USO DE TÉCNICAS DE INGENIERÍA SOCIAL</h4>
+            
+            <div class="concepto-destacado">
+                <h5>🎭 Ingeniería Social</h5>
+                <p>Las técnicas de ingeniería social se basan en técnicas psicológicas y habilidades sociales para la obtención de información de terceros, que no implican necesariamente el uso de la tecnología.</p>
+            </div>
+            
+            <div class="ejemplo-ataque">
+                <h5>Ejemplo: Vishing</h5>
+                <p>Una práctica fraudulenta que consiste en el uso de la línea telefónica convencional para engañar personas y obtener información delicada como puede ser información financiera o información útil para el robo de identidad. El término es una combinación del inglés "voice" y phishing.</p>
+            </div>
+            
+            <div class="cita-experto">
+                <h5>Kevin Mitnick sobre Ingeniería Social</h5>
+                <p>Kevin Mitnick, hacker estadounidense que se dedica a la consultoría desde la óptica particular de la ingeniería social considera que más allá de las técnicas de hardware y software que se pueden implementar en las redes, el factor determinante de la seguridad de las mismas es la capacidad de los usuarios de interpretar correctamente las políticas de seguridad y hacerlas cumplir.</p>
+                <p>Considera que todos podemos fallar fácilmente en este aspecto ya que los ataques de ingeniería social, están basados en cuatro principios básicos y comunes a todas las personas:</p>
+            </div>
+            
+            <div class="principios-ingenieria-social">
+                <div class="principio">
+                    <span class="icono">👥</span>
+                    <p>Todos queremos ayudar.</p>
+                </div>
+                <div class="principio">
+                    <span class="icono">🤝</span>
+                    <p>El primer movimiento es siempre de confianza hacia el otro.</p>
+                </div>
+                <div class="principio">
+                    <span class="icono">🙅‍♂️</span>
+                    <p>No nos gusta decir No.</p>
+                </div>
+                <div class="principio">
+                    <span class="icono">🌟</span>
+                    <p>A todos nos gusta que nos alaben.</p>
+                </div>
+            </div>
+            
+            <p>Fundamentando estos conceptos, relató el 27 de mayo de 2005 en una de sus conferencias el modo a través del cual pudo acceder fácilmente al código de un teléfono móvil en desarrollo, incluso antes de su anuncio en el mercado, con sólo seis llamadas telefónicas y en unos escasos minutos.</p>
+            
+            <div class="defensa">
+                <h5>🛡️ Defensas contra la Ingeniería Social</h5>
+                <p>Las mejores defensas frente a estas técnicas son la formación del usuario y el sentido común.</p>
+            </div>
+        </span>
+        
+        <span id="4090101004">
+            <h4>1.1.1.1.2. ESCANEO DE PUERTOS O PORT SCANNING</h4>
+            
+            <div class="concepto-destacado">
+                <h5>🔍 Escaneo de Puertos</h5>
+                <p>Mediante el escaneo de puertos un posible atacante puede determinar si un puerto en un servidor está abierto, cerrado o protegido por un firewall, y de esta forma tratar de establecer una conexión TCP/IP no autorizada a través del mismo.</p>
+            </div>
+            
+            <div class="metodos-escaneo">
+                <h5>Métodos de Escaneo de Puertos</h5>
+                <div class="tabla-metodos">
+                    <div class="metodo">
+                        <h6>TCP Connect Scan</h6>
+                        <p>Intenta establecer una conexión TCP completa con todos los puertos del servidor destino, para comprobar si están abiertos.</p>
+                    </div>
+                    <div class="metodo">
+                        <h6>TCP SYN Scan</h6>
+                        <p>Es el escaneo de puertos más común. Envía paquetes SYN del protocolo TCP a todos los puertos del servidor objetivo, y comprueba si la respuesta es un SYN/ACK (puerto abierto), RST (puerto cerrado) o un paquete ICMP (puerto filtrado por un firewall).</p>
+                    </div>
+                    <div class="metodo">
+                        <h6>TCP FIN Scan</h6>
+                        <p>Se envían paquetes con el flag FIN del protocolo TCP. Estos paquetes cuando llegan a un puerto abierto son descartados, pero si llegan a un puerto cerrado, se responden con un paquete RST. De esta forma, un atacante puede saber si los puertos están abiertos o cerrados. Tiene la ventaja que este ataque puede pasar a través de un firewall preparado para filtrar escaneos con TCP SYN.</p>
+                    </div>
+                    <div class="metodo">
+                        <h6>TCP Fragmentation Scan</h6>
+                        <p>Consiste en efectuar alguno de los ataques anteriores, pero fragmentando la cabecera del paquete de TCP en varios paquetes, para evitar el filtrado a través de un firewall.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="herramientas">
+                <h5>🛠️ Herramientas de Escaneo de Puertos</h5>
+                <p>Algunas de las herramientas de escaneo de puertos más usadas son: TCP Port Scanner, Advanced Port Scanner, Portqry o NetscanTools.</p>
+                
+                <div class="herramienta-destacada">
+                    <h6>NMAP</h6>
+                    <p>Una de las herramientas más conocidas del filtrado de puertos es NMAP. Se trata de una aplicación de código abierto, que permite conocer:</p>
+                    <ul>
+                        <li>Los servidores que están conectados a una red.</li>
+                        <li>Los puertos que están abiertos en un servidor concreto.</li>
+                        <li>El sistema operativo de las máquinas escaneadas.</li>
+                        <li>Algunas características hardware de los equipos de la red.</li>
+                    </ul>
+                    <p>Además NMAP es capaz de adaptarse a la situación particular de la red: congestión, latencia, etc.</p>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4090101005">
+            <h4>1.1.1.1.3. INTERCEPTACIÓN PASIVA, EAVESDROPPING O SNIFFING</h4>
+            
+            <div class="concepto-destacado">
+                <h5>👂 Sniffing</h5>
+                <p>El sniffer o rastreador es un sistema, hardware o software, que captura todos los paquetes que pasan por un punto específico de la red, y que permite visualizar tanto su cabecera como el contenido. No se limitan a la información dirigida al equipo donde están instalados, sino que configurados en modo promiscuo<sup>1</sup> pueden interceptar cualquier paquete dentro de la red de área local. De esta forma se puede conocer toda la información que atraviesa la red, a menos que esté cifrada.</p>
+            </div>
+            
+            <div class="nota-pie">
+                <p><sup>1</sup> En modo promiscuo, en la capa 2 de enlace no se descartan los paquetes no destinados a la MAC del equipo donde está instalado el sniffer, por lo que se intercepta todo el tráfico que le llega.</p>
+            </div>
+            
+            <p>Los ataques de eavesdropping suelen ir seguidos de ataques contra la autenticidad, el más conocido es el ataque de hombre intermedio (man-in-the middle), que veremos más adelante.</p>
+            
+            <div class="herramienta-destacada">
+                <h6>Wireshark</h6>
+                <p>Una de las aplicaciones sniffer más conocida es Wireshark, que se trata de una herramienta capaz de ejecutarse en varios sistemas operativos y proporciona una interfaz gráfica con opciones de filtrado de paquetes, almacenamiento y diagnóstico experto.</p>
+            </div>
+        </span>
+        
+        <span id="4090101006">
+            <h4>1.1.1.1.4. SNOOPING DOWNLOADING</h4>
+            
+            <div class="concepto-destacado">
+                <h5>📥 Snooping Downloading</h5>
+                <p>La técnica de Snooping downloading es parecida a la Sniffing, pero, además de visualizar la información contenida en los paquetes, el atacante descarga correo electrónico, ficheros, etc., para su análisis posterior o robo.</p>
+            </div>
+        </span>
+        
+        <span id="4090101007">
+            <h4>1.1.1.1.5. PATH TRAVERSAL (DOT-DOT-SLASH, DIRECTORY CLIMBING O BACKTRACKING)</h4>
+            
+            <div class="concepto-destacado">
+                <h5>📁 Path Traversal</h5>
+                <p>El ataque de ruta transversal (path traversal) o de directorio transversal consiste en acceder a directorios y ficheros fuera del servidor web manipulando variables en una URL que hacen referencia a ficheros con secuencias dot-dot slash (../) y sus variaciones, o a rutas absolutas.</p>
+            </div>
+            
+            <div class="ejemplo-ataque">
+                <h5>Ejemplo de Path Traversal</h5>
+                <div class="codigo">
+                    <p>https://ejemplo.com/verarchivo.php?archivo=../../../etc/passwd</p>
+                </div>
+                <p>En este ejemplo, el atacante intenta acceder al archivo de contraseñas del sistema operativo utilizando secuencias "../" para navegar hacia arriba en la estructura de directorios.</p>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+
+        
+        .teoria {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        h3 {
+            font-size: 1.7em;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            font-size: 1.4em;
+            color: #2980b9;
+        }
+        
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+        
+        /* Tarjetas de dimensiones */
+        .tarjetas-dimensiones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .tarjeta {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tarjeta-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .tarjeta-header .icono {
+            font-size: 1.8em;
+            margin-right: 10px;
+        }
+        
+        .tarjeta-header h4 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        /* Conceptos destacados */
+        .concepto-destacado, .concepto-clave, .ejemplo-ataque, .cita-experto, .defensa {
+            background-color: #f1f8fe;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .concepto-clave {
+            background-color: #e8f4fd;
+            border-left-color: #2980b9;
+        }
+        
+        .ejemplo-ataque {
+            background-color: #fff5f5;
+            border-left-color: #e74c3c;
+        }
+        
+        .cita-experto {
+            background-color: #f9f9f9;
+            border-left-color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .defensa {
+            background-color: #f0fff4;
+            border-left-color: #27ae60;
+        }
+        
+        .concepto-destacado h5, .concepto-clave h4, .ejemplo-ataque h5, .cita-experto h5, .defensa h5 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        /* Principios de ingeniería social */
+        .principios-ingenieria-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .principio {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .principio .icono {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .principio p {
+            margin: 0;
+        }
+        
+        /* Diagrama de ataques */
+        .diagrama-ataques {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .diagrama {
+            margin-top: 20px;
+            position: relative;
+            height: 200px;
+        }
+        
+        .nodo {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .nodo.principal {
+            background-color: #2c3e50;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .conexiones {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 60px;
+        }
+        
+        .linea {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background-color: #95a5a6;
+            top: 0;
+        }
+        
+        .linea:nth-child(1) {
+            left: 20%;
+        }
+        
+        .linea:nth-child(2) {
+            left: 40%;
+        }
+        
+        .linea:nth-child(3) {
+            left: 60%;
+        }
+        
+        .linea:nth-child(4) {
+            left: 80%;
+        }
+        
+        .nodos-secundarios {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        /* Métodos de escaneo */
+        .metodos-escaneo {
+            margin: 25px 0;
+        }
+        
+        .tabla-metodos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .metodo {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .metodo h6 {
+            margin-top: 0;
+            color: #2980b9;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        
+        /* Herramientas */
+        .herramientas {
+            margin: 25px 0;
+        }
+        
+        .herramienta-destacada {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .herramienta-destacada h6 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        
+        .herramienta-destacada ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .herramienta-destacada li {
+            margin-bottom: 5px;
+        }
+        
+        /* Nota al pie */
+        .nota-pie {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #e0e0e0;
+        }
+        
+        /* Código */
+        .codigo {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .codigo p {
+            margin: 0;
+            color: #e74c3c;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tarjetas-dimensiones, .principios-ingenieria-social {
+                flex-direction: column;
+            }
+            
+            .tabla-metodos {
+                grid-template-columns: 1fr;
+            }
+            
+            .diagrama {
+                height: 300px;
+            }
+            
+            .nodos-secundarios {
+                flex-wrap: wrap;
+                top: 120px;
+            }
+            
+            .nodo {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</body>
+</html>

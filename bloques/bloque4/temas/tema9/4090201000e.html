@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Perimetral</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4090201001">
+            <h2>2.1. SEGURIDAD PERIMETRAL</h2>
+            <p>Se conoce como seguridad perimetral al conjunto de elementos y sistemas destinados a proteger perímetros físicos o lógicos, detectar las tentativas de intrusión en ellos y expulsar a los intrusos que hayan logrado penetrar.</p>
+            <p>Normalmente el perímetro de seguridad es una zona intermedia ubicada entre las redes externas a una organización o zona de riesgo, y la red interna de ella, y suele ser propiedad de la misma organización.</p>
+        </span>
+
+        <span id="4090201002">
+            <h3>2.1.1. ZONA DESMILITARIZADA (DMZ)</h3>
+            <p>Una zona desmilitarizada es una red aislada que se encuentra dentro de la red interna de la organización, y cuando existe coincide con su perímetro. En la DMZ se encuentran ubicados exclusivamente todos los recursos de la empresa que deben ser accesibles desde Internet, como el servidor web o de correo.</p>
+            
+            <div class="diagrama-dmz">
+                <h4>Estructura de una DMZ</h4>
+                <div class="dmz-container">
+                    <div class="internet">
+                        <span>🌐 INTERNET</span>
+                    </div>
+                    <div class="firewall-externo">
+                        <span>🔒 FIREWALL EXTERNO</span>
+                    </div>
+                    <div class="dmz-zone">
+                        <span>DMZ</span>
+                        <div class="servers">
+                            <div class="server">🖥️ Servidor Web</div>
+                            <div class="server">📧 Servidor Email</div>
+                            <div class="server">🔄 Servidor DNS</div>
+                        </div>
+                    </div>
+                    <div class="firewall-interno">
+                        <span>🔒 FIREWALL INTERNO</span>
+                    </div>
+                    <div class="red-interna">
+                        <span>RED INTERNA</span>
+                        <div class="workstations">
+                            <div class="workstation">💻</div>
+                            <div class="workstation">💻</div>
+                            <div class="workstation">💻</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Por lo general, una DMZ permite las conexiones procedentes tanto de Internet, como de la red local de la empresa donde están los equipos de los trabajadores, pero las conexiones que van desde la DMZ a la red local, no están permitidas. Esto se debe a que los servidores que son accesibles desde Internet son más susceptibles a sufrir un ataque que pueda comprometer su seguridad. Si un ciberdelincuente comprometiera un servidor de la zona desmilitarizada, tendría muchos más complicado acceder a la red local de la organización, ya que las conexiones procedentes de la DMZ se encuentran bloqueadas.</p>
+        </span>
+
+        <span id="4090201003">
+            <h3>2.1.2. ELEMENTOS DE LA SEGURIDAD PERIMETRAL</h3>
+            <p>A continuación, se analizan los elementos que normalmente aseguran el perímetro de una red.</p>
+        </span>
+
+        <span id="4090201004">
+            <h4>2.1.2.1. FIREWALL</h4>
+            <p>Según la Guía CCN-STIC-408 "un cortafuegos (firewall) es aquel sistema formado por aplicaciones, dispositivos o combinación de éstos encargado de hacer cumplir una política de control de acceso en las comunicaciones entre dispositivos de red según una política de seguridad existente. Se entiende por políticas de control de acceso las primitivas de "permitir" o "denegar" a determinados clientes el acceso a los recursos de red, expuestos como servicios, según unos privilegios de autorización. Estos privilegios a los recursos u objetos se definen habitualmente mediante listas con entradas secuenciales llamadas juegos de reglas (rulesets)".</p>
+            
+            <div class="funciones-firewall">
+                <h5>Funciones de un Firewall</h5>
+                <ul class="firewall-functions">
+                    <li>🔍 Filtrado del tráfico</li>
+                    <li>↪️ Redireccionamiento de los paquetes</li>
+                    <li>🕵️ Ocultamiento de la dirección IP</li>
+                    <li>🔐 Establecimiento de redes privadas virtuales</li>
+                    <li>🔒 Cifrado de las comunicaciones</li>
+                </ul>
+            </div>
+            
+            <p>Algunos firewalls de tipo hardware son SonicWall, Fortinet, Cisco Meraki, PaloAlto o Watchguard. Firewalls de tipo software son ZoneAlarm, Sophos, Comodo o Glasswire. Algunos firewalls Opensource son Pfsense, IPfire, Smoothwall, Tinywall o Untangle Firewall.</p>
+            
+            <p>Es imprescindible que el cortafuegos proporcione trazas de registro (logs) lo más completas posibles para poder auditar en cualquier momento esta información y mejorar la seguridad perimetral.</p>
+            
+            <div class="tipos-firewall">
+                <h5>Tipos de Firewall</h5>
+                <div class="firewall-types">
+                    <div class="firewall-type">
+                        <h6>Firewall a nivel de paquete de datos</h6>
+                        <p>El filtrado básico de paquetes, también conocido como stateless packet filtering, se basa en una lista de control de acceso sobre la información de cabecera de las capas de red y transporte (direcciones IP origen/destino, protocolos IP, puertos TCP/UDP, flags TCP, etc.) de manera individual e independiente para cada uno de los paquetes.</p>
+                    </div>
+                    <div class="firewall-type">
+                        <h6>Firewall de inspección de estado</h6>
+                        <p>El filtrado de paquetes con estado, también conocido como stateful packet filtering, es un filtrado más completo que el filtrado de paquetes estándar ya que le añade la capacidad de mantener información de estado de las conexiones establecidas.</p>
+                    </div>
+                    <div class="firewall-type">
+                        <h6>Firewall de paquetes con estado e inspección profunda</h6>
+                        <p>También conocido como stateful inspection packet filtering o deep packet inspection, es un filtrado todavía más completo que los dos anteriores. Añade la capacidad de inspeccionar de manera profunda el contenido de los paquetes.</p>
+                    </div>
+                    <div class="firewall-type">
+                        <h6>Firewalls a nivel de aplicación</h6>
+                        <p>Actúan en la capa 7 del modelo OSI y por eso han sido considerados los más seguros. Además de poder validar las peticiones con listas de control de acceso, entienden el protocolo y por ello son capaces de validar la información de la comunicación.</p>
+                        <ul>
+                            <li>XML Firewall</li>
+                            <li>SQL Firewall</li>
+                            <li>Firewall de aplicaciones web (WAF)</li>
+                        </ul>
+                    </div>
+                    <div class="firewall-type">
+                        <h6>Firewall de nueva generación (NGFW)</h6>
+                        <p>Se trata de un firewall de inspección profunda de paquetes (DPI) que va más allá de la inspección y bloqueo de protocolos y puertos para añadir inspección a nivel de aplicación y prevención de intrusiones extrayendo inteligencia y conocimiento desde el exterior.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <span id="4090201005">
+            <h4>2.1.2.2. PROXY</h4>
+            <p>Un proxy es un servidor que hace de intermediario en las peticiones de recursos que realiza un cliente a un servidor web. A diferencia de los firewalls vistos en el epígrafe anterior, un proxy opera a nivel de aplicación. Su situación estratégica de punto intermedio le permite ofrecer diversas funcionalidades, normalmente almacenar en caché las páginas web, filtrado de URLs, registro del tráfico, redireccionamiento de direcciones, etc.</p>
+            
+            <div class="tipos-proxy">
+                <h5>Tipos de Proxy</h5>
+                <div class="proxy-types">
+                    <div class="proxy-type">
+                        <h6>Proxy web</h6>
+                        <p>Este tipo de proxy está diseñado para una aplicación específica como es el acceso a una web siguiendo los protocolos HTTP y HTTPS, además del FTP. Se encarga de filtrar las peticiones a Internet de los equipos que se encuentran en una red de área local.</p>
+                    </div>
+                    <div class="proxy-type">
+                        <h6>Proxy inverso</h6>
+                        <p>También conocido como Reverse Proxy, este proxy se ubica en la estructura de uno o más servidores web, como otra capa de defensa, filtra las peticiones que le llegan desde los clientes, guarda en caché las peticiones más frecuentes y trata de identificar si las direcciones IP se encuentran en alguna lista negra.</p>
+                    </div>
+                    <div class="proxy-type">
+                        <h6>Proxy NAT</h6>
+                        <p>Este proxy también hace de intermediario en una red y, tal y como indica su nombre (Network Address Translation) se encarga de enmascarar diferentes direcciones IPs a/desde las que se conectan a internet, de tal forma que no se pueda conocer el direccionamiento IP interno de una organización.</p>
+                    </div>
+                    <div class="proxy-type">
+                        <h6>Proxy abierto</h6>
+                        <p>Los proxys suelen estar ubicados en el entorno de una red u organización. Los proxys abiertos, sin embargo, suelen ser proxys públicos que pueden ser usados y accedidos por cualquiera a través de internet.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <span id="4090201006">
+            <h4>2.1.2.3. IDS (INTRUSION DETECTION SYSTEM)</h4>
+            <p>Un sistema de detección de intrusiones (IDS) es un programa de detección de accesos no autorizados a una red de ordenadores.</p>
+            
+            <p>El IDS suele tener sensores virtuales (por ejemplo, un sniffer de red) con los que puede obtener datos externos (generalmente sobre el tráfico de red). El IDS detecta, gracias a dichos sensores, las anomalías que pueden ser indicio de la presencia de ataques.</p>
+            
+            <p>El funcionamiento de estas herramientas se basa en el análisis pormenorizado del tráfico de red, el cual al entrar al sniffer es comparado con firmas de ataques conocidos, o comportamientos sospechosos, como puede ser el escaneo de puertos, paquetes malformados, etc. El IDS no solo analiza qué tipo de tráfico es, sino que también revisa el contenido y su comportamiento.</p>
+            
+            <div class="tipos-ids">
+                <h5>Tipos de IDS por ubicación</h5>
+                <div class="ids-types">
+                    <div class="ids-type">
+                        <h6>HIDS (Host IDS)</h6>
+                        <p>Se trata de los IDS más antiguos y se instalan normalmente en los servidores (host) más críticos para evitar el acceso a los mismos. Envían informes de los ataques que reciben a los administradores, para su análisis.</p>
+                        <p>Ejemplos: OSSEC, Tripwire y Samhaim.</p>
+                    </div>
+                    <div class="ids-type">
+                        <h6>NIDS (Network IDS)</h6>
+                        <p>Se trata de IDS que se ubican en una zona intermedia, entre la red interna y el exterior como ya hemos visto para los firewall. Desde aquí detectan los ataques a todo el segmento de la red. Su interfaz debe funcionar en modo promiscuo capturando así todo el tráfico de la red para poder analizarlo.</p>
+                    </div>
+                    <div class="ids-type">
+                        <h6>WIDS (Wireless IDS)</h6>
+                        <p>Se trata de un caso específico de NIDS para redes inalámbricas, que se centra menos en los paquetes y más en los eventos que suceden en la red, como la creación de puntos de acceso.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tipos-ids-analisis">
+                <h5>Tipos de IDS por análisis</h5>
+                <div class="ids-analysis-types">
+                    <div class="ids-analysis-type">
+                        <h6>IDS basados en firmas</h6>
+                        <p>Los IDS basados en firmas supervisan todos los paquetes de la red y los comparan con la base de datos de firmas, que son patrones de ataque preconfigurados y predeterminados. Funcionan de forma similar al software antivirus.</p>
+                    </div>
+                    <div class="ids-analysis-type">
+                        <h6>IDS basados en anomalías</h6>
+                        <p>Estos IDS monitorean el tráfico de red y lo comparan con una línea de base establecida. La línea base determina lo que se considera normal para la red en términos de ancho de banda, protocolos, puertos y otros dispositivos, y el IDS alerta al administrador de todo tipo de actividad inusual.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tipos-ids-reaccion">
+                <h5>Tipos de IDS por reacción</h5>
+                <div class="ids-reaction-types">
+                    <div class="ids-reaction-type">
+                        <h6>IDS Pasivo</h6>
+                        <p>Este sistema IDS realiza el sencillo trabajo de detección y alerta. Simplemente alerta al administrador de cualquier tipo de amenaza y bloquea la actividad en cuestión como medida preventiva.</p>
+                    </div>
+                    <div class="ids-reaction-type">
+                        <h6>IDS Activo o IPS</h6>
+                        <p>Al contrario que en el caso anterior, en un sistema reactivo, el IDS responde a la actividad sospechosa reprogramando el cortafuegos para que bloquee tráfico que proviene de la red del atacante.</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <span id="4090201007">
+            <h5>2.1.2.3.1. SAT (SISTEMA DE ALERTA TEMPRANA)</h5>
+            <p>Sistema desarrollado por el CCN-CERT desde el año 2008 que busca actuar antes de que se produzca un incidente o, por lo menos, detectarlo en un primer momento para reducir su impacto y alcance.</p>
+            
+            <div class="sat-types">
+                <h6>Vertientes del SAT</h6>
+                <ul>
+                    <li>🏭 <strong>SAT ICS:</strong> Detección temprana de amenazas en sistemas de control industrial.</li>
+                    <li>🌐 <strong>SAT INET:</strong> Detección temprana de amenazas en el tráfico entre los organismos e internet.</li>
+                    <li>🔄 <strong>SAT SARA:</strong> Detección temprana de amenazas en el tráfico entre los organismos y la red SARA.</li>
+                </ul>
+            </div>
+            
+            <p>El sistema se despliega mediante sondas en los organismos que los soliciten. La sonda se puede desplegar de manera individual para todo el organismo (sonda individual), en cada una de sus sedes (sonda multisede) y recoger eventos de seguridad de otros dispositivos de la organización (sonda multifuente).</p>
+        </span>
+
+        <span id="4090201008">
+            <h4>2.1.2.4. IPS (INTRUSION PREVENTION SYSTEM)</h4>
+            <p>Al igual que un IDS, Un Sistema de Prevención de Intrusos o Intrusion Prevention System (IPS), es un dispositivo de seguridad de red que monitoriza el tráfico de red y/o las actividades de un sistema en busca de actividad maliciosa. Entre sus principales funciones, se encuentran no sólo la de identificar la actividad maliciosa, sino la de intentar detener esta actividad. Siendo esta última una característica que distingue a este tipo de dispositivos de los IDS.</p>
+            
+            <div class="comparativa-ids-ips">
+                <h5>Comparativa IDS vs IPS</h5>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>IDS</th>
+                            <th>IPS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Función principal</td>
+                            <td>Detectar</td>
+                            <td>Detectar y prevenir</td>
+                        </tr>
+                        <tr>
+                            <td>Acción ante amenaza</td>
+                            <td>Alerta</td>
+                            <td>Bloqueo activo</td>
+                        </tr>
+                        <tr>
+                            <td>Enfoque</td>
+                            <td>Reactivo</td>
+                            <td>Proactivo</td>
+                        </tr>
+                        <tr>
+                            <td>Ubicación en la red</td>
+                            <td>Fuera del flujo de tráfico</td>
+                            <td>En línea con el flujo de tráfico</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>Para efectuar esta proactividad, los IPS se apoyan en técnicas de análisis del comportamiento de la red, NBA (Network Behaviour Analysis), mediante el análisis de las variaciones en el tráfico para poder descubrir ciertos tipos de ataque, como los DoS.</p>
+            
+            <div class="tipos-deteccion-ips">
+                <h5>Tipos de detección en IPS</h5>
+                <div class="detection-types">
+                    <div class="detection-type">
+                        <h6>Detección basada en firmas</h6>
+                        <p>Esta detección tiene la capacidad de reconocer una determinada cadena de bytes en cierto contexto, y entonces lanza una alerta. Por ejemplo, los ataques contra los servidores Web generalmente toman la forma de URLs.</p>
+                    </div>
+                    <div class="detection-type">
+                        <h6>Detección basada en políticas</h6>
+                        <p>En este tipo de detección, el IPS requiere que se declaren muy específicamente las políticas de seguridad. Por ejemplo, determinar que hosts pueden tener comunicación con determinadas redes.</p>
+                    </div>
+                    <div class="detection-type">
+                        <h6>Detección basada en anomalías</h6>
+                        <p>Este tipo de detección tiende a generar muchos falsos positivos, ya que es sumamente difícil determinar y medir una condición 'normal'.</p>
+                        <ul>
+                            <li><strong>Detección estadística:</strong> El IPS analiza el tráfico por un periodo de tiempo y crea una línea base de comparación.</li>
+                            <li><strong>Detección no estadística:</strong> El administrador define el patrón "normal" de tráfico.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <span id="4090201009">
+            <h4>2.1.2.5. UTM (UNIFIED THREAT MANAGEMENT)</h4>
+            <p>Los UTM son equipos de red que engloban varios sistemas de seguridad en el mismo dispositivo. Un producto UTM generalmente incluye funciones como antivirus, antispyware, antispam, firewall de red, prevención y detección de intrusiones, filtrado de contenido y prevención de fugas. Algunas unidades también ofrecen servicios como enrutamiento remoto, traducción de direcciones de red (NAT) y compatibilidad para redes privadas virtuales (VPN).</p>
+            
+            <div class="utm-features">
+                <h5>Características de UTM</h5>
+                <div class="features-container">
+                    <div class="feature">
+                        <h6>Ventajas</h6>
+                        <ul>
+                            <li>✅ Flexibilidad</li>
+                            <li>✅ Bajo coste</li>
+                            <li>✅ Integración</li>
+                            <li>✅ Facilidad de mantenimiento</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h6>Desventajas</h6>
+                        <ul>
+                            <li>❌ Único punto de fallo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <span id="4090201010">
+            <h4>2.1.2.6. SIEM (SECURITY INFORMATION AND EVENT MANAGEMENT)</h4>
+            <p>Estos sistemas efectúan un análisis de alertas de seguridad generadas por los dispositivos de la red en tiempo real. Los SIEMs recogen los archivos de log y registros de eventos de los distintos sistemas para detectar eventos de seguridad que pueden ser el inicio de un incidente, descartando en el proceso los falsos positivos.</p>
+            
+            <p>De esta forma se realiza una centralización de las alertas que permite automatizar las tareas y realizar el seguimiento de los eventos para detectar anomalías de seguridad.</p>
+            
+            <div class="siem-workflow">
+                <h5>Flujo de trabajo de un SIEM</h5>
+                <div class="workflow-container">
+                    <div class="workflow-step">
+                        <span>1</span>
+                        <p>Recolección de logs</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <span>2</span>
+                        <p>Normalización</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <span>3</span>
+                        <p>Correlación</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <span>4</span>
+                        <p>Alertas</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <span>5</span>
+                        <p>Respuesta</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Algunas soluciones SIEM son ELK Stack (Elastic Search) o QRadar (IBM), y también existen soluciones opensource como OSSIM.</p>
+        </span>
+
+        <span id="4090201011">
+            <h4>2.1.2.7. HONEYPOT</h4>
+            <p>Un honeypot es una herramienta de seguridad informática dispuesto en una red o sistema informático para ser el objetivo de un posible ataque informático, y así poder detectarlo y obtener información del mismo y del atacante.</p>
+            
+            <p>La característica principal de este tipo de programas es que están diseñados no solo para protegerse de un posible ataque, sino para servir de señuelo invisible al atacante, con objeto de detectar el ataque antes de que afecte a otros sistemas críticos. El honeypot, sin embargo, puede estar diseñado con múltiples objetivos, desde simplemente alertar de la existencia del ataque y obtener información sin interferir en el mismo, hasta tratar de ralentizar el ataque y proteger así el resto del sistema.</p>
+            
+            <div class="tipos-honeypot">
+                <h5>Tipos de Honeypot</h5>
+                <div class="honeypot-types">
+                    <div class="honeypot-type">
+                        <h6>Honeypot de baja interacción</h6>
+                        <p>Usados fundamentalmente como medida de seguridad. Simulan servicios y sistemas operativos, pero con funcionalidad limitada.</p>
+                    </div>
+                    <div class="honeypot-type">
+                        <h6>Honeypot de alta interacción</h6>
+                        <p>Capaces de reunir mucha más información y con fines como la investigación. Son sistemas reales con vulnerabilidades controladas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Si el sistema dispuesto para ser atacado forma toda una red de herramientas y computadoras dedicadas en exclusiva a esta tarea se le denomina honeynet.</p>
+        </span>
+
+        <span id="4090201012">
+            <h4>2.1.2.8. NDR (NETWORK DETECTION AND RESPONSE)</h4>
+            <p>Las soluciones de detección y respuesta de red (NDR) examinan la red en busca de amenazas conocidas y desconocidas y actividad sospechosa, analizando continuamente el tráfico de red, creando un patrón de comportamiento normal. A diferencia de herramientas más antiguas, para detectar tráfico anormal en la red, las soluciones NDR utilizan principalmente herramientas no basadas en firmas, como es el caso de Machine Learning o IA.</p>
+            
+            <p>NDR realiza un modelado del comportamiento del tráfico de la red y utiliza herramientas de análisis predictivo para comparar las diferencias entre el comportamiento actual del tráfico y el comportamiento esperado, activando alarmas si se alcanza un alto nivel de diferencia.</p>
+            
+            <div class="comparativa-ndr-ids">
+                <h5>Comparativa NDR vs IDS</h5>
+                <p>Aunque parecido a los NIDS, se trata de un enfoque más moderno y se diferencian de éstos en lo que los IDS utilizan una base de datos de amenazas conocidas, que hay que actualizar periódicamente, para comparar con el tráfico de la red.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>IDS</th>
+                            <th>NDR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Método de detección</td>
+                            <td>Basado en firmas</td>
+                            <td>Machine Learning/IA</td>
+                        </tr>
+                        <tr>
+                            <td>Detección de amenazas</td>
+                            <td>Conocidas</td>
+                            <td>Conocidas y desconocidas</td>
+                        </tr>
+                        <tr>
+                            <td>Actualización</td>
+                            <td>Requiere actualización de firmas</td>
+                            <td>Aprendizaje continuo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </span>
+
+        <span id="4090201013">
+            <h4>2.1.2.9. XDR (EXTENDED DETECTION AND RESPONSE)</h4>
+            <p>XDR (detección y respuesta extendidas) recopila y correlaciona automáticamente datos en múltiples capas de seguridad: email, endpoint, servidor, workload en la nube y la red formando un superconjunto o datalake de datos. Los análisis automatizados de este superconjunto de valiosos datos detectan las amenazas mucho más rápido que los análisis de los SIEM.</p>
+            
+            <div class="xdr-architecture">
+                <h5>Arquitectura XDR</h5>
+                <div class="xdr-layers">
+                    <div class="xdr-layer">
+                        <span>📧</span>
+                        <p>Email</p>
+                    </div>
+                    <div class="xdr-layer">
+                        <span>💻</span>
+                        <p>Endpoint</p>
+                    </div>
+                    <div class="xdr-layer">
+                        <span>🖥️</span>
+                        <p>Servidor</p>
+                    </div>
+                    <div class="xdr-layer">
+                        <span>☁️</span>
+                        <p>Nube</p>
+                    </div>
+                    <div class="xdr-layer">
+                        <span>🌐</span>
+                        <p>Red</p>
+                    </div>
+                    <div class="xdr-datalake">
+                        <span>🗄️</span>
+                        <p>Data Lake</p>
+                    </div>
+                    <div class="xdr-analysis">
+                        <span>🔍</span>
+                        <p>Análisis Automatizado</p>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+        .teoria {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        p {
+            margin-bottom: 1em;
+        }
+        
+        /* Estilos para diagramas y visualizaciones */
+        .diagrama-dmz {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .dmz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .internet, .firewall-externo, .dmz-zone, .firewall-interno, .red-interna {
+            width: 80%;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .internet {
+            background-color: #d6eaf8;
+        }
+        
+        .firewall-externo, .firewall-interno {
+            background-color: #f5b7b1;
+        }
+        
+        .dmz-zone {
+            background-color: #d5f5e3;
+            padding: 20px;
+        }
+        
+        .red-interna {
+            background-color: #fdebd0;
+        }
+        
+        .servers, .workstations {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        
+        .server, .workstation {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* Estilos para listas y tablas */
+        .firewall-functions {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .firewall-functions li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .funciones-firewall, .tipos-firewall, .tipos-proxy, .tipos-ids, .tipos-ids-analisis, .tipos-ids-reaccion, .comparativa-ids-ips, .tipos-deteccion-ips, .utm-features, .siem-workflow, .tipos-honeypot, .comparativa-ndr-ids, .xdr-architecture {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .firewall-types, .proxy-types, .ids-types, .ids-analysis-types, .ids-reaction-types, .detection-types, .honeypot-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .firewall-type, .proxy-type, .ids-type, .ids-analysis-type, .ids-reaction-type, .detection-type, .honeypot-type {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Estilos para flujos de trabajo */
+        .workflow-container, .features-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .workflow-step {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .workflow-step span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        
+        .workflow-arrow {
+            font-size: 24px;
+            color: #3498db;
+            margin: 0 10px;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        
+        /* Estilos para XDR */
+        .xdr-layers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .xdr-layer, .xdr-datalake, .xdr-analysis {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 100px;
+        }
+        
+        .xdr-layer span, .xdr-datalake span, .xdr-analysis span {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .xdr-datalake {
+            background-color: #d6eaf8;
+            width: 150px;
+            margin-top: 15px;
+        }
+        
+        .xdr-analysis {
+            background-color: #d5f5e3;
+            width: 200px;
+            margin-top: 15px;
+        }
+        
+        /* Estilos para SAT */
+        .sat-types {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+        
+        .sat-types ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sat-types li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+    </style>
+</body>
+</html>

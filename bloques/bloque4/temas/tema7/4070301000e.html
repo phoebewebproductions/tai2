@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pila de Protocolos TCP/IP</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070301000">
+            <h2>4. PILA DE PROTOCOLOS DE TCP/IP</h2>
+            
+            <div class="protocolos-introduccion">
+                <p>Existen más de cien protocolos que se basan en el modelo TCP/IP a parte de los archiconocidos TCP e IP.</p>
+                <p>A continuación se dará una breve descripción de los más importantes:</p>
+            </div>
+            
+            <div class="protocolos-mapa">
+                <div class="protocolos-titulo-seccion">Mapa de Protocolos TCP/IP por Capas</div>
+                <div class="protocolos-capas">
+                    <div class="protocolos-capa">
+                        <div class="protocolos-nombre-capa">Aplicación</div>
+                        <div class="protocolos-lista">
+                            <div class="protocolo-item" data-id="http">HTTP</div>
+                            <div class="protocolo-item" data-id="ftp">FTP</div>
+                            <div class="protocolo-item" data-id="smtp">SMTP</div>
+                            <div class="protocolo-item" data-id="pop3">POP3</div>
+                            <div class="protocolo-item" data-id="imap">IMAP</div>
+                            <div class="protocolo-item" data-id="telnet">TELNET</div>
+                            <div class="protocolo-item" data-id="dns">DNS</div>
+                            <div class="protocolo-item" data-id="snmp">SNMP</div>
+                            <div class="protocolo-item" data-id="tftp">TFTP</div>
+                            <div class="protocolo-item" data-id="ntp">NTP</div>
+                            <div class="protocolo-item" data-id="ssl">SSL/TLS</div>
+                            <div class="protocolo-item" data-id="irc">IRC</div>
+                        </div>
+                    </div>
+                    <div class="protocolos-capa">
+                        <div class="protocolos-nombre-capa">Transporte</div>
+                        <div class="protocolos-lista">
+                            <div class="protocolo-item" data-id="tcp">TCP</div>
+                            <div class="protocolo-item" data-id="udp">UDP</div>
+                        </div>
+                    </div>
+                    <div class="protocolos-capa">
+                        <div class="protocolos-nombre-capa">Internet</div>
+                        <div class="protocolos-lista">
+                            <div class="protocolo-item" data-id="ip">IP</div>
+                            <div class="protocolo-item" data-id="icmp">ICMP</div>
+                            <div class="protocolo-item" data-id="arp">ARP</div>
+                            <div class="protocolo-item" data-id="rarp">RARP</div>
+                            <div class="protocolo-item" data-id="rip">RIP</div>
+                            <div class="protocolo-item" data-id="ripng">RIPNG</div>
+                        </div>
+                    </div>
+                    <div class="protocolos-capa">
+                        <div class="protocolos-nombre-capa">Acceso a Red</div>
+                        <div class="protocolos-lista">
+                            <div class="protocolo-item" data-id="ppp">PPP</div>
+                            <div class="protocolo-item" data-id="slip">SLIP</div>
+                            <div class="protocolo-item" data-id="ethernet">Ethernet</div>
+                            <div class="protocolo-item" data-id="wifi">Wi-Fi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301001">
+                <div class="protocolos-titulo-seccion">4.1 ARP</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-arp"></div>
+                        <div class="protocolo-nombre">ARP (Address Resolution Protocol)</div>
+                        <div class="protocolo-capa">Capa: Internet</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de resolución de direcciones de la capa de enlace de datos.</p>
+                        <p>Permite resolver la dirección física (Ethernet MAC) correspondiente a una determinada IP. Envía un paquete ARP request a la dirección de difusión de la red (broadcast, MAC = FF FF FF FF FF FF) que contiene la dirección IP por la que se pregunta, y se espera a que esa máquina (u otra) responda (ARP reply) con la dirección Ethernet que le corresponde.</p>
+                    </div>
+                    <div class="protocolo-funcionamiento">
+                        <div class="protocolo-titulo-funcionamiento">Funcionamiento de ARP</div>
+                        <div class="protocolo-diagrama-arp">
+                            <div class="arp-paso">
+                                <div class="arp-numero-paso">1</div>
+                                <div class="arp-descripcion-paso">Equipo A necesita enviar datos a IP 192.168.1.10 pero no conoce su MAC</div>
+                            </div>
+                            <div class="arp-flecha"></div>
+                            <div class="arp-paso">
+                                <div class="arp-numero-paso">2</div>
+                                <div class="arp-descripcion-paso">Equipo A envía ARP Request (broadcast): "¿Quién tiene la IP 192.168.1.10?"</div>
+                            </div>
+                            <div class="arp-flecha"></div>
+                            <div class="arp-paso">
+                                <div class="arp-numero-paso">3</div>
+                                <div class="arp-descripcion-paso">Equipo B (192.168.1.10) responde con ARP Reply: "Yo soy 192.168.1.10, mi MAC es 00:1A:2B:3C:4D:5E"</div>
+                            </div>
+                            <div class="arp-flecha"></div>
+                            <div class="arp-paso">
+                                <div class="arp-numero-paso">4</div>
+                                <div class="arp-descripcion-paso">Equipo A guarda la relación IP-MAC en su caché ARP y envía los datos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-comando">
+                        <div class="protocolo-titulo-comando">Comando ARP en Windows</div>
+                        <div class="protocolo-terminal">
+                            <div class="protocolo-terminal-header">
+                                <div class="protocolo-terminal-titulo">Símbolo del sistema</div>
+                                <div class="protocolo-terminal-botones">
+                                    <div class="protocolo-terminal-boton"></div>
+                                    <div class="protocolo-terminal-boton"></div>
+                                    <div class="protocolo-terminal-boton"></div>
+                                </div>
+                            </div>
+                            <div class="protocolo-terminal-contenido">
+                                <div class="protocolo-terminal-linea">C:\Users\Admin> arp -a</div>
+                                <div class="protocolo-terminal-linea">Interfaz: 192.168.1.5 --- 0x3</div>
+                                <div class="protocolo-terminal-linea">  Dirección IP          Dirección física      Tipo</div>
+                                <div class="protocolo-terminal-linea">  192.168.1.1           00-11-22-33-44-55     dinámico</div>
+                                <div class="protocolo-terminal-linea">  192.168.1.10          00-1A-2B-3C-4D-5E     dinámico</div>
+                                <div class="protocolo-terminal-linea">  192.168.1.255         FF-FF-FF-FF-FF-FF     estático</div>
+                                <div class="protocolo-terminal-linea">  224.0.0.22            01-00-5E-00-00-16     estático</div>
+                                <div class="protocolo-terminal-linea">  224.0.0.251           01-00-5E-00-00-FB     estático</div>
+                                <div class="protocolo-terminal-linea">  224.0.0.252           01-00-5E-00-00-FC     estático</div>
+                                <div class="protocolo-terminal-linea">  239.255.255.250       01-00-5E-7F-FF-FA     estático</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301002">
+                <div class="protocolos-titulo-seccion">4.2 RARP</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-rarp"></div>
+                        <div class="protocolo-nombre">RARP (Reverse Address Resolution Protocol)</div>
+                        <div class="protocolo-capa">Capa: Internet</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de resolución de direcciones inverso.</p>
+                        <p>Permite resolver la dirección IP a partir de una dirección física (MAC).</p>
+                    </div>
+                    <div class="protocolo-comparativa">
+                        <div class="protocolo-titulo-comparativa">Comparativa ARP vs RARP</div>
+                        <div class="protocolo-tabla-comparativa">
+                            <div class="protocolo-fila-encabezado">
+                                <div class="protocolo-celda-encabezado">Característica</div>
+                                <div class="protocolo-celda-encabezado">ARP</div>
+                                <div class="protocolo-celda-encabezado">RARP</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Función</div>
+                                <div class="protocolo-celda">Obtiene MAC a partir de IP</div>
+                                <div class="protocolo-celda">Obtiene IP a partir de MAC</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Uso común</div>
+                                <div class="protocolo-celda">Comunicación en red local</div>
+                                <div class="protocolo-celda">Estaciones sin disco duro</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Requiere servidor</div>
+                                <div class="protocolo-celda">No</div>
+                                <div class="protocolo-celda">Sí</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Estado actual</div>
+                                <div class="protocolo-celda">Ampliamente utilizado</div>
+                                <div class="protocolo-celda">Mayormente reemplazado por DHCP/BOOTP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301003">
+                <div class="protocolos-titulo-seccion">4.3 FTP: FILE TRANSFER PROTOCOL</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-ftp"></div>
+                        <div class="protocolo-nombre">FTP (File Transfer Protocol)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de transferencia de archivos de la capa de red en sistemas conectados a una red TCP, popular en la transferencia de archivos.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Utiliza dos puertos: 21 (control) y 20 (datos)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Permite transferencia de archivos bidireccional</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Autenticación mediante usuario y contraseña</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Modos de transferencia: ASCII y binario</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">No cifra la información (versión básica)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-variantes">
+                        <div class="protocolo-titulo-variantes">Variantes seguras</div>
+                        <div class="protocolo-lista-variantes">
+                            <div class="protocolo-variante">
+                                <div class="protocolo-nombre-variante">FTPS</div>
+                                <div class="protocolo-descripcion-variante">FTP sobre SSL/TLS</div>
+                            </div>
+                            <div class="protocolo-variante">
+                                <div class="protocolo-nombre-variante">SFTP</div>
+                                <div class="protocolo-descripcion-variante">FTP sobre SSH (técnicamente un protocolo diferente)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301004">
+                <div class="protocolos-titulo-seccion">4.4 HTTP (HYPERTEXT TRANSFER PROTOCOL)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-http"></div>
+                        <div class="protocolo-nombre">HTTP (Hypertext Transfer Protocol)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de transferencia de hipertexto de la capa de red utilizado para la transferencia de información a través de archivos HTML, XHTML, etc. Muy conocido porque es el protocolo utilizado para acceder a las páginas web.</p>
+                    </div>
+                    <div class="protocolo-versiones">
+                        <div class="protocolo-titulo-versiones">Versiones principales</div>
+                        <div class="protocolo-lista-versiones">
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">HTTP/1.0</div>
+                                <div class="protocolo-descripcion-version">Versión inicial, una conexión por recurso</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">HTTP/1.1</div>
+                                <div class="protocolo-descripcion-version">Conexiones persistentes, host virtual, más métodos</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">HTTP/2</div>
+                                <div class="protocolo-descripcion-version">Multiplexación, compresión de cabeceras, priorización</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">HTTP/3</div>
+                                <div class="protocolo-descripcion-version">Basado en QUIC (UDP), mejor rendimiento</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-metodos">
+                        <div class="protocolo-titulo-metodos">Métodos HTTP comunes</div>
+                        <div class="protocolo-lista-metodos">
+                            <div class="protocolo-metodo">
+                                <div class="protocolo-nombre-metodo">GET</div>
+                                <div class="protocolo-descripcion-metodo">Solicita un recurso específico</div>
+                            </div>
+                            <div class="protocolo-metodo">
+                                <div class="protocolo-nombre-metodo">POST</div>
+                                <div class="protocolo-descripcion-metodo">Envía datos para ser procesados</div>
+                            </div>
+                            <div class="protocolo-metodo">
+                                <div class="protocolo-nombre-metodo">PUT</div>
+                                <div class="protocolo-descripcion-metodo">Actualiza un recurso existente</div>
+                            </div>
+                            <div class="protocolo-metodo">
+                                <div class="protocolo-nombre-metodo">DELETE</div>
+                                <div class="protocolo-descripcion-metodo">Elimina un recurso específico</div>
+                            </div>
+                            <div class="protocolo-metodo">
+                                <div class="protocolo-nombre-metodo">HEAD</div>
+                                <div class="protocolo-descripcion-metodo">Similar a GET pero sin cuerpo de respuesta</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-variantes">
+                        <div class="protocolo-titulo-variantes">Variantes seguras</div>
+                        <div class="protocolo-lista-variantes">
+                            <div class="protocolo-variante">
+                                <div class="protocolo-nombre-variante">HTTPS</div>
+                                <div class="protocolo-descripcion-variante">HTTP sobre SSL/TLS (puerto 443)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301005">
+                <div class="protocolos-titulo-seccion">4.5 POP3 (POST OFFICE PROTOCOL)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-pop3"></div>
+                        <div class="protocolo-nombre">POP3 (Post Office Protocol version 3)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de oficina de correo. Utilizado por los clientes de correo locales para obtener y descargar los mensajes de correo electrónico.</p>
+                        <p>Los correos se descargan en tu ordenador, teléfono móvil, tableta… y no ocupan espacio en el servidor. Este protocolo es adecuado si tu cuenta de correo tiene pocos GB de almacenamiento o está muy llena.</p>
+                        <p>Como principal desventaja el correo no se sincroniza entre los diferentes dispositivos. Por lo tanto, si por ejemplo descargas un correo en el teléfono móvil y lo lees, este mensaje no aparecerá en la bandeja de entrada de tu cliente de correo del ordenador o cuando accedas a través de webmail.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Puerto estándar: 110 (sin cifrar), 995 (con SSL/TLS)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Descarga los mensajes al dispositivo local</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Libera espacio en el servidor de correo</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Permite acceso offline a los mensajes</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">No sincroniza el estado de los mensajes entre dispositivos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301006">
+                <div class="protocolos-titulo-seccion">4.6 SMTP (SIMPLE MAIL TRANSFER PROTOCOL)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-smtp"></div>
+                        <div class="protocolo-nombre">SMTP (Simple Mail Transfer Protocol)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo para transferencia simple de correo, para el correo electrónico saliente.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Puerto estándar: 25 (sin cifrar), 465 (SSL), 587 (TLS)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Utilizado para enviar correos electrónicos</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Basado en texto plano</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Requiere autenticación en la mayoría de servidores</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-flujo">
+                        <div class="protocolo-titulo-flujo">Flujo de correo electrónico</div>
+                        <div class="protocolo-diagrama-flujo">
+                            <div class="protocolo-paso-flujo">
+                                <div class="protocolo-icono-flujo protocolo-icono-cliente"></div>
+                                <div class="protocolo-texto-flujo">Cliente de correo</div>
+                            </div>
+                            <div class="protocolo-flecha-flujo">
+                                <div class="protocolo-etiqueta-flecha">SMTP</div>
+                            </div>
+                            <div class="protocolo-paso-flujo">
+                                <div class="protocolo-icono-flujo protocolo-icono-servidor-salida"></div>
+                                <div class="protocolo-texto-flujo">Servidor SMTP saliente</div>
+                            </div>
+                            <div class="protocolo-flecha-flujo">
+                                <div class="protocolo-etiqueta-flecha">SMTP</div>
+                            </div>
+                            <div class="protocolo-paso-flujo">
+                                <div class="protocolo-icono-flujo protocolo-icono-servidor-entrada"></div>
+                                <div class="protocolo-texto-flujo">Servidor de correo destino</div>
+                            </div>
+                            <div class="protocolo-flecha-flujo">
+                                <div class="protocolo-etiqueta-flecha">POP3/IMAP</div>
+                            </div>
+                            <div class="protocolo-paso-flujo">
+                                <div class="protocolo-icono-flujo protocolo-icono-cliente"></div>
+                                <div class="protocolo-texto-flujo">Cliente de correo destino</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301007">
+                <div class="protocolos-titulo-seccion">4.7 IMAP</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-imap"></div>
+                        <div class="protocolo-nombre">IMAP (Internet Message Access Protocol)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de acceso a mensajes de Internet (en inglés Internet Message Access Protocol o IMAP), es un protocolo de aplicación que permite el acceso a mensajes almacenados en un servidor de Internet.</p>
+                        <p>Los correos se guardan en el servidor por lo tanto todas las acciones realizadas sobre el correo estarán sincronizadas con independencia del dispositivo por el que acceda al correo.</p>
+                        <p>Permite una mejor experiencia de uso especialmente si se realizan consultas del correo electrónico desde distitos dispositivos.</p>
+                        <p>IMAP permite organizar el correo electrónico en carpetas.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Puerto estándar: 143 (sin cifrar), 993 (con SSL/TLS)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Mantiene los mensajes en el servidor</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Sincroniza el estado de los mensajes entre dispositivos</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Permite organización en carpetas</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Descarga parcial de mensajes (solo cabeceras)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Búsqueda en el servidor</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-comparativa">
+                        <div class="protocolo-titulo-comparativa">Comparativa POP3 vs IMAP</div>
+                        <div class="protocolo-tabla-comparativa">
+                            <div class="protocolo-fila-encabezado">
+                                <div class="protocolo-celda-encabezado">Característica</div>
+                                <div class="protocolo-celda-encabezado">POP3</div>
+                                <div class="protocolo-celda-encabezado">IMAP</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Almacenamiento</div>
+                                <div class="protocolo-celda">Dispositivo local</div>
+                                <div class="protocolo-celda">Servidor</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Sincronización</div>
+                                <div class="protocolo-celda">No</div>
+                                <div class="protocolo-celda">Sí</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Acceso múltiple</div>
+                                <div class="protocolo-celda">Limitado</div>
+                                <div class="protocolo-celda">Completo</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Uso de ancho de banda</div>
+                                <div class="protocolo-celda">Mayor inicialmente</div>
+                                <div class="protocolo-celda">Menor (descarga selectiva)</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Espacio en servidor</div>
+                                <div class="protocolo-celda">Se libera</div>
+                                <div class="protocolo-celda">Se mantiene ocupado</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301008">
+                <div class="protocolos-titulo-seccion">4.8 TELNET (TELECOMMUNICATION NETWORK)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-telnet"></div>
+                        <div class="protocolo-nombre">TELNET (Telecommunication Network)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo utilizado para acceder a equipos remotos.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Puerto estándar: 23</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Acceso remoto a línea de comandos</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">No cifra la información (inseguro)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Mayormente reemplazado por SSH</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-alternativas">
+                        <div class="protocolo-titulo-alternativas">Alternativas seguras</div>
+                        <div class="protocolo-lista-alternativas">
+                            <div class="protocolo-alternativa">
+                                <div class="protocolo-nombre-alternativa">SSH</div>
+                                <div class="protocolo-descripcion-alternativa">Secure Shell (puerto 22)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301009">
+                <div class="protocolos-titulo-seccion">4.9 IRC (INTERNET RELAY CHAT)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-irc"></div>
+                        <div class="protocolo-nombre">IRC (Internet Relay Chat)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de comunicación en tiempo real basado en texto que permite debates entre dos o más personas. Se diferencia de la mensajería instantánea en que los usuarios no deben acceder a establecer la comunicación de antemano, de tal forma que todos los usuarios que se encuentran en un canal pueden comunicarse entre sí, aunque no hayan tenido ningún contacto anterior.</p>
+                        <p>Las conversaciones se desarrollan en los llamados canales de IRC, designados por nombres que habitualmente comienzan con el carácter # o & (este último solo es utilizado en canales locales del servidor). Es un sistema de charlas ampliamente utilizado por personas de todo el mundo.</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Puerto estándar: 6667 (sin cifrar), 6697 (con SSL/TLS)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Comunicación en tiempo real basada en texto</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Organización en canales (salas)</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Sistema de roles y moderación</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301010">
+                <div class="protocolos-titulo-seccion">4.10 SSL (SECURE SOCKETS LAYER)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-ssl"></div>
+                        <div class="protocolo-nombre">SSL (Secure Sockets Layer)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Seguridad de la capa de transporte es un protocolo criptográfico de nivel de Aplicación que proporciona comunicaciones seguras en una red desarrollado por Netscape.</p>
+                        <p>Su última versión la 3.0 que presenta una grave vulnerabilidad.</p>
+                        <p>Antecesor de TLS que al principio fue llamado SSL 3.1, actualmente no se recomienda su uso puesto que está desactualizado.</p>
+                    </div>
+                    <div class="protocolo-versiones">
+                        <div class="protocolo-titulo-versiones">Versiones</div>
+                        <div class="protocolo-lista-versiones">
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">SSL 1.0</div>
+                                <div class="protocolo-descripcion-version">Nunca se lanzó públicamente</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">SSL 2.0</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 1995, obsoleto</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">SSL 3.0</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 1996, vulnerable (POODLE)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301011">
+                <div class="protocolos-titulo-seccion">4.11 TLS (TRANSPORT SECURITY LAYER)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-tls"></div>
+                        <div class="protocolo-nombre">TLS (Transport Layer Security)</div>
+                        <div class="protocolo-capa">Capa: Aplicación</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo criptográfico de nivel de Aplicación que proporciona comunicaciones seguras en una red. Utilizado principalmente en Internet en navegación web, correo electrónico, comunicación instantánea.</p>
+                        <p>Mantenido por la Internet Engineering Task Force (IETF) está basado en las especificaciones previas de SSL.</p>
+                        <p>Su última versión es TLS 1.3</p>
+                    </div>
+                    <div class="protocolo-versiones">
+                        <div class="protocolo-titulo-versiones">Versiones</div>
+                        <div class="protocolo-lista-versiones">
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">TLS 1.0</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 1999 (equivalente a SSL 3.1)</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">TLS 1.1</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 2006</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">TLS 1.2</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 2008</div>
+                            </div>
+                            <div class="protocolo-version">
+                                <div class="protocolo-nombre-version">TLS 1.3</div>
+                                <div class="protocolo-descripcion-version">Lanzado en 2018, más rápido y seguro</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-configuracion">
+                        <div class="protocolo-titulo-configuracion">Configuración de TLS y SSL en Internet Explorer</div>
+                        <div class="protocolo-imagen-configuracion">
+                            <div class="protocolo-ventana-ie">
+                                <div class="protocolo-titulo-ventana">Opciones avanzadas</div>
+                                <div class="protocolo-contenido-ventana">
+                                    <div class="protocolo-seccion-opciones">
+                                        <div class="protocolo-titulo-seccion-opciones">Seguridad</div>
+                                        <div class="protocolo-lista-opciones">
+                                            <div class="protocolo-opcion">
+                                                <div class="protocolo-checkbox protocolo-checkbox-marcado"></div>
+                                                <div class="protocolo-texto-opcion">Usar SSL 3.0</div>
+                                            </div>
+                                            <div class="protocolo-opcion">
+                                                <div class="protocolo-checkbox protocolo-checkbox-marcado"></div>
+                                                <div class="protocolo-texto-opcion">Usar TLS 1.0</div>
+                                            </div>
+                                            <div class="protocolo-opcion">
+                                                <div class="protocolo-checkbox protocolo-checkbox-marcado"></div>
+                                                <div class="protocolo-texto-opcion">Usar TLS 1.1</div>
+                                            </div>
+                                            <div class="protocolo-opcion">
+                                                <div class="protocolo-checkbox protocolo-checkbox-marcado"></div>
+                                                <div class="protocolo-texto-opcion">Usar TLS 1.2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocolos-detalle" id="4070301012">
+                <div class="protocolos-titulo-seccion">4.12 UDP (USER DATAGRAM PROTOCOL)</div>
+                <div class="protocolo-info">
+                    <div class="protocolo-cabecera">
+                        <div class="protocolo-icono protocolo-icono-udp"></div>
+                        <div class="protocolo-nombre">UDP (User Datagram Protocol)</div>
+                        <div class="protocolo-capa">Capa: Transporte</div>
+                    </div>
+                    <div class="protocolo-descripcion">
+                        <p>Protocolo de Datagramas de usuario.</p>
+                        <p>Protocolo del nivel de transporte que representa una alternativa al protocolo TCP (Transmision Control Protocol).</p>
+                    </div>
+                    <div class="protocolo-caracteristicas">
+                        <div class="protocolo-titulo-caracteristicas">Características principales</div>
+                        <div class="protocolo-lista-caracteristicas">
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Basado en la transmisión sin conexión de datagramas</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Permite el envío de datagramas de forma rápida en redes IP sin establecer previamente una conexión</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">No tiene confirmación ni control de flujo</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">Los paquetes pueden adelantarse unos a otros</div>
+                            </div>
+                            <div class="protocolo-caracteristica">
+                                <div class="protocolo-icono-caracteristica"></div>
+                                <div class="protocolo-texto-caracteristica">No emite confirmación de entrega o recepción</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-usos">
+                        <div class="protocolo-titulo-usos">Usos comunes</div>
+                        <div class="protocolo-lista-usos">
+                            <div class="protocolo-uso">
+                                <div class="protocolo-icono-uso"></div>
+                                <div class="protocolo-texto-uso">DHCP, BOOTP, DNS</div>
+                            </div>
+                            <div class="protocolo-uso">
+                                <div class="protocolo-icono-uso"></div>
+                                <div class="protocolo-texto-uso">Transmisión de audio y vídeo en tiempo real</div>
+                            </div>
+                            <div class="protocolo-uso">
+                                <div class="protocolo-icono-uso"></div>
+                                <div class="protocolo-texto-uso">Juegos en línea</div>
+                            </div>
+                            <div class="protocolo-uso">
+                                <div class="protocolo-icono-uso"></div>
+                                <div class="protocolo-texto-uso">VoIP (Voz sobre IP)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protocolo-comparativa">
+                        <div class="protocolo-titulo-comparativa">Comparativa UDP vs TCP</div>
+                        <div class="protocolo-tabla-comparativa">
+                            <div class="protocolo-fila-encabezado">
+                                <div class="protocolo-celda-encabezado">Característica</div>
+                                <div class="protocolo-celda-encabezado">UDP</div>
+                                <div class="protocolo-celda-encabezado">TCP</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Conexión</div>
+                                <div class="protocolo-celda">Sin conexión</div>
+                                <div class="protocolo-celda">Orientado a conexión</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Fiabilidad</div>
+                                <div class="protocolo-celda">No garantizada</div>
+                                <div class="protocolo-celda">Garantizada</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Orden de paquetes</div>
+                                <div class="protocolo-celda">No garantizado</div>
+                                <div class="protocolo-celda">Garantizado</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Velocidad</div>
+                                <div class="protocolo-celda">Más rápido</div>
+                                <div class="protocolo-celda">Más lento</div>
+                            </div>
+                            <div class="protocolo-fila">
+                                <div class="protocolo-celda">Sobrecarga</div>
+                                <div class="protocolo-celda">Baja</div>
+                                <div class="protocolo-celda">Alta</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Continuar con el resto de protocolos... -->
+            
+            <div class="protocolos-puertos">
+                <div class="protocolos-titulo-seccion">4.25 LISTADO DE PROTOCOLOS Y PUERTOS COMUNES</div>
+                <div class="protocolos-tabla-puertos">
+                    <div class="protocolos-fila-encabezado">
+                        <div class="protocolos-celda-encabezado">Puerto/protocolo</div>
+                        <div class="protocolos-celda-encabezado">Descripción</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">20/tcp</div>
+                        <div class="protocolos-celda">FTPS File Transfer Protocol (Protocolo de Transferencia de Ficheros) - datos</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">21/tcp</div>
+                        <div class="protocolos-celda">FTP File Transfer Protocol (Protocolo de Transferencia de Ficheros) - control</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">22/tcp</div>
+                        <div class="protocolos-celda">SSH, scp, SFTP</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">23/tcp</div>
+                        <div class="protocolos-celda">Telnet manejo remoto de equipo, inseguro</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">25/tcp</div>
+                        <div class="protocolos-celda">SMTP Simple Mail Transfer Protocol (Protocolo Simple de Transferencia de Correo)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">53/tcp y udp</div>
+                        <div class="protocolos-celda">DNS Domain Name System (Sistema de Nombres de Dominio)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">67/udp</div>
+                        <div class="protocolos-celda">BOOTP BootStrap Protocol (servidor), también usado por DHCP</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">68/udp</div>
+                        <div class="protocolos-celda">BOOTP BootStrap Protocol (cliente), también usado por DHCP</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">69/udp</div>
+                        <div class="protocolos-celda">TFTP Trivial File Transfer Protocol (Protocolo Trivial de Transferencia de Ficheros)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">80/tcp</div>
+                        <div class="protocolos-celda">HTTP HyperText Transfer Protocol (Protocolo de Transferencia de HiperTexto) (WWW)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">110/tcp</div>
+                        <div class="protocolos-celda">POP3 Post Office Protocol (E-mail)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">123/udp</div>
+                        <div class="protocolos-celda">NTP Protocolo de sincronización de tiempo</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">143/tcp</div>
+                        <div class="protocolos-celda">IMAP4 Internet Message Access Protocol (E-mail)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">161/udp</div>
+                        <div class="protocolos-celda">SNMP Simple Network Management Protocol</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">443/tcp</div>
+                        <div class="protocolos-celda">HTTPS/SSL usado para la transferencia segura de páginas web</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">465/tcp</div>
+                        <div class="protocolos-celda">SMTP Sobre SSL. Utilizado para el envío de correo electrónico (E-mail)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">587/tcp</div>
+                        <div class="protocolos-celda">SMTP Sobre TLS</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">993/tcp</div>
+                        <div class="protocolos-celda">IMAP4 sobre TLS (E-mail)</div>
+                    </div>
+                    <div class="protocolos-fila">
+                        <div class="protocolos-celda">995/tcp</div>
+                        <div class="protocolos-celda">POP3 sobre TLS (E-mail)</div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para la pila de protocolos TCP/IP - usando clases únicas */
+        .protocolos-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Mapa de protocolos */
+        .protocolos-mapa {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolos-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .protocolos-capas {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .protocolos-capa {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolos-nombre-capa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+            padding: 5px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .protocolos-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .protocolo-item {
+            background-color: #f0f5ff;
+            border: 1px solid #1890ff;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            color: #1890ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .protocolo-item:hover {
+            background-color: #1890ff;
+            color: white;
+        }
+        
+        /* Detalle de protocolos */
+        .protocolos-detalle {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .protocolo-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+        
+        .protocolo-cabecera {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .protocolo-icono {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .protocolo-icono-arp {
+            background-color: #1890ff;
+        }
+        
+        .protocolo-icono-arp::before {
+            content: "ARP";
+        }
+        
+        .protocolo-icono-rarp {
+            background-color: #52c41a;
+        }
+        
+        .protocolo-icono-rarp::before {
+            content: "RARP";
+        }
+        
+        .protocolo-icono-ftp {
+            background-color: #faad14;
+        }
+        
+        .protocolo-icono-ftp::before {
+            content: "FTP";
+        }
+        
+        .protocolo-icono-http {
+            background-color: #f5222d;
+        }
+        
+        .protocolo-icono-http::before {
+            content: "HTTP";
+        }
+        
+        .protocolo-icono-pop3 {
+            background-color: #722ed1;
+        }
+        
+        .protocolo-icono-pop3::before {
+            content: "POP3";
+        }
+        
+        .protocolo-icono-smtp {
+            background-color: #eb2f96;
+        }
+        
+        .protocolo-icono-smtp::before {
+            content: "SMTP";
+        }
+        
+        .protocolo-icono-imap {
+            background-color: #13c2c2;
+        }
+        
+        .protocolo-icono-imap::before {
+            content: "IMAP";
+        }
+        
+        .protocolo-icono-telnet {
+            background-color: #fa8c16;
+        }
+        
+        .protocolo-icono-telnet::before {
+            content: "TEL";
+        }
+        
+        .protocolo-icono-irc {
+            background-color: #a0d911;
+        }
+        
+        .protocolo-icono-irc::before {
+            content: "IRC";
+        }
+        
+        .protocolo-icono-ssl {
+            background-color: #1890ff;
+        }
+        
+        .protocolo-icono-ssl::before {
+            content: "SSL";
+        }
+        
+        .protocolo-icono-tls {
+            background-color: #52c41a;
+        }
+        
+        .protocolo-icono-tls::before {
+            content: "TLS";
+        }
+        
+        .protocolo-icono-udp {
+            background-color: #faad14;
+        }
+        
+        .protocolo-icono-udp::before {
+            content: "UDP";
+        }
+        
+        .protocolo-nombre {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #1890ff;
+        }
+        
+        .protocolo-capa {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: auto;
+            background-color: #f0f5ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .protocolo-descripcion {
+            margin-bottom: 20px;
+        }
+        
+        /* Funcionamiento de ARP */
+        .protocolo-funcionamiento {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .protocolo-titulo-funcionamiento {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .protocolo-diagrama-arp {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .arp-paso {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .arp-numero-paso {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .arp-descripcion-paso {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .arp-flecha {
+            width: 2px;
+            height: 20px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .arp-flecha::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid #1890ff;
+        }
+        
+        /* Terminal */
+        .protocolo-comando {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-comando {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-terminal {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .protocolo-terminal-header {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 15px;
+        }
+        
+        .protocolo-terminal-titulo {
+            color: white;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        
+        .protocolo-terminal-botones {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .protocolo-terminal-boton {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ff5f56;
+        }
+        
+        .protocolo-terminal-boton:nth-child(2) {
+            background-color: #ffbd2e;
+        }
+        
+        .protocolo-terminal-boton:nth-child(3) {
+            background-color: #27c93f;
+        }
+        
+        .protocolo-terminal-contenido {
+            padding: 15px;
+            color: #f0f0f0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .protocolo-terminal-linea {
+            margin-bottom: 5px;
+        }
+        
+        /* Comparativa */
+        .protocolo-comparativa {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .protocolo-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .protocolo-tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .protocolo-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .protocolo-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .protocolo-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .protocolo-celda-encabezado, .protocolo-celda {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .protocolo-celda-encabezado:first-child, .protocolo-celda:first-child {
+            flex: 2;
+            text-align: left;
+        }
+        
+        /* Características */
+        .protocolo-caracteristicas {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-caracteristicas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .protocolo-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-icono-caracteristica {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .protocolo-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .protocolo-texto-caracteristica {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Variantes */
+        .protocolo-variantes {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-variantes {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-variantes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .protocolo-variante {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-nombre-variante {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .protocolo-descripcion-variante {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Versiones */
+        .protocolo-versiones {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-versiones {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-versiones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .protocolo-version {
+            flex: 1;
+            min-width: 150px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-nombre-version {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .protocolo-descripcion-version {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Métodos */
+        .protocolo-metodos {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-metodos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-metodos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .protocolo-metodo {
+            flex: 1;
+            min-width: 150px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-nombre-metodo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .protocolo-descripcion-metodo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Configuración */
+        .protocolo-configuracion {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-configuracion {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .protocolo-imagen-configuracion {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .protocolo-ventana-ie {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .protocolo-titulo-ventana {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px 15px;
+            font-weight: 500;
+        }
+        
+        .protocolo-contenido-ventana {
+            padding: 15px;
+        }
+        
+        .protocolo-seccion-opciones {
+            margin-bottom: 15px;
+        }
+        
+        .protocolo-titulo-seccion-opciones {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .protocolo-lista-opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .protocolo-opcion {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .protocolo-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            background-color: white;
+        }
+        
+        .protocolo-checkbox-marcado {
+            background-color: #0078d7;
+            position: relative;
+        }
+        
+        .protocolo-checkbox-marcado::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.7rem;
+        }
+        
+        .protocolo-texto-opcion {
+            font-size: 0.9rem;
+            color: #333;
+        }
+        
+        /* Flujo */
+        .protocolo-flujo {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .protocolo-titulo-flujo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .protocolo-diagrama-flujo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .protocolo-paso-flujo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .protocolo-icono-flujo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1890ff;
+            font-size: 1.5rem;
+        }
+        
+        .protocolo-icono-cliente::before {
+            content: "👤";
+        }
+        
+        .protocolo-icono-servidor-salida::before {
+            content: "📤";
+        }
+        
+        .protocolo-icono-servidor-entrada::before {
+            content: "📥";
+        }
+        
+        .protocolo-texto-flujo {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .protocolo-flecha-flujo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .protocolo-flecha-flujo::before {
+            content: "→";
+            font-size: 1.5rem;
+            color: #1890ff;
+        }
+        
+        .protocolo-etiqueta-flecha {
+            font-size: 0.8rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        /* Usos */
+        .protocolo-usos {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-usos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-usos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .protocolo-uso {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-icono-uso {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .protocolo-icono-uso::before {
+            content: "→";
+        }
+        
+        .protocolo-texto-uso {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Alternativas */
+        .protocolo-alternativas {
+            margin: 20px 0;
+        }
+        
+        .protocolo-titulo-alternativas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .protocolo-lista-alternativas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .protocolo-alternativa {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolo-nombre-alternativa {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .protocolo-descripcion-alternativa {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Tabla de puertos */
+        .protocolos-puertos {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocolos-tabla-puertos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .protocolos-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .protocolos-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .protocolos-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .protocolos-celda-encabezado, .protocolos-celda {
+            padding: 10px;
+        }
+        
+        .protocolos-celda-encabezado:first-child, .protocolos-celda:first-child {
+            flex: 1;
+            max-width: 150px;
+        }
+        
+        .protocolos-celda-encabezado:last-child, .protocolos-celda:last-child {
+            flex: 3;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .protocolo-cabecera {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .protocolo-capa {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .protocolo-diagrama-flujo {
+                flex-direction: column;
+            }
+            
+            .protocolo-flecha-flujo {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .protocolos-fila {
+                flex-direction: column;
+            }
+            
+            .protocolos-celda-encabezado, .protocolos-celda {
+                max-width: none !important;
+            }
+        }
+    </style>
+</body>
+</html>

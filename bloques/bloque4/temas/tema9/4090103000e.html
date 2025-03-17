@@ -1,0 +1,498 @@
+<div class="teoria">
+    <span id="4090103001">
+        <h2>1.3.1..3. ATAQUES A LA DISPONIBILIDAD</h2>
+        <p>Los ataques a la disponibilidad tienen como objetivo principal impedir que los usuarios legítimos puedan acceder a los servicios o recursos de un sistema. Estos ataques pueden causar graves interrupciones en las operaciones de una organización.</p>
+    </span>
+
+    <span id="4090103002">
+        <h3>1.3.1 DENIAL OF SERVICE (DOS)</h3>
+        <p>Este ataque tiene como objetivo saturar los servicios del sistema de forma que queden inhabilitados por un tiempo. Los ataques DoS se generan mediante la saturación de los puertos con múltiples flujos de información, haciendo que el servidor se sobrecargue y no pueda seguir prestando su servicio.</p>
+        
+        <div class="concepto-clave">
+            <h4>🛑 Denial of Service (DoS)</h4>
+            <p>Ataque que busca hacer que un servicio o recurso sea inaccesible para los usuarios legítimos mediante la saturación de recursos del sistema objetivo.</p>
+        </div>
+        
+        <p>Una ampliación del ataque DoS es el llamado ataque de denegación de servicio distribuido, también llamado DDoS (por sus siglas en inglés, Distributed Denial of Service) el cual se lleva a cabo generando un gran flujo de información desde varios puntos de conexión hacia un mismo punto de destino. La forma más común de realizar un DDoS es a través de una red de bots (botnet), equipos o dispositivos de los que previamente el atacante ha tomado el control.</p>
+        
+        <div class="ejemplo-caso">
+            <h4>📌 Caso real: Ataque DDoS a Dyn (2016)</h4>
+            <p>En octubre de 2016, Dyn, proveedor de servicios de nombre de dominio (DNS), sufrió múltiples ataques de denegación de servicio (DDoS) a los sistemas que operaba y que dejó inaccesibles grandes plataformas y servicios de Internet a gran cantidad de usuarios de Europa y Norteamérica. Fue un ataque masivo a la infraestructura básica de Internet, utilizando millones de dispositivos IoT para ejecutarlo. Para infectar estos dispositivos y tomar su control, se usó el malware Miriai.</p>
+            <p><small>* El malware Miriai se basa en usar las claves por defecto de los dispositivos IoT para tomar su control. Estas claves normalmente las suministra el fabricante, están publicadas en internet, y no son cambiadas por los usuarios.</small></p>
+        </div>
+    </span>
+
+    <span id="4090103003">
+        <h4>Tipos de ataques DoS por inundación</h4>
+        <p>El ataque DoS se puede dar de muchas formas. Pero todas tienen algo en común: utilizan la familia de protocolos TCP/IP para conseguir su propósito.</p>
+        <p>Algunos de estos métodos se conocen como inundación. Son los siguientes:</p>
+        
+        <div class="diagrama-ataques">
+            <div class="ataque-item">
+                <h5>Inundación SYN</h5>
+                <div class="ataque-descripcion">
+                    <p>La inundación SYN envía un flujo de paquetes TCP/SYN. Cada uno de los paquetes recibidos es tratado por el destino como una petición de conexión, causando que el servidor intente establecer una conexión al responder con un paquete TCP/SYN-ACK y esperando el paquete de respuesta TCP/ACK. Sin embargo, debido a que la dirección de origen es falsa o la dirección IP real no ha solicitado la conexión, nunca llega la respuesta. Estos intentos de conexión consumen recursos en el servidor y copan el número de conexiones que se pueden establecer, reduciendo la disponibilidad del servidor para responder peticiones legítimas de conexión.</p>
+                </div>
+            </div>
+            
+            <div class="ataque-item">
+                <h5>Inundación ICMP</h5>
+                <div class="ataque-descripcion">
+                    <p>Consiste en enviar de forma continuada un número elevado de paquetes ICMP Echo request (ping) de tamaño considerable a la víctima, de forma que esta ha de responder con paquetes ICMP Echo reply (pong) lo que supone una sobrecarga tanto en la red como en el sistema de la víctima.</p>
+                </div>
+            </div>
+            
+            <div class="ataque-item">
+                <h5>Smurf</h5>
+                <div class="ataque-descripcion">
+                    <p>En el ataque Smurf, el atacante dirige paquetes ICMP tipo "echo request" (ping) a una dirección IP de difusión (broadcast), usando como dirección IP origen, la dirección de la víctima (IP Spoofing). Se espera que los equipos conectados respondan a la petición, usando Echo reply, a la máquina origen (víctima). Se dice que el efecto es amplificado, debido a que la cantidad de respuestas obtenidas corresponde a la cantidad de equipos en la red que puedan responder. Todas las respuestas son dirigidas a la víctima intentando colapsar sus recursos de red.</p>
+                </div>
+            </div>
+            
+            <div class="ataque-item">
+                <h5>Inundación UDP</h5>
+                <div class="ataque-descripcion">
+                    <p>Con este ataque, se remiten datagramas UDP de gran tamaño a puertos aleatorios de la víctima. Al no existir normalmente aplicaciones que respondan en estos puertos, la víctima se ve obligada a responder con paquetes ICMP "Destination Unreachable". Al incrementarse el número de estos paquetes, la víctima se vuelve indisponible para otras conexiones.</p>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4090103004">
+        <h4>Otros ataques DoS no basados en inundación</h4>
+        <p>Otros ataques DoS no son por inundación, sino que buscan una respuesta errónea en la víctima que cause su colapso:</p>
+        
+        <div class="tabla-comparativa">
+            <div class="tabla-fila encabezado">
+                <div class="tabla-celda">Tipo de ataque</div>
+                <div class="tabla-celda">Descripción</div>
+            </div>
+            <div class="tabla-fila">
+                <div class="tabla-celda">Sockstress</div>
+                <div class="tabla-celda">El atacante utiliza una conexión TCP/IP para agotar los recursos del sistema de la víctima, enviando paquetes con el tamaño de la ventana TCP igual a cero, indicando así que no puede recibir más paquetes. Esto obliga a la víctima a mantener los sockets TCP abiertos, mientras la pregunta continuamente si puede enviar paquetes. También puede enviar un tamaño de ventana bastante pequeño, para obligar a la víctima a trocear los paquetes.</div>
+            </div>
+            <div class="tabla-fila">
+                <div class="tabla-celda">Land attack</div>
+                <div class="tabla-celda">Este ataque aprovechaba vulnerabilidades de los sistemas operativos Windows 2003 o Windows XP. Implica enviar un paquete TCP SYN con la misma dirección IP y número de puerto en los campos origen y destino, al servidor objetivo, se forma que se responde a si mismo continuamente.</div>
+            </div>
+            <div class="tabla-fila">
+                <div class="tabla-celda">Ping de la muerte</div>
+                <div class="tabla-celda">Se trata de uno de los ataques más antiguos y no debería tener efecto sobre sistemas operativos modernos. Consiste en enviar un paquete ping cuyo tamaño real supere el máximo autorizado (64 KB). Cuando se envía a un sistema que contiene una pila de vulnerable de protocolos TCP/IP, produce la caída del sistema.</div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4090103005">
+        <h3>1.3.1..3.2. CRYPTOJACKING</h3>
+        <div class="concepto-clave">
+            <h4>💰 Cryptojacking</h4>
+            <p>El cryptojacking (también denominado minería de criptomonedas maliciosa) es una amenaza emergente de Internet que se oculta en un ordenador o en un dispositivo móvil, y utiliza los recursos de la máquina para "extraer" diversas formas de monedas digitales conocidas como criptomonedas.</p>
+        </div>
+        
+        <p>Es una amenaza floreciente que puede apoderarse de navegadores web, así como comprometer todo tipo de dispositivos, desde ordenadores de escritorio y portátiles hasta teléfonos inteligentes e incluso servidores de red.</p>
+        
+        <p>Al igual que la mayoría de los ataques maliciosos al público informático, el motivo es el beneficio, pero a diferencia de otras amenazas, está diseñado para permanecer completamente oculto del usuario. Aunque a primera vista no se note, este robo de los recursos informáticos reduce la velocidad de otros procesos, aumenta la factura de la luz y acorta la vida del dispositivo infectado.</p>
+        
+        <div class="diagrama-proceso">
+            <div class="proceso-paso">
+                <div class="paso-numero">1</div>
+                <div class="paso-descripcion">El usuario visita una web infectada o instala software con código malicioso</div>
+            </div>
+            <div class="proceso-flecha">↓</div>
+            <div class="proceso-paso">
+                <div class="paso-numero">2</div>
+                <div class="paso-descripcion">El script de minería se ejecuta en segundo plano sin conocimiento del usuario</div>
+            </div>
+            <div class="proceso-flecha">↓</div>
+            <div class="proceso-paso">
+                <div class="paso-numero">3</div>
+                <div class="paso-descripcion">Los recursos del sistema (CPU, GPU, memoria) son utilizados para minar criptomonedas</div>
+            </div>
+            <div class="proceso-flecha">↓</div>
+            <div class="proceso-paso">
+                <div class="paso-numero">4</div>
+                <div class="paso-descripcion">Las criptomonedas minadas son enviadas a la cartera digital del atacante</div>
+            </div>
+        </div>
+    </span>
+
+    <span id="4090103006">
+        <h3>1.3.1..4. ATAQUES A LA INTEGRIDAD</h3>
+        <p>El objetivo de estos ataques es la destrucción o modificación de información, lo que se conoce también como Data Tampering (manipulación) o Data Diddling (alteración). Se suelen realizar aprovechando vulnerabilidades de los sistemas o ejecutando programas con fines perjudiciales para el usuario, denominados malware. Algunos de estos ataques son los siguientes:</p>
+        
+        <div class="nota-informativa">
+            <p><strong>Nota:</strong> Data Diddling se refiere a la alteración de los datos en el momento de introducirlos en el sistema. Data Tampering es la modificación de los datos una vez ya están en el sistema.</p>
+        </div>
+    </span>
+
+    <span id="4090103007">
+        <h3>1.3.1..4.1. EXPLOITS</h3>
+        <div class="concepto-clave">
+            <h4>🔓 Exploits</h4>
+            <p>Un exploit es un programa o fragmento de código destinado a aprovechar una vulnerabilidad conocida de una aplicación para conseguir un comportamiento no deseado de la misma. Su uso principal es como vector para la inyección de una carga útil (payload) que ofrezca al atacante algún tipo de acceso y/o control del equipo comprometido. Un payload puede ser utilizado por varios exploits y un mismo exploit puede utilizar varios payloads.</p>
+        </div>
+        
+        <div class="ejemplo-caso">
+            <h4>📌 Caso real: Stuxnet (2010)</h4>
+            <p>En 2010 el gusano Stuxnet atacó equipos con Windows en una planta nuclear de Irán empleando cuatro vulnerabilidades de día cero (zero-day) de este sistema operativo. Su objetivo fueron sistemas de monitorización y control industrial (SCADA). La diseminación inicial se hizo mediante memorias USB infectadas, para luego aprovechar otros agujeros y contaminar otros equipos. Una vez lograda la entrada al sistema, Stuxnet empleó las contraseñas por defecto de los dispositivos para obtener el control.</p>
+            <p><small>* Un ataque de día cero (en inglés zero-day attack o 0-day attack) es un ataque contra una aplicación o sistema que tiene como objetivo la ejecución de código malicioso gracias al conocimiento de vulnerabilidades que son desconocidas para los usuarios y para el fabricante del producto.</small></p>
+        </div>
+    </span>
+
+    <span id="4090103008">
+        <h3>1.3.1..4.2. MALWARE</h3>
+        <p>En este caso, podemos encontrar varios tipos de malware:</p>
+        
+        <div class="tarjetas-malware">
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">🦠 Virus</div>
+                <div class="tarjeta-contenido">
+                    <p>Es un tipo de malware cuyo objetivo es alterar el correcto funcionamiento de un sistema. Un virus necesita ser ejecutado por el usuario pensando que es una aplicación legítima, y una vez lo hace, puede replicarse e infectar el equipo. Puede ser inocuo o sólo una broma, pero también puede borrar o modificar archivos, afectando seriamente al funcionamiento del sistema.</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">🐛 Gusano (worm)</div>
+                <div class="tarjeta-contenido">
+                    <p>No necesita de la intervención del usuario ni modificar ningún archivo existente, y también puede replicarse a sí mismo y enviar copias a otros equipos conectados a ese en el que están o que estén en su lista de contactos. Se suelen utilizar para crear botnets, redes de ordenadores zombies que pueden actuar de forma simultánea cuando un operador le da la orden para enviar SPAM de forma masiva, difundir malware o lanzar diferentes tipos de ataques informáticos, como ataques DDoS.</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">🐴 Troyano (trojan)</div>
+                <div class="tarjeta-contenido">
+                    <p>Se oculta normalmente como líneas de código dentro de una aplicación legítima, para pasar desapercibido. Estas líneas de código efectúan posteriormente acciones no autorizadas cuando se ejecuta la aplicación.</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">⌨️ Keylogger</div>
+                <div class="tarjeta-contenido">
+                    <p>No se trata de un malware, pero si puede usarse para fines no lícitos. Registran cada tecla que se pulsa en un ordenador, a menudo sin permiso o conocimiento del usuario.</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">🔑 Rootkit</div>
+                <div class="tarjeta-contenido">
+                    <p>Es un software que se instala en un equipo para proporcionar acceso remoto al mismo con privilegios de administrador a un usuario no autorizado, quedando el equipo totalmente bajo su control y pasando inadvertido a los administradores legítimos.</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta-malware">
+                <div class="tarjeta-titulo">🔒 Ransomware</div>
+                <div class="tarjeta-contenido">
+                    <p>Se trata de un malware que efectúa una encriptación con clave de los archivos de una red para deshabilitar el acceso de la víctima a sus datos. Normalmente suele pedir un rescate a cambio de la clave para desencriptar los datos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ejemplo-caso">
+            <h4>📌 Caso real: WannaCry (2017)</h4>
+            <p>En mayo de 2017 El ransomware conocido como WannaCry conmocionó al mundo con un ataque fulgurante: en un solo día infectó más de 230.000 PCs con Windows en 150 países, demandando 300 USD en bitcoins a cada usuario para recuperar los archivos. WannaCry atacó las redes aprovechando una vulnerabilidad de Windows y una vez instalado en un equipo, fue capaz de autopropagarse sin intervención humana cifrando los archivos que encontraba en la red. Este ransomware provocó un caos inmediato, el Servicio Sanitario Nacional británico quedó incapacitado por el ataque y muchos hospitales se vieron obligados a apagar por completo sus sistemas informáticos, lo que afectó al cuidado de los pacientes e incluso a cirugías y otras operaciones esenciales.</p>
+        </div>
+    </span>
+
+    <span id="4090103009">
+        <h3>Resumen de ataques a las redes</h3>
+        <div class="tabla-resumen">
+            <div class="tabla-fila encabezado">
+                <div class="tabla-celda">Ataques a la confidencialidad</div>
+                <div class="tabla-celda">Ataques a la autenticidad</div>
+                <div class="tabla-celda">Ataques a la disponibilidad</div>
+                <div class="tabla-celda">Ataques a la integridad</div>
+            </div>
+            <div class="tabla-fila">
+                <div class="tabla-celda">
+                    <ul>
+                        <li>Vishing</li>
+                        <li>Port Scanning</li>
+                        <li>Eavesdropping o Sniffing</li>
+                    </ul>
+                </div>
+                <div class="tabla-celda">
+                    <ul>
+                        <li>Man-in-the-middle</li>
+                        <li>Spoofing</li>
+                        <li>Phishing</li>
+                        <li>Smshing</li>
+                        <li>Whaling</li>
+                        <li>Pharming</li>
+                    </ul>
+                </div>
+                <div class="tabla-celda">
+                    <ul>
+                        <li>Denial of Service (DoS)</li>
+                        <li>Cryptojacking</li>
+                    </ul>
+                </div>
+                <div class="tabla-celda">
+                    <ul>
+                        <li>Exploits</li>
+                        <li>Malware</li>
+                        <li>Virus</li>
+                        <li>Gusano</li>
+                        <li>Troyano</li>
+                        <li>Keylogger</li>
+                        <li>Rootkit</li>
+                        <li>Ransonware</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tabla-fila">
+                <div class="tabla-celda"></div>
+                <div class="tabla-celda">
+                    <ul>
+                        <li>Session Fixation</li>
+                        <li>Splicing jacking</li>
+                        <li>Cross-site scripting</li>
+                        <li>Session Hijacking</li>
+                        <li>Clickjacking</li>
+                        <li>Backdoors</li>
+                        <li>Fuerza bruta</li>
+                    </ul>
+                </div>
+                <div class="tabla-celda"></div>
+                <div class="tabla-celda"></div>
+            </div>
+        </div>
+    </span>
+</div>
+
+<style>
+    .teoria {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h2, h3, h4, h5 {
+        color: #2c3e50;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+    }
+    
+    h2 {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    
+    h3 {
+        border-left: 4px solid #3498db;
+        padding-left: 10px;
+    }
+    
+    p {
+        margin-bottom: 1em;
+    }
+    
+    .concepto-clave {
+        background-color: #e8f4fc;
+        border-left: 5px solid #3498db;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .concepto-clave h4 {
+        margin-top: 0;
+        color: #2980b9;
+    }
+    
+    .ejemplo-caso {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+    }
+    
+    .ejemplo-caso h4 {
+        margin-top: 0;
+        color: #e74c3c;
+    }
+    
+    .diagrama-ataques {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .ataque-item {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        padding: 15px;
+    }
+    
+    .ataque-item h5 {
+        margin-top: 0;
+        color: #e74c3c;
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 8px;
+    }
+    
+    .tabla-comparativa {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+    
+    .tabla-fila {
+        display: flex;
+    }
+    
+    .tabla-fila.encabezado {
+        background-color: #3498db;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .tabla-celda {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        flex: 1;
+    }
+    
+    .tabla-fila:last-child .tabla-celda {
+        border-bottom: none;
+    }
+    
+    .tabla-celda:last-child {
+        border-right: none;
+    }
+    
+    .diagrama-proceso {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .proceso-paso {
+        display: flex;
+        align-items: center;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        padding: 15px;
+        width: 80%;
+        margin: 5px 0;
+    }
+    
+    .paso-numero {
+        background-color: #3498db;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 15px;
+    }
+    
+    .proceso-flecha {
+        color: #3498db;
+        font-size: 24px;
+        margin: 5px 0;
+    }
+    
+    .nota-informativa {
+        background-color: #fff3cd;
+        border-left: 5px solid #ffc107;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .tarjetas-malware {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .tarjeta-malware {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .tarjeta-titulo {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        font-weight: bold;
+    }
+    
+    .tarjeta-contenido {
+        padding: 15px;
+    }
+    
+    .tabla-resumen {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+    
+    .tabla-resumen .tabla-fila {
+        display: flex;
+    }
+    
+    .tabla-resumen .tabla-fila.encabezado {
+        background-color: #3498db;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .tabla-resumen .tabla-celda {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        flex: 1;
+    }
+    
+    .tabla-resumen .tabla-fila:last-child .tabla-celda {
+        border-bottom: none;
+    }
+    
+    .tabla-resumen .tabla-celda:last-child {
+        border-right: none;
+    }
+    
+    .tabla-resumen ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .tabla-fila {
+            flex-direction: column;
+        }
+        
+        .tabla-celda {
+            border-right: none;
+        }
+        
+        .tarjetas-malware {
+            grid-template-columns: 1fr;
+        }
+        
+        .proceso-paso {
+            width: 100%;
+        }
+    }
+</style>

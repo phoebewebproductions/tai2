@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet: Arquitectura de Red</title>
+</head>
+<body>
+  <div class="teoria">
+      <span id="4080101000">
+          <h2>1.1 INTERNET: ARQUITECTURA DE RED. ORIGEN, EVOLUCIÓN Y ESTADO ACTUAL</h2>
+          
+          <div class="internet-introduccion">
+              <p>En este apartado cubriremos brevemente la definición de Internet, su origen, las características de la arquitectura TCP/IP y sus principios de funcionamiento.</p>
+          </div>
+          
+          <div class="internet-origen" id="4080101001">
+              <div class="internet-titulo-seccion">1.1.1 ORIGEN</div>
+              <p>La RAE define Internet como una "red informática mundial, descentralizada, formada por la conexión directa entre computadoras mediante un protocolo especial de comunicación". Internet es la contracción de la expresión "International network".</p>
+              <p>Un conjunto de dispositivos (routers, ordenadores, servidores, teléfonos móviles, IoT, satélites…) capaz de comunicarse e intercambiar información sobre cualquier medio físico (medios guiados como el cobre, la fibra o el coaxial y medios no guiados como el espectro radioeléctrico).</p>
+              
+              <div class="internet-dispositivos">
+                  <div class="internet-titulo-dispositivos">Dispositivos conectados a Internet</div>
+                  <div class="internet-lista-dispositivos">
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-router"></div>
+                          <div class="internet-nombre-dispositivo">Routers</div>
+                      </div>
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-ordenador"></div>
+                          <div class="internet-nombre-dispositivo">Ordenadores</div>
+                      </div>
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-servidor"></div>
+                          <div class="internet-nombre-dispositivo">Servidores</div>
+                      </div>
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-movil"></div>
+                          <div class="internet-nombre-dispositivo">Teléfonos móviles</div>
+                      </div>
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-iot"></div>
+                          <div class="internet-nombre-dispositivo">Dispositivos IoT</div>
+                      </div>
+                      <div class="internet-dispositivo">
+                          <div class="internet-icono-dispositivo internet-icono-satelite"></div>
+                          <div class="internet-nombre-dispositivo">Satélites</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="internet-arquitectura" id="4080101002">
+              <div class="internet-titulo-seccion">1.1.2 ARQUITECTURA INTERNET</div>
+              <p>Para entender qué es Internet y su arquitectura, debemos abordar los ingredientes básicos que lo componen.</p>
+              <p>Una red informática es un conjunto interconectado de equipos (ordenadores, periféricos, teléfonos móviles) que intercambian mensajes a través de recursos compartidos. La interconexión se realiza a través de ciertos dispositivos como conmutadores y routers que permiten el envío y la recepción de señales que llevan los datos que emisor y receptor desean compartir.</p>
+              <p>Entendemos como arquitectura de red la representación y conceptualización lógica de cómo deben diseñarse y funcionar las redes informáticas en relación con sus propósitos y medios tecnológicos disponibles. Esta arquitectura se estructura en capas o niveles y protocolos definidos en cada una de las capas, que hacen posible que un emisor se comunique con un receptor independientemente de la red o medio físico subyacente.</p>
+              <p>Internet es una red de redes. Esto significa que Internet no es una única red sino un enjambre de redes heterogéneas organizadas jerárquicamente. Así tenemos que Internet aglutina redes públicas, privadas y educativas, redes de fibra óptica o redes satelitales, redes de ordenadores y redes de teléfonos móviles que se integran en redes superiores, por ejemplo regionales, que a su vez se integran en redes mayores, nacionales. En el dominio de alto nivel encontraríamos ese concepto genérico de "Internet".</p>
+              
+              <div class="internet-diagrama-red-redes">
+                  <div class="internet-titulo-diagrama">Internet: Una red de redes</div>
+                  <div class="internet-esquema-red-redes">
+                      <div class="internet-nube-internet">
+                          <div class="internet-etiqueta-nube">Internet</div>
+                          <div class="internet-contenido-nube">
+                              <div class="internet-red-nivel-1">
+                                  <div class="internet-etiqueta-red">Red Nacional A</div>
+                                  <div class="internet-contenido-red">
+                                      <div class="internet-red-nivel-2">
+                                          <div class="internet-etiqueta-red">Red Regional 1</div>
+                                          <div class="internet-contenido-red">
+                                              <div class="internet-red-nivel-3 internet-red-publica">Red Pública</div>
+                                              <div class="internet-red-nivel-3 internet-red-privada">Red Privada</div>
+                                          </div>
+                                      </div>
+                                      <div class="internet-red-nivel-2">
+                                          <div class="internet-etiqueta-red">Red Regional 2</div>
+                                          <div class="internet-contenido-red">
+                                              <div class="internet-red-nivel-3 internet-red-educativa">Red Educativa</div>
+                                              <div class="internet-red-nivel-3 internet-red-corporativa">Red Corporativa</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="internet-red-nivel-1">
+                                  <div class="internet-etiqueta-red">Red Nacional B</div>
+                                  <div class="internet-contenido-red">
+                                      <div class="internet-red-nivel-2">
+                                          <div class="internet-etiqueta-red">Red Regional 3</div>
+                                          <div class="internet-contenido-red">
+                                              <div class="internet-red-nivel-3 internet-red-fibra">Red Fibra</div>
+                                              <div class="internet-red-nivel-3 internet-red-satelital">Red Satelital</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="internet-arquitectura-encaje" id="4080101003">
+              <div class="internet-titulo-seccion">1.1.3 ¿Y DÓNDE ENCAJA LA ARQUITECTURA DE RED EN TODO ESTE ENTRAMADO?</div>
+              <p>Aunque parece obvia la respuesta, lo cierto es que en los años 80 con la explosión de nuevas redes y nuevos fabricantes no era tan común que se implementasen arquitecturas de red porque la interoperabilidad no era un objetivo. Pero internet es una mezcla de muchas redes muy distintas así que si se pretendía contar con una red funcional que interconectase todas ellas, era imprescindible definir una arquitectura.</p>
+              <p>Para solucionar este problema, la Organización Internacional para la Normalización (ISO) realizó investigaciones acerca de los esquemas de red. La ISO reconoció que era necesario crear un modelo de red que pudiera ayudar a los diseñadores de red a implementar redes que pudieran comunicarse y trabajar en conjunto (interoperabilidad). Como resultado de sus investigaciones elaboraron el modelo de referencia OSI en 1984 definido en la norma ISO/IEC 7498-1.</p>
+              <p>Aunque el modelo de referencia OSI sea universalmente reconocido, no es el que implementa Internet por motivos históricos y técnicos. El estándar abierto de Internet (se usa porque todos lo usan) es el modelo y arquitectura TCP/IP (Protocolo de control de transmisión/Protocolo Internet). El Departamento de Defensa de EE.UU. creó el modelo TCP/IP porque necesitaba una red que pudiera sobrevivir ante cualquier circunstancia, incluso una guerra nuclear. Cualquiera que fuese la situación o circunstancia, tanto si habían caído uno o varios nodos, la red tenía que hacer lo que pudiera por entregar el mensaje a destino (best-effort). Este requisito de diseño inclinó la balanza por crear un nuevo modelo descartando OSI.</p>
+              
+              <div class="internet-comparativa-modelos">
+                  <div class="internet-titulo-comparativa">Comparativa de modelos de red</div>
+                  <div class="internet-modelos">
+                      <div class="internet-modelo internet-modelo-osi">
+                          <div class="internet-titulo-modelo">Modelo OSI</div>
+                          <div class="internet-capas-modelo">
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">7</div>
+                                  <div class="internet-nombre-capa">Aplicación</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">6</div>
+                                  <div class="internet-nombre-capa">Presentación</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">5</div>
+                                  <div class="internet-nombre-capa">Sesión</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">4</div>
+                                  <div class="internet-nombre-capa">Transporte</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">3</div>
+                                  <div class="internet-nombre-capa">Red</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">2</div>
+                                  <div class="internet-nombre-capa">Enlace de datos</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">1</div>
+                                  <div class="internet-nombre-capa">Física</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="internet-modelo internet-modelo-tcpip">
+                          <div class="internet-titulo-modelo">Modelo TCP/IP</div>
+                          <div class="internet-capas-modelo">
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">4</div>
+                                  <div class="internet-nombre-capa">Aplicación</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">3</div>
+                                  <div class="internet-nombre-capa">Transporte</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">2</div>
+                                  <div class="internet-nombre-capa">Internet (Red)</div>
+                              </div>
+                              <div class="internet-capa">
+                                  <div class="internet-numero-capa">1</div>
+                                  <div class="internet-nombre-capa">Acceso a red</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="internet-ventajas" id="4080101004">
+              <div class="internet-titulo-seccion">1.1.4 VENTAJAS DE UNA ARQUITECTURA DE RED</div>
+              <div class="internet-lista-ventajas">
+                  <div class="internet-ventaja">
+                      <div class="internet-icono-ventaja"></div>
+                      <div class="internet-texto-ventaja">Separación de funciones</div>
+                  </div>
+                  <div class="internet-ventaja">
+                      <div class="internet-icono-ventaja"></div>
+                      <div class="internet-texto-ventaja">Conexiones estables y seguras</div>
+                  </div>
+                  <div class="internet-ventaja">
+                      <div class="internet-icono-ventaja"></div>
+                      <div class="internet-texto-ventaja">Compartición de recursos físicos</div>
+                  </div>
+                  <div class="internet-ventaja">
+                      <div class="internet-icono-ventaja"></div>
+                      <div class="internet-texto-ventaja">Tareas de administración simplificadas</div>
+                  </div>
+                  <div class="internet-ventaja">
+                      <div class="internet-icono-ventaja"></div>
+                      <div class="internet-texto-ventaja">Independencia de la complejidad física y lógica subyacente</div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="internet-caracteristicas" id="4080101005">
+              <div class="internet-titulo-seccion">1.1.5 CARACTERÍSTICAS DE LA ARQUITECTURA DE RED DE INTERNET</div>
+              <div class="internet-lista-caracteristicas">
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Basada en capas</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Enfocada al encaminamiento</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Integral y escalable</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Estándar de facto</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Universal</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Basada en el encapsulamiento</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Nivel de red no fiable</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">Nivel red no orientado a conexión</div>
+                  </div>
+                  <div class="internet-caracteristica">
+                      <div class="internet-icono-caracteristica"></div>
+                      <div class="internet-texto-caracteristica">"Best effort" (nivel de red no aporta QoS)</div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="internet-descripcion-arquitectura" id="4080101006">
+              <div class="internet-titulo-seccion">1.1.6 DESCRIPCIÓN ARQUITECTURA INTERNET TCP/IP</div>
+              
+              <div class="internet-capa-descripcion">
+                  <div class="internet-titulo-capa">Capa acceso a red</div>
+                  <div class="internet-contenido-capa">
+                      <p>La parte física se encarga de especificar las características físicas del medio de transmisión como el medio de red, por ejemplo 802.3-Ethernet o los conectores 45. La parte de enlace identifica el tipo de protocolo de red—IP—proporciona control de errores y estructura.</p>
+                      <p><strong>Tecnologías de acceso:</strong> Ethernet, Wifi, radio, xDSL, xG (3/4/5G), etc.</p>
+                  </div>
+              </div>
+              
+              <div class="internet-capa-descripcion">
+                  <div class="internet-titulo-capa">Capa red IP</div>
+                  <div class="internet-contenido-capa">
+                      <p>Proporciona un servicio de transferencia de datagramas no orientado a conexión, no fiable de tipo best effort, independiente de la tecnología subyacente y no de extremo a extremo, sino de salto a salto.</p>
+                      <p>Protocolo IP se encarga de la encapsulación y formato del datagrama, fragmentación y ensamblado de los datos recibidos de nivel superior, direccionamiento para saber a quién entregar los datagramas, encaminamiento a través de encaminadores (routers). No es un protocolo de extremo a extremo.</p>
+                      <p><strong>Versiones:</strong> IPv4 (direcciones de 32 bits), IPv6 (direcciones de 128 bits), Mobile IP (para dispositivos móviles), IPsec (comunicación cifrada).</p>
+                      <p><strong>Otros protocolos:</strong> Protocolos de enrutamiento (IGP, BGP, RIP, HELLO, etc) y protocolos de apoyo (ICMP, ND, etc)</p>
+                  </div>
+              </div>
+              
+              <div class="internet-capa-descripcion">
+                  <div class="internet-titulo-capa">Capa transporte</div>
+                  <div class="internet-contenido-capa">
+                      <p>Capa de comunicación extremo a extremo, esto es envía el mensaje de aplicación a aplicación. Se encarga de encapsular los mensajes de la aplicación en un segmento de transporte. Envía mensaje de la aplicación emisora y lo entrega a la aplicación receptora. Protocolos: TCP y UDP.</p>
+                      
+                      <div class="internet-comparativa-protocolos">
+                          <div class="internet-protocolo internet-protocolo-tcp">
+                              <div class="internet-titulo-protocolo">TCP</div>
+                              <div class="internet-caracteristicas-protocolo">
+                                  <div class="internet-caracteristica-protocolo">Orientado a conexión</div>
+                                  <div class="internet-caracteristica-protocolo">Fiable</div>
+                                  <div class="internet-caracteristica-protocolo">Mensaje fragmentado en segmentos</div>
+                                  <div class="internet-caracteristica-protocolo">Receptor ordena segmentos y ensambla</div>
+                                  <div class="internet-caracteristica-protocolo">Acuses de recibo para control de recepción</div>
+                                  <div class="internet-caracteristica-protocolo">Control de flujo</div>
+                                  <div class="internet-caracteristica-protocolo">Control de congestión</div>
+                                  <div class="internet-caracteristica-protocolo">Más complejo</div>
+                              </div>
+                          </div>
+                          <div class="internet-protocolo internet-protocolo-udp">
+                              <div class="internet-titulo-protocolo">UDP</div>
+                              <div class="internet-caracteristicas-protocolo">
+                                  <div class="internet-caracteristica-protocolo">No orientado a conexión</div>
+                                  <div class="internet-caracteristica-protocolo">No fiable</div>
+                                  <div class="internet-caracteristica-protocolo">No fragmentación</div>
+                                  <div class="internet-caracteristica-protocolo">No reordenación</div>
+                                  <div class="internet-caracteristica-protocolo">No ACKs</div>
+                                  <div class="internet-caracteristica-protocolo">Sin control de flujo</div>
+                                  <div class="internet-caracteristica-protocolo">Sin control de congestión</div>
+                                  <div class="internet-caracteristica-protocolo">Más simple</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="internet-capa-descripcion">
+                  <div class="internet-titulo-capa">Capa de aplicación</div>
+                  <div class="internet-contenido-capa">
+                      <p>Encargada del intercambio de mensajes entre dos programas (aplicaciones). Comunicación extremo-a-extremo con la lógica de la aplicación.</p>
+                      <p><strong>Protocolos de Aplicación:</strong> HTTP, SMTP, FTP, DNS, WWW, etc.</p>
+                  </div>
+              </div>
+              
+              <div class="internet-diagrama-encapsulamiento">
+                  <div class="internet-titulo-diagrama">Encapsulamiento de datos en TCP/IP</div>
+                  <div class="internet-esquema-encapsulamiento">
+                      <div class="internet-nivel-encapsulamiento internet-nivel-aplicacion">
+                          <div class="internet-etiqueta-nivel">Nivel de Aplicación</div>
+                          <div class="internet-contenido-nivel">
+                              <div class="internet-datos-aplicacion">Datos de la aplicación</div>
+                          </div>
+                      </div>
+                      <div class="internet-nivel-encapsulamiento internet-nivel-transporte">
+                          <div class="internet-etiqueta-nivel">Nivel de Transporte</div>
+                          <div class="internet-contenido-nivel">
+                              <div class="internet-cabecera-transporte">Cabecera TCP/UDP</div>
+                              <div class="internet-datos-aplicacion">Datos de la aplicación</div>
+                          </div>
+                      </div>
+                      <div class="internet-nivel-encapsulamiento internet-nivel-red">
+                          <div class="internet-etiqueta-nivel">Nivel de Red</div>
+                          <div class="internet-contenido-nivel">
+                              <div class="internet-cabecera-red">Cabecera IP</div>
+                              <div class="internet-cabecera-transporte">Cabecera TCP/UDP</div>
+                              <div class="internet-datos-aplicacion">Datos de la aplicación</div>
+                          </div>
+                      </div>
+                      <div class="internet-nivel-encapsulamiento internet-nivel-acceso">
+                          <div class="internet-etiqueta-nivel">Nivel de Acceso a Red</div>
+                          <div class="internet-contenido-nivel">
+                              <div class="internet-cabecera-acceso">Cabecera Ethernet</div>
+                              <div class="internet-cabecera-red">Cabecera IP</div>
+                              <div class="internet-cabecera-transporte">Cabecera TCP/UDP</div>
+                              <div class="internet-datos-aplicacion">Datos de la aplicación</div>
+                              <div class="internet-cola-acceso">Cola Ethernet</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </span>
+  </div>
+
+  <style>
+      /* Estilos generales */
+ 
+      
+      h2 {
+          color: #1890ff;
+          margin-bottom: 20px;
+      }
+      
+      /* Estilos específicos para la arquitectura de Internet */
+      .internet-introduccion {
+          margin-bottom: 25px;
+      }
+      
+      .internet-titulo-seccion {
+          font-weight: 500;
+          margin: 30px 0 15px;
+          color: #1890ff;
+          font-size: 1.2rem;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #e8e8e8;
+      }
+      
+      /* Origen de Internet */
+      .internet-origen {
+          margin-bottom: 30px;
+      }
+      
+      .internet-dispositivos {
+          margin: 20px 0;
+          background-color: #f8f9fa;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-titulo-dispositivos {
+          font-weight: 500;
+          margin-bottom: 15px;
+          color: #1890ff;
+          text-align: center;
+      }
+      
+      .internet-lista-dispositivos {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+      }
+      
+      .internet-dispositivo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          width: 120px;
+      }
+      
+      .internet-icono-dispositivo {
+          width: 60px;
+          height: 60px;
+          background-color: #f0f5ff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #1890ff;
+          font-size: 1.5rem;
+      }
+      
+      .internet-icono-router::before {
+          content: "🔄";
+      }
+      
+      .internet-icono-ordenador::before {
+          content: "💻";
+      }
+      
+      .internet-icono-servidor::before {
+          content: "🖥️";
+      }
+      
+      .internet-icono-movil::before {
+          content: "📱";
+      }
+      
+      .internet-icono-iot::before {
+          content: "🔌";
+      }
+      
+      .internet-icono-satelite::before {
+          content: "🛰️";
+      }
+      
+      .internet-nombre-dispositivo {
+          font-size: 0.9rem;
+          text-align: center;
+      }
+      
+      /* Arquitectura Internet */
+      .internet-arquitectura {
+          margin-bottom: 30px;
+      }
+      
+      .internet-diagrama-red-redes {
+          margin: 25px 0;
+          background-color: #f8f9fa;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-titulo-diagrama {
+          font-weight: 500;
+          margin-bottom: 20px;
+          color: #1890ff;
+          text-align: center;
+      }
+      
+      .internet-esquema-red-redes {
+          display: flex;
+          justify-content: center;
+      }
+      
+      .internet-nube-internet {
+          background-color: #e6f7ff;
+          border-radius: 20px;
+          padding: 20px;
+          width: 80%;
+          position: relative;
+      }
+      
+      .internet-etiqueta-nube {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #1890ff;
+          color: white;
+          padding: 5px 15px;
+          border-radius: 15px;
+          font-weight: 500;
+      }
+      
+      .internet-contenido-nube {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 15px;
+      }
+      
+      .internet-red-nivel-1 {
+          background-color: #f0f5ff;
+          border-radius: 10px;
+          padding: 15px;
+          width: 45%;
+          min-width: 300px;
+      }
+      
+      .internet-etiqueta-red {
+          background-color: #1890ff;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-weight: 500;
+          text-align: center;
+          margin-bottom: 10px;
+      }
+      
+      .internet-contenido-red {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+      }
+      
+      .internet-red-nivel-2 {
+          background-color: #f6ffed;
+          border-radius: 8px;
+          padding: 10px;
+          width: 45%;
+          min-width: 120px;
+      }
+      
+      .internet-red-nivel-3 {
+          background-color: white;
+          border-radius: 5px;
+          padding: 8px;
+          margin: 5px 0;
+          text-align: center;
+          font-size: 0.8rem;
+      }
+      
+      .internet-red-publica {
+          border-left: 3px solid #1890ff;
+      }
+      
+      .internet-red-privada {
+          border-left: 3px solid #52c41a;
+      }
+      
+      .internet-red-educativa {
+          border-left: 3px solid #fa8c16;
+      }
+      
+      .internet-red-corporativa {
+          border-left: 3px solid #722ed1;
+      }
+      
+      .internet-red-fibra {
+          border-left: 3px solid #eb2f96;
+      }
+      
+      .internet-red-satelital {
+          border-left: 3px solid #f5222d;
+      }
+      
+      /* Arquitectura encaje */
+      .internet-arquitectura-encaje {
+          margin-bottom: 30px;
+      }
+      
+      .internet-comparativa-modelos {
+          margin: 25px 0;
+          background-color: #f8f9fa;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-titulo-comparativa {
+          font-weight: 500;
+          margin-bottom: 20px;
+          color: #1890ff;
+          text-align: center;
+      }
+      
+      .internet-modelos {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          justify-content: center;
+      }
+      
+      .internet-modelo {
+          background-color: white;
+          border-radius: 8px;
+          padding: 15px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          width: 200px;
+      }
+      
+      .internet-titulo-modelo {
+          font-weight: 500;
+          margin-bottom: 15px;
+          color: #1890ff;
+          text-align: center;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #e8e8e8;
+      }
+      
+      .internet-capas-modelo {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+      }
+      
+      .internet-capa {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px;
+          border-radius: 5px;
+      }
+      
+      .internet-modelo-osi .internet-capa:nth-child(odd) {
+          background-color: #f0f5ff;
+      }
+      
+      .internet-modelo-tcpip .internet-capa:nth-child(odd) {
+          background-color: #f6ffed;
+      }
+      
+      .internet-numero-capa {
+          width: 24px;
+          height: 24px;
+          background-color: #1890ff;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 0.8rem;
+      }
+      
+      .internet-modelo-tcpip .internet-numero-capa {
+          background-color: #52c41a;
+      }
+      
+      .internet-nombre-capa {
+          font-size: 0.9rem;
+      }
+      
+      /* Ventajas */
+      .internet-ventajas {
+          margin-bottom: 30px;
+      }
+      
+      .internet-lista-ventajas {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin: 20px 0;
+      }
+      
+      .internet-ventaja {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #f8f9fa;
+          border-radius: 5px;
+          padding: 10px 15px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          flex: 1;
+          min-width: 250px;
+      }
+      
+      .internet-icono-ventaja {
+          width: 24px;
+          height: 24px;
+          background-color: #52c41a;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          flex-shrink: 0;
+      }
+      
+      .internet-icono-ventaja::before {
+          content: "✓";
+      }
+      
+      .internet-texto-ventaja {
+          font-size: 0.9rem;
+      }
+      
+      /* Características */
+      .internet-caracteristicas {
+          margin-bottom: 30px;
+      }
+      
+      .internet-lista-caracteristicas {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin: 20px 0;
+      }
+      
+      .internet-caracteristica {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #f8f9fa;
+          border-radius: 5px;
+          padding: 10px 15px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          flex: 1;
+          min-width: 250px;
+      }
+      
+      .internet-icono-caracteristica {
+          width: 24px;
+          height: 24px;
+          background-color: #1890ff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          flex-shrink: 0;
+      }
+      
+      .internet-icono-caracteristica::before {
+          content: "•";
+      }
+      
+      .internet-texto-caracteristica {
+          font-size: 0.9rem;
+      }
+      
+      /* Descripción arquitectura */
+      .internet-descripcion-arquitectura {
+          margin-bottom: 30px;
+      }
+      
+      .internet-capa-descripcion {
+          margin: 20px 0;
+          background-color: #f8f9fa;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-titulo-capa {
+          font-weight: 500;
+          margin-bottom: 15px;
+          color: #1890ff;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #e8e8e8;
+      }
+      
+      .internet-contenido-capa {
+          font-size: 0.9rem;
+      }
+      
+      .internet-comparativa-protocolos {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          margin-top: 20px;
+      }
+      
+      .internet-protocolo {
+          flex: 1;
+          min-width: 250px;
+          background-color: white;
+          border-radius: 8px;
+          padding: 15px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-titulo-protocolo {
+          font-weight: 500;
+          margin-bottom: 15px;
+          text-align: center;
+          padding: 5px;
+          border-radius: 5px;
+      }
+      
+      .internet-protocolo-tcp .internet-titulo-protocolo {
+          background-color: #e6f7ff;
+          color: #1890ff;
+      }
+      
+      .internet-protocolo-udp .internet-titulo-protocolo {
+          background-color: #f6ffed;
+          color: #52c41a;
+      }
+      
+      .internet-caracteristicas-protocolo {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+      }
+      
+      .internet-caracteristica-protocolo {
+          font-size: 0.85rem;
+          padding: 5px 10px;
+          border-radius: 3px;
+      }
+      
+      .internet-protocolo-tcp .internet-caracteristica-protocolo {
+          background-color: #f0f5ff;
+      }
+      
+      .internet-protocolo-udp .internet-caracteristica-protocolo {
+          background-color: #f6ffed;
+      }
+      
+      .internet-diagrama-encapsulamiento {
+          margin: 25px 0;
+          background-color: #f8f9fa;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-esquema-encapsulamiento {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+      }
+      
+      .internet-nivel-encapsulamiento {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      }
+      
+      .internet-etiqueta-nivel {
+          font-weight: 500;
+          color: white;
+          padding: 8px 15px;
+          border-radius: 5px;
+          text-align: center;
+      }
+      
+      .internet-nivel-aplicacion .internet-etiqueta-nivel {
+          background-color: #722ed1;
+      }
+      
+      .internet-nivel-transporte .internet-etiqueta-nivel {
+          background-color: #1890ff;
+      }
+      
+      .internet-nivel-red .internet-etiqueta-nivel {
+          background-color: #52c41a;
+      }
+      
+      .internet-nivel-acceso .internet-etiqueta-nivel {
+          background-color: #fa8c16;
+      }
+      
+      .internet-contenido-nivel {
+          display: flex;
+          background-color: white;
+          border-radius: 5px;
+          padding: 10px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      
+      .internet-datos-aplicacion {
+          flex: 1;
+          background-color: #f9f0ff;
+          padding: 8px;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 3px;
+      }
+      
+      .internet-cabecera-transporte {
+          width: 100px;
+          background-color: #e6f7ff;
+          padding: 8px;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 3px;
+          margin-right: 5px;
+      }
+      
+      .internet-cabecera-red {
+          width: 80px;
+          background-color: #f6ffed;
+          padding: 8px;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 3px;
+          margin-right: 5px;
+      }
+      
+      .internet-cabecera-acceso {
+          width: 120px;
+          background-color: #fff7e6;
+          padding: 8px;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 3px;
+          margin-right: 5px;
+      }
+      
+      .internet-cola-acceso {
+          width: 80px;
+          background-color: #fff7e6;
+          padding: 8px;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 3px;
+          margin-left: 5px;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+          .internet-modelos {
+              flex-direction: column;
+              align-items: center;
+          }
+          
+          .internet-modelo {
+              width: 100%;
+              max-width: 300px;
+          }
+          
+          .internet-red-nivel-1 {
+              width: 100%;
+          }
+          
+          .internet-red-nivel-2 {
+              width: 100%;
+          }
+          
+          .internet-esquema-encapsulamiento {
+              overflow-x: auto;
+          }
+          
+          .internet-contenido-nivel {
+              min-width: 500px;
+          }
+      }
+  </style>
+</body>
+</html>
+

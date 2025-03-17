@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo TCP/IP</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070201000">
+            <h2>2.1 EL MODELO TCP/IP</h2>
+            
+            <div class="tcpip-introduccion">
+                <p>TCP/IP es un conjunto de protocolos que permiten la comunicación entre los ordenadores pertenecientes a una red.</p>
+                <p>Fue creado por Vinton Cerf y Robert E. Kahn (conocidos como los "Padres de Internet") en la década de 1970 y fue adoptado como protocolo de comunicaciones provisional (mientras se acababa de definir el modelo OSI) en la red ARPANET.</p>
+                <p>El Departamento de Defensa de EEUU exigió el uso de TCP/IP en todas sus adquisiciones de software. Teniendo en cuenta que en aquella época, el DOD era el mayor consumidor de software del mundo, la imposición de TCP/IP creó un mercado enorme potenciando un ecosistema de aplicaciones, instituciones y empresas que debían implementarlo para poder trabajar con el DOD.</p>
+                <p>La necesidad apremiante de comunicación junto con la operatividad contrastada, robustez y madurez demostrada por el modelo TCP/IP hizo que se expandiera rápidamente.</p>
+                <p>Cuando finalmente la especificación definitiva OSI salió a la luz, muchas empresas se plantearon la disyuntiva entre dejar el modelo TCP/IP probado de forma satisfactoria durante años y adoptar el nuevo modelo OSI que prácticamente sólo existía en papel (su penetración en el mercado era ínfima). Está bastante claro a favor de qué modelo se decantaron las empresas….</p>
+            </div>
+            
+            <div class="tcpip-historia">
+                <div class="tcpip-titulo-seccion">Historia del Modelo TCP/IP</div>
+                <div class="tcpip-linea-tiempo">
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1969</div>
+                        <div class="tcpip-descripcion-evento">Creación de ARPANET</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1974</div>
+                        <div class="tcpip-descripcion-evento">Publicación del artículo "A Protocol for Packet Network Intercommunication" por Cerf y Kahn</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1978</div>
+                        <div class="tcpip-descripcion-evento">División de TCP en TCP e IP</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1982</div>
+                        <div class="tcpip-descripcion-evento">El DoD declara TCP/IP como estándar</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1983</div>
+                        <div class="tcpip-descripcion-evento">ARPANET migra de NCP a TCP/IP</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1984</div>
+                        <div class="tcpip-descripcion-evento">Publicación del modelo OSI</div>
+                    </div>
+                    <div class="tcpip-evento">
+                        <div class="tcpip-fecha">1990s</div>
+                        <div class="tcpip-descripcion-evento">Expansión global de Internet basada en TCP/IP</div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-creadores">
+                    <div class="tcpip-titulo-creadores">Los "Padres de Internet"</div>
+                    <div class="tcpip-perfiles">
+                        <div class="tcpip-perfil">
+                            <div class="tcpip-foto-perfil tcpip-foto-cerf"></div>
+                            <div class="tcpip-nombre-perfil">Vinton G. Cerf</div>
+                            <div class="tcpip-descripcion-perfil">Co-creador de TCP/IP y considerado uno de los "padres de Internet"</div>
+                        </div>
+                        <div class="tcpip-perfil">
+                            <div class="tcpip-foto-perfil tcpip-foto-kahn"></div>
+                            <div class="tcpip-nombre-perfil">Robert E. Kahn</div>
+                            <div class="tcpip-descripcion-perfil">Co-creador de TCP/IP y considerado uno de los "padres de Internet"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tcpip-estructura">
+                <div class="tcpip-titulo-seccion">Estructura del Modelo TCP/IP</div>
+                <div class="tcpip-descripcion-estructura">
+                    <p>El modelo TCP/IP también reconoce que la tarea de comunicación es muy compleja como para realizarla en una unidad, por lo que la descompone en varios módulos o entidades.</p>
+                    <p>Otro de los motivos que beneficia a TCP/IP frente a OSI es que TCP/IP es más flexible. OSI si requiere que se implementen todas las capas (aunque no sean necesarias), TCP/IP no obliga a implementar todas las capas. Por ejemplo hay protocolos de aplicación que operan directamente sobre IP.</p>
+                    <p>No hay un modelo de protocolos TCP/IP oficial por lo que a veces se habla del Modelo del DoD para referirse al modelo comúnmente aceptado. Aunque el modelo DoD establece 4 capas suele ser útil considerar que el modelo está dividido en 5 (incluyendo una capa física separada de la capa de acceso al medio).</p>
+                </div>
+                
+                <div class="tcpip-comparativa-osi">
+                    <div class="tcpip-titulo-comparativa">Correspondencia entre capas OSI y niveles TCP/IP</div>
+                    <div class="tcpip-tabla-comparativa">
+                        <div class="tcpip-columna-osi">
+                            <div class="tcpip-cabecera-columna">Capas OSI</div>
+                            <div class="tcpip-capa-osi tcpip-capa-aplicacion-osi">
+                                <div class="tcpip-numero-capa">7</div>
+                                <div class="tcpip-nombre-capa">Aplicación<br><span class="tcpip-nombre-ingles">Application</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-presentacion-osi">
+                                <div class="tcpip-numero-capa">6</div>
+                                <div class="tcpip-nombre-capa">Presentación<br><span class="tcpip-nombre-ingles">Presentation</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-sesion-osi">
+                                <div class="tcpip-numero-capa">5</div>
+                                <div class="tcpip-nombre-capa">Sesión<br><span class="tcpip-nombre-ingles">Session</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-transporte-osi">
+                                <div class="tcpip-numero-capa">4</div>
+                                <div class="tcpip-nombre-capa">Transporte<br><span class="tcpip-nombre-ingles">Transport</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-red-osi">
+                                <div class="tcpip-numero-capa">3</div>
+                                <div class="tcpip-nombre-capa">Red<br><span class="tcpip-nombre-ingles">Network</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-enlace-osi">
+                                <div class="tcpip-numero-capa">2</div>
+                                <div class="tcpip-nombre-capa">Enlace de datos<br><span class="tcpip-nombre-ingles">Data Link</span></div>
+                            </div>
+                            <div class="tcpip-capa-osi tcpip-capa-fisica-osi">
+                                <div class="tcpip-numero-capa">1</div>
+                                <div class="tcpip-nombre-capa">Física<br><span class="tcpip-nombre-ingles">Physical</span></div>
+                            </div>
+                        </div>
+                        <div class="tcpip-flechas-comparativa">
+                            <div class="tcpip-flecha tcpip-flecha-aplicacion"></div>
+                            <div class="tcpip-flecha tcpip-flecha-transporte"></div>
+                            <div class="tcpip-flecha tcpip-flecha-internet"></div>
+                            <div class="tcpip-flecha tcpip-flecha-acceso"></div>
+                        </div>
+                        <div class="tcpip-columna-tcpip">
+                            <div class="tcpip-cabecera-columna">Capas/Niveles TCP/IP</div>
+                            <div class="tcpip-capa-tcpip tcpip-capa-aplicacion-tcpip">
+                                <div class="tcpip-numero-capa">4</div>
+                                <div class="tcpip-nombre-capa">Aplicación<br><span class="tcpip-nombre-ingles">Process</span></div>
+                            </div>
+                            <div class="tcpip-capa-tcpip tcpip-capa-transporte-tcpip">
+                                <div class="tcpip-numero-capa">3</div>
+                                <div class="tcpip-nombre-capa">Transporte<br><span class="tcpip-nombre-ingles">Host-to-Host</span></div>
+                            </div>
+                            <div class="tcpip-capa-tcpip tcpip-capa-internet-tcpip">
+                                <div class="tcpip-numero-capa">2</div>
+                                <div class="tcpip-nombre-capa">Internet<br><span class="tcpip-nombre-ingles">Network</span></div>
+                            </div>
+                            <div class="tcpip-capa-tcpip tcpip-capa-acceso-tcpip">
+                                <div class="tcpip-numero-capa">1</div>
+                                <div class="tcpip-nombre-capa">Acceso al medio<br><span class="tcpip-nombre-ingles">Media</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-modelo-5-capas">
+                    <div class="tcpip-titulo-modelo">Modelo TCP/IP de 5 capas</div>
+                    <div class="tcpip-capas-5">
+                        <div class="tcpip-capa-5 tcpip-capa-aplicacion-5">
+                            <div class="tcpip-numero-capa">5</div>
+                            <div class="tcpip-nombre-capa">Aplicación</div>
+                            <div class="tcpip-protocolos-capa">HTTP, FTP, DNS, SMTP, SNMP, Telnet</div>
+                        </div>
+                        <div class="tcpip-capa-5 tcpip-capa-transporte-5">
+                            <div class="tcpip-numero-capa">4</div>
+                            <div class="tcpip-nombre-capa">Transporte</div>
+                            <div class="tcpip-protocolos-capa">TCP, UDP</div>
+                        </div>
+                        <div class="tcpip-capa-5 tcpip-capa-internet-5">
+                            <div class="tcpip-numero-capa">3</div>
+                            <div class="tcpip-nombre-capa">Internet</div>
+                            <div class="tcpip-protocolos-capa">IP, ICMP, ARP, RARP</div>
+                        </div>
+                        <div class="tcpip-capa-5 tcpip-capa-enlace-5">
+                            <div class="tcpip-numero-capa">2</div>
+                            <div class="tcpip-nombre-capa">Enlace de datos</div>
+                            <div class="tcpip-protocolos-capa">Ethernet, Token Ring, PPP, HDLC</div>
+                        </div>
+                        <div class="tcpip-capa-5 tcpip-capa-fisica-5">
+                            <div class="tcpip-numero-capa">1</div>
+                            <div class="tcpip-nombre-capa">Física</div>
+                            <div class="tcpip-protocolos-capa">Cables, conectores, señales eléctricas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tcpip-capas-detalle">
+                <div class="tcpip-titulo-seccion">Detalle de las capas del Modelo TCP/IP</div>
+                
+                <div class="tcpip-capa-detalle" id="4070201001">
+                    <div class="tcpip-titulo-capa">3.1 CAPA DE APLICACIÓN</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>Proporciona la comunicación entre procesos o aplicaciones de equipos separados mediante diferentes protocolos como HTTP, FTP, DNS, NFS, SNMP….</p>
+                    </div>
+                    <div class="tcpip-protocolos-capa-detalle">
+                        <div class="tcpip-titulo-protocolos">Protocolos principales:</div>
+                        <div class="tcpip-lista-protocolos">
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-http"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">HTTP/HTTPS</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo de transferencia de hipertexto para la web</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-ftp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">FTP</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo de transferencia de archivos</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-dns"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">DNS</div>
+                                    <div class="tcpip-descripcion-protocolo">Sistema de nombres de dominio</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-smtp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">SMTP</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo simple de transferencia de correo</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-snmp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">SNMP</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo simple de administración de red</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-telnet"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">Telnet</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo de terminal virtual</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-capa-detalle" id="4070201002">
+                    <div class="tcpip-titulo-capa">3.2 CAPA DE TRANSPORTE O EXTREMO-A-EXTREMO</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>Proporciona el servicio de transferencia externo a extremo.</p>
+                        <p>Puede incluir mecanismos de seguridad</p>
+                        <p>Oculta los detalles de las redes subyacentes a la capa de aplicación</p>
+                        <p>Los dos protocolos más utilizados en ésta capa son TCP y UDP</p>
+                    </div>
+                    <div class="tcpip-protocolos-capa-detalle">
+                        <div class="tcpip-titulo-protocolos">Protocolos principales:</div>
+                        <div class="tcpip-lista-protocolos">
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-tcp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">TCP (Transmission Control Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo orientado a conexión que garantiza la entrega de datos</div>
+                                    <div class="tcpip-caracteristicas-protocolo">
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Orientado a conexión</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Entrega garantizada</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Control de flujo</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Control de congestión</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-udp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">UDP (User Datagram Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo no orientado a conexión sin garantía de entrega</div>
+                                    <div class="tcpip-caracteristicas-protocolo">
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">No orientado a conexión</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Sin garantía de entrega</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Menor sobrecarga</div>
+                                        </div>
+                                        <div class="tcpip-caracteristica">
+                                            <div class="tcpip-icono-caracteristica"></div>
+                                            <div class="tcpip-texto-caracteristica">Ideal para transmisiones en tiempo real</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-capa-detalle" id="4070201003">
+                    <div class="tcpip-titulo-capa">3.3 CAPA DE INTERNET</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>Encargada de encaminar los datos desde el equipo origen al equipo destino a través de una o más redes conectadas por dispositivos de enrutamiento.</p>
+                        <p>Los protocolos de ésta capa son IP, ICMP y GRE</p>
+                    </div>
+                    <div class="tcpip-protocolos-capa-detalle">
+                        <div class="tcpip-titulo-protocolos">Protocolos principales:</div>
+                        <div class="tcpip-lista-protocolos">
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-ip"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">IP (Internet Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo de enrutamiento de paquetes</div>
+                                    <div class="tcpip-versiones-protocolo">
+                                        <div class="tcpip-version">
+                                            <div class="tcpip-nombre-version">IPv4</div>
+                                            <div class="tcpip-descripcion-version">Direcciones de 32 bits (ej. 192.168.1.1)</div>
+                                        </div>
+                                        <div class="tcpip-version">
+                                            <div class="tcpip-nombre-version">IPv6</div>
+                                            <div class="tcpip-descripcion-version">Direcciones de 128 bits (ej. 2001:0db8:85a3:0000:0000:8a2e:0370:7334)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-icmp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">ICMP (Internet Control Message Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo para enviar mensajes de error y control</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-gre"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">GRE (Generic Routing Encapsulation)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo para encapsular paquetes de un protocolo dentro de paquetes de otro protocolo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-capa-detalle" id="4070201004">
+                    <div class="tcpip-titulo-capa">3.4 CAPA DE ACCESO A LA RED</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>Define la interfaz lógica en un sistema final y una subred. Protocolos en la capa acceso a la red/física son PPP, ARP, Ethernet</p>
+                    </div>
+                    <div class="tcpip-protocolos-capa-detalle">
+                        <div class="tcpip-titulo-protocolos">Protocolos principales:</div>
+                        <div class="tcpip-lista-protocolos">
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-ethernet"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">Ethernet</div>
+                                    <div class="tcpip-descripcion-protocolo">Tecnología de redes de área local</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-ppp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">PPP (Point-to-Point Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo para establecer conexión directa entre dos nodos</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-protocolo">
+                                <div class="tcpip-icono-protocolo tcpip-icono-arp"></div>
+                                <div class="tcpip-contenido-protocolo">
+                                    <div class="tcpip-nombre-protocolo">ARP (Address Resolution Protocol)</div>
+                                    <div class="tcpip-descripcion-protocolo">Protocolo para encontrar la dirección física (MAC) que corresponde a una dirección IP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-capa-detalle" id="4070201005">
+                    <div class="tcpip-titulo-capa">3.5 CAPA FÍSICA</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>Define las características del medio de transmisión, el esquema de codificación de las señales, la tasa de señalización, etc…</p>
+                    </div>
+                    <div class="tcpip-medios-transmision">
+                        <div class="tcpip-titulo-medios">Medios de transmisión comunes:</div>
+                        <div class="tcpip-lista-medios">
+                            <div class="tcpip-medio">
+                                <div class="tcpip-icono-medio tcpip-icono-cable-cobre"></div>
+                                <div class="tcpip-nombre-medio">Cable de cobre</div>
+                            </div>
+                            <div class="tcpip-medio">
+                                <div class="tcpip-icono-medio tcpip-icono-fibra-optica"></div>
+                                <div class="tcpip-nombre-medio">Fibra óptica</div>
+                            </div>
+                            <div class="tcpip-medio">
+                                <div class="tcpip-icono-medio tcpip-icono-inalambrico"></div>
+                                <div class="tcpip-nombre-medio">Medios inalámbricos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tcpip-capa-detalle" id="4070201006">
+                    <div class="tcpip-titulo-capa">3.6 FUNCIONAMIENTO DE TCP/IP</div>
+                    <div class="tcpip-descripcion-capa-detalle">
+                        <p>El funcionamiento se realiza típicamente a través de los dos protocolos principales (aunque no los únicos):</p>
+                    </div>
+                    
+                    <div class="tcpip-protocolos-principales">
+                        <div class="tcpip-protocolo-principal">
+                            <div class="tcpip-icono-protocolo-principal tcpip-icono-tcp-principal"></div>
+                            <div class="tcpip-contenido-protocolo-principal">
+                                <div class="tcpip-nombre-protocolo-principal">TCP</div>
+                                <div class="tcpip-descripcion-protocolo-principal">
+                                    <p>Define cómo las aplicaciones crean canales de comunicación a través de una red. Gestiona cómo los datos son divididos en paquetes/datagramas más pequeños antes de transmitirse por la red, y cómo unirlos de nuevo cuando son recibidos por el otro extremo.</p>
+                                    <p>TCP sólo se implementa en los sistemas finales.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tcpip-protocolo-principal">
+                            <div class="tcpip-icono-protocolo-principal tcpip-icono-ip-principal"></div>
+                            <div class="tcpip-contenido-protocolo-principal">
+                                <div class="tcpip-nombre-protocolo-principal">IP</div>
+                                <div class="tcpip-descripcion-protocolo-principal">
+                                    <p>Define cómo direccionar y enrutar cada paquete a través de la red para llegar al dispositivo de destino. Los routers o gateways intermedios revisan la dirección destino de cada paquete, para enrutarlo por el enlace adecuado. Cada equipo en internet tiene que tener una dirección ip única para poder recibir y transmitir información y a su vez, cada proceso dentro de un equipo tiene que tener una dirección única (dirección de puerto).</p>
+                                    <p>Esto permite al protocolo extremo-a-extremo entregar los datos al proceso adecuado. IP se implementa en todos los sistemas finales y dispositivos de encaminamiento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tcpip-diagrama-funcionamiento">
+                        <div class="tcpip-titulo-diagrama">Funcionamiento básico de TCP/IP</div>
+                        <div class="tcpip-proceso-comunicacion">
+                            <div class="tcpip-dispositivo tcpip-emisor">
+                                <div class="tcpip-etiqueta-dispositivo">Emisor</div>
+                                <div class="tcpip-capas-dispositivo">
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-aplicacion-disp">Aplicación</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-transporte-disp">Transporte (TCP)</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-internet-disp">Internet (IP)</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-acceso-disp">Acceso a la Red</div>
+                                </div>
+                            </div>
+                            <div class="tcpip-red">
+                                <div class="tcpip-etiqueta-red">Internet</div>
+                                <div class="tcpip-router">
+                                    <div class="tcpip-etiqueta-router">Router</div>
+                                    <div class="tcpip-capas-router">
+                                        <div class="tcpip-capa-router tcpip-capa-internet-router">Internet (IP)</div>
+                                        <div class="tcpip-capa-router tcpip-capa-acceso-router">Acceso a la Red</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tcpip-dispositivo tcpip-receptor">
+                                <div class="tcpip-etiqueta-dispositivo">Receptor</div>
+                                <div class="tcpip-capas-dispositivo">
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-aplicacion-disp">Aplicación</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-transporte-disp">Transporte (TCP)</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-internet-disp">Internet (IP)</div>
+                                    <div class="tcpip-capa-dispositivo tcpip-capa-acceso-disp">Acceso a la Red</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tcpip-flujo-datos">
+                            <div class="tcpip-flecha-datos tcpip-flecha-datos-ida"></div>
+                            <div class="tcpip-flecha-datos tcpip-flecha-datos-vuelta"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el modelo TCP/IP - usando clases únicas */
+        .tcpip-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Historia del modelo */
+        .tcpip-historia {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .tcpip-linea-tiempo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .tcpip-linea-tiempo::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #d9d9d9;
+            transform: translateY(-50%);
+        }
+        
+        .tcpip-evento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            min-width: 100px;
+            max-width: 150px;
+        }
+        
+        .tcpip-evento::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border: 2px solid #1890ff;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .tcpip-fecha {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .tcpip-descripcion-evento {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .tcpip-creadores {
+            margin-top: 30px;
+        }
+        
+        .tcpip-titulo-creadores {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .tcpip-perfiles {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .tcpip-perfil {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+        
+        .tcpip-foto-perfil {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f0f5ff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #1890ff;
+        }
+        
+        .tcpip-foto-cerf::before {
+            content: "VC";
+        }
+        
+        .tcpip-foto-kahn::before {
+            content: "RK";
+        }
+        
+        .tcpip-nombre-perfil {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .tcpip-descripcion-perfil {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Estructura del modelo */
+        .tcpip-estructura {
+            margin: 25px 0;
+        }
+        
+        .tcpip-descripcion-estructura {
+            margin-bottom: 20px;
+        }
+        
+        .tcpip-comparativa-osi {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .tcpip-tabla-comparativa {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .tcpip-columna-osi, .tcpip-columna-tcpip {
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .tcpip-cabecera-columna {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .tcpip-capa-osi, .tcpip-capa-tcpip {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-capa-aplicacion-osi {
+            background-color: #f0f5ff;
+            height: 60px;
+        }
+        
+        .tcpip-capa-presentacion-osi {
+            background-color: #e6f7ff;
+            height: 60px;
+        }
+        
+        .tcpip-capa-sesion-osi {
+            background-color: #e6fffb;
+            height: 60px;
+        }
+        
+        .tcpip-capa-transporte-osi {
+            background-color: #f6ffed;
+            height: 60px;
+        }
+        
+        .tcpip-capa-red-osi {
+            background-color: #fffbe6;
+            height: 60px;
+        }
+        
+        .tcpip-capa-enlace-osi {
+            background-color: #fff2e8;
+            height: 60px;
+        }
+        
+        .tcpip-capa-fisica-osi {
+            background-color: #fff1f0;
+            height: 60px;
+        }
+        
+        .tcpip-capa-aplicacion-tcpip {
+            background-color: #f0f5ff;
+            height: 180px;
+        }
+        
+        .tcpip-capa-transporte-tcpip {
+            background-color: #f6ffed;
+            height: 60px;
+        }
+        
+        .tcpip-capa-internet-tcpip {
+            background-color: #fffbe6;
+            height: 60px;
+        }
+        
+        .tcpip-capa-acceso-tcpip {
+            background-color: #fff1f0;
+            height: 120px;
+        }
+        
+        .tcpip-numero-capa {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .tcpip-nombre-capa {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .tcpip-nombre-ingles {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .tcpip-flechas-comparativa {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            height: 100%;
+        }
+        
+        .tcpip-flecha {
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .tcpip-flecha::before, .tcpip-flecha::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            transform: translateY(-50%);
+        }
+        
+        .tcpip-flecha::before {
+            left: 0;
+            border-right: 8px solid #1890ff;
+        }
+        
+        .tcpip-flecha::after {
+            right: 0;
+            border-left: 8px solid #1890ff;
+        }
+        
+        .tcpip-flecha-aplicacion {
+            width: 60px;
+            margin-top: 90px;
+        }
+        
+        .tcpip-flecha-transporte {
+            width: 60px;
+            margin-top: 30px;
+        }
+        
+        .tcpip-flecha-internet {
+            width: 60px;
+            margin-top: 30px;
+        }
+        
+        .tcpip-flecha-acceso {
+            width: 60px;
+            margin-top: 60px;
+        }
+        
+        .tcpip-modelo-5-capas {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-titulo-modelo {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .tcpip-capas-5 {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .tcpip-capa-5 {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-capa-aplicacion-5 {
+            background-color: #f0f5ff;
+        }
+        
+        .tcpip-capa-transporte-5 {
+            background-color: #f6ffed;
+        }
+        
+        .tcpip-capa-internet-5 {
+            background-color: #fffbe6;
+        }
+        
+        .tcpip-capa-enlace-5 {
+            background-color: #fff2e8;
+        }
+        
+        .tcpip-capa-fisica-5 {
+            background-color: #fff1f0;
+        }
+        
+        .tcpip-protocolos-capa {
+            margin-left: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Detalle de capas */
+        .tcpip-capas-detalle {
+            margin: 25px 0;
+        }
+        
+        .tcpip-capa-detalle {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-titulo-capa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.1rem;
+        }
+        
+        .tcpip-descripcion-capa-detalle {
+            margin-bottom: 20px;
+        }
+        
+        .tcpip-protocolos-capa-detalle {
+            margin: 20px 0;
+        }
+        
+        .tcpip-titulo-protocolos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .tcpip-lista-protocolos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .tcpip-protocolo {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-icono-protocolo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .tcpip-icono-http {
+            background-color: #1890ff;
+        }
+        
+        .tcpip-icono-http::before {
+            content: "H";
+        }
+        
+        .tcpip-icono-ftp {
+            background-color: #52c41a;
+        }
+        
+        .tcpip-icono-ftp::before {
+            content: "F";
+        }
+        
+        .tcpip-icono-dns {
+            background-color: #faad14;
+        }
+        
+        .tcpip-icono-dns::before {
+            content: "D";
+        }
+        
+        .tcpip-icono-smtp {
+            background-color: #f5222d;
+        }
+        
+        .tcpip-icono-smtp::before {
+            content: "S";
+        }
+        
+        .tcpip-icono-snmp {
+            background-color: #722ed1;
+        }
+        
+        .tcpip-icono-snmp::before {
+            content: "S";
+        }
+        
+        .tcpip-icono-telnet {
+            background-color: #eb2f96;
+        }
+        
+        .tcpip-icono-telnet::before {
+            content: "T";
+        }
+        
+        .tcpip-icono-tcp {
+            background-color: #1890ff;
+        }
+        
+        .tcpip-icono-tcp::before {
+            content: "T";
+        }
+        
+        .tcpip-icono-udp {
+            background-color: #52c41a;
+        }
+        
+        .tcpip-icono-udp::before {
+            content: "U";
+        }
+        
+        .tcpip-icono-ip {
+            background-color: #faad14;
+        }
+        
+        .tcpip-icono-ip::before {
+            content: "IP";
+        }
+        
+        .tcpip-icono-icmp {
+            background-color: #f5222d;
+        }
+        
+        .tcpip-icono-icmp::before {
+            content: "IC";
+        }
+        
+        .tcpip-icono-gre {
+            background-color: #722ed1;
+        }
+        
+        .tcpip-icono-gre::before {
+            content: "G";
+        }
+        
+        .tcpip-icono-ethernet {
+            background-color: #1890ff;
+        }
+        
+        .tcpip-icono-ethernet::before {
+            content: "E";
+        }
+        
+        .tcpip-icono-ppp {
+            background-color: #52c41a;
+        }
+        
+        .tcpip-icono-ppp::before {
+            content: "P";
+        }
+        
+        .tcpip-icono-arp {
+            background-color: #faad14;
+        }
+        
+        .tcpip-icono-arp::before {
+            content: "A";
+        }
+        
+        .tcpip-contenido-protocolo {
+            flex: 1;
+        }
+        
+        .tcpip-nombre-protocolo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .tcpip-descripcion-protocolo {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .tcpip-caracteristicas-protocolo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tcpip-caracteristica {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .tcpip-icono-caracteristica {
+            width: 20px;
+            height: 20px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .tcpip-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .tcpip-texto-caracteristica {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .tcpip-versiones-protocolo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .tcpip-version {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .tcpip-nombre-version {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #1890ff;
+        }
+        
+        .tcpip-descripcion-version {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .tcpip-medios-transmision {
+            margin: 20px 0;
+        }
+        
+        .tcpip-titulo-medios {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .tcpip-lista-medios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .tcpip-medio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+        
+        .tcpip-icono-medio {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: bold;
+            background-color: #1890ff;
+        }
+        
+        .tcpip-icono-cable-cobre::before {
+            content: "Cu";
+        }
+        
+        .tcpip-icono-fibra-optica::before {
+            content: "FO";
+        }
+        
+        .tcpip-icono-inalambrico::before {
+            content: "Wi";
+        }
+        
+        .tcpip-nombre-medio {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Funcionamiento de TCP/IP */
+        .tcpip-protocolos-principales {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .tcpip-protocolo-principal {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-icono-protocolo-principal {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .tcpip-icono-tcp-principal {
+            background-color: #1890ff;
+        }
+        
+        .tcpip-icono-tcp-principal::before {
+            content: "TCP";
+        }
+        
+        .tcpip-icono-ip-principal {
+            background-color: #faad14;
+        }
+        
+        .tcpip-icono-ip-principal::before {
+            content: "IP";
+        }
+        
+        .tcpip-contenido-protocolo-principal {
+            flex: 1;
+        }
+        
+        .tcpip-nombre-protocolo-principal {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.2rem;
+        }
+        
+        .tcpip-descripcion-protocolo-principal {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .tcpip-diagrama-funcionamiento {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-titulo-diagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .tcpip-proceso-comunicacion {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .tcpip-dispositivo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+        
+        .tcpip-etiqueta-dispositivo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .tcpip-capas-dispositivo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+        }
+        
+        .tcpip-capa-dispositivo {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-capa-aplicacion-disp {
+            background-color: #f0f5ff;
+        }
+        
+        .tcpip-capa-transporte-disp {
+            background-color: #f6ffed;
+        }
+        
+        .tcpip-capa-internet-disp {
+            background-color: #fffbe6;
+        }
+        
+        .tcpip-capa-acceso-disp {
+            background-color: #fff1f0;
+        }
+        
+        .tcpip-red {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tcpip-etiqueta-red {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .tcpip-router {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-etiqueta-router {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .tcpip-capas-router {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+        }
+        
+        .tcpip-capa-router {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tcpip-capa-internet-router {
+            background-color: #fffbe6;
+        }
+        
+        .tcpip-capa-acceso-router {
+            background-color: #fff1f0;
+        }
+        
+        .tcpip-flujo-datos {
+            position: relative;
+            height: 40px;
+        }
+        
+        .tcpip-flecha-datos {
+            position: absolute;
+            height: 2px;
+            background-color: #1890ff;
+            width: 100%;
+        }
+        
+        .tcpip-flecha-datos::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .tcpip-flecha-datos-ida {
+            top: 10px;
+        }
+        
+        .tcpip-flecha-datos-ida::before {
+            right: 0;
+            border-left: 8px solid #1890ff;
+        }
+        
+        .tcpip-flecha-datos-vuelta {
+            bottom: 10px;
+            transform: rotate(180deg);
+        }
+        
+        .tcpip-flecha-datos-vuelta::before {
+            right: 0;
+            border-left: 8px solid #1890ff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tcpip-linea-tiempo {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .tcpip-linea-tiempo::before {
+                width: 2px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+            
+            .tcpip-perfiles {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tcpip-tabla-comparativa {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .tcpip-flechas-comparativa {
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+            }
+            
+            .tcpip-flecha {
+                width: 100%;
+                height: 2px;
+                margin: 0 !important;
+            }
+            
+            .tcpip-proceso-comunicacion {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tcpip-dispositivo, .tcpip-red {
+                max-width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>
+

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Locales</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4100101001">
+            <h2>1.1 TIPOS DE REDES</h2>
+            <p>No todas las redes de comunicaciones tienen el mismo propósito ni las mismas características.</p>
+            <p>Tradicionalmente, separamos las redes en estos tres tipos:</p>
+            
+            <div class="network-types">
+                <div class="network-card">
+                    <div class="network-icon">🏠</div>
+                    <h3>Redes LAN</h3>
+                    <p>Las redes LAN o Local Area Network (Redes de Área Local), objeto principal de este tema, pueden ser cableadas o inalámbricas y suelen estar limitadas por el medio físico en cuestión, ya sea el cableado doméstico, corporativo o de edificio, o la red inalámbrica de conexión.</p>
+                </div>
+                
+                <div class="network-card">
+                    <div class="network-icon">🏙️</div>
+                    <h3>Redes MAN</h3>
+                    <p>Las redes MAN o Metropolitan Area Network (Red de Área Metropolitana) cubren una distancia mayor que la de una LAN, pero menor que la de una WAN. Sirven para interconectar elementos que residen en puntos distintos de la misma ciudad con redes de alta velocidad. Un ejemplo de MAN es el de un ISP o Proveedor de Acceso a Internet que provee de servicios de fibra o DSL al abonado final en un ámbito metropolitano.</p>
+                </div>
+                
+                <div class="network-card">
+                    <div class="network-icon">🌐</div>
+                    <h3>Redes WAN</h3>
+                    <p>Las redes WAN o Wide Area Network (Redes de Área Extensa) cubren grandes distancias, de ámbito hasta mundial. Sirven para interconectar a distintos usuarios que están muy dispersos, y habitualmente interconectan distintas redes de menor envergadura. Un ejemplo de red WAN es Internet.</p>
+                </div>
+            </div>
+            
+            <div class="network-diagram">
+                <h4>Interconexión de redes</h4>
+                <div class="diagram">
+                    <div class="diagram-home">
+                        <span>Red LAN doméstica</span>
+                    </div>
+                    <div class="diagram-arrow">→</div>
+                    <div class="diagram-wan">
+                        <span>WAN (Internet)</span>
+                    </div>
+                    <div class="diagram-arrow">→</div>
+                    <div class="diagram-corporate">
+                        <span>LAN corporativa</span>
+                    </div>
+                </div>
+                <p class="diagram-caption">Es común que una comunicación atraviese varias redes, por ejemplo, el tráfico de una persona conectada mediante VPN desde casa a su empresa atraviesa en primer lugar la red local doméstica, posteriormente una WAN (Internet) y finalmente la LAN corporativa hasta alcanzar el terminador VPN corporativo, mientras que a nivel lógico el usuario se encuentra trabajando directamente a través del túnel en su misma LAN corporativa. Esto se consigue gracias a la progresiva encapsulación de tráfico.</p>
+            </div>
+        </span>
+        
+        <span id="4100101002">
+            <h3>1.1.1. CARACTERÍSTICAS DE UNA RED LOCAL</h3>
+            <p>Las redes de área local, como hemos visto, están habitualmente limitadas a una extensión relativamente pequeña, como puede ser una vivienda o un edificio. Dentro de ese ámbito, es común su utilización para la compartición de información entre los distintos terminales así como para el acceso a los dispositivos como pueden ser escáneres o impresoras.</p>
+            
+            <div class="lan-features">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Alta velocidad</h4>
+                    <p>Sus velocidades son muy altas, pudiendo alcanzar a día de hoy hasta 10 Gbit/s</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h4>Baja tasa de fallos</h4>
+                    <p>El ámbito controlado permite una tasa de fallos muy baja</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Entorno seguro</h4>
+                    <p>Se considera un ámbito seguro en el que se pueden presentar múltiples servicios al usuario final</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <h4>Almacenamiento compartido</h4>
+                    <p>Uso de infraestructura común de almacenamiento (NAS) que facilita el intercambio de datos</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h4>Trabajo colaborativo</h4>
+                    <p>Facilita el trabajo colaborativo en empresas, racionalizando el gasto y reduciendo desplazamientos</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p>Es común, en organizaciones que tienen distintas sedes, que existan distintas LANs que se interconexionan a través de una MAN o WAN, utilizando tecnologías VPN para la extensión del direccionamiento IP de cada una de ellas, de modo que se comporten como una única entidad.</p>
+            </div>
+        </span>
+        
+        <span id="4100101003">
+            <h2>1.1.2. TOPOLOGÍA DE REDES LOCALES</h2>
+            
+            <div class="topology-container">
+                <div class="topology-card">
+                    <h3>Topología en bus</h3>
+                    <div class="topology-diagram bus-topology">
+                        <div class="bus-line"></div>
+                        <div class="bus-node node1"></div>
+                        <div class="bus-node node2"></div>
+                        <div class="bus-node node3"></div>
+                        <div class="bus-node node4"></div>
+                        <div class="bus-terminator left"></div>
+                        <div class="bus-terminator right"></div>
+                    </div>
+                    <div class="topology-description">
+                        <p>También denominada topología lineal, consiste en tener un único canal compartido por todos los dispositivos. La ruptura del cable en cualquiera de sus puntos provocará una desconexión de parte de los hosts.</p>
+                        <ul class="topology-features">
+                            <li>Todos los dispositivos tienen acceso a las señales que remitan los demás</li>
+                            <li>Puede provocar problemas de saturación y colisiones</li>
+                            <li>Puede basarse en cables dobles para comunicación simplex, o cable dual para comunicación dúplex</li>
+                            <li>Es común la utilización de un terminador en los extremos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topology-card">
+                    <h3>Topología en anillo</h3>
+                    <div class="topology-diagram ring-topology">
+                        <div class="ring-circle"></div>
+                        <div class="ring-node node1"></div>
+                        <div class="ring-node node2"></div>
+                        <div class="ring-node node3"></div>
+                        <div class="ring-node node4"></div>
+                        <div class="ring-arrow"></div>
+                    </div>
+                    <div class="topology-description">
+                        <p>Tiene una estructura circular en la que las señales viajan en un solo sentido, y sin existir un principio ni final en la red.</p>
+                        <ul class="topology-features">
+                            <li>La adición de nuevos nodos es compleja</li>
+                            <li>Necesidad de configurar repetidores y cableado adicional</li>
+                            <li>Los nodos se encargan de reinsertar la información en la red si es necesario</li>
+                            <li>Una rotura de la red en cualquier punto implica el fallo del anillo completo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topology-card">
+                    <h3>Topología en estrella</h3>
+                    <div class="topology-diagram star-topology">
+                        <div class="star-center"></div>
+                        <div class="star-node node1"></div>
+                        <div class="star-node node2"></div>
+                        <div class="star-node node3"></div>
+                        <div class="star-node node4"></div>
+                        <div class="star-node node5"></div>
+                        <div class="star-line line1"></div>
+                        <div class="star-line line2"></div>
+                        <div class="star-line line3"></div>
+                        <div class="star-line line4"></div>
+                        <div class="star-line line5"></div>
+                    </div>
+                    <div class="topology-description">
+                        <p>En este tipo de red todas las estaciones están conectadas a un único punto, que puede ser un repetidor o hub, de modo que no hay conexión directa entre los distintos nodos.</p>
+                        <ul class="topology-features">
+                            <li>Reduce el tráfico de información en los distintos segmentos</li>
+                            <li>Permite localizar y solventar rápidamente cualquier fallo</li>
+                            <li>Si el elemento central falla, se produce el fallo de toda la red</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topology-card">
+                    <h3>Topología en árbol</h3>
+                    <div class="topology-diagram tree-topology">
+                        <div class="tree-root"></div>
+                        <div class="tree-branch branch1"></div>
+                        <div class="tree-branch branch2"></div>
+                        <div class="tree-node node1"></div>
+                        <div class="tree-node node2"></div>
+                        <div class="tree-node node3"></div>
+                        <div class="tree-node node4"></div>
+                        <div class="tree-node node5"></div>
+                        <div class="tree-node node6"></div>
+                    </div>
+                    <div class="topology-description">
+                        <p>Este tipo de red es similar a un conjunto de redes en estrella interconectadas, pero con distintos elementos de interconexión.</p>
+                        <ul class="topology-features">
+                            <li>Permite una organización jerárquica de la red</li>
+                            <li>Si cae uno de los segmentos principales puede caer prácticamente gran parte de la red</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topology-card">
+                    <h3>Topología en malla</h3>
+                    <div class="topology-diagram mesh-topology">
+                        <div class="mesh-node node1"></div>
+                        <div class="mesh-node node2"></div>
+                        <div class="mesh-node node3"></div>
+                        <div class="mesh-node node4"></div>
+                        <div class="mesh-line line1"></div>
+                        <div class="mesh-line line2"></div>
+                        <div class="mesh-line line3"></div>
+                        <div class="mesh-line line4"></div>
+                        <div class="mesh-line line5"></div>
+                        <div class="mesh-line line6"></div>
+                    </div>
+                    <div class="topology-description">
+                        <p>En este tipo de red, todos los nodos se encuentran conectados con el resto de nodos.</p>
+                        <ul class="topology-features">
+                            <li>Existen distintas rutas para llevar la información entre cualesquiera dos puntos</li>
+                            <li>Se minimizan las pérdidas de información y desconexiones</li>
+                            <li>Gran redundancia</li>
+                            <li>No existe un nodo central que pueda provocar un fallo</li>
+                            <li>Es cara de mantener y requiere mucho cableado</li>
+                            <li>La instalación de nuevos dispositivos es muy costosa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p>Además, pueden existir redes mixtas, que incorporen elementos de todos los tipos anteriores. Una red puede tener una topología física pero comportarse como una red distinta a nivel lógico, dependiendo del modo en que se permita el tráfico a través de la red.</p>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .teoria {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        
+        h4 {
+            color: #3498db;
+        }
+        
+        span {
+            display: block;
+            margin-bottom: 30px;
+        }
+        
+        /* Tarjetas de tipos de redes */
+        .network-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .network-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .network-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .network-icon {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        /* Diagrama de interconexión */
+        .network-diagram {
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .diagram > div {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .diagram-home, .diagram-corporate, .diagram-wan {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+        
+        .diagram-home {
+            border-left: 4px solid #27ae60;
+        }
+        
+        .diagram-wan {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .diagram-corporate {
+            border-left: 4px solid #3498db;
+        }
+        
+        .diagram-arrow {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+        }
+        
+        .diagram-caption {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        /* Características de LAN */
+        .lan-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .feature-item h4 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        /* Caja de información */
+        .info-box {
+            background-color: #eaf7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Topologías */
+        .topology-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .topology-card {
+            flex: 1 1 45%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .topology-card h3 {
+            text-align: center;
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .topology-diagram {
+            height: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .topology-features {
+            padding-left: 20px;
+        }
+        
+        .topology-features li {
+            margin-bottom: 5px;
+        }
+        
+        /* Bus Topology */
+        .bus-topology {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bus-line {
+            position: absolute;
+            width: 80%;
+            height: 6px;
+            background-color: #3498db;
+            top: 50%;
+            left: 10%;
+        }
+        
+        .bus-node {
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 10px);
+        }
+        
+        .bus-topology .node1 { left: 20%; }
+        .bus-topology .node2 { left: 40%; }
+        .bus-topology .node3 { left: 60%; }
+        .bus-topology .node4 { left: 80%; }
+        
+        .bus-terminator {
+            width: 10px;
+            height: 20px;
+            background-color: #e74c3c;
+            position: absolute;
+            top: calc(50% - 10px);
+        }
+        
+        .bus-terminator.left { left: 10%; }
+        .bus-terminator.right { left: 90%; }
+        
+        /* Ring Topology */
+        .ring-topology {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ring-circle {
+            width: 150px;
+            height: 150px;
+            border: 6px solid #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+            left: calc(50% - 75px);
+        }
+        
+        .ring-node {
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 10px);
+        }
+        
+        .ring-topology .node1 { top: 25px; }
+        .ring-topology .node2 { top: 175px; }
+        .ring-topology .node3 { left: calc(50% - 85px); top: 100px; }
+        .ring-topology .node4 { left: calc(50% + 65px); top: 100px; }
+        
+        .ring-arrow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-top: 6px solid #e74c3c;
+            border-right: 6px solid #e74c3c;
+            transform: rotate(45deg);
+            top: 90px;
+            right: 60px;
+        }
+        
+        /* Star Topology */
+        .star-topology {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .star-center {
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 15px);
+        }
+        
+        .star-node {
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .star-line {
+            position: absolute;
+            background-color: #3498db;
+            height: 3px;
+        }
+        
+        .star-topology .node1 { top: 30px; left: calc(50% - 10px); }
+        .star-topology .node2 { top: 170px; left: calc(50% - 10px); }
+        .star-topology .node3 { top: calc(50% - 10px); left: 30px; }
+        .star-topology .node4 { top: calc(50% - 10px); left: calc(100% - 50px); }
+        .star-topology .node5 { top: 60px; left: calc(75% - 10px); }
+        
+        .star-topology .line1 {
+            width: 3px;
+            height: 70px;
+            top: 45px;
+            left: calc(50% - 1.5px);
+        }
+        
+        .star-topology .line2 {
+            width: 3px;
+            height: 70px;
+            top: 115px;
+            left: calc(50% - 1.5px);
+        }
+        
+        .star-topology .line3 {
+            width: 70px;
+            top: calc(50% - 1.5px);
+            left: 45px;
+        }
+        
+        .star-topology .line4 {
+            width: 70px;
+            top: calc(50% - 1.5px);
+            left: calc(50% + 15px);
+        }
+        
+        .star-topology .line5 {
+            width: 60px;
+            height: 3px;
+            transform: rotate(-45deg);
+            top: 90px;
+            left: calc(60% - 10px);
+        }
+        
+        /* Tree Topology */
+        .tree-topology {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tree-root {
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: 30px;
+            left: calc(50% - 15px);
+        }
+        
+        .tree-branch {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #27ae60;
+            border-radius: 50%;
+        }
+        
+        .tree-topology .branch1 { top: 90px; left: calc(35% - 12.5px); }
+        .tree-topology .branch2 { top: 90px; left: calc(65% - 12.5px); }
+        
+        .tree-node {
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .tree-topology .node1 { top: 150px; left: calc(20% - 10px); }
+        .tree-topology .node2 { top: 150px; left: calc(35% - 10px); }
+        .tree-topology .node3 { top: 150px; left: calc(50% - 10px); }
+        .tree-topology .node4 { top: 150px; left: calc(65% - 10px); }
+        .tree-topology .node5 { top: 150px; left: calc(80% - 10px); }
+        
+        /* Mesh Topology */
+        .mesh-topology {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mesh-node {
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .mesh-topology .node1 { top: 50px; left: calc(30% - 10px); }
+        .mesh-topology .node2 { top: 50px; left: calc(70% - 10px); }
+        .mesh-topology .node3 { top: 150px; left: calc(30% - 10px); }
+        .mesh-topology .node4 { top: 150px; left: calc(70% - 10px); }
+        
+        .mesh-line {
+            position: absolute;
+            background-color: #3498db;
+            height: 2px;
+        }
+        
+        .mesh-line.line1 {
+            width: 40%;
+            top: 50px;
+            left: 30%;
+        }
+        
+        .mesh-line.line2 {
+            width: 2px;
+            height: 100px;
+            top: 50px;
+            left: calc(30% - 1px);
+        }
+        
+        .mesh-line.line3 {
+            width: 2px;
+            height: 100px;
+            top: 50px;
+            left: calc(70% - 1px);
+        }
+        
+        .mesh-line.line4 {
+            width: 40%;
+            top: 150px;
+            left: 30%;
+        }
+        
+        .mesh-line.line5 {
+            width: 40%;
+            height: 2px;
+            transform: rotate(-45deg);
+            top: 100px;
+            left: 30%;
+        }
+        
+        .mesh-line.line6 {
+            width: 40%;
+            height: 2px;
+            transform: rotate(45deg);
+            top: 100px;
+            left: 30%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .network-types, .lan-features, .topology-container {
+                flex-direction: column;
+            }
+            
+            .diagram {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .diagram-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .topology-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</body>
+</html>

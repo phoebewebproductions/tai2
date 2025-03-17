@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominios de Colisión y Difusión & Dispositivos de Seguridad</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4100401001">
+            <h2>4.1 DOMINIOS DE COLISIÓN Y DE DIFUSIÓN</h2>
+            
+            <div class="intro-section">
+                <p>Cuando los nodos se comunican, introducen información a la red con destino el resto de nodos (ya sea uno o varios de éstos). Esta información se mueve en el ámbito que permitan los dispositivos de interconexión, y sirve para definir dos conceptos:</p>
+                
+                <div class="domains-comparison">
+                    <div class="domain-card collision">
+                        <div class="domain-header">
+                            <div class="domain-icon collision-icon"></div>
+                            <h3>Dominio de Colisión</h3>
+                        </div>
+                        <div class="domain-content">
+                            <p>El dominio de colisión es aquella ubicación de la red donde las señales que emite un nodo pueden coincidir en el medio de transmisión con las enviadas por otro nodo. En este caso, se dice que se produce una colisión debido a que las señales interfieren cada una con la otra y la comunicación no puede llevarse a cabo adecuadamente.</p>
+                            
+                            <div class="domain-illustration">
+                                <div class="collision-diagram">
+                                    <div class="network-medium"></div>
+                                    <div class="device device1">
+                                        <div class="device-label">Nodo A</div>
+                                    </div>
+                                    <div class="device device2">
+                                        <div class="device-label">Nodo B</div>
+                                    </div>
+                                    <div class="transmission transmission1"></div>
+                                    <div class="transmission transmission2"></div>
+                                    <div class="collision-point">
+                                        <div class="collision-star"></div>
+                                    </div>
+                                </div>
+                                <div class="illustration-caption">Cuando dos nodos transmiten simultáneamente en un mismo dominio de colisión, se produce una interferencia que corrompe los datos.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card broadcast">
+                        <div class="domain-header">
+                            <div class="domain-icon broadcast-icon"></div>
+                            <h3>Dominio de Difusión</h3>
+                        </div>
+                        <div class="domain-content">
+                            <p>Son ubicaciones de red que se separan de acuerdo a las direcciones de los dispositivos que se encuentran conectados a ella. Habitualmente un dominio de difusión se considera a nivel 3 (nivel de red). Los distintos dispositivos de interconexión que se conectan a una red son los que mantienen separados los distintos dominios de difusión.</p>
+                            
+                            <div class="domain-illustration">
+                                <div class="broadcast-diagram">
+                                    <div class="broadcast-domain domain1">
+                                        <div class="domain-label">Dominio de Difusión 1</div>
+                                        <div class="device device1">
+                                            <div class="device-label">192.168.1.10</div>
+                                        </div>
+                                        <div class="device device2">
+                                            <div class="device-label">192.168.1.20</div>
+                                        </div>
+                                        <div class="broadcast-packet">
+                                            <div class="packet-label">Broadcast</div>
+                                        </div>
+                                    </div>
+                                    <div class="router-device">
+                                        <div class="router-label">Router</div>
+                                    </div>
+                                    <div class="broadcast-domain domain2">
+                                        <div class="domain-label">Dominio de Difusión 2</div>
+                                        <div class="device device3">
+                                            <div class="device-label">192.168.2.10</div>
+                                        </div>
+                                        <div class="device device4">
+                                            <div class="device-label">192.168.2.20</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="illustration-caption">Los mensajes de difusión (broadcast) se limitan a un dominio de difusión y no cruzan los routers.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Algunos dispositivos, por su funcionamiento, sirven para separar dominios de colisión, al reducir el tráfico de red en cada uno de los segmentos conectados a ellos, por lo que además de interconexionar segmentos esto permite mejorar el rendimiento de los segmentos conectados.</p>
+                
+                <p>Un switch mantiene separados los dominios de colisión (al remitir las tramas únicamente en su ubicación de destino) pero sin embargo al trabajar a nivel 2 o de enlace de datos del modelo OSI, no separa los dominios de difusión.</p>
+            </div>
+            
+            <div class="devices-domains-section">
+                <h3>Efecto de los dispositivos de interconexión en los dominios</h3>
+                
+                <div class="devices-domains-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th>Nivel OSI</th>
+                                <th>Separa dominios de colisión</th>
+                                <th>Separa dominios de difusión</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Repetidor</td>
+                                <td>Nivel 1 (Físico)</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                            </tr>
+                            <tr>
+                                <td>Hub</td>
+                                <td>Nivel 1 (Físico)</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                            </tr>
+                            <tr>
+                                <td>Bridge</td>
+                                <td>Nivel 2 (Enlace)</td>
+                                <td><span class="yes-icon">✓</span> Sí</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                            </tr>
+                            <tr>
+                                <td>Switch</td>
+                                <td>Nivel 2 (Enlace)</td>
+                                <td><span class="yes-icon">✓</span> Sí</td>
+                                <td><span class="no-icon">✗</span> No</td>
+                            </tr>
+                            <tr>
+                                <td>Router</td>
+                                <td>Nivel 3 (Red)</td>
+                                <td><span class="yes-icon">✓</span> Sí</td>
+                                <td><span class="yes-icon">✓</span> Sí</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="domains-visualization">
+                    <h4>Visualización de dominios en diferentes topologías</h4>
+                    
+                    <div class="topology-comparison">
+                        <div class="topology hub-topology">
+                            <h5>Red con Hub</h5>
+                            <div class="topology-diagram">
+                                <div class="hub-device">
+                                    <div class="device-label">Hub</div>
+                                </div>
+                                <div class="connected-devices">
+                                    <div class="device device1">
+                                        <div class="device-label">PC 1</div>
+                                    </div>
+                                    <div class="device device2">
+                                        <div class="device-label">PC 2</div>
+                                    </div>
+                                    <div class="device device3">
+                                        <div class="device-label">PC 3</div>
+                                    </div>
+                                    <div class="device device4">
+                                        <div class="device-label">PC 4</div>
+                                    </div>
+                                </div>
+                                <div class="domain-overlay collision-overlay">
+                                    <div class="overlay-label">1 Dominio de Colisión</div>
+                                </div>
+                                <div class="domain-overlay broadcast-overlay">
+                                    <div class="overlay-label">1 Dominio de Difusión</div>
+                                </div>
+                            </div>
+                            <div class="topology-description">
+                                <p>En una red con hub, todos los dispositivos comparten el mismo dominio de colisión y el mismo dominio de difusión.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="topology switch-topology">
+                            <h5>Red con Switch</h5>
+                            <div class="topology-diagram">
+                                <div class="switch-device">
+                                    <div class="device-label">Switch</div>
+                                </div>
+                                <div class="connected-devices">
+                                    <div class="device device1">
+                                        <div class="device-label">PC 1</div>
+                                        <div class="collision-domain cd1"></div>
+                                    </div>
+                                    <div class="device device2">
+                                        <div class="device-label">PC 2</div>
+                                        <div class="collision-domain cd2"></div>
+                                    </div>
+                                    <div class="device device3">
+                                        <div class="device-label">PC 3</div>
+                                        <div class="collision-domain cd3"></div>
+                                    </div>
+                                    <div class="device device4">
+                                        <div class="device-label">PC 4</div>
+                                        <div class="collision-domain cd4"></div>
+                                    </div>
+                                </div>
+                                <div class="domain-overlay broadcast-overlay">
+                                    <div class="overlay-label">1 Dominio de Difusión</div>
+                                </div>
+                            </div>
+                            <div class="topology-description">
+                                <p>En una red con switch, cada puerto representa un dominio de colisión separado, pero todos los dispositivos siguen compartiendo el mismo dominio de difusión.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="topology router-topology">
+                            <h5>Red con Router</h5>
+                            <div class="topology-diagram">
+                                <div class="router-device">
+                                    <div class="device-label">Router</div>
+                                </div>
+                                <div class="connected-networks">
+                                    <div class="network network1">
+                                        <div class="network-label">Red 192.168.1.0/24</div>
+                                        <div class="device device1">
+                                            <div class="device-label">PC 1</div>
+                                        </div>
+                                        <div class="device device2">
+                                            <div class="device-label">PC 2</div>
+                                        </div>
+                                        <div class="broadcast-domain bd1"></div>
+                                    </div>
+                                    <div class="network network2">
+                                        <div class="network-label">Red 192.168.2.0/24</div>
+                                        <div class="device device3">
+                                            <div class="device-label">PC 3</div>
+                                        </div>
+                                        <div class="device device4">
+                                            <div class="device-label">PC 4</div>
+                                        </div>
+                                        <div class="broadcast-domain bd2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="topology-description">
+                                <p>En una red con router, cada interfaz del router separa tanto dominios de colisión como dominios de difusión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="4100401002">
+            <h2>4.7. DISPOSITIVOS DE SEGURIDAD EN REDES LOCALES</h2>
+            
+            <div class="security-intro">
+                <p>Existen diversos dispositivos que podemos encontrar formando parte de las redes locales y que sirven para monitorizar o actuar ante situaciones potencialmente peligrosas, buscando actividades o configuraciones que puedan ser maliciosas, de modo que se mejore la seguridad y resiliencia de la red.</p>
+                
+                <p>Los dispositivos principales de este tipo son:</p>
+            </div>
+            
+            <div class="security-devices">
+                <div class="security-device-card">
+                    <div class="device-header">
+                        <div class="device-icon ids-icon"></div>
+                        <h3>Sistema de Detección de Intrusos (IDS)</h3>
+                    </div>
+                    <div class="device-content">
+                        <p>Se trata de un dispositivo que realiza supervisión de la actividad de la red, generando alertas a los administradores en caso de cumplimiento de alguna de las reglas definidas. Sólo detectan alertas de posibles intrusiones, pero no tratan de mitigar el problema.</p>
+                        
+                        <div class="device-illustration">
+                            <div class="ids-diagram">
+                                <div class="network-segment">
+                                    <div class="device server">
+                                        <div class="device-label">Servidor</div>
+                                    </div>
+                                    <div class="device client">
+                                        <div class="device-label">Cliente</div>
+                                    </div>
+                                    <div class="traffic-flow">
+                                        <div class="traffic-packet normal"></div>
+                                        <div class="traffic-packet malicious"></div>
+                                    </div>
+                                </div>
+                                <div class="ids-device">
+                                    <div class="device-label">IDS</div>
+                                    <div class="monitoring-line"></div>
+                                </div>
+                                <div class="admin-console">
+                                    <div class="device-label">Consola de Administración</div>
+                                    <div class="alert-message">
+                                        <div class="alert-icon"></div>
+                                        <div class="alert-text">¡Alerta! Tráfico sospechoso detectado</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="illustration-caption">El IDS monitoriza el tráfico y genera alertas cuando detecta actividad sospechosa, pero no bloquea el tráfico malicioso.</div>
+                        </div>
+                        
+                        <div class="device-features">
+                            <div class="feature">
+                                <div class="feature-icon monitor"></div>
+                                <div class="feature-text">Monitoriza el tráfico</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon alert"></div>
+                                <div class="feature-text">Genera alertas</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon passive"></div>
+                                <div class="feature-text">Modo pasivo</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon no-block"></div>
+                                <div class="feature-text">No bloquea tráfico</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-device-card">
+                    <div class="device-header">
+                        <div class="device-icon ips-icon"></div>
+                        <h3>Sistema de Prevención de Intrusos (IPS)</h3>
+                    </div>
+                    <div class="device-content">
+                        <p>Protege a los sistemas ante distintos ataques o intrusiones. Su funcionamiento consiste en el análisis de anomalías, patrones o comportamientos sospechosos, y en caso de cumplimiento de las condiciones necesarias, el IPS puede proceder a la desconexión de la conexión o el descarte de los datos sospechosos.</p>
+                        
+                        <div class="device-illustration">
+                            <div class="ips-diagram">
+                                <div class="network-segment">
+                                    <div class="device server">
+                                        <div class="device-label">Servidor</div>
+                                    </div>
+                                    <div class="device client">
+                                        <div class="device-label">Cliente</div>
+                                    </div>
+                                    <div class="traffic-flow">
+                                        <div class="traffic-packet normal"></div>
+                                        <div class="traffic-packet malicious blocked"></div>
+                                    </div>
+                                </div>
+                                <div class="ips-device">
+                                    <div class="device-label">IPS</div>
+                                    <div class="blocking-line"></div>
+                                </div>
+                                <div class="admin-console">
+                                    <div class="device-label">Consola de Administración</div>
+                                    <div class="alert-message">
+                                        <div class="alert-icon"></div>
+                                        <div class="alert-text">¡Alerta! Tráfico malicioso bloqueado</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="illustration-caption">El IPS monitoriza el tráfico y bloquea activamente el tráfico malicioso cuando lo detecta.</div>
+                        </div>
+                        
+                        <div class="device-features">
+                            <div class="feature">
+                                <div class="feature-icon monitor"></div>
+                                <div class="feature-text">Monitoriza el tráfico</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon alert"></div>
+                                <div class="feature-text">Genera alertas</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon active"></div>
+                                <div class="feature-text">Modo activo</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon block"></div>
+                                <div class="feature-text">Bloquea tráfico malicioso</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-device-card">
+                    <div class="device-header">
+                        <div class="device-icon firewall-icon"></div>
+                        <h3>Cortafuegos o Firewall</h3>
+                    </div>
+                    <div class="device-content">
+                        <p>Es un dispositivo de seguridad que filtra el tráfico de red entrante y saliente basándose en unas reglas predeterminadas. Habitualmente trabaja a los niveles 3 y 4 del modelo OSI, ya que filtra el tráfico basándose en direcciones IP y números de puerto. Los firewalls de nivel 7 o de aplicación se denominan WAFs (Web Application Firewall).</p>
+                        
+                        <div class="device-illustration">
+                            <div class="firewall-diagram">
+                                <div class="external-network">
+                                    <div class="network-label">Internet</div>
+                                    <div class="device attacker">
+                                        <div class="device-label">Atacante</div>
+                                    </div>
+                                    <div class="device legitimate">
+                                        <div class="device-label">Usuario Legítimo</div>
+                                    </div>
+                                </div>
+                                <div class="firewall-device">
+                                    <div class="device-label">Firewall</div>
+                                    <div class="rule-table">
+                                        <div class="rule allow">Puerto 80: Permitir</div>
+                                        <div class="rule allow">Puerto 443: Permitir</div>
+                                        <div class="rule deny">Puerto 22: Denegar</div>
+                                        <div class="rule deny">Puerto 3389: Denegar</div>
+                                    </div>
+                                </div>
+                                <div class="internal-network">
+                                    <div class="network-label">Red Interna</div>
+                                    <div class="device server">
+                                        <div class="device-label">Servidor Web</div>
+                                    </div>
+                                    <div class="device workstation">
+                                        <div class="device-label">Estación de Trabajo</div>
+                                    </div>
+                                </div>
+                                <div class="traffic-flow">
+                                    <div class="traffic-packet allowed">
+                                        <div class="packet-label">Puerto 80</div>
+                                    </div>
+                                    <div class="traffic-packet blocked">
+                                        <div class="packet-label">Puerto 22</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="illustration-caption">El firewall filtra el tráfico entrante y saliente basándose en reglas predefinidas como direcciones IP y puertos.</div>
+                        </div>
+                        
+                        <div class="device-features">
+                            <div class="feature">
+                                <div class="feature-icon filter"></div>
+                                <div class="feature-text">Filtra tráfico por reglas</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon network"></div>
+                                <div class="feature-text">Nivel 3-4 (Red/Transporte)</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon stateful"></div>
+                                <div class="feature-text">Inspección de estado</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon policy"></div>
+                                <div class="feature-text">Políticas de seguridad</div>
+                            </div>
+                        </div>
+                        
+                        <div class="firewall-types">
+                            <h4>Tipos de Firewalls</h4>
+                            <div class="types-comparison">
+                                <div class="firewall-type">
+                                    <h5>Firewall de Filtrado de Paquetes</h5>
+                                    <ul class="type-features">
+                                        <li>Examina encabezados de paquetes</li>
+                                        <li>Filtra por IP, puerto, protocolo</li>
+                                        <li>Rápido pero menos seguro</li>
+                                        <li>Nivel 3-4 del modelo OSI</li>
+                                    </ul>
+                                </div>
+                                <div class="firewall-type">
+                                    <h5>Firewall con Estado (Stateful)</h5>
+                                    <ul class="type-features">
+                                        <li>Mantiene registro de conexiones</li>
+                                        <li>Analiza el contexto del tráfico</li>
+                                        <li>Mayor seguridad que el filtrado simple</li>
+                                        <li>Nivel 3-4 del modelo OSI</li>
+                                    </ul>
+                                </div>
+                                <div class="firewall-type">
+                                    <h5>Firewall de Aplicación (WAF)</h5>
+                                    <ul class="type-features">
+                                        <li>Analiza el contenido de los paquetes</li>
+                                        <li>Protege contra ataques específicos de aplicaciones</li>
+                                        <li>Más lento pero más seguro</li>
+                                        <li>Nivel 7 del modelo OSI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dmz-section">
+                <h3>Zona Desmilitarizada (DMZ)</h3>
+                
+                <p>El uso de cortafuegos permite la separación de la red local en distintas zonas (servidores de aplicaciones, servidores de base de datos…), habitualmente basándose en una estructura en cascada (cortafuegos de nivel 1, de nivel 2…).</p>
+                
+                <p>Asimismo, es común la utilización de cortafuegos para establecer una red perimetral, también denominada DMZ o zona desmilitarizada, ubicada entre la red interna y la red externa (habitualmente Internet).</p>
+                
+                <div class="dmz-illustration">
+                    <div class="dmz-diagram">
+                        <div class="external-zone">
+                            <div class="zone-label">Internet</div>
+                            <div class="device external-user">
+                                <div class="device-label">Usuario Externo</div>
+                            </div>
+                        </div>
+                        <div class="firewall external-firewall">
+                            <div class="firewall-label">Firewall Externo</div>
+                        </div>
+                        <div class="dmz-zone">
+                            <div class="zone-label">DMZ</div>
+                            <div class="device web-server">
+                                <div class="device-label">Servidor Web</div>
+                            </div>
+                            <div class="device mail-server">
+                                <div class="device-label">Servidor de Correo</div>
+                            </div>
+                            <div class="device dns-server">
+                                <div class="device-label">Servidor DNS</div>
+                            </div>
+                        </div>
+                        <div class="firewall internal-firewall">
+                            <div class="firewall-label">Firewall Interno</div>
+                        </div>
+                        <div class="internal-zone">
+                            <div class="zone-label">Red Interna</div>
+                            <div class="device internal-server">
+                                <div class="device-label">Servidor Interno</div>
+                            </div>
+                            <div class="device database">
+                                <div class="device-label">Base de Datos</div>
+                            </div>
+                            <div class="device workstation">
+                                <div class="device-label">Estación de Trabajo</div>
+                            </div>
+                        </div>
+                        <div class="traffic-flow">
+                            <div class="traffic-arrow external-to-dmz">
+                                <div class="arrow-label">Tráfico limitado</div>
+                            </div>
+                            <div class="traffic-arrow dmz-to-internal">
+                                <div class="arrow-label">Tráfico muy restringido</div>
+                            </div>
+                            <div class="traffic-arrow internal-to-dmz">
+                                <div class="arrow-label">Tráfico permitido</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="illustration-caption">La DMZ es una zona intermedia entre la red interna y externa donde se ubican los servicios que deben ser accesibles desde Internet.</div>
+                </div>
+                
+                <div class="dmz-benefits">
+                    <h4>Beneficios de una DMZ</h4>
+                    <div class="benefits-list">
+                        <div class="benefit">
+                            <div class="benefit-icon security"></div>
+                            <div class="benefit-text">
+                                <h5>Mayor Seguridad</h5>
+                                <p>Proporciona una capa adicional de seguridad para la red interna.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon access"></div>
+                            <div class="benefit-text">
+                                <h5>Acceso Controlado</h5>
+                                <p>Permite el acceso externo a servicios específicos sin exponer la red interna.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon isolation"></div>
+                            <div class="benefit-text">
+                                <h5>Aislamiento</h5>
+                                <p>Aísla los servidores públicos de la red interna, limitando el impacto de posibles compromisos.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon flexibility"></div>
+                            <div class="benefit-text">
+                                <h5>Flexibilidad</h5>
+                                <p>Permite aplicar diferentes políticas de seguridad a diferentes zonas de la red.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-devices-comparison">
+                <h3>Comparativa de Dispositivos de Seguridad</h3>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>IDS</th>
+                                <th>IPS</th>
+                                <th>Firewall</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Función principal</td>
+                                <td>Detección</td>
+                                <td>Prevención</td>
+                                <td>Filtrado</td>
+                            </tr>
+                            <tr>
+                                <td>Modo de operación</td>
+                                <td>Pasivo</td>
+                                <td>Activo</td>
+                                <td>Activo</td>
+                            </tr>
+                            <tr>
+                                <td>Bloqueo de tráfico</td>
+                                <td>No</td>
+                                <td>Sí</td>
+                                <td>Sí</td>
+                            </tr>
+                            <tr>
+                                <td>Generación de alertas</td>
+                                <td>Sí</td>
+                                <td>Sí</td>
+                                <td>Opcional</td>
+                            </tr>
+                            <tr>
+                                <td>Análisis de contenido</td>
+                                <td>Sí</td>
+                                <td>Sí</td>
+                                <td>Limitado (excepto WAF)</td>
+                            </tr>
+                            <tr>
+                                <td>Nivel OSI principal</td>
+                                <td>2-7</td>
+                                <td>2-7</td>
+                                <td>3-4 (7 para WAF)</td>
+                            </tr>
+                            <tr>
+                                <td>Impacto en rendimiento</td>
+                                <td>Bajo</td>
+                                <td>Medio</td>
+                                <td>Bajo-Medio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .teoria {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        
+        h4 {
+            color: #3498db;
+        }
+        
+        h5 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        span {
+            display: block;
+            margin-bottom: 30px;
+        }
+        
+        /* Dominios de colisión y difusión */
+        .intro-section {
+            margin-bottom: 30px;
+        }
+        
+        .domains-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .domain-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .domain-header {
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .domain-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+        }
+        
+        .collision-icon {
+            background-image: url('/placeholder.svg?height=40&width=40');
+            background-color: #e74c3c;
+        }
+        
+        .broadcast-icon {
+            background-image: url('/placeholder.svg?height=40&width=40');
+            background-color: #3498db;
+        }
+        
+        .domain-header h3 {
+            color: white;
+            margin: 0;
+        }
+        
+        .domain-content {
+            padding: 20px;
+        }
+        
+        .domain-illustration {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .collision-diagram, .broadcast-diagram {
+            position: relative;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        
+        .network-medium {
+            position: absolute;
+            height: 10px;
+            background-color: #7f8c8d;
+            top: 95px;
+            left: 50px;
+            right: 50px;
+            border-radius: 5px;
+        }
+        
+        .device {
+            width: 60px;
+            height: 60px;
+            background-color: #3498db;
+            border-radius: 8px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .device1 {
+            top: 30px;
+            left: 50px;
+        }
+        
+        .device2 {
+            top: 30px;
+            right: 50px;
+        }
+        
+        .device-label {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+        
+        .transmission {
+            position: absolute;
+            height: 5px;
+            background-color: #3498db;
+        }
+        
+        .transmission1 {
+            top: 70px;
+            left: 90px;
+            width: 40%;
+            animation: transmit1 3s infinite;
+        }
+        
+        .transmission2 {
+            top: 70px;
+            right: 90px;
+            width: 40%;
+            animation: transmit2 3s infinite;
+        }
+        
+        .collision-point {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .collision-star {
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: collision 3s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes transmit1 {
+            0% { width: 0; }
+            40% { width: 40%; }
+            50% { width: 0; opacity: 0; }
+            100% { width: 0; opacity: 0; }
+        }
+        
+        @keyframes transmit2 {
+            0% { width: 0; }
+            40% { width: 40%; }
+            50% { width: 0; opacity: 0; }
+            100% { width: 0; opacity: 0; }
+        }
+        
+        @keyframes collision {
+            0% { opacity: 0; transform: scale(0); }
+            45% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+            60% { opacity: 0; transform: scale(0); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+        
+        .broadcast-domain {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            border: 1px dashed #3498db;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .domain1 {
+            top: 25px;
+            left: 20px;
+        }
+        
+        .domain2 {
+            top: 25px;
+            right: 20px;
+        }
+        
+        .domain-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .router-device {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #e74c3c;
+            border-radius: 8px;
+            top: 60px;
+            left: calc(50% - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .broadcast-packet {
+            width: 40px;
+            height: 25px;
+            background-color: #f39c12;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.6rem;
+            animation: broadcast-packet 3s infinite;
+        }
+        
+        @keyframes broadcast-packet {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        
+        .illustration-caption {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        /* Tabla de dispositivos y dominios */
+        .devices-domains-section {
+            margin: 30px 0;
+        }
+        
+        .devices-domains-table {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .yes-icon, .no-icon {
+            font-weight: bold;
+        }
+        
+        .yes-icon {
+            color: #27ae60;
+        }
+        
+        .no-icon {
+            color: #e74c3c;
+        }
+        
+        /* Visualización de topologías */
+        .domains-visualization {
+            margin: 30px 0;
+        }
+        
+        .topology-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .topology {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .topology-diagram {
+            height: 250px;
+            position: relative;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        
+        .hub-device, .switch-device {
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            border-radius: 8px;
+            top: 95px;
+            left: calc(50% - 50px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .hub-device {
+            background-color: #2ecc71;
+        }
+        
+        .switch-device {
+            background-color: #3498db;
+        }
+        
+        .connected-devices {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .device1 { top: 20px; left: 20px; }
+        .device2 { top: 20px; right: 20px; }
+        .device3 { bottom: 20px; left: 20px; }
+        .device4 { bottom: 20px; right: 20px; }
+        
+        .domain-overlay {
+            position: absolute;
+            border: 2px dashed;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .collision-overlay {
+            border-color: #e74c3c;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+        
+        .broadcast-overlay {
+            border-color: #3498db;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+        
+        .overlay-label {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .collision-domain {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #e74c3c;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .cd1 { top: -10px; left: -10px; }
+        .cd2 { top: -10px; right: -10px; }
+        .cd3 { bottom: -10px; left: -10px; }
+        .cd4 { bottom: -10px; right: -10px; }
+        
+        .connected-networks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .network {
+            position: absolute;
+            width: 180px;
+            height: 100px;
+            border: 1px dashed #7f8c8d;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .network1 {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .network2 {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .network-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .broadcast-domain {
+            position: absolute;
+            width: 160px;
+            height: 80px;
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .bd1 { top: 10px; left: 10px; }
+        .bd2 { top: 10px; right: 10px; }
+        
+        .topology-description {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Dispositivos de seguridad */
+        .security-intro {
+            margin-bottom: 30px;
+        }
+        
+        .security-devices {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .security-device-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .device-header {
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .device-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+        }
+        
+        .ids-icon {
+            background-image: url('/placeholder.svg?height=40&width=40');
+            background-color: #f39c12;
+        }
+        
+        .ips-icon {
+            background-image: url('/placeholder.svg?height=40&width=40');
+            background-color: #e74c3c;
+        }
+        
+        .firewall-icon {
+            background-image: url('/placeholder.svg?height=40&width=40');
+            background-color: #3498db;
+        }
+        
+        .device-content {
+            padding: 20px;
+        }
+        
+        .device-illustration {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .ids-diagram, .ips-diagram, .firewall-diagram {
+            position: relative;
+            height: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        
+        .network-segment {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            border: 1px dashed #7f8c8d;
+            border-radius: 8px;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .server {
+            background-color: #3498db;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .client {
+            background-color: #2ecc71;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .traffic-flow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .traffic-packet {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .normal {
+            background-color: #3498db;
+            top: 70px;
+            left: 100px;
+            animation: normal-packet 3s infinite;
+        }
+        
+        .malicious {
+            background-color: #e74c3c;
+            top: 70px;
+            left: 150px;
+            animation: malicious-packet 3s infinite;
+        }
+        
+        .blocked {
+            animation: blocked-packet 3s infinite !important;
+        }
+        
+        @keyframes normal-packet {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200px); }
+        }
+        
+        @keyframes malicious-packet {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200px); }
+        }
+        
+        @keyframes blocked-packet {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(100px); opacity: 1; }
+            51% { opacity: 0; }
+            100% { transform: translateX(100px); opacity: 0; }
+        }
+        
+        .ids-device, .ips-device {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            top: 80px;
+            left: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .ids-device {
+            background-color: #f39c12;
+        }
+        
+        .ips-device {
+            background-color: #e74c3c;
+        }
+        
+        .monitoring-line, .blocking-line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background-color: #7f8c8d;
+            top: -10px;
+            left: 40px;
+        }
+        
+        .admin-console {
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+        }
+        
+        .alert-message {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        
+        .alert-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .alert-text {
+            font-size: 0.8rem;
+            color: #e74c3c;
+        }
+        
+        .device-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+        }
+        
+        .monitor { background-color: #3498db; }
+        .alert { background-color: #f39c12; }
+        .passive { background-color: #2ecc71; }
+        .active { background-color: #c7c7c7; }
+        .no-block { background-color: #95a5a6; }
+        .block { background-color: #e74c3c; }
+        .filter { background-color: #3498db; }
+        .network { background-color: #f1c40f; }
+        .stateful { background-color: #9b59b6; }
+        .policy { background-color: #1abc9c; }
+        
+        /* Firewall */
+        .firewall-diagram {
+            position: relative;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        
+        .external-network, .internal-network {
+            position: absolute;
+            width: 200px;
+            height: 120px;
+            border: 1px dashed #7f8c8d;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .external-network {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .internal-network {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .firewall-device {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 8px;
+            top: 20px;
+            left: calc(50% - 50px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            color: white;
+        }
+        
+        .firewall-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rule-table {
+            width: 90px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 5px;
+            font-size: 0.7rem;
+        }
+        
+        .rule {
+            margin-bottom: 5px;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+        
+        .allow {
+            background-color: rgba(46, 204, 113, 0.3);
+        }
+        
+        .deny {
+            background-color: rgba(231, 76, 60, 0.3);
+        }
+        
+        .attacker {
+            background-color: #e74c3c;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .legitimate {
+            background-color: #2ecc71;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .workstation {
+            background-color: #9b59b6;
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .traffic-packet {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.6rem;
+        }
+        
+        .allowed {
+            background-color: #2ecc71;
+            top: 50px;
+            left: 230px;
+            animation: allowed-packet 3s infinite;
+        }
+        
+        .blocked {
+            background-color: #e74c3c;
+            top: 80px;
+            left: 230px;
+            animation: blocked-packet 3s infinite;
+        }
+        
+        @keyframes allowed-packet {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(150px); }
+        }
+        
+        @keyframes blocked-packet {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(50px); opacity: 1; }
+            51% { opacity: 0; }
+            100% { transform: translateX(50px); opacity: 0; }
+        }
+        
+        .packet-label {
+            font-size: 0.6rem;
+        }
+        
+        /* Tipos de Firewalls */
+        .firewall-types {
+            margin-top: 30px;
+        }
+        
+        .types-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .firewall-type {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .type-features {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .type-features li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        /* DMZ */
+        .dmz-section {
+            margin: 30px 0;
+        }
+        
+        .dmz-illustration {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .dmz-diagram {
+            position: relative;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        
+        .external-zone, .dmz-zone, .internal-zone {
+            position: absolute;
+            border: 1px dashed #7f8c8d;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .external-zone {
+            width: 150px;
+            height: 100px;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .dmz-zone {
+            width: 300px;
+            height: 120px;
+            top: 150px;
+            left: calc(50% - 150px);
+        }
+        
+        .internal-zone {
+            width: 150px;
+            height: 100px;
+            top: 300px;
+            right: 20px;
+        }
+        
+        .zone-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .firewall {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background-color: #3498db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .external-firewall {
+            top: 100px;
+            left: calc(50% - 40px);
+        }
+        
+        .internal-firewall {
+            top: 250px;
+            left: calc(50% - 40px);
+        }
+        
+        .external-user {
+            background-color: #95a5a6;
+            top: 40px;
+            left: 45px;
+        }
+        
+        .web-server {
+            background-color: #3498db;
+            top: 40px;
+            left: 50px;
+        }
+        
+        .mail-server {
+            background-color: #f39c12;
+            top: 40px;
+            left: 150px;
+        }
+        
+        .dns-server {
+            background-color: #2ecc71;
+            top: 40px;
+            right: 50px;
+        }
+        
+        .internal-server {
+            background-color: #9b59b6;
+            top: 40px;
+            left: 50px;
+        }
+        
+        .database {
+            background-color: #e74c3c;
+            top: 40px;
+            left: 150px;
+        }
+        
+        .workstation {
+            background-color: #1abc9c;
+            top: 40px;
+            right: 50px;
+        }
+        
+        .traffic-arrow {
+            position: absolute;
+            height: 2px;
+            background-color: #7f8c8d;
+        }
+        
+        .external-to-dmz {
+            width: 80px;
+            top: 120px;
+            left: 100px;
+            transform: rotate(45deg);
+        }
+        
+        .dmz-to-internal {
+            width: 80px;
+            top: 250px;
+            right: 100px;
+            transform: rotate(45deg);
+        }
+        
+        .internal-to-dmz {
+            width: 80px;
+            top: 250px;
+            right: 150px;
+            transform: rotate(-45deg);
+        }
+        
+        .arrow-label {
+            position: absolute;
+            font-size: 0.7rem;
+            color: #7f8c8d;
+            white-space: nowrap;
+            top: -15px;
+            left: 0;
+        }
+        
+        /* Beneficios DMZ */
+        .dmz-benefits {
+            margin: 30px 0;
+        }
+        
+        .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .benefit {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .security { background-color: #e74c3c; }
+        .access { background-color: #3498db; }
+        .isolation { background-color: #f39c12; }
+        .flexibility { background-color: #2ecc71; }
+        
+        .benefit-text {
+            flex: 1;
+        }
+        
+        .benefit-text h5 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        
+        .benefit-text p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Comparativa de dispositivos */
+        .security-devices-comparison {
+            margin: 30px 0;
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .domains-comparison, .topology-comparison, .types-comparison, .benefits-list {
+                flex-direction: column;
+            }
+            
+            .device-features {
+                flex-direction: column;
+            }
+            
+            .dmz-diagram {
+                height: 600px;
+            }
+            
+            .external-zone, .dmz-zone, .internal-zone {
+                width: 80%;
+                left: 10%;
+            }
+            
+            .external-zone {
+                top: 20px;
+                height: 120px;
+            }
+            
+            .external-firewall {
+                top: 150px;
+            }
+            
+            .dmz-zone {
+                top: 200px;
+                height: 150px;
+            }
+            
+            .internal-firewall {
+                top: 360px;
+            }
+            
+            .internal-zone {
+                top: 410px;
+                height: 150px;
+            }
+            
+            .external-to-dmz, .dmz-to-internal, .internal-to-dmz {
+                transform: rotate(90deg);
+                width: 40px;
+            }
+            
+            .external-to-dmz {
+                top: 170px;
+                left: calc(50% - 20px);
+            }
+            
+            .dmz-to-internal {
+                top: 380px;
+                left: calc(50% - 20px);
+            }
+            
+            .internal-to-dmz {
+                top: 380px;
+                left: calc(50% - 60px);
+                transform: rotate(-90deg);
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direccionamiento IPv4</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070501000">
+            <h2>5. DIRECCIONAMIENTO IPV4</h2>
+            
+            <div class="ipv4-introduccion">
+                <p>Las direcciones IPv4 se expresan mediante un número binario de 32 bits escrito en notación punto decimal, es decir, 4 bytes (octetos) escritos en decimal separados por punto.</p>
+                <div class="ipv4-ejemplo-notacion">
+                    <div class="ipv4-notacion">
+                        <div class="ipv4-tipo-notacion">Punto binario:</div>
+                        <div class="ipv4-valor-notacion">192.168.00000000.00000001</div>
+                    </div>
+                    <div class="ipv4-notacion">
+                        <div class="ipv4-tipo-notacion">Punto decimal:</div>
+                        <div class="ipv4-valor-notacion">192.168.0.1</div>
+                    </div>
+                </div>
+                <p>El valor decimal de cada octeto está comprendido en el intervalo de 0 a 255 [el número binario de 8 bits más alto es 11111111].</p>
+                <p>El espacio de direcciones alcanzable con 32 bits es de 4.294.967.296 (2<sup>32</sup>).</p>
+            </div>
+            
+            <div class="ipv4-representacion">
+                <div class="ipv4-titulo-seccion">Representación de una dirección IPv4</div>
+                <div class="ipv4-diagrama-representacion">
+                    <div class="ipv4-octetos">
+                        <div class="ipv4-octeto">
+                            <div class="ipv4-valor-octeto">192</div>
+                            <div class="ipv4-bits-octeto">
+                                <div class="ipv4-bit">1</div>
+                                <div class="ipv4-bit">1</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                            </div>
+                            <div class="ipv4-pesos-octeto">
+                                <div class="ipv4-peso">128</div>
+                                <div class="ipv4-peso">64</div>
+                                <div class="ipv4-peso">32</div>
+                                <div class="ipv4-peso">16</div>
+                                <div class="ipv4-peso">8</div>
+                                <div class="ipv4-peso">4</div>
+                                <div class="ipv4-peso">2</div>
+                                <div class="ipv4-peso">1</div>
+                            </div>
+                            <div class="ipv4-calculo-octeto">128 + 64 = 192</div>
+                        </div>
+                        <div class="ipv4-octeto">
+                            <div class="ipv4-valor-octeto">168</div>
+                            <div class="ipv4-bits-octeto">
+                                <div class="ipv4-bit">1</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">1</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">1</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                            </div>
+                            <div class="ipv4-pesos-octeto">
+                                <div class="ipv4-peso">128</div>
+                                <div class="ipv4-peso">64</div>
+                                <div class="ipv4-peso">32</div>
+                                <div class="ipv4-peso">16</div>
+                                <div class="ipv4-peso">8</div>
+                                <div class="ipv4-peso">4</div>
+                                <div class="ipv4-peso">2</div>
+                                <div class="ipv4-peso">1</div>
+                            </div>
+                            <div class="ipv4-calculo-octeto">128 + 32 + 8 = 168</div>
+                        </div>
+                        <div class="ipv4-octeto">
+                            <div class="ipv4-valor-octeto">0</div>
+                            <div class="ipv4-bits-octeto">
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                            </div>
+                            <div class="ipv4-pesos-octeto">
+                                <div class="ipv4-peso">128</div>
+                                <div class="ipv4-peso">64</div>
+                                <div class="ipv4-peso">32</div>
+                                <div class="ipv4-peso">16</div>
+                                <div class="ipv4-peso">8</div>
+                                <div class="ipv4-peso">4</div>
+                                <div class="ipv4-peso">2</div>
+                                <div class="ipv4-peso">1</div>
+                            </div>
+                            <div class="ipv4-calculo-octeto">0</div>
+                        </div>
+                        <div class="ipv4-octeto">
+                            <div class="ipv4-valor-octeto">1</div>
+                            <div class="ipv4-bits-octeto">
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">0</div>
+                                <div class="ipv4-bit">1</div>
+                            </div>
+                            <div class="ipv4-pesos-octeto">
+                                <div class="ipv4-peso">128</div>
+                                <div class="ipv4-peso">64</div>
+                                <div class="ipv4-peso">32</div>
+                                <div class="ipv4-peso">16</div>
+                                <div class="ipv4-peso">8</div>
+                                <div class="ipv4-peso">4</div>
+                                <div class="ipv4-peso">2</div>
+                                <div class="ipv4-peso">1</div>
+                            </div>
+                            <div class="ipv4-calculo-octeto">1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-classful" id="4070501001">
+                <div class="ipv4-titulo-seccion">5.1 REDES CLASSFUL</div>
+                <div class="ipv4-descripcion-classful">
+                    <p>En un primer momento se definieron un conjunto de clases para catalogar el direccionamiento IP.</p>
+                </div>
+                
+                <div class="ipv4-tabla-classful">
+                    <div class="ipv4-fila-encabezado">
+                        <div class="ipv4-celda-encabezado">Clase</div>
+                        <div class="ipv4-celda-encabezado">Bits iniciales</div>
+                        <div class="ipv4-celda-encabezado">Intervalo</div>
+                        <div class="ipv4-celda-encabezado">N.º redes</div>
+                        <div class="ipv4-celda-encabezado">N.º de direcciones por red</div>
+                        <div class="ipv4-celda-encabezado">N.º de hosts por red</div>
+                        <div class="ipv4-celda-encabezado">Máscara</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">A</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0.0.0.0 - 127.255.255.255</div>
+                        <div class="ipv4-celda">128</div>
+                        <div class="ipv4-celda">16.777.216</div>
+                        <div class="ipv4-celda">16.777.214</div>
+                        <div class="ipv4-celda">255.0.0.0</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">B</div>
+                        <div class="ipv4-celda">10</div>
+                        <div class="ipv4-celda">128.0.0.0 - 191.255.255.255</div>
+                        <div class="ipv4-celda">16.384</div>
+                        <div class="ipv4-celda">65.536</div>
+                        <div class="ipv4-celda">65.534</div>
+                        <div class="ipv4-celda">255.255.0.0</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">C</div>
+                        <div class="ipv4-celda">110</div>
+                        <div class="ipv4-celda">192.0.0.0 - 223.255.255.255</div>
+                        <div class="ipv4-celda">2.097.152</div>
+                        <div class="ipv4-celda">256</div>
+                        <div class="ipv4-celda">254</div>
+                        <div class="ipv4-celda">255.255.255.0</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">D (Multicast)</div>
+                        <div class="ipv4-celda">1110</div>
+                        <div class="ipv4-celda">224.0.0.0 - 239.255.255.255</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">E (Experimental)</div>
+                        <div class="ipv4-celda">1111</div>
+                        <div class="ipv4-celda">240.0.0.0 - 255.255.255.254</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                        <div class="ipv4-celda">-</div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-tabla-classful-resumen">
+                    <div class="ipv4-fila-encabezado">
+                        <div class="ipv4-celda-encabezado">Clase</div>
+                        <div class="ipv4-celda-encabezado">Número de redes</div>
+                        <div class="ipv4-celda-encabezado">Número de IPs por red</div>
+                        <div class="ipv4-celda-encabezado">Número de Hosts por red</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">A</div>
+                        <div class="ipv4-celda">2<sup>7</sup> = 128</div>
+                        <div class="ipv4-celda">2<sup>24</sup> = 16.777.216</div>
+                        <div class="ipv4-celda">2<sup>24</sup> - 2 = 16.777.214</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">B</div>
+                        <div class="ipv4-celda">2<sup>14</sup></div>
+                        <div class="ipv4-celda">2<sup>16</sup> = 65.536</div>
+                        <div class="ipv4-celda">2<sup>16</sup> - 2 = 65.534</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda ipv4-celda-clase">C</div>
+                        <div class="ipv4-celda">2<sup>21</sup></div>
+                        <div class="ipv4-celda">2<sup>8</sup> = 256</div>
+                        <div class="ipv4-celda">2<sup>8</sup> - 2 = 254</div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-notas-classful">
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p>El número máximo de hosts en una red es siempre igual al número de direcciones disponibles en un rango específico menos dos reservadas:</p>
+                            <ul>
+                                <li>La primera dirección de un intervalo está reservada para identificar la dirección de red.<br>Ej: 128.0.0.0, 192.168.0.0</li>
+                                <li>La última dirección se emplea como dirección de difusión o broadcast.<br>Ej: 128.255.255.255, 192.168.0.255.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p>La dirección 0.0.0.0 es reservada por la IANA para identificación local.</p>
+                        </div>
+                    </div>
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p>Las direcciones 127.x.x.x se reservan para designar la propia máquina. Se denomina dirección de bucle local o loopback.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-problemas-classful">
+                    <div class="ipv4-titulo-problemas">Problemas del diseño classful</div>
+                    <div class="ipv4-descripcion-problemas">
+                        <p>El mayor problema del diseño classful es que no es escalable desde la expansión de internet que se produjo a partir de los años 90.</p>
+                        <ul>
+                            <li>Las clases de tipo A malgastan millones de direcciones</li>
+                            <li>Las de tipo B también malgastan miles de direcciones</li>
+                            <li>Las de tipo C tienen tan pocas IPs por red que son inútiles para cualquier empresa de tamaño mediano o grande (más de 253 equipos)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-redes-privadas" id="4070501002">
+                <div class="ipv4-titulo-seccion">5.2 REDES PRIVADAS</div>
+                <div class="ipv4-descripcion-privadas">
+                    <p>Existen unos rangos de direcciones IPs reservadas para montar redes locales. Estos rangos no son utilizables en internet por lo que necesitan de un servicio de traducción de dirección de red (NAT) o una puerta de enlace para conectarse a Internet.</p>
+                    <p>Estos rangos son ignorados por los enrutadores públicos.</p>
+                </div>
+                
+                <div class="ipv4-tabla-privadas">
+                    <div class="ipv4-fila-encabezado">
+                        <div class="ipv4-celda-encabezado">Rango de direcciones</div>
+                        <div class="ipv4-celda-encabezado">Nº de direcciones</div>
+                        <div class="ipv4-celda-encabezado">Clase</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">10.0.0.0 – 10.255.255.255</div>
+                        <div class="ipv4-celda">16.777.216</div>
+                        <div class="ipv4-celda">Clase A</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">172.16.0.0 – 172.31.255.255</div>
+                        <div class="ipv4-celda">1.048.576</div>
+                        <div class="ipv4-celda">Rango contiguo de 16 bloques de clase B</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">192.168.0.0 – 192.168.255.255</div>
+                        <div class="ipv4-celda">65.536</div>
+                        <div class="ipv4-celda">Rango contiguo de 256 bloques de clase C</div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-diagrama-nat">
+                    <div class="ipv4-titulo-diagrama">Funcionamiento de NAT para redes privadas</div>
+                    <div class="ipv4-esquema-nat">
+                        <div class="ipv4-red-privada">
+                            <div class="ipv4-titulo-red">Red Privada</div>
+                            <div class="ipv4-dispositivos">
+                                <div class="ipv4-dispositivo">
+                                    <div class="ipv4-icono-pc"></div>
+                                    <div class="ipv4-ip-dispositivo">192.168.1.10</div>
+                                </div>
+                                <div class="ipv4-dispositivo">
+                                    <div class="ipv4-icono-pc"></div>
+                                    <div class="ipv4-ip-dispositivo">192.168.1.11</div>
+                                </div>
+                                <div class="ipv4-dispositivo">
+                                    <div class="ipv4-icono-pc"></div>
+                                    <div class="ipv4-ip-dispositivo">192.168.1.12</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ipv4-router-nat">
+                            <div class="ipv4-icono-router"></div>
+                            <div class="ipv4-texto-nat">NAT</div>
+                            <div class="ipv4-ips-router">
+                                <div class="ipv4-ip-interna">192.168.1.1</div>
+                                <div class="ipv4-ip-externa">203.0.113.5</div>
+                            </div>
+                        </div>
+                        <div class="ipv4-internet">
+                            <div class="ipv4-titulo-internet">Internet</div>
+                            <div class="ipv4-nube-internet"></div>
+                        </div>
+                    </div>
+                    <div class="ipv4-explicacion-nat">
+                        <p>El router con NAT traduce las direcciones IP privadas (no enrutables en Internet) a la dirección IP pública asignada al router. Esto permite que múltiples dispositivos de la red privada compartan una única dirección IP pública para acceder a Internet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-binario-decimal" id="4070501003">
+                <div class="ipv4-titulo-seccion">5.3 PASO RÁPIDO DE BINARIO A DECIMAL</div>
+                <div class="ipv4-descripcion-conversion">
+                    <p>Para pasar rápidamente de binario a decimal podemos seguir el siguiente método:</p>
+                    <ul>
+                        <li>Hacemos una tabla de 8 columnas (para convertir un byte)</li>
+                        <li>En la fila de encabezado y empezando por la derecha ponemos 1, 2, 4, 8... (cada valor es el doble del anterior) hasta llegar a 128. Estos valores serán los pesos de los bits de esa columna.</li>
+                        <li>A continuación ponemos el valor en binario debajo.</li>
+                        <li>El valor en decimal es la suma de sus pesos</li>
+                    </ul>
+                    <p>En el siguiente ejemplo se muestra una columna adicional con el resultado en decimal del byte escrito en la tabla de conversión:</p>
+                </div>
+                
+                <div class="ipv4-tabla-conversion">
+                    <div class="ipv4-fila-encabezado">
+                        <div class="ipv4-celda-encabezado">Valor binario</div>
+                        <div class="ipv4-celda-encabezado">128</div>
+                        <div class="ipv4-celda-encabezado">64</div>
+                        <div class="ipv4-celda-encabezado">32</div>
+                        <div class="ipv4-celda-encabezado">16</div>
+                        <div class="ipv4-celda-encabezado">8</div>
+                        <div class="ipv4-celda-encabezado">4</div>
+                        <div class="ipv4-celda-encabezado">2</div>
+                        <div class="ipv4-celda-encabezado">1</div>
+                        <div class="ipv4-celda-encabezado">Número Decimal</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">11111111</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">128+64+32+16+8+4+2+1=255</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">11111110</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">128+64+32+16+8+4+2=254</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">11000000</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">128+64=192</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">11100000</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">128+64+32=224</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">11110000</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">128+64+32+16=240</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">10101000</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">128+32+8=168</div>
+                    </div>
+                    <div class="ipv4-fila">
+                        <div class="ipv4-celda">00000101</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">0</div>
+                        <div class="ipv4-celda">1</div>
+                        <div class="ipv4-celda">4+1=5</div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-calculadora-binario">
+                    <div class="ipv4-titulo-calculadora">Calculadora Binario-Decimal</div>
+                    <div class="ipv4-controles-calculadora">
+                        <div class="ipv4-entrada-binario">
+                            <label for="binario-input">Binario:</label>
+                            <input type="text" id="binario-input" placeholder="Ej: 10101010" maxlength="8">
+                        </div>
+                        <div class="ipv4-botones-calculadora">
+                            <button id="calcular-decimal">Calcular Decimal</button>
+                        </div>
+                        <div class="ipv4-resultado-decimal">
+                            <label>Decimal:</label>
+                            <span id="decimal-resultado">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-concepto-mascara" id="4070501004">
+                <div class="ipv4-titulo-seccion">5.4 CONCEPTO DE MÁSCARA</div>
+                <div class="ipv4-descripcion-mascara">
+                    <p>Las máscaras son un recurso utilizado en programación para filtrar (enmascarar) partes de número que no nos interesan.</p>
+                    <p>Se utilizan especialmente en equipos con poca memoria o donde prima la eficiencia, también son utilizadas de forma transparente por muchas bases de datos a la hora de almacenar los campos de tipo bit (SI/NO, Verdadero/Falso…).</p>
+                    <p>Por ejemplo si tuviéramos que almacenar en un programa ocho características de un vehículo (navegador, bluetooth, techo solar, aire acondicionado, ….) podríamos hacerlo a través de ocho variables de tipo boolean ocupando 8 bytes o a través de una sóla variable de tipo byte (1 byte) asignando a cada bit individual del byte la correspondencia con una característica del vehículo.</p>
+                </div>
+                
+                <div class="ipv4-ejemplo-mascara">
+                    <div class="ipv4-titulo-ejemplo">Un ejemplo con sólo 4 características:</div>
+                    <div class="ipv4-tabla-ejemplo">
+                        <div class="ipv4-fila-encabezado">
+                            <div class="ipv4-celda-encabezado">Vehículo</div>
+                            <div class="ipv4-celda-encabezado">Navegador</div>
+                            <div class="ipv4-celda-encabezado">Bluetooth</div>
+                            <div class="ipv4-celda-encabezado">Techo Solar</div>
+                            <div class="ipv4-celda-encabezado">Aire Acondicionado</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">Vehículo 1</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">1</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">Vehículo 2</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">0</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">1</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">Vehículo 3</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">0</div>
+                            <div class="ipv4-celda">1</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">Vehículo 4</div>
+                            <div class="ipv4-celda">0</div>
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">0</div>
+                            <div class="ipv4-celda">0</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-uso-mascara">
+                    <p>Para seleccionar todos los vehículos que tienen bluetooth podríamos comparar el listado con todos los números que tienen el bit de bluetooth (algo intratable) o podemos generar una máscara que filtre todo lo demás.</p>
+                    <p>La máscara se genera con un número binario que tiene todos sus bits a 0 menos aquellos por los que queremos preguntar.</p>
+                    <p>Por ejemplo:</p>
+                    <ul>
+                        <li>La máscara para averiguar los vehículos con bluetooth sería: 0100.</li>
+                        <li>La máscara para averiguar los vehículos con Techo solar sería: 0010.</li>
+                        <li>La máscara para averiguar los vehículos con Techo solar y aire acondicionado sería: 0011.</li>
+                    </ul>
+                    <p>A continuación hacemos una operación de Y lógico a nivel de bit de todos los valores de todos los vehículos a la máscara creada. Si el valor de la operación no es cero es que el vehículo tiene las características establecidas por la máscara.</p>
+                </div>
+                
+                <div class="ipv4-ejemplos-operacion">
+                    <div class="ipv4-ejemplo-operacion">
+                        <div class="ipv4-titulo-operacion">Ejemplo 1: Vehículo 1 con máscara Bluetooth</div>
+                        <div class="ipv4-tabla-operacion">
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo</div>
+                                <div class="ipv4-celda">Navegador</div>
+                                <div class="ipv4-celda">Bluetooth</div>
+                                <div class="ipv4-celda">Techo Solar</div>
+                                <div class="ipv4-celda">Aire Acondicionado</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo 1</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Máscara Bluetooth</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Y lógico a nivel de bit</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                            </div>
+                        </div>
+                        <div class="ipv4-resultado-operacion">Resultado: 0100 (no es cero) - El vehículo 1 tiene Bluetooth</div>
+                    </div>
+                    
+                    <div class="ipv4-ejemplo-operacion">
+                        <div class="ipv4-titulo-operacion">Ejemplo 2: Vehículo 2 con máscara Bluetooth</div>
+                        <div class="ipv4-tabla-operacion">
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo</div>
+                                <div class="ipv4-celda">Navegador</div>
+                                <div class="ipv4-celda">Bluetooth</div>
+                                <div class="ipv4-celda">Techo Solar</div>
+                                <div class="ipv4-celda">Aire Acondicionado</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo 2</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Máscara Bluetooth</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Y lógico a nivel de bit</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                            </div>
+                        </div>
+                        <div class="ipv4-resultado-operacion">Resultado: 0000 (es cero) - El vehículo 2 NO tiene Bluetooth</div>
+                    </div>
+                    
+                    <div class="ipv4-ejemplo-operacion">
+                        <div class="ipv4-titulo-operacion">Ejemplo 3: Vehículo 2 con máscara Techo solar y aire acondicionado</div>
+                        <div class="ipv4-tabla-operacion">
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo</div>
+                                <div class="ipv4-celda">Navegador</div>
+                                <div class="ipv4-celda">Bluetooth</div>
+                                <div class="ipv4-celda">Techo Solar</div>
+                                <div class="ipv4-celda">Aire Acondicionado</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Vehículo 2</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Máscara Techo solar y aire acondicionado</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Y lógico a nivel de bit</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">1</div>
+                                <div class="ipv4-celda">1</div>
+                            </div>
+                        </div>
+                        <div class="ipv4-resultado-operacion">Resultado: 0011 (no es cero) - El vehículo 2 tiene Techo solar y Aire acondicionado</div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-nota-operador">
+                    <p>Ésta operación debe ser realizada con el operador Y a nivel de bit o binario (no Y general que es totalmente distinto). El Y a nivel de bit es representado de distinta forma por distintos lenguajes.</p>
+                    <p>Por ejemplo en C, C++:</p>
+                    <ul>
+                        <li>& → Y a nivel de bit</li>
+                        <li>&& → Y lógico</li>
+                    </ul>
+                    <p>Otros lenguajes efectúan un Y lógico o un Y a nivel de bit en función de si sus operandos son enteros o booleanos.</p>
+                </div>
+            </div>
+            
+            <div class="ipv4-mascara-red" id="4070501005">
+                <div class="ipv4-titulo-seccion">5.5 MÁSCARA EN DIRECCIÓN DE RED</div>
+                <div class="ipv4-descripcion-mascara-red">
+                    <p>Tal y como hemos visto anteriormente la máscara sirve para enmascarar la parte de un número que no nos interesa.</p>
+                    <p>Aplicando éste concepto a las direcciones IP, la máscara sirve a los equipos para discriminar si la dirección de destino de un paquete está dentro de la misma red o en otra distinta:</p>
+                    <ul>
+                        <li>Si la dirección de destino está en la misma red, el equipo volcará el paquete directamente a la red</li>
+                        <li>Si la dirección de destino está en distinta red el paquete será reenviado a la puerta de enlace configurada para que ésta se encargue de encaminarlo hacia la red de destino.</li>
+                    </ul>
+                    <p>Las máscaras de las redes Classful son de la forma 255.0.0.0, 255.255.0.0 y 255.255.255.0. El valor 255 es el último que se puede alcanzar con 1 byte (8 bits: 11111111).</p>
+                </div>
+                
+                <div class="ipv4-ejemplos-mascara-red">
+                    <div class="ipv4-ejemplo-mascara-red">
+                        <div class="ipv4-titulo-ejemplo">Ejemplo 1: Direcciones en diferentes redes</div>
+                        <p>Dadas las direcciones 192.168.1.73/255.255.255.0 y 192.168.2.1/255.255.255.0</p>
+                        
+                        <div class="ipv4-calculo-mascara">
+                            <div class="ipv4-titulo-calculo">Cálculo para 192.168.1.73/255.255.255.0</div>
+                            <div class="ipv4-tabla-calculo">
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP decimal</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">1</div>
+                                    <div class="ipv4-celda">73</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000001</div>
+                                    <div class="ipv4-celda">01001001</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Máscara</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Y a nivel de bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000001</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP dirección de red</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">1</div>
+                                    <div class="ipv4-celda">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ipv4-calculo-mascara">
+                            <div class="ipv4-titulo-calculo">Cálculo para 192.168.2.1/255.255.255.0</div>
+                            <div class="ipv4-tabla-calculo">
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP decimal</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">2</div>
+                                    <div class="ipv4-celda">1</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000010</div>
+                                    <div class="ipv4-celda">00000001</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Máscara</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Y a nivel de bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000010</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP dirección de red</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">2</div>
+                                    <div class="ipv4-celda">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ipv4-conclusion-ejemplo">
+                            <p>Vemos que esas dos direcciones no están en la misma red puesto que una está en la red 192.168.1.0 y la otra en la red 192.168.2.0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ipv4-ejemplo-mascara-red">
+                        <div class="ipv4-titulo-ejemplo">Ejemplo 2: Direcciones en la misma red</div>
+                        <p>Cambiando la máscara de las direcciones anteriores: 192.168.1.73/255.255.0.0 y 192.168.2.1/255.255.0.0</p>
+                        
+                        <div class="ipv4-calculo-mascara">
+                            <div class="ipv4-titulo-calculo">Cálculo para 192.168.1.73/255.255.0.0</div>
+                            <div class="ipv4-tabla-calculo">
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP decimal</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">1</div>
+                                    <div class="ipv4-celda">73</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000001</div>
+                                    <div class="ipv4-celda">01001001</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Máscara</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Y a nivel de bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP dirección de red</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">0</div>
+                                    <div class="ipv4-celda">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ipv4-calculo-mascara">
+                            <div class="ipv4-titulo-calculo">Cálculo para 192.168.2.1/255.255.0.0</div>
+                            <div class="ipv4-tabla-calculo">
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP decimal</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">2</div>
+                                    <div class="ipv4-celda">1</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000010</div>
+                                    <div class="ipv4-celda">00000001</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Máscara</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">11111111</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">Y a nivel de bit</div>
+                                    <div class="ipv4-celda">11000000</div>
+                                    <div class="ipv4-celda">10101000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                    <div class="ipv4-celda">00000000</div>
+                                </div>
+                                <div class="ipv4-fila">
+                                    <div class="ipv4-celda-titulo">IP dirección de red</div>
+                                    <div class="ipv4-celda">192</div>
+                                    <div class="ipv4-celda">168</div>
+                                    <div class="ipv4-celda">0</div>
+                                    <div class="ipv4-celda">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ipv4-conclusion-ejemplo">
+                            <p>Podemos comprobar que ahora esas dos direcciones sí están en la misma red 192.168.0.0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-resumen-mascara">
+                    <p>Resumiendo:</p>
+                    <ul>
+                        <li>Lo que sea Y 1 = lo que sea</li>
+                        <li>Lo que sea Y 0 = 0</li>
+                        <li>Por lo que el valor 255 en el octeto de la máscara dejará el valor del octeto de la IP tal cual.</li>
+                        <li>El valor 0 en el octeto de la máscara dejará el valor del octeto de la IP a 0.</li>
+                        <li>La máscara aplicada a cualquier IP enmascará el valor del host y mostrará la IP de la red.</li>
+                    </ul>
+                    <p>Recordamos que la máscara también suele darse en formato corto especificando el número de bits que está a 1.</p>
+                </div>
+            </div>
+            
+            <div class="ipv4-subnetting" id="4070501006">
+                <div class="ipv4-titulo-seccion">5.6 SUBNETTING IPV4</div>
+                <div class="ipv4-descripcion-subnetting">
+                    <p>Para dividir las redes Classful en redes mas pequeñas se utiliza el mecanismo de subnetting definido en el RFC 1519.</p>
+                    <p>Consiste en tomar los bits más a la izquierda de la parte de host para crear una nueva división en la red denominada subred. La parte de red no se cambia.</p>
+                </div>
+                
+                <div class="ipv4-ejemplo-subnetting">
+                    <div class="ipv4-titulo-ejemplo">Ejemplo: Creación de 4 subredes</div>
+                    <p>Por ejemplo dada la máscara 255.255.255.0 tomamos los dos primeros bits de la parte de hosts para crear 4 subredes (2<sup>2</sup> = 4).</p>
+                    
+                    <div class="ipv4-mascaras-ejemplo">
+                        <div class="ipv4-mascara-original">
+                            <div class="ipv4-titulo-mascara">Máscara por defecto</div>
+                            <div class="ipv4-valor-mascara">255.255.255.0</div>
+                            <div class="ipv4-bits-mascara">11111111.11111111.11111111.00000000</div>
+                        </div>
+                        <div class="ipv4-mascara-nueva">
+                            <div class="ipv4-titulo-mascara">Máscara con 4 subredes</div>
+                            <div class="ipv4-valor-mascara">255.255.255.192</div>
+                            <div class="ipv4-bits-mascara">11111111.11111111.11111111.11000000</div>
+                        </div>
+                    </div>
+                    
+                    <p>Obteniendo la máscara 255.255.255.192 o /26 en formato corto.</p>
+                    <p>Todas las IPs con los bits de la subred iguales pertenecerán a la misma subred.</p>
+                    
+                    <div class="ipv4-detalle-subredes">
+                        <div class="ipv4-titulo-detalle">Viendo en detalle la parte de hosts (el último octeto)</div>
+                        <div class="ipv4-tabla-subredes">
+                            <div class="ipv4-fila-encabezado">
+                                <div class="ipv4-celda-encabezado">128</div>
+                                <div class="ipv4-celda-encabezado">64</div>
+                                <div class="ipv4-celda-encabezado">32</div>
+                                <div class="ipv4-celda-encabezado">16</div>
+                                <div class="ipv4-celda-encabezado">8</div>
+                                <div class="ipv4-celda-encabezado">4</div>
+                                <div class="ipv4-celda-encabezado">2</div>
+                                <div class="ipv4-celda-encabezado">1</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda ipv4-bit-subred">0</div>
+                                <div class="ipv4-celda ipv4-bit-subred">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda ipv4-bit-subred">0</div>
+                                <div class="ipv4-celda ipv4-bit-subred">1</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda ipv4-bit-subred">1</div>
+                                <div class="ipv4-celda ipv4-bit-subred">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda ipv4-bit-subred">1</div>
+                                <div class="ipv4-celda ipv4-bit-subred">1</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                                <div class="ipv4-celda ipv4-bit-host">0</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ipv4-tabla-rangos">
+                            <div class="ipv4-fila-encabezado">
+                                <div class="ipv4-celda-encabezado">Subred</div>
+                                <div class="ipv4-celda-encabezado">Desde</div>
+                                <div class="ipv4-celda-encabezado">Hasta</div>
+                                <div class="ipv4-celda-encabezado">Notas</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Subred 0</div>
+                                <div class="ipv4-celda">0</div>
+                                <div class="ipv4-celda">63</div>
+                                <div class="ipv4-celda">Subred cero</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Subred 1</div>
+                                <div class="ipv4-celda">64</div>
+                                <div class="ipv4-celda">127</div>
+                                <div class="ipv4-celda"></div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Subred 2</div>
+                                <div class="ipv4-celda">128</div>
+                                <div class="ipv4-celda">191</div>
+                                <div class="ipv4-celda"></div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda">Subred 3</div>
+                                <div class="ipv4-celda">192</div>
+                                <div class="ipv4-celda">255</div>
+                                <div class="ipv4-celda">Subred all-ones/subnet broadcast</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-notas-subnetting">
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p><strong>Subred cero:</strong> La primera subred generada. No se aconseja su uso porque crea una confusión entre la dirección de red y la dirección de la primera subred.</p>
+                            <p>Por ejemplo si calculamos la dirección de la primera subred que corresponde a la red 192.168.1.0 /255.255.255.192 tendremos como resultado la IP 192.168.1.0 (ID de la subnet cero) que es exactamente igual a la dirección 192.168.1.0 que se tomó como referencia para el cálculo inicial. Esto puede derivar en confusión.</p>
+                        </div>
+                    </div>
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p><strong>Subred all-ones/subnet broadcast:</strong> El uso de la última subred generada tampoco se solía aconsejar porque crea confusión entre la dirección de broadcast de la última subred y de la propia red.</p>
+                        </div>
+                    </div>
+                    <div class="ipv4-nota">
+                        <div class="ipv4-icono-nota"></div>
+                        <div class="ipv4-texto-nota">
+                            <p>Las recomendaciones de evitar la primera y la última subred están recogidas en la RFC 950.</p>
+                            <p>El RFC 1878 sostiene que la exclusión de estas 2 subredes es una práctica obsoleta, y el uso de ambas subredes está soportado en la mayoría de los diferentes sistemas operativos de dispositivos de red. Sin embargo, hay que tener presente que en algunos casos, particularmente en redes que incluyen sistemas operativos de cierta antigüedad, el uso de estas subredes puede generar inconvenientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-vlsm" id="4070501007">
+                <div class="ipv4-titulo-seccion">5.7 VLSM (VARIABLE LENGTH SUBNET MASK)</div>
+                <div class="ipv4-descripcion-vlsm">
+                    <p>Máscaras de subred de tamaño variable.</p>
+                    <p>Otra de las soluciones implementadas para mitigar el agotamiento de direcciones IP.</p>
+                    <p>Permite dividir una red en subredes de tamaño diferente para adaptarse mejor a las necesidades reales donde una subred puede necesitar más equipos que otra.</p>
+                </div>
+                
+                <div class="ipv4-ejemplo-vlsm">
+                    <div class="ipv4-titulo-ejemplo">Ejemplo: Red 10.10.0.0/16 dividida con VLSM</div>
+                    <div class="ipv4-tabla-vlsm">
+                        <div class="ipv4-fila-encabezado">
+                            <div class="ipv4-celda-encabezado">Subred</div>
+                            <div class="ipv4-celda-encabezado">Nº de IPs por subred</div>
+                            <div class="ipv4-celda-encabezado">Dirección de subred</div>
+                            <div class="ipv4-celda-encabezado">Máscara</div>
+                            <div class="ipv4-celda-encabezado">Máscara formato largo</div>
+                            <div class="ipv4-celda-encabezado">Rango de direcciones asignable</div>
+                            <div class="ipv4-celda-encabezado">Broadcast</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">1</div>
+                            <div class="ipv4-celda">32.766</div>
+                            <div class="ipv4-celda">10.10.0.0/17</div>
+                            <div class="ipv4-celda">255.255.128.0</div>
+                            <div class="ipv4-celda">10.10.0.1 - 10.10.127.254</div>
+                            <div class="ipv4-celda">10.10.127.255</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">2</div>
+                            <div class="ipv4-celda">16.382</div>
+                            <div class="ipv4-celda">10.10.128.0/18</div>
+                            <div class="ipv4-celda">255.255.192.0</div>
+                            <div class="ipv4-celda">10.10.128.1 - 10.10.191.254</div>
+                            <div class="ipv4-celda">10.10.191.255</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">3</div>
+                            <div class="ipv4-celda">1.022</div>
+                            <div class="ipv4-celda">10.10.192.0/22</div>
+                            <div class="ipv4-celda">255.255.252.0</div>
+                            <div class="ipv4-celda">10.10.192.1 - 10.10.195.254</div>
+                            <div class="ipv4-celda">10.10.195.255</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda">4</div>
+                            <div class="ipv4-celda">254</div>
+                            <div class="ipv4-celda">10.10.196.0/24</div>
+                            <div class="ipv4-celda">255.255.255.0</div>
+                            <div class="ipv4-celda">10.10.196.1 - 10.10.196.254</div>
+                            <div class="ipv4-celda">10.10.196.255</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv4-diagrama-vlsm">
+                    <div class="ipv4-titulo-diagrama">Representación visual de VLSM</div>
+                    <div class="ipv4-esquema-vlsm">
+                        <div class="ipv4-red-principal">
+                            <div class="ipv4-titulo-red">Red 10.10.0.0/16</div>
+                            <div class="ipv4-subredes-vlsm">
+                                <div class="ipv4-subred-vlsm ipv4-subred-grande">
+                                    <div class="ipv4-titulo-subred">Subred 1: 10.10.0.0/17</div>
+                                    <div class="ipv4-descripcion-subred">32.766 hosts</div>
+                                </div>
+                                <div class="ipv4-subredes-secundarias">
+                                    <div class="ipv4-subred-vlsm ipv4-subred-mediana">
+                                        <div class="ipv4-titulo-subred">Subred 2: 10.10.128.0/18</div>
+                                        <div class="ipv4-descripcion-subred">16.382 hosts</div>
+                                    </div>
+                                    <div class="ipv4-subredes-pequenas">
+                                        <div class="ipv4-subred-vlsm ipv4-subred-pequena">
+                                            <div class="ipv4-titulo-subred">Subred 3: 10.10.192.0/22</div>
+                                            <div class="ipv4-descripcion-subred">1.022 hosts</div>
+                                        </div>
+                                        <div class="ipv4-subred-vlsm ipv4-subred-minima">
+                                            <div class="ipv4-titulo-subred">Subred 4: 10.10.196.0/24</div>
+                                            <div class="ipv4-descripcion-subred">254 hosts</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv4-supernetting" id="4070501008">
+                <div class="ipv4-titulo-seccion">5.8 SUPERNETTING</div>
+                <div class="ipv4-descripcion-supernetting">
+                    <p>Procedimiento que aprovecha los principios del Classless Interdomain Routing (CIDR) para direccionar hacia múltiples subredes IP utilizando una única ruta denominada Ruta sumarizada o supernet.</p>
+                    <p>Al reducir el tamaño de las tablas de enrutamiento, permite un ahorro de recursos de procesamiento, memoria y de tráfico de red de intercambio de rutas entre dispositivos de encaminamiento.</p>
+                    <p>Las máscaras de supernetting son más largas que la máscara estándar.</p>
+                </div>
+                
+                <div class="ipv4-ejemplo-supernetting">
+                    <div class="ipv4-titulo-ejemplo">Ejemplo: Sumarización de 4 subredes</div>
+                    <p>Por ejemplo, si en un router confluyen 4 subredes que requieren 4 rutas diferentes:</p>
+                    <div class="ipv4-subredes-originales">
+                        <div class="ipv4-subred-original">172.16.0.0/24</div>
+                        <div class="ipv4-subred-original">172.16.1.0/24</div>
+                        <div class="ipv4-subred-original">172.16.2.0/24</div>
+                        <div class="ipv4-subred-original">172.16.3.0/24</div>
+                    </div>
+                    <p>Podemos sumarizar estas 4 subredes en una única supernet:</p>
+                    <div class="ipv4-supernet-resultado">172.16.0.0/22</div>
+                    <p>Esta única supernet contiene a las 4 subredes originales:</p>
+                    
+                    <div class="ipv4-calculo-supernet">
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda-titulo">Dirección IP:</div>
+                            <div class="ipv4-celda">10101100.00010000.00000000.00000000</div>
+                            <div class="ipv4-celda">172.16.0.0</div>
+                        </div>
+                        <div class="ipv4-fila">
+                            <div class="ipv4-celda-titulo">Máscara:</div>
+                            <div class="ipv4-celda">11111111.11111111.11111100.00000000</div>
+                            <div class="ipv4-celda">255.255.252.0 /22</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ipv4-detalle-supernet">
+                        <div class="ipv4-titulo-detalle">Centrándonos en el tercer octeto: 172.16.X.0 (donde X es 0, 1, 2, 3)</div>
+                        <div class="ipv4-tabla-detalle">
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda-titulo">Máscara</div>
+                                <div class="ipv4-celda">11111100</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda-titulo">Subred 0</div>
+                                <div class="ipv4-celda">00000000</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda-titulo">Subred 1</div>
+                                <div class="ipv4-celda">00000001</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda-titulo">Subred 2</div>
+                                <div class="ipv4-celda">00000010</div>
+                            </div>
+                            <div class="ipv4-fila">
+                                <div class="ipv4-celda-titulo">Subred 3</div>
+                                <div class="ipv4-celda">00000011</div>
+                            </div>
+                        </div>
+                        <p>Los bits resaltados en negrita son los que corresponden a la porción que identifican la red con una máscara de 22 bits.</p>
+                        <p>Las 4 subredes /24 tienen el mismo patrón binario (los primeros 22 bits coinciden), por lo que pueden sintetizarse en una única ruta.</p>
+                    </div>
+                </div>
+                
+                <div class="ipv4-implementacion-supernetting">
+                    <div class="ipv4-titulo-implementacion">Implementación de Supernetting</div>
+                    <p>Para implementar supernetting es necesario utilizar protocolos de enrutamiento con soporte VLSM y CIDR como son: RIPv2, EIGRP, OSPF, IS-IS o BGP.</p>
+                    <p>Cuando se implementa algunos de estos protocolos, dependiendo del protocolo, Cisco IOS habilita o no por defecto la función de auto-sumarizar rutas a las fronteras de la clase.</p>
+                    <p>La sumarización también puede configurarse manualmente.</p>
+                    <p>El supernetting es una práctica importante en redes corporativas grandes y esencial en Internet porque mantiene el tamaño de las tablas de enrutamiento dentro de los límites admisibles.</p>
+                </div>
+                
+                <div class="ipv4-ventajas-supernetting">
+                    <div class="ipv4-titulo-ventajas">Ventajas del Supernetting</div>
+                    <div class="ipv4-lista-ventajas">
+                        <div class="ipv4-ventaja">
+                            <div class="ipv4-icono-ventaja"></div>
+                            <div class="ipv4-texto-ventaja">Reduce el tamaño de las tablas de enrutamiento</div>
+                        </div>
+                        <div class="ipv4-ventaja">
+                            <div class="ipv4-icono-ventaja"></div>
+                            <div class="ipv4-texto-ventaja">Disminuye el tráfico de actualizaciones de enrutamiento</div>
+                        </div>
+                        <div class="ipv4-ventaja">
+                            <div class="ipv4-icono-ventaja"></div>
+                            <div class="ipv4-texto-ventaja">Mejora el rendimiento de los routers al reducir la carga de procesamiento</div>
+                        </div>
+                        <div class="ipv4-ventaja">
+                            <div class="ipv4-icono-ventaja"></div>
+                            <div class="ipv4-texto-ventaja">Facilita la administración de redes grandes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el direccionamiento IPv4 - usando clases únicas */
+        .ipv4-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Ejemplo de notación */
+        .ipv4-ejemplo-notacion {
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-notacion {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .ipv4-notacion:last-child {
+            margin-bottom: 0;
+        }
+        
+        .ipv4-tipo-notacion {
+            font-weight: 500;
+            min-width: 120px;
+            color: #1890ff;
+        }
+        
+        .ipv4-valor-notacion {
+            font-family: monospace;
+            background-color: #f0f5ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        /* Representación de dirección IPv4 */
+        .ipv4-representacion {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .ipv4-diagrama-representacion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .ipv4-octetos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .ipv4-octeto {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv4-valor-octeto {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #1890ff;
+        }
+        
+        .ipv4-bits-octeto {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .ipv4-bit {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f5ff;
+            border: 1px solid #1890ff;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            font-weight: 500;
+        }
+        
+        .ipv4-pesos-octeto {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .ipv4-peso {
+            width: 24px;
+            height: 24px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .ipv4-calculo-octeto {
+            font-size: 0.9rem;
+            color: #666;
+            font-family: monospace;
+        }
+        
+        /* Redes Classful */
+        .ipv4-classful {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-classful {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-tabla-classful, .ipv4-tabla-classful-resumen {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .ipv4-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .ipv4-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .ipv4-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .ipv4-celda-encabezado, .ipv4-celda {
+            padding: 10px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .ipv4-celda-clase {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .ipv4-notas-classful {
+            margin: 20px 0;
+        }
+        
+        .ipv4-nota {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-icono-nota {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv4-icono-nota::before {
+            content: "i";
+        }
+        
+        .ipv4-texto-nota {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .ipv4-problemas-classful {
+            margin: 20px 0;
+            background-color: #fff1f0;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #ff4d4f;
+        }
+        
+        .ipv4-titulo-problemas {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #ff4d4f;
+        }
+        
+        .ipv4-descripcion-problemas {
+            font-size: 0.9rem;
+        }
+        
+        /* Redes Privadas */
+        .ipv4-redes-privadas {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-privadas {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-tabla-privadas {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .ipv4-diagrama-nat {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-diagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv4-esquema-nat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .ipv4-red-privada, .ipv4-router-nat, .ipv4-internet {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .ipv4-titulo-red, .ipv4-titulo-internet {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .ipv4-dispositivos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        .ipv4-dispositivo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv4-icono-pc {
+            width: 30px;
+            height: 30px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1890ff;
+        }
+        
+        .ipv4-icono-pc::before {
+            content: "💻";
+        }
+        
+        .ipv4-ip-dispositivo {
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .ipv4-icono-router {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1890ff;
+        }
+        
+        .ipv4-icono-router::before {
+            content: "🔄";
+        }
+        
+        .ipv4-texto-nat {
+            font-weight: 500;
+            color: #ff4d4f;
+        }
+        
+        .ipv4-ips-router {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ipv4-ip-interna, .ipv4-ip-externa {
+            font-family: monospace;
+            font-size: 0.9rem;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+        
+        .ipv4-ip-externa {
+            background-color: #fff2e8;
+            color: #fa8c16;
+        }
+        
+        .ipv4-nube-internet {
+            width: 80px;
+            height: 50px;
+            background-color: #f0f5ff;
+            border-radius: 25px;
+            position: relative;
+        }
+        
+        .ipv4-nube-internet::before {
+            content: "☁️";
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .ipv4-explicacion-nat {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Binario a Decimal */
+        .ipv4-binario-decimal {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-conversion {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-tabla-conversion {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .ipv4-calculadora-binario {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-calculadora {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv4-controles-calculadora {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ipv4-entrada-binario, .ipv4-resultado-decimal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv4-entrada-binario input {
+            padding: 8px 12px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        .ipv4-botones-calculadora button {
+            padding: 8px 16px;
+            background-color: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .ipv4-botones-calculadora button:hover {
+            background-color: #096dd9;
+        }
+        
+        .ipv4-resultado-decimal span {
+            font-family: monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        /* Concepto de Máscara */
+        .ipv4-concepto-mascara {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-mascara {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-ejemplo-mascara {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-ejemplo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ipv4-tabla-ejemplo {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .ipv4-uso-mascara {
+            margin: 20px 0;
+        }
+        
+        .ipv4-ejemplos-operacion {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .ipv4-ejemplo-operacion {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-operacion {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ipv4-tabla-operacion {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .ipv4-resultado-operacion {
+            font-weight: 500;
+            margin-top: 15px;
+            color: #52c41a;
+        }
+        
+        .ipv4-nota-operador {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Máscara en Dirección de Red */
+        .ipv4-mascara-red {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-mascara-red {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-ejemplos-mascara-red {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .ipv4-ejemplo-mascara-red {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-calculo-mascara {
+            margin: 15px 0;
+        }
+        
+        .ipv4-titulo-calculo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ipv4-tabla-calculo {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        .ipv4-celda-titulo {
+            font-weight: 500;
+            background-color: #f0f5ff;
+            color: #1890ff;
+            min-width: 120px;
+        }
+        
+        .ipv4-conclusion-ejemplo {
+            margin-top: 15px;
+            font-weight: 500;
+            color: #52c41a;
+        }
+        
+        .ipv4-resumen-mascara {
+            margin: 20px 0;
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #1890ff;
+        }
+        
+        /* Subnetting IPv4 */
+        .ipv4-subnetting {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-subnetting {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-ejemplo-subnetting {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-mascaras-ejemplo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .ipv4-mascara-original, .ipv4-mascara-nueva {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-titulo-mascara {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ipv4-valor-mascara {
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .ipv4-bits-mascara {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .ipv4-detalle-subredes {
+            margin: 20px 0;
+        }
+        
+        .ipv4-titulo-detalle {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ipv4-tabla-subredes {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .ipv4-bit-subred {
+            background-color: #fff2e8;
+            color: #fa8c16;
+            font-weight: 500;
+        }
+        
+        .ipv4-bit-host {
+            background-color: #f0f5ff;
+            color: #1890ff;
+        }
+        
+        .ipv4-tabla-rangos {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .ipv4-notas-subnetting {
+            margin: 20px 0;
+        }
+        
+        /* VLSM */
+        .ipv4-vlsm {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-vlsm {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-ejemplo-vlsm {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-tabla-vlsm {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .ipv4-diagrama-vlsm {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-esquema-vlsm {
+            margin: 20px 0;
+        }
+        
+        .ipv4-red-principal {
+            border: 2px solid #1890ff;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .ipv4-titulo-red {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv4-subredes-vlsm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .ipv4-subred-vlsm {
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-subred-grande {
+            background-color: #f0f5ff;
+            border: 2px solid #1890ff;
+        }
+        
+        .ipv4-subred-mediana {
+            background-color: #f6ffed;
+            border: 2px solid #52c41a;
+        }
+        
+        .ipv4-subred-pequena {
+            background-color: #fff2e8;
+            border: 2px solid #fa8c16;
+        }
+        
+        .ipv4-subred-minima {
+            background-color: #fff1f0;
+            border: 2px solid #ff4d4f;
+        }
+        
+        .ipv4-subredes-secundarias {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 30px;
+        }
+        
+        .ipv4-subredes-pequenas {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 30px;
+        }
+        
+        .ipv4-titulo-subred {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .ipv4-descripcion-subred {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Supernetting */
+        .ipv4-supernetting {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv4-descripcion-supernetting {
+            margin-bottom: 20px;
+        }
+        
+        .ipv4-ejemplo-supernetting {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-subredes-originales {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .ipv4-subred-original {
+            background-color: #f0f5ff;
+            border: 1px solid #1890ff;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-family: monospace;
+        }
+        
+        .ipv4-supernet-resultado {
+            background-color: #f6ffed;
+            border: 2px solid #52c41a;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-family: monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        
+        .ipv4-calculo-supernet {
+            margin: 15px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-detalle-supernet {
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv4-tabla-detalle {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .ipv4-implementacion-supernetting {
+            margin: 20px 0;
+        }
+        
+        .ipv4-titulo-implementacion {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ipv4-ventajas-supernetting {
+            margin: 20px 0;
+            background-color: #f6ffed;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #52c41a;
+        }
+        
+        .ipv4-titulo-ventajas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #52c41a;
+        }
+        
+        .ipv4-lista-ventajas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .ipv4-ventaja {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv4-icono-ventaja {
+            width: 24px;
+            height: 24px;
+            background-color: #52c41a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv4-icono-ventaja::before {
+            content: "✓";
+        }
+        
+        .ipv4-texto-ventaja {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ipv4-octetos {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ipv4-esquema-nat {
+                flex-direction: column;
+            }
+            
+            .ipv4-fila {
+                flex-direction: column;
+            }
+            
+            .ipv4-celda-encabezado, .ipv4-celda {
+                text-align: left;
+            }
+            
+            .ipv4-controles-calculadora {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+    
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<div class="teoria">
+    <span id="4090301001">
+        <h2>3.1. ACCESO REMOTO SEGURO A REDES. REDES PRIVADAS VIRTUALES (VPN)</h2>
+        <p>Una red privada virtual (Virtual Private Network, VPN) es una tecnología de red de ordenadores que permite una extensión segura de la red de área local (LAN) sobre una red pública o no controlada como Internet. Permite que el ordenador en la red envíe y reciba datos sobre redes compartidas o públicas como si fuera una red privada, con toda la funcionalidad, seguridad y políticas de gestión de una red privada. Esto se realiza estableciendo una conexión virtual mediante el uso de conexiones dedicadas, cifrado o la combinación de ambos métodos.</p>
+        
+        <div class="vpn-diagram">
+            <div class="vpn-container">
+                <div class="vpn-client">
+                    <span>🏠</span>
+                    <p>Cliente VPN</p>
+                </div>
+                <div class="vpn-tunnel">
+                    <div class="vpn-data">🔒</div>
+                </div>
+                <div class="vpn-internet">
+                    <span>☁️</span>
+                    <p>Internet</p>
+                </div>
+                <div class="vpn-tunnel">
+                    <div class="vpn-data">🔒</div>
+                </div>
+                <div class="vpn-server">
+                    <span>🏢</span>
+                    <p>Servidor VPN</p>
+                </div>
+            </div>
+            <p class="diagram-caption">Figura 1: Funcionamiento básico de una VPN</p>
+        </div>
+    </span>
+
+    <span id="4090301002">
+        <h3>3.1.1. FUNCIONES DE LAS REDES PRIVADAS VIRTUALES</h3>
+        <p>Las redes privadas virtuales deben realizar las siguientes funciones:</p>
+        <div class="vpn-functions">
+            <div class="function-card">
+                <div class="function-icon">🔐</div>
+                <h4>Autenticación</h4>
+                <p>Deben verificar la identidad de los usuarios y evitar el acceso de aquellos que no se encuentren autorizados. Esta identificación se realiza con métodos de autenticación como claves compartidas o certificados digitales.</p>
+            </div>
+            <div class="function-card">
+                <div class="function-icon">✅</div>
+                <h4>Integridad</h4>
+                <p>Deben garantizar la integridad de los mensajes, lo que suele hacerse mediante la aplicación de una función hash. Una función hash es un algoritmo que a partir de un mensaje de entrada de longitud arbitraria producen una cadena de caracteres de longitud fija llamada firma. Si un mensaje es modificado, su firma varia y se puede comparar el hash del mensaje enviado con el del mensaje recibido para comprobar si existen alteraciones. Funciones hash usadas en las VPNs son MD5, SHA1 y SHA2.</p>
+            </div>
+            <div class="function-card">
+                <div class="function-icon">🔒</div>
+                <h4>Confidencialidad</h4>
+                <p>Los datos que se van a transmitir a través de la red pública sobre la que se establece la VPN deben cifrarse, para que no puedan ser leídos si son interceptados. Esta tarea se realiza con algoritmos de cifrado simétrico como DES, 3DES o AES (Advanced Encryption Standard, en sus opciones AES128, AES192 o AES256) que únicamente pueden ser leídos por el emisor y receptor.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4090301003">
+        <h3>3.1.2. TIPOS DE REDES PRIVADAS VIRTUALES</h3>
+        <p>Según si la conexión de la VPN la establece un único usuario aislado o se conectan varias redes de área local podemos distinguir dos tipos de redes privadas virtuales:</p>
+        
+        <div class="vpn-types">
+            <div class="vpn-type">
+                <h4>Redes privadas virtuales de acceso remoto</h4>
+                <div class="vpn-type-diagram">
+                    <div class="remote-user">👩‍💻</div>
+                    <div class="vpn-arrow">→</div>
+                    <div class="internet-cloud">☁️</div>
+                    <div class="vpn-arrow">→</div>
+                    <div class="corporate-network">🏢</div>
+                </div>
+                <p>Este tipo de VPN permite a un usuario conectarse con una red privada y acceder a todos sus servicios de manera remota. La conexión entre la red privada y el usuario se realiza a través de Internet, pero mantiene la confidencialidad. Este tipo de red es el más usado para el teletrabajo.</p>
+            </div>
+            
+            <div class="vpn-type">
+                <h4>Redes privadas virtuales punto a punto</h4>
+                <div class="vpn-type-diagram">
+                    <div class="office-network">🏢</div>
+                    <div class="vpn-arrow">↔</div>
+                    <div class="internet-cloud">☁️</div>
+                    <div class="vpn-arrow">↔</div>
+                    <div class="office-network">🏢</div>
+                </div>
+                <p>Este tipo de red conecta dos redes de área local y se establece normalmente a través de sus routers. Es usada por grandes organizaciones, que disponen de varias sedes separadas geográficamente, para la compartición de información y servicios.</p>
+            </div>
+        </div>
+    </span>
+
+    <span id="4090301004">
+        <h3>3.1.3. PROTOCOLOS USADOS PARA ESTABLECER REDES PRIVADAS VIRTUALES</h3>
+        
+        <h4 id="4090301005">3.1.3.1. IPSEC (INTERNET PROTOCOL SECURITY)</h4>
+        <p>Se trata de un conjunto de protocolos que opera en la capa 3 del modelo OSI y cuya función es asegurar las comunicaciones sobre el Protocolo de Internet (IP) autenticando y/o cifrando cada paquete IP en un flujo de datos.</p>
+        
+        <p>IPsec consta de tres protocolos que han sido desarrollados para proporcionar seguridad a nivel de paquete, tanto para IPv4 como para IPv6:</p>
+        
+        <div class="ipsec-protocols">
+            <div class="protocol-card">
+                <h5>Internet Key Exchange (IKE)</h5>
+                <p>IKE emplea un intercambio secreto de claves de tipo Diffie-Hellman para establecer el secreto compartido de la sesión. El objetivo es generar la asociación de seguridad (SA), con el conjunto de algoritmos y parámetros necesarios para AH y ESP. IKE opera en dos fases:</p>
+                <ol>
+                    <li>En la Fase 1, los dos extremos negocian aspectos como la función hash (MD5 o SHA1), el mecanismo de autenticación (certificados o claves compartidas), el grupo Diffie-Hellman y el algoritmo de cifrado (DES, 3DES o AES), se intercambian las claves usando Diffie-Hellman y se autentican para finalizar estableciendo un canal seguro (túnel ISAKMP). Esta fase puede ejecutarse en modo normal o en modo agresivo.</li>
+                    <li>En la fase 2, se usa el canal seguro anterior para establecer dos asociaciones de seguridad (SA) unidireccionales de IPSec en las que se basará la comunicación, negociando dentro del canal seguro los parámetros para cada una de ellas:
+                        <ul>
+                            <li>Protocolo IPSec (AH o ESP)</li>
+                            <li>Modo de operación (transporte o túnel)</li>
+                            <li>Claves criptográficas</li>
+                            <li>Algoritmos criptográficos (DES, 3DES o AES)</li>
+                            <li>Tiempo de vida de las claves</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Una vez finalizado IKE, se usan los protocolos AH o ESP, en sus modos de transporte o túnel, según se haya establecido en las SA.</p>
+                
+                <p>En la segunda versión, IKEv2, el proceso de negociación de simplifica, y además:</p>
+                <ul>
+                    <li>Necesita sólo de cuatro mensajes en la fase 1, en la versión inicial se necesitaban 8.</li>
+                    <li>Incorpora mejoras para el NAT transversal, lo que permite facilitar la comunicación y traspasar firewalls en general.</li>
+                    <li>Hay una extensión estándar para IKEv2 llamada MOBIKE, que es utilizada para soportar movilidad y multiorigen (multihoming en inglés), especialmente para túneles IPsec. Mediante esta extensión IKEv2 e IPsec pueden ser utilizados por usuarios móviles y multiorigen.</li>
+                    <li>Permite el uso de SCTP para VoIP.</li>
+                    <li>Tiene menos mecanismos criptográficos que IKEv1 permitiendo solamente los más seguros.</li>
+                </ul>
+            </div>
+            
+            <div class="protocol-card">
+                <h5>Authentication Header (AH)</h5>
+                <p>Está dirigido a garantizar integridad, sin conexión y autenticación de los datos de origen de los datagramas IP. Para ello, calcula un Hash Message Authentication Code (HMAC) a través de algún algoritmo hash operando sobre una clave secreta compartida, el contenido del paquete IP y las partes inmutables del datagrama. No garantiza la confidencialidad, ya que no cifra los datos. Un problema con este protocolo es que no funciona bien con NAT, ya que hace el hash de la dirección IP y el número de puerto del paquete, ya que estos pueden cambiar con NAT, la comprobación del hash fallará.</p>
+            </div>
+            
+            <div class="protocol-card">
+                <h5>Encapsulating Security Payload (ESP)</h5>
+                <p>El protocolo ESP proporciona autenticidad de origen, integridad y protección de confidencialidad de un paquete. ESP también soporta configuraciones de solo cifrado y solo autenticación. Al contrario que con AH, la cabecera del paquete IP no está protegida por ESP.</p>
+            </div>
+        </div>
+        
+        <p>Los protocolos AH y ESP pueden usarse conjuntamente en el mismo paquete.</p>
+        
+        <p>Como hemos dicho anteriormente, IPSec dispone de dos modos de funcionamiento, que pueden ser usados en los protocolos AH o ESP:</p>
+        
+        <div class="ipsec-modes">
+            <div class="mode-card">
+                <h5>Modo transporte</h5>
+                <p>Solo la carga útil del paquete IP es cifrada o autenticada. El enrutamiento permanece intacto, ya que no se modifica ni se cifra la cabecera IP. Las capas de transporte y aplicación están siempre aseguradas por un hash, de forma que no pueden ser modificadas de ninguna manera, de forma que no se puede traducir el número de puerto TCP o UDP. El modo transporte se utiliza para comunicaciones ordenador a ordenador.</p>
+              
+            </div>
+            
+            <div class="mode-card">
+                <h5>Modo túnel</h5>
+                <p>Todo el paquete IP (datos más cabeceras del mensaje) es cifrado o autenticado. Debe ser entonces encapsulado en un nuevo paquete IP para que funcione el enrutamiento. El modo túnel se utiliza para comunicaciones red a red (túneles seguros entre routers).</p>
+               
+            </div>
+        </div>
+        
+        <p>Los algoritmos criptográficos definidos para usar con IPsec incluyen HMAC-SHA-1 para protección de la integridad, y Triple DES-CBC y AES-CBC para la confidencialidad.</p>
+        
+        <p>Implementaciones de IPSec Opensource son StrongSwan y Racoon.</p>
+        
+        <h4 id="4090301006">3.1.3.2. PPTP (POINT-TO-POINT TUNNELING PROTOCOL)</h4>
+        <p>Point-To-Point Tunneling Protocol (PPTP) es un protocolo de comunicaciones obsoleto que permitía el intercambio seguro de datos de un cliente a un servidor formando una Red Privada Virtual (VPN), empleando una red de trabajo TCP/IP. Entre los puntos fuertes de PPTP se encuentran su facilidad de configuración en entornos Windows, su capacidad para trabajar sobre demanda, y su soporte multi-protocolo que le permite funcionar sobre infraestructuras de área de trabajo existentes como Internet o conexiones de acceso telefónico PPP. Su punto más débil es que sólo ofrece la autenticación mediante contraseñas, y no cifra las comunicaciones.</p>
+        
+        <h4 id="4090301007">3.1.3.3. L2F (LAYER 2 FORWARDING)</h4>
+        <p>El protocolo L2F se creó en las primeras etapas del desarrollo de las redes privadas virtuales. Como PPTP, L2F fue diseñado para establecer túneles de tráfico desde usuarios remotos hasta sus sedes corporativas. La principal diferencia entre PPTP y L2F es que, como el establecimiento de túneles de L2F no depende del protocolo IP, es capaz de trabajar directamente con otros medios, como Frame Relay o ATM. Como PPTP, L2F utiliza el protocolo PPP para la autenticación del usuario remoto, pero también implementa otros sistemas de autenticación como TACACS+ (Terminal Access Controller Access Control System) y RADIUS (Remote Authentication Dial-In User Service). L2F también difiere de PPTP en que permite que los túneles contengan más de una conexión.</p>
+        
+        <p>Como L2F es un protocolo de Nivel 2 del modelo OSI, ofrece a los usuarios la misma flexibilidad que PPTP para manejar protocolos distintos a IP, como IPX o NetBEUI, pero sigue con los mismos problemas de seguridad.</p>
+        
+        <h4 id="4090301008">3.1.3.4. L2TP (LAYER 2 TUNNELING PROTOCOL)</h4>
+        <p>L2TP es un protocolo utilizado por redes privadas virtuales que fue diseñado por un grupo de trabajo de IETF como el heredero aparente de los protocolos PPTP y L2F, creado para corregir las deficiencias de estos protocolos y establecerse como un estándar aprobado por el IETF. L2TP utiliza PPP para proporcionar acceso telefónico que puede ser dirigido a través de un túnel por Internet hasta un punto determinado. L2TP define su propio protocolo de establecimiento de túneles, basado en L2F. El transporte de L2TP está definido para una gran variedad de tipos de paquete de datos, incluyendo X.25, Frame Relay y ATM.</p>
+        
+        <p>Al utilizar PPP para el establecimiento telefónico de enlaces, L2TP incluye los mecanismos de autenticación de PPP, PAP y CHAP. De forma similar a PPTP, soporta la utilización de estos protocolos de autenticación, como RADIUS.</p>
+        
+        <p>A pesar de que L2TP ofrece un acceso económico, con soporte multiprotocolo y acceso a redes de área local remotas, no presenta unas características criptográficas especialmente robustas:</p>
+        <ul>
+            <li>Sólo se realiza la operación de autenticación entre los puntos finales del túnel, pero no para cada uno de los paquetes que viajan por él. Esto puede dar lugar a suplantaciones de identidad en algún punto interior al túnel.</li>
+            <li>Sin comprobación de la integridad de cada paquete, sería posible realizar un ataque de denegación del servicio por medio de mensajes falsos de control que den por acabado el túnel L2TP o la conexión PPP subyacente.</li>
+            <li>L2TP no cifra en principio el tráfico de datos de usuario, lo cual puede dar problemas cuando sea importante mantener la confidencialidad de los datos.</li>
+            <li>A pesar de que la información contenida en los paquetes PPP puede ser cifrada, este protocolo no dispone de mecanismos para generación automática de claves, o refresco automático de claves. Esto puede hacer que alguien que escuche en la red y descubra una única clave tenga acceso a todos los datos transmitidos.</li>
+        </ul>
+        
+        <p>A causa de estos inconvenientes, el grupo del IETF que trabaja en el desarrollo de PPP consideró la forma de solventarlos. Ante la opción de crear un nuevo conjunto de protocolos para L2TP del mismo estilo de los que se están realizando para IPSec, y dado la duplicación del trabajo respecto al propio grupo de desarrollo de IPSec que supondría, se tomó la decisión de utilizar los propios protocolos IPSec para proteger los datos que viajan por un túnel L2TP.</p>
+        
+        <h4 id="4090301009">3.1.3.5. OPENVPN</h4>
+        <p>OpenVPN es una herramienta de conectividad basada en software libre que ofrece comunicación punto a punto con validación jerárquica de usuarios y host conectados remotamente. Resulta una muy buena opción en tecnologías Wi-Fi (redes inalámbricas IEEE 802.11) y soporta una amplia configuración, entre ellas, balanceo de cargas. Está publicado bajo la licencia GPL, de software libre.</p>
+        
+        <p>OpenVPN tiene dos modos considerados seguros, uno basado en claves estáticas pre-compartidas y otro basado en SSL/TLS usando certificados y claves RSA:</p>
+        <div class="openvpn-modes">
+            <div class="mode-card">
+                <h5>Cifrado simétrico y claves pre-compartidas</h5>
+                <p>El problema de este método es que si un atacante obtuviera la clave comprometería el tráfico completo de la organización, ya que tomaría parte como un integrante más de la organización.</p>
+            </div>
+            
+            <div class="mode-card">
+                <h5>Cifrado asimétrico con SSL/TLS</h5>
+                <p>SSL/TLS usa una de las mejores tecnologías de cifrado para asegurar la identidad de los integrantes de la VPN. Cada integrante tiene dos claves, una pública y otra privada. La pública es distribuida y usada por cualquiera para cifrar los datos que serán enviados al otro extremo, quien conoce la clave privada que es imprescindible para descifrar los datos. El par de claves pública/privada es generado a partir de algoritmos matemáticos que aseguran que solo con la clave privada es posible leer los datos originales. Si se encontrase un modo de quebrar la seguridad que estos algoritmos proporcionan, todas las conexiones cuya integridad depende de ellos se verían potencialmente comprometidas.</p>
+            </div>
+        </div>
+        
+        <p>Tiene la posibilidad de implementar dos modos básicos, en capa 2 o capa 3, con lo que se logran túneles capaces de enviar información en otros protocolos no-IP como IPX o broadcast (NETBIOS).</p>
+        
+        <p>OpenVPN proporciona seguridad, estabilidad y mecanismos de cifrado sin sufrir la complejidad de otras soluciones VPN como las de IPsec, sin embargo, no es compatible con IPSec.</p>
+        
+        <h4 id="4090301010">3.1.3.6. SSTP (SECURE SOCKET TRANSPORT PROTOCOL)</h4>
+        <p>SSTP es una forma de red privada virtual desarrollada por Microsoft que proporciona un mecanismo para transportar tráfico PPP a través de un canal SSL/TLS. Proporciona seguridad a nivel de transporte con negociación de las claves, cifrado y chequeo de la integridad. El uso de SSL/TLS sobre el puerto 443 de TCP permite a SSTP atravesar casi todos los firewalls y proxies.</p>
+        
+        <p>Los clientes de SSTP se deben autenticar en la fase PPP u opcionalmente en la fase SSL/TLS. Los servidores se deben autenticar en la fase SSL/TLS.</p>
+        
+        <p>SSTP se diseñó sólo para VPN de clientes remotos y no para VPN de punto a punto, por ello solo permite la autenticación del usuario, no de equipo.</p>
+        
+        <h4 id="4090301011">3.1.3.7. WIREGUARD</h4>
+        <p>WireGuard VPN es una aplicación software completamente gratuita que permite establecer túneles VPN. Este software incorpora todos los protocolos de comunicación y criptografía necesarios para levantar una red privada virtual entre varios clientes y un servidor. WireGuard proporciona mejor rendimiento que el protocolo IPsec y que OpenVPN (tanto en velocidad como en latencia de las conexiones).</p>
+        
+        <p>Este software es una VPN a nivel 3 y utiliza el modo túnel únicamente, no como OpenVPN o IPSEC donde se puede usar modo transporte o modo túnel. Además, es compatible tanto con redes IPv4 como redes IPv6. El protocolo de capa transporte utilizado por WireGuard es UDP, por lo que se tiene que abrir un puerto determinado en el router que hace NAT al servidor de WireGuard.</p>
+        
+        <p>WireGuardVPN utiliza los algoritmos más modernos de criptografía: ChaCha20 para el cifrado simétrico, autenticado con Poly1305, utilizando una construcción AEAD. También utiliza Curve25519 para ECDH (Diffie-Helmann con curva elíptica), BLAKE2 para el hashing, SipHash2410 para las claves hashtable, y HKDF para la derivación de clave.</p>
+    </span>
+
+    <span id="4090301012">
+        <h3>3.1.4. COMPARATIVA DE PROTOCOLOS VPN</h3>
+        <div class="table-responsive">
+            <table class="vpn-comparison">
+                <thead>
+                    <tr>
+                        <th>Protocolo</th>
+                        <th>Nivel OSI</th>
+                        <th>Autenticidad</th>
+                        <th>Integridad</th>
+                        <th>Confidencialidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IPSec</td>
+                        <td>3</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>PPTP</td>
+                        <td>2</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>L2F</td>
+                        <td>2</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>L2TP</td>
+                        <td>2</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>OpenVPN</td>
+                        <td>2 o 3</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>SSTP</td>
+                        <td>7</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Wireguard</td>
+                        <td>3</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="table-caption">Tabla 1. Comparativa de protocolos VPN.</p>
+    </span>
+</div>
+
+<style>
+    .teoria {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h2, h3, h4, h5 {
+        color: #2c3e50;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+    }
+    
+    h2 {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    
+    h3 {
+        border-bottom: 1px solid #3498db;
+        padding-bottom: 5px;
+    }
+    
+    p {
+        margin-bottom: 1em;
+        text-align: justify;
+    }
+    
+    ul, ol {
+        margin-bottom: 1em;
+        padding-left: 2em;
+    }
+    
+    li {
+        margin-bottom: 0.5em;
+    }
+    
+    .vpn-diagram {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .vpn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .vpn-client, .vpn-server, .vpn-internet {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px;
+        text-align: center;
+        min-width: 100px;
+    }
+    
+    .vpn-client span, .vpn-server span, .vpn-internet span {
+        font-size: 2em;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .vpn-tunnel {
+        position: relative;
+        height: 5px;
+        background-color: #3498db;
+        width: 100px;
+        margin: 0 5px;
+    }
+    
+    .vpn-data {
+        position: absolute;
+        top: -15px;
+        left: 40%;
+        font-size: 1.2em;
+    }
+    
+    .diagram-caption, .table-caption {
+        text-align: center;
+        font-style: italic;
+        margin-top: 10px;
+        color: #666;
+    }
+    
+    .vpn-functions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    
+    .function-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px 0;
+        width: calc(33.33% - 20px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .function-icon {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .vpn-types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    
+    .vpn-type {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px 0;
+        width: calc(50% - 20px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .vpn-type-diagram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+        font-size: 1.5em;
+    }
+    
+    .vpn-arrow {
+        margin: 0 10px;
+        color: #3498db;
+    }
+    
+    .ipsec-protocols, .ipsec-modes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    
+    .protocol-card, .mode-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px 0;
+        width: calc(100% - 40px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .mode-diagram {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .openvpn-modes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    
+    .vpn-comparison {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    .vpn-comparison th, .vpn-comparison td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+    
+    .vpn-comparison th {
+        background-color: #3498db;
+        color: white;
+    }
+    
+    .vpn-comparison tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    @media (max-width: 768px) {
+        .function-card, .vpn-type {
+            width: 100%;
+        }
+        
+        .vpn-tunnel {
+            width: 50px;
+        }
+    }
+</style>

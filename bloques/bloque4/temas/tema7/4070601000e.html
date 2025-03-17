@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direccionamiento IPv6</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070601000">
+            <h2>6. DIRECCIONAMIENTO IPV6</h2>
+            
+            <div class="ipv6-introduccion">
+                <p>El protocolo IPv6 también es conocido como IPng (Internet Protocol Next Generation).</p>
+                <p>Las direcciones IPv6 tienen una longitud de 128 bits escritos como ocho hextetos según el RFC 5952.</p>
+                <p>Un hexteto es un bloque de 16 bits (cuatro dígitos hexadecimales).</p>
+                <p>Para expresar una dirección IPv6 se puede hacer usando letras mayúsculas o minúsculas.</p>
+            </div>
+            
+            <div class="ipv6-ejemplo-direccion">
+                <div class="ipv6-titulo-ejemplo">Ejemplo de dirección IPv6:</div>
+                <div class="ipv6-direccion-completa">2002:0ab8:85a3:08d3:2319:8a2e:0370:5236</div>
+                <div class="ipv6-hextetos">
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">2002</div>
+                        <div class="ipv6-etiqueta-hexteto">Primer Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">0ab8</div>
+                        <div class="ipv6-etiqueta-hexteto">Segundo Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">85a3</div>
+                        <div class="ipv6-etiqueta-hexteto">Tercer Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">08d3</div>
+                        <div class="ipv6-etiqueta-hexteto">Cuarto Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">2319</div>
+                        <div class="ipv6-etiqueta-hexteto">Quinto Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">8a2e</div>
+                        <div class="ipv6-etiqueta-hexteto">Sexto Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">0370</div>
+                        <div class="ipv6-etiqueta-hexteto">Séptimo Hexteto</div>
+                    </div>
+                    <div class="ipv6-hexteto">
+                        <div class="ipv6-valor-hexteto">5236</div>
+                        <div class="ipv6-etiqueta-hexteto">Octavo Hexteto</div>
+                    </div>
+                </div>
+                <div class="ipv6-total-bits">Total 8*16= 128 bits.</div>
+            </div>
+            
+            <div class="ipv6-sistema-hexadecimal">
+                <div class="ipv6-titulo-seccion">Sistema Hexadecimal</div>
+                <p>El sistema Hexadecimal está compuesto por 16 elementos, desde el 0 hasta F.</p>
+                <p>Para formar un número en hexadecimal sólo requerimos de 4 bits (4 bits = 1 Nibble), diferente al sistema binario donde se necesita mínimo 8 bits.</p>
+                
+                <div class="ipv6-tabla-conversion">
+                    <div class="ipv6-fila-encabezado">
+                        <div class="ipv6-celda-encabezado">Decimal</div>
+                        <div class="ipv6-celda-encabezado">Binario</div>
+                        <div class="ipv6-celda-encabezado">Hexadecimal</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">0</div>
+                        <div class="ipv6-celda">0000</div>
+                        <div class="ipv6-celda">0</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">1</div>
+                        <div class="ipv6-celda">0001</div>
+                        <div class="ipv6-celda">1</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">2</div>
+                        <div class="ipv6-celda">0010</div>
+                        <div class="ipv6-celda">2</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">3</div>
+                        <div class="ipv6-celda">0011</div>
+                        <div class="ipv6-celda">3</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">4</div>
+                        <div class="ipv6-celda">0100</div>
+                        <div class="ipv6-celda">4</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">5</div>
+                        <div class="ipv6-celda">0101</div>
+                        <div class="ipv6-celda">5</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">6</div>
+                        <div class="ipv6-celda">0110</div>
+                        <div class="ipv6-celda">6</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">7</div>
+                        <div class="ipv6-celda">0111</div>
+                        <div class="ipv6-celda">7</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">8</div>
+                        <div class="ipv6-celda">1000</div>
+                        <div class="ipv6-celda">8</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">9</div>
+                        <div class="ipv6-celda">1001</div>
+                        <div class="ipv6-celda">9</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">10</div>
+                        <div class="ipv6-celda">1010</div>
+                        <div class="ipv6-celda">A</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">11</div>
+                        <div class="ipv6-celda">1011</div>
+                        <div class="ipv6-celda">B</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">12</div>
+                        <div class="ipv6-celda">1100</div>
+                        <div class="ipv6-celda">C</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">13</div>
+                        <div class="ipv6-celda">1101</div>
+                        <div class="ipv6-celda">D</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">14</div>
+                        <div class="ipv6-celda">1110</div>
+                        <div class="ipv6-celda">E</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">15</div>
+                        <div class="ipv6-celda">1111</div>
+                        <div class="ipv6-celda">F</div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-calculadora-hex">
+                    <div class="ipv6-titulo-calculadora">Calculadora Hexadecimal</div>
+                    <div class="ipv6-controles-calculadora">
+                        <div class="ipv6-entrada-calculadora">
+                            <label for="hex-input">Hexadecimal:</label>
+                            <input type="text" id="hex-input" placeholder="Ej: 1A3F" maxlength="4">
+                        </div>
+                        <div class="ipv6-botones-calculadora">
+                            <button id="calcular-decimal">Calcular Decimal</button>
+                            <button id="calcular-binario">Calcular Binario</button>
+                        </div>
+                        <div class="ipv6-resultado-calculadora">
+                            <div class="ipv6-resultado-decimal">
+                                <label>Decimal:</label>
+                                <span id="decimal-resultado">0</span>
+                            </div>
+                            <div class="ipv6-resultado-binario">
+                                <label>Binario:</label>
+                                <span id="binario-resultado">0000 0000 0000 0000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-tipos-direcciones">
+                <div class="ipv6-titulo-seccion">Tipos de direcciones IPv6</div>
+                <p>Existen tres tipos de direcciones IPv6:</p>
+                
+                <div class="ipv6-tipo-direccion">
+                    <div class="ipv6-icono-tipo ipv6-icono-unicast"></div>
+                    <div class="ipv6-contenido-tipo">
+                        <div class="ipv6-nombre-tipo">Unidistribución (Unicast)</div>
+                        <div class="ipv6-descripcion-tipo">
+                            <p>Identifica una interfaz individual. El protocolo de Internet entrega los paquetes enviados a una dirección unicast al interfaz específico.</p>
+                            <ul>
+                                <li><strong>Unicast Global:</strong> Direcciones parecidas a las direcciones públicas IPv4. Se pueden enrutar hacia el internet y son asignadas por un ISP.</li>
+                                <li><strong>Link Local:</strong> Direcciones utilizadas por los dispositivos para comunicarse con otros que se encuentran en el mismo segmento (subred). No se pueden enrutar fuera de un determino segmento. Estas direcciones se encuentran en el rango FE80::/10.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-tipo-direccion">
+                    <div class="ipv6-icono-tipo ipv6-icono-anycast"></div>
+                    <div class="ipv6-contenido-tipo">
+                        <div class="ipv6-nombre-tipo">Monodistribución (Anycast)</div>
+                        <div class="ipv6-descripcion-tipo">
+                            <p>Asignada a un grupo de interfaces, normalmente de nodos diferentes. Un paquete enviado a una dirección anycast se entrega únicamente a uno de los miembros, típicamente el host con menos coste (el mas cercano), según la definición de métrica del protocolo de encaminamiento.</p>
+                            <p>Las direcciones anycast no se identifican fácilmente pues tienen el mismo formato que las unicast, diferenciándose únicamente por estar presente en varios puntos de la red. Casi cualquier dirección unicast puede utilizarse como dirección anycast.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-tipo-direccion">
+                    <div class="ipv6-icono-tipo ipv6-icono-multicast"></div>
+                    <div class="ipv6-contenido-tipo">
+                        <div class="ipv6-nombre-tipo">Multicast</div>
+                        <div class="ipv6-descripcion-tipo">
+                            <p>Usada por múltiples interfaces, que consiguen la dirección multicast participando en el protocolo de multidifusión (multicast) entre los routers de red.</p>
+                            <p>Un paquete enviado a una dirección multicast es entregado a todos los interfaces que se hayan unido al grupo multicast correspondiente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-nota-broadcast">
+                    <div class="ipv6-icono-nota"></div>
+                    <div class="ipv6-texto-nota">
+                        <p>IPv6 no implementa direcciones broadcast. Aunque no está recomendado puede simularse enviando un paquete al grupo de multicast de enlace-local todos los nodos (all-nodes) ff02::1.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-abreviaciones">
+                <div class="ipv6-titulo-seccion">Abreviaciones en IPv6</div>
+                <p>Para acortar las direcciones se pueden utilizar varias abreviaciones:</p>
+                
+                <div class="ipv6-regla-abreviacion">
+                    <div class="ipv6-numero-regla">1</div>
+                    <div class="ipv6-contenido-regla">
+                        <div class="ipv6-titulo-regla">Comprimir un grupo de cuatro dígitos si es nulo ("0000")</div>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">2001:0db8:85a3:0000:1319:8a2e:0370:7344</div>
+                            <div class="ipv6-flecha">→</div>
+                            <div class="ipv6-abreviada">2001:0db8:85a3::1319:8a2e:0370:7344</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-regla-abreviacion">
+                    <div class="ipv6-numero-regla">2</div>
+                    <div class="ipv6-contenido-regla">
+                        <div class="ipv6-titulo-regla">Comprimir grupos consecutivos nulos como ::</div>
+                        <p>Si más de dos grupos consecutivos son nulos, pueden comprimirse como ::. Si la dirección tiene más de una serie de grupos nulos consecutivos la compresión solamente se permite en uno de ellos.</p>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">2001:0DB8:0000:0000:0000:0000:1428:57ab</div>
+                            <div class="ipv6-formas-validas">
+                                <div class="ipv6-forma-valida">2001:0DB8:0000:0000:0000::1428:57ab</div>
+                                <div class="ipv6-forma-valida">2001:0DB8:0:0:0:0:1428:57ab</div>
+                                <div class="ipv6-forma-valida">2001:0DB8:0::0:1428:57ab</div>
+                                <div class="ipv6-forma-valida">2001:0DB8::1428:57ab</div>
+                            </div>
+                        </div>
+                        <div class="ipv6-forma-invalida">
+                            <div class="ipv6-titulo-invalida">Esta forma no es válida al no poder discernir cuantos grupos nulos hay en cada lado:</div>
+                            <div class="ipv6-ejemplo-invalida">2001::25de::cade</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-regla-abreviacion">
+                    <div class="ipv6-numero-regla">3</div>
+                    <div class="ipv6-contenido-regla">
+                        <div class="ipv6-titulo-regla">Suprimir ceros iniciales en un grupo</div>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">2001:0DB8:02de::0e13</div>
+                            <div class="ipv6-flecha">→</div>
+                            <div class="ipv6-abreviada">2001:DB8:2de::e13</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-regla-abreviacion">
+                    <div class="ipv6-numero-regla">4</div>
+                    <div class="ipv6-contenido-regla">
+                        <div class="ipv6-titulo-regla">Identificar un rango de direcciones con prefijo</div>
+                        <p>Cuando lo que se desea es identificar un rango de direcciones diferenciable por medio de los primeros bits, se añade este número de bits tras el carácter de barra "/":</p>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">2001:0DB8::1428:57AB/96</div>
+                            <div class="ipv6-flecha">→</div>
+                            <div class="ipv6-abreviada">2001:0DB8::</div>
+                        </div>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">2001:0DB8::874B:2B34/96</div>
+                            <div class="ipv6-flecha">→</div>
+                            <div class="ipv6-abreviada">2001:0DB8::</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-regla-abreviacion">
+                    <div class="ipv6-numero-regla">5</div>
+                    <div class="ipv6-contenido-regla">
+                        <div class="ipv6-titulo-regla">Direcciones IPv4 compatibles con IPv6</div>
+                        <p>Clase especial de dirección IPv6. Son direcciones de IPv6 cuyos primeros 96 bits son ceros, mientras que los últimos 32 bits representan una dirección IPv4.</p>
+                        <div class="ipv6-ejemplo-regla">
+                            <div class="ipv6-original">0:0:0:0:0:0:192.168.100.1</div>
+                            <div class="ipv6-flecha">→</div>
+                            <div class="ipv6-abreviada">::192.168.100.1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-identificacion-tipos" id="4070601001">
+                <div class="ipv6-titulo-seccion">6.1 IDENTIFICACIÓN DE LOS TIPOS DE DIRECCIONES</div>
+                <p>Los tipos de direcciones IPv6 pueden identificarse tomando en cuenta los rangos definidos por los primeros bits de cada dirección:</p>
+                
+                <div class="ipv6-tabla-tipos">
+                    <div class="ipv6-fila-encabezado">
+                        <div class="ipv6-celda-encabezado">Bloque de direcciones (CIDR)</div>
+                        <div class="ipv6-celda-encabezado">Primera dirección</div>
+                        <div class="ipv6-celda-encabezado">Última dirección</div>
+                        <div class="ipv6-celda-encabezado">N.º de direcciones</div>
+                        <div class="ipv6-celda-encabezado">Alcance</div>
+                        <div class="ipv6-celda-encabezado">Propósito</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">::/0</div>
+                        <div class="ipv6-celda">::</div>
+                        <div class="ipv6-celda">ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>128</sup></div>
+                        <div class="ipv6-celda">Enrutamiento</div>
+                        <div class="ipv6-celda">Ruta por defecto</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">::/128</div>
+                        <div class="ipv6-celda">::</div>
+                        <div class="ipv6-celda">::</div>
+                        <div class="ipv6-celda">1</div>
+                        <div class="ipv6-celda">Software</div>
+                        <div class="ipv6-celda">Dirección sin especificar</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">::1/128</div>
+                        <div class="ipv6-celda">::1</div>
+                        <div class="ipv6-celda">::1</div>
+                        <div class="ipv6-celda">1</div>
+                        <div class="ipv6-celda">Host</div>
+                        <div class="ipv6-celda">Dirección de loopback</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">::ffff:0:0/96</div>
+                        <div class="ipv6-celda">::ffff:0.0.0.0</div>
+                        <div class="ipv6-celda">::ffff:255.255.255.255</div>
+                        <div class="ipv6-celda">2<sup>32</sup></div>
+                        <div class="ipv6-celda">Software</div>
+                        <div class="ipv6-celda">Dirección IPv4 mapeada</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">::ffff:0:0:0/96</div>
+                        <div class="ipv6-celda">::ffff:0:0.0.0.0</div>
+                        <div class="ipv6-celda">::ffff:0:255.255.255.255</div>
+                        <div class="ipv6-celda">2<sup>32</sup></div>
+                        <div class="ipv6-celda">Software</div>
+                        <div class="ipv6-celda">Dirección IPv4 traducida</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">64:ff9b::/96</div>
+                        <div class="ipv6-celda">64:ff9b::0.0.0.0</div>
+                        <div class="ipv6-celda">64:ff9b::255.255.255.255</div>
+                        <div class="ipv6-celda">2<sup>32</sup></div>
+                        <div class="ipv6-celda">Internet</div>
+                        <div class="ipv6-celda">Traducción IPv4/IPv6</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">100::/64</div>
+                        <div class="ipv6-celda">100::</div>
+                        <div class="ipv6-celda">100::ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>64</sup></div>
+                        <div class="ipv6-celda">Enrutamiento</div>
+                        <div class="ipv6-celda">Prefijo</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">2001::/32</div>
+                        <div class="ipv6-celda">2001::</div>
+                        <div class="ipv6-celda">2001::ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>96</sup></div>
+                        <div class="ipv6-celda">Internet</div>
+                        <div class="ipv6-celda">Túnel Teredo</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">2001:20::/28</div>
+                        <div class="ipv6-celda">2001:20::</div>
+                        <div class="ipv6-celda">2001:2f:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>100</sup></div>
+                        <div class="ipv6-celda">Software</div>
+                        <div class="ipv6-celda">ORCHIDv2</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">2001:db8::/32</div>
+                        <div class="ipv6-celda">2001:db8::</div>
+                        <div class="ipv6-celda">2001:db8:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>96</sup></div>
+                        <div class="ipv6-celda">Documentación</div>
+                        <div class="ipv6-celda">Direcciones utilizadas en documentación y código fuente de ejemplo</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">2002::/16</div>
+                        <div class="ipv6-celda">2002::</div>
+                        <div class="ipv6-celda">2002:ffff:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>112</sup></div>
+                        <div class="ipv6-celda">Internet</div>
+                        <div class="ipv6-celda">Esquema de direccionamiento 6to4 (ahora en desuso)</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">fc00::/7</div>
+                        <div class="ipv6-celda">fc00::</div>
+                        <div class="ipv6-celda">fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>121</sup></div>
+                        <div class="ipv6-celda">Red privada</div>
+                        <div class="ipv6-celda">Dirección local única</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">fe80::/10</div>
+                        <div class="ipv6-celda">fe80::</div>
+                        <div class="ipv6-celda">febf:ffff:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>118</sup></div>
+                        <div class="ipv6-celda">Enlace</div>
+                        <div class="ipv6-celda">Dirección de enlace local</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">ff00::/8</div>
+                        <div class="ipv6-celda">ff00::</div>
+                        <div class="ipv6-celda">ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</div>
+                        <div class="ipv6-celda">2<sup>120</sup></div>
+                        <div class="ipv6-celda">Internet</div>
+                        <div class="ipv6-celda">Dirección multidifusión</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-subnetting" id="4070601002">
+                <div class="ipv6-titulo-seccion">6.2 SUBNETTING IPV6</div>
+                <div class="ipv6-descripcion-subnetting">
+                    <p>Utilizamos los 16 bits del campo de subred.</p>
+                    <p>El RFC 4291 recomienda que las subredes cuenten con una máscara /64.</p>
+                </div>
+                
+                <div class="ipv6-ejemplo-subnetting">
+                    <div class="ipv6-titulo-ejemplo">Ejemplo de subnetting IPv6</div>
+                    <p>Un organismo nacional cuenta con Oficinas en 20 ciudades importantes de este país.</p>
+                    <p>En cada Ciudad hay 10 oficinas.</p>
+                    <p>Cada oficina tiene como máximo 11 departamentos.</p>
+                    <p>El proveedor de servicios ha asignado la IPv6: 2001:BABA:CAFE::/48</p>
+                    
+                    <div class="ipv6-resumen-requisitos">
+                        <div class="ipv6-requisito">
+                            <div class="ipv6-icono-requisito"></div>
+                            <div class="ipv6-texto-requisito">20 ciudades</div>
+                        </div>
+                        <div class="ipv6-requisito">
+                            <div class="ipv6-icono-requisito"></div>
+                            <div class="ipv6-texto-requisito">10 oficinas por ciudad</div>
+                        </div>
+                        <div class="ipv6-requisito">
+                            <div class="ipv6-icono-requisito"></div>
+                            <div class="ipv6-texto-requisito">11 departamentos por oficina</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-prefijo-ciudad" id="4070601003">
+                <div class="ipv6-titulo-seccion">6.3 PREFIJO PARA CADA CIUDAD</div>
+                <div class="ipv6-descripcion-prefijo">
+                    <p>Para 20 ciudades necesitamos 5 bits, 2<sup>5</sup> = 32 ciudades (porque con 2<sup>4</sup> = 16 nos quedamos cortos). Utilizamos sólo los prefijos para 20 ciudades, las demás se reservan para una futura expansión de la red.</p>
+                    <p>Realizamos subnetting con los bits del cuarto hexteto.</p>
+                    <p>Al realizar la segmentación de la red es recomendable tomar nibbles completos en lugar de tomar bits individuales de un nibble. Por lo que tenemos que tenemos que coger 2<sup>8</sup>=256 prefijos para diferentes 256 ciudades.</p>
+                    <p>El prefijo sería: 48+8=56 → /56</p>
+                </div>
+                
+                <div class="ipv6-tabla-prefijos-ciudad">
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 1</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0000::/56</div>
+                        <div class="ipv6-celda-nota" rowspan="3">El cambio está en el primer y segundo nibble del cuarto Hexteto</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 2</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0100::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 3</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0200::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">...</div>
+                        <div class="ipv6-celda">...</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 11</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0A00::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 12</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0B00::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 13</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0C00::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">...</div>
+                        <div class="ipv6-celda">...</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 17</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:1000::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 10</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0900::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 6</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0500::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">...</div>
+                        <div class="ipv6-celda">...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-prefijo-oficina" id="4070601004">
+                <div class="ipv6-titulo-seccion">6.4 PREFIJO PARA CADA OFICINA</div>
+                <div class="ipv6-descripcion-prefijo">
+                    <p>Tenemos 10 oficinas por ciudad. Usamos el tercer nibble porque los dos primeros nibbles indican la ciudad.</p>
+                    <p>Para 10 oficinas necesitamos 4 bits, 2<sup>4</sup> = 16 oficinas.</p>
+                    <p>El prefijo para las oficinas será: /60 (56 + 4 = 60).</p>
+                </div>
+                
+                <div class="ipv6-tabla-prefijos-oficina">
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 1: 2001:BABA:CAFE:0000::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Oficina 1</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0000::/60</div>
+                        <div class="ipv6-celda-nota" rowspan="3">El cambio está en el primer y tercer nibble del cuarto Hexteto</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Oficina 2</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0010::/60</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Oficina 3</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0020::/60</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">...</div>
+                        <div class="ipv6-celda">...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ipv6-prefijo-departamento" id="4070601005">
+                <div class="ipv6-titulo-seccion">6.5 PREFIJO PARA CADA DEPARTAMENTO</div>
+                <div class="ipv6-descripcion-prefijo">
+                    <p>Aunque la recomendación es que cada subred debe tener un /64 podríamos realizar el mismo proceso para los departamentos.</p>
+                    <p>Siguiendo con la regla de tomar el nibble completo tenemos 11 departamentos, 2<sup>4</sup> = 16 departamentos.</p>
+                    <p>Cada departamento tendrá un prefijo /64 (60 + 4)</p>
+                </div>
+                
+                <div class="ipv6-tabla-prefijos-departamento">
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Ciudad 1: 2001:BABA:CAFE:0000::/56</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Oficina 1: 2001:BABA:CAFE:0000::/60</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Departamento 1</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0000::/64</div>
+                        <div class="ipv6-celda-nota" rowspan="3">El cambio está en el primer y cuarto nibble del cuarto Hexteto</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Departamento 2</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0001::/64</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">Departamento 3</div>
+                        <div class="ipv6-celda">2001:BABA:CAFE:0002::/64</div>
+                    </div>
+                    <div class="ipv6-fila">
+                        <div class="ipv6-celda">...</div>
+                        <div class="ipv6-celda">...</div>
+                    </div>
+                </div>
+                
+                <div class="ipv6-diagrama-jerarquia">
+                    <div class="ipv6-titulo-diagrama">Jerarquía de direccionamiento IPv6</div>
+                    <div class="ipv6-esquema-jerarquia">
+                        <div class="ipv6-nivel-jerarquia ipv6-nivel-proveedor">
+                            <div class="ipv6-titulo-nivel">Proveedor</div>
+                            <div class="ipv6-contenido-nivel">2001:BABA:CAFE::/48</div>
+                        </div>
+                        <div class="ipv6-nivel-jerarquia ipv6-nivel-ciudad">
+                            <div class="ipv6-titulo-nivel">Ciudad</div>
+                            <div class="ipv6-contenido-nivel">2001:BABA:CAFE:XX00::/56</div>
+                        </div>
+                        <div class="ipv6-nivel-jerarquia ipv6-nivel-oficina">
+                            <div class="ipv6-titulo-nivel">Oficina</div>
+                            <div class="ipv6-contenido-nivel">2001:BABA:CAFE:XXY0::/60</div>
+                        </div>
+                        <div class="ipv6-nivel-jerarquia ipv6-nivel-departamento">
+                            <div class="ipv6-titulo-nivel">Departamento</div>
+                            <div class="ipv6-contenido-nivel">2001:BABA:CAFE:XXYZ::/64</div>
+                        </div>
+                        <div class="ipv6-nivel-jerarquia ipv6-nivel-host">
+                            <div class="ipv6-titulo-nivel">Host</div>
+                            <div class="ipv6-contenido-nivel">2001:BABA:CAFE:XXYZ:HHHH:HHHH:HHHH:HHHH</div>
+                        </div>
+                    </div>
+                    <div class="ipv6-leyenda-jerarquia">
+                        <div class="ipv6-item-leyenda">
+                            <span class="ipv6-simbolo-leyenda">XX</span>
+                            <span class="ipv6-texto-leyenda">= Identificador de Ciudad (00-FF)</span>
+                        </div>
+                        <div class="ipv6-item-leyenda">
+                            <span class="ipv6-simbolo-leyenda">Y</span>
+                            <span class="ipv6-texto-leyenda">= Identificador de Oficina (0-F)</span>
+                        </div>
+                        <div class="ipv6-item-leyenda">
+                            <span class="ipv6-simbolo-leyenda">Z</span>
+                            <span class="ipv6-texto-leyenda">= Identificador de Departamento (0-F)</span>
+                        </div>
+                        <div class="ipv6-item-leyenda">
+                            <span class="ipv6-simbolo-leyenda">H</span>
+                            <span class="ipv6-texto-leyenda">= Identificador de Host (64 bits)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el direccionamiento IPv6 - usando clases únicas */
+        .ipv6-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Ejemplo de dirección IPv6 */
+        .ipv6-ejemplo-direccion {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-titulo-ejemplo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .ipv6-direccion-completa {
+            font-family: monospace;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .ipv6-hextetos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .ipv6-hexteto {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            min-width: 80px;
+        }
+        
+        .ipv6-valor-hexteto {
+            font-family: monospace;
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .ipv6-etiqueta-hexteto {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .ipv6-total-bits {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        /* Sistema Hexadecimal */
+        .ipv6-sistema-hexadecimal {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .ipv6-tabla-conversion {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .ipv6-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .ipv6-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .ipv6-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .ipv6-celda-encabezado, .ipv6-celda {
+            padding: 10px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .ipv6-calculadora-hex {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-titulo-calculadora {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv6-controles-calculadora {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ipv6-entrada-calculadora {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv6-entrada-calculadora input {
+            padding: 8px 12px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+        
+        .ipv6-botones-calculadora {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .ipv6-botones-calculadora button {
+            padding: 8px 16px;
+            background-color: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .ipv6-botones-calculadora button:hover {
+            background-color: #096dd9;
+        }
+        
+        .ipv6-resultado-calculadora {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .ipv6-resultado-decimal, .ipv6-resultado-binario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ipv6-resultado-decimal span, .ipv6-resultado-binario span {
+            font-family: monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        /* Tipos de direcciones IPv6 */
+        .ipv6-tipos-direcciones {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-tipo-direccion {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-icono-tipo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv6-icono-unicast {
+            background-color: #1890ff;
+        }
+        
+        .ipv6-icono-unicast::before {
+            content: "U";
+        }
+        
+        .ipv6-icono-anycast {
+            background-color: #52c41a;
+        }
+        
+        .ipv6-icono-anycast::before {
+            content: "A";
+        }
+        
+        .ipv6-icono-multicast {
+            background-color: #fa8c16;
+        }
+        
+        .ipv6-icono-multicast::before {
+            content: "M";
+        }
+        
+        .ipv6-contenido-tipo {
+            flex: 1;
+        }
+        
+        .ipv6-nombre-tipo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ipv6-descripcion-tipo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .ipv6-nota-broadcast {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 20px 0;
+            background-color: #fff2e8;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #fa8c16;
+        }
+        
+        .ipv6-icono-nota {
+            width: 24px;
+            height: 24px;
+            background-color: #fa8c16;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv6-icono-nota::before {
+            content: "!";
+        }
+        
+        .ipv6-texto-nota {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Abreviaciones en IPv6 */
+        .ipv6-abreviaciones {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-regla-abreviacion {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-numero-regla {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv6-contenido-regla {
+            flex: 1;
+        }
+        
+        .ipv6-titulo-regla {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .ipv6-ejemplo-regla {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        
+        .ipv6-original, .ipv6-abreviada {
+            font-family: monospace;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .ipv6-original {
+            background-color: #f0f5ff;
+        }
+        
+        .ipv6-abreviada {
+            background-color: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .ipv6-flecha {
+            color: #1890ff;
+            font-weight: bold;
+        }
+        
+        .ipv6-formas-validas {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .ipv6-forma-valida {
+            font-family: monospace;
+            background-color: #f6ffed;
+            color: #52c41a;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .ipv6-forma-invalida {
+            margin-top: 15px;
+            background-color: #fff1f0;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .ipv6-titulo-invalida {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #ff4d4f;
+            font-size: 0.9rem;
+        }
+        
+        .ipv6-ejemplo-invalida {
+            font-family: monospace;
+            color: #ff4d4f;
+        }
+        
+        /* Identificación de los tipos de direcciones */
+        .ipv6-identificacion-tipos {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-tabla-tipos {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        /* Subnetting IPv6 */
+        .ipv6-subnetting {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-descripcion-subnetting {
+            margin-bottom: 20px;
+        }
+        
+        .ipv6-ejemplo-subnetting {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-resumen-requisitos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .ipv6-requisito {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px 15px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-icono-requisito {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .ipv6-icono-requisito::before {
+            content: "✓";
+        }
+        
+        .ipv6-texto-requisito {
+            font-weight: 500;
+        }
+        
+        /* Prefijo para cada ciudad */
+        .ipv6-prefijo-ciudad {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-descripcion-prefijo {
+            margin-bottom: 20px;
+        }
+        
+        .ipv6-tabla-prefijos-ciudad, .ipv6-tabla-prefijos-oficina, .ipv6-tabla-prefijos-departamento {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .ipv6-celda-nota {
+            background-color: #f0f5ff;
+            color: #1890ff;
+            font-style: italic;
+            font-size: 0.9rem;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        /* Prefijo para cada oficina */
+        .ipv6-prefijo-oficina {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        /* Prefijo para cada departamento */
+        .ipv6-prefijo-departamento {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .ipv6-diagrama-jerarquia {
+            margin: 30px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ipv6-titulo-diagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv6-esquema-jerarquia {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .ipv6-nivel-jerarquia {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .ipv6-nivel-jerarquia:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 2px;
+            height: 10px;
+            background-color: #1890ff;
+        }
+        
+        .ipv6-titulo-nivel {
+            font-weight: 500;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .ipv6-contenido-nivel {
+            font-family: monospace;
+            background-color: #f0f5ff;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .ipv6-nivel-proveedor {
+            border-color: #1890ff;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .ipv6-nivel-ciudad {
+            border-color: #52c41a;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .ipv6-nivel-oficina {
+            border-color: #fa8c16;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .ipv6-nivel-departamento {
+            border-color: #722ed1;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .ipv6-nivel-host {
+            border-color: #eb2f96;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .ipv6-leyenda-jerarquia {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .ipv6-item-leyenda {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ipv6-simbolo-leyenda {
+            font-family: monospace;
+            font-weight: 500;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #1890ff;
+        }
+        
+        .ipv6-texto-leyenda {
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ipv6-hextetos {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ipv6-fila {
+                flex-direction: column;
+            }
+            
+            .ipv6-celda-encabezado, .ipv6-celda {
+                text-align: left;
+            }
+            
+            .ipv6-controles-calculadora {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .ipv6-tipo-direccion {
+                flex-direction: column;
+            }
+            
+            .ipv6-icono-tipo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+    
+
+</body>
+</html>
+

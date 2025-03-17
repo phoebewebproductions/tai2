@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encaminamiento</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070701000">
+            <h2>7. ENCAMINAMIENTO</h2>
+            
+            <div class="encaminamiento-introduccion">
+                <p>En un conjunto de redes interconectadas, como internet, cada dispositivo de encaminamiento es responsable de recibir y enviar los paquetes a través del conjunto de red.</p>
+                <p>Cada dispositivo decide la ruta a seguir en función del conocimiento de la topología y del estado del conjunto de redes.</p>
+                <p>Éste conocimiento puede ser un conocimiento estático en redes simples (tabla de rutas estática) o un conocimiento dinámico que requiere la cooperación entre los dispositivos de encaminamiento para evitar las porciones de red que han sufrido algún fallo, presentan congestión, etc.</p>
+                
+                <div class="encaminamiento-conceptos-fundamentales">
+                    <div class="encaminamiento-titulo-seccion">Conceptos fundamentales</div>
+                    <div class="encaminamiento-lista-conceptos">
+                        <div class="encaminamiento-concepto">
+                            <div class="encaminamiento-icono-concepto"></div>
+                            <div class="encaminamiento-texto-concepto">
+                                <strong>Información de encaminamiento:</strong> Topología y retardo del conjunto de redes.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-concepto">
+                            <div class="encaminamiento-icono-concepto"></div>
+                            <div class="encaminamiento-texto-concepto">
+                                <strong>Algoritmo de encaminamiento:</strong> Algoritmo para la toma de decisión de encaminamiento de un datagrama particular en un momento dado.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-protocolos" id="4070701001">
+                <div class="encaminamiento-titulo-seccion">7.1 PROTOCOLOS DE ENCAMINAMIENTO</div>
+                <p>Son el conjunto de reglas utilizadas por un dispositivo de encaminamiento cuando se comunica con otros dispositivos de encaminamiento con el fin de compartir información de enrutamiento. Dicha información se usa para construir y mantener las tablas de enrutamiento.</p>
+                <p>Un protocolo de enrutamiento es la aplicación de un algoritmo de enrutamiento en el software o hardware.</p>
+                
+                <div class="encaminamiento-diagrama-general">
+                    <div class="encaminamiento-titulo-diagrama">Funcionamiento general de los protocolos de encaminamiento</div>
+                    <div class="encaminamiento-esquema-diagrama">
+                        <div class="encaminamiento-router encaminamiento-router-1">
+                            <div class="encaminamiento-icono-router"></div>
+                            <div class="encaminamiento-etiqueta-router">Router A</div>
+                            <div class="encaminamiento-tabla-router">
+                                <div class="encaminamiento-titulo-tabla">Tabla de rutas</div>
+                                <div class="encaminamiento-contenido-tabla">
+                                    <div class="encaminamiento-fila-tabla">
+                                        <div class="encaminamiento-celda-tabla">Red 1</div>
+                                        <div class="encaminamiento-celda-tabla">Directa</div>
+                                    </div>
+                                    <div class="encaminamiento-fila-tabla">
+                                        <div class="encaminamiento-celda-tabla">Red 2</div>
+                                        <div class="encaminamiento-celda-tabla">Router B</div>
+                                    </div>
+                                    <div class="encaminamiento-fila-tabla">
+                                        <div class="encaminamiento-celda-tabla">Red 3</div>
+                                        <div class="encaminamiento-celda-tabla">Router C</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-conexiones">
+                            <div class="encaminamiento-conexion encaminamiento-conexion-ab">
+                                <div class="encaminamiento-linea-conexion"></div>
+                                <div class="encaminamiento-etiqueta-conexion">Intercambio de información</div>
+                            </div>
+                            <div class="encaminamiento-conexion encaminamiento-conexion-ac">
+                                <div class="encaminamiento-linea-conexion"></div>
+                                <div class="encaminamiento-etiqueta-conexion">Intercambio de información</div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-routers-secundarios">
+                            <div class="encaminamiento-router encaminamiento-router-2">
+                                <div class="encaminamiento-icono-router"></div>
+                                <div class="encaminamiento-etiqueta-router">Router B</div>
+                                <div class="encaminamiento-tabla-router">
+                                    <div class="encaminamiento-titulo-tabla">Tabla de rutas</div>
+                                    <div class="encaminamiento-contenido-tabla">
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 1</div>
+                                            <div class="encaminamiento-celda-tabla">Router A</div>
+                                        </div>
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 2</div>
+                                            <div class="encaminamiento-celda-tabla">Directa</div>
+                                        </div>
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 3</div>
+                                            <div class="encaminamiento-celda-tabla">Router C</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="encaminamiento-router encaminamiento-router-3">
+                                <div class="encaminamiento-icono-router"></div>
+                                <div class="encaminamiento-etiqueta-router">Router C</div>
+                                <div class="encaminamiento-tabla-router">
+                                    <div class="encaminamiento-titulo-tabla">Tabla de rutas</div>
+                                    <div class="encaminamiento-contenido-tabla">
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 1</div>
+                                            <div class="encaminamiento-celda-tabla">Router A</div>
+                                        </div>
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 2</div>
+                                            <div class="encaminamiento-celda-tabla">Router B</div>
+                                        </div>
+                                        <div class="encaminamiento-fila-tabla">
+                                            <div class="encaminamiento-celda-tabla">Red 3</div>
+                                            <div class="encaminamiento-celda-tabla">Directa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-sistema-autonomo" id="4070701002">
+                <div class="encaminamiento-titulo-seccion">7.2 SISTEMA AUTÓNOMO</div>
+                <p>Un Sistema Autónomo (SA) es un conjunto de redes, o de dispositivos de encaminamiento que tienen las siguientes características:</p>
+                
+                <div class="encaminamiento-caracteristicas-sa">
+                    <div class="encaminamiento-caracteristica">
+                        <div class="encaminamiento-icono-caracteristica"></div>
+                        <div class="encaminamiento-texto-caracteristica">Tienen una única política de enrutamiento.</div>
+                    </div>
+                    <div class="encaminamiento-caracteristica">
+                        <div class="encaminamiento-icono-caracteristica"></div>
+                        <div class="encaminamiento-texto-caracteristica">Se ejecutan bajo una administración común, utilizando habitualmente un único IGP.</div>
+                    </div>
+                    <div class="encaminamiento-caracteristica">
+                        <div class="encaminamiento-icono-caracteristica"></div>
+                        <div class="encaminamiento-texto-caracteristica">Cada SA es visto como una única entidad para el mundo exterior.</div>
+                    </div>
+                    <div class="encaminamiento-caracteristica">
+                        <div class="encaminamiento-icono-caracteristica"></div>
+                        <div class="encaminamiento-texto-caracteristica">Cada SA tiene un número identificador de 16 bits, que se le asigna mediante un Registro de Internet (como RIPE, ARIN, o APNIC), o un proveedor de servicios en el caso de los SA privados.</div>
+                    </div>
+                    <div class="encaminamiento-caracteristica">
+                        <div class="encaminamiento-icono-caracteristica"></div>
+                        <div class="encaminamiento-texto-caracteristica">Permiten dividir el mundo en distintas administraciones, con la capacidad de tener una gran red dividida en redes más pequeñas y manipulables.</div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-jerarquia-routers">
+                    <div class="encaminamiento-titulo-jerarquia">Tipos/jerarquías de routers</div>
+                    <div class="encaminamiento-lista-jerarquia">
+                        <div class="encaminamiento-tipo-router">
+                            <div class="encaminamiento-icono-tipo-router encaminamiento-icono-backbone"></div>
+                            <div class="encaminamiento-nombre-tipo-router">Backbone</div>
+                            <div class="encaminamiento-descripcion-tipo-router">Área "0"; contenido mínimo de un SA</div>
+                        </div>
+                        <div class="encaminamiento-tipo-router">
+                            <div class="encaminamiento-icono-tipo-router encaminamiento-icono-interno"></div>
+                            <div class="encaminamiento-nombre-tipo-router">Internos</div>
+                            <div class="encaminamiento-descripcion-tipo-router">Routers dentro de un área</div>
+                        </div>
+                        <div class="encaminamiento-tipo-router">
+                            <div class="encaminamiento-icono-tipo-router encaminamiento-icono-frontera-area"></div>
+                            <div class="encaminamiento-nombre-tipo-router">Frontera de área</div>
+                            <div class="encaminamiento-descripcion-tipo-router">Conectan diferentes áreas dentro del mismo SA</div>
+                        </div>
+                        <div class="encaminamiento-tipo-router">
+                            <div class="encaminamiento-icono-tipo-router encaminamiento-icono-frontera-sa"></div>
+                            <div class="encaminamiento-nombre-tipo-router">Frontera de Sistema Autónomo</div>
+                            <div class="encaminamiento-descripcion-tipo-router">Conectan diferentes Sistemas Autónomos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-diagrama-sa">
+                    <div class="encaminamiento-titulo-diagrama">Estructura de Sistemas Autónomos</div>
+                    <div class="encaminamiento-esquema-sa">
+                        <div class="encaminamiento-sa encaminamiento-sa-1">
+                            <div class="encaminamiento-titulo-sa">Sistema Autónomo 1 (AS100)</div>
+                            <div class="encaminamiento-contenido-sa">
+                                <div class="encaminamiento-area encaminamiento-area-backbone">
+                                    <div class="encaminamiento-titulo-area">Área 0 (Backbone)</div>
+                                    <div class="encaminamiento-router-backbone">
+                                        <div class="encaminamiento-icono-router-small"></div>
+                                        <div class="encaminamiento-etiqueta-router-small">Router Backbone</div>
+                                    </div>
+                                </div>
+                                <div class="encaminamiento-areas-secundarias">
+                                    <div class="encaminamiento-area encaminamiento-area-1">
+                                        <div class="encaminamiento-titulo-area">Área 1</div>
+                                        <div class="encaminamiento-router-interno">
+                                            <div class="encaminamiento-icono-router-small"></div>
+                                            <div class="encaminamiento-etiqueta-router-small">Router Interno</div>
+                                        </div>
+                                        <div class="encaminamiento-router-frontera-area">
+                                            <div class="encaminamiento-icono-router-small"></div>
+                                            <div class="encaminamiento-etiqueta-router-small">Router Frontera Área</div>
+                                        </div>
+                                    </div>
+                                    <div class="encaminamiento-area encaminamiento-area-2">
+                                        <div class="encaminamiento-titulo-area">Área 2</div>
+                                        <div class="encaminamiento-router-interno">
+                                            <div class="encaminamiento-icono-router-small"></div>
+                                            <div class="encaminamiento-etiqueta-router-small">Router Interno</div>
+                                        </div>
+                                        <div class="encaminamiento-router-frontera-area">
+                                            <div class="encaminamiento-icono-router-small"></div>
+                                            <div class="encaminamiento-etiqueta-router-small">Router Frontera Área</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="encaminamiento-router-frontera-sa">
+                                    <div class="encaminamiento-icono-router-small"></div>
+                                    <div class="encaminamiento-etiqueta-router-small">Router Frontera SA</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-conexion-sa">
+                            <div class="encaminamiento-linea-conexion-sa"></div>
+                            <div class="encaminamiento-etiqueta-conexion-sa">Conexión entre SA</div>
+                        </div>
+                        <div class="encaminamiento-sa encaminamiento-sa-2">
+                            <div class="encaminamiento-titulo-sa">Sistema Autónomo 2 (AS200)</div>
+                            <div class="encaminamiento-contenido-sa">
+                                <div class="encaminamiento-router-frontera-sa">
+                                    <div class="encaminamiento-icono-router-small"></div>
+                                    <div class="encaminamiento-etiqueta-router-small">Router Frontera SA</div>
+                                </div>
+                                <div class="encaminamiento-area encaminamiento-area-backbone">
+                                    <div class="encaminamiento-titulo-area">Área 0 (Backbone)</div>
+                                    <div class="encaminamiento-router-backbone">
+                                        <div class="encaminamiento-icono-router-small"></div>
+                                        <div class="encaminamiento-etiqueta-router-small">Router Backbone</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-tipos" id="4070701003">
+                <div class="encaminamiento-titulo-seccion">7.3 TIPOS DE ENRUTAMIENTO</div>
+                
+                <div class="encaminamiento-tipo">
+                    <div class="encaminamiento-titulo-tipo">Enrutamiento Estático</div>
+                    <div class="encaminamiento-descripcion-tipo">
+                        <p>El principal problema que plantea mantener tablas de enrutamiento estáticas, es que el router no puede adaptarse por sí solo a los cambios que puedan producirse en la topología de la red. Sin embargo, este método de enrutamiento resulta ventajoso en las siguientes situaciones:</p>
+                        <ul>
+                            <li>Un circuito poco fiable que deja de funcionar constantemente. Un protocolo de enrutamiento dinámico podría producir demasiada inestabilidad, mientras que las rutas estáticas no cambian.</li>
+                            <li>Se puede acceder a una red a través de una conexión de acceso telefónico. Existe una sola conexión con un solo ISP. En lugar de conocer todas las rutas globales, se utiliza una única ruta estática.</li>
+                            <li>Un cliente no desea intercambiar información de enrutamiento dinámico.</li>
+                        </ul>
+                    </div>
+                    <div class="encaminamiento-ejemplo-tipo">
+                        <div class="encaminamiento-titulo-ejemplo">Ejemplo de configuración de ruta estática</div>
+                        <div class="encaminamiento-codigo-ejemplo">
+                            <code>ip route 192.168.2.0 255.255.255.0 192.168.1.2</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-tipo">
+                    <div class="encaminamiento-titulo-tipo">Enrutamiento Predeterminado</div>
+                    <div class="encaminamiento-descripcion-tipo">
+                        <p>Es una ruta estática que se refiere a una conexión de salida o Gateway de "último recurso". El tráfico hacia destinos desconocidos por el router se envía a dicha conexión de salida. Es la forma más fácil de enrutamiento para un dominio conectado a un único punto de salida. Esta ruta se indica como la red de destino 0.0.0.0/0.0.0.0.</p>
+                    </div>
+                    <div class="encaminamiento-ejemplo-tipo">
+                        <div class="encaminamiento-titulo-ejemplo">Ejemplo de configuración de ruta predeterminada</div>
+                        <div class="encaminamiento-codigo-ejemplo">
+                            <code>ip route 0.0.0.0 0.0.0.0 192.168.1.1</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-tipo">
+                    <div class="encaminamiento-titulo-tipo">Enrutamiento Dinámico</div>
+                    <div class="encaminamiento-descripcion-tipo">
+                        <p>Los protocolos de enrutamiento mantienen tablas de enrutamiento dinámicas por medio de mensajes de actualización del enrutamiento, que contienen información acerca de los cambios sufridos en la red, y que indican al software del router que actualice la tabla de enrutamiento en consecuencia. Intentar utilizar el enrutamiento dinámico sobre situaciones que no lo requieren es una pérdida de ancho de banda, esfuerzo, y en consecuencia de dinero.</p>
+                    </div>
+                    <div class="encaminamiento-ejemplo-tipo">
+                        <div class="encaminamiento-titulo-ejemplo">Ejemplo de configuración de protocolo de enrutamiento dinámico (RIP)</div>
+                        <div class="encaminamiento-codigo-ejemplo">
+                            <code>router rip<br>network 192.168.1.0</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-comparativa-tipos">
+                    <div class="encaminamiento-titulo-comparativa">Comparativa de tipos de enrutamiento</div>
+                    <div class="encaminamiento-tabla-comparativa">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Característica</div>
+                            <div class="encaminamiento-celda-encabezado">Estático</div>
+                            <div class="encaminamiento-celda-encabezado">Predeterminado</div>
+                            <div class="encaminamiento-celda-encabezado">Dinámico</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Configuración</div>
+                            <div class="encaminamiento-celda">Manual</div>
+                            <div class="encaminamiento-celda">Manual</div>
+                            <div class="encaminamiento-celda">Automática</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Adaptación a cambios</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">Sí</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Uso de recursos</div>
+                            <div class="encaminamiento-celda">Bajo</div>
+                            <div class="encaminamiento-celda">Muy bajo</div>
+                            <div class="encaminamiento-celda">Alto</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Escalabilidad</div>
+                            <div class="encaminamiento-celda">Baja</div>
+                            <div class="encaminamiento-celda">Muy baja</div>
+                            <div class="encaminamiento-celda">Alta</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Uso recomendado</div>
+                            <div class="encaminamiento-celda">Redes pequeñas o estables</div>
+                            <div class="encaminamiento-celda">Conexión única a Internet</div>
+                            <div class="encaminamiento-celda">Redes grandes o cambiantes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-algoritmos" id="4070701004">
+                <div class="encaminamiento-titulo-seccion">7.4 ALGORITMOS DE ENRUTAMIENTO</div>
+                <p>Se clasifican en:</p>
+                
+                <div class="encaminamiento-algoritmo">
+                    <div class="encaminamiento-titulo-algoritmo">Vector Distancia</div>
+                    <div class="encaminamiento-descripcion-algoritmo">
+                        <p>Determina la dirección y la distancia hacia cualquier enlace de la red utilizando una métrica basada en el "Número de Saltos", es decir la cantidad de routers por los que tiene que pasar el paquete para llegar a la red destino.</p>
+                        <p>La ruta que tenga el menor número de saltos es la óptima y la que se publicará.</p>
+                        <p>Visualiza la red desde la perspectiva de los vecinos.</p>
+                        <p>Actualizaciones periódicas transmitiendo copias completas o parciales de las tablas de enrutamiento.</p>
+                        <p>Convergencia lenta. Incrementa las métricas a través de las actualizaciones.</p>
+                    </div>
+                    <div class="encaminamiento-ejemplo-algoritmo">
+                        <div class="encaminamiento-titulo-ejemplo">Ejemplo de Vector Distancia</div>
+                        <div class="encaminamiento-diagrama-vector-distancia">
+                            <div class="encaminamiento-router-vd encaminamiento-router-vd-a">
+                                <div class="encaminamiento-icono-router-vd"></div>
+                                <div class="encaminamiento-etiqueta-router-vd">Router A</div>
+                            </div>
+                            <div class="encaminamiento-conexion-vd encaminamiento-conexion-vd-ab">
+                                <div class="encaminamiento-linea-conexion-vd"></div>
+                                <div class="encaminamiento-etiqueta-conexion-vd">1 salto</div>
+                            </div>
+                            <div class="encaminamiento-router-vd encaminamiento-router-vd-b">
+                                <div class="encaminamiento-icono-router-vd"></div>
+                                <div class="encaminamiento-etiqueta-router-vd">Router B</div>
+                            </div>
+                            <div class="encaminamiento-conexion-vd encaminamiento-conexion-vd-bc">
+                                <div class="encaminamiento-linea-conexion-vd"></div>
+                                <div class="encaminamiento-etiqueta-conexion-vd">1 salto</div>
+                            </div>
+                            <div class="encaminamiento-router-vd encaminamiento-router-vd-c">
+                                <div class="encaminamiento-icono-router-vd"></div>
+                                <div class="encaminamiento-etiqueta-router-vd">Router C</div>
+                            </div>
+                            <div class="encaminamiento-conexion-vd encaminamiento-conexion-vd-ac">
+                                <div class="encaminamiento-linea-conexion-vd encaminamiento-linea-conexion-vd-curva"></div>
+                                <div class="encaminamiento-etiqueta-conexion-vd">2 saltos (a través de B)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-algoritmo">
+                    <div class="encaminamiento-titulo-algoritmo">Estado de enlace</div>
+                    <div class="encaminamiento-descripcion-algoritmo">
+                        <p>También llamado "Primero la Ruta Libre Mas Corta" (OSPF – Open Shortest Path First), recrea la topología exacta de toda la red.</p>
+                        <p>Su métrica se basa el retardo, ancho de banda, carga y confiabilidad, de los distintos enlaces posibles para llegar a un destino en base a esos conceptos el protocolo prefiere una ruta por sobre otra.</p>
+                        <p>Estos protocolos utilizan un tipo de publicaciones llamadas Publicaciones de estado de enlace (LSA), que intercambian entre los routers.</p>
+                        <p>Mediante estas publicación cada router crea una base datos de la topología de la red completa buscando una unión común de la topología de la red.</p>
+                        <p>Cada dispositivo calcula la ruta más corta a los otros routers.</p>
+                        <p>Las actualizaciones se activan por los eventos (cambios en la topología) de la red transmitiéndose las actualizaciones.</p>
+                    </div>
+                    <div class="encaminamiento-ejemplo-algoritmo">
+                        <div class="encaminamiento-titulo-ejemplo">Ejemplo de Estado de enlace</div>
+                        <div class="encaminamiento-diagrama-estado-enlace">
+                            <div class="encaminamiento-router-el encaminamiento-router-el-a">
+                                <div class="encaminamiento-icono-router-el"></div>
+                                <div class="encaminamiento-etiqueta-router-el">Router A</div>
+                            </div>
+                            <div class="encaminamiento-conexion-el encaminamiento-conexion-el-ab">
+                                <div class="encaminamiento-linea-conexion-el"></div>
+                                <div class="encaminamiento-etiqueta-conexion-el">Coste: 10</div>
+                            </div>
+                            <div class="encaminamiento-router-el encaminamiento-router-el-b">
+                                <div class="encaminamiento-icono-router-el"></div>
+                                <div class="encaminamiento-etiqueta-router-el">Router B</div>
+                            </div>
+                            <div class="encaminamiento-conexion-el encaminamiento-conexion-el-bc">
+                                <div class="encaminamiento-linea-conexion-el"></div>
+                                <div class="encaminamiento-etiqueta-conexion-el">Coste: 5</div>
+                            </div>
+                            <div class="encaminamiento-router-el encaminamiento-router-el-c">
+                                <div class="encaminamiento-icono-router-el"></div>
+                                <div class="encaminamiento-etiqueta-router-el">Router C</div>
+                            </div>
+                            <div class="encaminamiento-conexion-el encaminamiento-conexion-el-ac">
+                                <div class="encaminamiento-linea-conexion-el encaminamiento-linea-conexion-el-curva"></div>
+                                <div class="encaminamiento-etiqueta-conexion-el">Coste: 20</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-comparativa-algoritmos">
+                    <div class="encaminamiento-titulo-comparativa">Comparativa de algoritmos de enrutamiento</div>
+                    <div class="encaminamiento-tabla-comparativa">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Característica</div>
+                            <div class="encaminamiento-celda-encabezado">Vector Distancia</div>
+                            <div class="encaminamiento-celda-encabezado">Estado de enlace</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Métrica principal</div>
+                            <div class="encaminamiento-celda">Número de saltos</div>
+                            <div class="encaminamiento-celda">Coste (ancho de banda, retardo, etc.)</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Conocimiento de la red</div>
+                            <div class="encaminamiento-celda">Parcial (solo vecinos)</div>
+                            <div class="encaminamiento-celda">Completo (toda la topología)</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Convergencia</div>
+                            <div class="encaminamiento-celda">Lenta</div>
+                            <div class="encaminamiento-celda">Rápida</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Uso de recursos</div>
+                            <div class="encaminamiento-celda">Bajo</div>
+                            <div class="encaminamiento-celda">Alto</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Actualizaciones</div>
+                            <div class="encaminamiento-celda">Periódicas (toda la tabla)</div>
+                            <div class="encaminamiento-celda">Por eventos (solo cambios)</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Ejemplos de protocolos</div>
+                            <div class="encaminamiento-celda">RIP, IGRP</div>
+                            <div class="encaminamiento-celda">OSPF, IS-IS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-metrica" id="4070701005">
+                <div class="encaminamiento-titulo-seccion">7.5 MÉTRICA</div>
+                <p>Análisis en el que se basa el algoritmo del protocolo de enrutamiento dinámico para elegir una ruta en lugar de otras.</p>
+                <p>Basándose en la métrica elegida el protocolo creará la tabla de enrutamiento en el router, publicando sólo las mejores rutas.</p>
+                
+                <div class="encaminamiento-clases-metrica">
+                    <div class="encaminamiento-titulo-clases">Clases de métrica</div>
+                    <div class="encaminamiento-lista-clases">
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Número de saltos:</strong> Número de routers por los que pasará un paquete.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Pulsos:</strong> Retraso en un enlace de datos usando pulsos de reloj de PC.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Coste:</strong> Valor arbitrario, basado generalmente en el ancho de banda, el coste económico u otra medida.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Ancho de banda:</strong> Capacidad de datos de un enlace.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Retraso:</strong> Cantidad de actividad existente en un recurso de red, como un router o un enlace.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Carga:</strong> Cantidad de actividad existente en un recurso de red, como un router o un enlace.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>Fiabilidad:</strong> Se refiere al valor de errores de bits de cada enlace de red.
+                            </div>
+                        </div>
+                        <div class="encaminamiento-clase-metrica">
+                            <div class="encaminamiento-icono-clase"></div>
+                            <div class="encaminamiento-texto-clase">
+                                <strong>MTU:</strong> Unidad máxima de transmisión. Longitud máxima de trama en octetos que puede ser aceptada por todos los enlaces de la ruta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-distancia-administrativa">
+                    <div class="encaminamiento-titulo-distancia">Distancia administrativa y métrica</div>
+                    <div class="encaminamiento-descripcion-distancia">
+                        <ul>
+                            <li>Es una medida de la confianza otorgada a cada fuente de información de enrutamiento.</li>
+                            <li>Cada protocolo de enrutamiento lleva asociado una distancia administrativa donde los valores más bajos significan una mayor fiabilidad.</li>
+                            <li>Un enrutador puede ejecutar varios protocolos de enrutamiento a la vez, obteniendo información de una red por varias fuentes.</li>
+                            <li>En estos casos usará la ruta que provenga de la fuente con menor distancia administrativa de los protocolos de enrutamiento.</li>
+                        </ul>
+                    </div>
+                    <div class="encaminamiento-tabla-distancia">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Tipo de ruta</div>
+                            <div class="encaminamiento-celda-encabezado">Distancia administrativa</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Conectada directamente</div>
+                            <div class="encaminamiento-celda">0</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Ruta estática</div>
+                            <div class="encaminamiento-celda">1</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">EIGRP (ruta sumarizada)</div>
+                            <div class="encaminamiento-celda">5</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">BGP externo</div>
+                            <div class="encaminamiento-celda">20</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">EIGRP (interno)</div>
+                            <div class="encaminamiento-celda">90</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">IGRP</div>
+                            <div class="encaminamiento-celda">100</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">OSPF</div>
+                            <div class="encaminamiento-celda">110</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">IS-IS</div>
+                            <div class="encaminamiento-celda">115</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">RIP</div>
+                            <div class="encaminamiento-celda">120</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">BGP interno</div>
+                            <div class="encaminamiento-celda">200</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Desconocida</div>
+                            <div class="encaminamiento-celda">255</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-convergencia" id="4070701006">
+                <div class="encaminamiento-titulo-seccion">7.6 CONVERGENCIA</div>
+                <p>Velocidad con la que los routers comparten la información de enruntamiento. Es el objetivo principal de todos los protocolos de enrutamiento.</p>
+                <p>Cuando un conjunto de enrutadores converge implica que todos sus elementos se han puesto de acuerdo y reflejan la situación real del entorno de red donde se encuentran.</p>
+                <p>La velocidad con la que los protocolos convergen después de un cambio es una buena medida de la eficacia del protocolo de enrutamiento.</p>
+                
+                <div class="encaminamiento-diagrama-convergencia">
+                    <div class="encaminamiento-titulo-diagrama">Proceso de convergencia</div>
+                    <div class="encaminamiento-pasos-convergencia">
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">1</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Red estable</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Todos los routers tienen información consistente sobre la topología de la red.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-flecha-paso"></div>
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">2</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Cambio en la red</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Se produce un cambio en la topología (caída de enlace, router, etc.).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-flecha-paso"></div>
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">3</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Detección del cambio</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Los routers adyacentes detectan el cambio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-flecha-paso"></div>
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">4</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Propagación de la información</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Los routers comparten la información del cambio con sus vecinos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-flecha-paso"></div>
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">5</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Recálculo de rutas</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Cada router recalcula sus tablas de enrutamiento.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encaminamiento-flecha-paso"></div>
+                        <div class="encaminamiento-paso-convergencia">
+                            <div class="encaminamiento-numero-paso">6</div>
+                            <div class="encaminamiento-descripcion-paso">
+                                <div class="encaminamiento-titulo-paso">Convergencia completa</div>
+                                <div class="encaminamiento-contenido-paso">
+                                    <p>Todos los routers tienen nuevamente información consistente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-protocolos-interior" id="4070701007">
+                <div class="encaminamiento-titulo-seccion">7.7 PROTOCOLOS DE ENRUTAMIENTO INTERIOR</div>
+                <p>Administran rutas que interconectan redes dentro de un único sistema autónomo.</p>
+                <p>Los protocolos de enrutamiento interior más conocidos son RIP, IGRP, EIGRP y OSPF.</p>
+                
+                <div class="encaminamiento-protocolo-interior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701007-1">7.7.1 ROUTING INFORMATION PROTOCOL (RIP)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>RIP es un protocolo universal de enrutamiento por vector de distancia que utiliza el número de saltos como único sistema métrico. Un salto es el paso de los paquetes de una red a otra.</p>
+                        <p>Si existen dos rutas posibles para alcanzar el mismo destino, RIP elegirá la ruta que presente un menor número de saltos.</p>
+                    </div>
+                    <div class="encaminamiento-caracteristicas-protocolo">
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Algoritmo: Vector distancia</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Métrica: Número de saltos</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Máximo número de saltos: 15 (16 = inalcanzable)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Actualizaciones: Cada 30 segundos</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Versiones: RIPv1 (classful), RIPv2 (classless)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-protocolo-interior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701007-2">7.7.2 OPEN SHORT PATH FIRST (OSPF)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>OSPF es un protocolo universal basado en el algoritmo de estado de enlace, desarrollado por el IETF para sustituir a RIP.</p>
+                        <p>Utiliza un algoritmo que le permite calcular la distancia más corta entre la fuente y el destino al determinar la ruta para un grupo específico de paquetes.</p>
+                    </div>
+                    <div class="encaminamiento-caracteristicas-protocolo">
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Algoritmo: Estado de enlace</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Métrica: Coste (basado en ancho de banda)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Actualizaciones: Solo cuando hay cambios</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Convergencia: Rápida</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Soporte para VLSM y CIDR</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-protocolo-interior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701007-3">7.7.3 INTERIOR GATEWAY PROTOCOL (IGRP)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>Diseñado por Cisco a mediados de los ochenta, para corregir algunos de los defectos de RIP y para proporcionar un mejor soporte para redes grandes con enlaces de diferentes anchos de banda, siendo un protocolo propietario de Cisco.</p>
+                        <p>Al estar basado en RIP utiliza el algoritmo de vector de distancia.</p>
+                    </div>
+                    <div class="encaminamiento-caracteristicas-protocolo">
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Algoritmo: Vector distancia</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Métrica: Compuesta (ancho de banda, retardo, carga, fiabilidad)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Actualizaciones: Cada 90 segundos</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Propietario de Cisco</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Actualmente obsoleto, reemplazado por EIGRP</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-protocolo-interior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701007-4">7.7.4 ENHACED IGRP (EIGRP)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>Basado en IGRP y como mejora de este, es un protocolo híbrido que pretende ofrecer las ventajas de los protocolos por vector de distancia y las ventajas de los protocolos de estado de enlace.</p>
+                    </div>
+                    <div class="encaminamiento-caracteristicas-protocolo">
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Algoritmo: Híbrido (vector distancia avanzado)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Métrica: Compuesta (ancho de banda, retardo, carga, fiabilidad)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Actualizaciones: Solo cuando hay cambios</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Convergencia: Muy rápida</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Propietario de Cisco (aunque ahora es estándar abierto)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-comparativa-protocolos-interior">
+                    <div class="encaminamiento-titulo-comparativa">Comparativa de protocolos de enrutamiento interior</div>
+                    <div class="encaminamiento-tabla-comparativa">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Característica</div>
+                            <div class="encaminamiento-celda-encabezado">RIP</div>
+                            <div class="encaminamiento-celda-encabezado">OSPF</div>
+                            <div class="encaminamiento-celda-encabezado">IGRP</div>
+                            <div class="encaminamiento-celda-encabezado">EIGRP</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Algoritmo</div>
+                            <div class="encaminamiento-celda">Vector distancia</div>
+                            <div class="encaminamiento-celda">Estado de enlace</div>
+                            <div class="encaminamiento-celda">Vector distancia</div>
+                            <div class="encaminamiento-celda">Híbrido</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Métrica</div>
+                            <div class="encaminamiento-celda">Saltos</div>
+                            <div class="encaminamiento-celda">Coste</div>
+                            <div class="encaminamiento-celda">Compuesta</div>
+                            <div class="encaminamiento-celda">Compuesta</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Convergencia</div>
+                            <div class="encaminamiento-celda">Lenta</div>
+                            <div class="encaminamiento-celda">Rápida</div>
+                            <div class="encaminamiento-celda">Lenta</div>
+                            <div class="encaminamiento-celda">Muy rápida</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Actualizaciones</div>
+                            <div class="encaminamiento-celda">Periódicas</div>
+                            <div class="encaminamiento-celda">Por eventos</div>
+                            <div class="encaminamiento-celda">Periódicas</div>
+                            <div class="encaminamiento-celda">Por eventos</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Soporte VLSM/CIDR</div>
+                            <div class="encaminamiento-celda">Solo RIPv2</div>
+                            <div class="encaminamiento-celda">Sí</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">Sí</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Propietario</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">Cisco</div>
+                            <div class="encaminamiento-celda">Cisco</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-protocolos-exterior" id="4070701008">
+                <div class="encaminamiento-titulo-seccion">7.8 PROTOCOLOS DE ENRUTAMIENTO EXTERIOR</div>
+                <p>Administran rutas que conectan diferentes sistemas autónomos.</p>
+                <p>Los protocolos de enrutamiento exterior más conocidos son EGP y BGP.</p>
+                
+                <div class="encaminamiento-protocolo-exterior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701008-1">7.8.1 EXTERIOR GATEWAY PROTOCOL (EGP)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>Protocolo estándar usado para intercambiar información de encaminamiento entre sistemas autónomos en los primeros años de Internet.</p>
+                        <p>Fue completamente reemplazado por BGP a mediados de los 90.</p>
+                        <p>Las puertas de enlace o pasarelas EGP solamente podían retransmitir información de accesibilidad para las redes de su sistema autónomo (AS).</p>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-protocolo-exterior">
+                    <div class="encaminamiento-titulo-protocolo" id="4070701008-2">7.8.2 BORDER GATEWAY PROTOCOL (BGP)</div>
+                    <div class="encaminamiento-descripcion-protocolo">
+                        <p>Protocolo de puerta de enlace frontera cuya misión es intercambiar información de encaminamiento entre sistemas autónomos.</p>
+                        <p>Los Sistemas Autónomos de los ISPs más importantes utilizan BGP para publicar e intercambiar sus tablas de encaminamiento entre los routers externos de cada sistema autónomo.</p>
+                        <p>BGP no usa métricas como número de saltos, ancho de banda o retardo si no que toma decisiones de encaminamiento basándose en políticas de red o reglas que utilizan varios atributos de ruta BGP, por ejemplo BGP puede elegir no pasar por redes muy caras o pertenecientes a países enemigos.</p>
+                        <p>Típicamente es clasificafdo como un protocolo de vector de caminos (Path vector protocol) pero a veces se le clasifica como un protocolo de vector distancia.</p>
+                        <p>La forma de configurar y delimitar la información que contiene e intercambia el protocolo BGP es creando lo que se conoce como sistema autónomo o AS. Cada uno tendrá conexiones o sesiones internas (iBGP), así como sesiones externas (eBGP).</p>
+                        <p>BGP intercambia información de encaminamiento entre sistemas autónomos a la vez que garantiza una elección de rutas libres de bucles.</p>
+                        <p>BGP4 es la primera versión que admite encaminamiento entre dominios sin clase (CIDR) y agregado de rutas.</p>
+                    </div>
+                    <div class="encaminamiento-caracteristicas-protocolo">
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Algoritmo: Vector de caminos</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Métrica: Basada en políticas y atributos</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Tipos: iBGP (interno) y eBGP (externo)</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Protocolo estándar de Internet</div>
+                        </div>
+                        <div class="encaminamiento-caracteristica-protocolo">
+                            <div class="encaminamiento-icono-caracteristica-protocolo"></div>
+                            <div class="encaminamiento-texto-caracteristica-protocolo">Utilizado por todos los ISP importantes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="encaminamiento-diagrama-bgp">
+                        <div class="encaminamiento-titulo-diagrama">Funcionamiento de BGP</div>
+                        <div class="encaminamiento-esquema-bgp">
+                            <div class="encaminamiento-sa-bgp encaminamiento-sa-bgp-1">
+                                <div class="encaminamiento-titulo-sa-bgp">Sistema Autónomo 1 (AS100)</div>
+                                <div class="encaminamiento-router-bgp encaminamiento-router-ibgp">
+                                    <div class="encaminamiento-icono-router-bgp"></div>
+                                    <div class="encaminamiento-etiqueta-router-bgp">Router iBGP</div>
+                                </div>
+                                <div class="encaminamiento-router-bgp encaminamiento-router-ebgp">
+                                    <div class="encaminamiento-icono-router-bgp"></div>
+                                    <div class="encaminamiento-etiqueta-router-bgp">Router eBGP</div>
+                                </div>
+                            </div>
+                            <div class="encaminamiento-conexion-bgp">
+                                <div class="encaminamiento-linea-conexion-bgp"></div>
+                                <div class="encaminamiento-etiqueta-conexion-bgp">Sesión eBGP</div>
+                            </div>
+                            <div class="encaminamiento-sa-bgp encaminamiento-sa-bgp-2">
+                                <div class="encaminamiento-titulo-sa-bgp">Sistema Autónomo 2 (AS200)</div>
+                                <div class="encaminamiento-router-bgp encaminamiento-router-ebgp">
+                                    <div class="encaminamiento-icono-router-bgp"></div>
+                                    <div class="encaminamiento-etiqueta-router-bgp">Router eBGP</div>
+                                </div>
+                                <div class="encaminamiento-router-bgp encaminamiento-router-ibgp">
+                                    <div class="encaminamiento-icono-router-bgp"></div>
+                                    <div class="encaminamiento-etiqueta-router-bgp">Router iBGP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-comparativa-protocolos-exterior">
+                    <div class="encaminamiento-titulo-comparativa">Comparativa de protocolos de enrutamiento exterior</div>
+                    <div class="encaminamiento-tabla-comparativa">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Característica</div>
+                            <div class="encaminamiento-celda-encabezado">EGP</div>
+                            <div class="encaminamiento-celda-encabezado">BGP</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Estado actual</div>
+                            <div class="encaminamiento-celda">Obsoleto</div>
+                            <div class="encaminamiento-celda">Activo</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Algoritmo</div>
+                            <div class="encaminamiento-celda">Vector distancia</div>
+                            <div class="encaminamiento-celda">Vector de caminos</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Métrica</div>
+                            <div class="encaminamiento-celda">Saltos</div>
+                            <div class="encaminamiento-celda">Políticas y atributos</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Soporte CIDR</div>
+                            <div class="encaminamiento-celda">No</div>
+                            <div class="encaminamiento-celda">Sí (BGP4)</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">Escalabilidad</div>
+                            <div class="encaminamiento-celda">Baja</div>
+                            <div class="encaminamiento-celda">Alta</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-comando-route-windows" id="4070701009">
+                <div class="encaminamiento-titulo-seccion">7.9 COMANDO ROUTE WINDOWS</div>
+                <p>El comando route permite manipular y visualizar las tablas de enrutamiento de red guardadas en el equipo cliente.</p>
+                
+                <div class="encaminamiento-sintaxis-comando">
+                    <div class="encaminamiento-titulo-sintaxis">Sintaxis</div>
+                    <div class="encaminamiento-codigo-sintaxis">
+                        <code>ROUTE [-f] [-p] [-4|-6] comando [destino] [MASK máscara_red] [puerta_enlace] [METRIC métrica] [IF interfaz]</code>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-opciones-comando">
+                    <div class="encaminamiento-titulo-opciones">Opciones</div>
+                    <div class="encaminamiento-tabla-opciones">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Opción</div>
+                            <div class="encaminamiento-celda-encabezado">Descripción</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-f</div>
+                            <div class="encaminamiento-celda">Borra las tablas de enrutamiento de todas las entradas de puerta de enlace. Si se usa junto con uno de los comandos, se borrarán las tablas antes de ejecutarse el comando.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-p</div>
+                            <div class="encaminamiento-celda">Cuando se usa con el comando ADD, hace una ruta persistente en los arranques del sistema. De manera predeterminada, las rutas no se conservan cuando se reinicia el sistema. Se pasa por alto para todos los demás comandos, que siempre afectan a las rutas persistentes apropiadas.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-4</div>
+                            <div class="encaminamiento-celda">Forzar el uso de IPv4.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-6</div>
+                            <div class="encaminamiento-celda">Forzar el uso de IPv6.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">comando</div>
+                            <div class="encaminamiento-celda">
+                                Alguno de los siguientes:<br>
+                                PRINT - Imprime una ruta<br>
+                                ADD - Agrega una ruta<br>
+                                DELETE - Elimina una ruta<br>
+                                CHANGE - Modifica una ruta existente
+                            </div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">destino</div>
+                            <div class="encaminamiento-celda">Especifica el host de destino de la ruta</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">MASK</div>
+                            <div class="encaminamiento-celda">Especifica que el siguiente parámetro es el valor de 'máscara_red'</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">máscara_red</div>
+                            <div class="encaminamiento-celda">Especifica un valor de máscara de subred para esta entrada de ruta. Si no se especifica, se usa de forma predeterminada el valor 255.255.255.255.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">puerta_enlace</div>
+                            <div class="encaminamiento-celda">Especifica la puerta de enlace.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">interfaz</div>
+                            <div class="encaminamiento-celda">El número de interfaz para la ruta especificada.</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">METRIC</div>
+                            <div class="encaminamiento-celda">Especifica la métrica; por ejemplo, costo para el destino.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-ejemplos-comando">
+                    <div class="encaminamiento-titulo-ejemplos">Ejemplos</div>
+                    <div class="encaminamiento-lista-ejemplos">
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route PRINT</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Muestra todas las rutas</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route PRINT -4</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Muestra solo rutas IPv4</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route PRINT -6</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Muestra solo rutas IPv6</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route PRINT 157*</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Solo imprime lo que coincida con 157*</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route ADD 157.0.0.0 MASK 255.0.0.0 157.55.80.1 METRIC 3 IF 2</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Añade una ruta a la red 157.0.0.0 a través de la puerta de enlace 157.55.80.1</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route ADD 3ffe::/32 3ffe::1</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Añade una ruta IPv6</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route CHANGE 157.0.0.0 MASK 255.0.0.0 157.55.80.5 METRIC 2 IF 2</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Modifica una ruta existente</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route DELETE 157.0.0.0</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Elimina una ruta IPv4</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>> route DELETE 3ffe::/32</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Elimina una ruta IPv6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encaminamiento-comando-route-linux" id="4070701010">
+                <div class="encaminamiento-titulo-seccion">7.10 COMANDO ROUTE LINUX</div>
+                <p>El comando route permite manipular y visualizar las tablas de enrutamiento de red guardadas en kernel del equipo cliente.</p>
+                
+                <div class="encaminamiento-sintaxis-comando">
+                    <div class="encaminamiento-titulo-sintaxis">Sintaxis</div>
+                    <div class="encaminamiento-codigo-sintaxis">
+                        <code>route [opciones]</code>
+                    </div>
+                    <div class="encaminamiento-codigo-sintaxis">
+                        <code>route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1 dev eth0</code>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-opciones-comando">
+                    <div class="encaminamiento-titulo-opciones">Opciones generales</div>
+                    <div class="encaminamiento-tabla-opciones">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Opción</div>
+                            <div class="encaminamiento-celda-encabezado">Descripción</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-n</div>
+                            <div class="encaminamiento-celda">Muestra la tabla de enrutamiento en formato numérico [dirección IP]</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-e</div>
+                            <div class="encaminamiento-celda">Muestra la tabla de enrutamiento en formato hostname</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">add</div>
+                            <div class="encaminamiento-celda">Añade una nueva ruta a la tabla de enrutamiento</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">del</div>
+                            <div class="encaminamiento-celda">Elimina una ruta de la tabla de enrutamiento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-opciones-comando">
+                    <div class="encaminamiento-titulo-opciones">Opciones usadas con add y del</div>
+                    <div class="encaminamiento-tabla-opciones">
+                        <div class="encaminamiento-fila-encabezado">
+                            <div class="encaminamiento-celda-encabezado">Opción</div>
+                            <div class="encaminamiento-celda-encabezado">Descripción</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-net</div>
+                            <div class="encaminamiento-celda">Indica que el objetivo es una red</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">-host</div>
+                            <div class="encaminamiento-celda">Indica que el objetivo es un host</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">gw</div>
+                            <div class="encaminamiento-celda">Especifica el puerta de enlace del host o red objetivo</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">netmask</div>
+                            <div class="encaminamiento-celda">Usado para especificar la máscara de subred del host o red de destino</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">dev</div>
+                            <div class="encaminamiento-celda">Especifica el dispositivo o interfaz donde se enviarán los paquetes</div>
+                        </div>
+                        <div class="encaminamiento-fila">
+                            <div class="encaminamiento-celda">reject</div>
+                            <div class="encaminamiento-celda">Rechaza los paquetes enviados a una ruta o host particular</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="encaminamiento-ejemplos-comando">
+                    <div class="encaminamiento-titulo-ejemplos">Ejemplos</div>
+                    <div class="encaminamiento-lista-ejemplos">
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Muestra la tabla de enrutamiento</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route -n</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Muestra la tabla de enrutamiento en formato numérico</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1 dev eth0</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Añade una ruta a la red 192.168.1.0/24 a través de la puerta de enlace 192.168.1.1 usando la interfaz eth0</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route add -host 192.168.1.10 gw 192.168.1.1</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Añade una ruta a un host específico</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route add default gw 192.168.1.1</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Añade una ruta predeterminada</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route del -net 192.168.1.0 netmask 255.255.255.0</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Elimina una ruta de red</div>
+                        </div>
+                        <div class="encaminamiento-ejemplo-comando">
+                            <div class="encaminamiento-codigo-ejemplo">
+                                <code>route del default</code>
+                            </div>
+                            <div class="encaminamiento-descripcion-ejemplo">Elimina la ruta predeterminada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el encaminamiento - usando clases únicas */
+        .encaminamiento-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Conceptos fundamentales */
+        .encaminamiento-conceptos-fundamentales {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .encaminamiento-lista-conceptos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .encaminamiento-concepto {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .encaminamiento-icono-concepto {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .encaminamiento-icono-concepto::before {
+            content: "✓";
+        }
+        
+        .encaminamiento-texto-concepto {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Protocolos de encaminamiento */
+        .encaminamiento-protocolos {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-diagrama-general {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-diagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-esquema-diagrama {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .encaminamiento-router {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 250px;
+        }
+        
+        .encaminamiento-icono-router {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1890ff;
+            font-size: 1.5rem;
+        }
+        
+        .encaminamiento-icono-router::before {
+            content: "🔄";
+        }
+        
+        .encaminamiento-etiqueta-router {
+            font-weight: 500;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-tabla-router {
+            width: 100%;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .encaminamiento-titulo-tabla {
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #1890ff;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-contenido-tabla {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .encaminamiento-fila-tabla {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-celda-tabla {
+            padding: 3px 5px;
+        }
+        
+        .encaminamiento-conexiones {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        
+        .encaminamiento-conexion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .encaminamiento-linea-conexion {
+            width: 2px;
+            height: 30px;
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-etiqueta-conexion {
+            font-size: 0.8rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        .encaminamiento-routers-secundarios {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Sistema Autónomo */
+        .encaminamiento-sistema-autonomo {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-caracteristicas-sa {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .encaminamiento-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-icono-caracteristica {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .encaminamiento-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .encaminamiento-texto-caracteristica {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-jerarquia-routers {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-jerarquia {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-lista-jerarquia {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .encaminamiento-tipo-router {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 200px;
+        }
+        
+        .encaminamiento-icono-tipo-router {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .encaminamiento-icono-backbone {
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-icono-backbone::before {
+            content: "B";
+        }
+        
+        .encaminamiento-icono-interno {
+            background-color: #52c41a;
+        }
+        
+        .encaminamiento-icono-interno::before {
+            content: "I";
+        }
+        
+        .encaminamiento-icono-frontera-area {
+            background-color: #fa8c16;
+        }
+        
+        .encaminamiento-icono-frontera-area::before {
+            content: "FA";
+        }
+        
+        .encaminamiento-icono-frontera-sa {
+            background-color: #f5222d;
+        }
+        
+        .encaminamiento-icono-frontera-sa::before {
+            content: "FS";
+        }
+        
+        .encaminamiento-nombre-tipo-router {
+            font-weight: 500;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-descripcion-tipo-router {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .encaminamiento-diagrama-sa {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-esquema-sa {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .encaminamiento-sa {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+        }
+        
+        .encaminamiento-titulo-sa {
+            font-weight: 500;
+            color: #1890ff;
+            text-align: center;
+            padding: 5px;
+            background-color: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .encaminamiento-contenido-sa {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .encaminamiento-area {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .encaminamiento-titulo-area {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-area-backbone {
+            border: 2px dashed #1890ff;
+        }
+        
+        .encaminamiento-areas-secundarias {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .encaminamiento-router-interno, .encaminamiento-router-frontera-area, .encaminamiento-router-backbone, .encaminamiento-router-frontera-sa {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-icono-router-small {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1890ff;
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-icono-router-small::before {
+            content: "R";
+        }
+        
+        .encaminamiento-etiqueta-router-small {
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-conexion-sa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .encaminamiento-linea-conexion-sa {
+            width: 50px;
+            height: 2px;
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-etiqueta-conexion-sa {
+            font-size: 0.8rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        /* Tipos de enrutamiento */
+        .encaminamiento-tipos {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-tipo {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-tipo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-descripcion-tipo {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-ejemplo-tipo {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-ejemplo {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-codigo-ejemplo {
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        .encaminamiento-comparativa-tipos {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .encaminamiento-fila-encabezado {
+            display: flex;
+            background-color: #1890ff;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .encaminamiento-fila {
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .encaminamiento-fila:nth-child(even) {
+            background-color: #f0f5ff;
+        }
+        
+        .encaminamiento-celda-encabezado, .encaminamiento-celda {
+            padding: 10px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        /* Algoritmos de enrutamiento */
+        .encaminamiento-algoritmos {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-algoritmo {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-algoritmo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-descripcion-algoritmo {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-ejemplo-algoritmo {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-diagrama-vector-distancia, .encaminamiento-diagrama-estado-enlace {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .encaminamiento-router-vd, .encaminamiento-router-el {
+            background-color: #f0f5ff;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .encaminamiento-icono-router-vd, .encaminamiento-icono-router-el {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-icono-router-vd::before, .encaminamiento-icono-router-el::before {
+            content: "R";
+        }
+        
+        .encaminamiento-etiqueta-router-vd, .encaminamiento-etiqueta-router-el {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .encaminamiento-conexion-vd, .encaminamiento-conexion-el {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .encaminamiento-linea-conexion-vd, .encaminamiento-linea-conexion-el {
+            width: 50px;
+            height: 2px;
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-linea-conexion-vd-curva, .encaminamiento-linea-conexion-el-curva {
+            width: 2px;
+            height: 50px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .encaminamiento-linea-conexion-vd-curva::before, .encaminamiento-linea-conexion-el-curva::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-etiqueta-conexion-vd, .encaminamiento-etiqueta-conexion-el {
+            font-size: 0.8rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        .encaminamiento-comparativa-algoritmos {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Métrica */
+        .encaminamiento-metrica {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-clases-metrica {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-clases {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-lista-clases {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .encaminamiento-clase-metrica {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-icono-clase {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .encaminamiento-icono-clase::before {
+            content: "M";
+        }
+        
+        .encaminamiento-texto-clase {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-distancia-administrativa {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-distancia {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .encaminamiento-descripcion-distancia {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-tabla-distancia {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        /* Convergencia */
+        .encaminamiento-convergencia {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-diagrama-convergencia {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-pasos-convergencia {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .encaminamiento-paso-convergencia {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-numero-paso {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .encaminamiento-descripcion-paso {
+            flex: 1;
+        }
+        
+        .encaminamiento-titulo-paso {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-contenido-paso {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .encaminamiento-flecha-paso {
+            width: 2px;
+            height: 20px;
+            background-color: #1890ff;
+            margin-left: 15px;
+            position: relative;
+        }
+        
+        .encaminamiento-flecha-paso::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid #1890ff;
+        }
+        
+        /* Protocolos de enrutamiento interior */
+        .encaminamiento-protocolos-interior {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-protocolo-interior {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-protocolo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-descripcion-protocolo {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-caracteristicas-protocolo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .encaminamiento-caracteristica-protocolo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-icono-caracteristica-protocolo {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .encaminamiento-icono-caracteristica-protocolo::before {
+            content: "✓";
+        }
+        
+        .encaminamiento-texto-caracteristica-protocolo {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-comparativa-protocolos-interior {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Protocolos de enrutamiento exterior */
+        .encaminamiento-protocolos-exterior {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-protocolo-exterior {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-diagrama-bgp {
+            margin: 25px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-esquema-bgp {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .encaminamiento-sa-bgp {
+            background-color: #f0f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 200px;
+        }
+        
+        .encaminamiento-titulo-sa-bgp {
+            font-weight: 500;
+            color: #1890ff;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .encaminamiento-router-bgp {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-icono-router-bgp {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-icono-router-bgp::before {
+            content: "R";
+        }
+        
+        .encaminamiento-etiqueta-router-bgp {
+            font-size: 0.8rem;
+        }
+        
+        .encaminamiento-conexion-bgp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .encaminamiento-linea-conexion-bgp {
+            width: 50px;
+            height: 2px;
+            background-color: #1890ff;
+        }
+        
+        .encaminamiento-etiqueta-conexion-bgp {
+            font-size: 0.8rem;
+            color: #1890ff;
+            background-color: #f0f5ff;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        .encaminamiento-comparativa-protocolos-exterior {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Comando route Windows */
+        .encaminamiento-comando-route-windows {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        .encaminamiento-sintaxis-comando {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-sintaxis {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-codigo-sintaxis {
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+        
+        .encaminamiento-opciones-comando {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-opciones {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-tabla-opciones {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .encaminamiento-ejemplos-comando {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .encaminamiento-titulo-ejemplos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .encaminamiento-lista-ejemplos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .encaminamiento-ejemplo-comando {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .encaminamiento-descripcion-ejemplo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Comando route Linux */
+        .encaminamiento-comando-route-linux {
+            margin: 25px 0;
+            border-top: 1px solid #d9d9d9;
+            padding-top: 25px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .encaminamiento-esquema-diagrama {
+                flex-direction: column;
+            }
+            
+            .encaminamiento-router {
+                width: 100%;
+            }
+            
+            .encaminamiento-fila {
+                flex-direction: column;
+            }
+            
+            .encaminamiento-celda-encabezado, .encaminamiento-celda {
+                text-align: left;
+            }
+            
+            .encaminamiento-esquema-sa {
+                flex-direction: column;
+            }
+            
+            .encaminamiento-sa {
+                width: 100%;
+            }
+            
+            .encaminamiento-esquema-bgp {
+                flex-direction: column;
+            }
+            
+            .encaminamiento-sa-bgp {
+                width: 100%;
+            }
+        }
+    </style>
+    
+</body>
+</html>

@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo OSI</title>
+</head>
+<body>
+    <div class="teoria">
+        <span id="4070101000">
+            <h2>1.1 EL MODELO OSI</h2>
+            
+            <div class="osi-introduccion">
+                <p>El Modelo de interconexión de sistemas abiertos (ISO/IEC 7498-1) es el modelo de referencia (y teórico) creado por la Organización Internacional de Normalización (ISO) en 1980 con el objetivo de poner orden en el complejo proceso de las comunicaciones.</p>
+                <p>Durante la década de los 70 y 80 del siglo XX, cuando las redes informáticas empezaron a experimentar un enorme crecimiento tanto en tamaño como en número. En éste periodo cada fabricante creaba sus propios protocolos de conexión incompatibles con los de la competencia. La Organización Internacional de Normalización (ISO) se dio cuenta que debía crear un modelo de red estándar que pudiera ayudar a los diseñadores de red a implementar redes que pudieran comunicarse y trabajar en conjunto.</p>
+                <p>Su desarrollo comenzó en 1977 reuniendo a un subcomité para desarrollar la arquitectura. Aunque los elementos esenciales del modelo se definieron rápidamente multitud de debates y discusiones hicieron que la especificación final no estuviera disponible hasta 1984 cuando se publicó bajo el nombre de ISO 7498.</p>
+            </div>
+            
+            <div class="osi-estructura">
+                <div class="osi-titulo-seccion">Estructura del Modelo OSI</div>
+                <div class="osi-descripcion-estructura">
+                    <p>Una de las primeras cuestiones que quedaron claras es que el proceso de comunicación es lo suficientemente complejo como para no poder abarcarlo como un todo de forma monolítica. Por lo tanto, el modelo OSI estableció dividir la comunicación en siete capas o niveles de abstracción jerarquizadas. De esta forma, el problema de la comunicación se descompone en varios subproblemas más pequeños.</p>
+                    <p>Cada capa se concentra en una de las fases de la comunicación agrupando funciones comunes dentro de la misma capa para proporcionar unos servicios determinados.</p>
+                    <p>Cada capa se sustenta de los servicios más primitivos ofrecidos por su capa inferior y, a su vez, ofrece sus servicios a su capa superior.</p>
+                    <p>Las capas están definidas para que los cambios en una capa no impliquen cambios en otras capas.</p>
+                </div>
+                
+                <div class="osi-diagrama-capas">
+                    <div class="osi-titulo-diagrama">Las 7 capas del Modelo OSI</div>
+                    <div class="osi-capas">
+                        <div class="osi-capa osi-capa-7">
+                            <div class="osi-numero-capa">7</div>
+                            <div class="osi-nombre-capa">Aplicación</div>
+                            <div class="osi-descripcion-capa">Interactúa con aplicaciones de software</div>
+                        </div>
+                        <div class="osi-capa osi-capa-6">
+                            <div class="osi-numero-capa">6</div>
+                            <div class="osi-nombre-capa">Presentación</div>
+                            <div class="osi-descripcion-capa">Traducción, cifrado y compresión de datos</div>
+                        </div>
+                        <div class="osi-capa osi-capa-5">
+                            <div class="osi-numero-capa">5</div>
+                            <div class="osi-nombre-capa">Sesión</div>
+                            <div class="osi-descripcion-capa">Gestión de sesiones entre aplicaciones</div>
+                        </div>
+                        <div class="osi-capa osi-capa-4">
+                            <div class="osi-numero-capa">4</div>
+                            <div class="osi-nombre-capa">Transporte</div>
+                            <div class="osi-descripcion-capa">Comunicación extremo a extremo</div>
+                        </div>
+                        <div class="osi-capa osi-capa-3">
+                            <div class="osi-numero-capa">3</div>
+                            <div class="osi-nombre-capa">Red</div>
+                            <div class="osi-descripcion-capa">Enrutamiento y direccionamiento</div>
+                        </div>
+                        <div class="osi-capa osi-capa-2">
+                            <div class="osi-numero-capa">2</div>
+                            <div class="osi-nombre-capa">Enlace de Datos</div>
+                            <div class="osi-descripcion-capa">Transferencia fiable entre nodos adyacentes</div>
+                        </div>
+                        <div class="osi-capa osi-capa-1">
+                            <div class="osi-numero-capa">1</div>
+                            <div class="osi-nombre-capa">Física</div>
+                            <div class="osi-descripcion-capa">Transmisión de bits a través del medio</div>
+                        </div>
+                    </div>
+                    <div class="osi-mnemotecnico">
+                        <p>"Algunas PersonaS Tienden Redes En lugar de Fronteras"</p>
+                        <p class="osi-explicacion-mnemotecnico">Mnemotécnico para recordar las capas del modelo OSI de arriba hacia abajo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="osi-primitivas">
+                <div class="osi-titulo-seccion">Primitivas de Servicio</div>
+                <div class="osi-descripcion-primitivas">
+                    <p>Los servicios entre capas son ofrecidos a través de las llamadas Primitivas de Servicio:</p>
+                </div>
+                <div class="osi-lista-primitivas">
+                    <div class="osi-primitiva">
+                        <div class="osi-icono-primitiva osi-icono-request"></div>
+                        <div class="osi-contenido-primitiva">
+                            <div class="osi-nombre-primitiva">Request (Petición)</div>
+                            <div class="osi-descripcion-primitiva">Primitiva enviada por la capa N+1 a la capa N para solicitar un servicio pasando los parámetros requeridos.</div>
+                        </div>
+                    </div>
+                    <div class="osi-primitiva">
+                        <div class="osi-icono-primitiva osi-icono-indication"></div>
+                        <div class="osi-contenido-primitiva">
+                            <div class="osi-nombre-primitiva">Indication (Indicación)</div>
+                            <div class="osi-descripcion-primitiva">Primitiva devuelta a N+1 por la capa N para advertir de la activación de un servicio requerido o para indicar alguna acción iniciada por el servicio de la capa N.</div>
+                        </div>
+                    </div>
+                    <div class="osi-primitiva">
+                        <div class="osi-icono-primitiva osi-icono-response"></div>
+                        <div class="osi-contenido-primitiva">
+                            <div class="osi-nombre-primitiva">Response (Respuesta)</div>
+                            <div class="osi-descripcion-primitiva">Primitiva enviada por la capa N+1 en respuesta de una primitiva de Indicación de la capa N.</div>
+                        </div>
+                    </div>
+                    <div class="osi-primitiva">
+                        <div class="osi-icono-primitiva osi-icono-confirm"></div>
+                        <div class="osi-contenido-primitiva">
+                            <div class="osi-nombre-primitiva">Confirm (Confirmación)</div>
+                            <div class="osi-descripcion-primitiva">Primitiva devuelta por la capa N a la capa N+1 para reconocer o completar alguna primitiva de Petición invocada previamente.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-diagrama-primitivas">
+                    <div class="osi-titulo-diagrama">Flujo de primitivas entre capas</div>
+                    <div class="osi-flujo-primitivas">
+                        <div class="osi-capa-superior">
+                            <div class="osi-etiqueta-capa">Capa N+1</div>
+                        </div>
+                        <div class="osi-flechas-primitivas">
+                            <div class="osi-flecha osi-flecha-request">
+                                <div class="osi-etiqueta-flecha">Request</div>
+                            </div>
+                            <div class="osi-flecha osi-flecha-indication">
+                                <div class="osi-etiqueta-flecha">Indication</div>
+                            </div>
+                            <div class="osi-flecha osi-flecha-response">
+                                <div class="osi-etiqueta-flecha">Response</div>
+                            </div>
+                            <div class="osi-flecha osi-flecha-confirm">
+                                <div class="osi-etiqueta-flecha">Confirm</div>
+                            </div>
+                        </div>
+                        <div class="osi-capa-inferior">
+                            <div class="osi-etiqueta-capa">Capa N</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="osi-encapsulamiento">
+                <div class="osi-titulo-seccion">Encapsulamiento de Datos</div>
+                <div class="osi-descripcion-encapsulamiento">
+                    <p>Cuando el dispositivo A tiene que enviar un mensaje al dispositivo B, solicita enviar el mensaje a la capa superior.</p>
+                    <p>Cada capa del emisor encapsula el mensaje agregando una cabecera y, a veces, una cola hasta llegar a la capa física donde el mensaje es finalmente enviado.</p>
+                    <p>Las unidades de datos que genera cada capa se denomina PDU (Protocol Data Unit: Unidad de Datos de Protocolo).</p>
+                    <p>En el receptor se realiza la operación contraria, cada capa del receptor va desencapsulando el mensaje extrayendo la cabecera y cola.</p>
+                    <p>Las comunicaciones entre emisor y receptor se hacen capa a capa aunque sólo la capa física tiene comunicación directa con su homóloga en el destino.</p>
+                </div>
+                
+                <div class="osi-diagrama-encapsulamiento">
+                    <div class="osi-titulo-diagrama">Proceso de encapsulamiento y desencapsulamiento</div>
+                    <div class="osi-proceso-encapsulamiento">
+                        <div class="osi-dispositivo osi-emisor">
+                            <div class="osi-etiqueta-dispositivo">Emisor</div>
+                            <div class="osi-capas-encapsulamiento">
+                                <div class="osi-capa-encapsulamiento osi-capa-aplicacion">
+                                    <div class="osi-etiqueta-capa-encap">Aplicación</div>
+                                    <div class="osi-datos-encap">Datos</div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-presentacion">
+                                    <div class="osi-etiqueta-capa-encap">Presentación</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H6</div>
+                                        <div class="osi-contenido">Datos</div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-sesion">
+                                    <div class="osi-etiqueta-capa-encap">Sesión</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H5</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H6</div>
+                                            <div class="osi-contenido">Datos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-transporte">
+                                    <div class="osi-etiqueta-capa-encap">Transporte</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H4</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H5</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H6</div>
+                                                <div class="osi-contenido">Datos</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-red">
+                                    <div class="osi-etiqueta-capa-encap">Red</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H3</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H4</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H5</div>
+                                                <div class="osi-contenido">
+                                                    <div class="osi-cabecera">H6</div>
+                                                    <div class="osi-contenido">Datos</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-enlace">
+                                    <div class="osi-etiqueta-capa-encap">Enlace</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H2</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H3</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H4</div>
+                                                <div class="osi-contenido">
+                                                    <div class="osi-cabecera">H5</div>
+                                                    <div class="osi-contenido">
+                                                        <div class="osi-cabecera">H6</div>
+                                                        <div class="osi-contenido">Datos</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="osi-cola">T2</div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-fisica">
+                                    <div class="osi-etiqueta-capa-encap">Física</div>
+                                    <div class="osi-datos-encap osi-bits">
+                                        <div class="osi-bit">1</div>
+                                        <div class="osi-bit">0</div>
+                                        <div class="osi-bit">1</div>
+                                        <div class="osi-bit">0</div>
+                                        <div class="osi-bit">...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="osi-medio-transmision">
+                            <div class="osi-etiqueta-medio">Medio de transmisión</div>
+                            <div class="osi-bits-transmision">
+                                <div class="osi-bit">1</div>
+                                <div class="osi-bit">0</div>
+                                <div class="osi-bit">1</div>
+                                <div class="osi-bit">0</div>
+                                <div class="osi-bit">...</div>
+                            </div>
+                        </div>
+                        <div class="osi-dispositivo osi-receptor">
+                            <div class="osi-etiqueta-dispositivo">Receptor</div>
+                            <div class="osi-capas-encapsulamiento">
+                                <div class="osi-capa-encapsulamiento osi-capa-fisica">
+                                    <div class="osi-etiqueta-capa-encap">Física</div>
+                                    <div class="osi-datos-encap osi-bits">
+                                        <div class="osi-bit">1</div>
+                                        <div class="osi-bit">0</div>
+                                        <div class="osi-bit">1</div>
+                                        <div class="osi-bit">0</div>
+                                        <div class="osi-bit">...</div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-enlace">
+                                    <div class="osi-etiqueta-capa-encap">Enlace</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H2</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H3</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H4</div>
+                                                <div class="osi-contenido">
+                                                    <div class="osi-cabecera">H5</div>
+                                                    <div class="osi-contenido">
+                                                        <div class="osi-cabecera">H6</div>
+                                                        <div class="osi-contenido">Datos</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="osi-cola">T2</div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-red">
+                                    <div class="osi-etiqueta-capa-encap">Red</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H3</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H4</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H5</div>
+                                                <div class="osi-contenido">
+                                                    <div class="osi-cabecera">H6</div>
+                                                    <div class="osi-contenido">Datos</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-transporte">
+                                    <div class="osi-etiqueta-capa-encap">Transporte</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H4</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H5</div>
+                                            <div class="osi-contenido">
+                                                <div class="osi-cabecera">H6</div>
+                                                <div class="osi-contenido">Datos</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-sesion">
+                                    <div class="osi-etiqueta-capa-encap">Sesión</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H5</div>
+                                        <div class="osi-contenido">
+                                            <div class="osi-cabecera">H6</div>
+                                            <div class="osi-contenido">Datos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-presentacion">
+                                    <div class="osi-etiqueta-capa-encap">Presentación</div>
+                                    <div class="osi-datos-encap">
+                                        <div class="osi-cabecera">H6</div>
+                                        <div class="osi-contenido">Datos</div>
+                                    </div>
+                                </div>
+                                <div class="osi-capa-encapsulamiento osi-capa-aplicacion">
+                                    <div class="osi-etiqueta-capa-encap">Aplicación</div>
+                                    <div class="osi-datos-encap">Datos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-leyenda-encapsulamiento">
+                        <div class="osi-item-leyenda">
+                            <div class="osi-simbolo-leyenda osi-simbolo-cabecera"></div>
+                            <div class="osi-texto-leyenda">Cabecera (Header)</div>
+                        </div>
+                        <div class="osi-item-leyenda">
+                            <div class="osi-simbolo-leyenda osi-simbolo-cola"></div>
+                            <div class="osi-texto-leyenda">Cola (Trailer)</div>
+                        </div>
+                        <div class="osi-item-leyenda">
+                            <div class="osi-simbolo-leyenda osi-simbolo-pdu"></div>
+                            <div class="osi-texto-leyenda">PDU (Protocol Data Unit)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-unidades-datos">
+                    <div class="osi-titulo-unidades">Unidades de datos en cada capa</div>
+                    <div class="osi-lista-unidades">
+                        <div class="osi-unidad">
+                            <div class="osi-capa-unidad">Aplicación, Presentación, Sesión</div>
+                            <div class="osi-nombre-unidad">Datos</div>
+                        </div>
+                        <div class="osi-unidad">
+                            <div class="osi-capa-unidad">Transporte</div>
+                            <div class="osi-nombre-unidad">Segmento</div>
+                        </div>
+                        <div class="osi-unidad">
+                            <div class="osi-capa-unidad">Red</div>
+                            <div class="osi-nombre-unidad">Paquete</div>
+                        </div>
+                        <div class="osi-unidad">
+                            <div class="osi-capa-unidad">Enlace de Datos</div>
+                            <div class="osi-nombre-unidad">Trama</div>
+                        </div>
+                        <div class="osi-unidad">
+                            <div class="osi-capa-unidad">Física</div>
+                            <div class="osi-nombre-unidad">Bits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="osi-capas-detalle">
+                <div class="osi-titulo-seccion">Detalle de las capas del Modelo OSI</div>
+                
+                <div class="osi-capa-detalle" id="4070101001">
+                    <div class="osi-titulo-capa">2.1 CAPA FÍSICA</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>Establece la interfaz física entre dispositivos y las reglas de comunicación de los bits.</p>
+                        <p>Incluye los dispositivos físicos que participan en la transferencia de datos: conectores, cables, señales eléctricas, etc.</p>
+                        <p>Es la capa en la que los datos se convierten en una secuencia de bits siguiendo una especificación determinada (pulsos de luz en redes de fibra, señales de radio en redes wifi, pulsos eléctricos….)</p>
+                        <p>La capa física de ambos dispositivos debe consensuar además una convención de señales que permita distinguir los unos de los ceros en ambos dispositivos.</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-titulo-caracteristicas">Se encarga de definir las siguientes características:</div>
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Mecánicas</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Eléctricas</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Funcionales: Establece la función de cada circuito de interfaz</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">De Procedimiento: Establece la secuencia de eventos en el intercambio del flujo de bits</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de tecnologías y estándares:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ethernet"></div>
+                                <div class="osi-texto-ejemplo">Ethernet (IEEE 802.3)</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-usb"></div>
+                                <div class="osi-texto-ejemplo">USB</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-bluetooth"></div>
+                                <div class="osi-texto-ejemplo">Bluetooth</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-wifi"></div>
+                                <div class="osi-texto-ejemplo">WiFi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101002">
+                    <div class="osi-titulo-capa">2.2 CAPA DE ENLACE DE DATOS</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>La capa de enlace de datos es muy similar a la capa de red, salvo que lo que hace es facilitar la transferencia de datos entre dos dispositivos ubicados en la misma red.</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-titulo-caracteristicas">Se encarga de:</div>
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Descomponer los paquetes que recibe de la capa de red en paquetes mas pequeños (Tramas) si es necesario para su transmisión.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Intenta que el enlace físico sea seguro.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Proporciona los medios para activar, mantener y desactivar el enlace.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Detección y control de errores.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de tecnologías y protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ethernet"></div>
+                                <div class="osi-texto-ejemplo">Ethernet (MAC)</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ppp"></div>
+                                <div class="osi-texto-ejemplo">PPP</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-hdlc"></div>
+                                <div class="osi-texto-ejemplo">HDLC</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-wifi"></div>
+                                <div class="osi-texto-ejemplo">WiFi (802.11 MAC)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101003">
+                    <div class="osi-titulo-capa">2.3 CAPA DE RED</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>La capa de red es la responsable de posibilitar las transferencias de datos entre dos redes diferentes. Si los dos dispositivos que se comunican están en la misma red, entonces no hará falta esta capa de red. La capa de red lo que hace es fragmentar, en el dispositivo emisor, los datos de la capa de transporte en unidades más pequeñas llamadas paquetes y rearmarlos después en el dispositivo receptor.</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-titulo-caracteristicas">Funciones principales:</div>
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Enrutamiento: Encaminar los datos por una ruta determinada para que lleguen a su destino.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Gestiona las prioridades</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Establece la dirección de destino de un paquete.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ip"></div>
+                                <div class="osi-texto-ejemplo">IP (Internet Protocol)</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-icmp"></div>
+                                <div class="osi-texto-ejemplo">ICMP</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ospf"></div>
+                                <div class="osi-texto-ejemplo">OSPF</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-bgp"></div>
+                                <div class="osi-texto-ejemplo">BGP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101004">
+                    <div class="osi-titulo-capa">2.4 CAPA DE TRANSPORTE</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>Responsable de las comunicaciones de extremo a extremo entre dos dispositivos.</p>
+                        <p>El servicio de transporte orientado a conexión asegura de:</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Los datos se entreguen libres de errores</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">En orden</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Sin pérdidas ni duplicaciones</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Optimizar el uso de los servicios de red, proporcionando la calidad de servicio solicitada.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-tcp"></div>
+                                <div class="osi-texto-ejemplo">TCP (Transmission Control Protocol)</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-udp"></div>
+                                <div class="osi-texto-ejemplo">UDP (User Datagram Protocol)</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-sctp"></div>
+                                <div class="osi-texto-ejemplo">SCTP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101005">
+                    <div class="osi-titulo-capa">2.5 CAPA DE SESIÓN</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>La capa de sesión es la responsable de la apertura y cierre de comunicaciones entre dos dispositivos. Ese tiempo que transcurre entre la apertura de la comunicación y el cierre de esta se conoce como sesión. La capa de sesión garantiza que la sesión permanezca abierta el tiempo suficiente como para transferir todos los datos que se están intercambiando; tras esto, cerrará sin demora la sesión para evitar desperdicio de recursos.</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-titulo-caracteristicas">Proporciona los siguientes servicios:</div>
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Control del diálogo: Full Duplex, Half Duplex.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Agrupamiento: El flujo de datos se puede marcar para definir grupos de datos.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Recuperación: Estableciendo puntos de comprobación para que si ocurre algún fallo poder volver al último punto de recuperación y proseguir desde allí.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-netbios"></div>
+                                <div class="osi-texto-ejemplo">NetBIOS</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-rpc"></div>
+                                <div class="osi-texto-ejemplo">RPC</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-socks"></div>
+                                <div class="osi-texto-ejemplo">SOCKS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101006">
+                    <div class="osi-titulo-capa">2.6 CAPA DE PRESENTACIÓN</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>Esta capa es principalmente responsable de preparar los datos para que los pueda usar la capa de aplicación definiendo el formato de los datos que se van a intercambiar con las aplicaciones.</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-titulo-caracteristicas">Entre los servicios que ofrece tenemos:</div>
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Traducción (codificación) de datos</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Cifrado de datos</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Compresión de datos.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de formatos y protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ssl"></div>
+                                <div class="osi-texto-ejemplo">SSL/TLS</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-jpeg"></div>
+                                <div class="osi-texto-ejemplo">JPEG, GIF, PNG</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ascii"></div>
+                                <div class="osi-texto-ejemplo">ASCII, EBCDIC</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101007">
+                    <div class="osi-titulo-capa">2.7 CAPA DE APLICACIÓN</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>Esta es la única capa que interactúa directamente con los datos del usuario. Proporciona a los programas un medio para que accedan al modelo OSI.</p>
+                        <p>Las aplicaciones de software dependen de la capa de aplicación para iniciar comunicaciones. Sin embargo, las aplicaciones de software cliente no forman parte de la capa de aplicación.</p>
+                    </div>
+                    <div class="osi-ejemplos-capa">
+                        <div class="osi-titulo-ejemplos">Ejemplos de protocolos:</div>
+                        <div class="osi-lista-ejemplos">
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-http"></div>
+                                <div class="osi-texto-ejemplo">HTTP/HTTPS</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-ftp"></div>
+                                <div class="osi-texto-ejemplo">FTP</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-smtp"></div>
+                                <div class="osi-texto-ejemplo">SMTP</div>
+                            </div>
+                            <div class="osi-ejemplo">
+                                <div class="osi-icono-ejemplo osi-icono-dns"></div>
+                                <div class="osi-texto-ejemplo">DNS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="osi-capa-detalle" id="4070101008">
+                    <div class="osi-titulo-capa">2.8 USO DEL MODELO OSI EN LA ACTUALIDAD</div>
+                    <div class="osi-descripcion-capa-detalle">
+                        <p>Actualmente el Modelo OSI se utiliza:</p>
+                    </div>
+                    <div class="osi-caracteristicas-capa">
+                        <div class="osi-lista-caracteristicas">
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Con fines didácticos puesto que la distinción de capas ayuda a comprender los conceptos implicados en la comunicación.</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Como modelo de referencia para comparar arquitecturas de red reales</div>
+                            </div>
+                            <div class="osi-caracteristica">
+                                <div class="osi-icono-caracteristica"></div>
+                                <div class="osi-texto-caracteristica">Para comparar el "grado de inteligencia" de los dispositivos de red. Cuantas más capas implemente un dispositivo de red más "inteligente" se considera.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="osi-comparativa-modelos">
+                        <div class="osi-titulo-comparativa">Comparativa con el modelo TCP/IP</div>
+                        <div class="osi-diagrama-comparativa">
+                            <div class="osi-modelo osi-modelo-osi">
+                                <div class="osi-titulo-modelo">Modelo OSI</div>
+                                <div class="osi-capas-modelo">
+                                    <div class="osi-capa-modelo osi-capa-aplicacion-modelo">Aplicación</div>
+                                    <div class="osi-capa-modelo osi-capa-presentacion-modelo">Presentación</div>
+                                    <div class="osi-capa-modelo osi-capa-sesion-modelo">Sesión</div>
+                                    <div class="osi-capa-modelo osi-capa-transporte-modelo">Transporte</div>
+                                    <div class="osi-capa-modelo osi-capa-red-modelo">Red</div>
+                                    <div class="osi-capa-modelo osi-capa-enlace-modelo">Enlace de Datos</div>
+                                    <div class="osi-capa-modelo osi-capa-fisica-modelo">Física</div>
+                                </div>
+                            </div>
+                            <div class="osi-flechas-comparativa">
+                                <div class="osi-flecha-comparativa osi-flecha-aplicacion"></div>
+                                <div class="osi-flecha-comparativa osi-flecha-transporte"></div>
+                                <div class="osi-flecha-comparativa osi-flecha-internet"></div>
+                                <div class="osi-flecha-comparativa osi-flecha-acceso"></div>
+                            </div>
+                            <div class="osi-modelo osi-modelo-tcpip">
+                                <div class="osi-titulo-modelo">Modelo TCP/IP</div>
+                                <div class="osi-capas-modelo">
+                                    <div class="osi-capa-modelo osi-capa-aplicacion-tcpip">Aplicación</div>
+                                    <div class="osi-capa-modelo osi-capa-transporte-tcpip">Transporte</div>
+                                    <div class="osi-capa-modelo osi-capa-internet-tcpip">Internet</div>
+                                    <div class="osi-capa-modelo osi-capa-acceso-tcpip">Acceso a Red</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <style>
+        /* Estilos específicos para el modelo OSI - usando clases únicas */
+        .osi-introduccion {
+            margin-bottom: 25px;
+        }
+        
+        /* Estructura del modelo */
+        .osi-estructura {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-titulo-seccion {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .osi-descripcion-estructura {
+            margin-bottom: 20px;
+        }
+        
+        .osi-diagrama-capas {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-titulo-diagrama {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .osi-capas {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .osi-capa {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-capa-7 {
+            background-color: #f0f5ff;
+        }
+        
+        .osi-capa-6 {
+            background-color: #e6f7ff;
+        }
+        
+        .osi-capa-5 {
+            background-color: #e6fffb;
+        }
+        
+        .osi-capa-4 {
+            background-color: #f6ffed;
+        }
+        
+        .osi-capa-3 {
+            background-color: #fffbe6;
+        }
+        
+        .osi-capa-2 {
+            background-color: #fff2e8;
+        }
+        
+        .osi-capa-1 {
+            background-color: #fff1f0;
+        }
+        
+        .osi-numero-capa {
+            width: 30px;
+            height: 30px;
+            background-color: #1890ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .osi-capa-7 .osi-numero-capa {
+            background-color: #2f54eb;
+        }
+        
+        .osi-capa-6 .osi-numero-capa {
+            background-color: #1890ff;
+        }
+        
+        .osi-capa-5 .osi-numero-capa {
+            background-color: #13c2c2;
+        }
+        
+        .osi-capa-4 .osi-numero-capa {
+            background-color: #52c41a;
+        }
+        
+        .osi-capa-3 .osi-numero-capa {
+            background-color: #faad14;
+        }
+        
+        .osi-capa-2 .osi-numero-capa {
+            background-color: #fa8c16;
+        }
+        
+        .osi-capa-1 .osi-numero-capa {
+            background-color: #f5222d;
+        }
+        
+        .osi-nombre-capa {
+            font-weight: 500;
+            margin-right: 15px;
+            min-width: 100px;
+        }
+        
+        .osi-descripcion-capa {
+            font-size: 0.9rem;
+            color: #666;
+            flex: 1;
+        }
+        
+        .osi-mnemotecnico {
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .osi-explicacion-mnemotecnico {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        /* Primitivas de servicio */
+        .osi-primitivas {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-descripcion-primitivas {
+            margin-bottom: 20px;
+        }
+        
+        .osi-lista-primitivas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .osi-primitiva {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-icono-primitiva {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .osi-icono-request {
+            background-color: #1890ff;
+        }
+        
+        .osi-icono-request::before {
+            content: "R";
+        }
+        
+        .osi-icono-indication {
+            background-color: #52c41a;
+        }
+        
+        .osi-icono-indication::before {
+            content: "I";
+        }
+        
+        .osi-icono-response {
+            background-color: #faad14;
+        }
+        
+        .osi-icono-response::before {
+            content: "R";
+        }
+        
+        .osi-icono-confirm {
+            background-color: #f5222d;
+        }
+        
+        .osi-icono-confirm::before {
+            content: "C";
+        }
+        
+        .osi-contenido-primitiva {
+            flex: 1;
+        }
+        
+        .osi-nombre-primitiva {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .osi-descripcion-primitiva {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .osi-diagrama-primitivas {
+            margin-top: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .osi-flujo-primitivas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .osi-capa-superior, .osi-capa-inferior {
+            width: 200px;
+            height: 60px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .osi-flechas-primitivas {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .osi-flecha {
+            width: 2px;
+            height: 80px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .osi-flecha::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+        }
+        
+        .osi-flecha-request::before {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 10px solid #1890ff;
+        }
+        
+        .osi-flecha-indication::before {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 10px solid #1890ff;
+        }
+        
+        .osi-flecha-response::before {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 10px solid #1890ff;
+        }
+        
+        .osi-flecha-confirm::before {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 10px solid #1890ff;
+        }
+        
+        .osi-etiqueta-flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            color: #666;
+            white-space: nowrap;
+        }
+        
+        .osi-flecha-request .osi-etiqueta-flecha {
+            left: 10px;
+        }
+        
+        .osi-flecha-indication .osi-etiqueta-flecha {
+            right: 10px;
+        }
+        
+        .osi-flecha-response .osi-etiqueta-flecha {
+            left: 10px;
+        }
+        
+        .osi-flecha-confirm .osi-etiqueta-flecha {
+            right: 10px;
+        }
+        
+        /* Encapsulamiento */
+        .osi-encapsulamiento {
+            margin: 25px 0;
+        }
+        
+        .osi-descripcion-encapsulamiento {
+            margin-bottom: 20px;
+        }
+        
+        .osi-diagrama-encapsulamiento {
+            margin: 25px 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        
+        .osi-proceso-encapsulamiento {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            min-width: 800px;
+        }
+        
+        .osi-dispositivo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .osi-etiqueta-dispositivo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .osi-capas-encapsulamiento {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .osi-capa-encapsulamiento {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-etiqueta-capa-encap {
+            width: 100px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1890ff;
+        }
+        
+        .osi-datos-encap {
+            flex: 1;
+            display: flex;
+            min-height: 30px;
+            border: 1px solid #d9d9d9;
+            border-radius: 3px;
+        }
+        
+        .osi-cabecera, .osi-cola {
+            width: 30px;
+            background-color: #1890ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .osi-contenido {
+            flex: 1;
+            display: flex;
+            padding: 2px;
+            background-color: #f0f5ff;
+            font-size: 0.8rem;
+        }
+        
+        .osi-bits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .osi-bit {
+            width: 20px;
+            height: 20px;
+            background-color: #f0f5ff;
+            border: 1px solid #1890ff;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .osi-medio-transmision {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .osi-etiqueta-medio {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .osi-bits-transmision {
+            display: flex;
+            gap: 5px;
+            background-color: #f0f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-leyenda-encapsulamiento {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .osi-item-leyenda {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .osi-simbolo-leyenda {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .osi-simbolo-cabecera {
+            background-color: #1890ff;
+        }
+        
+        .osi-simbolo-cola {
+            background-color: #1890ff;
+        }
+        
+        .osi-simbolo-pdu {
+            border: 1px solid #d9d9d9;
+            background-color: #f0f5ff;
+        }
+        
+        .osi-texto-leyenda {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .osi-unidades-datos {
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-titulo-unidades {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .osi-lista-unidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .osi-unidad {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .osi-capa-unidad {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+        
+        .osi-nombre-unidad {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        /* Detalle de capas */
+        .osi-capas-detalle {
+            margin: 25px 0;
+        }
+        
+        .osi-capa-detalle {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-titulo-capa {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            font-size: 1.1rem;
+        }
+        
+        .osi-descripcion-capa-detalle {
+            margin-bottom: 20px;
+        }
+        
+        .osi-caracteristicas-capa {
+            margin: 20px 0;
+        }
+        
+        .osi-titulo-caracteristicas {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .osi-lista-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .osi-caracteristica {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-icono-caracteristica {
+            width: 24px;
+            height: 24px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .osi-icono-caracteristica::before {
+            content: "✓";
+        }
+        
+        .osi-texto-caracteristica {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        .osi-ejemplos-capa {
+            margin: 20px 0;
+        }
+        
+        .osi-titulo-ejemplos {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .osi-lista-ejemplos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .osi-ejemplo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+        
+        .osi-icono-ejemplo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: bold;
+            background-color: #1890ff;
+        }
+        
+        .osi-icono-ethernet::before {
+            content: "E";
+        }
+        
+        .osi-icono-usb::before {
+            content: "U";
+        }
+        
+        .osi-icono-bluetooth::before {
+            content: "B";
+        }
+        
+        .osi-icono-wifi::before {
+            content: "W";
+        }
+        
+        .osi-icono-ppp::before {
+            content: "P";
+        }
+        
+        .osi-icono-hdlc::before {
+            content: "H";
+        }
+        
+        .osi-icono-ip::before {
+            content: "IP";
+        }
+        
+        .osi-icono-icmp::before {
+            content: "IC";
+        }
+        
+        .osi-icono-ospf::before {
+            content: "O";
+        }
+        
+        .osi-icono-bgp::before {
+            content: "B";
+        }
+        
+        .osi-icono-tcp::before {
+            content: "T";
+        }
+        
+        .osi-icono-udp::before {
+            content: "U";
+        }
+        
+        .osi-icono-sctp::before {
+            content: "S";
+        }
+        
+        .osi-icono-netbios::before {
+            content: "N";
+        }
+        
+        .osi-icono-rpc::before {
+            content: "R";
+        }
+        
+        .osi-icono-socks::before {
+            content: "S";
+        }
+        
+        .osi-icono-ssl::before {
+            content: "S";
+        }
+        
+        .osi-icono-jpeg::before {
+            content: "J";
+        }
+        
+        .osi-icono-ascii::before {
+            content: "A";
+        }
+        
+        .osi-icono-http::before {
+            content: "H";
+        }
+        
+        .osi-icono-ftp::before {
+            content: "F";
+        }
+        
+        .osi-icono-smtp::before {
+            content: "S";
+        }
+        
+        .osi-icono-dns::before {
+            content: "D";
+        }
+        
+        .osi-texto-ejemplo {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .osi-comparativa-modelos {
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .osi-titulo-comparativa {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .osi-diagrama-comparativa {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .osi-modelo {
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .osi-titulo-modelo {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #1890ff;
+            text-align: center;
+        }
+        
+        .osi-capas-modelo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .osi-capa-modelo {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .osi-capa-aplicacion-modelo {
+            background-color: #f0f5ff;
+        }
+        
+        .osi-capa-presentacion-modelo {
+            background-color: #e6f7ff;
+        }
+        
+        .osi-capa-sesion-modelo {
+            background-color: #e6fffb;
+        }
+        
+        .osi-capa-transporte-modelo {
+            background-color: #f6ffed;
+        }
+        
+        .osi-capa-red-modelo {
+            background-color: #fffbe6;
+        }
+        
+        .osi-capa-enlace-modelo {
+            background-color: #fff2e8;
+        }
+        
+        .osi-capa-fisica-modelo {
+            background-color: #fff1f0;
+        }
+        
+        .osi-capa-aplicacion-tcpip {
+            background-color: #f0f5ff;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .osi-capa-transporte-tcpip {
+            background-color: #f6ffed;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .osi-capa-internet-tcpip {
+            background-color: #fffbe6;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .osi-capa-acceso-tcpip {
+            background-color: #fff1f0;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .osi-flechas-comparativa {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            height: 100%;
+        }
+        
+        .osi-flecha-comparativa {
+            height: 2px;
+            background-color: #1890ff;
+            position: relative;
+        }
+        
+        .osi-flecha-comparativa::before, .osi-flecha-comparativa::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            transform: translateY(-50%);
+        }
+        
+        .osi-flecha-comparativa::before {
+            left: 0;
+            border-right: 8px solid #1890ff;
+        }
+        
+        .osi-flecha-comparativa::after {
+            right: 0;
+            border-left: 8px solid #1890ff;
+        }
+        
+        .osi-flecha-aplicacion {
+            width: 60px;
+            margin-top: 45px;
+        }
+        
+        .osi-flecha-transporte {
+            width: 60px;
+            margin-top: 15px;
+        }
+        
+        .osi-flecha-internet {
+            width: 60px;
+            margin-top: 15px;
+        }
+        
+        .osi-flecha-acceso {
+            width: 60px;
+            margin-top: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .osi-lista-primitivas {
+                flex-direction: column;
+            }
+            
+            .osi-proceso-encapsulamiento {
+                flex-direction: column;
+                min-width: auto;
+            }
+            
+            .osi-medio-transmision {
+                transform: rotate(90deg);
+                margin: 30px 0;
+            }
+            
+            .osi-diagrama-comparativa {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .osi-flechas-comparativa {
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+            }
+            
+            .osi-flecha-comparativa {
+                width: 100%;
+                height: 2px;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</body>
+</html>
