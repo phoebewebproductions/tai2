@@ -1,20 +1,229 @@
 <div class="teoria">
   <!-- punto 4.1 : Estrategias digitales anteriores -->
   <article>
-      <h2>4. ESTRATEGIAS DIGITALES EN LA UE</h2>
-      <span id="1060401001">
-        <h3>4.1. ESTRATEGIAS DIGITALES ANTERIORES</h3>
+      <h2 class="section-title">4. ESTRATEGIAS DIGITALES EN LA UE</h2>
+      <div id="1060401001" class="strategies-container">
+        <h3 class="subsection-title">4.1. ESTRATEGIAS DIGITALES ANTERIORES</h3>
         
-        <p >Estas son todas las estrategias digitales que la Comisión Europea ha ido desplegando desde el año 2000 hasta la actualidad:</p>
+        <p class="intro-text">Estas son todas las estrategias digitales que la Comisión Europea ha ido desplegando desde el año 2000 hasta la actualidad:</p>
         
-        <ul>
-            <li id="1060401002">Iniciativa eEurope 2002 bajo la estrategia de la Agenda de Lisboa (2000-2002)</li>
-            <li id="1060401003">Iniciativa eEurope 2005 bajo la estrategia de la Agenda de Lisboa (2003-2005)</li>
-            <li id="1060401004">i2010 bajo la estrategia de la Agenda renovada de Lisboa (2005-2010)</li>
-            <li id="1060401005">Agenda Digital Europea bajo la estrategia de Europa 2020 (2010-2015)</li>
-            <li id="1060401006">Mercado Único Digital (2015-2020)</li>
-            <li id="1060401007">Configurar el futuro digital de Europa (2020-2025)</li>
-        </ul>
-      </span>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">2000-2002</div>
+                <div class="timeline-content">
+                    <p id="1060401002">🇪🇺 Iniciativa eEurope 2002 bajo la estrategia de la Agenda de Lisboa</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2003-2005</div>
+                <div class="timeline-content">
+                    <p id="1060401003">🇪🇺 Iniciativa eEurope 2005 bajo la estrategia de la Agenda de Lisboa</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2005-2010</div>
+                <div class="timeline-content">
+                    <p id="1060401004">🇪🇺 i2010 bajo la estrategia de la Agenda renovada de Lisboa</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2010-2015</div>
+                <div class="timeline-content">
+                    <p id="1060401005">🇪🇺 Agenda Digital Europea bajo la estrategia de Europa 2020</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2015-2020</div>
+                <div class="timeline-content">
+                    <p id="1060401006">🇪🇺 Mercado Único Digital</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2020-2025</div>
+                <div class="timeline-content">
+                    <p id="1060401007">🇪🇺 Configurar el futuro digital de Europa</p>
+                </div>
+            </div>
+        </div>
+      </div>
   </article>
 </div>
+
+<style>
+    :root {
+      --color-primary: #3b82f6;
+      --color-primary-dark: #2563eb;
+      --color-secondary: #22c55e;
+      --color-secondary-dark: #16a34a9f;
+      --color-background: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-light: #666666;
+      --color-border: #e5e5e5;
+      --color-white: #ffffff;
+      --color-overlay: rgba(0, 35, 90, 0.7);
+      --color-correct: #dcfce7;
+      --color-incorrect: #fee2e2;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: #f9fafb;
+        padding: 20px;
+    }
+
+    .teoria {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: var(--color-white);
+        border-radius: 10px;
+        box-shadow: var(--shadow-md);
+        padding: 30px;
+        transition: var(--transition);
+    }
+
+    .teoria:hover {
+        box-shadow: var(--shadow-lg);
+    }
+
+    article {
+        padding: 20px 0;
+    }
+
+    .section-title {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--color-primary);
+        display: flex;
+        align-items: center;
+    }
+
+    .section-title::before {
+        content: "🇪🇺";
+        margin-right: 10px;
+    }
+
+    .subsection-title {
+        color: var(--color-primary-dark);
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .strategies-container {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        color: var(--color-text);
+        background-color: #e6f7ff;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border-left: 4px solid var(--color-primary);
+    }
+
+    .timeline {
+        position: relative;
+        margin: 30px 0;
+        padding-left: 30px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: var(--color-primary);
+        border-radius: 2px;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+        padding-left: 20px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 15px;
+        height: 16px;
+        width: 16px;
+        background: var(--color-primary-dark);
+        border-radius: 50%;
+        border: 3px solid var(--color-white);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-marker {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .timeline-content {
+        background-color: var(--color-white);
+        border-radius: 6px;
+        padding: 15px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+    }
+
+    .timeline-content:hover {
+        transform: translateX(5px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .timeline-content p {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .teoria {
+            padding: 15px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .subsection-title {
+            font-size: 1.3rem;
+        }
+        
+        .timeline {
+            padding-left: 20px;
+        }
+        
+        .timeline-item {
+            padding-left: 15px;
+        }
+    }
+</style>

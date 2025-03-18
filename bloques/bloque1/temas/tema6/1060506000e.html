@@ -1,30 +1,210 @@
 <div class="teoria">
-   <!-- punto 5.6 : PLAN PARA LA CONECTIVIDAD Y LAS INFRAESTRUCTURAS DIGITALES -->
-  <article>
-      <h2>5.6. PLAN PARA LA CONECTIVIDAD Y LAS INFRAESTRUCTURAS DIGITALES</h2>
-      
-      <p id="1060506001">El Plan para la Conectividad y las Infraestructuras Digitales de la sociedad, la economía y los territorios tiene prevista una inversión de 2.320 millones de euros hasta 2025, 583 millones en los Presupuestos Generales del Estado de 2021.</p>
-
-      <span id="1060506002">
-          <h3>Primer eje: Extensión de banda ancha</h3>
-          <p >El primer eje del Plan para la conectividad es la extensión de banda ancha para favorecer la vertebración territorial, e incluye medidas para incentivar el despliegue de banda ancha en:</p>
-          <ul>
-              <li>Centros urbanos</li>
-              <li>Zonas despobladas</li>
-              <li>Centros de referencia y asistenciales</li>
-          </ul>
-      </span>
-      <p id="1060506003">El objetivo es alcanzar en 2025 una velocidad de 100 megabits por segundo para el 100% de la población.</p>
-
-      <span id="1060506004">
-          <h3>Segundo eje: Conectividad para la empresa</h3>
-          <p >El segundo eje, conectividad para la empresa, recoge todas las acciones de refuerzo de conectividad asociadas a los entornos empresariales:</p>
-          <ul>
-              <li>Polígonos industriales</li>
-              <li>Centros logísticos</li>
-              <li>Parques empresariales</li>
-          </ul>
-      </span>
-      <p id="1060506005">La meta es que el 100% de los polígonos industriales tengan una conexión escalable a un gigabit por segundo en 2025, uno de los objetivos de la estrategia europea "la Sociedad del Gigabit".</p>
-  </article>
-</div>
+    <!-- punto 5.6 : PLAN PARA LA CONECTIVIDAD Y LAS INFRAESTRUCTURAS DIGITALES -->
+   <article>
+       <h2 class="section-title">5.6. PLAN PARA LA CONECTIVIDAD Y LAS INFRAESTRUCTURAS DIGITALES</h2>
+       
+       <div class="investment-card">
+         <div class="card-icon">💶</div>
+         <div class="card-content">
+           <p id="1060506001">El Plan para la Conectividad y las Infraestructuras Digitales de la sociedad, la economía y los territorios tiene prevista una inversión de 2.320 millones de euros hasta 2025, 583 millones en los Presupuestos Generales del Estado de 2021.</p>
+         </div>
+       </div>
+ 
+       <div id="1060506002" class="axis-box">
+           <h3 class="axis-title">🌐 Primer eje: Extensión de banda ancha</h3>
+           <p class="axis-intro">El primer eje del Plan para la conectividad es la extensión de banda ancha para favorecer la vertebración territorial, e incluye medidas para incentivar el despliegue de banda ancha en:</p>
+           <ul class="axis-list">
+               <li>🏙️ Centros urbanos</li>
+               <li>🏞️ Zonas despobladas</li>
+               <li>🏥 Centros de referencia y asistenciales</li>
+           </ul>
+       </div>
+       
+       <div class="goal-card">
+         <div class="card-icon">🎯</div>
+         <div class="card-content">
+           <p id="1060506003">El objetivo es alcanzar en 2025 una velocidad de 100 megabits por segundo para el 100% de la población.</p>
+         </div>
+       </div>
+ 
+       <div id="1060506004" class="axis-box">
+           <h3 class="axis-title">🏭 Segundo eje: Conectividad para la empresa</h3>
+           <p class="axis-intro">El segundo eje, conectividad para la empresa, recoge todas las acciones de refuerzo de conectividad asociadas a los entornos empresariales:</p>
+           <ul class="axis-list">
+               <li>🏭 Polígonos industriales</li>
+               <li>📦 Centros logísticos</li>
+               <li>🏢 Parques empresariales</li>
+           </ul>
+       </div>
+       
+       <div class="goal-card">
+         <div class="card-icon">🎯</div>
+         <div class="card-content">
+           <p id="1060506005">La meta es que el 100% de los polígonos industriales tengan una conexión escalable a un gigabit por segundo en 2025, uno de los objetivos de la estrategia europea "la Sociedad del Gigabit".</p>
+         </div>
+       </div>
+   </article>
+ </div>
+ 
+ <style>
+     :root {
+       --color-primary: #3b82f6;
+       --color-primary-dark: #2563eb;
+       --color-secondary: #22c55e;
+       --color-secondary-dark: #16a34a9f;
+       --color-background: #ffffff;
+       --color-text: #1a1a1a;
+       --color-text-light: #666666;
+       --color-border: #e5e5e5;
+       --color-white: #ffffff;
+       --color-overlay: rgba(0, 35, 90, 0.7);
+       --color-correct: #dcfce7;
+       --color-incorrect: #fee2e2;
+       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+       --transition: all 0.3s ease;
+     }
+ 
+     * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+     }
+ 
+     body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         line-height: 1.6;
+         color: var(--color-text);
+         background-color: #f9fafb;
+         padding: 20px;
+     }
+ 
+     .teoria {
+         max-width: 1000px;
+         margin: 0 auto;
+         background-color: var(--color-white);
+         border-radius: 10px;
+         box-shadow: var(--shadow-md);
+         padding: 30px;
+         transition: var(--transition);
+     }
+ 
+     .teoria:hover {
+         box-shadow: var(--shadow-lg);
+     }
+ 
+     article {
+         padding: 20px 0;
+     }
+ 
+     .section-title {
+         color: var(--color-primary-dark);
+         font-size: 1.8rem;
+         margin-bottom: 20px;
+         padding-bottom: 10px;
+         border-bottom: 2px solid var(--color-primary);
+         display: flex;
+         align-items: center;
+     }
+ 
+     .section-title::before {
+         content: "🇪🇸";
+         margin-right: 10px;
+     }
+ 
+     .investment-card, .goal-card {
+         display: flex;
+         background-color: #fff;
+         border-radius: 8px;
+         padding: 20px;
+         margin: 20px 0;
+         box-shadow: var(--shadow-sm);
+         transition: var(--transition);
+     }
+ 
+     .investment-card {
+         border-left: 4px solid #f97316;
+     }
+ 
+     .goal-card {
+         border-left: 4px solid var(--color-secondary);
+     }
+ 
+     .investment-card:hover, .goal-card:hover {
+         transform: translateY(-5px);
+         box-shadow: var(--shadow-md);
+     }
+ 
+     .card-icon {
+         font-size: 2.5rem;
+         margin-right: 20px;
+         display: flex;
+         align-items: center;
+     }
+ 
+     .card-content {
+         flex: 1;
+     }
+ 
+     .axis-box {
+         background-color: #f0f7ff;
+         border-radius: 8px;
+         padding: 20px;
+         margin: 25px 0;
+         border-left: 4px solid var(--color-primary);
+     }
+ 
+     .axis-title {
+         color: var(--color-primary-dark);
+         font-size: 1.3rem;
+         margin-bottom: 15px;
+         display: flex;
+         align-items: center;
+     }
+ 
+     .axis-intro {
+         margin-bottom: 15px;
+         font-size: 1.05rem;
+     }
+ 
+     .axis-list {
+         list-style: none;
+     }
+ 
+     .axis-list li {
+         margin-bottom: 10px;
+         padding: 10px;
+         background-color: rgba(255, 255, 255, 0.7);
+         border-radius: 6px;
+         transition: var(--transition);
+     }
+ 
+     .axis-list li:hover {
+         transform: translateX(5px);
+         background-color: rgba(255, 255, 255, 0.9);
+     }
+ 
+     @media (max-width: 768px) {
+         .teoria {
+             padding: 15px;
+         }
+         
+         .section-title {
+             font-size: 1.5rem;
+         }
+         
+         .axis-title {
+             font-size: 1.2rem;
+         }
+         
+         .investment-card, .goal-card {
+             flex-direction: column;
+         }
+         
+         .card-icon {
+             margin-right: 0;
+             margin-bottom: 15px;
+         }
+     }
+ </style>

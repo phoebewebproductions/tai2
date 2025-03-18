@@ -1,26 +1,161 @@
 <div class="teoria">
     <!-- punto 1.1 : Ley34/2002, de servicios de la sociedad de información y de comercio electrónico: objeto -->
     <article>
-        <h2>1. LEY 34/2002, DE SERVICIOS DE LA SOCIEDAD DE LA INFORMACIÓN Y DE COMERCIO ELECTRÓNICO</h2>
+        <h2 class="section-title">1. LEY 34/2002, DE SERVICIOS DE LA SOCIEDAD DE LA INFORMACIÓN Y DE COMERCIO ELECTRÓNICO</h2>
         
-        <p>La Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico, transpone varias Directivas europeas:</p>
-        <ul>
-            <li id="1060101001">La Directiva 2000/31/CE, relativa a determinados aspectos jurídicos de los servicios de la sociedad de la información, en particular el comercio electrónico en el mercado interior (Directiva sobre el comercio electrónico)</li>
-            <li id="1060101002">La Directiva 2002/58/CE, relativa al tratamiento de los datos personales y a la protección de la intimidad en el sector de las comunicaciones electrónicas (Directiva sobre privacidad en las comunicaciones electrónicas)</li>
+        <p class="intro-text">La Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico, transpone varias Directivas europeas:</p>
+        <ul class="directivas-list">
+            <li id="1060101001">📜 La Directiva 2000/31/CE, relativa a determinados aspectos jurídicos de los servicios de la sociedad de la información, en particular el comercio electrónico en el mercado interior (Directiva sobre el comercio electrónico)</li>
+            <li id="1060101002">🔒 La Directiva 2002/58/CE, relativa al tratamiento de los datos personales y a la protección de la intimidad en el sector de las comunicaciones electrónicas (Directiva sobre privacidad en las comunicaciones electrónicas)</li>
         </ul>
 
-        <span id="1060101003">
-            <p >La Ley regula determinados aspectos de los Servicios de Sociedad de la Información (SSI):</p>
+        <div id="1060101003" class="highlight-box">
+            <p>La Ley regula determinados aspectos de los Servicios de Sociedad de la Información (SSI):</p>
             <ul>
-                <li>Obligaciones y responsabilidad de los Prestadores de Servicios de Sociedad de la Información (PSSI)</li>
-                <li>Contratación vía electrónica</li>
-                <li>Comunicaciones comerciales vía electrónica</li>
-                <li>Cookies</li>
-                <li>Otros: requisitos de accesibilidad, dominios '.es'</li>
+                <li>📋 Obligaciones y responsabilidad de los Prestadores de Servicios de Sociedad de la Información (PSSI)</li>
+                <li>📝 Contratación vía electrónica</li>
+                <li>📧 Comunicaciones comerciales vía electrónica</li>
+                <li>🍪 Cookies</li>
+                <li>🌐 Otros: requisitos de accesibilidad, dominios '.es'</li>
             </ul>
-        </span>
+        </div>
 
-        <h3>1.1. OBJETO</h3>
-        <p id="1060101004">La Ley tiene como objeto principal la regulación del régimen jurídico de los servicios de la sociedad de la información y de la contratación por vía electrónica, en lo referente a las obligaciones de los prestadores de servicios incluidos los que actúan como intermediarios en la transmisión de contenidos por las redes de telecomunicaciones, las comunicaciones comerciales por vía electrónica, la información previa y posterior a la celebración de contratos electrónicos, las condiciones relativas a su validez y eficacia y el régimen sancionador aplicable a los prestadores de servicios de la sociedad de la información.</p>
+        <h3 class="subsection-title">1.1. OBJETO</h3>
+        <p id="1060101004" class="main-paragraph">La Ley tiene como objeto principal la regulación del régimen jurídico de los servicios de la sociedad de la información y de la contratación por vía electrónica, en lo referente a las obligaciones de los prestadores de servicios incluidos los que actúan como intermediarios en la transmisión de contenidos por las redes de telecomunicaciones, las comunicaciones comerciales por vía electrónica, la información previa y posterior a la celebración de contratos electrónicos, las condiciones relativas a su validez y eficacia y el régimen sancionador aplicable a los prestadores de servicios de la sociedad de la información.</p>
     </article>
 </div>
+
+<style>
+    :root {
+      --color-primary: #3b82f6;
+      --color-primary-dark: #2563eb;
+      --color-secondary: #22c55e;
+      --color-secondary-dark: #16a34a9f;
+      --color-background: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-light: #666666;
+      --color-border: #e5e5e5;
+      --color-white: #ffffff;
+      --color-overlay: rgba(0, 35, 90, 0.7);
+      --color-correct: #dcfce7;
+      --color-incorrect: #fee2e2;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: #f9fafb;
+        padding: 20px;
+    }
+
+    .teoria {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: var(--color-white);
+        border-radius: 10px;
+        box-shadow: var(--shadow-md);
+        padding: 30px;
+        transition: var(--transition);
+    }
+
+    .teoria:hover {
+        box-shadow: var(--shadow-lg);
+    }
+
+    article {
+        padding: 20px 0;
+    }
+
+    .section-title {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    .subsection-title {
+        color: var(--color-primary);
+        font-size: 1.4rem;
+        margin: 25px 0 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .subsection-title::before {
+        content: "📌";
+        margin-right: 10px;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .directivas-list {
+        list-style: none;
+        margin-bottom: 25px;
+    }
+
+    .directivas-list li {
+        margin-bottom: 12px;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .highlight-box {
+        background-color: var(--color-correct);
+        border-left: 4px solid var(--color-secondary);
+        padding: 20px;
+        border-radius: 6px;
+        margin: 25px 0;
+    }
+
+    .highlight-box p {
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .highlight-box ul {
+        list-style: none;
+    }
+
+    .highlight-box li {
+        margin-bottom: 8px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .main-paragraph {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 4px solid var(--color-primary);
+        margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .teoria {
+            padding: 15px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .subsection-title {
+            font-size: 1.2rem;
+        }
+    }
+</style>
