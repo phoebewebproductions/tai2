@@ -1,45 +1,874 @@
-<div class="teoria">
-  <article>
-    <h2>3.3 ALMACENAMIENTO NAS</h2>
-    <p>Almacenamiento a nivel de fichero.</p>
-  
-    <h3>NFS</h3>
-    <span id="2020303001">
-      <p>NFS es el protocolo más extendido para el acceso remoto a ficheros sobre sistemas operativos Linux y Unix, permitiendo la lectura y escritura sobre ficheros remotos de manera similar a los recursos locales, gracias a la utilización de los montajes sobre el sistema de ficheros. Fue introducido por Sun Microsystems en 1984.</p>
-      <p>El servicio de red NFS utiliza los puertos 111 y 2049 tanto UDP como TCP (hasta la versión 2 únicamente UDP), y a partir de su versión 4 únicamente hace uso del puerto 2049.</p>
-    </span>
-  
-    <span id="2020303002">
-      <p>En la arquitectura típica NFS, se dispone de un cliente que consume los servicios de un equipo servidor, que ejecuta un servicio NFS de sistema operativo (también denominado demonio o daemon NFS) que garantiza la puesta a disposición de los recursos o shares correspondientes. Esta configuración de recursos compartidos se define a través del fichero del sistema /etc/exports del servidor.</p>
-    </span>
-  
-    <span id="2020303003">
-      <p>La última versión, NFSv4, se introdujo en las RFC 3010, RFC 3530 y RFC 7530, introduciendo mejoras en la gestión de los permisos a través de ACL, así como las revisiones 4.1 y 4.2 que están enfocadas a mejorar el soporte de acceso paralelo a ficheros.</p>
-    </span>
-  
-    <span id="2020303004">
-      <p>En sistemas Unix y Linux los montajes NFS se pueden realizar a través del comando mount sobre cualquier directorio local del sistema:</p>
-      <pre><code>mount -F nfs -o &lt;opciones_montaje&gt; &lt;dispositivo_remoto&gt; &lt;punto_montaje&gt;</code></pre>
-    </span>
-  
-    <h3>CIFS</h3>
-    <span id="2020303005">
-      <p>El protocolo Common Internet File System o CIFS, antes denominado Server Message Block (SMB) es un protocolo enfocado a la compartición no sólo de ficheros, sino también de dispositivos tales como impresoras o puertos serie a través de los distintos nodos de la red. Si bien es más común en entornos Windows, existen implementaciones para otros sistemas operativos que permiten la interconexión con sistemas de Microsoft.</p>
-    </span>
-  
-    <span id="2020303006">
-      <p>La arquitectura CIFS es cliente-servidor, con el equivalente tradicional de acceso a sistemas de ficheros pero también como algunas funcionalidades adicionales como la comunicación interproceso. CIFS/SMB utiliza para el tráfico el puerto 445/TCP y la última versión del protocolo es SMBv3.</p>
-    </span>
-  
-    <h3>Otros tipos de NAS</h3>
-    <span id="2020303007">
-      <p>Si bien son las más conocidas, NFS y CIFS son sólo una pequeña parte de los distintos protocolos que permiten compartición del almacenamiento a través de redes. La aparición durante los últimos años de los servicios de almacenamiento cloud a través de proveedores como Amazon, Microsoft o Google han facilitado el desarrollo de distintas librerías, integraciones y capas de almacenamiento que permiten a los sistemas operativos aprovechar las capacidades del almacenamiento remoto.</p>
-    </span>
-  
-    <span id="2020303008">
-      <p>Esto abre nuevas posibilidades a las organizaciones, permitiendo por ejemplo el acceso al almacenamiento tratando los ficheros como si de objetos se tratara (por ejemplo a través del protocolo S3 de Amazon), apoyándose en otros protocolos estándar ya existentes, como por ejemplo a través del Secure Shell utilizando el SSHFS de Linux, o utilizando llamadas HTTP y HTTPS, como nos permite el protocolo WebDav.</p>
-    </span>
-  </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almacenamiento NAS</title>
+</head>
+<body>
+  <div class="teoria">
+    <article>
+      <h2 class="section-title">3.3 ALMACENAMIENTO NAS</h2>
+      <p class="subtitle">Almacenamiento a nivel de fichero.</p>
+      
+      <div class="nas-diagram">
+        <div class="diagram-title">Arquitectura NAS</div>
+        <div class="diagram-content">
+          <div class="diagram-component clients">
+            <div class="component-icon">💻</div>
+            <div class="component-title">Clientes</div>
+            <div class="client-computers">
+              <div class="client">PC 1</div>
+              <div class="client">PC 2</div>
+              <div class="client">PC 3</div>
+            </div>
+          </div>
+          
+          <div class="diagram-arrow">⬇️</div>
+          
+          <div class="diagram-component network">
+            <div class="component-icon">🌐</div>
+            <div class="component-title">Red TCP/IP</div>
+          </div>
+          
+          <div class="diagram-arrow">⬇️</div>
+          
+          <div class="diagram-component nas">
+            <div class="component-icon">🗄️</div>
+            <div class="component-title">Servidor NAS</div>
+            <div class="nas-protocols">
+              <div class="protocol">NFS</div>
+              <div class="protocol">CIFS/SMB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="protocol-tabs">
+        <input type="radio" name="protocol-tabs" id="tab1" checked class="tab-input">
+        <label for="tab1" class="tab-label">
+          <span class="tab-icon">🐧</span>
+          <span class="tab-text">NFS</span>
+        </label>
+        
+        <input type="radio" name="protocol-tabs" id="tab2" class="tab-input">
+        <label for="tab2" class="tab-label">
+          <span class="tab-icon">🪟</span>
+          <span class="tab-text">CIFS</span>
+        </label>
+        
+        <input type="radio" name="protocol-tabs" id="tab3" class="tab-input">
+        <label for="tab3" class="tab-label">
+          <span class="tab-icon">☁️</span>
+          <span class="tab-text">Otros NAS</span>
+        </label>
+        
+        <div class="tab-content" id="content1">
+          <h3 class="subsection-title">NFS</h3>
+          <div id="2020303001" class="nfs-info">
+            <p>NFS es el protocolo más extendido para el acceso remoto a ficheros sobre sistemas operativos Linux y Unix, permitiendo la lectura y escritura sobre ficheros remotos de manera similar a los recursos locales, gracias a la utilización de los montajes sobre el sistema de ficheros. Fue introducido por Sun Microsystems en 1984.</p>
+            <p>El servicio de red NFS utiliza los puertos 111 y 2049 tanto UDP como TCP (hasta la versión 2 únicamente UDP), y a partir de su versión 4 únicamente hace uso del puerto 2049.</p>
+            
+            <div class="nfs-features">
+              <div class="feature">
+                <div class="feature-icon">🐧</div>
+                <div class="feature-text">Estándar en sistemas Linux/Unix</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <div class="feature-text">Acceso transparente a ficheros remotos</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">🔌</div>
+                <div class="feature-text">Puertos: 111 y 2049 (TCP/UDP)</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">📅</div>
+                <div class="feature-text">Introducido en 1984 por Sun Microsystems</div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020303002" class="nfs-architecture">
+            <p>En la arquitectura típica NFS, se dispone de un cliente que consume los servicios de un equipo servidor, que ejecuta un servicio NFS de sistema operativo (también denominado demonio o daemon NFS) que garantiza la puesta a disposición de los recursos o shares correspondientes. Esta configuración de recursos compartidos se define a través del fichero del sistema /etc/exports del servidor.</p>
+            
+            <div class="architecture-diagram">
+              <div class="diagram-component client">
+                <div class="component-icon">💻</div>
+                <div class="component-title">Cliente NFS</div>
+                <div class="component-details">
+                  <div class="detail">mount -t nfs</div>
+                </div>
+              </div>
+              
+              <div class="diagram-arrow">⟷</div>
+              
+              <div class="diagram-component server">
+                <div class="component-icon">🖥️</div>
+                <div class="component-title">Servidor NFS</div>
+                <div class="component-details">
+                  <div class="detail">/etc/exports</div>
+                  <div class="detail">nfsd (demonio)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020303003" class="nfs-versions">
+            <p>La última versión, NFSv4, se introdujo en las RFC 3010, RFC 3530 y RFC 7530, introduciendo mejoras en la gestión de los permisos a través de ACL, así como las revisiones 4.1 y 4.2 que están enfocadas a mejorar el soporte de acceso paralelo a ficheros.</p>
+            
+            <div class="versions-timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1984</div>
+                  <div class="timeline-text">NFSv1 (interno en Sun)</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1989</div>
+                  <div class="timeline-text">NFSv2 (RFC 1094)</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1995</div>
+                  <div class="timeline-text">NFSv3 (RFC 1813)</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2000</div>
+                  <div class="timeline-text">NFSv4 (RFC 3010, 3530, 7530)</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2010</div>
+                  <div class="timeline-text">NFSv4.1 (RFC 5661)</div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2016</div>
+                  <div class="timeline-text">NFSv4.2 (RFC 7862)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020303004" class="nfs-commands">
+            <p>En sistemas Unix y Linux los montajes NFS se pueden realizar a través del comando mount sobre cualquier directorio local del sistema:</p>
+            <div class="code-block">
+              <pre><code>mount -F nfs -o &lt;opciones_montaje&gt; &lt;dispositivo_remoto&gt; &lt;punto_montaje&gt;</code></pre>
+            </div>
+            
+            <div class="command-examples">
+              <div class="example">
+                <div class="example-title">Ejemplo 1: Montaje básico</div>
+                <div class="example-code">
+                  <code>mount -t nfs servidor:/compartido /mnt/nfs</code>
+                </div>
+              </div>
+              
+              <div class="example">
+                <div class="example-title">Ejemplo 2: Con opciones</div>
+                <div class="example-code">
+                  <code>mount -t nfs -o rw,soft,intr servidor:/datos /mnt/datos</code>
+                </div>
+              </div>
+              
+              <div class="example">
+                <div class="example-title">Ejemplo 3: Montaje automático en fstab</div>
+                <div class="example-code">
+                  <code>servidor:/compartido /mnt/nfs nfs rw,soft,intr 0 0</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content2">
+          <h3 class="subsection-title">CIFS</h3>
+          <div id="2020303005" class="cifs-info">
+            <p>El protocolo Common Internet File System o CIFS, antes denominado Server Message Block (SMB) es un protocolo enfocado a la compartición no sólo de ficheros, sino también de dispositivos tales como impresoras o puertos serie a través de los distintos nodos de la red. Si bien es más común en entornos Windows, existen implementaciones para otros sistemas operativos que permiten la interconexión con sistemas de Microsoft.</p>
+            
+            <div class="cifs-features">
+              <div class="feature">
+                <div class="feature-icon">🪟</div>
+                <div class="feature-text">Estándar en sistemas Windows</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">🖨️</div>
+                <div class="feature-text">Comparte ficheros y dispositivos</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <div class="feature-text">Compatible con múltiples sistemas operativos</div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">🔌</div>
+                <div class="feature-text">Puerto: 445 TCP</div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020303006" class="cifs-architecture">
+            <p>La arquitectura CIFS es cliente-servidor, con el equivalente tradicional de acceso a sistemas de ficheros pero también como algunas funcionalidades adicionales como la comunicación interproceso. CIFS/SMB utiliza para el tráfico el puerto 445/TCP y la última versión del protocolo es SMBv3.</p>
+            
+            <div class="architecture-diagram">
+              <div class="diagram-component client">
+                <div class="component-icon">💻</div>
+                <div class="component-title">Cliente CIFS</div>
+                <div class="component-details">
+                  <div class="detail">\\servidor\compartido</div>
+                </div>
+              </div>
+              
+              <div class="diagram-arrow">⟷</div>
+              
+              <div class="diagram-component server">
+                <div class="component-icon">🖥️</div>
+                <div class="component-title">Servidor CIFS</div>
+                <div class="component-details">
+                  <div class="detail">Compartidos</div>
+                  <div class="detail">Permisos NTFS</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="smb-versions">
+              <h4 class="versions-title">Versiones de SMB/CIFS</h4>
+              <div class="versions-table">
+                <div class="version-row">
+                  <div class="version-name">SMB 1.0</div>
+                  <div class="version-os">Windows 2000/XP</div>
+                  <div class="version-notes">Obsoleto, inseguro</div>
+                </div>
+                
+                <div class="version-row">
+                  <div class="version-name">SMB 2.0</div>
+                  <div class="version-os">Windows Vista/Server 2008</div>
+                  <div class="version-notes">Mayor rendimiento</div>
+                </div>
+                
+                <div class="version-row">
+                  <div class="version-name">SMB 2.1</div>
+                  <div class="version-os">Windows 7/Server 2008 R2</div>
+                  <div class="version-notes">Bloqueo oportunista</div>
+                </div>
+                
+                <div class="version-row">
+                  <div class="version-name">SMB 3.0</div>
+                  <div class="version-os">Windows 8/Server 2012</div>
+                  <div class="version-notes">Cifrado, multicanal</div>
+                </div>
+                
+                <div class="version-row">
+                  <div class="version-name">SMB 3.1.1</div>
+                  <div class="version-os">Windows 10/Server 2016</div>
+                  <div class="version-notes">Seguridad mejorada</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content3">
+          <h3 class="subsection-title">Otros tipos de NAS</h3>
+          <div id="2020303007" class="other-nas">
+            <p>Si bien son las más conocidas, NFS y CIFS son sólo una pequeña parte de los distintos protocolos que permiten compartición del almacenamiento a través de redes. La aparición durante los últimos años de los servicios de almacenamiento cloud a través de proveedores como Amazon, Microsoft o Google han facilitado el desarrollo de distintas librerías, integraciones y capas de almacenamiento que permiten a los sistemas operativos aprovechar las capacidades del almacenamiento remoto.</p>
+            
+            <div class="cloud-providers">
+              <div class="provider">
+                <div class="provider-icon">☁️</div>
+                <div class="provider-content">
+                  <h4 class="provider-title">Amazon AWS</h4>
+                  <div class="provider-services">
+                    <div class="service">S3</div>
+                    <div class="service">EFS</div>
+                    <div class="service">FSx</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="provider">
+                <div class="provider-icon">☁️</div>
+                <div class="provider-content">
+                  <h4 class="provider-title">Microsoft Azure</h4>
+                  <div class="provider-services">
+                    <div class="service">Azure Files</div>
+                    <div class="service">Azure Blob</div>
+                    <div class="service">Azure NetApp Files</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="provider">
+                <div class="provider-icon">☁️</div>
+                <div class="provider-content">
+                  <h4 class="provider-title">Google Cloud</h4>
+                  <div class="provider-services">
+                    <div class="service">Cloud Storage</div>
+                    <div class="service">Filestore</div>
+                    <div class="service">Cloud NAS</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020303008" class="other-protocols">
+            <p>Esto abre nuevas posibilidades a las organizaciones, permitiendo por ejemplo el acceso al almacenamiento tratando los ficheros como si de objetos se tratara (por ejemplo a través del protocolo S3 de Amazon), apoyándose en otros protocolos estándar ya existentes, como por ejemplo a través del Secure Shell utilizando el SSHFS de Linux, o utilizando llamadas HTTP y HTTPS, como nos permite el protocolo WebDav.</p>
+            
+            <div class="protocols-grid">
+              <div class="protocol-card">
+                <div class="protocol-icon">🪣</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">S3 (Simple Storage Service)</h4>
+                  <p>Protocolo de almacenamiento de objetos de Amazon. Accesible vía API REST.</p>
+                </div>
+              </div>
+              
+              <div class="protocol-card">
+                <div class="protocol-icon">🔒</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">SSHFS</h4>
+                  <p>Sistema de archivos basado en SFTP que permite montar sistemas de archivos remotos de forma segura.</p>
+                </div>
+              </div>
+              
+              <div class="protocol-card">
+                <div class="protocol-icon">🌐</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">WebDAV</h4>
+                  <p>Extensión del protocolo HTTP que permite a los clientes editar y administrar archivos en servidores web remotos.</p>
+                </div>
+              </div>
+              
+              <div class="protocol-card">
+                <div class="protocol-icon">🔄</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">iSCSI</h4>
+                  <p>Protocolo que permite el uso de SCSI sobre redes TCP/IP, combinando características de NAS y SAN.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
-  
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "🗄️";
+      margin-right: 10px;
+    }
+    
+    .subtitle {
+      color: var(--color-text-light);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    /* NAS Diagram */
+    .nas-diagram {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-title {
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+    
+    .diagram-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .diagram-component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      min-width: 200px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .diagram-component:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .component-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .component-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .client-computers {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .client {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    
+    .nas-protocols {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .protocol {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    
+    .diagram-arrow {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+    }
+    
+    /* Tabs */
+    .protocol-tabs {
+      position: relative;
+      min-height: 400px;
+      margin-top: 20px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-icon {
+      margin-right: 5px;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"],
+    #tab3:checked ~ label[for="tab3"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* NFS Features */
+    .nfs-features, .cifs-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .feature:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    /* Architecture Diagram */
+    .architecture-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .component-details {
+      margin-top: 10px;
+    }
+    
+    .detail {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      font-family: monospace;
+    }
+    
+    /* Versions Timeline */
+    .versions-timeline {
+      position: relative;
+      padding: 20px 0;
+      margin: 30px 0;
+    }
+    
+    .versions-timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 4px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 15px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-content {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-date {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    /* NFS Commands */
+    .code-block {
+      background-color: #1e293b;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+    
+    .code-block pre {
+      margin: 0;
+    }
+    
+    .code-block code {
+      color: #e2e8f0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+    }
+    
+    .command-examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .example {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .example-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .example-code {
+      background-color: #1e293b;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    
+    .example-code code {
+      color: #e2e8f0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+    }
+    
+    /* SMB Versions */
+    .smb-versions {
+      margin-top: 30px;
+    }
+    
+    .versions-title {
+      color: var(--color-primary-dark);
+      margin-bottom: 15px;
+    }
+    
+    .versions-table {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .version-row {
+      display: flex;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .version-row:last-child {
+      border-bottom: none;
+    }
+    
+    .version-row:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .version-name, .version-os, .version-notes {
+      padding: 10px;
+      flex: 1;
+    }
+    
+    .version-name {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    /* Cloud Providers */
+    .cloud-providers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .provider {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .provider:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .provider-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .provider-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .provider-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .service {
+      background-color: var(--color-white);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Other Protocols */
+    .protocols-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .protocol-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .protocol-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .protocol-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .protocol-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .nfs-features, .cifs-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .command-examples {
+        grid-template-columns: 1fr;
+      }
+      
+      .cloud-providers {
+        grid-template-columns: 1fr;
+      }
+      
+      .protocols-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .architecture-diagram {
+        flex-direction: column;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"],
+      #tab3:checked ~ label[for="tab3"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+    }
+  </style>
+</body>
+</html>

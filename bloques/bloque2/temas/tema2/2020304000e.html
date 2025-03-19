@@ -1,74 +1,839 @@
-<div class="teoria">
-  <article>
-    <h2>3.4 ALMACENAMIENTO SAN</h2>
-  
-    <h3>Host Bus Adapter (HBA)</h3>
-    <span id="2020304001">
-      <p>Los adaptadores que facilitan el acceso de un equipo a una SAN se denominan HBAs o Host Bus Adapters. Un HBA es un circuito integrado que incluye la lógica correspondiente a la Entrada/Salida, facilitando el acceso del equipo cliente al dispositivo que proporciona el almacenamiento. Un HBA es similar al concepto de NIC en comunicaciones, e incluso es posible que un mismo adaptador incluya funcionalidades de HBA y NIC, mediante dos conexiones (Fiber Channel y Ethernet). En este caso se denomina Adaptador de Red Convergente o Convergent Network Adapter (CNA).</p>
-    </span>
-  
-    <span id="2020304002">
-      <p>Los módulos que se encargan de las conexiones de los adaptadores de red se denominan transceptores. Existen distintos tipos de transceptores, para proveer acceso a redes FC o Ethernet, según sea necesario. El formato más extendido de transceptor es SFP (Small Form-Factor Pluggable), que es pequeño, compacto e intercambiable en caliente.</p>
-    </span>
-  
-    <h3>Switches de SAN</h3>
-    <span id="2020304003">
-      <p>Los switches o conmutadores de SAN son dispositivos que interconectan los servidores o equipos finales con el servidor o cabina que proporciona el pool de almacenamiento. Los switches de almacenamiento se basan en las tecnologías Fiber Channel e iSCSI. Este tipo de conmutadores analizan los paquetes de las comunicaciones de la SAN, remitiendo la comunicación únicamente al dispositivo destino, evitando la saturación de la red.</p>
-    </span>
-  
-    <h3>Storage Fabric</h3>
-    <span id="2020304004">
-      <p>Literalmente "tejido", el concepto de fabric se refiere al conjunto de redes de fibra óptica que interconexionan los switches y a través de los cuales se encamina el tráfico de la SAN. Esta red puede ser mínima, estando compuesta por una única cabina y un único switch de fibra, o por multitud de cabinas, switches de fibra y clientes trabajando en una infraestructura con alta disponibilidad.</p>
-    </span>
-  
-    <h3>Zoning</h3>
-    <span id="2020304005">
-      <p>El zoning es la segmentación en zonas de los puertos de fibra de los switches de la SAN. Es un concepto similar al de las subredes o VLANs en las redes ethernet, y asegura que los dispositivos con conectividad en una zona únicamente pueden comunicarse con otros que se encuentren en ésta, realizando de manera efectiva un particionado de una red SAN en varias independientes. Este zoning puede ser realizado por hardware (Hard Zoning) o por software (Soft Zoning).</p>
-    </span>
-  
-    <h3>World Wide Name (WWN)</h3>
-    <span id="2020304006">
-      <p>En una SAN todos los dispositivos se identifican a través de un World Wide Name (WWN), que es un código único de 16 Bytes, que contiene información sobre el fabricante de acuerdo al esquema definido por el IEEE. Además, dentro de cada dispositivo de una SAN se asigna un node name o WWNN a cada nodo y un port name o WWPN a cada puerto.</p>
-    </span>
-  
-    <h3>Logical Unit Number (LUN)</h3>
-    <span id="2020304007">
-      <p>Un logical unit number o LUN es una dirección única que identifica un conjunto de bloques que se presentan como un disco único al cliente de una SAN. Desde el punto de vista práctico, una LUN equivale a un disco lógico, que el cliente puede manejar mediante FC o iSCSI. A nivel de seguridad, una LUN puede presentarse únicamente a uno o varios clientes mediante un proceso denominado enmascaramiento de LUNs o LUN masking.</p>
-    </span>
-  
-    <h3>Estructuras de almacenamiento SAN con alta disponibilidad</h3>
-    <span id="2020304008">
-      <p>Existen diversas técnicas para mejorar la resiliencia y dotar a una SAN de alta disponibilidad:</p>
-      <ul>
-        <li>Establecimiento de estructura de red redundante y alta disponibilidad de los nodos y switches de la SAN.</li>
-        <li>Técnicas de mirroring de almacenamiento y arrays redundantes de discos.</li>
-        <li>Infraestructura de Centro de Proceso de Datos adecuada, con redundancia en elementos de refrigeración y alimentación.</li>
-      </ul>
-    </span>
-  
-    <h3>Trunking y redundancia de conexiones</h3>
-    <span id="2020304009">
-      <p>En los switches de fibra es posible realizar configuraciones que optimicen el uso de las líneas de fibra tales como:</p>
-      <ul>
-        <li>Asignación al mismo canal de varias bocas de switch, aumentando el ancho de banda efectivo disponible.</li>
-        <li>Agrupación de más de un canal sobre la misma línea física, mediante una configuración denominada trunking.</li>
-      </ul>
-    </span>
-  
-    <h3>SAN basada en IP y Ethernet</h3>
-    <span id="2020304010">
-      <p>El aumento de las capacidades de ancho de banda de Ethernet han permitido explorar la utilización de las redes Ethernet para el acceso a SAN. Existen diferentes protocolos para implementar SAN sobre IP:</p>
-      <ul>
-        <li>iSCSI: Permite el uso del protocolo SCSI sobre redes TCP/IP.</li>
-        <li>FCIP: Fiber Channel over IP, permite la creación de un túnel que encapsula la información de una red basada en protocolo Fiber Channel sobre una red TCP/IP.</li>
-        <li>FCoE: Fiber Channel over Ethernet, realiza un encapsulado de las tramas Fiber Channel sobre redes Ethernet.</li>
-      </ul>
-    </span>
-  
-    <h3>NVMe over Fabric (NVMe-oF)</h3>
-    <span id="2020304011">
-      <p>NVMe over Fabric (NVMe-oF) es una especificación que permite la transferencia de los datos sobre redes SAN. La diferencia principal entre NVMe y NVMe-oF es que en NVMe la transferencia de los comandos es directa a la memoria local a través del bus PCIe, mientras que en el caso de NVMe-oF se utiliza intercambio de mensajes a través de la red para la ejecución de los comandos.</p>
-    </span>
-  </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almacenamiento SAN</title>
+</head>
+<body>
+  <div class="teoria">
+    <article>
+      <h2 class="section-title">3.4 ALMACENAMIENTO SAN</h2>
+      
+      <div class="san-intro">
+        <p>El almacenamiento SAN (Storage Area Network) es una red dedicada de alta velocidad que conecta y presenta dispositivos de almacenamiento compartidos a múltiples servidores. A diferencia del NAS, que proporciona acceso a nivel de archivo, SAN proporciona acceso a nivel de bloque.</p>
+      </div>
+      
+      <div class="san-components">
+        <div id="2020304001" class="component-card">
+          <div class="component-icon">🔌</div>
+          <div class="component-content">
+            <h3 class="component-title">Host Bus Adapter (HBA)</h3>
+            <p>Los adaptadores que facilitan el acceso de un equipo a una SAN se denominan HBAs o Host Bus Adapters. Un HBA es un circuito integrado que incluye la lógica correspondiente a la Entrada/Salida, facilitando el acceso del equipo cliente al dispositivo que proporciona el almacenamiento. Un HBA es similar al concepto de NIC en comunicaciones, e incluso es posible que un mismo adaptador incluya funcionalidades de HBA y NIC, mediante dos conexiones (Fiber Channel y Ethernet). En este caso se denomina Adaptador de Red Convergente o Convergent Network Adapter (CNA).</p>
+          </div>
+        </div>
+        
+        <div id="2020304002" class="component-card">
+          <div class="component-icon">📡</div>
+          <div class="component-content">
+            <h3 class="component-title">Transceptores</h3>
+            <p>Los módulos que se encargan de las conexiones de los adaptadores de red se denominan transceptores. Existen distintos tipos de transceptores, para proveer acceso a redes FC o Ethernet, según sea necesario. El formato más extendido de transceptor es SFP (Small Form-Factor Pluggable), que es pequeño, compacto e intercambiable en caliente.</p>
+            
+            <div class="transceptor-types">
+              <div class="transceptor-type">
+                <div class="type-icon">🔌</div>
+                <div class="type-content">
+                  <h4>SFP</h4>
+                  <p>Small Form-Factor Pluggable</p>
+                </div>
+              </div>
+              <div class="transceptor-type">
+                <div class="type-icon">🔌</div>
+                <div class="type-content">
+                  <h4>SFP+</h4>
+                  <p>Versión mejorada de SFP</p>
+                </div>
+              </div>
+              <div class="transceptor-type">
+                <div class="type-icon">🔌</div>
+                <div class="type-content">
+                  <h4>QSFP</h4>
+                  <p>Quad Small Form-Factor Pluggable</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2020304003" class="component-card">
+          <div class="component-icon">🔄</div>
+          <div class="component-content">
+            <h3 class="component-title">Switches de SAN</h3>
+            <p>Los switches o conmutadores de SAN son dispositivos que interconectan los servidores o equipos finales con el servidor o cabina que proporciona el pool de almacenamiento. Los switches de almacenamiento se basan en las tecnologías Fiber Channel e iSCSI. Este tipo de conmutadores analizan los paquetes de las comunicaciones de la SAN, remitiendo la comunicación únicamente al dispositivo destino, evitando la saturación de la red.</p>
+          </div>
+        </div>
+        
+        <div id="2020304004" class="component-card">
+          <div class="component-icon">🕸️</div>
+          <div class="component-content">
+            <h3 class="component-title">Storage Fabric</h3>
+            <p>Literalmente "tejido", el concepto de fabric se refiere al conjunto de redes de fibra óptica que interconexionan los switches y a través de los cuales se encamina el tráfico de la SAN. Esta red puede ser mínima, estando compuesta por una única cabina y un único switch de fibra, o por multitud de cabinas, switches de fibra y clientes trabajando en una infraestructura con alta disponibilidad.</p>
+            
+            <div class="fabric-diagram">
+              <div class="diagram-title">Ejemplo de Storage Fabric</div>
+              <div class="diagram-content">
+                <div class="diagram-node server">
+                  <div class="node-icon">💻</div>
+                  <div class="node-label">Servidor</div>
+                </div>
+                <div class="diagram-arrow">↔️</div>
+                <div class="diagram-node switch">
+                  <div class="node-icon">🔄</div>
+                  <div class="node-label">Switch FC</div>
+                </div>
+                <div class="diagram-arrow">↔️</div>
+                <div class="diagram-node storage">
+                  <div class="node-icon">💾</div>
+                  <div class="node-label">Almacenamiento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="san-concepts">
+        <div id="2020304005" class="concept-card">
+          <div class="concept-icon">🔍</div>
+          <div class="concept-content">
+            <h3 class="concept-title">Zoning</h3>
+            <p>El zoning es la segmentación en zonas de los puertos de fibra de los switches de la SAN. Es un concepto similar al de las subredes o VLANs en las redes ethernet, y asegura que los dispositivos con conectividad en una zona únicamente pueden comunicarse con otros que se encuentren en ésta, realizando de manera efectiva un particionado de una red SAN en varias independientes. Este zoning puede ser realizado por hardware (Hard Zoning) o por software (Soft Zoning).</p>
+            
+            <div class="zoning-types">
+              <div class="zoning-type">
+                <div class="type-icon">🔒</div>
+                <div class="type-content">
+                  <h4>Hard Zoning</h4>
+                  <p>Implementado a nivel de hardware, más seguro</p>
+                </div>
+              </div>
+              <div class="zoning-type">
+                <div class="type-icon">💻</div>
+                <div class="type-content">
+                  <h4>Soft Zoning</h4>
+                  <p>Implementado a nivel de software, más flexible</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2020304006" class="concept-card">
+          <div class="concept-icon">🔑</div>
+          <div class="concept-content">
+            <h3 class="concept-title">World Wide Name (WWN)</h3>
+            <p>En una SAN todos los dispositivos se identifican a través de un World Wide Name (WWN), que es un código único de 16 Bytes, que contiene información sobre el fabricante de acuerdo al esquema definido por el IEEE. Además, dentro de cada dispositivo de una SAN se asigna un node name o WWNN a cada nodo y un port name o WWPN a cada puerto.</p>
+            
+            <div class="wwn-example">
+              <div class="example-title">Ejemplo de WWN</div>
+              <div class="example-content">
+                <code>50:01:43:80:12:34:56:78</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2020304007" class="concept-card">
+          <div class="concept-icon">💽</div>
+          <div class="concept-content">
+            <h3 class="concept-title">Logical Unit Number (LUN)</h3>
+            <p>Un logical unit number o LUN es una dirección única que identifica un conjunto de bloques que se presentan como un disco único al cliente de una SAN. Desde el punto de vista práctico, una LUN equivale a un disco lógico, que el cliente puede manejar mediante FC o iSCSI. A nivel de seguridad, una LUN puede presentarse únicamente a uno o varios clientes mediante un proceso denominado enmascaramiento de LUNs o LUN masking.</p>
+            
+            <div class="lun-diagram">
+              <div class="diagram-title">Concepto de LUN</div>
+              <div class="diagram-content">
+                <div class="diagram-storage">
+                  <div class="storage-icon">💾</div>
+                  <div class="storage-label">Almacenamiento Físico</div>
+                  <div class="lun-container">
+                    <div class="lun-block">LUN 0</div>
+                    <div class="lun-block">LUN 1</div>
+                    <div class="lun-block">LUN 2</div>
+                  </div>
+                </div>
+                <div class="diagram-arrows">
+                  <div class="arrow">↑</div>
+                  <div class="arrow">↑</div>
+                  <div class="arrow">↑</div>
+                </div>
+                <div class="diagram-servers">
+                  <div class="server-block">Servidor A</div>
+                  <div class="server-block">Servidor B</div>
+                  <div class="server-block">Servidor C</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="san-advanced">
+        <div id="2020304008" class="advanced-card">
+          <div class="advanced-icon">⚡</div>
+          <div class="advanced-content">
+            <h3 class="advanced-title">Estructuras de almacenamiento SAN con alta disponibilidad</h3>
+            <p>Existen diversas técnicas para mejorar la resiliencia y dotar a una SAN de alta disponibilidad:</p>
+            <ul class="advanced-list">
+              <li>
+                <div class="list-icon">🔄</div>
+                <div class="list-content">Establecimiento de estructura de red redundante y alta disponibilidad de los nodos y switches de la SAN.</div>
+              </li>
+              <li>
+                <div class="list-icon">🔄</div>
+                <div class="list-content">Técnicas de mirroring de almacenamiento y arrays redundantes de discos.</div>
+              </li>
+              <li>
+                <div class="list-icon">🔌</div>
+                <div class="list-content">Infraestructura de Centro de Proceso de Datos adecuada, con redundancia en elementos de refrigeración y alimentación.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div id="2020304009" class="advanced-card">
+          <div class="advanced-icon">🔌</div>
+          <div class="advanced-content">
+            <h3 class="advanced-title">Trunking y redundancia de conexiones</h3>
+            <p>En los switches de fibra es posible realizar configuraciones que optimicen el uso de las líneas de fibra tales como:</p>
+            <ul class="advanced-list">
+              <li>
+                <div class="list-icon">🔄</div>
+                <div class="list-content">Asignación al mismo canal de varias bocas de switch, aumentando el ancho de banda efectivo disponible.</div>
+              </li>
+              <li>
+                <div class="list-icon">🔄</div>
+                <div class="list-content">Agrupación de más de un canal sobre la misma línea física, mediante una configuración denominada trunking.</div>
+              </li>
+            </ul>
+            
+            <div class="trunking-diagram">
+              <div class="diagram-title">Concepto de Trunking</div>
+              <div class="diagram-content">
+                <div class="diagram-switch">Switch A</div>
+                <div class="diagram-trunk">
+                  <div class="trunk-line"></div>
+                  <div class="trunk-line"></div>
+                  <div class="trunk-line"></div>
+                </div>
+                <div class="diagram-switch">Switch B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2020304010" class="advanced-card">
+          <div class="advanced-icon">🌐</div>
+          <div class="advanced-content">
+            <h3 class="advanced-title">SAN basada en IP y Ethernet</h3>
+            <p>El aumento de las capacidades de ancho de banda de Ethernet han permitido explorar la utilización de las redes Ethernet para el acceso a SAN. Existen diferentes protocolos para implementar SAN sobre IP:</p>
+            
+            <div class="protocols-grid">
+              <div class="protocol-card">
+                <div class="protocol-icon">🔄</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">iSCSI</h4>
+                  <p>Permite el uso del protocolo SCSI sobre redes TCP/IP.</p>
+                </div>
+              </div>
+              
+              <div class="protocol-card">
+                <div class="protocol-icon">🔄</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">FCIP</h4>
+                  <p>Fiber Channel over IP, permite la creación de un túnel que encapsula la información de una red basada en protocolo Fiber Channel sobre una red TCP/IP.</p>
+                </div>
+              </div>
+              
+              <div class="protocol-card">
+                <div class="protocol-icon">🔄</div>
+                <div class="protocol-content">
+                  <h4 class="protocol-title">FCoE</h4>
+                  <p>Fiber Channel over Ethernet, realiza un encapsulado de las tramas Fiber Channel sobre redes Ethernet.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comparison-table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Protocolo</th>
+                    <th>Ventajas</th>
+                    <th>Desventajas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>iSCSI</td>
+                    <td>Bajo costo, usa infraestructura IP existente</td>
+                    <td>Mayor latencia que FC nativo</td>
+                  </tr>
+                  <tr>
+                    <td>FCIP</td>
+                    <td>Permite conectar SANs FC distantes</td>
+                    <td>Requiere infraestructura FC existente</td>
+                  </tr>
+                  <tr>
+                    <td>FCoE</td>
+                    <td>Combina FC y Ethernet en una sola red</td>
+                    <td>Requiere hardware específico</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2020304011" class="advanced-card">
+          <div class="advanced-icon">⚡</div>
+          <div class="advanced-content">
+            <h3 class="advanced-title">NVMe over Fabric (NVMe-oF)</h3>
+            <p>NVMe over Fabric (NVMe-oF) es una especificación que permite la transferencia de los datos sobre redes SAN. La diferencia principal entre NVMe y NVMe-oF es que en NVMe la transferencia de los comandos es directa a la memoria local a través del bus PCIe, mientras que en el caso de NVMe-oF se utiliza intercambio de mensajes a través de la red para la ejecución de los comandos.</p>
+            
+            <div class="nvme-comparison">
+              <div class="comparison-item">
+                <div class="comparison-icon">💻</div>
+                <div class="comparison-content">
+                  <h4>NVMe Local</h4>
+                  <p>Comunicación directa a través de PCIe</p>
+                  <p>Menor latencia</p>
+                  <p>Limitado a dispositivos locales</p>
+                </div>
+              </div>
+              
+              <div class="comparison-item">
+                <div class="comparison-icon">🌐</div>
+                <div class="comparison-content">
+                  <h4>NVMe-oF</h4>
+                  <p>Comunicación a través de red</p>
+                  <p>Permite acceso remoto</p>
+                  <p>Soporta múltiples transportes (FC, TCP, RDMA)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "💾";
+      margin-right: 10px;
+    }
+    
+    .san-intro {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Components Section */
+    .san-components {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .component-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .component-card:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .component-icon {
+      font-size: 2.5rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    .component-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    /* Transceptor Types */
+    .transceptor-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .transceptor-type {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .transceptor-type:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .type-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .type-content h4 {
+      margin: 0 0 5px 0;
+      color: var(--color-primary-dark);
+    }
+    
+    .type-content p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Fabric Diagram */
+    .fabric-diagram {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-title {
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 15px;
+    }
+    
+    .diagram-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .diagram-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      min-width: 100px;
+      text-align: center;
+    }
+    
+    .node-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .node-label {
+      font-weight: bold;
+    }
+    
+    /* Concepts Section */
+    .san-concepts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .concept-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .concept-card:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .concept-icon {
+      font-size: 2.5rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    .concept-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    /* Zoning Types */
+    .zoning-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .zoning-type {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .zoning-type:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* WWN Example */
+    .wwn-example {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    
+    .example-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .example-content code {
+      font-family: monospace;
+      font-size: 1.1rem;
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    
+    /* LUN Diagram */
+    .lun-diagram {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-storage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .storage-icon {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      color: var(--color-primary);
+    }
+    
+    .storage-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .lun-container {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .lun-block {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    .diagram-arrows {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    
+    .arrow {
+      color: var(--color-primary);
+      font-size: 1.5rem;
+    }
+    
+    .diagram-servers {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+    }
+    
+    .server-block {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      flex: 1;
+    }
+    
+    /* Advanced Section */
+    .san-advanced {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .advanced-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .advanced-card:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .advanced-icon {
+      font-size: 2.5rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    .advanced-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .advanced-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .advanced-list li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    
+    .list-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    /* Trunking Diagram */
+    .trunking-diagram {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-switch {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      width: 100px;
+    }
+    
+    .diagram-trunk {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0 20px;
+    }
+    
+    .trunk-line {
+      height: 3px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+    
+    /* Protocols Grid */
+    .protocols-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .protocol-card {
+      display: flex;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .protocol-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .protocol-icon {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .protocol-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* Comparison Table */
+    .comparison-table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .comparison-table th {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px;
+      text-align: left;
+    }
+    
+    .comparison-table td {
+      padding: 8px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .comparison-table tr:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* NVMe Comparison */
+    .nvme-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .comparison-item {
+      flex: 1;
+      min-width: 250px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .comparison-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .comparison-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .comparison-content h4 {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .comparison-content p {
+      margin: 5px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .component-card, .concept-card, .advanced-card {
+        flex-direction: column;
+      }
+      
+      .component-icon, .concept-icon, .advanced-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .diagram-content {
+        flex-direction: column;
+      }
+      
+      .protocols-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .transceptor-types, .zoning-types {
+        flex-direction: column;
+      }
+      
+      .lun-container, .diagram-servers {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .diagram-arrows {
+        display: none;
+      }
+    }
+  </style>
+</body>
+</html>

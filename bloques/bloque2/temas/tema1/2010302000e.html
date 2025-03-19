@@ -1,87 +1,780 @@
-<div class="teoria">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Unidad Central de Procesamiento (CPU)</title>
+</head>
+<body>
+  <div class="teoria">
     <article>
-      <!-- punto 3.2 : La Unidad Central de Procesamiento (CPU) -->
-      <h2>3.2. LA UNIDAD CENTRAL DE PROCESAMIENTO (CPU)</h2>
+      <h2 class="section-title">3.2. LA UNIDAD CENTRAL DE PROCESAMIENTO (CPU)</h2>
       
-      <span id="2010302001">
+      <div id="2010302001" class="intro-card">
         <p>La unidad central de procesamiento (CPU) o procesador constituye la parte central de un sistema de información, interpreta las instrucciones que normalmente se encuentran en un programa informático y procesa los datos de estas utilizando para ello operaciones básicas, aritméticas y lógicas.</p>
-      </span>
-  
-      <h3>3.2.1. CARACTERÍSTICAS DE LA CPU</h3>
-      <span id="2010302002">
-        <p>Las características que diferencian a una CPU de otra son las siguientes:</p>
-        <ul>
-          <li><strong>Consumo energético:</strong> se refiere a la cantidad de energía que consume la CPU al ejecutar acciones. Normalmente, a mayor capacidad de proceso, mayor consumo.</li>
-          <li><strong>Frecuencia de reloj:</strong> se refiere a la velocidad de reloj que tiene una CPU y determina el número de acciones que puede ejecutar en un determinado periodo de tiempo. La frecuencia de reloj se suele medir en MHz o GHz y es un indicativo de la potencia de la CPU.</li>
-          <li><strong>Tamaño de palabra:</strong> es el número de bits que maneja en paralelo el computador y que se refieren al ancho del bus de direcciones, lo cual define la arquitectura del ordenador.</li>
-          <li><strong>Número de núcleos:</strong> se trata de disponer en la CPU de dos o más núcleos o microprocesadores en un mismo paquete o circuito integrado que pueden repartir las instrucciones entre ellos y trabajar de forma paralela. Cada uno de los núcleos dispone de su propia memoria caché L1. Actualmente hay procesadores de 2 a 64 núcleos.</li>
-          <li><strong>Número de hilos:</strong> dentro de cada núcleo las operaciones se pueden dividir en hilos (threads) que pueden ejecutarse simultáneamente. Es el equivalente a disponer de varios núcleos virtuales.</li>
-          <li><strong>Capacidad de memoria cache:</strong> la capacidad de la memoria caché determina la necesidad de acceder a la memoria RAM, y por tanto, la velocidad del procesamiento.</li>
-          <li><strong>Rendimiento o potencia:</strong> se trata del número de operaciones que puede ejecutar una CPU, y normalmente se mide en FLOPS (Floating-point Operations per second), esto es número de operaciones en punto flotante por segundo. También se suele usar MIPS (Million Instructions per second), millones de instrucciones por segundo.</li>
-        </ul>
-      </span>
-  
-      <h3>3.2.2. COMPONENTES DE LA CPU</h3>
-      <span id="2010302003">
-        <p>Los principales componentes de la CPU son:</p>
-        <ol type="a">
-          <li><strong>Unidad de control (UC):</strong> La tarea principal de la UC es recibir y ejecutar las instrucciones, que interpreta y procesa mediante órdenes que envía a otros componentes, en el orden e instante debidos.</li>
-          <li><strong>Unidad aritmético lógica (UAL o ALU):</strong> Es la parte de la CPU encargada de realizar las operaciones de tipo aritmético y de tipo lógico.</li>
-          <li><strong>Conjunto de Registros (Register Bank) o almacenamiento de acceso inmediato:</strong> Un registro es una memoria de alta velocidad y poca capacidad, que se usa para guardar de valores de datos, comandos, instrucciones o estados.</li>
-          <li><strong>Memoria Caché:</strong> Se trata de una memoria de alta velocidad donde se almacenan los datos para que la CPU no tenga que acceder a buscarlos a la memoria principal, cuyo acceso sería más lento.</li>
-          <li><strong>Unidad de Punto Flotante (FPU) o coprocesador matemático:</strong> Son unidades integradas en algunas CPU para efectuar operaciones matemáticas en punto flotante.</li>
-          <li><strong>Unidad de gestión de memoria (MMU):</strong> Se trata de un circuito integrado específico que forma parte del hardware de la CPU.</li>
-        </ol>
-      </span>
-  
-      <h3>3.2.3. FUNCIONAMIENTO DE LA CPU</h3>
-      <span id="2010302004">
-        <h4>3.2.3.1. RISC y CISC</h4>
-        <p>RISC (Reduced Instruction Set Computer) y CISC (Complex Instruction Set Computer) son dos tipos de diseño de CPU:</p>
-        <ul>
-          <li><strong>RISC:</strong> Instrucciones cortas de tamaño fijo, instrucciones de un único ciclo, solo las instrucciones de carga y almacenamiento acceden a la memoria de datos.</li>
-          <li><strong>CISC:</strong> Conjunto de instrucciones amplio y complejo, permite operaciones complejas entre operandos situados en la memoria o en los registros internos.</li>
-        </ul>
-      </span>
-  
-      <span id="2010302005">
-        <h4>3.2.3.2. CICLO DE UNA INSTRUCCIÓN DE LA CPU</h4>
-        <p>Una instrucción de la CPU pasa por las siguientes fases:</p>
-        <ol>
-          <li>Fase de captación o fetch</li>
-          <li>Fase de decodificación o decode</li>
-          <li>Fase de ejecución o execute</li>
-          <li>Store o almacenamiento</li>
-        </ol>
-      </span>
-  
-      <span id="2010302006">
-        <h4>3.2.3.3. MODOS DE DIRECCIONAMIENTO</h4>
-        <p>Los principales modos de direccionamiento son:</p>
-        <ul>
-          <li>Implícito</li>
-          <li>Inmediato (en este modo el operando está incluido directamente en la instrucción)</li>
-          <li>Directo o absoluto</li>
-          <li>Indirecto</li>
-        </ul>
-      </span>
-  
-      <span id="2010302007">
-        <h4>3.2.3.4. MULTIHILO Y MULTIPROCESAMIENTO</h4>
-        <p><strong>Multihilo (Multithreading):</strong> Consiste en la división de un proceso en hilos que pueden ejecutarse en una o varias CPUs de manera simultánea. Tipos principales:</p>
-        <ul>
-          <li>Multihilo simultáneo (SMT)</li>
-          <li>Multihilo temporal (TMT)</li>
-        </ul>
-        <p><strong>Multiprocesamiento:</strong> Consiste en la ejecución de varios procesos a la vez de forma simultánea en varios procesadores o núcleos. Tipos principales:</p>
-        <ul>
-          <li>Procesamiento Asimétrico (AMP)</li>
-          <li>Procesamiento Simétrico (SMP)</li>
-          <li>Acceso no uniforme a Memoria (NUMA)</li>
-          <li>Proceso paralelo masivo (MPP)</li>
-        </ul>
-      </span>
+      </div>
+
+      <div class="cpu-tabs">
+        <input type="radio" name="cpu-tabs" id="tab1" checked class="tab-input">
+        <label for="tab1" class="tab-label">Características</label>
+        
+        <input type="radio" name="cpu-tabs" id="tab2" class="tab-input">
+        <label for="tab2" class="tab-label">Componentes</label>
+        
+        <input type="radio" name="cpu-tabs" id="tab3" class="tab-input">
+        <label for="tab3" class="tab-label">Funcionamiento</label>
+        
+        <div class="tab-content" id="content1">
+          <h3 class="subsection-title">3.2.1. CARACTERÍSTICAS DE LA CPU</h3>
+          <div id="2010302002" class="characteristics-container">
+            <p>Las características que diferencian a una CPU de otra son las siguientes:</p>
+            
+            <div class="characteristics-grid">
+              <div class="characteristic-card">
+                <div class="characteristic-icon">⚡</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Consumo energético</h4>
+                  <p>Se refiere a la cantidad de energía que consume la CPU al ejecutar acciones. Normalmente, a mayor capacidad de proceso, mayor consumo.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">⏱️</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Frecuencia de reloj</h4>
+                  <p>Se refiere a la velocidad de reloj que tiene una CPU y determina el número de acciones que puede ejecutar en un determinado periodo de tiempo. La frecuencia de reloj se suele medir en MHz o GHz y es un indicativo de la potencia de la CPU.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">📏</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Tamaño de palabra</h4>
+                  <p>Es el número de bits que maneja en paralelo el computador y que se refieren al ancho del bus de direcciones, lo cual define la arquitectura del ordenador.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">🧩</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Número de núcleos</h4>
+                  <p>Se trata de disponer en la CPU de dos o más núcleos o microprocesadores en un mismo paquete o circuito integrado que pueden repartir las instrucciones entre ellos y trabajar de forma paralela. Cada uno de los núcleos dispone de su propia memoria caché L1. Actualmente hay procesadores de 2 a 64 núcleos.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">🧵</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Número de hilos</h4>
+                  <p>Dentro de cada núcleo las operaciones se pueden dividir en hilos (threads) que pueden ejecutarse simultáneamente. Es el equivalente a disponer de varios núcleos virtuales.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">💾</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Capacidad de memoria cache</h4>
+                  <p>La capacidad de la memoria caché determina la necesidad de acceder a la memoria RAM, y por tanto, la velocidad del procesamiento.</p>
+                </div>
+              </div>
+              
+              <div class="characteristic-card">
+                <div class="characteristic-icon">⚡</div>
+                <div class="characteristic-content">
+                  <h4 class="characteristic-title">Rendimiento o potencia</h4>
+                  <p>Se trata del número de operaciones que puede ejecutar una CPU, y normalmente se mide en FLOPS (Floating-point Operations per second), esto es número de operaciones en punto flotante por segundo. También se suele usar MIPS (Million Instructions per second), millones de instrucciones por segundo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content2">
+          <h3 class="subsection-title">3.2.2. COMPONENTES DE LA CPU</h3>
+          <div id="2010302003" class="components-container">
+            <p>Los principales componentes de la CPU son:</p>
+            
+            <div class="cpu-diagram">
+              <div class="diagram-title">Componentes principales de una CPU</div>
+              <div class="diagram-content">
+                <div class="diagram-component uc">
+                  <div class="component-icon">🎮</div>
+                  <div class="component-title">Unidad de Control (UC)</div>
+                  <div class="component-desc">Recibe y ejecuta las instrucciones, que interpreta y procesa mediante órdenes que envía a otros componentes.</div>
+                </div>
+                
+                <div class="diagram-component alu">
+                  <div class="component-icon">🧮</div>
+                  <div class="component-title">Unidad Aritmético Lógica (UAL/ALU)</div>
+                  <div class="component-desc">Encargada de realizar las operaciones de tipo aritmético y de tipo lógico.</div>
+                </div>
+                
+                <div class="diagram-component registers">
+                  <div class="component-icon">📋</div>
+                  <div class="component-title">Conjunto de Registros</div>
+                  <div class="component-desc">Memoria de alta velocidad y poca capacidad para guardar valores de datos, comandos, instrucciones o estados.</div>
+                </div>
+                
+                <div class="diagram-component cache">
+                  <div class="component-icon">💾</div>
+                  <div class="component-title">Memoria Caché</div>
+                  <div class="component-desc">Memoria de alta velocidad donde se almacenan los datos para que la CPU no tenga que acceder a la memoria principal.</div>
+                </div>
+                
+                <div class="diagram-component fpu">
+                  <div class="component-icon">🔢</div>
+                  <div class="component-title">Unidad de Punto Flotante (FPU)</div>
+                  <div class="component-desc">Unidades integradas para efectuar operaciones matemáticas en punto flotante.</div>
+                </div>
+                
+                <div class="diagram-component mmu">
+                  <div class="component-icon">🔍</div>
+                  <div class="component-title">Unidad de Gestión de Memoria (MMU)</div>
+                  <div class="component-desc">Circuito integrado específico que forma parte del hardware de la CPU.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content3">
+          <h3 class="subsection-title">3.2.3. FUNCIONAMIENTO DE LA CPU</h3>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion1" class="accordion-input">
+              <label for="accordion1" class="accordion-header">
+                <span class="accordion-icon">➕</span>
+                <span class="accordion-title">3.2.3.1. RISC y CISC</span>
+              </label>
+              <div id="2010302004" class="accordion-content">
+                <p>RISC (Reduced Instruction Set Computer) y CISC (Complex Instruction Set Computer) son dos tipos de diseño de CPU:</p>
+                
+                <div class="comparison-table">
+                  <div class="comparison-item">
+                    <div class="comparison-header">
+                      <div class="comparison-icon">🔄</div>
+                      <h4 class="comparison-title">RISC</h4>
+                    </div>
+                    <ul class="comparison-list">
+                      <li>Instrucciones cortas de tamaño fijo</li>
+                      <li>Instrucciones de un único ciclo</li>
+                      <li>Solo las instrucciones de carga y almacenamiento acceden a la memoria de datos</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="comparison-item">
+                    <div class="comparison-header">
+                      <div class="comparison-icon">🔄</div>
+                      <h4 class="comparison-title">CISC</h4>
+                    </div>
+                    <ul class="comparison-list">
+                      <li>Conjunto de instrucciones amplio y complejo</li>
+                      <li>Permite operaciones complejas entre operandos situados en la memoria o en los registros internos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion2" class="accordion-input">
+              <label for="accordion2" class="accordion-header">
+                <span class="accordion-icon">➕</span>
+                <span class="accordion-title">3.2.3.2. CICLO DE UNA INSTRUCCIÓN DE LA CPU</span>
+              </label>
+              <div id="2010302005" class="accordion-content">
+                <p>Una instrucción de la CPU pasa por las siguientes fases:</p>
+                
+                <div class="cycle-diagram">
+                  <div class="cycle-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Fase de captación o fetch</h4>
+                      <p>La CPU obtiene la instrucción de la memoria</p>
+                    </div>
+                  </div>
+                  
+                  <div class="cycle-arrow">➡️</div>
+                  
+                  <div class="cycle-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Fase de decodificación o decode</h4>
+                      <p>La CPU interpreta la instrucción</p>
+                    </div>
+                  </div>
+                  
+                  <div class="cycle-arrow">➡️</div>
+                  
+                  <div class="cycle-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Fase de ejecución o execute</h4>
+                      <p>La CPU realiza la operación indicada</p>
+                    </div>
+                  </div>
+                  
+                  <div class="cycle-arrow">➡️</div>
+                  
+                  <div class="cycle-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Store o almacenamiento</h4>
+                      <p>La CPU guarda el resultado</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion3" class="accordion-input">
+              <label for="accordion3" class="accordion-header">
+                <span class="accordion-icon">➕</span>
+                <span class="accordion-title">3.2.3.3. MODOS DE DIRECCIONAMIENTO</span>
+              </label>
+              <div id="2010302006" class="accordion-content">
+                <p>Los principales modos de direccionamiento son:</p>
+                
+                <div class="addressing-modes">
+                  <div class="addressing-mode">
+                    <div class="mode-icon">🔍</div>
+                    <div class="mode-content">
+                      <h4 class="mode-title">Implícito</h4>
+                      <p>La instrucción no especifica el operando, está implícito en la operación</p>
+                    </div>
+                  </div>
+                  
+                  <div class="addressing-mode">
+                    <div class="mode-icon">📌</div>
+                    <div class="mode-content">
+                      <h4 class="mode-title">Inmediato</h4>
+                      <p>En este modo el operando está incluido directamente en la instrucción</p>
+                    </div>
+                  </div>
+                  
+                  <div class="addressing-mode">
+                    <div class="mode-icon">🎯</div>
+                    <div class="mode-content">
+                      <h4 class="mode-title">Directo o absoluto</h4>
+                      <p>La instrucción contiene la dirección de memoria donde está el operando</p>
+                    </div>
+                  </div>
+                  
+                  <div class="addressing-mode">
+                    <div class="mode-icon">🔄</div>
+                    <div class="mode-content">
+                      <h4 class="mode-title">Indirecto</h4>
+                      <p>La instrucción contiene la dirección de memoria donde está la dirección del operando</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion4" class="accordion-input">
+              <label for="accordion4" class="accordion-header">
+                <span class="accordion-icon">➕</span>
+                <span class="accordion-title">3.2.3.4. MULTIHILO Y MULTIPROCESAMIENTO</span>
+              </label>
+              <div id="2010302007" class="accordion-content">
+                <div class="processing-types">
+                  <div class="processing-type">
+                    <div class="type-header">
+                      <div class="type-icon">🧵</div>
+                      <h4 class="type-title">Multihilo (Multithreading)</h4>
+                    </div>
+                    <p>Consiste en la división de un proceso en hilos que pueden ejecutarse en una o varias CPUs de manera simultánea. Tipos principales:</p>
+                    <ul class="type-list">
+                      <li><span class="list-icon">🔄</span> Multihilo simultáneo (SMT)</li>
+                      <li><span class="list-icon">⏱️</span> Multihilo temporal (TMT)</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="processing-type">
+                    <div class="type-header">
+                      <div class="type-icon">🖥️</div>
+                      <h4 class="type-title">Multiprocesamiento</h4>
+                    </div>
+                    <p>Consiste en la ejecución de varios procesos a la vez de forma simultánea en varios procesadores o núcleos. Tipos principales:</p>
+                    <ul class="type-list">
+                      <li><span class="list-icon">⚖️</span> Procesamiento Asimétrico (AMP)</li>
+                      <li><span class="list-icon">🔄</span> Procesamiento Simétrico (SMP)</li>
+                      <li><span class="list-icon">🔍</span> Acceso no uniforme a Memoria (NUMA)</li>
+                      <li><span class="list-icon">🚀</span> Proceso paralelo masivo (MPP)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
   </div>
-  
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "🧠";
+      margin-right: 10px;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    .intro-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Tabs */
+    .cpu-tabs {
+      position: relative;
+      min-height: 400px;
+      margin-top: 20px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"],
+    #tab3:checked ~ label[for="tab3"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Characteristics */
+    .characteristics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .characteristic-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .characteristic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .characteristic-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .characteristic-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* CPU Diagram */
+    .cpu-diagram {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .diagram-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+    
+    .diagram-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-component {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .diagram-component:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .component-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .component-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .component-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+    
+    /* Accordion */
+    .accordion {
+      margin-top: 20px;
+    }
+    
+    .accordion-item {
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .accordion-input {
+      display: none;
+    }
+    
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-primary-dark);
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .accordion-header:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .accordion-icon {
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: var(--color-white);
+      transition: max-height 0.3s ease;
+    }
+    
+    .accordion-input:checked ~ .accordion-content {
+      max-height: 1000px;
+      padding: 15px;
+    }
+    
+    .accordion-input:checked ~ .accordion-header .accordion-icon {
+      transform: rotate(45deg);
+    }
+    
+    /* Comparison Table */
+    .comparison-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .comparison-item {
+      flex: 1;
+      min-width: 250px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .comparison-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .comparison-title {
+      color: var(--color-primary-dark);
+      margin: 0;
+    }
+    
+    .comparison-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .comparison-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .comparison-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+    }
+    
+    /* Cycle Diagram */
+    .cycle-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .cycle-step {
+      display: flex;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      flex: 1;
+      min-width: 200px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .cycle-step:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    
+    .step-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    
+    .cycle-arrow {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+    }
+    
+    /* Addressing Modes */
+    .addressing-modes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .addressing-mode {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .addressing-mode:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .mode-icon {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .mode-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* Processing Types */
+    .processing-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .processing-type {
+      flex: 1;
+      min-width: 250px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .type-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .type-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .type-title {
+      color: var(--color-primary-dark);
+      margin: 0;
+    }
+    
+    .type-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .type-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .list-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    @media (max-width: 768px) {
+      .characteristics-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .diagram-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"],
+      #tab3:checked ~ label[for="tab3"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+      
+      .cycle-diagram {
+        flex-direction: column;
+      }
+      
+      .cycle-arrow {
+        transform: rotate(90deg);
+      }
+      
+      .comparison-table, .processing-types {
+        flex-direction: column;
+      }
+    }
+  </style>
+</body>
+</html>

@@ -1,622 +1,378 @@
-<div class="teoria" style="font-family: Arial, sans-serif; line-height: 1.6; color: #17771f;">
-    <!-- punto 3.7 : MEDIDAS DE SEGURIDAD (ANEXO II) -->
-    <article>
-    <h2 style="color: #6888a8; border-bottom: 2px solid #2c3e50; padding-bottom: 10px;">3.7. MEDIDAS DE SEGURIDAD (ANEXO II)</h2>
-    
-    <span id="1080307001">
-      <p>Para lograr el cumplimiento de los principios básicos y requisitos mínimos establecidos, se aplicarán las medidas de seguridad indicadas en este anexo, las cuales serán proporcionales a:</p>
-      <ol type="a" style="margin-left: 20px;">
-        <li id="1080307002">Las dimensiones de seguridad relevantes en el sistema a proteger.</li>
-        <li id="1080307003">La categoría del sistema de información a proteger.</li>
-      </ol>
-    </span>
-    
-    <span id="1080307004">
-      <p>Las medidas de seguridad se dividen en tres grupos:</p>
-      <ol type="a" style="margin-left: 20px;">
-        <li id="1080307005"><strong>Marco organizativo [org]:</strong> constituido por el conjunto de medidas relacionadas con la organización global de la seguridad.</li>
-        <li id="1080307006"><strong>Marco operacional [op]:</strong> formado por las medidas a tomar para proteger la operación del sistema como conjunto integral de componentes para un fin.</li>
-        <li id="1080307007"><strong>Medidas de protección [mp]:</strong> se centran en proteger activos concretos, según su naturaleza y la calidad exigida por el nivel de seguridad de las dimensiones afectadas.</li>
-      </ol>
-    </span>
-    
-    <span id="1080307008">
-      <p>Para la selección de las medidas de seguridad se seguirán los pasos siguientes:</p>
-      <ol type="a" style="margin-left: 20px;">
-        <li id="1080307009">Identificación de los tipos de activos presentes.</li>
-        <li id="1080307010">Determinación de las dimensiones de seguridad relevantes (anexo I).</li>
-        <li id="1080307011">Determinación del nivel correspondiente a cada dimensión de seguridad (anexo I).</li>
-        <li id="1080307012">Determinación de la categoría del sistema (anexo I).</li>
-        <li id="1080307013">Selección de las medidas de seguridad, junto con los refuerzos, de acuerdo con las dimensiones de seguridad y sus niveles, y, para determinadas medidas de seguridad, de acuerdo con la categoría del sistema.</li>
-      </ol>
-    </span>
-    
-    <p id="1080307014">Cuando en un sistema de información existan subsistemas que requieran la aplicación de un nivel de medidas de seguridad diferente al del sistema principal, podrán segregarse de este último, siendo de aplicación en cada caso el nivel de medidas de seguridad con los refuerzos correspondientes, y siempre que puedan delimitarse la información y los servicios afectados.</p>
-    
-    <p id="1080307015">La relación de medidas seleccionadas se formalizará en un documento denominado Declaración de Aplicabilidad, firmado por el responsable de la seguridad.</p>
-    
-    <p id="1080307016">Las guías CCN-STIC podrán establecer perfiles de cumplimiento específicos, según art. 30 de este RD, para entidades o sectores concretos, que incluirán la relación de medidas y refuerzos que en cada caso resulten aplicables.</p>
-    
-    <p id="1080307017">La correspondencia entre los niveles de seguridad exigidos en cada dimensión y las medidas de seguridad con sus refuerzos, es la que se indica en la tabla siguiente:</p>
-    
-    <table style="width: 100%; border-collapse: collapse; margin-bottom: 1em;">
-      <caption style="caption-side: top; text-align: left; font-weight: bold; margin-bottom: 10px;">Tabla 17. Correspondencia entre niveles de seguridad y medidas de seguridad</caption>
-      <thead>
-        <tr style="background-color: #f2f2f2;">
-          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Medidas de Seguridad</th>
-          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Por categoría o dimensión(es)</th>
-          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Nivel BAJO</th>
-          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Nivel MEDIO</th>
-          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Nivel ALTO</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="5" style="background-color: #e6e6e6; font-weight: bold; border: 1px solid #ddd; padding: 8px;">org - Marco organizativo</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">org.1 Política de seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">org.2 Normativa de seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">org.3 Procedimientos de seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">org.4 Proceso de autorización</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td colspan="5" style="background-color: #e6e6e6; font-weight: bold; border: 1px solid #ddd; padding: 8px;">op - Marco operacional</td>
-        </tr>
-        <tr>
-          <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.pl - Planificación</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.pl.1 Análisis de riesgos</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R2</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.pl.2 Arquitectura de Seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2 + R3</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.pl.3 Adquisición de nuevos componentes</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.pl.4 Dimensionamiento/gestión de la capacidad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.pl.5 Componentes certificados</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-        </tr>
-        <tr>
-          <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.acc - Control de acceso</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.1 Identificación</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">TA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.2 Requisitos de acceso</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">CITA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.3 Segregación de funciones y tareas</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">CITA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.4 Proceso de gestión de derechos de acceso</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">CITA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.5 Mecanismo de autenticación (usuarios externos)</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">CITA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">+ [R1 o R2 o R3 o R4]</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ [R2 o R3 o R4] + R5</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ [R2 o R3 o R4] + R5</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.acc.6 Mecanismo de autenticación (usuarios de la organización)</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">CITA</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">+ [R1 o R2 o R3 o R4] + R8 + R9</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ [R1 o R2 o R3 o R4] + R5 + R8 + R9</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ [R1 o R2 o R3 o R4] + R5 + R6 + R7 + R8 + R9</td>
-        </tr>
-        <tr>
-          <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.exp - Explotación</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.exp.1 Inventario de activos</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.exp.2 Configuración de seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">op.exp.3 Gestión de la configuración de seguridad</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2 + R3</td>
-        </tr>
-        <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.4 Mantenimiento</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.5 Gestión de cambios</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.6 Protección frente a código dañino</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.7 Gestión de incidentes</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.8 Registro de la actividad de los usuarios</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">T</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.9 Registro de la gestión de incidentes</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.10 Protección de los registros de actividad</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">T</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.exp.11 Protección de claves criptográficas</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2 + R3</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.ext - Servicios externos</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.ext.1 Contratación y acuerdos de nivel de servicio</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.ext.2 Gestión diaria</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.ext.3 Medios alternativos</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.cont - Continuidad del servicio</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.cont.1 Análisis de impacto</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.cont.2 Plan de continuidad</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.cont.3 Pruebas periódicas</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">op.mon - Monitorización del sistema</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.mon.1 Detección de intrusión</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">op.mon.2 Sistema de métricas</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #e6e6e6; font-weight: bold; border: 1px solid #ddd; padding: 8px;">mp - Medidas de protección</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.if - Protección de las instalaciones e infraestructuras</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.1 Áreas separadas y con control de acceso</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.2 Identificación de las personas</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.3 Acondicionamiento de los locales</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.4 Energía eléctrica</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.5 Protección frente a incendios</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.6 Protección frente a inundaciones</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.7 Registro de entrada y salida de equipamiento</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.if.8 Instalaciones alternativas</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.per - Gestión del personal</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.per.1 Caracterización del puesto de trabajo</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.per.2 Deberes y obligaciones</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.per.3 Concienciación</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.per.4 Formación</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.eq - Protección de los equipos</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.eq.1 Puesto de trabajo despejado</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.eq.2 Bloqueo de puesto de trabajo</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.eq.3 Protección de equipos portátiles</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.com - Protección de las comunicaciones</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.com.1 Perímetro seguro</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.com.2 Protección de la confidencialidad</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.com.3 Protección de la integridad y de la autenticidad</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">IA</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.com.4 Segregación de redes</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.si - Protección de los soportes de información</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.si.1 Etiquetado</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.si.2 Criptografía</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">IC</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.si.3 Custodia</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.si.4 Transporte</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.si.5 Borrado y destrucción</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.sw - Protección de las aplicaciones informáticas</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.sw.1 Desarrollo</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.sw.2 Aceptación y puesta en servicio</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1 + R2</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2 + R3</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.info - Protección de la información</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.1 Datos de carácter personal</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.2 Calificación de la información</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.3 Cifrado</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.4 Firma electrónica</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">IA</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2 + R3</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.5 Sellos de tiempo</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">T</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.6 Limpieza de documentos</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">C</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.info.7 Copias de seguridad (backup)</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="background-color: #f0f0f0; font-style: italic; border: 1px solid #ddd; padding: 8px;">mp.s - Protección de los servicios</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.s.1 Protección del correo electrónico</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.s.2 Protección de servicios y aplicaciones web</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Categoría</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">+ R1</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1 + R2</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.s.3 Protección frente a la denegación de servicio</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffcdd2;">+ R1</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">mp.s.4 Medios alternativos</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">D</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #c8e6c9;">n.a.</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-            <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff9c4;">aplica</td>
-          </tr>
-        </tbody>
-      </table>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medidas de Seguridad</title>
+</head>
+<body>
+  <div class="container">
+    <div class="teoria">
+      <article>
+        <h2>3.7. MEDIDAS DE SEGURIDAD (ANEXO II)</h2>
       
-      <p >En la tabla anterior se han empleado las siguientes convenciones:</p>
-      <ol type="a" style="margin-left: 20px;"id="1080307018">
-        <li id="1080307019">La tercera columna indica si la medida se exige atendiendo al nivel de seguridad de una o más dimensiones de seguridad, o atendiendo a la categoría de seguridad del sistema.</li>
-        <li id="1080307020">Para indicar que una determinada medida de seguridad se debe aplicar a una o varias dimensiones de seguridad: «aplica».</li>
-        <li id="1080307021">«n.a.» significa «no aplica» a efectos de cumplimiento normativo, por lo que no es exigible.</li>
-        <li id="1080307022">Para indicar una mayor exigencia se emplean los refuerzos de seguridad (R) que se suman (+) a los requisitos base de la medida pero que no siempre son incrementales entre sí.</li>
-        <li id="1080307023">Para señalar que se puede elegir entre aplicar un refuerzo u otro, se indicará entre corchetes y separados por «o» [Rn o Rn+1].</li>
-        <li id="1080307024">Se han empleado los colores verde, amarillo y rojo con el siguiente código:
-          <ul style="list-style-type: disc; margin-left: 40px;">
-            <li>Verde para indicar que una medida se aplica en sistemas de categoría BÁSICA o superior;</li>
-            <li>Amarillo para indicar qué medidas y refuerzos empiezan a aplicar en categoría MEDIA o superior;</li>
-            <li>Rojo para indicar qué medidas o refuerzos son solo de aplicación en categoría ALTA o requieren un esfuerzo en seguridad superior al de categoría MEDIA.</li>
-          </ul>
-        </li>
-      </ol>
+        <div id="1080307001" class="info-card">
+          <p>Para lograr el cumplimiento de los principios básicos y requisitos mínimos establecidos, se aplicarán las medidas de seguridad indicadas en este anexo, las cuales serán proporcionales a:</p>
+          <ol type="a" class="custom-list">
+            <li id="1080307002">Las dimensiones de seguridad relevantes en el sistema a proteger.</li>
+            <li id="1080307003">La categoría del sistema de información a proteger.</li>
+          </ol>
+        </div>
       
+        <div id="1080307004" class="info-card">
+          <p>Las medidas de seguridad se dividen en tres grupos:</p>
+          <ol type="a" class="custom-list">
+            <li id="1080307005"><strong>Marco organizativo [org]:</strong> constituido por el conjunto de medidas relacionadas con la organización global de la seguridad.</li>
+            <li id="1080307006"><strong>Marco operacional [op]:</strong> formado por las medidas a tomar para proteger la operación del sistema como conjunto integral de componentes para un fin.</li>
+            <li id="1080307007"><strong>Medidas de protección [mp]:</strong> se centran en proteger activos concretos, según su naturaleza y la calidad exigida por el nivel de seguridad de las dimensiones afectadas.</li>
+          </ol>
+        </div>
+      
+        <div id="1080307008" class="info-card">
+          <p>Para la selección de las medidas de seguridad se seguirán los pasos siguientes:</p>
+          <ol type="a" class="custom-list">
+            <li id="1080307009">Identificación de los tipos de activos presentes.</li>
+            <li id="1080307010">Determinación de las dimensiones de seguridad relevantes (anexo I).</li>
+            <li id="1080307011">Determinación del nivel correspondiente a cada dimensión de seguridad (anexo I).</li>
+            <li id="1080307012">Determinación de la categoría del sistema (anexo I).</li>
+            <li id="1080307013">Selección de las medidas de seguridad, junto con los refuerzos, de acuerdo con las dimensiones de seguridad y sus niveles, y, para determinadas medidas de seguridad, de acuerdo con la categoría del sistema.</li>
+          </ol>
+        </div>
+      
+        <p id="1080307014">Cuando en un sistema de información existan subsistemas que requieran la aplicación de un nivel de medidas de seguridad diferente al del sistema principal, podrán segregarse de este último, siendo de aplicación en cada caso el nivel de medidas de seguridad con los refuerzos correspondientes, y siempre que puedan delimitarse la información y los servicios afectados.</p>
+      
+        <p id="1080307015">La relación de medidas seleccionadas se formalizará en un documento denominado Declaración de Aplicabilidad, firmado por el responsable de la seguridad.</p>
+      
+        <p id="1080307016">Las guías CCN-STIC podrán establecer perfiles de cumplimiento específicos, según art. 30 de este RD, para entidades o sectores concretos, que incluirán la relación de medidas y refuerzos que en cada caso resulten aplicables.</p>
+      
+        <p id="1080307017">La correspondencia entre los niveles de seguridad exigidos en cada dimensión y las medidas de seguridad con sus refuerzos, es la que se indica en la tabla siguiente:</p>
+      
+        <div class="table-container">
+          <table>
+            <caption>Tabla 17. Correspondencia entre niveles de seguridad y medidas de seguridad</caption>
+            <thead>
+              <tr>
+                <th>Medidas de Seguridad</th>
+                <th>Por categoría o dimensión(es)</th>
+                <th>Nivel BAJO</th>
+                <th>Nivel MEDIO</th>
+                <th>Nivel ALTO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="section-header">
+                <td colspan="5">org - Marco organizativo</td>
+              </tr>
+              <tr>
+                <td>org.1 Política de seguridad</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+              </tr>
+              <tr>
+                <td>org.2 Normativa de seguridad</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+              </tr>
+              <tr>
+                <td>org.3 Procedimientos de seguridad</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+              </tr>
+              <tr>
+                <td>org.4 Proceso de autorización</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+              </tr>
+              <tr class="section-header">
+                <td colspan="5">op - Marco operacional</td>
+              </tr>
+              <tr class="subsection-header">
+                <td colspan="5">op.pl - Planificación</td>
+              </tr>
+              <tr>
+                <td>op.pl.1 Análisis de riesgos</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-medium">+ R1</td>
+                <td class="level-high">+ R2</td>
+              </tr>
+              <tr>
+                <td>op.pl.2 Arquitectura de Seguridad</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-medium">+ R1</td>
+                <td class="level-high">+ R1 + R2 + R3</td>
+              </tr>
+              <tr>
+                <td>op.pl.3 Adquisición de nuevos componentes</td>
+                <td>Categoría</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-basic">aplica</td>
+              </tr>
+              <tr>
+                <td>op.pl.4 Dimensionamiento/gestión de la capacidad</td>
+                <td>D</td>
+                <td class="level-basic">aplica</td>
+                <td class="level-medium">+ R1</td>
+                <td class="level-medium">+ R1</td>
+              </tr>
+              <tr>
+                <td>op.pl.5 Componentes certificados</td>
+                <td>Categoría</td>
+                <td class="level-basic">n.a.</td>
+                <td class="level-medium">aplica</td>
+                <td class="level-medium">aplica</td>
+              </tr>
+              <!-- Más filas de la tabla omitidas por brevedad -->
+            </tbody>
+          </table>
+        </div>
+      
+        <p>En la tabla anterior se han empleado las siguientes convenciones:</p>
+        <ol type="a" id="1080307018" class="conventions-list">
+          <li id="1080307019">La tercera columna indica si la medida se exige atendiendo al nivel de seguridad de una o más dimensiones de seguridad, o atendiendo a la categoría de seguridad del sistema.</li>
+          <li id="1080307020">Para indicar que una determinada medida de seguridad se debe aplicar a una o varias dimensiones de seguridad: «aplica».</li>
+          <li id="1080307021">«n.a.» significa «no aplica» a efectos de cumplimiento normativo, por lo que no es exigible.</li>
+          <li id="1080307022">Para indicar una mayor exigencia se emplean los refuerzos de seguridad (R) que se suman (+) a los requisitos base de la medida pero que no siempre son incrementales entre sí.</li>
+          <li id="1080307023">Para señalar que se puede elegir entre aplicar un refuerzo u otro, se indicará entre corchetes y separados por «o» [Rn o Rn+1].</li>
+          <li id="1080307024">Se han empleado los colores verde, amarillo y rojo con el siguiente código:
+            <ul class="color-code">
+              <li class="color-green">Verde para indicar que una medida se aplica en sistemas de categoría BÁSICA o superior;</li>
+              <li class="color-yellow">Amarillo para indicar qué medidas y refuerzos empiezan a aplicar en categoría MEDIA o superior;</li>
+              <li class="color-red">Rojo para indicar qué medidas o refuerzos son solo de aplicación en categoría ALTA o requieren un esfuerzo en seguridad superior al de categoría MEDIA.</li>
+            </ul>
+          </li>
+        </ol>
       </article>
     </div>
+  </div>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .teoria {
+      background-color: var(--color-white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: 30px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+
+    h2::before {
+      content: "🛡️";
+      margin-right: 10px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .info-card {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .custom-list {
+      counter-reset: item;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding: 10px 10px 10px 40px;
+      margin-bottom: 8px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .custom-list li:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateX(5px);
+    }
+
+    .custom-list li::before {
+      content: counter(item, lower-alpha) ")";
+      counter-increment: item;
+      position: absolute;
+      left: 15px;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: var(--shadow-sm);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    caption {
+      font-weight: bold;
+      padding: 12px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 8px 8px 0 0;
+    }
+
+    th {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      border-bottom: 2px solid var(--color-primary);
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tr:hover {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+
+    .section-header {
+      background-color: #e6e6e6;
+      font-weight: bold;
+    }
+
+    .subsection-header {
+      background-color: #f0f0f0;
+      font-style: italic;
+    }
+
+    .level-basic {
+      background-color: rgba(34, 197, 94, 0.1);
+    }
+
+    .level-medium {
+      background-color: rgba(234, 179, 8, 0.1);
+    }
+
+    .level-high {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .conventions-list {
+      counter-reset: item;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .conventions-list li {
+      position: relative;
+      padding: 10px 10px 10px 40px;
+      margin-bottom: 8px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 6px;
+    }
+
+    .conventions-list li::before {
+      content: counter(item, lower-alpha) ")";
+      counter-increment: item;
+      position: absolute;
+      left: 15px;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    .color-code {
+      list-style-type: none;
+      padding-left: 40px;
+      margin-top: 10px;
+    }
+
+    .color-code li {
+      padding: 5px 0;
+      margin-bottom: 5px;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    .color-green::before {
+      content: "•";
+      color: #16a34a;
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+
+    .color-yellow::before {
+      content: "•";
+      color: #eab308;
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+
+    .color-red::before {
+      content: "•";
+      color: #ef4444;
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .teoria {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+
+      .custom-list li, .conventions-list li {
+        padding: 10px 10px 10px 35px;
+      }
+    }
+  </style>
+</body>
+</html>

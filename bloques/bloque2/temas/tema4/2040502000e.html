@@ -1,130 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes Novedosos de Windows</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>7.4 COMPONENTES NOVEDOSOS DE WINDOWS</h2>
-  
-  <span id="2040502001">
-    <p>Las últimas versiones de Windows incorporan varios componentes que merecen ser destacados:</p>
-  </span>
-  
-  <h3>7.4.1 WINDOWS UAC (USER ACCOUNT CONTROL)</h3>
-  <span id="2040502002">
-    <p>El Control de cuentas de usuario (UAC) es un componente de seguridad de los sistemas operativos Windows. UAC permite a los usuarios realizar tareas comunes como no administradores y como administradores pero sin tener que cambiar de usuario, cerrar sesión ni utilizar "Ejecutar como".</p>
-  </span>
-  
-  <h3>7.4.2 APPLOCKER</h3>
-  <span id="2040502003">
-    <p>AppLocker es un programa destinado a crear reglas para permitir o denegar que las aplicaciones se ejecuten en función de identidades únicas de archivos y para especificar qué usuarios o grupos pueden ejecutar esas aplicaciones.</p>
-    <p>Permite:</p>
-    <ul>
-      <li>Controlar varios tipos de aplicaciones: archivos ejecutables, scripts, archivos del instalador de Windows, archivos DLL, y aplicaciones empaquetadas.</li>
-      <li>Definir reglas basadas en atributos de archivo derivados de la firma digital.</li>
-      <li>Asignar una regla a un grupo de seguridad o a un usuario individual.</li>
-      <li>Crear excepciones a ciertas reglas.</li>
-      <li>Usar el modo de solo auditoría para evaluar el impacto antes de aplicar.</li>
-      <li>Importar y exportar reglas.</li>
-      <li>Simplificar la creación y administración de reglas mediante Windows PowerShell cmdlets.</li>
-    </ul>
-  </span>
-  
-  <h3>7.4.3 BITLOCKER</h3>
-  <span id="2040502004">
-    <p>Programa de cifrado de disco disponible en las versiones Profesional, Ultimate y Enterprise de Windows Vista, Windows, Windows 10 y Windows 11 así como las versiones de servidor a partir de Windows Server 2008.</p>
-    <p>Características principales:</p>
-    <ul>
-      <li>Permite cifrar volúmenes enteros para proteger los datos.</li>
-      <li>Utiliza por defecto el algoritmo de cifrado AES en modo CBC con claves de 128 bits.</li>
-      <li>Implementa tres mecanismos de autentificación: modo de funcionamiento transparente, modo de autenticación de usuario, y modo en dispositivos USB.</li>
-    </ul>
-    <p><strong>TPM (Trusted Platform Module):</strong> Chip criptoprocesador seguro para almacenar las claves de cifrado de Windows.</p>
-    <p>Windows 11 requiere al menos TPM 1.2, aunque no necesariamente TPM 2.0.</p>
-  </span>
-  
-  <h3>7.4.4 WINDOWS DEFENDER</h3>
-  <span id="2040502005">
-    <p>Antivirus, Antispyware y firewall de Microsoft incluido y activado por defecto en Windows 8, 8.1, 10 y 11. También disponible para Windows 7 y Windows Vista como Microsoft Security Essentials.</p>
-  </span>
-  
-  <h3>7.4.5 WINDOWS SANDBOX</h3>
-  <span id="2040502006">
-    <p>Entorno aislado de escritorio para hacer pruebas ejecutando aplicaciones de forma segura. Disponible en Windows 10 Pro y Enterprise, pero no en Windows Home.</p>
-  </span>
-  
-  <h3>7.4.6 WINDOWS MIXED REALITY</h3>
-  <span id="2040502007">
-    <p>Plataforma de realidad mixta y realidad virtual introducida como parte de Windows 10. Originalmente destinada para Microsoft Hololens, ahora se usa como plataforma para cascos de realidad virtual. Windows 11 finaliza la compatibilidad con Windows Mixed Reality a partir de la versión 24H2.</p>
-  </span>
-  
-  <h2>7.5 COMANDOS DE WINDOWS</h2>
-  
-  <h3>7.5.1 COMANDOS DE ADMINISTRACIÓN</h3>
-  <span id="2040502008">
-    <table>
-      <tr>
-        <th>Comando</th>
-        <th>Descripción</th>
-      </tr>
-      <tr>
-        <td>robocopy</td>
-        <td>Copia archivos de una ubicación a otra.</td>
-      </tr>
-      <tr>
-        <td>gpedit.msc</td>
-        <td>Editor de directivas de Grupo (GPO).</td>
-      </tr>
-      <tr>
-        <td>gpupdate</td>
-        <td>Actualiza las políticas de grupo.</td>
-      </tr>
-      <tr>
-        <td>gpresult</td>
-        <td>Muestra el resultado de las directivas de grupo aplicadas.</td>
-      </tr>
-      <tr>
-        <td>mmc</td>
-        <td>Microsoft Management Console para administración de servicios.</td>
-      </tr>
-    </table>
-  </span>
-  
-  <h3>7.5.2 COMANDOS DE RED</h3>
-  <span id="2040502009">
-    <table>
-      <tr>
-        <th>Comando</th>
-        <th>Descripción</th>
-      </tr>
-      <tr>
-        <td>ping</td>
-        <td>Comprueba la conexión y latencia de red.</td>
-      </tr>
-      <tr>
-        <td>tracert</td>
-        <td>Traza la ruta de un paquete hasta su destino.</td>
-      </tr>
-      <tr>
-        <td>netstat</td>
-        <td>Muestra estadísticas de protocolo y conexiones de red TCP/IP.</td>
-      </tr>
-      <tr>
-        <td>nbtstat</td>
-        <td>Muestra estadísticas del protocolo y conexiones NBT.</td>
-      </tr>
-      <tr>
-        <td>ipconfig</td>
-        <td>Muestra información de configuración TCP/IP.</td>
-      </tr>
-      <tr>
-        <td>route</td>
-        <td>Manipula tablas locales de enrutamiento de red.</td>
-      </tr>
-      <tr>
-        <td>mstsc.exe</td>
-        <td>Cliente de escritorio remoto de Windows (RDP).</td>
-      </tr>
-    </table>
-  </span>
-  
+    <h2 class="section-title">5.2 COMPONENTES NOVEDOSOS DE WINDOWS</h2>
+    
+    <div id="2040502001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🪟</div>
+        <div class="intro-content">
+          <p>Las últimas versiones de Windows incorporan varios componentes que merecen ser destacados:</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.1 WINDOWS UAC (USER ACCOUNT CONTROL)</h3>
+      
+      <div id="2040502002" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">🔒</div>
+          <div class="component-content">
+            <p>El Control de cuentas de usuario (UAC) es un componente de seguridad de los sistemas operativos Windows. UAC permite a los usuarios realizar tareas comunes como no administradores y como administradores pero sin tener que cambiar de usuario, cerrar sesión ni utilizar "Ejecutar como".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.2 APPLOCKER</h3>
+      
+      <div id="2040502003" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">🔒</div>
+          <div class="component-content">
+            <p>AppLocker es un programa destinado a crear reglas para permitir o denegar que las aplicaciones se ejecuten en función de identidades únicas de archivos y para especificar qué usuarios o grupos pueden ejecutar esas aplicaciones.</p>
+            <p>Permite:</p>
+            <ul class="feature-list">
+              <li><span class="feature-bullet">•</span> Controlar varios tipos de aplicaciones: archivos ejecutables, scripts, archivos del instalador de Windows, archivos DLL, y aplicaciones empaquetadas.</li>
+              <li><span class="feature-bullet">•</span> Definir reglas basadas en atributos de archivo derivados de la firma digital.</li>
+              <li><span class="feature-bullet">•</span> Asignar una regla a un grupo de seguridad o a un usuario individual.</li>
+              <li><span class="feature-bullet">•</span> Crear excepciones a ciertas reglas.</li>
+              <li><span class="feature-bullet">•</span> Usar el modo de solo auditoría para evaluar el impacto antes de aplicar.</li>
+              <li><span class="feature-bullet">•</span> Importar y exportar reglas.</li>
+              <li><span class="feature-bullet">•</span> Simplificar la creación y administración de reglas mediante Windows PowerShell cmdlets.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.3 BITLOCKER</h3>
+      
+      <div id="2040502004" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">🔐</div>
+          <div class="component-content">
+            <p>Programa de cifrado de disco disponible en las versiones Profesional, Ultimate y Enterprise de Windows Vista, Windows, Windows 10 y Windows 11 así como las versiones de servidor a partir de Windows Server 2008.</p>
+            <p>Características principales:</p>
+            <ul class="feature-list">
+              <li><span class="feature-bullet">•</span> Permite cifrar volúmenes enteros para proteger los datos.</li>
+              <li><span class="feature-bullet">•</span> Utiliza por defecto el algoritmo de cifrado AES en modo CBC con claves de 128 bits.</li>
+              <li><span class="feature-bullet">•</span> Implementa tres mecanismos de autentificación: modo de funcionamiento transparente, modo de autenticación de usuario, y modo en dispositivos USB.</li>
+            </ul>
+            <div class="tpm-info">
+              <div class="tpm-icon">🔒</div>
+              <div class="tpm-content">
+                <p><strong>TPM (Trusted Platform Module):</strong> Chip criptoprocesador seguro para almacenar las claves de cifrado de Windows.</p>
+                <p>Windows 11 requiere al menos TPM 1.2, aunque no necesariamente TPM 2.0.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.4 WINDOWS DEFENDER</h3>
+      
+      <div id="2040502005" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">🛡️</div>
+          <div class="component-content">
+            <p>Antivirus, Antispyware y firewall de Microsoft incluido y activado por defecto en Windows 8, 8.1, 10 y 11. También disponible para Windows 7 y Windows Vista como Microsoft Security Essentials.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.5 WINDOWS SANDBOX</h3>
+      
+      <div id="2040502006" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">📦</div>
+          <div class="component-content">
+            <p>Entorno aislado de escritorio para hacer pruebas ejecutando aplicaciones de forma segura. Disponible en Windows 10 Pro y Enterprise, pero no en Windows Home.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">5.2.6 WINDOWS MIXED REALITY</h3>
+      
+      <div id="2040502007" class="content-block">
+        <div class="component-card">
+          <div class="component-icon">🥽</div>
+          <div class="component-content">
+            <p>Plataforma de realidad mixta y realidad virtual introducida como parte de Windows 10. Originalmente destinada para Microsoft Hololens, ahora se usa como plataforma para cascos de realidad virtual. Windows 11 finaliza la compatibilidad con Windows Mixed Reality a partir de la versión 24H2.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">5.3 COMANDOS DE WINDOWS</h2>
+      
+      <div class="subsection">
+        <h3 class="subsection-title">5.3.1 COMANDOS DE ADMINISTRACIÓN</h3>
+        
+        <div id="2040502008" class="content-block">
+          <div class="commands-table-container">
+            <table class="commands-table">
+              <thead>
+                <tr>
+                  <th>Comando</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="command-name">robocopy</td>
+                  <td>Copia archivos de una ubicación a otra.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">gpedit.msc</td>
+                  <td>Editor de directivas de Grupo (GPO).</td>
+                </tr>
+                <tr>
+                  <td class="command-name">gpupdate</td>
+                  <td>Actualiza las políticas de grupo.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">gpresult</td>
+                  <td>Muestra el resultado de las directivas de grupo aplicadas.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">mmc</td>
+                  <td>Microsoft Management Console para administración de servicios.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="subsection">
+        <h3 class="subsection-title">5.3.2 COMANDOS DE RED</h3>
+        
+        <div id="2040502009" class="content-block">
+          <div class="commands-table-container">
+            <table class="commands-table">
+              <thead>
+                <tr>
+                  <th>Comando</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="command-name">ping</td>
+                  <td>Comprueba la conexión y latencia de red.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">tracert</td>
+                  <td>Traza la ruta de un paquete hasta su destino.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">netstat</td>
+                  <td>Muestra estadísticas de protocolo y conexiones de red TCP/IP.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">nbtstat</td>
+                  <td>Muestra estadísticas del protocolo y conexiones NBT.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">ipconfig</td>
+                  <td>Muestra información de configuración TCP/IP.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">route</td>
+                  <td>Manipula tablas locales de enrutamiento de red.</td>
+                </tr>
+                <tr>
+                  <td class="command-name">mstsc.exe</td>
+                  <td>Cliente de escritorio remoto de Windows (RDP).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🪟";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Component Card */
+  .component-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .component-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .component-content {
+    flex: 1;
+  }
+  
+  /* Feature List */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .feature-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* TPM Info */
+  .tpm-info {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .tpm-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .tpm-content {
+    flex: 1;
+  }
+  
+  /* Commands Table */
+  .commands-table-container {
+    overflow-x: auto;
+  }
+  
+  .commands-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .commands-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .commands-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .commands-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .commands-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .commands-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .commands-table td {
+    padding: 12px 15px;
+  }
+  
+  .command-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .component-card, .tpm-info {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .component-icon, .tpm-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .commands-table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

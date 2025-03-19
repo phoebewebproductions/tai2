@@ -1,69 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas UNIX</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>8. SISTEMAS UNIX</h2>
-  
-  <span id="2040601001">
-    <p>Sistema operativo portable, multitarea y multiusuario desarrollado en 1969 en los laboratorios de Bell de AT&T.</p>
-    <p>UNIX® es una marca registrada de Novell y sólo puede aplicarse a los sistemas operativos que cumplen la Single Unix Specification (Familia de estándares que establecen los requisitos para poder denominarse Unix) y que han pagado por los derechos de uso.</p>
-  </span>
-  
-  <span id="2040601002">
-    <p>Las versiones de Unix más importantes en la actualidad son:</p>
-    <table>
-      <tr>
-        <th>NOMBRE</th>
-        <th>PROPIETARIO</th>
-        <th>DESCRIPCIÓN</th>
-      </tr>
-      <tr>
-        <td>Solaris</td>
-        <td>Sun Microsystems</td>
-        <td>Uno de los sistemas operativos Unix más difundidos en el entorno empresarial y conocido por su gran estabilidad. Parte del código fuente de Solaris se liberó con licencia de fuentes abiertas (OpenSolaris que fue cancelado).</td>
-      </tr>
-      <tr id="2040601012">
-        <td>Illumos</td>
-        <td>Patrocinado por Illumos Foundation</td>
-        <td>Proyecto de software libre derivado de OpenSolaris. El objetivo declarado del proyecto es convertirse en la distribución de OpenSolaris de facto instalada en servidores de producción donde se requieren soluciones de seguridad y errores de forma gratuita. La principal distribución es realizada por el Proyecto Indiana con OpenIndiana.</td>
-      </tr>
-      <tr id="2040601008">
-        <td>AIX</td>
-        <td>IBM</td>
-        <td>El UNIX "propietario" de IBM cumplió 30 años de vida en el 2016 y continúa en pleno desarrollo, con una perceptible herencia del mainframe en campos como la virtualización o la RAS de los servicios, heredada de sus "hermanos mayores".</td>
-      </tr>
-      <tr id="2040601009">
-        <td>HP-UX</td>
-        <td>Hewlett-Packard</td>
-        <td>Sistema operativo ligado a las computadoras departamentales de HP. También es un sistema operativo estable que continúa en desarrollo.</td>
-      </tr>
-      <tr>
-        <td>macOS</td>
-        <td>Apple</td>
-        <td id="2040601006">Sistema operativo principal de los ordenadores Mac de Apple. Es un UNIX completo, aprobado por The Open Group. Su diferencia marcada es que posee una interfaz gráfica propietaria llamada Aqua, y es principalmente desarrollada en Objective-C en lugar de C o C++. Es el segundo sistema operativo de escritorio más utilizado después de Microsoft Windows. Previamente se le conocía por Mac OS X y OS X.</td>
-      </tr>
-    </table>
-  </span>
-  
-  <span id="2040601003">
-    <h3>Últimas versiones de MacOS:</h3>
-    <table>
-      <tr>
-        <th>Versión</th>
-        <th>Nombre</th>
-        <th>Anuncio</th>
-      </tr>
-      <tr><td>10.11</td><td>El Capitan</td><td>8 de junio de 2015</td></tr>
-      <tr><td>10.12</td><td>Sierra</td><td>13 de junio de 2016</td></tr>
-      <tr><td>10.13</td><td>High Sierra</td><td>5 de junio de 2017</td></tr>
-      <tr><td>10.14</td><td>Mojave</td><td>4 de junio de 2018</td></tr>
-      <tr><td>10.15</td><td>Catalina</td><td>3 de junio de 2019</td></tr>
-      <tr><td>11.0</td><td>Big Sur</td><td>22 de junio de 2020</td></tr>
-      <tr><td>12.0</td><td>Monterey</td><td>7 de junio de 2021</td></tr>
-      <tr><td>13.0</td><td>Ventura</td><td>6 de junio de 2022</td></tr>
-      <tr><td>14.0</td><td>Sonoma</td><td>5 de junio de 2023</td></tr>
-    </table>
-  </span>
-  
+    <h2 class="section-title">8. SISTEMAS UNIX</h2>
+    
+    <div id="2040601001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🐧</div>
+        <div class="intro-content">
+          <p>Sistema operativo portable, multitarea y multiusuario desarrollado en 1969 en los laboratorios de Bell de AT&T.</p>
+          <p>UNIX® es una marca registrada de Novell y sólo puede aplicarse a los sistemas operativos que cumplen la Single Unix Specification (Familia de estándares que establecen los requisitos para poder denominarse Unix) y que han pagado por los derechos de uso.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040601002" class="content-block">
+      <div class="unix-versions-card">
+        <p>Las versiones de Unix más importantes en la actualidad son:</p>
+        <div class="table-container">
+          <table class="unix-versions-table">
+            <thead>
+              <tr>
+                <th>NOMBRE</th>
+                <th>PROPIETARIO</th>
+                <th>DESCRIPCIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="version-name">Solaris</td>
+                <td>Sun Microsystems</td>
+                <td>Uno de los sistemas operativos Unix más difundidos en el entorno empresarial y conocido por su gran estabilidad. Parte del código fuente de Solaris se liberó con licencia de fuentes abiertas (OpenSolaris que fue cancelado).</td>
+              </tr>
+              <tr id="2040601012">
+                <td class="version-name">Illumos</td>
+                <td>Patrocinado por Illumos Foundation</td>
+                <td>Proyecto de software libre derivado de OpenSolaris. El objetivo declarado del proyecto es convertirse en la distribución de OpenSolaris de facto instalada en servidores de producción donde se requieren soluciones de seguridad y errores de forma gratuita. La principal distribución es realizada por el Proyecto Indiana con OpenIndiana.</td>
+              </tr>
+              <tr id="2040601008">
+                <td class="version-name">AIX</td>
+                <td>IBM</td>
+                <td>El UNIX "propietario" de IBM cumplió 30 años de vida en el 2016 y continúa en pleno desarrollo, con una perceptible herencia del mainframe en campos como la virtualización o la RAS de los servicios, heredada de sus "hermanos mayores".</td>
+              </tr>
+              <tr id="2040601009">
+                <td class="version-name">HP-UX</td>
+                <td>Hewlett-Packard</td>
+                <td>Sistema operativo ligado a las computadoras departamentales de HP. También es un sistema operativo estable que continúa en desarrollo.</td>
+              </tr>
+              <tr>
+                <td class="version-name">macOS</td>
+                <td>Apple</td>
+                <td id="2040601006">Sistema operativo principal de los ordenadores Mac de Apple. Es un UNIX completo, aprobado por The Open Group. Su diferencia marcada es que posee una interfaz gráfica propietaria llamada Aqua, y es principalmente desarrollada en Objective-C en lugar de C o C++. Es el segundo sistema operativo de escritorio más utilizado después de Microsoft Windows. Previamente se le conocía por Mac OS X y OS X.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040601003" class="content-block">
+      <div class="macos-versions-card">
+        <h3 class="macos-versions-title">Últimas versiones de MacOS:</h3>
+        <div class="table-container">
+          <table class="macos-versions-table">
+            <thead>
+              <tr>
+                <th>Versión</th>
+                <th>Nombre</th>
+                <th>Anuncio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10.11</td>
+                <td>El Capitan</td>
+                <td>8 de junio de 2015</td>
+              </tr>
+              <tr>
+                <td>10.12</td>
+                <td>Sierra</td>
+                <td>13 de junio de 2016</td>
+              </tr>
+              <tr>
+                <td>10.13</td>
+                <td>High Sierra</td>
+                <td>5 de junio de 2017</td>
+              </tr>
+              <tr>
+                <td>10.14</td>
+                <td>Mojave</td>
+                <td>4 de junio de 2018</td>
+              </tr>
+              <tr>
+                <td>10.15</td>
+                <td>Catalina</td>
+                <td>3 de junio de 2019</td>
+              </tr>
+              <tr>
+                <td>11.0</td>
+                <td>Big Sur</td>
+                <td>22 de junio de 2020</td>
+              </tr>
+              <tr>
+                <td>12.0</td>
+                <td>Monterey</td>
+                <td>7 de junio de 2021</td>
+              </tr>
+              <tr>
+                <td>13.0</td>
+                <td>Ventura</td>
+                <td>6 de junio de 2022</td>
+              </tr>
+              <tr>
+                <td>14.0</td>
+                <td>Sonoma</td>
+                <td>5 de junio de 2023</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🐧";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Unix Versions Card */
+  .unix-versions-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .unix-versions-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-top: 15px;
+  }
+  
+  .unix-versions-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .unix-versions-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .unix-versions-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .unix-versions-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .unix-versions-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .unix-versions-table td {
+    padding: 12px 15px;
+  }
+  
+  .version-name {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  /* MacOS Versions Card */
+  .macos-versions-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .macos-versions-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .macos-versions-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .macos-versions-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .macos-versions-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .macos-versions-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .macos-versions-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .macos-versions-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .macos-versions-table td {
+    padding: 12px 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

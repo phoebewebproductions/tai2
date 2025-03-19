@@ -1,68 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Entrada y Salida</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.3. SISTEMA DE ENTRADA Y SALIDA</h2>
+    <h2 class="section-title">1.3. SISTEMA DE ENTRADA Y SALIDA</h2>
   
-  <span id="2040103001">
-    <p>El sistema de entrada y salida (E/S) es un componente fundamental del sistema operativo que se encarga de controlar los dispositivos de E/S y la comunicación con los periféricos. Sus funciones principales incluyen:</p>
-    <ul>
-      <li>Facilitar a las aplicaciones el uso de los dispositivos periféricos</li>
-      <li>Detectar y controlar los errores de los dispositivos</li>
-      <li>Optimizar la E/S del sistema</li>
-      <li>Proporcionar una interfaz común para diferentes tipos de dispositivos</li>
-    </ul>
-    <p>Las operaciones de E/S pueden ocupar hasta el 30% del tiempo del Sistema Operativo, lo que resalta su importancia en el rendimiento global del sistema.</p>
-  </span>
+    <div id="2040103001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🔄</div>
+        <div class="intro-content">
+          <p>El sistema de entrada y salida (E/S) es un componente fundamental del sistema operativo que se encarga de controlar los dispositivos de E/S y la comunicación con los periféricos. Sus funciones principales incluyen:</p>
+          <ul class="feature-list">
+            <li><span class="bullet">📌</span> Facilitar a las aplicaciones el uso de los dispositivos periféricos</li>
+            <li><span class="bullet">📌</span> Detectar y controlar los errores de los dispositivos</li>
+            <li><span class="bullet">📌</span> Optimizar la E/S del sistema</li>
+            <li><span class="bullet">📌</span> Proporcionar una interfaz común para diferentes tipos de dispositivos</li>
+          </ul>
+          <p>Las operaciones de E/S pueden ocupar hasta el 30% del tiempo del Sistema Operativo, lo que resalta su importancia en el rendimiento global del sistema.</p>
+        </div>
+      </div>
+    </div>
   
-  <span id="2040103002">
-    <p>El sistema de E/S está compuesto por varios elementos clave:</p>
-    <ul>
-      <li><strong>Controladores de dispositivos (drivers):</strong> Software que adapta las instrucciones genéricas del sistema operativo a las peculiaridades de cada dispositivo.</li>
-      <li><strong>Gestor de caché:</strong> Acelera y optimiza la E/S mediante la gestión de almacenamiento temporal.</li>
-      <li><strong>Gestor de redes:</strong> Proporciona una interfaz homogénea para acceder a todos los sistemas de red del sistema operativo.</li>
-      <li><strong>Sistema de archivos:</strong> Controla cómo se almacenan y recuperan los datos en los dispositivos de almacenamiento.</li>
-    </ul>
-  </span>
+    <div id="2040103002" class="content-block">
+      <div class="components-card">
+        <h3 class="components-title">El sistema de E/S está compuesto por varios elementos clave:</h3>
+        <div class="components-grid">
+          <div class="component-item">
+            <div class="component-icon">🔌</div>
+            <div class="component-content">
+              <h4 class="component-name">Controladores de dispositivos (drivers)</h4>
+              <p class="component-desc">Software que adapta las instrucciones genéricas del sistema operativo a las peculiaridades de cada dispositivo.</p>
+            </div>
+          </div>
+          
+          <div class="component-item">
+            <div class="component-icon">💾</div>
+            <div class="component-content">
+              <h4 class="component-name">Gestor de caché</h4>
+              <p class="component-desc">Acelera y optimiza la E/S mediante la gestión de almacenamiento temporal.</p>
+            </div>
+          </div>
+          
+          <div class="component-item">
+            <div class="component-icon">🌐</div>
+            <div class="component-content">
+              <h4 class="component-name">Gestor de redes</h4>
+              <p class="component-desc">Proporciona una interfaz homogénea para acceder a todos los sistemas de red del sistema operativo.</p>
+            </div>
+          </div>
+          
+          <div class="component-item">
+            <div class="component-icon">📁</div>
+            <div class="component-content">
+              <h4 class="component-name">Sistema de archivos</h4>
+              <p class="component-desc">Controla cómo se almacenan y recuperan los datos en los dispositivos de almacenamiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-  <span id="2040103003">
-    <p>Existen diferentes tipos de E/S:</p>
-    <ul>
-      <li><strong>E/S Síncrona:</strong> El programa queda bloqueado hasta recibir una respuesta.</li>
-      <li><strong>E/S Asíncrona:</strong> El emisor continúa su trabajo después de enviar un mensaje.</li>
-      <li><strong>E/S Programada:</strong> La CPU está involucrada en la transferencia de cada byte.</li>
-      <li><strong>E/S por interrupciones:</strong> La CPU es interrumpida cuando la transferencia está completa.</li>
-    </ul>
-  </span>
+    <div id="2040103003" class="content-block">
+      <div class="types-card">
+        <h3 class="types-title">Tipos de E/S</h3>
+        
+        <div class="types-container">
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">⏱️</div>
+              <h4 class="type-name">E/S Síncrona</h4>
+            </div>
+            <div class="type-content">
+              <p>El programa queda bloqueado hasta recibir una respuesta.</p>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">🔄</div>
+              <h4 class="type-name">E/S Asíncrona</h4>
+            </div>
+            <div class="type-content">
+              <p>El emisor continúa su trabajo después de enviar un mensaje.</p>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">💻</div>
+              <h4 class="type-name">E/S Programada</h4>
+            </div>
+            <div class="type-content">
+              <p>La CPU está involucrada en la transferencia de cada byte.</p>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">⚡</div>
+              <h4 class="type-name">E/S por interrupciones</h4>
+            </div>
+            <div class="type-content">
+              <p>La CPU es interrumpida cuando la transferencia está completa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-  <span id="2040103004">
-    <p>Para mejorar el rendimiento de la E/S, se utilizan varios mecanismos:</p>
-    <ul>
-      <li><strong>Acceso Directo a Memoria (DMA):</strong> Permite la transferencia de datos sin intervención constante de la CPU.</li>
-      <li><strong>Caché en el controlador de disco:</strong> Almacena temporalmente datos frecuentemente accedidos.</li>
-      <li><strong>Caché de disco en memoria principal:</strong> Mantiene una copia de los datos del disco en la memoria RAM para un acceso más rápido.</li>
-      <li><strong>Solapamiento de búsquedas y transferencias:</strong> Permite realizar múltiples operaciones de E/S simultáneamente.</li>
-    </ul>
-  </span>
+    <div id="2040103004" class="content-block">
+      <div class="performance-card">
+        <h3 class="performance-title">Mecanismos para mejorar el rendimiento de la E/S</h3>
+        
+        <div class="mechanisms-container">
+          <div class="mechanism-item">
+            <div class="mechanism-icon">🚀</div>
+            <div class="mechanism-content">
+              <h4 class="mechanism-name">Acceso Directo a Memoria (DMA)</h4>
+              <p class="mechanism-desc">Permite la transferencia de datos sin intervención constante de la CPU.</p>
+            </div>
+          </div>
+          
+          <div class="mechanism-item">
+            <div class="mechanism-icon">💾</div>
+            <div class="mechanism-content">
+              <h4 class="mechanism-name">Caché en el controlador de disco</h4>
+              <p class="mechanism-desc">Almacena temporalmente datos frecuentemente accedidos.</p>
+            </div>
+          </div>
+          
+          <div class="mechanism-item">
+            <div class="mechanism-icon">🧠</div>
+            <div class="mechanism-content">
+              <h4 class="mechanism-name">Caché de disco en memoria principal</h4>
+              <p class="mechanism-desc">Mantiene una copia de los datos del disco en la memoria RAM para un acceso más rápido.</p>
+            </div>
+          </div>
+          
+          <div class="mechanism-item">
+            <div class="mechanism-icon">⚡</div>
+            <div class="mechanism-content">
+              <h4 class="mechanism-name">Solapamiento de búsquedas y transferencias</h4>
+              <p class="mechanism-desc">Permite realizar múltiples operaciones de E/S simultáneamente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-  <span id="2040103005">
-    <p>El sistema de archivos es una parte crucial del sistema de E/S, encargado de organizar y gestionar los datos almacenados. Sus funciones principales incluyen:</p>
-    <ul>
-      <li>Asignación de espacio a los archivos</li>
-      <li>Administración del espacio libre</li>
-      <li>Proveer métodos para crear, eliminar, mover y renombrar archivos</li>
-      <li>Implementar mecanismos de seguridad y control de acceso</li>
-    </ul>
-  </span>
+    <div id="2040103005" class="content-block">
+      <div class="filesystem-card">
+        <div class="filesystem-header">
+          <div class="filesystem-icon">📁</div>
+          <h3 class="filesystem-title">Sistema de archivos</h3>
+        </div>
+        <div class="filesystem-content">
+          <p>El sistema de archivos es una parte crucial del sistema de E/S, encargado de organizar y gestionar los datos almacenados. Sus funciones principales incluyen:</p>
+          
+          <ul class="filesystem-functions">
+            <li>
+              <span class="function-icon">📊</span>
+              <span class="function-text">Asignación de espacio a los archivos</span>
+            </li>
+            <li>
+              <span class="function-icon">🗂️</span>
+              <span class="function-text">Administración del espacio libre</span>
+            </li>
+            <li>
+              <span class="function-icon">🔄</span>
+              <span class="function-text">Proveer métodos para crear, eliminar, mover y renombrar archivos</span>
+            </li>
+            <li>
+              <span class="function-icon">🔒</span>
+              <span class="function-text">Implementar mecanismos de seguridad y control de acceso</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   
-  <span id="2040103006">
-    <p>Los sistemas de archivos modernos incluyen características avanzadas como:</p>
-    <ul>
-      <li><strong>Journaling:</strong> Un registro diario que permite restablecer datos en caso de fallos del sistema.</li>
-      <li><strong>ACLs (Listas de Control de Acceso):</strong> Permiten un control de acceso más granular a los archivos.</li>
-      <li><strong>Atributos extendidos:</strong> Permiten asociar metadatos adicionales a los archivos.</li>
-      <li><strong>Cuotas de disco:</strong> Limitan el espacio que puede usar cada usuario o grupo.</li>
-    </ul>
-  </span>
-  
+    <div id="2040103006" class="content-block">
+      <div class="advanced-features-card">
+        <h3 class="features-title">Características avanzadas de los sistemas de archivos modernos</h3>
+        
+        <div class="features-container">
+          <div class="feature-item">
+            <div class="feature-icon">📔</div>
+            <div class="feature-content">
+              <h4 class="feature-name">Journaling</h4>
+              <p class="feature-desc">Un registro diario que permite restablecer datos en caso de fallos del sistema.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🔐</div>
+            <div class="feature-content">
+              <h4 class="feature-name">ACLs (Listas de Control de Acceso)</h4>
+              <p class="feature-desc">Permiten un control de acceso más granular a los archivos.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🏷️</div>
+            <div class="feature-content">
+              <h4 class="feature-name">Atributos extendidos</h4>
+              <p class="feature-desc">Permiten asociar metadatos adicionales a los archivos.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <div class="feature-content">
+              <h4 class="feature-name">Cuotas de disco</h4>
+              <p class="feature-desc">Limitan el espacio que puede usar cada usuario o grupo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🔄";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .feature-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Components Card */
+  .components-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .components-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .component-item {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .component-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .component-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .component-content {
+    flex: 1;
+  }
+  
+  .component-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .component-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Types Card */
+  .types-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .types-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .types-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .type-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .type-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .type-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .type-name {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .type-content {
+    padding: 15px;
+  }
+  
+  /* Performance Card */
+  .performance-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .performance-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .mechanisms-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .mechanism-item {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .mechanism-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .mechanism-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .mechanism-content {
+    flex: 1;
+  }
+  
+  .mechanism-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .mechanism-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Filesystem Card */
+  .filesystem-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .filesystem-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .filesystem-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .filesystem-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .filesystem-content {
+    padding: 20px;
+  }
+  
+  .filesystem-functions {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .filesystem-functions li {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .filesystem-functions li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .function-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .function-text {
+    font-weight: 500;
+  }
+  
+  /* Advanced Features Card */
+  .advanced-features-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .features-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .feature-item {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .feature-content {
+    flex: 1;
+  }
+  
+  .feature-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .feature-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .component-item, .mechanism-item, .feature-item {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .component-icon, .mechanism-icon, .feature-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .components-grid, .types-container, .mechanisms-container, .features-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .filesystem-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .filesystem-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+</body>
+</html>

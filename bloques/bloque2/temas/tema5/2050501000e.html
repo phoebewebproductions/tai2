@@ -1,82 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Características de los SGBD</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>5. MODELO ACID Y TEOREMA DE CAP</h2>
-  
-  <h3>5.1. MODELO ACID</h3>
-  
-  <span id="2050501001">
-  <p>El modelo ACID es un conjunto de principios de diseño de bases de datos para garantizar la fiabilidad y validez de los datos. Establece cuatro objetivos que cada sistema de administración de bases de datos debe esforzarse por lograr:</p>
-  <ul>
-    <li>Atomicidad (Atomicity)</li>
-    <li>Consistencia (Consistency)</li>
-    <li>Aislamiento (Isolation)</li>
-    <li>Durabilidad (Durability)</li>
-  </ul>
-  </span>
-  
-  <h4>5.1.1. ATOMICIDAD (ATOMICITY)</h4>
-  
-  <span id="2050501002">
-  <p>Atomicity establece que las modificaciones de la base de datos deben seguir una regla de "todo o nada". Se dice que cada transacción es "atómica". Si una parte de la transacción falla, la transacción completa falla. Es fundamental que el sistema de administración de la base de datos mantenga la naturaleza atómica de las transacciones a pesar de cualquier sistema de gestión de bases de datos relacionales, sistema operativo o fallo de hardware.</p>
-  </span>
-  
-  <h4>5.1.2. CONSISTENCIA (CONSISTENCY)</h4>
-  
-  <span id="2050501003">
-  <p>La consistencia indica que solo se escribirán datos válidos en la base de datos. Si por alguna razón, se ejecuta una transacción que viola las reglas de consistencia de la base de datos, la transacción completa se revertirá y la base de datos se restaurará a un estado consistente con esas reglas. Por otro lado, si una transacción se ejecuta con éxito, llevará la base de datos al nuevo estado consistente con las reglas.</p>
-  </span>
-  
-  <h4>5.1.3. AISLAMIENTO (ISOLATION)</h4>
-  
-  <span id="2050501004">
-  <p>El aislamiento requiere que las transacciones múltiples que ocurren al mismo tiempo no afecten la ejecución del otro. Por ejemplo, si Joe emite una transacción contra una base de datos al mismo tiempo que Charles emite una transacción diferente, ambas transacciones deberían operar en la base de datos de manera aislada. La base de datos debe realizar la transacción completa de Joe antes de ejecutar la de Charles o viceversa. Esto evita que la transacción de Joe lea datos intermedios producidos como un efecto secundario de parte de la transacción de Charles que eventualmente no se comprometerá con la base de datos. Ten en cuenta que la propiedad de aislamiento no garantiza qué transacción se ejecutará primero, simplemente que las transacciones no interferirán entre sí.</p>
-  </span>
-  
-  <h4>5.1.4. DURABILIDAD (DURABILITY)</h4>
-  
-  <span id="2050501005">
-  <p>La durabilidad asegura que cualquier transacción comprometida con la base de datos no se perderá. La durabilidad se garantiza mediante el uso de copias de seguridad de la base de datos y registros de transacciones que facilitan la restauración de transacciones comprometidas a pesar de cualquier fallo de software o hardware.</p>
-  </span>
-  
-  <h3>5.2. TEOREMA CAP</h3>
-  
-  <span id="2050501006">
-  <p>No todas las bases de datos cumplen con el modelo ACID. Por ejemplo, las bases de datos NoSQL no proporcionan todos los conceptos de ACID puesto que su objetivo consiste en ofrecer la máxima velocidad de respuesta asumiendo, si es necesario, alguna pérdida de datos.</p>
-  
-  <p>Puesto que los conceptos ACID no se pueden aplicar a todos los modelos de base de datos se definió el teorema CAP (teorema de Brewer) que establece que es imposible que un almacén de datos distribuido proporcione simultáneamente más de dos de las tres garantías:</p>
-  <ul>
-    <li><strong>Consistencia (Consistency):</strong> cada lectura recibe la escritura más reciente o un error. Esto significa que todos los clientes ven los mismos datos al mismo tiempo, sin importar qué nodo se contacte. Los datos están sincronizados en todos los nodos.</li>
-    <li><strong>Disponibilidad (Availability):</strong> cada solicitud recibe una respuesta (sin error), sin la garantía de que contiene la escritura más reciente. El sistema sigue funcionando incluso si algunos nodos fallan. Cada cliente puede leer y escribir, aunque algunos nodos del sistema estén caídos.</li>
-    <li><strong>Tolerancia de partición (Partition Tolerance):</strong> el sistema continúa funcionando a pesar de que la red deje caer (o retrasa) un número arbitrario de mensajes entre nodos. El sistema continúa operando a pesar de las particiones de red, que pueden causar que algunos nodos no puedan comunicarse entre sí.</li>
-  </ul>
-  
-  <p>Es importante notar que:</p>
-  <ul>
-    <li>La disponibilidad del teorema CAP entra en conflicto con la "Atomicidad" del modelo ACID.</li>
-    <li>La tolerancia del teorema CAP entra en conflicto con el "Aislamiento" del modelo ACID.</li>
-    <li>La consistencia en CAP es diferente de la consistencia en ACID. En CAP, se refiere a la consistencia de los datos en todos los nodos en un momento dado, mientras que en ACID se refiere a la integridad de los datos con respecto a las reglas definidas.</li>
-  </ul>
-  </span>
-  
-  <span id="2050501007">
-  <p>En caso de un fallo de red en tu base de datos, el teorema de CAP implica elegir entre consistencia y disponibilidad. Cuando ocurre un fallo en la red, el diseñador de la base de datos debe decidir entre:</p>
-  <ul>
-    <li><strong>CP (Consistencia y Tolerancia de partición):</strong> Cancelar la operación y, por lo tanto, disminuir la disponibilidad, pero garantizar la coherencia. Esta solución es la que se ofrece en modelos de base de datos relacional como MySQL, Oracle o SQL Server. Estos sistemas priorizan la consistencia sobre la disponibilidad en caso de una partición de red.</li>
-    <li><strong>AP (Disponibilidad y Tolerancia de partición):</strong> Continuar con la operación y, por lo tanto, brindar disponibilidad pero arriesgando inconsistencia de datos. En este caso podemos pasar a utilizar un modelo NoSQL con soluciones como Cassandra o CouchDB. Estos sistemas priorizan la disponibilidad sobre la consistencia en caso de una partición de red.</li>
-    <li><strong>CA (Consistencia y Disponibilidad):</strong> Algunos sistemas, como las bases de datos relacionales tradicionales que no están distribuidas, pueden ofrecer consistencia y disponibilidad, pero no tolerancia a particiones. Sin embargo, en un sistema distribuido real, las particiones son inevitables, por lo que este escenario es más teórico que práctico en sistemas distribuidos.</li>
-  </ul>
-  
-  <p>Es importante destacar que estas elecciones no son absolutas y muchos sistemas modernos intentan encontrar un equilibrio o ofrecer opciones configurables:</p>
-  <ul>
-    <li><strong>Consistencia eventual:</strong> Algunos sistemas NoSQL, como DynamoDB de Amazon, ofrecen una "consistencia eventual", donde el sistema garantiza que, si no se realizan nuevas actualizaciones a un objeto, eventualmente todas las acciones de acceso a ese objeto devolverán el último valor actualizado.</li>
-    <li><strong>Ajustes de consistencia:</strong> Algunas bases de datos, como Cassandra, permiten ajustar el nivel de consistencia por operación, permitiendo a los desarrolladores elegir entre consistencia fuerte, consistencia eventual u opciones intermedias según las necesidades de cada operación.</li>
-    <li><strong>Sistemas multi-modelo:</strong> Algunas bases de datos modernas intentan combinar las ventajas de los sistemas SQL y NoSQL, ofreciendo diferentes modelos de datos y niveles de consistencia en un solo sistema.</li>
-  </ul>
-  
-  <p>En resumen, el teorema CAP proporciona un marco para entender las compensaciones en el diseño de sistemas distribuidos, pero la elección entre consistencia, disponibilidad y tolerancia a particiones a menudo no es una decisión binaria, sino un espectro de opciones que dependen de los requisitos específicos de cada aplicación y caso de uso.</p>
-  </span>
-  
+    <h2 class="section-title">1.1. CARACTERÍSTICAS DE LOS SGBD</h2>
+    
+    <div id="2050101001" class="content-block">
+      <div class="definition-card">
+        <h3 class="card-title">Definición de Base de Datos</h3>
+        <div class="definition-content">
+          <p>Una base de datos es una colección de datos almacenados en un soporte informático no volátil de acceso directo. Estos datos deben estar:</p>
+          <ul class="feature-list">
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                <strong>Integrados:</strong> La definición y descripción de los datos deben ser únicas y estar integradas con los mismos datos.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🏗️</div>
+              <div class="feature-content">
+                <strong>Estructurados:</strong> Reflejando las interrelaciones y restricciones existentes en el mundo real.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                <strong>Con redundancia controlada:</strong> No debe existir redundancia lógica aunque se permite redundancia física por motivos de eficiencia.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔗</div>
+              <div class="feature-content">
+                <strong>Relacionados:</strong> La base de datos debe almacenar las interrelaciones entre los datos y las restricciones semánticas.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">👥</div>
+              <div class="feature-content">
+                <strong>Compartidos:</strong> Por diferentes usuarios y aplicaciones.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔀</div>
+              <div class="feature-content">
+                <strong>Independientes:</strong> De las aplicaciones que los utilicen tanto lógica como físicamente separando entre datos y tratamiento.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2050101002" class="content-block">
+      <div class="sgbd-card">
+        <h3 class="card-title">Sistema Gestor de Base de Datos (SGBD)</h3>
+        <div class="sgbd-content">
+          <p>Un sistema gestor de base de datos (SGBD) es un conjunto de programas que establecen el método de organización necesario para el almacenamiento y la recuperación flexible de grandes cantidades de datos garantizando todas las propiedades definidas para una base de datos. A su vez permiten la modificación y extracción de la información mediante órdenes sencillas o algún lenguaje de consultas.</p>
+          
+          <div class="functions-section">
+            <h4 class="subsection-title">Funciones de los SGBD:</h4>
+            <ul class="functions-list">
+              <li><span class="function-icon">🔒</span> Mantener la integridad de los datos</li>
+              <li><span class="function-icon">👥</span> Administrar el acceso de los usuarios a los datos</li>
+              <li><span class="function-icon">🔄</span> Recuperar la información si el sistema se corrompe</li>
+              <li><span class="function-icon">📊</span> Presentar la información de la base de datos mediante generadores de informes y, la mayoría de las veces, un visor gráfico</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2050101003" class="content-block">
+      <div class="subsystems-card">
+        <h3 class="card-title">Subsistemas de un SGBD</h3>
+        <ul class="subsystems-list">
+          <li>
+            <div class="subsystem-icon">⚙️</div>
+            <div class="subsystem-content">
+              <strong>Motor de la base de datos:</strong> Acepta peticiones lógicas y las convierte en su equivalente físico.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">📝</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de definición de datos:</strong> Ayuda a crear y mantener el diccionario de datos y define la estructura del fichero.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">🔄</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de manipulación de datos:</strong> Interfaz principal del usuario con la base de datos.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">🛠️</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de generación de aplicaciones:</strong> Contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">👨‍💼</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de administración:</strong> Ayuda a gestionar la base de datos ofreciendo diversas funcionalidades.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2050101004" class="content-block">
+      <div class="characteristics-card">
+        <h3 class="card-title">Características principales de los SGBD</h3>
+        <div class="characteristics-grid">
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📊</div>
+            <div class="characteristic-content">Manejo de grandes volúmenes de datos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">👥</div>
+            <div class="characteristic-content">Manejo de accesos concurrentes</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📈</div>
+            <div class="characteristic-content">Escalabilidad y elevada capacidad de proceso</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">⏱️</div>
+            <div class="characteristic-content">Alta disponibilidad</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">🔒</div>
+            <div class="characteristic-content">Seguridad y control de accesos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">✅</div>
+            <div class="characteristic-content">Integridad de los datos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📄</div>
+            <div class="characteristic-content">Documentación</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">🔄</div>
+            <div class="characteristic-content">Flexibilidad</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🗃️";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Definition Card */
+  .definition-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Feature List */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .feature-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .feature-content {
+    flex: 1;
+  }
+  
+  /* SGBD Card */
+  .sgbd-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .functions-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .functions-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .functions-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .function-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Subsystems Card */
+  .subsystems-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .subsystems-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .subsystems-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .subsystems-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .subsystem-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .subsystem-content {
+    flex: 1;
+  }
+  
+  /* Characteristics Card */
+  .characteristics-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .characteristic-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .characteristic-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .characteristic-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .characteristic-content {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .feature-list li, .subsystems-list li, .characteristic-item {
+      flex-direction: column;
+    }
+    
+    .feature-icon, .subsystem-icon, .characteristic-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .functions-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .characteristics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,125 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareas Administrativas y Scripting en Linux</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>7.3. TAREAS ADMINISTRATIVAS Y SCRIPTING EN LINUX</h2>
-  
-  <span id="2040703001">
-    <h3>Programación de Tareas</h3>
-    <p>En sistemas Unix/Linux, se utilizan los siguientes comandos para ejecutar tareas regularmente:</p>
-    <ul>
-      <li><strong>cron:</strong> Administrador regular de procesos en segundo plano.</li>
-      <li><strong>at:</strong> Ejecuta un programa en un momento específico en el futuro.</li>
-      <li><strong>batch:</strong> Similar a at, pero la tarea solo se ejecuta si la carga del sistema es inferior a 0.8.</li>
-    </ul>
-  
-    <h4>cron</h4>
-    <p>Archivos importantes:</p>
-    <ul>
-      <li><code>/etc/crontab</code></li>
-      <li><code>/var/spool/cron/nombreUsuario</code></li>
-      <li><code>/etc/cron.d</code>, <code>/etc/cron.hourly</code>, <code>/etc/cron.daily</code>, <code>/etc/cron.weekly</code>, <code>/etc/cron.monthly</code></li>
-    </ul>
-  
-    <p>Formato de cada línea del archivo crontab:</p>
-    <pre><code>Min. Hora Día-del-Mes Mes Día-de-la-semana Usuario Comando</code></pre>
-  
-    <p>Comandos útiles:</p>
-    <ul>
-      <li><code>crontab -l</code>: Lista las tareas especificadas en el crontab</li>
-      <li><code>crontab -r</code>: Elimina las tareas programadas por el usuario</li>
-      <li><code>crontab -e</code>: Edita el crontab</li>
-    </ul>
-  
-    <h4>at</h4>
-    <p>Sintaxis básica: <code>at hora fecha comando</code></p>
-    <p>Ejemplos:</p>
-    <pre><code>at now + 2 minutes
-  at 16:00 today
-  at 15:00 10/03/08</code></pre>
-  
-    <p>Comandos útiles:</p>
-    <ul>
-      <li><code>at -l</code> o <code>atq</code>: Visualiza tareas pendientes</li>
-      <li><code>at -d nº_trabajo</code> o <code>atrm nº_trabajo</code>: Elimina tareas pendientes</li>
-    </ul>
-  </span>
-  
-  <span id="2040703002">
-    <h3>Montaje de Sistemas de Archivos</h3>
-    <h4>Archivo /etc/fstab</h4>
-    <p>Contiene información sobre el montaje de sistemas de archivos. Formato básico:</p>
-    <pre><code>Dispositivo Punto-de-montaje Tipo-de-sistema Opciones Descargado Comprobado</code></pre>
-  
-    <h4>Comando mount</h4>
-    <p>Sintaxis básica: <code>mount -t tipo origen punto_de_montaje opciones</code></p>
-    <p>Ejemplos:</p>
-    <pre><code>mount -t iso9660 /dev/cdrom /mnt/cdrom
-  mount -t vfat /dev/hdb5 /mnt/c -r</code></pre>
-  
-    <p>Para desmontar: <code>umount punto_de_montaje</code></p>
-  </span>
-  
-  <span id="2040703003">
-    <h3>Almacenamiento Remoto</h3>
-    <h4>NFS (Network File System)</h4>
-    <p>Protocolo estándar de compartición de ficheros de UNIX.</p>
-    <p>Exportar sistema de ficheros NFS (en /etc/exports):</p>
-    <pre><code>/misc/export pc1.cetic.es(rw)</code></pre>
-  
-    <p>Montar cliente NFS:</p>
-    <pre><code>mount servidorNFS:/directorio /directorioLocal opciones</code></pre>
-  
-    <h4>Samba</h4>
-    <p>Utiliza el protocolo SMB para compartir ficheros e impresoras.</p>
-    <p>Listar recursos compartidos:</p>
-    <pre><code>smbclient -L ip -U usuario%contraseña</code></pre>
-  
-    <p>Configuración básica en /etc/samba/smb.conf:</p>
-    <pre><code>[sharename]
-  comment = Comentario
-  path = /ruta
-  valid users = usuario1 usuario2
-  writable = yes</code></pre>
-  </span>
-  
-  <span id="2040703004">
-    <h3>Programación Básica de Scripts en Linux</h3>
-    <p>Estructura básica de un script:</p>
-    <pre><code>#!/bin/bash
-  
-  # Comentarios
-  # Código del script</code></pre>
-  
-    <h4>Estructuras de Control</h4>
-    <p>Bucle for:</p>
-    <pre><code>for VAR in LIST
-  do
-    # cuerpo
-  done</code></pre>
-  
-    <p>Condicional if:</p>
-    <pre><code>if [ expresión ]
-  then
-    # código
-  else
-    # código
-  fi</code></pre>
-  
-    <p>Bucle while:</p>
-    <pre><code>while condicion
-  do
-    # comandos
-  done</code></pre>
-  
-    <p>Definición de funciones:</p>
-    <pre><code>function nombre_funcion {
-    # código de la función
-  }</code></pre>
-  
-    <p>Operaciones aritméticas:</p>
-    <pre><code>let resultado=100/13
-  resultado=$(expr 100 / 12)</code></pre>
-  </span>
-  
+    <h2 class="section-title">7.3. TAREAS ADMINISTRATIVAS Y SCRIPTING EN LINUX</h2>
+    
+    <div id="2040703001" class="content-block">
+      <div class="task-scheduling-card">
+        <h3 class="card-title">Programación de Tareas</h3>
+        <p>En sistemas Unix/Linux, se utilizan los siguientes comandos para ejecutar tareas regularmente:</p>
+        <ul class="scheduling-commands">
+          <li>
+            <div class="command-icon">⏱️</div>
+            <div class="command-content">
+              <div class="command-name">cron</div>
+              <div class="command-desc">Administrador regular de procesos en segundo plano.</div>
+            </div>
+          </li>
+          <li>
+            <div class="command-icon">🕒</div>
+            <div class="command-content">
+              <div class="command-name">at</div>
+              <div class="command-desc">Ejecuta un programa en un momento específico en el futuro.</div>
+            </div>
+          </li>
+          <li>
+            <div class="command-icon">📊</div>
+            <div class="command-content">
+              <div class="command-name">batch</div>
+              <div class="command-desc">Similar a at, pero la tarea solo se ejecuta si la carga del sistema es inferior a 0.8.</div>
+            </div>
+          </li>
+        </ul>
+      
+        <div class="command-details">
+          <h4 class="command-details-title">cron</h4>
+          <p>Archivos importantes:</p>
+          <ul class="files-list">
+            <li><code>/etc/crontab</code></li>
+            <li><code>/var/spool/cron/nombreUsuario</code></li>
+            <li><code>/etc/cron.d</code>, <code>/etc/cron.hourly</code>, <code>/etc/cron.daily</code>, <code>/etc/cron.weekly</code>, <code>/etc/cron.monthly</code></li>
+          </ul>
+        
+          <p>Formato de cada línea del archivo crontab:</p>
+          <div class="code-block">
+            <pre><code>Min. Hora Día-del-Mes Mes Día-de-la-semana Usuario Comando</code></pre>
+          </div>
+        
+          <p>Comandos útiles:</p>
+          <ul class="command-utils">
+            <li><code>crontab -l</code>: Lista las tareas especificadas en el crontab</li>
+            <li><code>crontab -r</code>: Elimina las tareas programadas por el usuario</li>
+            <li><code>crontab -e</code>: Edita el crontab</li>
+          </ul>
+        </div>
+      
+        <div class="command-details">
+          <h4 class="command-details-title">at</h4>
+          <p>Sintaxis básica: <code>at hora fecha comando</code></p>
+          <p>Ejemplos:</p>
+          <div class="code-block">
+            <pre><code>at now + 2 minutes
+at 16:00 today
+at 15:00 10/03/08</code></pre>
+          </div>
+        
+          <p>Comandos útiles:</p>
+          <ul class="command-utils">
+            <li><code>at -l</code> o <code>atq</code>: Visualiza tareas pendientes</li>
+            <li><code>at -d nº_trabajo</code> o <code>atrm nº_trabajo</code>: Elimina tareas pendientes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040703002" class="content-block">
+      <div class="filesystem-mount-card">
+        <h3 class="card-title">Montaje de Sistemas de Archivos</h3>
+        
+        <div class="fstab-section">
+          <h4 class="section-title">Archivo /etc/fstab</h4>
+          <p>Contiene información sobre el montaje de sistemas de archivos. Formato básico:</p>
+          <div class="code-block">
+            <pre><code>Dispositivo Punto-de-montaje Tipo-de-sistema Opciones Descargado Comprobado</code></pre>
+          </div>
+        </div>
+        
+        <div class="mount-section">
+          <h4 class="section-title">Comando mount</h4>
+          <p>Sintaxis básica: <code>mount -t tipo origen punto_de_montaje opciones</code></p>
+          <p>Ejemplos:</p>
+          <div class="code-block">
+            <pre><code>mount -t iso9660 /dev/cdrom /mnt/cdrom
+mount -t vfat /dev/hdb5 /mnt/c -r</code></pre>
+          </div>
+        
+          <p>Para desmontar: <code>umount punto_de_montaje</code></p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040703003" class="content-block">
+      <div class="remote-storage-card">
+        <h3 class="card-title">Almacenamiento Remoto</h3>
+        
+        <div class="nfs-section">
+          <h4 class="section-title">NFS (Network File System)</h4>
+          <div class="section-icon">🌐</div>
+          <div class="section-content">
+            <p>Protocolo estándar de compartición de ficheros de UNIX.</p>
+            <p>Exportar sistema de ficheros NFS (en /etc/exports):</p>
+            <div class="code-block">
+              <pre><code>/misc/export pc1.cetic.es(rw)</code></pre>
+            </div>
+          
+            <p>Montar cliente NFS:</p>
+            <div class="code-block">
+              <pre><code>mount servidorNFS:/directorio /directorioLocal opciones</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <div class="samba-section">
+          <h4 class="section-title">Samba</h4>
+          <div class="section-icon">🔄</div>
+          <div class="section-content">
+            <p>Utiliza el protocolo SMB para compartir ficheros e impresoras.</p>
+            <p>Listar recursos compartidos:</p>
+            <div class="code-block">
+              <pre><code>smbclient -L ip -U usuario%contraseña</code></pre>
+            </div>
+          
+            <p>Configuración básica en /etc/samba/smb.conf:</p>
+            <div class="code-block">
+              <pre><code>[sharename]
+comment = Comentario
+path = /ruta
+valid users = usuario1 usuario2
+writable = yes</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040703004" class="content-block">
+      <div class="scripting-card">
+        <h3 class="card-title">Programación Básica de Scripts en Linux</h3>
+        <p>Estructura básica de un script:</p>
+        <div class="code-block">
+          <pre><code>#!/bin/bash
+
+# Comentarios
+# Código del script</code></pre>
+        </div>
+        
+        <div class="control-structures">
+          <h4 class="section-title">Estructuras de Control</h4>
+          
+          <div class="structure-item">
+            <h5 class="structure-name">Bucle for:</h5>
+            <div class="code-block">
+              <pre><code>for VAR in LIST
+do
+  # cuerpo
+done</code></pre>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <h5 class="structure-name">Condicional if:</h5>
+            <div class="code-block">
+              <pre><code>if [ expresión ]
+then
+  # código
+else
+  # código
+fi</code></pre>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <h5 class="structure-name">Bucle while:</h5>
+            <div class="code-block">
+              <pre><code>while condicion
+do
+  # comandos
+done</code></pre>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <h5 class="structure-name">Definición de funciones:</h5>
+            <div class="code-block">
+              <pre><code>function nombre_funcion {
+  # código de la función
+}</code></pre>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <h5 class="structure-name">Operaciones aritméticas:</h5>
+            <div class="code-block">
+              <pre><code>let resultado=100/13
+resultado=$(expr 100 / 12)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🐧";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Task Scheduling Card */
+  .task-scheduling-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .scheduling-commands {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .scheduling-commands li {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .scheduling-commands li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .command-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .command-content {
+    flex: 1;
+  }
+  
+  .command-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .command-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* Command Details */
+  .command-details {
+    margin-top: 25px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .command-details-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+  }
+  
+  .files-list, .command-utils {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .files-list li, .command-utils li {
+    margin-bottom: 5px;
+  }
+  
+  code {
+    font-family: 'Courier New', monospace;
+    background-color: rgba(59, 130, 246, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: var(--color-primary-dark);
+  }
+  
+  .code-block {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    overflow-x: auto;
+  }
+  
+  .code-block pre {
+    margin: 0;
+  }
+  
+  .code-block code {
+    font-family: 'Courier New', monospace;
+    background-color: transparent;
+    padding: 0;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Filesystem Mount Card */
+  .filesystem-mount-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .fstab-section, .mount-section {
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+  }
+  
+  /* Remote Storage Card */
+  .remote-storage-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .nfs-section, .samba-section {
+    display: flex;
+    margin-top: 20px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .section-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .section-content {
+    flex: 1;
+  }
+  
+  /* Scripting Card */
+  .scripting-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .control-structures {
+    margin-top: 20px;
+  }
+  
+  .structure-item {
+    margin-bottom: 20px;
+  }
+  
+  .structure-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .scheduling-commands li, .nfs-section, .samba-section {
+      flex-direction: column;
+    }
+    
+    .command-icon, .section-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .code-block {
+      margin-left: -10px;
+      margin-right: -10px;
+      border-radius: 0;
+    }
+  }
+</style>
+</body>
+</html>

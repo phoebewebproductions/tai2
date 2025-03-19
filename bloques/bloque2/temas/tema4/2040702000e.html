@@ -1,110 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura de Directorios y Administración en Linux</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>7.2. ESTRUCTURA DE DIRECTORIOS Y ADMINISTRACIÓN EN LINUX</h2>
-  
-  <span id="2040702001">
-    <h3>Estructura de Directorios Básica (Filesystem Hierarchy Standard - FHS)</h3>
-    <p>La estructura de directorios en Linux sigue un estándar conocido como FHS. Algunos de los directorios más importantes son:</p>
-    <ul>
-      <li><strong>/</strong>: Directorio raíz</li>
-      <li><strong>/bin</strong>: Archivos binarios, ejecutables esenciales para todos los usuarios</li>
-      <li><strong>/sbin</strong>: Archivos binarios del SuperAdministrador</li>
-      <li><strong>/etc</strong>: Archivos de configuración del sistema estático no binarios</li>
-      <li><strong>/home</strong>: Contiene los directorios de trabajo de todos los usuarios salvo el root</li>
-      <li><strong>/root</strong>: Directorio home del superusuario root</li>
-      <li><strong>/var</strong>: Archivos de tamaño variable</li>
-      <li><strong>/tmp</strong>: Archivos temporales</li>
-      <li><strong>/usr</strong>: Aplicaciones para los usuarios</li>
-      <li><strong>/opt</strong>: Aplicaciones opcionales</li>
-    </ul>
-  </span>
-  
-  <span id="2040702002">
-    <h3>Niveles de Ejecución (Runlevels)</h3>
-    <p>Los sistemas Linux pueden arrancar en distintos modos de funcionamiento, conocidos como niveles de ejecución:</p>
-    <table>
-      <tr>
-        <th>Nivel</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>Alto</td>
-        <td>Apagado del sistema</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Modo de usuario único (Monousuario)</td>
-        <td>Nivel de ejecución mínimo orientado a reparar el sistema o para testeo</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Multiusuario con soporte de red</td>
-        <td>Inicia el sistema normalmente sin interfaz gráfica</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Multiusuario gráfico (X11)</td>
-        <td>Similar al nivel 3 pero con arranque automático de la interfaz gráfica</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Reinicio</td>
-        <td>Reinicio del sistema</td>
-      </tr>
-    </table>
-  </span>
-  
-  <span id="2040702003">
-    <h3>Administración de Usuarios</h3>
-    <p>Linux utiliza varios archivos importantes para la administración de usuarios:</p>
-    <ul>
-      <li><strong>/etc/passwd</strong>: Contiene la base de datos de usuarios</li>
-      <li><strong>/etc/shadow</strong>: Almacena las contraseñas de los usuarios de forma encriptada</li>
-      <li><strong>/etc/group</strong>: Contiene la base de datos de grupos del sistema</li>
-      <li><strong>/etc/gshadow</strong>: Contiene las contraseñas encriptadas de grupo</li>
-    </ul>
-  </span>
-  
-  <span id="2040702004">
-    <h3>Comandos de Administración de Usuarios</h3>
-    <ul>
-      <li><strong>useradd</strong>: Da de alta un usuario en el sistema</li>
-      <li><strong>groupadd</strong>: Da de alta un grupo</li>
-      <li><strong>passwd</strong>: Permite cambiar la contraseña de un usuario</li>
-    </ul>
-  </span>
-  
-  <span id="2040702005">
-    <h3>Seguridad de Ficheros</h3>
-    <ul>
-      <li><strong>chown</strong>: Cambia el usuario propietario de un archivo o directorio</li>
-      <li><strong>chgrp</strong>: Cambia el grupo propietario de un archivo o directorio</li>
-      <li><strong>chmod</strong>: Modifica los permisos de un fichero/directorio</li>
-      <li><strong>umask</strong>: Especifica la máscara de permisos del usuario</li>
-    </ul>
-  </span>
-  
-  <span id="2040702006">
-    <h3>Permisos en Linux</h3>
-    <p>El comando más utilizado para gestionar permisos es <strong>chmod</strong>. Puede usarse en modo relativo o absoluto:</p>
-    <h4>Modo Relativo:</h4>
-    <pre><code>chmod u|g|o|a +|-|= r|w|x nombreFichero</code></pre>
-    <h4>Modo Absoluto:</h4>
-    <pre><code>chmod numeroPropietario numeroGrupoPropietario numeroOtros</code></pre>
-  </span>
-  
-  <span id="2040702007">
-    <h3>FACL (File Access Control List)</h3>
-    <p>Permite modificar la granularidad con la que se aplican los permisos de un fichero definiendo sus listas de control de acceso personalizadas.</p>
-    <ul>
-      <li><strong>setfacl</strong>: Permite cambiar los permisos en las listas de control de acceso de un archivo o directorio</li>
-      <li><strong>getfacl</strong>: Permite visualizar las FACLs asociadas a un fichero</li>
-    </ul>
-  </span>
-  
+    <h2 class="section-title">7.2. ESTRUCTURA DE DIRECTORIOS Y ADMINISTRACIÓN EN LINUX</h2>
+    
+    <div id="2040702001" class="content-block">
+      <div class="directories-card">
+        <h3 class="card-title">Estructura de Directorios Básica (Filesystem Hierarchy Standard - FHS)</h3>
+        <p>La estructura de directorios en Linux sigue un estándar conocido como FHS. Algunos de los directorios más importantes son:</p>
+        <div class="directories-grid">
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/</div>
+              <div class="directory-desc">Directorio raíz</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/bin</div>
+              <div class="directory-desc">Archivos binarios, ejecutables esenciales para todos los usuarios</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/sbin</div>
+              <div class="directory-desc">Archivos binarios del SuperAdministrador</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/etc</div>
+              <div class="directory-desc">Archivos de configuración del sistema estático no binarios</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/home</div>
+              <div class="directory-desc">Contiene los directorios de trabajo de todos los usuarios salvo el root</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/root</div>
+              <div class="directory-desc">Directorio home del superusuario root</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/var</div>
+              <div class="directory-desc">Archivos de tamaño variable</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/tmp</div>
+              <div class="directory-desc">Archivos temporales</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/usr</div>
+              <div class="directory-desc">Aplicaciones para los usuarios</div>
+            </div>
+          </div>
+          <div class="directory-item">
+            <div class="directory-icon">📁</div>
+            <div class="directory-content">
+              <div class="directory-name">/opt</div>
+              <div class="directory-desc">Aplicaciones opcionales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040702002" class="content-block">
+      <div class="runlevels-card">
+        <h3 class="card-title">Niveles de Ejecución (Runlevels)</h3>
+        <p>Los sistemas Linux pueden arrancar en distintos modos de funcionamiento, conocidos como niveles de ejecución:</p>
+        <div class="table-container">
+          <table class="runlevels-table">
+            <thead>
+              <tr>
+                <th>Nivel</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="level">0</td>
+                <td>Alto</td>
+                <td>Apagado del sistema</td>
+              </tr>
+              <tr>
+                <td class="level">1</td>
+                <td>Modo de usuario único (Monousuario)</td>
+                <td>Nivel de ejecución mínimo orientado a reparar el sistema o para testeo</td>
+              </tr>
+              <tr>
+                <td class="level">3</td>
+                <td>Multiusuario con soporte de red</td>
+                <td>Inicia el sistema normalmente sin interfaz gráfica</td>
+              </tr>
+              <tr>
+                <td class="level">5</td>
+                <td>Multiusuario gráfico (X11)</td>
+                <td>Similar al nivel 3 pero con arranque automático de la interfaz gráfica</td>
+              </tr>
+              <tr>
+                <td class="level">6</td>
+                <td>Reinicio</td>
+                <td>Reinicio del sistema</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040702003" class="content-block">
+      <div class="user-admin-card">
+        <h3 class="card-title">Administración de Usuarios</h3>
+        <p>Linux utiliza varios archivos importantes para la administración de usuarios:</p>
+        <ul class="user-files-list">
+          <li>
+            <div class="file-icon">📄</div>
+            <div class="file-content">
+              <div class="file-name">/etc/passwd</div>
+              <div class="file-desc">Contiene la base de datos de usuarios</div>
+            </div>
+          </li>
+          <li>
+            <div class="file-icon">🔒</div>
+            <div class="file-content">
+              <div class="file-name">/etc/shadow</div>
+              <div class="file-desc">Almacena las contraseñas de los usuarios de forma encriptada</div>
+            </div>
+          </li>
+          <li>
+            <div class="file-icon">👥</div>
+            <div class="file-content">
+              <div class="file-name">/etc/group</div>
+              <div class="file-desc">Contiene la base de datos de grupos del sistema</div>
+            </div>
+          </li>
+          <li>
+            <div class="file-icon">🔒</div>
+            <div class="file-content">
+              <div class="file-name">/etc/gshadow</div>
+              <div class="file-desc">Contiene las contraseñas encriptadas de grupo</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2040702004" class="content-block">
+      <div class="user-commands-card">
+        <h3 class="card-title">Comandos de Administración de Usuarios</h3>
+        <div class="commands-grid">
+          <div class="command-item">
+            <div class="command-icon">👤</div>
+            <div class="command-content">
+              <div class="command-name">useradd</div>
+              <div class="command-desc">Da de alta un usuario en el sistema</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">👥</div>
+            <div class="command-content">
+              <div class="command-name">groupadd</div>
+              <div class="command-desc">Da de alta un grupo</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">🔑</div>
+            <div class="command-content">
+              <div class="command-name">passwd</div>
+              <div class="command-desc">Permite cambiar la contraseña de un usuario</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040702005" class="content-block">
+      <div class="file-security-card">
+        <h3 class="card-title">Seguridad de Ficheros</h3>
+        <div class="commands-grid">
+          <div class="command-item">
+            <div class="command-icon">👤</div>
+            <div class="command-content">
+              <div class="command-name">chown</div>
+              <div class="command-desc">Cambia el usuario propietario de un archivo o directorio</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">👥</div>
+            <div class="command-content">
+              <div class="command-name">chgrp</div>
+              <div class="command-desc">Cambia el grupo propietario de un archivo o directorio</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">🔒</div>
+            <div class="command-content">
+              <div class="command-name">chmod</div>
+              <div class="command-desc">Modifica los permisos de un fichero/directorio</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">🎭</div>
+            <div class="command-content">
+              <div class="command-name">umask</div>
+              <div class="command-desc">Especifica la máscara de permisos del usuario</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040702006" class="content-block">
+      <div class="permissions-card">
+        <h3 class="card-title">Permisos en Linux</h3>
+        <p>El comando más utilizado para gestionar permisos es <strong>chmod</strong>. Puede usarse en modo relativo o absoluto:</p>
+        
+        <div class="mode-section">
+          <h4 class="mode-title">Modo Relativo:</h4>
+          <div class="code-block">
+            <pre><code>chmod u|g|o|a +|-|= r|w|x nombreFichero</code></pre>
+          </div>
+        </div>
+        
+        <div class="mode-section">
+          <h4 class="mode-title">Modo Absoluto:</h4>
+          <div class="code-block">
+            <pre><code>chmod numeroPropietario numeroGrupoPropietario numeroOtros</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040702007" class="content-block">
+      <div class="facl-card">
+        <h3 class="card-title">FACL (File Access Control List)</h3>
+        <p>Permite modificar la granularidad con la que se aplican los permisos de un fichero definiendo sus listas de control de acceso personalizadas.</p>
+        <div class="commands-grid">
+          <div class="command-item">
+            <div class="command-icon">📝</div>
+            <div class="command-content">
+              <div class="command-name">setfacl</div>
+              <div class="command-desc">Permite cambiar los permisos en las listas de control de acceso de un archivo o directorio</div>
+            </div>
+          </div>
+          <div class="command-item">
+            <div class="command-icon">👁️</div>
+            <div class="command-content">
+              <div class="command-name">getfacl</div>
+              <div class="command-desc">Permite visualizar las FACLs asociadas a un fichero</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🐧";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Directories Card */
+  .directories-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .directories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .directory-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .directory-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .directory-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .directory-content {
+    flex: 1;
+  }
+  
+  .directory-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .directory-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* Runlevels Card */
+  .runlevels-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .runlevels-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-top: 15px;
+  }
+  
+  .runlevels-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .runlevels-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .runlevels-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .runlevels-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .runlevels-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .runlevels-table td {
+    padding: 12px 15px;
+  }
+  
+  .level {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    text-align: center;
+  }
+  
+  /* User Admin Card */
+  .user-admin-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .user-files-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+  
+  .user-files-list li {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .user-files-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .file-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .file-content {
+    flex: 1;
+  }
+  
+  .file-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .file-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* User Commands Card & File Security Card & FACL Card */
+  .user-commands-card, .file-security-card, .facl-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .command-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .command-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .command-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .command-content {
+    flex: 1;
+  }
+  
+  .command-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .command-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* Permissions Card */
+  .permissions-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mode-section {
+    margin-top: 20px;
+  }
+  
+  .mode-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .code-block {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .code-block pre {
+    margin: 0;
+    overflow-x: auto;
+  }
+  
+  .code-block code {
+    font-family: 'Courier New', monospace;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .directories-grid, .commands-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .directory-item, .user-files-list li, .command-item {
+      flex-direction: column;
+    }
+    
+    .directory-icon, .file-icon, .command-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

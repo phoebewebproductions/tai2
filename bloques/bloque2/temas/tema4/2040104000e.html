@@ -1,308 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Archivos Proporcionados por el Sistema Operativo</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.4 SISTEMA DE ARCHIVOS PROPORCIONADOS POR EL SISTEMA OPERATIVO</h2>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>SISTEMA DE FICHEROS</th>
-        <th>DESCRIPCIÓN</th>
-        <th>SISTEMAS OPERATIVOS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>FAT</td>
-        <td>
-          <span id="2040104001">
-            File Allocation Table. Tabla de asignación de archivos.
-            Las diferentes capacidades de la tabla de asignación dieron lugar a diferentes versiones:
-            <ul>
-              <li>FAT12: 12 bits</li>
-              <li>FAT16: 16 bits</li>
-              <li>FAT32: 32 bits</li>
+    <h2 class="section-title">1.4 SISTEMA DE ARCHIVOS PROPORCIONADOS POR EL SISTEMA OPERATIVO</h2>
+    
+    <div class="content-block">
+      <div class="filesystems-table-container">
+        <table class="filesystems-table">
+          <thead>
+            <tr>
+              <th>SISTEMA DE FICHEROS</th>
+              <th>DESCRIPCIÓN</th>
+              <th>SISTEMAS OPERATIVOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fs-name">FAT</td>
+              <td>
+                <div id="2040104001" class="fs-description">
+                  <p>File Allocation Table. Tabla de asignación de archivos.</p>
+                  <p>Las diferentes capacidades de la tabla de asignación dieron lugar a diferentes versiones:</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> FAT12: 12 bits</li>
+                    <li><span class="feature-bullet">•</span> FAT16: 16 bits</li>
+                    <li><span class="feature-bullet">•</span> FAT32: 32 bits</li>
+                  </ul>
+                </div>
+              </td>
+              <td>DOS, Windows</td>
+            </tr>
+            <tr>
+              <td class="fs-name">vFAT</td>
+              <td>Virtual FAT – FAT Virtual. Extensión de FAT con soporte de nombres de archivos largos</td>
+              <td>Windows</td>
+            </tr>
+            <tr>
+              <td class="fs-name">NTFS</td>
+              <td>
+                <div id="2040104002" class="fs-description">
+                  <p>New Technology File System. Utilizado originalmente en la plataforma Windows NT®, posteriormente fue adoptado por todas las versiones de Windows.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Permite la restricción de acceso a archivos y carpetas por medio de permisos.</li>
+                    <li><span class="feature-bullet">•</span> No tenía soporte oficial en Linux puesto que las especificaciones no estaban liberadas (Linux oficialmente sólo leía y permitía escribir pero bajo tu propio riesgo).</li>
+                    <li><span class="feature-bullet">•</span> El driver NTFS3 de la compañía Paragon está integrado en la 'realease candidate' de la versión 5.15 del kernel de Linux, que en breve se convertirá en la versión estable del mismo y empezará a integrarse en las grandes distribuciones.</li>
+                    <li><span class="feature-bullet">•</span> Tiene formato de compresión nativa</li>
+                    <li><span class="feature-bullet">•</span> Permite encriptación</li>
+                    <li><span class="feature-bullet">•</span> Soporta particiones de 2 TB</li>
+                    <li><span class="feature-bullet">•</span> No recomendado en sistemas con menos de 400 MB.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Windows XP, Vista, 7, 8 10 y versiones de servidor desde NT.</td>
+            </tr>
+            <tr>
+              <td class="fs-name">DFS</td>
+              <td>Distributed File System</td>
+              <td>Windows</td>
+            </tr>
+            <tr>
+              <td class="fs-name">EXT</td>
+              <td>
+                <div id="2040104003" class="fs-description">
+                  <p>Extended File System.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Sistema de ficheros de alto rendimiento en Linux usado para discos duros y sistemas de almacenamiento extraíbles (disqueteras y memorias USB).</li>
+                    <li><span class="feature-bullet">•</span> Permite actualizar de ext2 a ext3 sin perder los datos almacenados ni tener que formatear el disco.</li>
+                    <li><span class="feature-bullet">•</span> Presenta un menor consumo de CPU.</li>
+                    <li><span class="feature-bullet">•</span> Está considerado más seguro que otros sistemas de ficheros en Linux dada su relativa sencillez y su mayor tiempo de prueba.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">EXT2</td>
+              <td>Second Extended File System</td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">EXT3</td>
+              <td>Third Extended file System. Evolución de Ext2 con registro en diario. Tamaño máximo de archivo 16GB</td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">EXT4</td>
+              <td>
+                <div id="2040104004" class="fs-description">
+                  <p>Fourth Extended file System. Mejora de Ext3 con soporte para extensiones.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Tamaño máximo de archivo 16TB</li>
+                    <li><span class="feature-bullet">•</span> Tamaño máximo del sistema de archivos 1EB</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">EXT3COW</td>
+              <td>Ext3 con control de versiones</td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">NFS</td>
+              <td>Network File System. Sistema de archivos en red que permite integrar los recursos compartidos en la red como directorios montados sobre el sistema de ficheros local.</td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">ReFS</td>
+              <td>
+                <div id="2040104005" class="fs-description">
+                  <p>Resilient File System</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Sucesor de NTFS presenta características clave para mejorar la resistencia a la corrupción, el rendimiento y la escalabilidad de los datos.</li>
+                    <li><span class="feature-bullet">•</span> Permite detectar y corregir la corrupción del sistema de ficheros sin necesidad de desmontar el volumen.</li>
+                    <li><span class="feature-bullet">•</span> Fue introducido con Windows Server 2012</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Windows Server 2012, 2016, 2019… Windows 8.1, 10</td>
+            </tr>
+            <tr>
+              <td class="fs-name">F2FS</td>
+              <td>
+                <div id="2040104006" class="fs-description">
+                  <p>Flash-Friendly File System</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Creado por Samsung para el núcleo de Linux teniendo en cuenta las características de los dispositivos basados en memorias flash NAND (unidades SSD, eMMC y SD).</li>
+                    <li><span class="feature-bullet">•</span> Soluciona problemas como el efecto bola de nieve, los árboles errantes y la sobrecarga de limpieza.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">FFS</td>
+              <td>Fast File System</td>
+              <td>BSD</td>
+            </tr>
+            <tr>
+              <td class="fs-name">ZFS</td>
+              <td>
+                <div id="2040104007" class="fs-description">
+                  <p>Zettabyte File System.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Desarrollado por Sun Microsystems para el sistema operativo Solaris.</li>
+                    <li><span class="feature-bullet">•</span> Es un robusto sistema de ficheros de 128 bits, creado para superar las expectativas de cualquier sistema real, cuenta un sistema ligero de ficheros, nueva estructura de almacenamiento en disco y administración simple de espacio.</li>
+                    <li><span class="feature-bullet">•</span> Dispone de un sistema de auto reparación denominado "Self-healing" entre muchas otras características que permiten su implementación en grandes servidores.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Solaris, BSD, Linux, Windows</td>
+            </tr>
+            <tr>
+              <td class="fs-name">DOS</td>
+              <td>Sistema de archivos de disquete.</td>
+              <td>Apple II</td>
+            </tr>
+            <tr>
+              <td class="fs-name">CDFS</td>
+              <td>Compact Disc File System. Sistema de ficheros utilizado en los CDROM</td>
+              <td>Formato de registro de arranque maestro: Sistema de archivos del estándar ISO9660.</td>
+            </tr>
+            <tr>
+              <td class="fs-name">UDF</td>
+              <td>Sistema de ficheros utilizado en los DVDROM</td>
+              <td>Generalmente permite el almacenamiento de los datos en una sóla sesión. Una vez cerrada la sesión no se permite la escritura de nuevos datos</td>
+            </tr>
+            <tr>
+              <td class="fs-name">LFS</td>
+              <td>Utilizado en discos sin registro de arranque maestro</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="fs-name">HFS/HFS+</td>
+              <td>
+                <div id="2040104008" class="fs-description">
+                  <p>Hierarchical File System o sistema de archivos por jerarquía.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Sustituto de MFS ("Macintosh File System").</li>
+                    <li><span class="feature-bullet">•</span> El símbolo + indica extendido, es decir, la última versión de HFS.</li>
+                    <li><span class="feature-bullet">•</span> Desarrollado por Apple®, admite el uso de direcciones de espacio en disco de 64 bits y permite utilizar bloques de asignación de archivos de 32 bits con el fin de potenciar la eficiencia del disco al reducir la utilización de espacio en volúmenes de gran tamaño o con un número elevado de archivos.</li>
+                    <li><span class="feature-bullet">•</span> Admite nombres de archivo más descriptivos, con una longitud máxima de 255 caracteres y codificación de texto Unicode para los nombres de archivo internacionales o con sistemas de escritura mixtos.</li>
+                    <li><span class="feature-bullet">•</span> Ofrece un formato opcional de sistema de archivos con distinción de mayúsculas y minúsculas para HFS+ que permite al administrador alojar sin problemas archivos utilizados por aplicaciones UNIX que requieren esta función.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>MacOS de Apple®</td>
+            </tr>
+            <tr>
+              <td class="fs-name">Linux SWAP Filesystem</td>
+              <td>
+                <div id="2040104009" class="fs-description">
+                  <p>Sistema de ficheros utilizado por la partición SWAP de Linux.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> Realmente no es un sistema de ficheros propiamente dicho porque no tiene la necesidad de crear ficheros ni directorios.</li>
+                    <li><span class="feature-bullet">•</span> Se suele limitar a una reserva de espacio de disco donde guardar las páginas de memoria en formato RAW.</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Linux</td>
+            </tr>
+            <tr>
+              <td class="fs-name">XFS</td>
+              <td>
+                <div id="2040104010" class="fs-description">
+                  <p>Sistema de archivos de 64 bits utilizado por CentOS y RedHat Linux Enterprise.</p>
+                  <ul class="fs-features">
+                    <li><span class="feature-bullet">•</span> OpenSUSE propone éste sistema de archivos para puntos de montaje como /home.</li>
+                    <li><span class="feature-bullet">•</span> Ideal para particiones LVM.</li>
+                    <li><span class="feature-bullet">•</span> Incorpora registro de bitácora (journaling) (buffer circular de bloques de disco utilizados como un diario/journal donde se escriben primero los cambios antes de que se actualicen los datos del disco)</li>
+                  </ul>
+                </div>
+              </td>
+              <td>Linux</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="comparison-card">
+        <h3 class="comparison-title">Comparativa ReFS y NTFS</h3>
+        <div class="comparison-table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>ReFS</th>
+                <th>NTFS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Longitud máxima del nombre del archivo</td>
+                <td>255 caracteres Unicode</td>
+                <td>255 caracteres Unicode</td>
+              </tr>
+              <tr>
+                <td>Longitud máxima del nombre de la ruta</td>
+                <td>32.000 caracteres Unicode</td>
+                <td>32.000 caracteres Unicode</td>
+              </tr>
+              <tr>
+                <td>Tamaño de archivo máximo</td>
+                <td>35 PB (petabytes)</td>
+                <td>256 TB</td>
+              </tr>
+              <tr>
+                <td>Tamaño máximo del volumen</td>
+                <td>35 PB (petabytes)</td>
+                <td>256 TB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">1.4.2 GESTOR DE REDES</h3>
+      <div id="2040104011" class="content-block">
+        <div class="network-manager-card">
+          <div class="manager-icon">🌐</div>
+          <div class="manager-content">
+            <p>Componente del sistema operativo que se encarga de:</p>
+            <ul class="manager-functions">
+              <li><span class="function-bullet">•</span> Proporcionar una interfaz homogénea para acceder a todos los distintos sistemas de red proporcionados por el sistema operativo como pueden ser TCP/IP, IPX/SPX, etc</li>
+              <li><span class="function-bullet">•</span> Acceder a los drivers de cada tipo de red particular de forma transparente.</li>
             </ul>
-          </span>
-        </td>
-        <td>DOS, Windows</td>
-      </tr>
-      <tr>
-        <td>vFAT</td>
-        <td>Virtual FAT – FAT Virtual. Extensión de FAT con soporte de nombres de archivos largos</td>
-        <td>Windows</td>
-      </tr>
-      <tr>
-        <td>NTFS</td>
-        <td>
-          <span id="2040104002">
-            New Technology File System. Utilizado originalmente en la plataforma Windows NT®, posteriormente fue adoptado por todas las versiones de Windows.
-            <ul>
-              <li>Permite la restricción de acceso a archivos y carpetas por medio de permisos.</li>
-              <li>No tenía soporte oficial en Linux puesto que las especificaciones no estaban liberadas (Linux oficialmente sólo leía y permitía escribir pero bajo tu propio riesgo).</li>
-              <li>El driver NTFS3 de la compañía Paragon está integrado en la 'realease candidate' de la versión 5.15 del kernel de Linux, que en breve se convertirá en la versión estable del mismo y empezará a integrarse en las grandes distribuciones.</li>
-              <li>Tiene formato de compresión nativa</li>
-              <li>Permite encriptación</li>
-              <li>Soporta particiones de 2 TB</li>
-              <li>No recomendado en sistemas con menos de 400 MB.</li>
-            </ul>
-          </span>
-        </td>
-        <td>Windows XP, Vista, 7, 8 10 y versiones de servidor desde NT.</td>
-      </tr>
-      <tr>
-        <td>DFS</td>
-        <td>Distributed File System</td>
-        <td>Windows</td>
-      </tr>
-      <tr>
-        <td>EXT</td>
-        <td>
-          <span id="2040104003">
-            Extended File System.
-            <ul>
-              <li>Sistema de ficheros de alto rendimiento en Linux usado para discos duros y sistemas de almacenamiento extraíbles (disqueteras y memorias USB).</li>
-              <li>Permite actualizar de ext2 a ext3 sin perder los datos almacenados ni tener que formatear el disco.</li>
-              <li>Presenta un menor consumo de CPU.</li>
-              <li>Está considerado más seguro que otros sistemas de ficheros en Linux dada su relativa sencillez y su mayor tiempo de prueba.</li>
-            </ul>
-          </span>
-        </td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>EXT2</td>
-        <td>Second Extended File System</td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>EXT3</td>
-        <td>Third Extended file System. Evolución de Ext2 con registro en diario. Tamaño máximo de archivo 16GB</td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>EXT4</td>
-        <td>
-          <span id="2040104004">
-            Fourth Extended file System. Mejora de Ext3 con soporte para extensiones.
-            <ul>
-              <li>Tamaño máximo de archivo 16TB</li>
-              <li>Tamaño máximo del sistema de archivos 1EB</li>
-            </ul>
-          </span>
-        </td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>EXT3COW</td>
-        <td>Ext3 con control de versiones</td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>NFS</td>
-        <td>Network File System. Sistema de archivos en red que permite integrar los recursos compartidos en la red como directorios montados sobre el sistema de ficheros local.</td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>ReFS</td>
-        <td>
-          <span id="2040104005">
-            Resilient File System
-            <ul>
-              <li>Sucesor de NTFS presenta características clave para mejorar la resistencia a la corrupción, el rendimiento y la escalabilidad de los datos.</li>
-              <li>Permite detectar y corregir la corrupción del sistema de ficheros sin necesidad de desmontar el volumen.</li>
-              <li>Fue introducido con Windows Server 2012</li>
-            </ul>
-          </span>
-        </td>
-        <td>Windows Server 2012, 2016, 2019… Windows 8.1, 10</td>
-      </tr>
-      <tr>
-        <td>F2FS</td>
-        <td>
-          <span id="2040104006">
-            Flash-Friendly File System
-            <ul>
-              <li>Creado por Samsung para el núcleo de Linux teniendo en cuenta las características de los dispositivos basados en memorias flash NAND (unidades SSD, eMMC y SD).</li>
-              <li>Soluciona problemas como el efecto bola de nieve, los árboles errantes y la sobrecarga de limpieza.</li>
-            </ul>
-          </span>
-        </td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>FFS</td>
-        <td>Fast File System</td>
-        <td>BSD</td>
-      </tr>
-      <tr>
-        <td>ZFS</td>
-        <td>
-          <span id="2040104007">
-            Zettabyte File System.
-            <ul>
-              <li>Desarrollado por Sun Microsystems para el sistema operativo Solaris.</li>
-              <li>Es un robusto sistema de ficheros de 128 bits, creado para superar las expectativas de cualquier sistema real, cuenta un sistema ligero de ficheros, nueva estructura de almacenamiento en disco y administración simple de espacio.</li>
-              <li>Dispone de un sistema de auto reparación denominado "Self-healing" entre muchas otras características que permiten su implementación en grandes servidores.</li>
-            </ul>
-          </span>
-        </td>
-        <td>Solaris, BSD, Linux, Windows</td>
-      </tr>
-      <tr>
-        <td>DOS</td>
-        <td>Sistema de archivos de disquete.</td>
-        <td>Apple II</td>
-      </tr>
-      <tr>
-        <td>CDFS</td>
-        <td>Compact Disc File System. Sistema de ficheros utilizado en los CDROM</td>
-        <td>Formato de registro de arranque maestro: Sistema de archivos del estándar ISO9660.</td>
-      </tr>
-      <tr>
-        <td>UDF</td>
-        <td>Sistema de ficheros utilizado en los DVDROM</td>
-        <td>Generalmente permite el almacenamiento de los datos en una sóla sesión. Una vez cerrada la sesión no se permite la escritura de nuevos datos</td>
-      </tr>
-      <tr>
-        <td>LFS</td>
-        <td>Utilizado en discos sin registro de arranque maestro</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>HFS/HFS+</td>
-        <td>
-          <span id="2040104008">
-            Hierarchical File System o sistema de archivos por jerarquía.
-            <ul>
-              <li>Sustituto de MFS ("Macintosh File System").</li>
-              <li>El símbolo + indica extendido, es decir, la última versión de HFS.</li>
-              <li>Desarrollado por Apple®, admite el uso de direcciones de espacio en disco de 64 bits y permite utilizar bloques de asignación de archivos de 32 bits con el fin de potenciar la eficiencia del disco al reducir la utilización de espacio en volúmenes de gran tamaño o con un número elevado de archivos.</li>
-              <li>Admite nombres de archivo más descriptivos, con una longitud máxima de 255 caracteres y codificación de texto Unicode para los nombres de archivo internacionales o con sistemas de escritura mixtos.</li>
-              <li>Ofrece un formato opcional de sistema de archivos con distinción de mayúsculas y minúsculas para HFS+ que permite al administrador alojar sin problemas archivos utilizados por aplicaciones UNIX que requieren esta función.</li>
-            </ul>
-          </span>
-        </td>
-        <td>MacOS de Apple®</td>
-      </tr>
-      <tr>
-        <td>Linux SWAP Filesystem</td>
-        <td>
-          <span id="2040104009">
-            Sistema de ficheros utilizado por la partición SWAP de Linux.
-            <ul>
-              <li>Realmente no es un sistema de ficheros propiamente dicho porque no tiene la necesidad de crear ficheros ni directorios.</li>
-              <li>Se suele limitar a una reserva de espacio de disco donde guardar las páginas de memoria en formato RAW.</li>
-            </ul>
-          </span>
-        </td>
-        <td>Linux</td>
-      </tr>
-      <tr>
-        <td>XFS</td>
-        <td>
-          <span id="2040104010">
-            Sistema de archivos de 64 bits utilizado por CentOS y RedHat Linux Enterprise.
-            <ul>
-              <li>OpenSUSE propone éste sistema de archivos para puntos de montaje como /home.</li>
-              <li>Ideal para particiones LVM.</li>
-              <li>Incorpora registro de bitácora (journaling) (buffer circular de bloques de disco utilizados como un diario/journal donde se escriben primero los cambios antes de que se actualicen los datos del disco)</li>
-            </ul>
-          </span>
-        </td>
-        <td>Linux</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <h3>Comparativa ReFS y NTFS</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Característica</th>
-        <th>ReFS</th>
-        <th>NTFS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Longitud máxima del nombre del archivo</td>
-        <td>255 caracteres Unicode</td>
-        <td>255 caracteres Unicode</td>
-      </tr>
-      <tr>
-        <td>Longitud máxima del nombre de la ruta</td>
-        <td>32.000 caracteres Unicode</td>
-        <td>32.000 caracteres Unicode</td>
-      </tr>
-      <tr>
-        <td>Tamaño de archivo máximo</td>
-        <td>35 PB (petabytes)</td>
-        <td>256 TB</td>
-      </tr>
-      <tr>
-        <td>Tamaño máximo del volumen</td>
-        <td>35 PB (petabytes)</td>
-        <td>256 TB</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <h3>1.4.2 GESTOR DE REDES</h3>
-  <span id="2040104011">
-    <p>Componente del sistema operativo que se encarga de:</p>
-    <ul>
-      <li>Proporcionar una interfaz homogénea para acceder a todos los distintos sistemas de red proporcionados por el sistema operativo como pueden ser TCP/IP, IPX/SPX, etc</li>
-      <li>Acceder a los drivers de cada tipo de red particular de forma transparente.</li>
-    </ul>
-  </span>
-  
-  <h3>3.4.3 GESTOR DE BLOQUES</h3>
-  <span id="2040104012">
-    <p>Los sistemas de archivos y otros dispositivos lógicos con acceso a nivel de bloques se suelen limitar a traducir las operaciones del formato del usuario de bloques que entiende el dispositivo y se las pasan a este gestor de bloques.</p>
-    <ul>
-      <li>
-        <strong>Dispositivos de Bloques:</strong> Almacenan la información en bloques direccionables de tamaño fijo (desde 512b a 64kb)
-        <ul>
-          <li>La elección del tamaño del bloque es muy importante porque cada archivo ocupa como mínimo un bloque completo. Un bloque muy grande desperdiciará espacio y uno muy pequeño incrementará el número de lecturas/escrituras y favorecerá la fragmentación.</li>
-          <li>Los dispositivos de bloque permiten leer o escribir en un bloque de forma independiente de los demás.</li>
-          <li>Ejemplos: Discos Duros, Dispositivos de Estado Sólido.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Dispositivos de Caracteres:</strong> La información se transfiere como un flujo de caracteres no direccionables por lo que no tienen operaciones de búsqueda.
-        <ul>
-          <li>Ejemplos: Terminales, impresoras en línea, teclados, ratones.</li>
-        </ul>
-      </li>
-    </ul>
-  </span>
-  
-  <h3>3.4.4 GESTOR DE CACHÉ</h3>
-  <span id="2040104013">
-    <p>Optimiza las E/S mediante la gestión de almacenamiento intermedio de memoria para dispositivos de tipo bloques. El tamaño de la caché de bloques varía dinámicamente en función de la memoria RAM disponible, y los bloques se escriben a los dispositivos según la política que se tenga definida.</p>
-  </span>
-  
-  <h3>3.4.5 MANEJADORES DE DISPOSITIVO DRIVERS</h3>
-  <span id="2040104014">
-    <p>Un controlador de dispositivo es un Interfaz software que permite al sistema operativo interactuar con un periférico. El driver proporciona una interfaz de alto nivel sobre los dispositivos traduciendo internamente las operaciones de control al lenguaje del propio dispositivo. Éste enfoque tiene las siguientes ventajas:</p>
-    <ul>
-      <li>Oculta la complejidad del hardware subyacente al sistema operativo y a las aplicaciones.</li>
-      <li>Permite la ampliación de las capacidades futuras del sistema operativo.</li>
-      <li>Es más seguro al no permitir a las aplicaciones acceder directamente a los dispositivos.</li>
-    </ul>
-    <p>Los drivers son dependientes del hardware, normalmente proporcionados por el fabricante y específicos del sistema operativo (en particular del Kernel). Sin el driver el hardware no se puede utilizar.</p>
-    <p>Generalmente tiene dos capas diferenciadas:</p>
-    <ul>
-      <li>Interfaz estandarizada que debe adaptarse a las especificaciones dadas por el propio sistema operativo.</li>
-      <li>Interfaz con el dispositivo definida totalmente por el fabricante. Es la encargada de traducir las órdenes estandarizadas del sistema operativo a las características propias del hardware, aprovechando su diseño y arquitectura.</li>
-    </ul>
-  </span>
-  
-  <span id="2040104015">
-    <p>Drivers WHQL: Drivers certificados por Microsoft (laboratorios de calidad de hardware de Windows – Windows Hardware Quality Laboratory) que garantizan que el hardware, periférico o software es compatible con el sistema operativo Microsoft Windows.</p>
-    <p>Una vez que el driver es certificado es firmado por Microsoft. Algunos sistemas windows no permiten instalar drivers no firmados salvo que se desactive la exigencia de la firma de los drivers.</p>
-  </span>
-  
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.4.3 GESTOR DE BLOQUES</h3>
+      <div id="2040104012" class="content-block">
+        <div class="block-manager-card">
+          <p>Los sistemas de archivos y otros dispositivos lógicos con acceso a nivel de bloques se suelen limitar a traducir las operaciones del formato del usuario de bloques que entiende el dispositivo y se las pasan a este gestor de bloques.</p>
+          
+          <div class="device-types">
+            <div class="device-type">
+              <div class="device-header">
+                <div class="device-icon">💾</div>
+                <h4 class="device-title">Dispositivos de Bloques</h4>
+              </div>
+              <div class="device-content">
+                <p>Almacenan la información en bloques direccionables de tamaño fijo (desde 512b a 64kb)</p>
+                <ul class="device-features">
+                  <li><span class="feature-bullet">•</span> La elección del tamaño del bloque es muy importante porque cada archivo ocupa como mínimo un bloque completo. Un bloque muy grande desperdiciará espacio y uno muy pequeño incrementará el número de lecturas/escrituras y favorecerá la fragmentación.</li>
+                  <li><span class="feature-bullet">•</span> Los dispositivos de bloque permiten leer o escribir en un bloque de forma independiente de los demás.</li>
+                  <li><span class="feature-bullet">•</span> Ejemplos: Discos Duros, Dispositivos de Estado Sólido.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="device-type">
+              <div class="device-header">
+                <div class="device-icon">📝</div>
+                <h4 class="device-title">Dispositivos de Caracteres</h4>
+              </div>
+              <div class="device-content">
+                <p>La información se transfiere como un flujo de caracteres no direccionables por lo que no tienen operaciones de búsqueda.</p>
+                <ul class="device-features">
+                  <li><span class="feature-bullet">•</span> Ejemplos: Terminales, impresoras en línea, teclados, ratones.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.4.4 GESTOR DE CACHÉ</h3>
+      <div id="2040104013" class="content-block">
+        <div class="cache-manager-card">
+          <div class="manager-icon">🚀</div>
+          <div class="manager-content">
+            <p>Optimiza las E/S mediante la gestión de almacenamiento intermedio de memoria para dispositivos de tipo bloques. El tamaño de la caché de bloques varía dinámicamente en función de la memoria RAM disponible, y los bloques se escriben a los dispositivos según la política que se tenga definida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.4.5 MANEJADORES DE DISPOSITIVO DRIVERS</h3>
+      <div id="2040104014" class="content-block">
+        <div class="drivers-card">
+          <p>Un controlador de dispositivo es un Interfaz software que permite al sistema operativo interactuar con un periférico. El driver proporciona una interfaz de alto nivel sobre los dispositivos traduciendo internamente las operaciones de control al lenguaje del propio dispositivo. Éste enfoque tiene las siguientes ventajas:</p>
+          
+          <div class="advantages">
+            <div class="advantage-item">
+              <div class="advantage-icon">🔍</div>
+              <div class="advantage-text">Oculta la complejidad del hardware subyacente al sistema operativo y a las aplicaciones.</div>
+            </div>
+            <div class="advantage-item">
+              <div class="advantage-icon">🔄</div>
+              <div class="advantage-text">Permite la ampliación de las capacidades futuras del sistema operativo.</div>
+            </div>
+            <div class="advantage-item">
+              <div class="advantage-icon">🔒</div>
+              <div class="advantage-text">Es más seguro al no permitir a las aplicaciones acceder directamente a los dispositivos.</div>
+            </div>
+          </div>
+          
+          <p>Los drivers son dependientes del hardware, normalmente proporcionados por el fabricante y específicos del sistema operativo (en particular del Kernel). Sin el driver el hardware no se puede utilizar.</p>
+          
+          <p>Generalmente tiene dos capas diferenciadas:</p>
+          <ul class="driver-layers">
+            <li><span class="layer-bullet">•</span> Interfaz estandarizada que debe adaptarse a las especificaciones dadas por el propio sistema operativo.</li>
+            <li><span class="layer-bullet">•</span> Interfaz con el dispositivo definida totalmente por el fabricante. Es la encargada de traducir las órdenes estandarizadas del sistema operativo a las características propias del hardware, aprovechando su diseño y arquitectura.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="2040104015" class="content-block">
+        <div class="whql-card">
+          <div class="whql-icon">✅</div>
+          <div class="whql-content">
+            <p>Drivers WHQL: Drivers certificados por Microsoft (laboratorios de calidad de hardware de Windows – Windows Hardware Quality Laboratory) que garantizan que el hardware, periférico o software es compatible con el sistema operativo Microsoft Windows.</p>
+            <p>Una vez que el driver es certificado es firmado por Microsoft. Algunos sistemas windows no permiten instalar drivers no firmados salvo que se desactive la exigencia de la firma de los drivers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📁";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Filesystems Table */
+  .filesystems-table-container {
+    overflow-x: auto;
+  }
+  
+  .filesystems-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .filesystems-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .filesystems-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .filesystems-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .filesystems-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .filesystems-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .filesystems-table td {
+    padding: 12px 15px;
+    vertical-align: top;
+  }
+  
+  .fs-name {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    white-space: nowrap;
+  }
+  
+  .fs-description p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .fs-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .fs-features li {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  
+  .feature-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Comparison Card */
+  .comparison-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .comparison-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .comparison-table-container {
+    overflow-x: auto;
+  }
+  
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .comparison-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .comparison-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .comparison-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .comparison-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .comparison-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .comparison-table td {
+    padding: 12px 15px;
+  }
+  
+  /* Network Manager Card */
+  .network-manager-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .manager-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .manager-content {
+    flex: 1;
+  }
+  
+  .manager-functions {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .manager-functions li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .function-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Block Manager Card */
+  .block-manager-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .device-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .device-type {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .device-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .device-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .device-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .device-content {
+    padding: 15px;
+  }
+  
+  .device-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .device-features li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  /* Cache Manager Card */
+  .cache-manager-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Drivers Card */
+  .drivers-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .advantage-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .advantage-item:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .advantage-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .advantage-text {
+    font-weight: 500;
+  }
+  
+  .driver-layers {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .driver-layers li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .layer-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* WHQL Card */
+  .whql-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .whql-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .whql-content {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .network-manager-card, .cache-manager-card, .whql-card {
+      flex-direction: column;
+    }
+    
+    .manager-icon, .whql-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .device-types {
+      flex-direction: column;
+    }
+    
+    .filesystems-table-container, .comparison-table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+    
+    .device-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .device-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,143 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas Operativos para Dispositivos Móviles</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>8.1. SISTEMAS OPERATIVOS PARA DISPOSITIVOS MÓVILES</h2>
-  
-  <span id="2040801001">
-    <h3>Android</h3>
-    <p>Android es el sistema operativo móvil más utilizado del mundo, con una cuota de mercado del 71% en el año 2023. iOS tiene una cuota de mercado de 28%.</p>
-    <p>Está basado en una versión modificada del núcleo Linux junto a software de código abierto. Fue diseñado para dispositivos móviles con pantalla táctil, smartphones, tabletas. Actualmente se utiliza en relojes inteligentes (Wear OS), automóviles (Android Auto y Android Automotive), televisores, consolas de videojuegos, cámaras digitales, etc.</p>
-    <p>Inicialmente fue desarrollado por Android Inc., empresa adquirida por Google en 2005. Android fue presentado en 2007 por la Open Handset Alliance.</p>
-    <p>El código fuente principal de Android es libre y open source, licenciado bajo Licencia Apache bajo el proyecto Android Open Source Project (AOSP).</p>
-  
-    <h4>Arquitectura Android</h4>
-    <ul>
-      <li><strong>Kernel:</strong> Basado en Linux, permite aprovechar sus ventajas de seguridad y desarrollo de controladores.</li>
-      <li  id = "2040801011"><strong>Capa de abstracción de hardware (HAL):</strong> Proporciona interfaces estándares para exponer las capacidades del hardware.</li>
-      <li><strong>Tiempo de ejecución de Android (ART):</strong> Entorno de ejecución que reemplazó a Dalvik desde Android 5.0.</li>
-      <li><strong>Bibliotecas C/C++ nativas</strong></li>
-      <li><strong>Marco de trabajo de la API de Java:</strong> Conjunto de funciones del SO Android disponibles mediante APIs escritas en Java.</li>
-      <li><strong>Apps del sistema:</strong> Conjunto de aplicaciones centrales para funciones básicas.</li>
-    </ul>
-  
-    <span id = "2040801005">
-      <h4>Versiones de Android</h4>
-      <table>
-        <tr>
-          <th>Nombre</th>
-          <th>Número de versión</th>
-          <th>Fecha de lanzamiento</th>
-          <th>Nivel de API</th>
-        </tr>
-        <tr><td>Apple Pie</td><td>1.0</td><td>23 de septiembre de 2008</td><td>1</td></tr>
-        <tr><td>Banana Bread</td><td>1.1</td><td>9 de febrero de 2009</td><td>2</td></tr>
-        <tr><td>Cupcake</td><td>1.5</td><td>25 de abril de 2009</td><td>3</td></tr>
-        <tr><td>Donut</td><td>1.6</td><td>15 de septiembre de 2009</td><td>4</td></tr>
-        <tr><td>Eclair</td><td>2.0 - 2.1</td><td>26 de octubre de 2009</td><td>5-7</td></tr>
-        <tr><td>Froyo</td><td>2.2 - 2.2.3</td><td>20 de mayo de 2010</td><td>8</td></tr>
-        <tr><td>Gingerbread</td><td>2.3 - 2.3.7</td><td>6 de diciembre de 2010</td><td>9 - 10</td></tr>
-        <tr><td>Honeycomb</td><td>3.0 - 3.2.6</td><td>22 de febrero de 2011</td><td>11 - 13</td></tr>
-        <tr><td>Ice Cream Sandwich</td><td>4.0 - 4.0.5</td><td>18 de octubre de 2011</td><td>14 - 15</td></tr>
-        <tr><td>Jelly Bean</td><td>4.1 - 4.3.1</td><td>9 de julio de 2012</td><td>16 - 18</td></tr>
-        <tr><td>KitKat</td><td>4.4 - 4.4.4</td><td>31 de octubre de 2013</td><td>19 - 20</td></tr>
-        <tr><td>Lollipop</td><td>5.0 - 5.1.1</td><td>12 de noviembre de 2014</td><td>21 - 22</td></tr>
-        <tr><td>Marshmallow</td><td>6.0 - 6.0.1</td><td>5 de octubre de 2015</td><td>23</td></tr>
-        <tr><td>Nougat</td><td>7.0 - 7.1.2</td><td>15 de junio de 2016</td><td>24 - 25</td></tr>
-        <tr><td>Oreo</td><td>8.0 - 8.1</td><td>21 de agosto de 2017</td><td>26 - 27</td></tr>
-        <tr><td>Pie</td><td>9.0</td><td>6 de agosto de 2018</td><td>28</td></tr>
-        <tr><td>Android 10</td><td>10.0</td><td>3 de septiembre de 2019</td><td>29</td></tr>
-        <tr><td>Android 11</td><td>11.0</td><td>8 de septiembre de 2020</td><td>30</td></tr>
-        <tr><td>Android 12</td><td>12.0</td><td>Octubre de 2021</td><td>31-32</td></tr>
-        <tr><td>Android 13 (Tiramisú)</td><td>13.0</td><td>Agosto 2022</td><td>33</td></tr>
-        <tr><td>Android 14 (Upside Down Cake)</td><td>14.0</td><td>Octubre 2023</td><td>34</td></tr>
-      </table>
-    </span>
-  
-    <span  id = "2040801006">
-      <h4>Android Go</h4>
-      <p>Versión reducida de Android diseñada para smartphones de gama baja con 2GB de RAM o menos. Disponible desde Android Oreo.</p>
-      <table>
-        <tr>
-          <th>Nombre</th>
-          <th>Números de versión</th>
-          <th>Fecha de lanzamiento</th>
-        </tr>
-        <tr><td>Oreo (Go edition)</td><td>8.1</td><td>5 de diciembre de 2017</td></tr>
-        <tr><td>Pie (Go edition)</td><td>9</td><td>15 de agosto de 2018</td></tr>
-        <tr><td>10 (Go edition)</td><td>10</td><td>25 de septiembre de 2019</td></tr>
-        <tr><td>11 (Go edition)</td><td>11</td><td>10 de septiembre de 2020</td></tr>
-        <tr><td>12 Snow Cone (Go edition)</td><td>12</td><td>Diciembre 2021</td></tr>
-        <tr><td>13 Tiramisu (Go edition)</td><td>13</td><td>Octubre 2022</td></tr>
-      </table>
-    </span>
-  
-    <span  id = "2040801007">
-      <h4>Novedades Android 12</h4>
-      <ul>
-        <li>Material You: Evolución de Material Design.</li>
-        <li>Wifi: Nueva acción "Cercano" para transferir credenciales de red.</li>
-        <li>Mejoras en la privacidad: Iconos para mostrar uso de cámara o micrófono.</li>
-        <li>AppSearch: Nuevo motor de búsqueda para encontrar archivos dentro de una aplicación.</li>
-        <li>Modo a una mano: Desplaza el contenido de la pantalla hacia abajo.</li>
-        <li>Doble toque recuperado: Vuelven las acciones rápidas.</li>
-        <li>Nuevos formatos de imagen y vídeo: Soporte para AVIF y HECVC.</li>
-        <li>Compatibilidad con NFC: Opción de abrir el coche con móviles compatibles con ultra wide band.</li>
-        <li>Optimización del rendimiento: Mejoras en la comunicación sistema-hardware.</li>
-      </ul>
-    </span>
-  </span>
-  
-  <span id="2040801002">
-    <span  id = "2040801008">
-      <h3>iOS</h3>
-      <p>Sistema operativo móvil de Apple Inc., originalmente desarrollado para iPhone. No permite su instalación en hardware de terceros.</p>
-      <p>iOS es un sistema operativo tipo Unix derivado de macOS, que a su vez está basado en Darwin BSD.</p>
-    </span>
-    <h4>Arquitectura iOS</h4>
-    <p>El sistema operativo iOS está distribuido en cuatro capas:</p>
-    <ol>
-      <li><strong>Cocoa Touch:</strong> Capa superior, encargada de la interfaz gráfica.</li>
-      <li><strong>Media:</strong> Proporciona acceso a funciones multimedia.</li>
-      <li><strong>Core Services:</strong> Ofrece API para acceder a servicios principales del dispositivo.</li>
-      <li  id = "2040801013"><strong>Core OS:</strong> El núcleo del sistema basado en Darwin.</li>
-    </ol>
-  
-    <span  id = "2040801009">
-      <p>Las aplicaciones para iOS se desarrollan con Xcode, el entorno de desarrollo integrado (IDE) de Apple. Xcode incluye la colección de compiladores del proyecto GNU (GCC) y puede compilar código C, C++, Swift, Objective-C, Objective-C++, Java y AppleScript.</p>
-    </span>
-  
-    <span  id = "2040801010">
-      <p>Los desarrolladores pueden poner un precio por encima del mínimo ($0.99 dólares) a sus aplicaciones para distribuirlas en el App Store, de donde recibirán el 70% del dinero que produzca la aplicación.</p>
-    </span>
-  
-    <p>La última versión de iOS es la 21C62 liberada en diciembre de 2022.</p>
-  </span>
-  
-  <span id="2040801003">
-    <h3>Otros Sistemas Operativos Móviles</h3>
-    <ul>
-      <li>iOS</li>
-      <li>BlackBerry OS</li>
-      <li>Windows 10 Mobile</li>
-      <li>Tizen</li>
-      <li>Fire OS</li>
-    </ul>
-  </span>
-  
-  <span id="2040801004">
-    <h3>Conclusión</h3>
-    <p>Los sistemas operativos han ganado complejidad a lo largo del tiempo, evolucionando junto con el hardware. Para exámenes, es importante conocer:</p>
-    <ul>
-      <li>Algoritmos de paginación</li>
-      <li>Planificador de procesos</li>
-      <li>Planificador de acceso a disco</li>
-      <li>Shell de Linux y Windows</li>
-      <li>Distribuciones de Linux</li>
-      <li>Versiones de Android</li>
-      <li>Sistemas de ficheros</li>
-      <li>Sistemas operativos móviles</li>
-    </ul>
-  </span>
-  
+    <h2 class="section-title">8.1. SISTEMAS OPERATIVOS PARA DISPOSITIVOS MÓVILES</h2>
+    
+    <div id="2040801001" class="content-block">
+      <div class="android-card">
+        <h3 class="card-title">Android</h3>
+        <div class="intro-section">
+          <div class="intro-icon">🤖</div>
+          <div class="intro-content">
+            <p>Android es el sistema operativo móvil más utilizado del mundo, con una cuota de mercado del 71% en el año 2023. iOS tiene una cuota de mercado de 28%.</p>
+            <p>Está basado en una versión modificada del núcleo Linux junto a software de código abierto. Fue diseñado para dispositivos móviles con pantalla táctil, smartphones, tabletas. Actualmente se utiliza en relojes inteligentes (Wear OS), automóviles (Android Auto y Android Automotive), televisores, consolas de videojuegos, cámaras digitales, etc.</p>
+            <p>Inicialmente fue desarrollado por Android Inc., empresa adquirida por Google en 2005. Android fue presentado en 2007 por la Open Handset Alliance.</p>
+            <p>El código fuente principal de Android es libre y open source, licenciado bajo Licencia Apache bajo el proyecto Android Open Source Project (AOSP).</p>
+          </div>
+        </div>
+      
+        <div class="architecture-section">
+          <h4 class="subsection-title">Arquitectura Android</h4>
+          <ul class="architecture-list">
+            <li><span class="list-icon">🔧</span> <strong>Kernel:</strong> Basado en Linux, permite aprovechar sus ventajas de seguridad y desarrollo de controladores.</li>
+            <li id="2040801011"><span class="list-icon">🔄</span> <strong>Capa de abstracción de hardware (HAL):</strong> Proporciona interfaces estándares para exponer las capacidades del hardware.</li>
+            <li><span class="list-icon">⚙️</span> <strong>Tiempo de ejecución de Android (ART):</strong> Entorno de ejecución que reemplazó a Dalvik desde Android 5.0.</li>
+            <li><span class="list-icon">📚</span> <strong>Bibliotecas C/C++ nativas</strong></li>
+            <li><span class="list-icon">☕</span> <strong>Marco de trabajo de la API de Java:</strong> Conjunto de funciones del SO Android disponibles mediante APIs escritas en Java.</li>
+            <li><span class="list-icon">📱</span> <strong>Apps del sistema:</strong> Conjunto de aplicaciones centrales para funciones básicas.</li>
+          </ul>
+        </div>
+      
+        <div id="2040801005" class="versions-section">
+          <h4 class="subsection-title">Versiones de Android</h4>
+          <div class="table-container">
+            <table class="versions-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Número de versión</th>
+                  <th>Fecha de lanzamiento</th>
+                  <th>Nivel de API</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Apple Pie</td><td>1.0</td><td>23 de septiembre de 2008</td><td>1</td></tr>
+                <tr><td>Banana Bread</td><td>1.1</td><td>9 de febrero de 2009</td><td>2</td></tr>
+                <tr><td>Cupcake</td><td>1.5</td><td>25 de abril de 2009</td><td>3</td></tr>
+                <tr><td>Donut</td><td>1.6</td><td>15 de septiembre de 2009</td><td>4</td></tr>
+                <tr><td>Eclair</td><td>2.0 - 2.1</td><td>26 de octubre de 2009</td><td>5-7</td></tr>
+                <tr><td>Froyo</td><td>2.2 - 2.2.3</td><td>20 de mayo de 2010</td><td>8</td></tr>
+                <tr><td>Gingerbread</td><td>2.3 - 2.3.7</td><td>6 de diciembre de 2010</td><td>9 - 10</td></tr>
+                <tr><td>Honeycomb</td><td>3.0 - 3.2.6</td><td>22 de febrero de 2011</td><td>11 - 13</td></tr>
+                <tr><td>Ice Cream Sandwich</td><td>4.0 - 4.0.5</td><td>18 de octubre de 2011</td><td>14 - 15</td></tr>
+                <tr><td>Jelly Bean</td><td>4.1 - 4.3.1</td><td>9 de julio de 2012</td><td>16 - 18</td></tr>
+                <tr><td>KitKat</td><td>4.4 - 4.4.4</td><td>31 de octubre de 2013</td><td>19 - 20</td></tr>
+                <tr><td>Lollipop</td><td>5.0 - 5.1.1</td><td>12 de noviembre de 2014</td><td>21 - 22</td></tr>
+                <tr><td>Marshmallow</td><td>6.0 - 6.0.1</td><td>5 de octubre de 2015</td><td>23</td></tr>
+                <tr><td>Nougat</td><td>7.0 - 7.1.2</td><td>15 de junio de 2016</td><td>24 - 25</td></tr>
+                <tr><td>Oreo</td><td>8.0 - 8.1</td><td>21 de agosto de 2017</td><td>26 - 27</td></tr>
+                <tr><td>Pie</td><td>9.0</td><td>6 de agosto de 2018</td><td>28</td></tr>
+                <tr><td>Android 10</td><td>10.0</td><td>3 de septiembre de 2019</td><td>29</td></tr>
+                <tr><td>Android 11</td><td>11.0</td><td>8 de septiembre de 2020</td><td>30</td></tr>
+                <tr><td>Android 12</td><td>12.0</td><td>Octubre de 2021</td><td>31-32</td></tr>
+                <tr><td>Android 13 (Tiramisú)</td><td>13.0</td><td>Agosto 2022</td><td>33</td></tr>
+                <tr><td>Android 14 (Upside Down Cake)</td><td>14.0</td><td>Octubre 2023</td><td>34</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <div id="2040801006" class="android-go-section">
+          <h4 class="subsection-title">Android Go</h4>
+          <p>Versión reducida de Android diseñada para smartphones de gama baja con 2GB de RAM o menos. Disponible desde Android Oreo.</p>
+          <div class="table-container">
+            <table class="versions-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Números de versión</th>
+                  <th>Fecha de lanzamiento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Oreo (Go edition)</td><td>8.1</td><td>5 de diciembre de 2017</td></tr>
+                <tr><td>Pie (Go edition)</td><td>9</td><td>15 de agosto de 2018</td></tr>
+                <tr><td>10 (Go edition)</td><td>10</td><td>25 de septiembre de 2019</td></tr>
+                <tr><td>11 (Go edition)</td><td>11</td><td>10 de septiembre de 2020</td></tr>
+                <tr><td>12 Snow Cone (Go edition)</td><td>12</td><td>Diciembre 2021</td></tr>
+                <tr><td>13 Tiramisu (Go edition)</td><td>13</td><td>Octubre 2022</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <div id="2040801007" class="features-section">
+          <h4 class="subsection-title">Novedades Android 12</h4>
+          <ul class="features-list">
+            <li><span class="feature-icon">🎨</span> Material You: Evolución de Material Design.</li>
+            <li><span class="feature-icon">📶</span> Wifi: Nueva acción "Cercano" para transferir credenciales de red.</li>
+            <li><span class="feature-icon">🔒</span> Mejoras en la privacidad: Iconos para mostrar uso de cámara o micrófono.</li>
+            <li><span class="feature-icon">🔍</span> AppSearch: Nuevo motor de búsqueda para encontrar archivos dentro de una aplicación.</li>
+            <li><span class="feature-icon">👆</span> Modo a una mano: Desplaza el contenido de la pantalla hacia abajo.</li>
+            <li><span class="feature-icon">👇</span> Doble toque recuperado: Vuelven las acciones rápidas.</li>
+            <li><span class="feature-icon">🖼️</span> Nuevos formatos de imagen y vídeo: Soporte para AVIF y HECVC.</li>
+            <li><span class="feature-icon">🚗</span> Compatibilidad con NFC: Opción de abrir el coche con móviles compatibles con ultra wide band.</li>
+            <li><span class="feature-icon">⚡</span> Optimización del rendimiento: Mejoras en la comunicación sistema-hardware.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040801002" class="content-block">
+      <div class="ios-card">
+        <div id="2040801008" class="ios-intro">
+          <h3 class="card-title">iOS</h3>
+          <div class="intro-section">
+            <div class="intro-icon">🍎</div>
+            <div class="intro-content">
+              <p>Sistema operativo móvil de Apple Inc., originalmente desarrollado para iPhone. No permite su instalación en hardware de terceros.</p>
+              <p>iOS es un sistema operativo tipo Unix derivado de macOS, que a su vez está basado en Darwin BSD.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="architecture-section">
+          <h4 class="subsection-title">Arquitectura iOS</h4>
+          <p>El sistema operativo iOS está distribuido en cuatro capas:</p>
+          <ol class="architecture-layers">
+            <li><span class="layer-number">1</span> <strong>Cocoa Touch:</strong> Capa superior, encargada de la interfaz gráfica.</li>
+            <li><span class="layer-number">2</span> <strong>Media:</strong> Proporciona acceso a funciones multimedia.</li>
+            <li><span class="layer-number">3</span> <strong>Core Services:</strong> Ofrece API para acceder a servicios principales del dispositivo.</li>
+            <li id="2040801013"><span class="layer-number">4</span> <strong>Core OS:</strong> El núcleo del sistema basado en Darwin.</li>
+          </ol>
+        </div>
+      
+        <div id="2040801009" class="development-section">
+          <p>Las aplicaciones para iOS se desarrollan con Xcode, el entorno de desarrollo integrado (IDE) de Apple. Xcode incluye la colección de compiladores del proyecto GNU (GCC) y puede compilar código C, C++, Swift, Objective-C, Objective-C++, Java y AppleScript.</p>
+        </div>
+      
+        <div id="2040801010" class="app-store-section">
+          <p>Los desarrolladores pueden poner un precio por encima del mínimo ($0.99 dólares) a sus aplicaciones para distribuirlas en el App Store, de donde recibirán el 70% del dinero que produzca la aplicación.</p>
+        </div>
+      
+        <div class="version-info">
+          <p>La última versión de iOS es la 21C62 liberada en diciembre de 2022.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040801003" class="content-block">
+      <div class="other-os-card">
+        <h3 class="card-title">Otros Sistemas Operativos Móviles</h3>
+        <ul class="other-os-list">
+          <li><span class="os-icon">🍎</span> iOS</li>
+          <li><span class="os-icon">📱</span> BlackBerry OS</li>
+          <li><span class="os-icon">🪟</span> Windows 10 Mobile</li>
+          <li><span class="os-icon">📱</span> Tizen</li>
+          <li><span class="os-icon">🔥</span> Fire OS</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2040801004" class="content-block">
+      <div class="conclusion-card">
+        <h3 class="card-title">Conclusión</h3>
+        <p>Los sistemas operativos han ganado complejidad a lo largo del tiempo, evolucionando junto con el hardware. Para exámenes, es importante conocer:</p>
+        <ul class="conclusion-list">
+          <li><span class="conclusion-icon">📊</span> Algoritmos de paginación</li>
+          <li><span class="conclusion-icon">⚙️</span> Planificador de procesos</li>
+          <li><span class="conclusion-icon">💾</span> Planificador de acceso a disco</li>
+          <li><span class="conclusion-icon">🖥️</span> Shell de Linux y Windows</li>
+          <li><span class="conclusion-icon">🐧</span> Distribuciones de Linux</li>
+          <li><span class="conclusion-icon">🤖</span> Versiones de Android</li>
+          <li><span class="conclusion-icon">📁</span> Sistemas de ficheros</li>
+          <li><span class="conclusion-icon">📱</span> Sistemas operativos móviles</li>
+        </ul>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📱";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Android Card */
+  .android-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Section */
+  .intro-section {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Subsection Title */
+  .subsection-title {
+    color: var(--color-primary-dark);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+  }
+  
+  /* Architecture List */
+  .architecture-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .architecture-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .list-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Versions Table */
+  .versions-section, .android-go-section {
+    margin-top: 30px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .versions-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-top: 15px;
+  }
+  
+  .versions-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .versions-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .versions-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .versions-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .versions-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .versions-table td {
+    padding: 12px 15px;
+  }
+  
+  /* Features List */
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .features-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .features-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* iOS Card */
+  .ios-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Architecture Layers */
+  .architecture-layers {
+    padding-left: 20px;
+    margin: 15px 0;
+  }
+  
+  .architecture-layers li {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .layer-number {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Development & App Store Sections */
+  .development-section, .app-store-section, .version-info {
+    margin-top: 20px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Other OS Card */
+  .other-os-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .other-os-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .other-os-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .other-os-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .os-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Conclusion Card */
+  .conclusion-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .conclusion-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .conclusion-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .conclusion-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .conclusion-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-section {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .features-list, .other-os-list, .conclusion-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

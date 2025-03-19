@@ -1,134 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas GNU/Linux</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>7. SISTEMAS GNU/LINUX</h2>
-  
-  <span id="2040701001">
-    <p>Denominación técnica y generalizada que reciben una serie de sistemas operativos de tipo Unix, generalmente de código abierto, multiplataforma, multiusuario y multitarea.</p>
-    <p>Están formados mediante la combinación de varios proyectos, entre los cuales destacan:</p>
-    <ul>
-      <li>El núcleo de sistema operativo conocido como «Linux», encabezado por el programador finlandés Linus Torvalds.</li>
-      <li>El entorno GNU, encabezado por el programador estadounidense Richard Stallman junto a la Free Software Foundation, una fundación cuyo propósito es difundir el software libre.</li>
-    </ul>
-  </span>
-  
-  <span id="2040701002">
-    <h3>Modelos de liberación y soporte</h3>
-    <ul>
-      <li><strong>Liberación continua (Rolling release):</strong> Modelo de desarrollo de software donde el lanzamiento y las actualizaciones son continuas. Utilizado por Windows 10, OpenSuse, Gentoo Linux, Chromium OS…</li>
-      <li><strong>Soporte a corto plazo STS (Short Term Support):</strong> Versiones del software diseñadas para tener soporte durante un año a partir de su fecha de publicación.</li>
-      <li><strong>Soporte a largo plazo LTS (Long Term Support):</strong> Versiones del software diseñadas para tener soporte durante un tiempo más largo de lo normal. Por ejemplo, la versión de Ubuntu LTS tiene un soporte de 5 años mientras que la versión Ubuntu STS tiene un soporte de 9 meses.</li>
-    </ul>
-  </span>
-  
-  <span id="2040701003">
-    <h3>Distribuciones de Linux populares</h3>
-    <table>
-      <tr>
-        <th>NOMBRE</th>
-        <th>DESCRIPCIÓN</th>
-      </tr>
-      <tr>
-        <td>Red Hat Enterprise Linux</td>
-        <td>Conocida como RHEL. Distribución comercial de GNU/Linux desarrollada por Red Hat.</td>
-      </tr>
-      <tr>
-        <td>Fedora</td>
-        <td>Versión libre basada en el antiguo Red Hat Linux</td>
-      </tr>
-      <tr id="2040701009">
-        <td>CentOS</td>
-        <td>Bifurcación a nivel binario de la distribución GNU/Linux Red Hat Enterprise Linux RHEL. Utilizado por los nodos de la Red Sara.</td>
-      </tr>
-      <tr>
-        <td>Ubuntu</td>
-        <td>Distribución de Linux basada en Debian patrocinada por la empresa Canonical.</td>
-      </tr>
-      <tr>
-        <td>Debian</td>
-        <td>Una de las distribuciones más antiguas y respetadas.</td>
-      </tr>
-      <tr>
-        <td>openSUSE</td>
-        <td>Distribución auspiciada por SUSE Linux y AMD</td>
-      </tr>
-      <tr>
-        <td>Kali</td>
-        <td>Distribución basada en Debian diseñada para realizar pruebas de penetración en sistemas de información, auditorías de seguridad y hackeo ético</td>
-      </tr>
-    </table>
-  </span>
-  
-  <span id="2040701004">
-    <h3>Comandos de Linux</h3>
-    <p>Linux es famoso por la potencia de su Shell. A continuación se presenta una clasificación de los comandos más importantes:</p>
-  
-    <h4>Comandos de propósito general</h4>
-    <ul id="2040701014">
-      <li><strong>alias:</strong> Escribe un alias para la orden especificada</li>
-      <li><strong>clear:</strong> Limpia la pantalla</li>
-      <li><strong>echo:</strong> Salida de caracteres por pantalla</li>
-      <li><strong>exit:</strong> Sale de un script/sesión/bucle</li>
-      <li><strong>reboot:</strong> Reiniciar el sistema</li>
-      <li><strong>shutdown:</strong> Apagar el sistema de forma parametrizada</li>
-      <li><strong>man:</strong> Muestra el manual de un comando o fichero</li>
-      <li><strong>su:</strong> Permite cambiar de usuario sin necesidad de cerrar la sesión</li>
-      <li><strong>sudo:</strong> Permite a los usuarios ejecutar programas con los privilegios de seguridad de otro usuario</li>
-    </ul>
-  
-    <h4>Comandos de operación de ficheros</h4>
-    <ul id="2040701055">
-      <li><strong>cp:</strong> Copia un fichero</li>
-      <li><strong>mv:</strong> Mover ficheros/directorios</li>
-      <li><strong>ls:</strong> Lista los ficheros y directorios de un directorio</li>
-      <li><strong>rm:</strong> Borra ficheros</li>
-      <li><strong>mkdir:</strong> Crea el directorio</li>
-      <li><strong>cd:</strong> Accede a un directorio</li>
-      <li><strong>pwd:</strong> Muestra la ruta actual</li>
-      <li><strong>find:</strong> Busca ficheros que coincidan con los parámetros especificados</li>
-      <li><strong>grep:</strong> Buscar cadena en ficheros</li>
-    </ul>
-  
-    <h4>Comandos de red</h4>
-    <ul id="2040701010">
-      <li><strong>ifconfig:</strong> Ver configuración de red</li>
-      <li><strong>ping:</strong> Realiza un echo request a la dirección indicada</li>
-      <li><strong>tracert:</strong> Muestra la ruta que sigue un paquete hasta llegar a su destino</li>
-      <li><strong>route:</strong> Permite mostrar y modificar la tabla de enrutamiento residente en el kernel</li>
-      <li><strong>ssh:</strong> Secure Shell, para conexiones seguras</li>
-      <li><strong>wget:</strong> Recupera contenido y archivos de un servidor web</li>
-    </ul>
-  
-    <h4>Comandos de manejo de paquetes de instalación</h4>
-    <ul id="2040701015">
-      <li><strong>rpm:</strong> Red Hat Package Manager</li>
-      <li><strong>apt:</strong> Gestor de paquetes de las distribuciones basadas en Debian o Ubuntu</li>
-      <li><strong>yum:</strong> Gestor de paquetes que mejora la instalación de paquetes rpm</li>
-    </ul>
-  </span>
-  
-  <span id="2040701005">
-    <h3>Ficheros de red importantes</h3>
-    <ul>
-      <li id="2040701011"><strong>/etc/hosts:</strong> Resuelve los nombres de hosts que no pueden ser resueltos de ningún otro modo</li>
-      <li><strong>/etc/resolv.conf:</strong> Especifica la dirección de los servidores DNS</li>
-      <li><strong>/etc/sysconfig/network-scripts/ifcfg-nombre-interfaz:</strong> Proporciona información específica de una interfaz de red determinada</li>
-      <li><strong>/etc/hosts.deny:</strong> Permite indicar qué equipos están denegados explícitamente para conectarse a varios servicios de red</li>
-      <li><strong>/etc/hosts.allow:</strong> Permite indicar qué equipos están autorizados explícitamente para conectarse a varios servicios de red</li>
-    </ul>
-  </span>
-  
-  <span id="2040701006">
-    <h3>Montaje de sistemas de ficheros</h3>
-    <p><strong>mount:</strong> Monta un dispositivo</p>
-    <pre><code>mount -t vfat /dev/fd0 /mnt/floppy
-  mount -t iso9660 /dev/cdrom /mnt/cdrom
-  mount -t vfat /dev/hda1 /mnt/win
-  mount -t vfat /dev/sdb1 /mnt/usb</code></pre>
-    <p><strong>umount:</strong> Desmonta la unidad</p>
-    <pre><code>umount /dev/hda1</code></pre>
-  </span>
-  
+    <h2 class="section-title">7. SISTEMAS GNU/LINUX</h2>
+    
+    <div id="2040701001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🐧</div>
+        <div class="intro-content">
+          <p>Denominación técnica y generalizada que reciben una serie de sistemas operativos de tipo Unix, generalmente de código abierto, multiplataforma, multiusuario y multitarea.</p>
+          <p>Están formados mediante la combinación de varios proyectos, entre los cuales destacan:</p>
+          <ul class="intro-list">
+            <li><span class="list-icon">🐧</span> El núcleo de sistema operativo conocido como «Linux», encabezado por el programador finlandés Linus Torvalds.</li>
+            <li><span class="list-icon">🔄</span> El entorno GNU, encabezado por el programador estadounidense Richard Stallman junto a la Free Software Foundation, una fundación cuyo propósito es difundir el software libre.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040701002" class="content-block">
+      <div class="release-models-card">
+        <h3 class="card-title">Modelos de liberación y soporte</h3>
+        <ul class="release-models-list">
+          <li>
+            <div class="model-icon">🔄</div>
+            <div class="model-content">
+              <strong>Liberación continua (Rolling release):</strong> Modelo de desarrollo de software donde el lanzamiento y las actualizaciones son continuas. Utilizado por Windows 10, OpenSuse, Gentoo Linux, Chromium OS…
+            </div>
+          </li>
+          <li>
+            <div class="model-icon">⏱️</div>
+            <div class="model-content">
+              <strong>Soporte a corto plazo STS (Short Term Support):</strong> Versiones del software diseñadas para tener soporte durante un año a partir de su fecha de publicación.
+            </div>
+          </li>
+          <li>
+            <div class="model-icon">📆</div>
+            <div class="model-content">
+              <strong>Soporte a largo plazo LTS (Long Term Support):</strong> Versiones del software diseñadas para tener soporte durante un tiempo más largo de lo normal. Por ejemplo, la versión de Ubuntu LTS tiene un soporte de 5 años mientras que la versión Ubuntu STS tiene un soporte de 9 meses.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2040701003" class="content-block">
+      <div class="distros-card">
+        <h3 class="card-title">Distribuciones de Linux populares</h3>
+        <div class="table-container">
+          <table class="distros-table">
+            <thead>
+              <tr>
+                <th>NOMBRE</th>
+                <th>DESCRIPCIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="distro-name">Red Hat Enterprise Linux</td>
+                <td>Conocida como RHEL. Distribución comercial de GNU/Linux desarrollada por Red Hat.</td>
+              </tr>
+              <tr>
+                <td class="distro-name">Fedora</td>
+                <td>Versión libre basada en el antiguo Red Hat Linux</td>
+              </tr>
+              <tr id="2040701009">
+                <td class="distro-name">CentOS</td>
+                <td>Bifurcación a nivel binario de la distribución GNU/Linux Red Hat Enterprise Linux RHEL. Utilizado por los nodos de la Red Sara.</td>
+              </tr>
+              <tr>
+                <td class="distro-name">Ubuntu</td>
+                <td>Distribución de Linux basada en Debian patrocinada por la empresa Canonical.</td>
+              </tr>
+              <tr>
+                <td class="distro-name">Debian</td>
+                <td>Una de las distribuciones más antiguas y respetadas.</td>
+              </tr>
+              <tr>
+                <td class="distro-name">openSUSE</td>
+                <td>Distribución auspiciada por SUSE Linux y AMD</td>
+              </tr>
+              <tr>
+                <td class="distro-name">Kali</td>
+                <td>Distribución basada en Debian diseñada para realizar pruebas de penetración en sistemas de información, auditorías de seguridad y hackeo ético</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040701004" class="content-block">
+      <div class="commands-card">
+        <h3 class="card-title">Comandos de Linux</h3>
+        <p>Linux es famoso por la potencia de su Shell. A continuación se presenta una clasificación de los comandos más importantes:</p>
+      
+        <div class="commands-section">
+          <h4 class="commands-category">Comandos de propósito general</h4>
+          <ul id="2040701014" class="commands-list">
+            <li>
+              <div class="command-name">alias</div>
+              <div class="command-desc">Escribe un alias para la orden especificada</div>
+            </li>
+            <li>
+              <div class="command-name">clear</div>
+              <div class="command-desc">Limpia la pantalla</div>
+            </li>
+            <li>
+              <div class="command-name">echo</div>
+              <div class="command-desc">Salida de caracteres por pantalla</div>
+            </li>
+            <li>
+              <div class="command-name">exit</div>
+              <div class="command-desc">Sale de un script/sesión/bucle</div>
+            </li>
+            <li>
+              <div class="command-name">reboot</div>
+              <div class="command-desc">Reiniciar el sistema</div>
+            </li>
+            <li>
+              <div class="command-name">shutdown</div>
+              <div class="command-desc">Apagar el sistema de forma parametrizada</div>
+            </li>
+            <li>
+              <div class="command-name">man</div>
+              <div class="command-desc">Muestra el manual de un comando o fichero</div>
+            </li>
+            <li>
+              <div class="command-name">su</div>
+              <div class="command-desc">Permite cambiar de usuario sin necesidad de cerrar la sesión</div>
+            </li>
+            <li>
+              <div class="command-name">sudo</div>
+              <div class="command-desc">Permite a los usuarios ejecutar programas con los privilegios de seguridad de otro usuario</div>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="commands-section">
+          <h4 class="commands-category">Comandos de operación de ficheros</h4>
+          <ul id="2040701055" class="commands-list">
+            <li>
+              <div class="command-name">cp</div>
+              <div class="command-desc">Copia un fichero</div>
+            </li>
+            <li>
+              <div class="command-name">mv</div>
+              <div class="command-desc">Mover ficheros/directorios</div>
+            </li>
+            <li>
+              <div class="command-name">ls</div>
+              <div class="command-desc">Lista los ficheros y directorios de un directorio</div>
+            </li>
+            <li>
+              <div class="command-name">rm</div>
+              <div class="command-desc">Borra ficheros</div>
+            </li>
+            <li>
+              <div class="command-name">mkdir</div>
+              <div class="command-desc">Crea el directorio</div>
+            </li>
+            <li>
+              <div class="command-name">cd</div>
+              <div class="command-desc">Accede a un directorio</div>
+            </li>
+            <li>
+              <div class="command-name">pwd</div>
+              <div class="command-desc">Muestra la ruta actual</div>
+            </li>
+            <li>
+              <div class="command-name">find</div>
+              <div class="command-desc">Busca ficheros que coincidan con los parámetros especificados</div>
+            </li>
+            <li>
+              <div class="command-name">grep</div>
+              <div class="command-desc">Buscar cadena en ficheros</div>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="commands-section">
+          <h4 class="commands-category">Comandos de red</h4>
+          <ul id="2040701010" class="commands-list">
+            <li>
+              <div class="command-name">ifconfig</div>
+              <div class="command-desc">Ver configuración de red</div>
+            </li>
+            <li>
+              <div class="command-name">ping</div>
+              <div class="command-desc">Realiza un echo request a la dirección indicada</div>
+            </li>
+            <li>
+              <div class="command-name">tracert</div>
+              <div class="command-desc">Muestra la ruta que sigue un paquete hasta llegar a su destino</div>
+            </li>
+            <li>
+              <div class="command-name">route</div>
+              <div class="command-desc">Permite mostrar y modificar la tabla de enrutamiento residente en el kernel</div>
+            </li>
+            <li>
+              <div class="command-name">ssh</div>
+              <div class="command-desc">Secure Shell, para conexiones seguras</div>
+            </li>
+            <li>
+              <div class="command-name">wget</div>
+              <div class="command-desc">Recupera contenido y archivos de un servidor web</div>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="commands-section">
+          <h4 class="commands-category">Comandos de manejo de paquetes de instalación</h4>
+          <ul id="2040701015" class="commands-list">
+            <li>
+              <div class="command-name">rpm</div>
+              <div class="command-desc">Red Hat Package Manager</div>
+            </li>
+            <li>
+              <div class="command-name">apt</div>
+              <div class="command-desc">Gestor de paquetes de las distribuciones basadas en Debian o Ubuntu</div>
+            </li>
+            <li>
+              <div class="command-name">yum</div>
+              <div class="command-desc">Gestor de paquetes que mejora la instalación de paquetes rpm</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040701005" class="content-block">
+      <div class="network-files-card">
+        <h3 class="card-title">Ficheros de red importantes</h3>
+        <ul class="network-files-list">
+          <li id="2040701011">
+            <div class="file-name">/etc/hosts</div>
+            <div class="file-desc">Resuelve los nombres de hosts que no pueden ser resueltos de ningún otro modo</div>
+          </li>
+          <li>
+            <div class="file-name">/etc/resolv.conf</div>
+            <div class="file-desc">Especifica la dirección de los servidores DNS</div>
+          </li>
+          <li>
+            <div class="file-name">/etc/sysconfig/network-scripts/ifcfg-nombre-interfaz</div>
+            <div class="file-desc">Proporciona información específica de una interfaz de red determinada</div>
+          </li>
+          <li>
+            <div class="file-name">/etc/hosts.deny</div>
+            <div class="file-desc">Permite indicar qué equipos están denegados explícitamente para conectarse a varios servicios de red</div>
+          </li>
+          <li>
+            <div class="file-name">/etc/hosts.allow</div>
+            <div class="file-desc">Permite indicar qué equipos están autorizados explícitamente para conectarse a varios servicios de red</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2040701006" class="content-block">
+      <div class="mount-card">
+        <h3 class="card-title">Montaje de sistemas de ficheros</h3>
+        <div class="command-section">
+          <div class="command-title">
+            <div class="command-icon">📂</div>
+            <h4>mount: Monta un dispositivo</h4>
+          </div>
+          <div class="command-examples">
+            <pre><code>mount -t vfat /dev/fd0 /mnt/floppy
+mount -t iso9660 /dev/cdrom /mnt/cdrom
+mount -t vfat /dev/hda1 /mnt/win
+mount -t vfat /dev/sdb1 /mnt/usb</code></pre>
+          </div>
+        </div>
+        
+        <div class="command-section">
+          <div class="command-title">
+            <div class="command-icon">🔌</div>
+            <h4>umount: Desmonta la unidad</h4>
+          </div>
+          <div class="command-examples">
+            <pre><code>umount /dev/hda1</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🐧";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .intro-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+  
+  .intro-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .list-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Release Models Card */
+  .release-models-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .release-models-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .release-models-list li {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .release-models-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .model-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .model-content {
+    flex: 1;
+  }
+  
+  /* Distros Card */
+  .distros-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .distros-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .distros-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .distros-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .distros-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .distros-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .distros-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .distros-table td {
+    padding: 12px 15px;
+  }
+  
+  .distro-name {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Commands Card */
+  .commands-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .commands-section {
+    margin-bottom: 30px;
+  }
+  
+  .commands-category {
+    color: var(--color-primary-dark);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+  }
+  
+  .commands-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .commands-list li {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .commands-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .command-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .command-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* Network Files Card */
+  .network-files-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .network-files-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .network-files-list li {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .network-files-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .file-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+  }
+  
+  .file-desc {
+    font-size: 0.95rem;
+  }
+  
+  /* Mount Card */
+  .mount-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .command-section {
+    margin-bottom: 20px;
+  }
+  
+  .command-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .command-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .command-title h4 {
+    margin: 0;
+    color: var(--color-primary-dark);
+  }
+  
+  .command-examples {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .command-examples pre {
+    margin: 0;
+    overflow-x: auto;
+  }
+  
+  .command-examples code {
+    font-family: 'Courier New', monospace;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .release-models-list li {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .model-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .commands-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .command-title {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .command-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

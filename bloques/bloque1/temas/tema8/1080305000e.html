@@ -1,46 +1,186 @@
-<div class="teoria">
-    <!-- punto 3.5 : NORMAS DE CONFORMIDAD -->
-    <article>
-    <h2>3.5. NORMAS DE CONFORMIDAD (ART. 35 – ART. 38)</h2>
-    
-    <table>
-      <caption>Tabla 15. Normas de conformidad</caption>
-      <thead>
-        <tr>
-          <th>Norma de conformidad</th>
-          <th>Descripción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Administración digital</td>
-          <td id="1080305001">
-            - La seguridad de los sistemas de información que sustentan la administración digital se regirá por este RD.<br>
-            - El CCN es el órgano competente para garantizar la interoperabilidad en materia de ciberseguridad y criptografía, en relación con el ENI.
-          </td>
-        </tr>
-        <tr>
-          <td>Ciclo de vida de servicios y sistemas</td>
-          <td id="1080305002">Las especificaciones de seguridad se incluirán en el ciclo de vida de los servicios y sistemas.</td>
-        </tr>
-        <tr>
-          <td>Mecanismos de control</td>
-          <td id="1080305003">Cada órgano titular de los sistemas de información dentro del ámbito de este RD, establecerá sus mecanismos de control para garantizar el ENS.</td>
-        </tr>
-        <tr>
-          <td>Procedimientos de determinación de la conformidad con el ENS</td>
-          <td id="1080305004">
-            - Los sistemas de información comprendidos en el ámbito del art. 2 serán objeto de un proceso para determinar su conformidad con el ENS:<br>
-            - Categoría MEDIA o ALTA: precisarán de una auditoría para la certificación de su conformidad, sin perjuicio de la auditoría prevista en el art. 31 que podrá servir asimismo para los fines de la certificación.<br>
-            - Categoría BÁSICA: solo requerirán de una autoevaluación para su declaración de la conformidad, sin perjuicio de que se puedan someter igualmente a una auditoria de certificación.<br>
-            - Tanto el procedimiento de autoevaluación como la auditoría de certificación se realizarán según el art. 31 y el anexo III y la correspondiente Instrucción Técnica de Seguridad.<br>
-            - Los sujetos responsables de los sistemas de información a que se refiere el apartado anterior darán publicidad, en los correspondientes portales de internet o sedes electrónicas a las declaraciones y certificaciones de conformidad con el ENS.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
-    </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normas de Conformidad</title>
+</head>
+<body>
+  <div class="container">
+    <div class="teoria">
+      <article>
+        <h2>3.5. NORMAS DE CONFORMIDAD (ART. 35 – ART. 38)</h2>
+      
+        <div class="table-container">
+          <table>
+            <caption>Tabla 15. Normas de conformidad</caption>
+            <thead>
+              <tr>
+                <th>Norma de conformidad</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="norm-name">Administración digital</td>
+                <td id="1080305001">
+                  <ul class="feature-list">
+                    <li>La seguridad de los sistemas de información que sustentan la administración digital se regirá por este RD.</li>
+                    <li>El CCN es el órgano competente para garantizar la interoperabilidad en materia de ciberseguridad y criptografía, en relación con el ENI.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="norm-name">Ciclo de vida de servicios y sistemas</td>
+                <td id="1080305002">Las especificaciones de seguridad se incluirán en el ciclo de vida de los servicios y sistemas.</td>
+              </tr>
+              <tr>
+                <td class="norm-name">Mecanismos de control</td>
+                <td id="1080305003">Cada órgano titular de los sistemas de información dentro del ámbito de este RD, establecerá sus mecanismos de control para garantizar el ENS.</td>
+              </tr>
+              <tr>
+                <td class="norm-name">Procedimientos de determinación de la conformidad con el ENS</td>
+                <td id="1080305004">
+                  <ul class="feature-list">
+                    <li>Los sistemas de información comprendidos en el ámbito del art. 2 serán objeto de un proceso para determinar su conformidad con el ENS:</li>
+                    <li>Categoría MEDIA o ALTA: precisarán de una auditoría para la certificación de su conformidad, sin perjuicio de la auditoría prevista en el art. 31 que podrá servir asimismo para los fines de la certificación.</li>
+                    <li>Categoría BÁSICA: solo requerirán de una autoevaluación para su declaración de la conformidad, sin perjuicio de que se puedan someter igualmente a una auditoria de certificación.</li>
+                    <li>Tanto el procedimiento de autoevaluación como la auditoría de certificación se realizarán según el art. 31 y el anexo III y la correspondiente Instrucción Técnica de Seguridad.</li>
+                    <li>Los sujetos responsables de los sistemas de información a que se refiere el apartado anterior darán publicidad, en los correspondientes portales de internet o sedes electrónicas a las declaraciones y certificaciones de conformidad con el ENS.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
     </div>
-    
-    
+  </div>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .teoria {
+      background-color: var(--color-white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: 30px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+
+    h2::before {
+      content: "🔒";
+      margin-right: 10px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: var(--shadow-sm);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    caption {
+      font-weight: bold;
+      padding: 12px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 8px 8px 0 0;
+    }
+
+    th {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      border-bottom: 2px solid var(--color-primary);
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.02);
+    }
+
+    tr:hover {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+
+    .norm-name {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      width: 30%;
+    }
+
+    .norm-name::before {
+      content: "🔐";
+      margin-right: 8px;
+    }
+
+    .feature-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .feature-list li {
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .feature-list li::marker {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      .teoria {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+
+      .norm-name {
+        width: auto;
+      }
+    }
+  </style>
+</body>
+</html>

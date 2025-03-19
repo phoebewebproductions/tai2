@@ -1,184 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bases de Datos Orientadas a Objetos</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>6. BASES DE DATOS ORIENTADAS A OBJETOS</h2>
-  
-  <h3>6.1. INTRODUCCIÓN A LAS BDOO</h3>
-  
-  <span id="2050601001">
-  <p>Un sistema de gestión de base de datos orientada a objetos (ODBMS, Object Database Management System) representa la información en forma de objetos, tal y como son utilizados en la programación orientada a objetos.</p>
-  
-  <p>Podemos realizar la siguiente analogía entre una base de datos relacional y una base de datos orientada a objetos:</p>
-  
-  <table border="1">
-    <tr>
-      <th>Base de datos relacional</th>
-      <th>Ejemplo Relacional</th>
-      <th>Base de datos orientada a objetos</th>
-      <th>Ejemplo BBDD Orientada a Objetos</th>
-    </tr>
-    <tr>
-      <td>Tabla</td>
-      <td>Tabla cliente</td>
-      <td>Clase</td>
-      <td>Clase Cliente</td>
-    </tr>
-    <tr>
-      <td>Registro</td>
-      <td></td>
-      <td>Objeto</td>
-      <td>Instancia de Cliente</td>
-    </tr>
-    <tr>
-      <td>Insert</td>
-      <td></td>
-      <td>Crear un objeto de la clase</td>
-      <td>Cliente clienteNuevo = new Cliente()</td>
-    </tr>
-    <tr>
-      <td>Update</td>
-      <td></td>
-      <td>Modificar un objeto</td>
-      <td>Cliente8.nombre="Juan"</td>
-    </tr>
-    <tr>
-      <td>Delete</td>
-      <td></td>
-      <td>Eliminar un objeto</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Select</td>
-      <td></td>
-      <td>Obtener una lista de objetos</td>
-      <td></td>
-    </tr>
-  </table>
-  </span>
-  
-  <span id="2050601002">
-  <p>Un ODBMS integra las características de las bases de datos con las de un lenguaje de programación orientada a objetos, haciendo que los objetos de la base de datos se mapeen como objetos de los lenguajes de programación orientados a objetos a los que da soporte. A su vez, extiende de forma transparente los lenguajes orientados a objetos con las siguientes características:</p>
-  <ul>
-    <li>Trabajar con datos persistentes.</li>
-    <li>Control de concurrencia</li>
-    <li>Recuperación y filtrado de datos</li>
-    <li>Consultas asociativas.</li>
-  </ul>
-  
-  <p>Actualmente los ODBMS trabajan con lenguajes orientados a objetos como Java, C++, C#, Visual Basic.net, Delphi, Ruby, Python, Perl, etc.</p>
-  
-  <p>El ODMG (Object Database Management Group) es el grupo de trabajo encargado de proporcionar estándares sobre base de datos orientada a objetos.</p>
-  </span>
-  
-  <h3>6.2. CARACTERÍSTICAS DE LAS BDOO</h3>
-  
-  <span id="2050601003">
-  <p>Las principales características de las bases de datos orientadas a objetos se pueden dividir en tres grupos:</p>
-  
-  <h4>6.2.1. MANDATORIAS</h4>
-  <p>Aquellas características que deben estar en la BDOO de forma obligatoria, es decir, los requisitos imprescindibles que el sistema debe tener:</p>
-  <ul>
-    <li>Debe soportar objetos complejos.</li>
-    <li>Los objetos deben tener un identificador al margen de los valores de sus atributos.</li>
-    <li>Encapsulación, es decir, los datos e implementación de los métodos están ocultos en los objetos.</li>
-    <li>El esquema de la BDOO tiene un conjunto de clases.</li>
-    <li>Concurrencia.</li>
-    <li>Recuperación.</li>
-    <li>Persistencia y manejador de almacenamiento secundario.</li>
-    <li>Facilidad de consulta.</li>
-  </ul>
-  
-  <h4>6.2.2. OPCIONALES</h4>
-  <p>Características que no es necesario incluirlas, pero si la BDOO cuenta con ellas, hará que el sistema sea mejor, entre otras:</p>
-  <ul>
-    <li>Herencia múltiple.</li>
-    <li>Diseño de transacciones y versiones.</li>
-    <li>Comprobación de clases e inferencia de la distribución.</li>
-  </ul>
-  
-  <h4>6.2.3. ABIERTAS</h4>
-  <p>Características que el diseñador puede implementar y que están relacionadas con la programación.</p>
-  </span>
-  
-  <h3>6.3. CONCEPTOS CLAVE DEL MODELO DE OBJETOS</h3>
-  
-  <span id="2050601004">
-  <p>Las BDOO cuentan con conceptos propios y clave del modelo de objetos, entre los que se encuentran estas propiedades:</p>
-  
-  <ul>
-    <li><strong>Encapsulación:</strong> Oculta información al resto de objetos, de manera que pueden impedir los conflictos o los accesos incorrectos. Consiste en unir en la clase las variables (características) y los métodos (comportamientos), de manera que solo se tiene una unidad, de la que se conoce su comportamiento, pero no los detalles internos.</li>
-    <li><strong>Herencia:</strong> Hace referencia a que los objetos heredan comportamientos dentro de una jerarquía de clases, es decir, una clase se deriva de otra de manera que extiende su funcionalidad. La clase de la que se hereda puede llamarse clase base, clase padre, superclase, clase ancestro, etc. (dependiendo del lenguaje de programación que se esté usando)</li>
-    <li><strong>Polimorfismo:</strong> Propiedad que permite que una operación pueda aplicarse a objetos de distinta tipología.</li>
-  </ul>
-  </span>
-  
-  <h3>6.4. VENTAJAS Y DESVENTAJAS</h3>
-  
-  <span id="2050601005">
-  <h4>6.4.1. VENTAJAS</h4>
-  <p>Entre las principales ventajas con las que cuentan las bases de datos orientadas a objetos tenemos las siguientes:</p>
-  <ul>
-    <li>Son las más adecuadas si trabajamos con lenguajes de programación orientados a objetos, puesto que los objetos del código fuente se pueden integrar fácilmente en la base de datos.</li>
-    <li>Permiten manipular conjuntos de datos complejos de manera más rápida, tanto para guardarse como para su consulta. A cada objeto se le asigna de forma automática un código de identificación.</li>
-    <li>Alto nivel de confiabilidad en la ejecución de transacciones ACID, es decir, las transacciones se completan solo cuando no existen conflictos con los datos.</li>
-    <li>Cuentan con un mecanismo de almacenamiento en caché que crea réplicas parciales de la base de datos, lo que mejora su rendimiento.</li>
-    <li>Son capaces de manejar grandes volúmenes de datos.</li>
-  </ul>
-  
-  <h4>6.4.2. DESVENTAJAS</h4>
-  <ul>
-    <li>El uso de las BDOO está poco extendido aún por lo que todavía no hay criterios claros de estandarización.</li>
-    <li>Existe poca documentación sobre los proyectos que las han implementado.</li>
-  </ul>
-  </span>
-  
-  <h3>6.5. ESTRUCTURA Y FUNCIONAMIENTO</h3>
-  
-  <span id="2050601006">
-  <h4>6.5.1. ESTRUCTURA</h4>
-  <p>La estructura de una base de datos orientada a objetos se basa en encapsular los datos y el código relacionado con cada objeto en una sola unidad. Las interacciones entre los objetos y el resto del sistema se realizan mediante una interfaz que se define mediante un conjunto de mensajes permitidos.</p>
-  
-  <p>Los objetos están asociados a conjuntos de variables con los datos del objeto, de mensajes a los que responde (con o sin parámetros) y de métodos (que con el código que implementa un mensaje).</p>
-  
-  <p>La estructura de estas BDOO se diseña a partir de una serie de diagramas:</p>
-  <ul>
-    <li><strong>Diagrama de clases:</strong> Presenta las clases con sus respectivas relaciones estructurales y de herencia</li>
-    <li><strong>Diagrama de objetos (opcional):</strong> Ayuda a clarificar las instancias de las clases.</li>
-    <li><strong>Diagrama de secuencias:</strong> Presenta las interacciones entre los objetos organizados en una secuencia temporal y describe cómo colaboran.</li>
-    <li><strong>Diagrama de estado:</strong> Muestra los posibles estados en los que pueden estar un objeto y las transacciones que pueden realizar.</li>
-  </ul>
-  
-  <h4>6.5.2. FUNCIONAMIENTO</h4>
-  <p>La base de datos orientada a objetos se fundamenta en agrupar la información en paquetes relacionados entre sí.</p>
-  <ul>
-    <li>Los datos de cada registro se combinan en un solo objeto y a su vez se incluyen todos sus atributos.</li>
-    <li>A diferencia de lo que ocurre con la distribución en tablas de otras bases de datos, en las BDOO toda la información está disponible en el objeto y no repartida en filas y columnas.</li>
-    <li>Los métodos, es decir el conjunto de acciones que pueden llevarse a cabo en cada objeto, también se pueden agrupar.</li>
-    <li>Los objetos a su vez se dividen en clases, creando así una jerarquía de clases y subclases, en la que las subclases heredan las propiedades de las clases superiores y las complementan con sus propios atributos.</li>
-    <li>Esta jerarquía no es estricta, puesto que los objetos de una clase pueden relacionarse con otras clases, formando redes.</li>
-    <li>Los objetos simples pueden combinarse para crear objetos más complejos.</li>
-    <li>El sistema de gestión de base de datos orientadas a objetos asigna de forma automática un código de identificación único e inmutable a cada registro, permitiendo así recuperar los objetos cuando estos se han guardado y realizar consultas.</li>
-    <li>En estas bases de datos, los objetos tienen relaciones de varios a varios, en las que los indicadores son los encargados de establecer dichas relaciones entre objetos.</li>
-    <li>Las BDOO no emplean lenguaje SQL, sino lenguajes de programación.</li>
-  </ul>
-  </span>
-  
-  <h3>6.6. CARACTERÍSTICAS ADICIONALES</h3>
-  
-  <span id="2050601007">
-  <ul>
-    <li>La mayoría de bases de datos orientadas a objetos incluyen algún tipo de lenguaje para realizar consultas, lo cual permite que los objetos sean encontrados utilizando un enfoque de programación declarativa.</li>
-    <li>En una base de datos orientada a objetos, el acceso a los datos es más rápido debido a que los Joins casi nunca son necesarios, a diferencia de lo que ocurre con las bases de datos relacionales. Un objeto puede ser recuperado directamente sin una búsqueda, simplemente siguiendo los punteros.</li>
-    <li>Un área en la que los diferentes productos pueden variar es la forma en la que el esquema de la base de datos es definido. Sin embargo, una característica general es que el lenguaje de programación y el esquema de la base de datos utilizan la misma definición de tipos.</li>
-    <li>Las aplicaciones multimedia se agilizan debido a que los métodos de clase asociados con los datos son responsables de una correcta interpretación.</li>
-    <li>Muchas bases de datos orientadas a objetos ofrecen soporte para control de versiones. Un objeto puede ser visto como un conjunto de todas sus versiones. También las versiones de objetos pueden ser tratadas como objetos por derecho propio.</li>
-    <li>Algunas bases de datos orientadas a objetos también proporcionan soporte sistemático para triggers y restricciones.</li>
-    <li>La eficiencia de una base de datos orientada a objetos también ha mejorado considerablemente en áreas en las cuales se requieren cantidades masivas de datos sobre un elemento. Por ejemplo, una entidad bancaria podría obtener la información de la cuenta de un usuario y proporcionarle eficientemente información muy extensa conteniendo todas las transacciones, todas las entradas con información de la cuenta, etc.</li>
-    <li>Una base de datos orientada a objetos almacena datos complejos y relaciones entre datos directamente, sin asignar filas y columnas, y esto hace que sean más adecuadas para aplicaciones que tratan con datos muy complejos.</li>
-    <li>Otro beneficio adicional de una base de datos orientada a objetos es que puede ser programada con pequeñas diferencias de procedimientos sin afectar a todo el sistema.</li>
-  </ul>
-  </span>
-  
+    <h2 class="section-title">6. BASES DE DATOS ORIENTADAS A OBJETOS</h2>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.1. INTRODUCCIÓN A LAS BDOO</h3>
+      
+      <div id="2050601001" class="content-block">
+        <div class="intro-card">
+          <div class="intro-icon">🧩</div>
+          <div class="intro-content">
+            <p>Un sistema de gestión de base de datos orientada a objetos (ODBMS, Object Database Management System) representa la información en forma de objetos, tal y como son utilizados en la programación orientada a objetos.</p>
+            
+            <p>Podemos realizar la siguiente analogía entre una base de datos relacional y una base de datos orientada a objetos:</p>
+            
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Base de datos relacional</th>
+                    <th>Ejemplo Relacional</th>
+                    <th>Base de datos orientada a objetos</th>
+                    <th>Ejemplo BBDD Orientada a Objetos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tabla</td>
+                    <td>Tabla cliente</td>
+                    <td>Clase</td>
+                    <td>Clase Cliente</td>
+                  </tr>
+                  <tr>
+                    <td>Registro</td>
+                    <td></td>
+                    <td>Objeto</td>
+                    <td>Instancia de Cliente</td>
+                  </tr>
+                  <tr>
+                    <td>Insert</td>
+                    <td></td>
+                    <td>Crear un objeto de la clase</td>
+                    <td>Cliente clienteNuevo = new Cliente()</td>
+                  </tr>
+                  <tr>
+                    <td>Update</td>
+                    <td></td>
+                    <td>Modificar un objeto</td>
+                    <td>Cliente8.nombre="Juan"</td>
+                  </tr>
+                  <tr>
+                    <td>Delete</td>
+                    <td></td>
+                    <td>Eliminar un objeto</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Select</td>
+                    <td></td>
+                    <td>Obtener una lista de objetos</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2050601002" class="content-block">
+        <div class="features-card">
+          <p>Un ODBMS integra las características de las bases de datos con las de un lenguaje de programación orientada a objetos, haciendo que los objetos de la base de datos se mapeen como objetos de los lenguajes de programación orientados a objetos a los que da soporte. A su vez, extiende de forma transparente los lenguajes orientados a objetos con las siguientes características:</p>
+          <ul class="feature-list">
+            <li><span class="feature-icon">💾</span> Trabajar con datos persistentes.</li>
+            <li><span class="feature-icon">🔄</span> Control de concurrencia</li>
+            <li><span class="feature-icon">🔍</span> Recuperación y filtrado de datos</li>
+            <li><span class="feature-icon">🔎</span> Consultas asociativas.</li>
+          </ul>
+          
+          <p>Actualmente los ODBMS trabajan con lenguajes orientados a objetos como Java, C++, C#, Visual Basic.net, Delphi, Ruby, Python, Perl, etc.</p>
+          
+          <p>El ODMG (Object Database Management Group) es el grupo de trabajo encargado de proporcionar estándares sobre base de datos orientada a objetos.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.2. CARACTERÍSTICAS DE LAS BDOO</h3>
+      
+      <div id="2050601003" class="content-block">
+        <div class="characteristics-card">
+          <p>Las principales características de las bases de datos orientadas a objetos se pueden dividir en tres grupos:</p>
+          
+          <div class="characteristic-group">
+            <h4 class="group-title">6.2.1. MANDATORIAS</h4>
+            <p>Aquellas características que deben estar en la BDOO de forma obligatoria, es decir, los requisitos imprescindibles que el sistema debe tener:</p>
+            <ul class="characteristic-list">
+              <li><span class="characteristic-icon">🧩</span> Debe soportar objetos complejos.</li>
+              <li><span class="characteristic-icon">🆔</span> Los objetos deben tener un identificador al margen de los valores de sus atributos.</li>
+              <li><span class="characteristic-icon">📦</span> Encapsulación, es decir, los datos e implementación de los métodos están ocultos en los objetos.</li>
+              <li><span class="characteristic-icon">🏗️</span> El esquema de la BDOO tiene un conjunto de clases.</li>
+              <li><span class="characteristic-icon">🔄</span> Concurrencia.</li>
+              <li><span class="characteristic-icon">🔄</span> Recuperación.</li>
+              <li><span class="characteristic-icon">💾</span> Persistencia y manejador de almacenamiento secundario.</li>
+              <li><span class="characteristic-icon">🔍</span> Facilidad de consulta.</li>
+            </ul>
+          </div>
+          
+          <div class="characteristic-group">
+            <h4 class="group-title">6.2.2. OPCIONALES</h4>
+            <p>Características que no es necesario incluirlas, pero si la BDOO cuenta con ellas, hará que el sistema sea mejor, entre otras:</p>
+            <ul class="characteristic-list">
+              <li><span class="characteristic-icon">🔄</span> Herencia múltiple.</li>
+              <li><span class="characteristic-icon">🔄</span> Diseño de transacciones y versiones.</li>
+              <li><span class="characteristic-icon">🔍</span> Comprobación de clases e inferencia de la distribución.</li>
+            </ul>
+          </div>
+          
+          <div class="characteristic-group">
+            <h4 class="group-title">6.2.3. ABIERTAS</h4>
+            <p>Características que el diseñador puede implementar y que están relacionadas con la programación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.3. CONCEPTOS CLAVE DEL MODELO DE OBJETOS</h3>
+      
+      <div id="2050601004" class="content-block">
+        <div class="key-concepts-card">
+          <p>Las BDOO cuentan con conceptos propios y clave del modelo de objetos, entre los que se encuentran estas propiedades:</p>
+          
+          <ul class="key-concept-list">
+            <li>
+              <div class="concept-icon">📦</div>
+              <div class="concept-content">
+                <strong>Encapsulación:</strong> Oculta información al resto de objetos, de manera que pueden impedir los conflictos o los accesos incorrectos. Consiste en unir en la clase las variables (características) y los métodos (comportamientos), de manera que solo se tiene una unidad, de la que se conoce su comportamiento, pero no los detalles internos.
+              </div>
+            </li>
+            <li>
+              <div class="concept-icon">🔄</div>
+              <div class="concept-content">
+                <strong>Herencia:</strong> Hace referencia a que los objetos heredan comportamientos dentro de una jerarquía de clases, es decir, una clase se deriva de otra de manera que extiende su funcionalidad. La clase de la que se hereda puede llamarse clase base, clase padre, superclase, clase ancestro, etc. (dependiendo del lenguaje de programación que se esté usando)
+              </div>
+            </li>
+            <li>
+              <div class="concept-icon">🔄</div>
+              <div class="concept-content">
+                <strong>Polimorfismo:</strong> Propiedad que permite que una operación pueda aplicarse a objetos de distinta tipología.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.4. VENTAJAS Y DESVENTAJAS</h3>
+      
+      <div id="2050601005" class="content-block">
+        <div class="pros-cons-card">
+          <div class="pros-section">
+            <h4 class="section-title">6.4.1. VENTAJAS</h4>
+            <p>Entre las principales ventajas con las que cuentan las bases de datos orientadas a objetos tenemos las siguientes:</p>
+            <ul class="pros-list">
+              <li><span class="pros-icon">✅</span> Son las más adecuadas si trabajamos con lenguajes de programación orientados a objetos, puesto que los objetos del código fuente se pueden integrar fácilmente en la base de datos.</li>
+              <li><span class="pros-icon">✅</span> Permiten manipular conjuntos de datos complejos de manera más rápida, tanto para guardarse como para su consulta. A cada objeto se le asigna de forma automática un código de identificación.</li>
+              <li><span class="pros-icon">✅</span> Alto nivel de confiabilidad en la ejecución de transacciones ACID, es decir, las transacciones se completan solo cuando no existen conflictos con los datos.</li>
+              <li><span class="pros-icon">✅</span> Cuentan con un mecanismo de almacenamiento en caché que crea réplicas parciales de la base de datos, lo que mejora su rendimiento.</li>
+              <li><span class="pros-icon">✅</span> Son capaces de manejar grandes volúmenes de datos.</li>
+            </ul>
+          </div>
+          
+          <div class="cons-section">
+            <h4 class="section-title">6.4.2. DESVENTAJAS</h4>
+            <ul class="cons-list">
+              <li><span class="cons-icon">❌</span> El uso de las BDOO está poco extendido aún por lo que todavía no hay criterios claros de estandarización.</li>
+              <li><span class="cons-icon">❌</span> Existe poca documentación sobre los proyectos que las han implementado.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.5. ESTRUCTURA Y FUNCIONAMIENTO</h3>
+      
+      <div id="2050601006" class="content-block">
+        <div class="structure-function-card">
+          <div class="structure-section">
+            <h4 class="section-title">6.5.1. ESTRUCTURA</h4>
+            <p>La estructura de una base de datos orientada a objetos se basa en encapsular los datos y el código relacionado con cada objeto en una sola unidad. Las interacciones entre los objetos y el resto del sistema se realizan mediante una interfaz que se define mediante un conjunto de mensajes permitidos.</p>
+            
+            <p>Los objetos están asociados a conjuntos de variables con los datos del objeto, de mensajes a los que responde (con o sin parámetros) y de métodos (que con el código que implementa un mensaje).</p>
+            
+            <p>La estructura de estas BDOO se diseña a partir de una serie de diagramas:</p>
+            <ul class="diagram-list">
+              <li><span class="diagram-icon">📊</span> <strong>Diagrama de clases:</strong> Presenta las clases con sus respectivas relaciones estructurales y de herencia</li>
+              <li><span class="diagram-icon">📊</span> <strong>Diagrama de objetos (opcional):</strong> Ayuda a clarificar las instancias de las clases.</li>
+              <li><span class="diagram-icon">📊</span> <strong>Diagrama de secuencias:</strong> Presenta las interacciones entre los objetos organizados en una secuencia temporal y describe cómo colaboran.</li>
+              <li><span class="diagram-icon">📊</span> <strong>Diagrama de estado:</strong> Muestra los posibles estados en los que pueden estar un objeto y las transacciones que pueden realizar.</li>
+            </ul>
+          </div>
+          
+          <div class="function-section">
+            <h4 class="section-title">6.5.2. FUNCIONAMIENTO</h4>
+            <p>La base de datos orientada a objetos se fundamenta en agrupar la información en paquetes relacionados entre sí.</p>
+            <ul class="function-list">
+              <li><span class="function-icon">📦</span> Los datos de cada registro se combinan en un solo objeto y a su vez se incluyen todos sus atributos.</li>
+              <li><span class="function-icon">📊</span> A diferencia de lo que ocurre con la distribución en tablas de otras bases de datos, en las BDOO toda la información está disponible en el objeto y no repartida en filas y columnas.</li>
+              <li><span class="function-icon">⚙️</span> Los métodos, es decir el conjunto de acciones que pueden llevarse a cabo en cada objeto, también se pueden agrupar.</li>
+              <li><span class="function-icon">🔄</span> Los objetos a su vez se dividen en clases, creando así una jerarquía de clases y subclases, en la que las subclases heredan las propiedades de las clases superiores y las complementan con sus propios atributos.</li>
+              <li><span class="function-icon">🔄</span> Esta jerarquía no es estricta, puesto que los objetos de una clase pueden relacionarse con otras clases, formando redes.</li>
+              <li><span class="function-icon">🧩</span> Los objetos simples pueden combinarse para crear objetos más complejos.</li>
+              <li><span class="function-icon">🆔</span> El sistema de gestión de base de datos orientadas a objetos asigna de forma automática un código de identificación único e inmutable a cada registro, permitiendo así recuperar los objetos cuando estos se han guardado y realizar consultas.</li>
+              <li><span class="function-icon">🔗</span> En estas bases de datos, los objetos tienen relaciones de varios a varios, en las que los indicadores son los encargados de establecer dichas relaciones entre objetos.</li>
+              <li><span class="function-icon">💻</span> Las BDOO no emplean lenguaje SQL, sino lenguajes de programación.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-container">
+      <h3 class="subsection-title">6.6. CARACTERÍSTICAS ADICIONALES</h3>
+      
+      <div id="2050601007" class="content-block">
+        <div class="additional-features-card">
+          <ul class="additional-features-list">
+            <li>
+              <div class="feature-icon">🔍</div>
+              <div class="feature-content">
+                La mayoría de bases de datos orientadas a objetos incluyen algún tipo de lenguaje para realizar consultas, lo cual permite que los objetos sean encontrados utilizando un enfoque de programación declarativa.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">⚡</div>
+              <div class="feature-content">
+                En una base de datos orientada a objetos, el acceso a los datos es más rápido debido a que los Joins casi nunca son necesarios, a diferencia de lo que ocurre con las bases de datos relacionales. Un objeto puede ser recuperado directamente sin una búsqueda, simplemente siguiendo los punteros.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🏗️</div>
+              <div class="feature-content">
+                Un área en la que los diferentes productos pueden variar es la forma en la que el esquema de la base de datos es definido. Sin embargo, una característica general es que el lenguaje de programación y el esquema de la base de datos utilizan la misma definición de tipos.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🎬</div>
+              <div class="feature-content">
+                Las aplicaciones multimedia se agilizan debido a que los métodos de clase asociados con los datos son responsables de una correcta interpretación.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                Muchas bases de datos orientadas a objetos ofrecen soporte para control de versiones. Un objeto puede ser visto como un conjunto de todas sus versiones. También las versiones de objetos pueden ser tratadas como objetos por derecho propio.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">⚙️</div>
+              <div class="feature-content">
+                Algunas bases de datos orientadas a objetos también proporcionan soporte sistemático para triggers y restricciones.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">📈</div>
+              <div class="feature-content">
+                La eficiencia de una base de datos orientada a objetos también ha mejorado considerablemente en áreas en las cuales se requieren cantidades masivas de datos sobre un elemento. Por ejemplo, una entidad bancaria podría obtener la información de la cuenta de un usuario y proporcionarle eficientemente información muy extensa conteniendo todas las transacciones, todas las entradas con información de la cuenta, etc.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🧩</div>
+              <div class="feature-content">
+                Una base de datos orientada a objetos almacena datos complejos y relaciones entre datos directamente, sin asignar filas y columnas, y esto hace que sean más adecuadas para aplicaciones que tratan con datos muy complejos.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                Otro beneficio adicional de una base de datos orientada a objetos es que puede ser programada con pequeñas diferencias de procedimientos sin afectar a todo el sistema.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🧩";
+    margin-right: 10px;
+  }
+  
+  .section-container {
+    margin-bottom: 2rem;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Comparison Table */
+  .table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .comparison-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .comparison-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .comparison-table tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  /* Features Card */
+  .features-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .feature-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Characteristics Card */
+  .characteristics-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .characteristic-group {
+    margin-top: 20px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .group-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--color-primary-light);
+    padding-bottom: 5px;
+  }
+  
+  .characteristic-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .characteristic-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .characteristic-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Key Concepts Card */
+  .key-concepts-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .key-concept-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .key-concept-list li {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .key-concept-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .concept-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .concept-content {
+    flex: 1;
+  }
+  
+  /* Pros Cons Card */
+  .pros-cons-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .pros-section, .cons-section {
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--color-primary-light);
+    padding-bottom: 5px;
+  }
+  
+  .pros-list, .cons-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .pros-list li, .cons-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .pros-icon, .cons-icon {
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Structure Function Card */
+  .structure-function-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .structure-section, .function-section {
+    margin-top: 20px;
+  }
+  
+  .diagram-list, .function-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .diagram-list li, .function-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .diagram-icon, .function-icon {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Additional Features Card */
+  .additional-features-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .additional-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .additional-features-list li {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .additional-features-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .key-concept-list li, .additional-features-list li {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .concept-icon, .feature-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+</style>
+</body>
+</html>

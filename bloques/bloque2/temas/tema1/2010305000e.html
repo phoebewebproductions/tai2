@@ -1,163 +1,934 @@
-<div class="teoria">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buses</title>
+</head>
+<body>
+  <div class="teoria">
     <article>
-      <!-- punto 3.5 : Buses -->
-      <h2>3.5. BUSES</h2>
+      <h2 class="section-title">3.5. BUSES</h2>
       
-      <span id="2010305001">
+      <div id="2010305001" class="intro-card">
         <p>Como hemos visto anteriormente, los componentes internos de un sistema microinformático intercambian datos entre sí y con el exterior a través de buses de comunicaciones.</p>
-      </span>
-  
-      <h3>3.5.1. CLASIFICACIÓN DE BUSES SEGÚN LA INFORMACIÓN QUE TRANSFIEREN</h3>
-      <span id="2010305002">
-        <ol>
-          <li><strong>Bus de datos:</strong> Permite el intercambio de información entre la CPU y el resto de componentes.</li>
-          <li><strong>Bus de direcciones:</strong> Se trata de un bus independiente del bus de datos donde se transfiere la dirección de memoria del dato que se está comunicando.</li>
-          <li><strong>Bus de control:</strong> Donde se controla y gestiona el uso y acceso a las líneas de datos y direcciones.</li>
-        </ol>
-      </span>
-  
-      <h3>3.5.2. CLASIFICACIÓN DE BUSES SEGÚN EL MODO DE TRANSMISIÓN</h3>
-      <span id="2010305003">
-        <ol start="4">
-          <li><strong>Bus serie:</strong> El bus transfiere los datos bit a bit, normalmente por un único cable.</li>
-          <li><strong>Bus paralelo:</strong> El bus dispone de varios hilos que le permiten transmitir varios bits a la vez.</li>
-        </ol>
-      </span>
-  
-      <h3>3.5.3. TIPOS DE BUSES ESPECÍFICOS</h3>
-      <span id="2010305004">
-        <p>Según la terminología usada por los fabricantes, y su uso específico algunos de los buses más conocidos por orden cronológico son:</p>
-        <ol start="6">
-          <li><strong>Industry Standard Architecture (ISA):</strong> Es el bus de 16 bits de IBM PC/AT y otros equipos basados en el Intel 80286 durante los años 80. Su velocidad era de 8 a 16 MB/s. Este bus se intentó extender a 32 bits con un nuevo bus EISA (Extended-ISA), que no tuvo mucho éxito.</li>
-          <li><strong>Micro Channel architecture (MCA):</strong> Bus paralelo propietario de IBM de 16 y 32 bits. Alcanzaba velocidades de 80 MB/s.</li>
-          <li><strong>Video Electronics Standards Association (VESA):</strong> Bus en paralelo de 32 bits y compatible con ISA que intentó acelerar las operaciones de vídeo. Su velocidad alcanzaba los 200 MB/s.</li>
-          <li><strong>Peripheral Computer Interconnect (PCI):</strong> Este bus de datos paralelo, que data del año 1992, tiene una capacidad de 32 a 64 bits y se empleaba originalmente para dar servicio tanto a las tarjetas gráficas como a las tarjetas auxiliares que se podían conectar a un ordenador. Alcanza velocidades de hasta 533 MB/s (64 bit a 66 MHz).</li>
-          <li><strong>Bus Advanced Graphics Interface (AGP):</strong> El bus paralelo AGP se desarrolló como una derivación del bus PCI para conectar una tarjeta gráfica. La principal ventaja frente al bus PCI es que se conectaba directamente al procesador, sin tener que compartir ancho de banda con el bus PCI. Alcanza velocidades de hasta 2133 MB/s.</li>
-          <li><strong>Bus Peripheral Computer Interconnect Express (PCIe):</strong> Este bus está estructurado como carriles punto a punto, full-duplex, trabajando en serie. Se diseñó para ser el sustituto de los buses AGP y PCI con una interfaz que fuera modular en su diseño. Actualmente todos los componentes del sistema se conectan al bus PCIe. La última versión para el año 2021 (PCIE 6.0) podría alcanzar una velocidad de 126 GB/s con 16 carriles (7877 MB/s por carril).</li>
-          <li><strong>Bus Parallel AT Attachement:</strong> Conocido también como PATA, IDE o ATAPI, fue el primer estándar desarrollado para conectar las unidades de almacenamiento en los PC de IBM. Fue el estándar por defecto para dar servicio a este tipo de unidades, desde su introducción en 1986 hasta que se popularizó el estándar SATA actual.</li>
-          <li><strong>Bus Serial AT Attachement (SATA):</strong> El bus SATA es muy conocido ya que es el que conecta las unidades de almacenamiento de nuestro ordenador. Este bus llegó al mercado en el año 2003 y, a diferencia del bus PATA (Parallel AT Attachement), es un bus en serie.</li>
-          <li><strong>M.2:</strong> Al emplear una especificación física más flexible, permite diferentes anchos y longitudes de módulo, lo que, junto con la disponibilidad de funciones de interfaz más avanzadas, hace que M.2 sea más adecuado que SATA en general para aplicaciones de almacenamiento de estado sólido, particularmente en dispositivos más pequeños como ultrabooks y tabletas.</li>
-          <li><strong>Universal Serial Bus (USB):</strong> Se usa normalmente para conectar periféricos. Su velocidad depende de su versión, la versión 3.1 puede alcanzar 10 Gbit/s, la versión 3.2 hasta 20 Gbit/s y la última versión USB 4.0 toma velocidades de 10, 20 y 40 Gbit/s.</li>
-          <li><strong>Thunderbolt:</strong> Como en el caso de USB también se usa para conectar periféricos. De hecho, se confunde con este último, ya que usa un conector USB de tipo C. Actualmente existe la versión 4 y alcanza velocidades de 40 Gbit/s.</li>
-          <li><strong>HyperTransport:</strong> También conocido como Lighting Data Transport (LDT), que es una tecnología bidireccional de comunicaciones basada en paquetes, tanto en serie como paralelo, que ofrece un gran ancho de banda en conexiones de punto a punto y baja latencia. Es una conexión universal que está diseñada para reducir el número de buses dentro de un sistema, suministrando un enlace de alto rendimiento a las aplicaciones incorporadas. Su velocidad de transferencia máxima, utilizando líneas de 32 bits, tiene por cada uno de sus 2 buses un total de 20.8 GB/s (2.6GHz * (32bits / 8)), lo que supone la suma de 41,6 GB/s en ambas direcciones. Actualmente se está usando para sustituir al FSB.</li>
-          <li><strong>Quickpath interconnect:</strong> Tecnología punto a punto de Intel para competir con HyperTransport. La primera versión 1.0 permitía velocidades de transferencia de 25,6 GB/s en sentido bidireccional.</li>
-        </ol>
-      </span>
-  
-      <h3>3.5.4. COMPARATIVA DE BUSES</h3>
-      <span id="2010305005">
-        <table>
-          <thead>
-            <tr>
-              <th>Bus</th>
-              <th>Uso</th>
-              <th>Tipo</th>
-              <th>Tamaño</th>
-              <th>Transferencia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ISA</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>16 bits</td>
-              <td>4 – 5 MB/s</td>
-            </tr>
-            <tr>
-              <td>MCA</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>16-32 bits</td>
-              <td>80 MB/s</td>
-            </tr>
-            <tr>
-              <td>VESA</td>
-              <td>Video</td>
-              <td>Paralelo</td>
-              <td>32 bits</td>
-              <td>200 MB/s</td>
-            </tr>
-            <tr>
-              <td>FSB</td>
-              <td>CPU - Memoria</td>
-              <td>Paralelo</td>
-              <td>32-64 bits</td>
-              <td>400- 12000 MB/s</td>
-            </tr>
-            <tr>
-              <td>PCI</td>
-              <td>Expansión</td>
-              <td>Paralelo</td>
-              <td>32-64 bits</td>
-              <td>133 - 266 MB/s</td>
-            </tr>
-            <tr>
-              <td>AGP</td>
-              <td>Tarjetas gráficas</td>
-              <td>Paralelo</td>
-              <td>32 bits</td>
-              <td>533 - 2133 MB/s</td>
-            </tr>
-            <tr>
-              <td>PCIe</td>
-              <td>Expansión</td>
-              <td>Serie</td>
-              <td>1 – 32 bits</td>
-              <td>4 -126 GB/s (16 carriles)</td>
-            </tr>
-            <tr>
-              <td>PATA</td>
-              <td>Almacenamiento</td>
-              <td>Paralelo</td>
-              <td>16 bits</td>
-              <td>8, 3 – 133 MB/s</td>
-            </tr>
-            <tr>
-              <td>SATA</td>
-              <td>Almacenamiento</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>1,5 – 16 GB/s</td>
-            </tr>
-            <tr>
-              <td>M.2</td>
-              <td>Almacenamiento</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>10 - 32 GB/s</td>
-            </tr>
-            <tr>
-              <td>USB 4.0</td>
-              <td>Periféricos</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>10, 20, 40 Gbit/s</td>
-            </tr>
-            <tr>
-              <td>Thunderbolt 4</td>
-              <td>Periféricos</td>
-              <td>Serie</td>
-              <td>1</td>
-              <td>40 Gbit/s</td>
-            </tr>
-            <tr>
-              <td>HyperTransport</td>
-              <td>Interno genérico</td>
-              <td>Serie/paralelo</td>
-              <td>32 bits</td>
-              <td>41, 6 GB/s</td>
-            </tr>
-            <tr>
-              <td>Quickpath</td>
-              <td>Interno genérico</td>
-              <td>Serie/paralelo</td>
-              <td>32 bits</td>
-              <td>25, 6 GB/s</td>
-            </tr>
-          </tbody>
-        </table>
-      </span>
+      </div>
+
+      <div class="bus-tabs">
+        <input type="radio" name="bus-tabs" id="tab1" checked class="tab-input">
+        <label for="tab1" class="tab-label">
+          <span class="tab-icon">🔄</span>
+          <span class="tab-text">Por información</span>
+        </label>
+        
+        <input type="radio" name="bus-tabs" id="tab2" class="tab-input">
+        <label for="tab2" class="tab-label">
+          <span class="tab-icon">📊</span>
+          <span class="tab-text">Por transmisión</span>
+        </label>
+        
+        <input type="radio" name="bus-tabs" id="tab3" class="tab-input">
+        <label for="tab3" class="tab-label">
+          <span class="tab-icon">🔌</span>
+          <span class="tab-text">Tipos específicos</span>
+        </label>
+        
+        <input type="radio" name="bus-tabs" id="tab4" class="tab-input">
+        <label for="tab4" class="tab-label">
+          <span class="tab-icon">📊</span>
+          <span class="tab-text">Comparativa</span>
+        </label>
+        
+        <div class="tab-content" id="content1">
+          <h3 class="subsection-title">3.5.1. CLASIFICACIÓN DE BUSES SEGÚN LA INFORMACIÓN QUE TRANSFIEREN</h3>
+          <div id="2010305002" class="bus-types">
+            <div class="bus-type">
+              <div class="bus-icon">📊</div>
+              <div class="bus-content">
+                <h4 class="bus-title">1. Bus de datos</h4>
+                <p>Permite el intercambio de información entre la CPU y el resto de componentes.</p>
+                <div class="bus-illustration data-bus">
+                  <div class="bus-component cpu">CPU</div>
+                  <div class="bus-line"></div>
+                  <div class="bus-component ram">RAM</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bus-type">
+              <div class="bus-icon">🔍</div>
+              <div class="bus-content">
+                <h4 class="bus-title">2. Bus de direcciones</h4>
+                <p>Se trata de un bus independiente del bus de datos donde se transfiere la dirección de memoria del dato que se está comunicando.</p>
+                <div class="bus-illustration address-bus">
+                  <div class="bus-component cpu">CPU</div>
+                  <div class="bus-line"></div>
+                  <div class="bus-component ram">RAM</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bus-type">
+              <div class="bus-icon">🎮</div>
+              <div class="bus-content">
+                <h4 class="bus-title">3. Bus de control</h4>
+                <p>Donde se controla y gestiona el uso y acceso a las líneas de datos y direcciones.</p>
+                <div class="bus-illustration control-bus">
+                  <div class="bus-component cpu">CPU</div>
+                  <div class="bus-line"></div>
+                  <div class="bus-component controller">Controlador</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content2">
+          <h3 class="subsection-title">3.5.2. CLASIFICACIÓN DE BUSES SEGÚN EL MODO DE TRANSMISIÓN</h3>
+          <div id="2010305003" class="transmission-types">
+            <div class="transmission-type">
+              <div class="transmission-icon">📶</div>
+              <div class="transmission-content">
+                <h4 class="transmission-title">4. Bus serie</h4>
+                <p>El bus transfiere los datos bit a bit, normalmente por un único cable.</p>
+                <div class="transmission-illustration serial">
+                  <div class="transmission-component">Componente A</div>
+                  <div class="transmission-line">
+                    <div class="bit">1</div>
+                    <div class="bit">0</div>
+                    <div class="bit">1</div>
+                  </div>
+                  <div class="transmission-component">Componente B</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="transmission-type">
+              <div class="transmission-icon">📊</div>
+              <div class="transmission-content">
+                <h4 class="transmission-title">5. Bus paralelo</h4>
+                <p>El bus dispone de varios hilos que le permiten transmitir varios bits a la vez.</p>
+                <div class="transmission-illustration parallel">
+                  <div class="transmission-component">Componente A</div>
+                  <div class="transmission-lines">
+                    <div class="transmission-line">
+                      <div class="bit">1</div>
+                    </div>
+                    <div class="transmission-line">
+                      <div class="bit">0</div>
+                    </div>
+                    <div class="transmission-line">
+                      <div class="bit">1</div>
+                    </div>
+                  </div>
+                  <div class="transmission-component">Componente B</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content3">
+          <h3 class="subsection-title">3.5.3. TIPOS DE BUSES ESPECÍFICOS</h3>
+          <div id="2010305004" class="specific-buses">
+            <p>Según la terminología usada por los fabricantes, y su uso específico algunos de los buses más conocidos por orden cronológico son:</p>
+            
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1980s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🔌</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">6. Industry Standard Architecture (ISA)</h4>
+                      <p>Es el bus de 16 bits de IBM PC/AT y otros equipos basados en el Intel 80286 durante los años 80. Su velocidad era de 8 a 16 MB/s. Este bus se intentó extender a 32 bits con un nuevo bus EISA (Extended-ISA), que no tuvo mucho éxito.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1980s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🔌</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">7. Micro Channel architecture (MCA)</h4>
+                      <p>Bus paralelo propietario de IBM de 16 y 32 bits. Alcanzaba velocidades de 80 MB/s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1990s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🎮</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">8. Video Electronics Standards Association (VESA)</h4>
+                      <p>Bus en paralelo de 32 bits y compatible con ISA que intentó acelerar las operaciones de vídeo. Su velocidad alcanzaba los 200 MB/s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1992</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🔌</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">9. Peripheral Computer Interconnect (PCI)</h4>
+                      <p>Este bus de datos paralelo, que data del año 1992, tiene una capacidad de 32 a 64 bits y se empleaba originalmente para dar servicio tanto a las tarjetas gráficas como a las tarjetas auxiliares que se podían conectar a un ordenador. Alcanza velocidades de hasta 533 MB/s (64 bit a 66 MHz).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1990s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🎮</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">10. Bus Advanced Graphics Interface (AGP)</h4>
+                      <p>El bus paralelo AGP se desarrolló como una derivación del bus PCI para conectar una tarjeta gráfica. La principal ventaja frente al bus PCI es que se conectaba directamente al procesador, sin tener que compartir ancho de banda con el bus PCI. Alcanza velocidades de hasta 2133 MB/s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2000s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🔌</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">11. Bus Peripheral Computer Interconnect Express (PCIe)</h4>
+                      <p>Este bus está estructurado como carriles punto a punto, full-duplex, trabajando en serie. Se diseñó para ser el sustituto de los buses AGP y PCI con una interfaz que fuera modular en su diseño. Actualmente todos los componentes del sistema se conectan al bus PCIe. La última versión para el año 2021 (PCIE 6.0) podría alcanzar una velocidad de 126 GB/s con 16 carriles (7877 MB/s por carril).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1986</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">💾</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">12. Bus Parallel AT Attachement</h4>
+                      <p>Conocido también como PATA, IDE o ATAPI, fue el primer estándar desarrollado para conectar las unidades de almacenamiento en los PC de IBM. Fue el estándar por defecto para dar servicio a este tipo de unidades, desde su introducción en 1986 hasta que se popularizó el estándar SATA actual.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2003</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">💾</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">13. Bus Serial AT Attachement (SATA)</h4>
+                      <p>El bus SATA es muy conocido ya que es el que conecta las unidades de almacenamiento de nuestro ordenador. Este bus llegó al mercado en el año 2003 y, a diferencia del bus PATA (Parallel AT Attachement), es un bus en serie.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2010s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">💾</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">14. M.2</h4>
+                      <p>Al emplear una especificación física más flexible, permite diferentes anchos y longitudes de módulo, lo que, junto con la disponibilidad de funciones de interfaz más avanzadas, hace que M.2 sea más adecuado que SATA en general para aplicaciones de almacenamiento de estado sólido, particularmente en dispositivos más pequeños como ultrabooks y tabletas.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">1996-Actual</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">🔌</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">15. Universal Serial Bus (USB)</h4>
+                      <p>Se usa normalmente para conectar periféricos. Su velocidad depende de su versión, la versión 3.1 puede alcanzar 10 Gbit/s, la versión 3.2 hasta 20 Gbit/s y la última versión USB 4.0 toma velocidades de 10, 20 y 40 Gbit/s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2010s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">⚡</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">16. Thunderbolt</h4>
+                      <p>Como en el caso de USB también se usa para conectar periféricos. De hecho, se confunde con este último, ya que usa un conector USB de tipo C. Actualmente existe la versión 4 y alcanza velocidades de 40 Gbit/s.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2000s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">⚡</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">17. HyperTransport</h4>
+                      <p>También conocido como Lighting Data Transport (LDT), que es una tecnología bidireccional de comunicaciones basada en paquetes, tanto en serie como paralelo, que ofrece un gran ancho de banda en conexiones de punto a punto y baja latencia. Es una conexión universal que está diseñada para reducir el número de buses dentro de un sistema, suministrando un enlace de alto rendimiento a las aplicaciones incorporadas. Su velocidad de transferencia máxima, utilizando líneas de 32 bits, tiene por cada uno de sus 2 buses un total de 20.8 GB/s (2.6GHz * (32bits / 8)), lo que supone la suma de 41,6 GB/s en ambas direcciones. Actualmente se está usando para sustituir al FSB.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2000s</div>
+                  <div class="bus-card">
+                    <div class="bus-icon">⚡</div>
+                    <div class="bus-content">
+                      <h4 class="bus-title">18. Quickpath interconnect</h4>
+                      <p>Tecnología punto a punto de Intel para competir con HyperTransport. La primera versión 1.0 permitía velocidades de transferencia de 25,6 GB/s en sentido bidireccional.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content4">
+          <h3 class="subsection-title">3.5.4. COMPARATIVA DE BUSES</h3>
+          <div id="2010305005" class="comparison-container">
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Bus</th>
+                    <th>Uso</th>
+                    <th>Tipo</th>
+                    <th>Tamaño</th>
+                    <th>Transferencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ISA</td>
+                    <td>Expansión</td>
+                    <td>Paralelo</td>
+                    <td>16 bits</td>
+                    <td>4 – 5 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>MCA</td>
+                    <td>Expansión</td>
+                    <td>Paralelo</td>
+                    <td>16-32 bits</td>
+                    <td>80 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>VESA</td>
+                    <td>Video</td>
+                    <td>Paralelo</td>
+                    <td>32 bits</td>
+                    <td>200 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>FSB</td>
+                    <td>CPU - Memoria</td>
+                    <td>Paralelo</td>
+                    <td>32-64 bits</td>
+                    <td>400- 12000 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>PCI</td>
+                    <td>Expansión</td>
+                    <td>Paralelo</td>
+                    <td>32-64 bits</td>
+                    <td>133 - 266 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>AGP</td>
+                    <td>Tarjetas gráficas</td>
+                    <td>Paralelo</td>
+                    <td>32 bits</td>
+                    <td>533 - 2133 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>PCIe</td>
+                    <td>Expansión</td>
+                    <td>Serie</td>
+                    <td>1 – 32 bits</td>
+                    <td>4 -126 GB/s (16 carriles)</td>
+                  </tr>
+                  <tr>
+                    <td>PATA</td>
+                    <td>Almacenamiento</td>
+                    <td>Paralelo</td>
+                    <td>16 bits</td>
+                    <td>8, 3 – 133 MB/s</td>
+                  </tr>
+                  <tr>
+                    <td>SATA</td>
+                    <td>Almacenamiento</td>
+                    <td>Serie</td>
+                    <td>1</td>
+                    <td>1,5 – 16 GB/s</td>
+                  </tr>
+                  <tr>
+                    <td>M.2</td>
+                    <td>Almacenamiento</td>
+                    <td>Serie</td>
+                    <td>1</td>
+                    <td>10 - 32 GB/s</td>
+                  </tr>
+                  <tr>
+                    <td>USB 4.0</td>
+                    <td>Periféricos</td>
+                    <td>Serie</td>
+                    <td>1</td>
+                    <td>10, 20, 40 Gbit/s</td>
+                  </tr>
+                  <tr>
+                    <td>Thunderbolt 4</td>
+                    <td>Periféricos</td>
+                    <td>Serie</td>
+                    <td>1</td>
+                    <td>40 Gbit/s</td>
+                  </tr>
+                  <tr>
+                    <td>HyperTransport</td>
+                    <td>Interno genérico</td>
+                    <td>Serie/paralelo</td>
+                    <td>32 bits</td>
+                    <td>41, 6 GB/s</td>
+                  </tr>
+                  <tr>
+                    <td>Quickpath</td>
+                    <td>Interno genérico</td>
+                    <td>Serie/paralelo</td>
+                    <td>32 bits</td>
+                    <td>25, 6 GB/s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="chart-container">
+              <h4 class="chart-title">Evolución de la velocidad de transferencia de buses</h4>
+              <div class="chart">
+                <div class="chart-bar" style="height: 5%;" data-speed="5 MB/s">
+                  <div class="bar-label">ISA</div>
+                </div>
+                <div class="chart-bar" style="height: 10%;" data-speed="80 MB/s">
+                  <div class="bar-label">MCA</div>
+                </div>
+                <div class="chart-bar" style="height: 15%;" data-speed="200 MB/s">
+                  <div class="bar-label">VESA</div>
+                </div>
+                <div class="chart-bar" style="height: 20%;" data-speed="266 MB/s">
+                  <div class="bar-label">PCI</div>
+                </div>
+                <div class="chart-bar" style="height: 30%;" data-speed="2133 MB/s">
+                  <div class="bar-label">AGP</div>
+                </div>
+                <div class="chart-bar" style="height: 50%;" data-speed="16 GB/s">
+                  <div class="bar-label">SATA</div>
+                </div>
+                <div class="chart-bar" style="height: 70%;" data-speed="32 GB/s">
+                  <div class="bar-label">M.2</div>
+                </div>
+                <div class="chart-bar" style="height: 90%;" data-speed="126 GB/s">
+                  <div class="bar-label">PCIe</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
   </div>
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "🔌";
+      margin-right: 10px;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    .intro-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Bus Tabs */
+    .bus-tabs {
+      position: relative;
+      min-height: 400px;
+      margin-top: 20px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-icon {
+      margin-right: 5px;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3,
+    #tab4:checked ~ #content4 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"],
+    #tab3:checked ~ label[for="tab3"],
+    #tab4:checked ~ label[for="tab4"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Bus Types */
+    .bus-types {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .bus-type {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .bus-type:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .bus-icon {
+      font-size: 2rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+    }
+    
+    .bus-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .bus-illustration {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      padding: 15px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+    }
+    
+    .bus-component {
+      padding: 10px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    .bus-line {
+      flex-grow: 1;
+      height: 4px;
+      background-color: var(--color-primary);
+      margin: 0 10px;
+      position: relative;
+    }
+    
+    .data-bus .bus-line {
+      background-color: #3b82f6;
+    }
+    
+    .address-bus .bus-line {
+      background-color: #10b981;
+    }
+    
+    .control-bus .bus-line {
+      background-color: #ef4444;
+    }
+    
+    /* Transmission Types */
+    .transmission-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .transmission-type {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .transmission-type:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .transmission-icon {
+      font-size: 2rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+    }
+    
+    .transmission-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .transmission-illustration {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      padding: 15px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+    }
+    
+    .transmission-component {
+      padding: 10px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    .transmission-line {
+      display: flex;
+      align-items: center;
+      height: 20px;
+      background-color: var(--color-primary);
+      margin: 0 10px;
+      flex-grow: 1;
+      position: relative;
+      border-radius: 10px;
+    }
+    
+    .transmission-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+    
+    .bit {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .serial .bit:nth-child(1) {
+      left: 20%;
+    }
+    
+    .serial .bit:nth-child(2) {
+      left: 50%;
+    }
+    
+    .serial .bit:nth-child(3) {
+      left: 80%;
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+      margin: 30px 0;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 4px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 15px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-date {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .bus-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .bus-card:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Comparison Table */
+    .comparison-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .table-responsive {
+      overflow-x: auto;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--color-border);
+    }
+    
+    .comparison-table th {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .comparison-table td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .comparison-table tr:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Chart */
+    .chart-container {
+      margin-top: 30px;
+    }
+    
+    .chart-title {
+      text-align: center;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+    
+    .chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 300px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .chart-bar {
+      width: 40px;
+      background-color: var(--color-primary);
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .chart-bar:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .chart-bar:hover::after {
+      content: attr(data-speed);
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-primary-dark);
+      color: var(--color-white);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    
+    .bar-label {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 768px) {
+      .transmission-types {
+        flex-direction: column;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"],
+      #tab3:checked ~ label[for="tab3"],
+      #tab4:checked ~ label[for="tab4"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+      
+      .chart {
+        height: 200px;
+      }
+      
+      .chart-bar {
+        width: 20px;
+      }
+      
+      .bar-label {
+        font-size: 0.7rem;
+        transform: translateX(-50%) rotate(-45deg);
+        transform-origin: top left;
+      }
+    }
+  </style>
+</body>
+</html>

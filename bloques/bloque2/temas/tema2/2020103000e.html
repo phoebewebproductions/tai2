@@ -1,39 +1,598 @@
-<div class="teoria">
-  <article>
-    <!-- punto 1.3 : Administración de periféricos -->
-    <h2>1.3. ADMINISTRACIÓN DE PERIFÉRICOS</h2>
-    
-    <span id="2020103001">
-      <p>Los periféricos se comunican con el ordenador a través de un controlador o driver, que es un software específico del sistema operativo y que permite a éste enviar y recibir comandos e intercambiar datos con el dispositivo periférico. Siempre que se utilice un periférico, es necesario disponer del driver correspondiente a éste, ya sea porque esté integrado como parte del sistema operativo o mediante una instalación ad hoc.</p>
-    </span>
-  
-    <span id="2020103002">
-      <figure>
-        <img src="/placeholder.svg?height=300&width=400" alt="Funcionamiento de un driver o controlador" />
-        <figcaption>Funcionamiento de un driver o controlador. Fuente: Wikipedia</figcaption>
-      </figure>
-    </span>
-  
-    <h3>Administración de periféricos en Linux</h3>
-    <span id="2020103003">
-      <p>En línea con el funcionamiento de Linux en el que todos los elementos del sistema y que se relacionan con éste tienen su contrapartida en el sistema de ficheros, todos los dispositivos cuelgan del directorio /dev, representando cada dispositivo mediante un fichero separado.</p>
-      <p>Estos dispositivos necesitan para su funcionamiento de un driver. En caso de que el sistema no disponga del driver necesario, éstos se pueden añadir al directorio /lib.</p>
-    </span>
-  
-    <span id="2020103004">
-      <p>Los dispositivos en Linux se clasifican en tres tipos:</p>
-      <ul>
-        <li><strong>Dispositivos orientados a carácter (tipo c):</strong> Transmiten únicamente un byte a la vez. Algunos ejemplos de dispositivos de este tipo son "/dev/mouse" (ratón), "/dev/tty1" (terminal) o "/dev/lp0" (puerto paralelo).</li>
-        <li><strong>Dispositivos orientados a bloque:</strong> Transmiten bloques completos de información utilizando un buffer. Ejemplos de dispositivos son "/dev/fd0" (disquetera) o "/dev/hda" (disco duro) o "/dev/cdrom".</li>
-        <li><strong>Dispositivos orientados a socket:</strong> Sirven para comunicación entre procesos. Ejemplos son "/dev/log" o "/dev/printer".</li>
-      </ul>
-    </span>
-  
-    <h3>Administración de periféricos en Windows</h3>
-    <span id="2020103005">
-      <p>En Microsoft Windows, los distintos periféricos se administran a través del Administrador de Dispositivos ("Device Manager"). Los drivers en Windows habitualmente se distribuyen en archivos con extensión .inf, .sys o .drv.</p>
-    </span>
-  </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración de Periféricos</title>
+</head>
+<body>
+  <div class="teoria">
+    <article>
+      <h2 class="section-title">1.3. ADMINISTRACIÓN DE PERIFÉRICOS</h2>
+      
+      <div id="2020103001" class="intro-card">
+        <p>Los periféricos se comunican con el ordenador a través de un controlador o driver, que es un software específico del sistema operativo y que permite a éste enviar y recibir comandos e intercambiar datos con el dispositivo periférico. Siempre que se utilice un periférico, es necesario disponer del driver correspondiente a éste, ya sea porque esté integrado como parte del sistema operativo o mediante una instalación ad hoc.</p>
+      </div>
+
+      <div id="2020103002" class="driver-diagram">
+        <figure>
+          <div class="diagram-container">
+            <div class="diagram-component app">
+              <div class="component-icon">📱</div>
+              <div class="component-title">Aplicación</div>
+            </div>
+            
+            <div class="diagram-arrow down">⬇️</div>
+            
+            <div class="diagram-component os">
+              <div class="component-icon">💻</div>
+              <div class="component-title">Sistema Operativo</div>
+            </div>
+            
+            <div class="diagram-arrow down">⬇️</div>
+            
+            <div class="diagram-component driver">
+              <div class="component-icon">⚙️</div>
+              <div class="component-title">Driver</div>
+            </div>
+            
+            <div class="diagram-arrow down">⬇️</div>
+            
+            <div class="diagram-component hardware">
+              <div class="component-icon">🖨️</div>
+              <div class="component-title">Hardware (Periférico)</div>
+            </div>
+          </div>
+          <figcaption>Funcionamiento de un driver o controlador. Fuente: Wikipedia</figcaption>
+        </figure>
+      </div>
+
+      <div class="os-tabs">
+        <input type="radio" name="os-tabs" id="tab1" checked class="tab-input">
+        <label for="tab1" class="tab-label">
+          <span class="tab-icon">🐧</span>
+          <span class="tab-text">Linux</span>
+        </label>
+        
+        <input type="radio" name="os-tabs" id="tab2" class="tab-input">
+        <label for="tab2" class="tab-label">
+          <span class="tab-icon">🪟</span>
+          <span class="tab-text">Windows</span>
+        </label>
+        
+        <div class="tab-content" id="content1">
+          <h3 class="subsection-title">Administración de periféricos en Linux</h3>
+          <div id="2020103003" class="linux-info">
+            <p>En línea con el funcionamiento de Linux en el que todos los elementos del sistema y que se relacionan con éste tienen su contrapartida en el sistema de ficheros, todos los dispositivos cuelgan del directorio /dev, representando cada dispositivo mediante un fichero separado.</p>
+            <p>Estos dispositivos necesitan para su funcionamiento de un driver. En caso de que el sistema no disponga del driver necesario, éstos se pueden añadir al directorio /lib.</p>
+            
+            <div class="linux-filesystem">
+              <div class="folder root">
+                <div class="folder-icon">📁</div>
+                <div class="folder-name">/</div>
+                <div class="folder-children">
+                  <div class="folder dev">
+                    <div class="folder-icon">📁</div>
+                    <div class="folder-name">dev</div>
+                    <div class="folder-description">Contiene archivos especiales que representan dispositivos</div>
+                  </div>
+                  
+                  <div class="folder lib">
+                    <div class="folder-icon">📁</div>
+                    <div class="folder-name">lib</div>
+                    <div class="folder-description">Contiene bibliotecas compartidas y módulos del kernel (drivers)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020103004" class="device-types">
+            <p>Los dispositivos en Linux se clasifican en tres tipos:</p>
+            
+            <div class="types-grid">
+              <div class="type-card">
+                <div class="type-header">
+                  <div class="type-icon">📝</div>
+                  <div class="type-title">Dispositivos orientados a carácter (tipo c)</div>
+                </div>
+                <div class="type-content">
+                  <p>Transmiten únicamente un byte a la vez.</p>
+                  <div class="examples">
+                    <div class="example">
+                      <div class="example-icon">🖱️</div>
+                      <div class="example-text">/dev/mouse</div>
+                    </div>
+                    <div class="example">
+                      <div class="example-icon">💻</div>
+                      <div class="example-text">/dev/tty1</div>
+                    </div>
+                    <div class="example">
+                      <div class="example-icon">🖨️</div>
+                      <div class="example-text">/dev/lp0</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="type-card">
+                <div class="type-header">
+                  <div class="type-icon">📦</div>
+                  <div class="type-title">Dispositivos orientados a bloque</div>
+                </div>
+                <div class="type-content">
+                  <p>Transmiten bloques completos de información utilizando un buffer.</p>
+                  <div class="examples">
+                    <div class="example">
+                      <div class="example-icon">💾</div>
+                      <div class="example-text">/dev/fd0</div>
+                    </div>
+                    <div class="example">
+                      <div class="example-icon">💽</div>
+                      <div class="example-text">/dev/hda</div>
+                    </div>
+                    <div class="example">
+                      <div class="example-icon">📀</div>
+                      <div class="example-text">/dev/cdrom</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="type-card">
+                <div class="type-header">
+                  <div class="type-icon">🔌</div>
+                  <div class="type-title">Dispositivos orientados a socket</div>
+                </div>
+                <div class="type-content">
+                  <p>Sirven para comunicación entre procesos.</p>
+                  <div class="examples">
+                    <div class="example">
+                      <div class="example-icon">📝</div>
+                      <div class="example-text">/dev/log</div>
+                    </div>
+                    <div class="example">
+                      <div class="example-icon">🖨️</div>
+                      <div class="example-text">/dev/printer</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content2">
+          <h3 class="subsection-title">Administración de periféricos en Windows</h3>
+          <div id="2020103005" class="windows-info">
+            <p>En Microsoft Windows, los distintos periféricos se administran a través del Administrador de Dispositivos ("Device Manager"). Los drivers en Windows habitualmente se distribuyen en archivos con extensión .inf, .sys o .drv.</p>
+            
+            <div class="windows-device-manager">
+              <div class="manager-header">
+                <div class="manager-icon">🪟</div>
+                <div class="manager-title">Administrador de Dispositivos</div>
+              </div>
+              <div class="manager-content">
+                <div class="device-category">
+                  <div class="category-icon">🖥️</div>
+                  <div class="category-name">Adaptadores de pantalla</div>
+                </div>
+                <div class="device-category">
+                  <div class="category-icon">🔊</div>
+                  <div class="category-name">Controladores de audio</div>
+                </div>
+                <div class="device-category">
+                  <div class="category-icon">🖨️</div>
+                  <div class="category-name">Impresoras</div>
+                </div>
+                <div class="device-category">
+                  <div class="category-icon">🖱️</div>
+                  <div class="category-name">Dispositivos de interfaz humana</div>
+                </div>
+                <div class="device-category">
+                  <div class="category-icon">🔌</div>
+                  <div class="category-name">Puertos (COM y LPT)</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="driver-files">
+              <h4>Tipos de archivos de controladores en Windows</h4>
+              <div class="file-types">
+                <div class="file-type">
+                  <div class="file-icon">📄</div>
+                  <div class="file-content">
+                    <h5>.inf</h5>
+                    <p>Archivos de información para la instalación del controlador</p>
+                  </div>
+                </div>
+                <div class="file-type">
+                  <div class="file-icon">⚙️</div>
+                  <div class="file-content">
+                    <h5>.sys</h5>
+                    <p>Archivos del sistema que contienen el código del controlador</p>
+                  </div>
+                </div>
+                <div class="file-type">
+                  <div class="file-icon">🔌</div>
+                  <div class="file-content">
+                    <h5>.drv</h5>
+                    <p>Archivos de controlador antiguos (legacy)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
-  
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "⚙️";
+      margin-right: 10px;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    .intro-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Driver Diagram */
+    .driver-diagram {
+      margin: 30px 0;
+    }
+    
+    .driver-diagram figure {
+      margin: 0;
+      text-align: center;
+    }
+    
+    .diagram-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .diagram-component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .diagram-component:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .component-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .component-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    .diagram-arrow {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+    }
+    
+    figcaption {
+      font-style: italic;
+      color: var(--color-text-light);
+      margin-top: 10px;
+    }
+    
+    /* OS Tabs */
+    .os-tabs {
+      position: relative;
+      min-height: 400px;
+      margin-top: 30px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-icon {
+      margin-right: 5px;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Linux Filesystem */
+    .linux-filesystem {
+      margin: 20px 0;
+    }
+    
+    .folder {
+      margin-bottom: 15px;
+    }
+    
+    .folder-icon {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .folder-name {
+      display: inline-block;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    .folder-description {
+      margin-left: 25px;
+      font-style: italic;
+      color: var(--color-text-light);
+    }
+    
+    .folder-children {
+      margin-left: 25px;
+      margin-top: 10px;
+      padding-left: 15px;
+      border-left: 2px dashed var(--color-primary);
+    }
+    
+    /* Device Types */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .type-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .type-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .type-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .type-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .type-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    .examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .example {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .example-icon {
+      margin-right: 8px;
+      color: var(--color-primary);
+    }
+    
+    .example-text {
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+    
+    /* Windows Device Manager */
+    .windows-device-manager {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .manager-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .manager-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .manager-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    .device-category {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    .device-category:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    .category-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .category-name {
+      font-weight: bold;
+    }
+    
+    /* Driver Files */
+    .driver-files {
+      margin-top: 30px;
+    }
+    
+    .driver-files h4 {
+      color: var(--color-primary-dark);
+      margin-bottom: 15px;
+    }
+    
+    .file-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    
+    .file-type {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .file-type:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .file-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .file-content h5 {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .file-types {
+        grid-template-columns: 1fr;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+    }
+  </style>
+</body>
+</html>

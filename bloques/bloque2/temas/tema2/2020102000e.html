@@ -1,135 +1,1257 @@
-<div class="teoria">
-  <article>
-    <!-- punto 1.2 : Conexión de periféricos -->
-    <h2>1.2. CONEXIÓN DE PERIFÉRICOS</h2>
-    
-    <h3>Operaciones de comunicación de periféricos</h3>
-    <span id="2020102001">
-      <p>Los periféricos realizan dos tipos de operaciones: De sincronización y de transferencia de datos.</p>
-      <p>La sincronización es el mecanismo mediante el cual los dispositivos periféricos acuerdan con el sistema la velocidad, período y reserva de ciclos de CPU que se utilizarán posteriormente para transferir información. Esta sincronización puede ser a través de programa (también denominada de software) o a través de interrupciones.</p>
-      <p>En caso de que sea por programa, es el sistema el que accede al controlador del periférico para consultar a través de una operación denominada polling o sondeo si el dispositivo tiene información que remitir al sistema, o para enviarle comandos o información.</p>
-      <p>El segundo método funciona a través de señales hardware denominadas interrupciones, que comunican directamente a la CPU que el dispositivo desea interrumpir el curso de ejecución del sistema para ejecutar un código propio del controlador. Este método es más óptimo ya que libera a la CPU de la necesidad de consultar periódicamente al controlador el estado del periférico.</p>
-    </span>
-  
-    <span id="2020102002">
-      <p>Existen distintos modos de conectar un periférico a un equipo, tanto mediante una interfaz cableada como mediante una conexión inalámbrica. Cuando se realiza un envío de datos desde un dispositivo a la computadora, podemos hablar de conexión serie si esta transmisión se realiza bit a bit, mientras que si hay una transmisión simultánea de la información hablamos de transmisión paralela.</p>
-    </span>
-  
-    <h3>Puertos clásicos serie y paralelo</h3>
-    <span id="2020102003">
-      <p>En informática, el término "puerto serie" suele hacer referencia a los conectores RS-232, siendo su conexión más habitual la denominada DE-9 o DB-9, mientras que el término "puerto paralelo" se refiere al puerto DB-25 de tipo Centronics, que permite la transmisión de 8 bits paralelos de datos.</p>
-    </span>
-  
-    <h3>El puerto USB</h3>
-    <span id="2020102004">
-      <p>El Bus Universal en Serie o USB es el estándar de puerto de comunicaciones serie más extendido en la actualidad. Surgió en 1996 gracias a la iniciativa de un grupo de grandes empresas, entre las que se encontraban Intel, IBM y Microsoft, para unificar la conexión de periféricos.</p>
-      <p>Existen distintos tipos de conectores USB: Tipo A, Tipo B, Mini USB, Micro USB y el estándar más reciente USB C. USB utiliza transmisión diferencial, enviando dos señales complementarias por los pines Data+ y Data-, de modo que el otro extremo pueda calcular la diferencia de señal entre ambos pines. La ventaja de este tipo de transmisión es que cualquier interferencia afectaría de manera similar a ambas señales, siendo de este modo más robusto ante interferencias externas.</p>
-      <p>La especificación USB OTG o USB On-The-Go permite que los dispositivos USB actúen como servidores, de modo que se puedan conectar pendrives o discos duros a dispositivos como teléfonos móviles o tabletas.</p>
-    </span>
-  
-    <h3>Firewire</h3>
-    <span id="2020102005">
-      <p>El conector Firewire, que fue propuesto en el estándar IEEE 1394, introducido por Apple en 1995 pero que ha sido progresivamente posteriormente reemplazado por USB. Una ventaja de Firewire sobre USB es que dispone de un modo "peer-to-peer" que permite comunicar dos dispositivos sin intervención de la CPU.</p>
-    </span>
-  
-    <h3>Thunderbolt</h3>
-    <span id="2020102006">
-      <p>Anteriormente Light Peak, es una especificación definida por Intel para alta velocidad basado en tecnología óptica. Al igual que USB, permite hot swap para conexión de dispositivos, así como implementación de QoS. Las versiones 1 y 2 de Thunderbolt usan versiones distintas de la versión 3 y la ya anunciada revisión 4 del estándar.</p>
-    </span>
-  
-    <span id="2020102007">
-      <table>
-        <caption>Comparativa de velocidades Thunderbolt, Firewire y USB</caption>
-        <thead>
-          <tr>
-            <th>Estándar</th>
-            <th>Velocidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>USB 1.0</td><td>0.19 MB/s</td></tr>
-          <tr><td>USB 1.1</td><td>1.5 MB/s</td></tr>
-          <tr><td>Firewire 400</td><td>50 MB/s</td></tr>
-          <tr><td>USB 2.0</td><td>60 MB/s</td></tr>
-          <tr><td>Firewire 800</td><td>100 MB/s</td></tr>
-          <tr><td>Firewire s1600</td><td>200 MB/s</td></tr>
-          <tr><td>Firewire s3200</td><td>400 MB/s</td></tr>
-          <tr><td>USB 3.0</td><td>600 MB/s</td></tr>
-          <tr><td>Thunderbolt (primer estándar)</td><td>1.2 GB/s</td></tr>
-          <tr><td>USB 3.1</td><td>1225 MB/s (10 Gbps single channel)</td></tr>
-          <tr><td>Thunderbolt 2</td><td>2.5 GB/s</td></tr>
-          <tr><td>USB 3.2</td><td>2.5 GB/s (10 Gbps dual channel)</td></tr>
-          <tr><td>Thunderbolt 3</td><td>5 GB/s</td></tr>
-          <tr><td>USB 4.0</td><td>5 GB/s</td></tr>
-        </tbody>
-      </table>
-    </span>
-  
-    <h3>Otras interfaces serie</h3>
-    <span id="2020102008">
-      <p>Otras interfaces comunes que utilizan transmisión serie son el conector clásico de teclado y ratón PS/2 de 6 pines en formato circular, así como distintos puertos de salida gráfica, como el VGA, DVI, HDMI o DisplayPort.</p>
-    </span>
-  
-    <h3>Conexiones y ranuras paralelas para dispositivos y almacenamiento</h3>
-    <span id="2020102009">
-      <p>Como ya hemos visto, la mayor parte de los dispositivos externos en la actualidad tienen transmisión serie, por la simplicidad y robustez de transmisión que ello conlleva. La transmisión paralela se reserva para necesidades de muy alto ancho de banda en los que la complejidad y coste no son un factor determinante. Esto incluye los buses y ranuras de expansión para periféricos internos de las placas base, como ISA, PCI o AGP, o los conectores de memoria, así como diversas conexiones de almacenamiento que veremos más adelante.</p>
-    </span>
-  
-    <h3>Puerto Jack de Audio</h3>
-    <span id="2020102010">
-      <p>El puerto de conexión de audio más extendido es el Jack, en especial en su formato 3.5 mm. Se trata de un conector analógico, y cuando se utiliza en un dispositivo actual requiere de un conversor digital-analógico o DAC. Si bien está en proceso de desaparecer ya que los nuevos dispositivos optan por conectividad inalámbrica bluetooth o dispositivos USB, sigue siendo con diferencia el conector para audio más extendido. Existen variantes de 2.5 mm (muy común en dispositivos como walkie talkies), o el 6.3 mm, muy utilizado antiguamente en las centralitas telefónicas. No obstante, existen otro tipo de conectores de audio con mayores capacidades, como Toslink, RCA, XLR o MIDI.</p>
-    </span>
-  
-    <h3>Conexión inalámbrica de dispositivos</h3>
-    <span id="2020102011">
-      <p>Existen distintos estándares de conexión inalámbrica, siendo los principales:</p>
-      <ul>
-        <li><strong>Infrarrojos:</strong> La comunicación por infrarrojos utiliza unos emisores y receptores de ondas infrarrojas entre el dispositivo y el equipo, por lo que se necesita visibilidad directa entre ambos extremos.</li>
-        <li><strong>Bluetooth:</strong> Muy común y soportado por gran variedad de dispositivos, desde teléfonos móviles a manos libres, lo introdujo la marca Ericsson y ha evolucionado hasta el actual estándar Bluetooth 5.0, que permite una velocidad de transmisión de hasta 2Mbps con un consumo de 2.5 veces menos que bluetooth 4.0.</li>
-        <li><strong>Wifi:</strong> Es común que algunos dispositivos se conecten directamente a través de la red inalámbrica Wifi ya sea de 2.4 GHz o 5 GHz, permitiendo compartición sencilla de datos sin necesidad de línea directa de visión.</li>
-      </ul>
-      <p>No son los únicos, existen otro tipo de estándares menos extendidos, como Zigbee, que permiten conectar dispositivos con muy bajo consumo de energía y habitual en uso industrial de sensores y dispositivos de automatización.</p>
-    </span>
-  
-    <span id="2020102012">
-      <table>
-        <caption>Comparativa de tecnologías inalámbricas</caption>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Bluetooth</th>
-            <th>Wifi</th>
-            <th>ZigBee</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Distancia de trabajo</td>
-            <td>10-30 metros</td>
-            <td>50-100 metros</td>
-            <td>10-100 metros</td>
-          </tr>
-          <tr>
-            <td>Topología de red</td>
-            <td>Punto a punto</td>
-            <td>Conexión a punto de acceso</td>
-            <td>Red mallada</td>
-          </tr>
-          <tr>
-            <td>Frecuencia de trabajo</td>
-            <td>2.4 GHz</td>
-            <td>2.4 GHz/5 GHz</td>
-            <td>868 MHz (sólo Europa), 2.4 GHz</td>
-          </tr>
-          <tr>
-            <td>Consumo</td>
-            <td>Medio</td>
-            <td>Alto</td>
-            <td>Muy bajo</td>
-          </tr>
-        </tbody>
-      </table>
-    </span>
-  </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conexión de Periféricos</title>
+</head>
+<body>
+  <div class="teoria">
+    <article>
+      <h2 class="section-title">1.2. CONEXIÓN DE PERIFÉRICOS</h2>
+      
+      <div class="connection-tabs">
+        <input type="radio" name="connection-tabs" id="tab1" checked class="tab-input">
+        <label for="tab1" class="tab-label">
+          <span class="tab-icon">🔄</span>
+          <span class="tab-text">Operaciones</span>
+        </label>
+        
+        <input type="radio" name="connection-tabs" id="tab2" class="tab-input">
+        <label for="tab2" class="tab-label">
+          <span class="tab-icon">🔌</span>
+          <span class="tab-text">Conexiones cableadas</span>
+        </label>
+        
+        <input type="radio" name="connection-tabs" id="tab3" class="tab-input">
+        <label for="tab3" class="tab-label">
+          <span class="tab-icon">📶</span>
+          <span class="tab-text">Conexiones inalámbricas</span>
+        </label>
+        
+        <div class="tab-content" id="content1">
+          <h3 class="subsection-title">Operaciones de comunicación de periféricos</h3>
+          <div id="2020102001" class="operations-card">
+            <p>Los periféricos realizan dos tipos de operaciones: De sincronización y de transferencia de datos.</p>
+            
+            <div class="operations-diagram">
+              <div class="operation-box sync">
+                <div class="operation-icon">⏱️</div>
+                <div class="operation-content">
+                  <h4 class="operation-title">Sincronización</h4>
+                  <p>Es el mecanismo mediante el cual los dispositivos periféricos acuerdan con el sistema la velocidad, período y reserva de ciclos de CPU que se utilizarán posteriormente para transferir información.</p>
+                  
+                  <div class="sync-methods">
+                    <div class="sync-method">
+                      <div class="method-icon">🔄</div>
+                      <div class="method-content">
+                        <h5 class="method-title">Por programa (software)</h5>
+                        <p>Es el sistema el que accede al controlador del periférico para consultar a través de una operación denominada polling o sondeo si el dispositivo tiene información que remitir al sistema, o para enviarle comandos o información.</p>
+                      </div>
+                    </div>
+                    
+                    <div class="sync-method">
+                      <div class="method-icon">⚡</div>
+                      <div class="method-content">
+                        <h5 class="method-title">Por interrupciones (hardware)</h5>
+                        <p>Funciona a través de señales hardware denominadas interrupciones, que comunican directamente a la CPU que el dispositivo desea interrumpir el curso de ejecución del sistema para ejecutar un código propio del controlador. Este método es más óptimo ya que libera a la CPU de la necesidad de consultar periódicamente al controlador el estado del periférico.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="operation-arrow">⬇️</div>
+              
+              <div class="operation-box transfer">
+                <div class="operation-icon">📤</div>
+                <div class="operation-content">
+                  <h4 class="operation-title">Transferencia de datos</h4>
+                  <p>Una vez sincronizados, se produce el intercambio de información entre el periférico y el sistema.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020102002" class="connection-types">
+            <p>Existen distintos modos de conectar un periférico a un equipo, tanto mediante una interfaz cableada como mediante una conexión inalámbrica. Cuando se realiza un envío de datos desde un dispositivo a la computadora, podemos hablar de conexión serie si esta transmisión se realiza bit a bit, mientras que si hay una transmisión simultánea de la información hablamos de transmisión paralela.</p>
+            
+            <div class="transmission-comparison">
+              <div class="transmission-type">
+                <div class="transmission-icon">📶</div>
+                <div class="transmission-content">
+                  <h4 class="transmission-title">Transmisión Serie</h4>
+                  <div class="transmission-illustration">
+                    <div class="bit">1</div>
+                    <div class="bit">0</div>
+                    <div class="bit">1</div>
+                    <div class="arrow">➡️</div>
+                  </div>
+                  <p>Los datos se transmiten bit a bit por un único canal.</p>
+                </div>
+              </div>
+              
+              <div class="transmission-type">
+                <div class="transmission-icon">📊</div>
+                <div class="transmission-content">
+                  <h4 class="transmission-title">Transmisión Paralela</h4>
+                  <div class="transmission-illustration">
+                    <div class="bit">1</div>
+                    <div class="arrow">➡️</div>
+                    <div class="bit">0</div>
+                    <div class="arrow">➡️</div>
+                    <div class="bit">1</div>
+                    <div class="arrow">➡️</div>
+                  </div>
+                  <p>Los datos se transmiten simultáneamente por múltiples canales.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content2">
+          <div class="connection-accordion">
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion1" class="accordion-input">
+              <label for="accordion1" class="accordion-header">
+                <span class="accordion-icon">🔌</span>
+                <span class="accordion-title">Puertos clásicos serie y paralelo</span>
+              </label>
+              <div id="2020102003" class="accordion-content">
+                <p>En informática, el término "puerto serie" suele hacer referencia a los conectores RS-232, siendo su conexión más habitual la denominada DE-9 o DB-9, mientras que el término "puerto paralelo" se refiere al puerto DB-25 de tipo Centronics, que permite la transmisión de 8 bits paralelos de datos.</p>
+                
+                <div class="ports-comparison">
+                  <div class="port-card">
+                    <div class="port-image">
+                      <div class="port-icon">🔌</div>
+                      <div class="port-label">RS-232 (DB-9)</div>
+                    </div>
+                    <div class="port-details">
+                      <h5>Puerto Serie</h5>
+                      <ul>
+                        <li>Transmisión bit a bit</li>
+                        <li>Conector de 9 pines</li>
+                        <li>Usado para módems, ratones, etc.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div class="port-card">
+                    <div class="port-image">
+                      <div class="port-icon">🖨️</div>
+                      <div class="port-label">DB-25 (Centronics)</div>
+                    </div>
+                    <div class="port-details">
+                      <h5>Puerto Paralelo</h5>
+                      <ul>
+                        <li>Transmisión de 8 bits en paralelo</li>
+                        <li>Conector de 25 pines</li>
+                        <li>Usado principalmente para impresoras</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion2" class="accordion-input">
+              <label for="accordion2" class="accordion-header">
+                <span class="accordion-icon">🔌</span>
+                <span class="accordion-title">El puerto USB</span>
+              </label>
+              <div id="2020102004" class="accordion-content">
+                <p>El Bus Universal en Serie o USB es el estándar de puerto de comunicaciones serie más extendido en la actualidad. Surgió en 1996 gracias a la iniciativa de un grupo de grandes empresas, entre las que se encontraban Intel, IBM y Microsoft, para unificar la conexión de periféricos.</p>
+                
+                <div class="usb-types">
+                  <h5>Tipos de conectores USB</h5>
+                  <div class="connector-grid">
+                    <div class="connector-card">
+                      <div class="connector-icon">🔌</div>
+                      <div class="connector-content">
+                        <h6>Tipo A</h6>
+                        <p>Conector rectangular plano, el más común</p>
+                      </div>
+                    </div>
+                    
+                    <div class="connector-card">
+                      <div class="connector-icon">🔌</div>
+                      <div class="connector-content">
+                        <h6>Tipo B</h6>
+                        <p>Conector cuadrado, usado en impresoras</p>
+                      </div>
+                    </div>
+                    
+                    <div class="connector-card">
+                      <div class="connector-icon">🔌</div>
+                      <div class="connector-content">
+                        <h6>Mini USB</h6>
+                        <p>Versión reducida, usado en dispositivos antiguos</p>
+                      </div>
+                    </div>
+                    
+                    <div class="connector-card">
+                      <div class="connector-icon">🔌</div>
+                      <div class="connector-content">
+                        <h6>Micro USB</h6>
+                        <p>Más pequeño que Mini USB, común en móviles</p>
+                      </div>
+                    </div>
+                    
+                    <div class="connector-card">
+                      <div class="connector-icon">🔌</div>
+                      <div class="connector-content">
+                        <h6>USB C</h6>
+                        <p>Conector reversible, el estándar más reciente</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <p>USB utiliza transmisión diferencial, enviando dos señales complementarias por los pines Data+ y Data-, de modo que el otro extremo pueda calcular la diferencia de señal entre ambos pines. La ventaja de este tipo de transmisión es que cualquier interferencia afectaría de manera similar a ambas señales, siendo de este modo más robusto ante interferencias externas.</p>
+                
+                <div class="usb-otg">
+                  <div class="otg-icon">📱</div>
+                  <div class="otg-content">
+                    <h5>USB OTG (On-The-Go)</h5>
+                    <p>La especificación USB OTG o USB On-The-Go permite que los dispositivos USB actúen como servidores, de modo que se puedan conectar pendrives o discos duros a dispositivos como teléfonos móviles o tabletas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion3" class="accordion-input">
+              <label for="accordion3" class="accordion-header">
+                <span class="accordion-icon">🔌</span>
+                <span class="accordion-title">Firewire</span>
+              </label>
+              <div id="2020102005" class="accordion-content">
+                <p>El conector Firewire, que fue propuesto en el estándar IEEE 1394, introducido por Apple en 1995 pero que ha sido progresivamente posteriormente reemplazado por USB. Una ventaja de Firewire sobre USB es que dispone de un modo "peer-to-peer" que permite comunicar dos dispositivos sin intervención de la CPU.</p>
+                
+                <div class="firewire-image">
+                  <div class="fw-icon">🔌</div>
+                  <div class="fw-label">Conector Firewire (IEEE 1394)</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion4" class="accordion-input">
+              <label for="accordion4" class="accordion-header">
+                <span class="accordion-icon">⚡</span>
+                <span class="accordion-title">Thunderbolt</span>
+              </label>
+              <div id="2020102006" class="accordion-content">
+                <p>Anteriormente Light Peak, es una especificación definida por Intel para alta velocidad basado en tecnología óptica. Al igual que USB, permite hot swap para conexión de dispositivos, así como implementación de QoS. Las versiones 1 y 2 de Thunderbolt usan versiones distintas de la versión 3 y la ya anunciada revisión 4 del estándar.</p>
+                
+                <div class="thunderbolt-image">
+                  <div class="tb-icon">⚡</div>
+                  <div class="tb-label">Conector Thunderbolt</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion5" class="accordion-input">
+              <label for="accordion5" class="accordion-header">
+                <span class="accordion-icon">📊</span>
+                <span class="accordion-title">Comparativa de velocidades</span>
+              </label>
+              <div id="2020102007" class="accordion-content">
+                <div class="table-responsive">
+                  <table class="comparison-table">
+                    <caption>Comparativa de velocidades Thunderbolt, Firewire y USB</caption>
+                    <thead>
+                      <tr>
+                        <th>Estándar</th>
+                        <th>Velocidad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>USB 1.0</td><td>0.19 MB/s</td></tr>
+                      <tr><td>USB 1.1</td><td>1.5 MB/s</td></tr>
+                      <tr><td>Firewire 400</td><td>50 MB/s</td></tr>
+                      <tr><td>USB 2.0</td><td>60 MB/s</td></tr>
+                      <tr><td>Firewire 800</td><td>100 MB/s</td></tr>
+                      <tr><td>Firewire s1600</td><td>200 MB/s</td></tr>
+                      <tr><td>Firewire s3200</td><td>400 MB/s</td></tr>
+                      <tr><td>USB 3.0</td><td>600 MB/s</td></tr>
+                      <tr><td>Thunderbolt (primer estándar)</td><td>1.2 GB/s</td></tr>
+                      <tr><td>USB 3.1</td><td>1225 MB/s (10 Gbps single channel)</td></tr>
+                      <tr><td>Thunderbolt 2</td><td>2.5 GB/s</td></tr>
+                      <tr><td>USB 3.2</td><td>2.5 GB/s (10 Gbps dual channel)</td></tr>
+                      <tr><td>Thunderbolt 3</td><td>5 GB/s</td></tr>
+                      <tr><td>USB 4.0</td><td>5 GB/s</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="speed-chart">
+                  <h5 class="chart-title">Evolución de velocidades (MB/s)</h5>
+                  <div class="chart">
+                    <div class="chart-bar" style="height: 1%;" data-speed="0.19 MB/s">
+                      <div class="bar-label">USB 1.0</div>
+                    </div>
+                    <div class="chart-bar" style="height: 2%;" data-speed="1.5 MB/s">
+                      <div class="bar-label">USB 1.1</div>
+                    </div>
+                    <div class="chart-bar" style="height: 10%;" data-speed="50 MB/s">
+                      <div class="bar-label">FW 400</div>
+                    </div>
+                    <div class="chart-bar" style="height: 12%;" data-speed="60 MB/s">
+                      <div class="bar-label">USB 2.0</div>
+                    </div>
+                    <div class="chart-bar" style="height: 20%;" data-speed="100 MB/s">
+                      <div class="bar-label">FW 800</div>
+                    </div>
+                    <div class="chart-bar" style="height: 40%;" data-speed="600 MB/s">
+                      <div class="bar-label">USB 3.0</div>
+                    </div>
+                    <div class="chart-bar" style="height: 80%;" data-speed="1.2 GB/s">
+                      <div class="bar-label">TB 1</div>
+                    </div>
+                    <div class="chart-bar" style="height: 100%;" data-speed="5 GB/s">
+                      <div class="bar-label">USB 4.0/TB 3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion6" class="accordion-input">
+              <label for="accordion6" class="accordion-header">
+                <span class="accordion-icon">🔌</span>
+                <span class="accordion-title">Otras interfaces serie</span>
+              </label>
+              <div id="2020102008" class="accordion-content">
+                <p>Otras interfaces comunes que utilizan transmisión serie son el conector clásico de teclado y ratón PS/2 de 6 pines en formato circular, así como distintos puertos de salida gráfica, como el VGA, DVI, HDMI o DisplayPort.</p>
+                
+                <div class="other-interfaces">
+                  <div class="interface-card">
+                    <div class="interface-icon">⌨️</div>
+                    <div class="interface-content">
+                      <h5>PS/2</h5>
+                      <p>Conector circular de 6 pines para teclado y ratón</p>
+                    </div>
+                  </div>
+                  
+                  <div class="interface-card">
+                    <div class="interface-icon">🖥️</div>
+                    <div class="interface-content">
+                      <h5>VGA</h5>
+                      <p>Conector analógico de 15 pines para video</p>
+                    </div>
+                  </div>
+                  
+                  <div class="interface-card">
+                    <div class="interface-icon">🖥️</div>
+                    <div class="interface-content">
+                      <h5>DVI</h5>
+                      <p>Conector digital/analógico para video</p>
+                    </div>
+                  </div>
+                  
+                  <div class="interface-card">
+                    <div class="interface-icon">📺</div>
+                    <div class="interface-content">
+                      <h5>HDMI</h5>
+                      <p>Conector digital para audio y video</p>
+                    </div>
+                  </div>
+                  
+                  <div class="interface-card">
+                    <div class="interface-icon">🖥️</div>
+                    <div class="interface-content">
+                      <h5>DisplayPort</h5>
+                      <p>Conector digital para video de alta resolución</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion7" class="accordion-input">
+              <label for="accordion7" class="accordion-header">
+                <span class="accordion-icon">📊</span>
+                <span class="accordion-title">Conexiones y ranuras paralelas</span>
+              </label>
+              <div id="2020102009" class="accordion-content">
+                <p>Como ya hemos visto, la mayor parte de los dispositivos externos en la actualidad tienen transmisión serie, por la simplicidad y robustez de transmisión que ello conlleva. La transmisión paralela se reserva para necesidades de muy alto ancho de banda en los que la complejidad y coste no son un factor determinante. Esto incluye los buses y ranuras de expansión para periféricos internos de las placas base, como ISA, PCI o AGP, o los conectores de memoria, así como diversas conexiones de almacenamiento que veremos más adelante.</p>
+                
+                <div class="parallel-slots">
+                  <div class="slot-card">
+                    <div class="slot-icon">🔌</div>
+                    <div class="slot-content">
+                      <h5>PCI</h5>
+                      <p>Bus de expansión para tarjetas internas</p>
+                    </div>
+                  </div>
+                  
+                  <div class="slot-card">
+                    <div class="slot-icon">🎮</div>
+                    <div class="slot-content">
+                      <h5>AGP</h5>
+                      <p>Ranura específica para tarjetas gráficas</p>
+                    </div>
+                  </div>
+                  
+                  <div class="slot-card">
+                    <div class="slot-icon">💾</div>
+                    <div class="slot-content">
+                      <h5>DIMM</h5>
+                      <p>Ranuras para módulos de memoria RAM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <input type="checkbox" id="accordion8" class="accordion-input">
+              <label for="accordion8" class="accordion-header">
+                <span class="accordion-icon">🎧</span>
+                <span class="accordion-title">Puerto Jack de Audio</span>
+              </label>
+              <div id="2020102010" class="accordion-content">
+                <p>El puerto de conexión de audio más extendido es el Jack, en especial en su formato 3.5 mm. Se trata de un conector analógico, y cuando se utiliza en un dispositivo actual requiere de un conversor digital-analógico o DAC. Si bien está en proceso de desaparecer ya que los nuevos dispositivos optan por conectividad inalámbrica bluetooth o dispositivos USB, sigue siendo con diferencia el conector para audio más extendido. Existen variantes de 2.5 mm (muy común en dispositivos como walkie talkies), o el 6.3 mm, muy utilizado antiguamente en las centralitas telefónicas. No obstante, existen otro tipo de conectores de audio con mayores capacidades, como Toslink, RCA, XLR o MIDI.</p>
+                
+                <div class="audio-connectors">
+                  <div class="audio-connector">
+                    <div class="connector-icon">🎧</div>
+                    <div class="connector-content">
+                      <h5>Jack 3.5mm</h5>
+                      <p>El más común en dispositivos de consumo</p>
+                    </div>
+                  </div>
+                  
+                  <div class="audio-connector">
+                    <div class="connector-icon">🎸</div>
+                    <div class="connector-content">
+                      <h5>Jack 6.3mm</h5>
+                      <p>Usado en equipos profesionales y guitarras</p>
+                    </div>
+                  </div>
+                  
+                  <div class="audio-connector">
+                    <div class="connector-icon">📡</div>
+                    <div class="connector-content">
+                      <h5>Toslink</h5>
+                      <p>Conector óptico para audio digital</p>
+                    </div>
+                  </div>
+                  
+                  <div class="audio-connector">
+                    <div class="connector-icon">🔌</div>
+                    <div class="connector-content">
+                      <h5>RCA</h5>
+                      <p>Conectores de audio analógico</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="content3">
+          <h3 class="subsection-title">Conexión inalámbrica de dispositivos</h3>
+          <div id="2020102011" class="wireless-types">
+            <p>Existen distintos estándares de conexión inalámbrica, siendo los principales:</p>
+            
+            <div class="wireless-grid">
+              <div class="wireless-card">
+                <div class="wireless-icon">📡</div>
+                <div class="wireless-content">
+                  <h4 class="wireless-title">Infrarrojos</h4>
+                  <p>La comunicación por infrarrojos utiliza unos emisores y receptores de ondas infrarrojas entre el dispositivo y el equipo, por lo que se necesita visibilidad directa entre ambos extremos.</p>
+                  <div class="wireless-features">
+                    <div class="feature">
+                      <div class="feature-icon">👁️</div>
+                      <div class="feature-text">Requiere línea de visión directa</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">📏</div>
+                      <div class="feature-text">Alcance limitado</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">🔒</div>
+                      <div class="feature-text">Mayor seguridad por su direccionalidad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="wireless-card">
+                <div class="wireless-icon">📱</div>
+                <div class="wireless-content">
+                  <h4 class="wireless-title">Bluetooth</h4>
+                  <p>Muy común y soportado por gran variedad de dispositivos, desde teléfonos móviles a manos libres, lo introdujo la marca Ericsson y ha evolucionado hasta el actual estándar Bluetooth 5.0, que permite una velocidad de transmisión de hasta 2Mbps con un consumo de 2.5 veces menos que bluetooth 4.0.</p>
+                  <div class="wireless-features">
+                    <div class="feature">
+                      <div class="feature-icon">🔄</div>
+                      <div class="feature-text">No requiere línea de visión directa</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">📏</div>
+                      <div class="feature-text">Alcance de 10-30 metros</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">⚡</div>
+                      <div class="feature-text">Bajo consumo energético</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="wireless-card">
+                <div class="wireless-icon">📶</div>
+                <div class="wireless-content">
+                  <h4 class="wireless-title">Wifi</h4>
+                  <p>Es común que algunos dispositivos se conecten directamente a través de la red inalámbrica Wifi ya sea de 2.4 GHz o 5 GHz, permitiendo compartición sencilla de datos sin necesidad de línea directa de visión.</p>
+                  <div class="wireless-features">
+                    <div class="feature">
+                      <div class="feature-icon">🔄</div>
+                      <div class="feature-text">No requiere línea de visión directa</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">📏</div>
+                      <div class="feature-text">Alcance de 50-100 metros</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">⚡</div>
+                      <div class="feature-text">Mayor velocidad pero más consumo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="wireless-card">
+                <div class="wireless-icon">📡</div>
+                <div class="wireless-content">
+                  <h4 class="wireless-title">Zigbee</h4>
+                  <p>Permiten conectar dispositivos con muy bajo consumo de energía y habitual en uso industrial de sensores y dispositivos de automatización.</p>
+                  <div class="wireless-features">
+                    <div class="feature">
+                      <div class="feature-icon">🔄</div>
+                      <div class="feature-text">Red mallada de dispositivos</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">📏</div>
+                      <div class="feature-text">Alcance de 10-100 metros</div>
+                    </div>
+                    <div class="feature">
+                      <div class="feature-icon">⚡</div>
+                      <div class="feature-text">Consumo extremadamente bajo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="2020102012" class="wireless-comparison">
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <caption>Comparativa de tecnologías inalámbricas</caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Bluetooth</th>
+                    <th>Wifi</th>
+                    <th>ZigBee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Distancia de trabajo</td>
+                    <td>10-30 metros</td>
+                    <td>50-100 metros</td>
+                    <td>10-100 metros</td>
+                  </tr>
+                  <tr>
+                    <td>Topología de red</td>
+                    <td>Punto a punto</td>
+                    <td>Conexión a punto de acceso</td>
+                    <td>Red mallada</td>
+                  </tr>
+                  <tr>
+                    <td>Frecuencia de trabajo</td>
+                    <td>2.4 GHz</td>
+                    <td>2.4 GHz/5 GHz</td>
+                    <td>868 MHz (sólo Europa), 2.4 GHz</td>
+                  </tr>
+                  <tr>
+                    <td>Consumo</td>
+                    <td>Medio</td>
+                    <td>Alto</td>
+                    <td>Muy bajo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "🔌";
+      margin-right: 10px;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    /* Tabs */
+    .connection-tabs {
+      position: relative;
+      min-height: 400px;
+      margin-top: 20px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-icon {
+      margin-right: 5px;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"],
+    #tab3:checked ~ label[for="tab3"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Operations */
+    .operations-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .operations-diagram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .operation-box {
+      display: flex;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 20px;
+      width: 100%;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .operation-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .operation-icon {
+      font-size: 2rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+    }
+    
+    .operation-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .operation-arrow {
+      font-size: 2rem;
+      margin: 15px 0;
+      color: var(--color-primary);
+    }
+    
+    .sync-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .sync-method {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .method-icon {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .method-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* Transmission Comparison */
+    .transmission-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .transmission-type {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .transmission-type:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .transmission-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .transmission-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .transmission-illustration {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      padding: 10px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .bit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+    
+    .arrow {
+      margin: 0 10px;
+      color: var(--color-primary);
+    }
+    
+    /* Accordion */
+    .connection-accordion {
+      margin-top: 20px;
+    }
+    
+    .accordion-item {
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .accordion-input {
+      display: none;
+    }
+    
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-primary-dark);
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .accordion-header:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .accordion-icon {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: var(--color-white);
+      transition: max-height 0.3s ease;
+    }
+    
+    .accordion-input:checked ~ .accordion-content {
+      max-height: 2000px;
+      padding: 15px;
+    }
+    
+    /* Ports Comparison */
+    .ports-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .port-card {
+      flex: 1;
+      min-width: 250px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .port-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .port-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .port-icon {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      color: var(--color-primary);
+    }
+    
+    .port-label {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    .port-details h5 {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .port-details ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .port-details li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 5px;
+    }
+    
+    .port-details li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+    }
+    
+    /* USB Types */
+    .usb-types {
+      margin-top: 20px;
+    }
+    
+    .connector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .connector-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .connector-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .connector-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .connector-content h6 {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+    
+    .usb-otg {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .otg-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    /* Firewire and Thunderbolt */
+    .firewire-image, .thunderbolt-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+    }
+    
+    .fw-icon, .tb-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .fw-label, .tb-label {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    /* Comparison Table */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    .comparison-table caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--color-primary-dark);
+    }
+    
+    .comparison-table th {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px;
+      text-align: left;
+    }
+    
+    .comparison-table td {
+      padding: 8px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .comparison-table tr:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Speed Chart */
+    .speed-chart {
+      margin-top: 30px;
+    }
+    
+    .chart-title {
+      text-align: center;
+      color: var(--color-primary-dark);
+      margin-bottom: 15px;
+    }
+    
+    .chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 200px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .chart-bar {
+      width: 30px;
+      background-color: var(--color-primary);
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .chart-bar:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .chart-bar:hover::after {
+      content: attr(data-speed);
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-primary-dark);
+      color: var(--color-white);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    
+    .bar-label {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      white-space: nowrap;
+    }
+    
+    /* Other Interfaces */
+    .other-interfaces, .parallel-slots, .audio-connectors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .interface-card, .slot-card, .audio-connector {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .interface-card:hover, .slot-card:hover, .audio-connector:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .interface-icon, .slot-icon, .connector-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    /* Wireless Types */
+    .wireless-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .wireless-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .wireless-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .wireless-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+    }
+    
+    .wireless-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .wireless-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .feature-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    .wireless-comparison {
+      margin-top: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .sync-methods {
+        flex-direction: column;
+      }
+      
+      .transmission-comparison {
+        flex-direction: column;
+      }
+      
+      .ports-comparison {
+        flex-direction: column;
+      }
+      
+      .connector-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .other-interfaces, .parallel-slots, .audio-connectors {
+        grid-template-columns: 1fr;
+      }
+      
+      .wireless-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"],
+      #tab3:checked ~ label[for="tab3"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+      
+      .chart {
+        height: 150px;
+      }
+      
+      .chart-bar {
+        width: 20px;
+      }
+      
+      .bar-label {
+        font-size: 0.7rem;
+        transform: translateX(-50%) rotate(-45deg);
+        transform-origin: top left;
+      }
+    }
+  </style>
+</body>
+</html>

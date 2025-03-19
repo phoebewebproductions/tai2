@@ -1,195 +1,445 @@
-<div class="teoria">
-    <!-- punto 3.3 : REQUISITOS MÍNIMOS -->
-    <article>
-    
-    <h2>3.3. REQUISITOS MÍNIMOS (ART. 12 A 27)</h2>
-    
-    <span id="1080303001">
-      <p>La política de seguridad de la información es el conjunto de directrices que rigen la forma en que una organización gestiona y protege la información que trata y los servicios que presta. A tal efecto, el instrumento que apruebe dicha política de seguridad deberá incluir, como mínimo:</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requisitos Mínimos del Esquema Nacional de Seguridad</title>
+</head>
+<body>
+  <div class="container">
+    <div class="teoria">
+      <article>
+        <h2>3.3. REQUISITOS MÍNIMOS (ART. 12 A 27)</h2>
       
-      <ol id="1080303002" type="a">
-        <li >Los objetivos o misión de la organización.</li>
-        <li id="1080303003">El marco regulatorio en el que se desarrollarán las actividades.</li>
-        <li id="1080303004">Los roles o funciones de seguridad.</li>
-        <li id="1080303005">La estructura y composición del comité para la gestión y coordinación de la seguridad.</li>
-        <li id="1080303006">Las directrices para la estructuración de la documentación de seguridad del sistema.</li>
-        <li id="1080303007">Los riesgos que se derivan del tratamiento de los datos personales.</li>
-      </ol>
+        <div id="1080303001" class="intro-card">
+          <p>La política de seguridad de la información es el conjunto de directrices que rigen la forma en que una organización gestiona y protege la información que trata y los servicios que presta. A tal efecto, el instrumento que apruebe dicha política de seguridad deberá incluir, como mínimo:</p>
+          
+          <ol id="1080303002" type="a" class="requirements-list">
+            <li>Los objetivos o misión de la organización.</li>
+            <li id="1080303003">El marco regulatorio en el que se desarrollarán las actividades.</li>
+            <li id="1080303004">Los roles o funciones de seguridad.</li>
+            <li id="1080303005">La estructura y composición del comité para la gestión y coordinación de la seguridad.</li>
+            <li id="1080303006">Las directrices para la estructuración de la documentación de seguridad del sistema.</li>
+            <li id="1080303007">Los riesgos que se derivan del tratamiento de los datos personales.</li>
+          </ol>
+        </div>
       
-    </span>
-    <p id="1080303008">Cada administración pública, cada órgano o entidad con personalidad jurídica propia contará con una política de seguridad formalmente aprobada por el órgano competente.</p>
-    
-    <p id="1080303009">En la AGE, cada ministerio contará con su política de seguridad, que aprobará la persona titular del Departamento. Los organismos públicos y entidades pertenecientes al sector público institucional estatal podrán contar con su propia política de seguridad, aprobada por el órgano competente.</p>
-    
-    <p id="1080303010">La SGAD del MAETD dispondrá de su propia política de seguridad, que será aprobada por la persona titular de la misma.</p>
-    
-    <p id="1080303011">Los municipios podrán disponer de una política de seguridad común elaborada por la entidad local comarcal o provincial.</p>
-    
-    <span id="1080303012">
-      <p>La política de seguridad se establecerá de acuerdo con los principios básicos señalados en el capítulo II y se desarrollará aplicando los siguientes requisitos mínimos:</p>
+        <p id="1080303008" class="highlight">Cada administración pública, cada órgano o entidad con personalidad jurídica propia contará con una política de seguridad formalmente aprobada por el órgano competente.</p>
       
-      <ol type="a">
-        <li id="1080303013">Organización e implantación del proceso de seguridad (art. 13)</li>
-        <li id="1080303014">Análisis y gestión de los riesgos (art. 14)</li>
-        <li id="1080303015">Gestión de personal (art. 15)</li>
-        <li id="1080303016">Profesionalidad (art. 16)</li>
-        <li id="1080303017">Autorización y control de los accesos (art. 17)</li>
-        <li id="1080303018">Protección de las instalaciones (art. 18)</li>
-        <li id="1080303019">Adquisición de productos de seguridad y contratación de servicios de seguridad (art. 19)</li>
-        <li id="1080303020">Mínimo privilegio (art. 20)</li>
-        <li id="1080303021">Integridad y actualización del sistema (art. 21)</li>
-        <li id="1080303022">Protección de la información almacenada y en tránsito (art. 22)</li>
-        <li id="1080303023">Prevención ante otros sistemas de información interconectados (art. 23)</li>
-        <li id="1080303024">Registro de la actividad y detección de código dañino (art. 24)</li>
-        <li id="1080303025">Incidentes de seguridad (art. 25)</li>
-        <li id="1080303026">Continuidad de la actividad (art. 26)</li>
-        <li id="1080303027">Mejora continua del proceso de seguridad (art. 27)</li>
-      </ol>
-    </span>
-    
-    <p id="1080303028">Los requisitos mínimos se exigirán en proporción a los riesgos identificados en cada sistema, según el art. 28, alguno de los cuales podrá obviarse en sistemas sin riesgos significativos.</p>
-    
-    <p>En la siguiente tabla, se detallan los requisitos mínimos:</p>
-    
-    <table>
-      <caption>Tabla 13. ENS - Requisitos mínimos</caption>
-      <thead>
-        <tr>
-          <th>Requisito</th>
-          <th>Descripción</th>
-          <th>Características</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Organización e implantación del proceso de seguridad</td>
-          <td id="1080303029">La seguridad debe comprometer a todos los miembros de la organización. Los responsables tendrán las funciones:
-            - Responsable de la información determinará los requisitos de la información tratada.
-            - Responsable del servicio determinará los requisitos de los servicios.
-            - Responsable de la seguridad determinará las decisiones sobre requisitos de seguridad de información y servicios, y supervisará medidas.
-            - Responsable del sistema se encargará de desarrollar la forma de implementar la seguridad en el sistema y supervisión diaria del mismo.</td>
-          <td id="1080303030">- La política de seguridad (según anexo II) debe identificar a responsables de su cumplimiento y debe ser conocida por todos los miembros de la organización.
-            - Responsable de la seguridad será distinto del responsable del sistema, no debiendo existir dependencia jerárquica entre ambos, salvo excepciones que se aplicarán medidas compensatorias.
-            - Una Instrucción Técnica de Seguridad regulará el Esquema de Certificación de Responsables de la Seguridad.
-            - En el caso de servicios externalizados, la organización prestataria de dichos servicios deberá designar un POC (Punto o Persona de Contacto) para la seguridad de la información tratada y el servicio prestado.
-            - Dicho POC de seguridad será el propio Responsable de Seguridad de la organización contratada.</td>
-        </tr>
-        <tr>
-          <td>Análisis y gestión de riesgos</td>
-          <td id="1080303031">Realizar gestión de riesgos mediante análisis y tratamiento de riesgos empleando alguna metodología reconocida.</td>
-          <td id="1080303032">Medidas adoptadas para mitigar o suprimir riesgos deben estar justificadas y proporcionales a los riesgos.</td>
-        </tr>
-        <tr>
-          <td>Gestión de personal</td>
-          <td id="1080303033">Personal formado e informado sobre obligaciones, deberes y responsabilidades en materia de seguridad.</td>
-          <td id="1080303034">- Personal aplicará normas y procedimientos operativos de seguridad.
-            - Para uso seguro del sistema se concretará unas normas de seguridad que serán aprobadas por la dirección o el órgano superior.</td>
-        </tr>
-        <tr>
-          <td>Profesionalidad</td>
-          <td id="1080303035">La seguridad de los sistemas estará atendida, revisada y auditada por personal cualificado, dedicado e instruido.</td>
-          <td id="1080303036">Las organizaciones determinarán los requisitos de formación y experiencia necesaria del personal.</td>
-        </tr>
-        <tr>
-          <td>Autorización y control de accesos</td>
-          <td id="1080303037">El acceso al sistema deberá estar limitado a usuarios, procesos, dispositivos y otros sistemas.</td>
-          <td id="1080303038">Restringir acceso a las funciones permitidas. Disponer de los mecanismos de acceso adecuados y proporcionales en función del análisis de riesgos.</td>
-        </tr>
-        <tr>
-          <td>Protección de instalaciones</td>
-          <td id="1080303039">Sistemas de información e infraestructura deben estar en áreas controladas.</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Adquisición de productos de seguridad</td>
-          <td id="1080303040">En la adquisición o contratación de productos de seguridad para las AAPP se utilizarán, de forma proporcionada a la categoría del sistema y nivel de seguridad determinados, aquellos que tengan certificada la funcionalidad de seguridad que corresponda.</td>
-          <td id="1080303041">Certificación debe estar de acuerdo con normas y estándares de reconocimiento internacional.</td>
-        </tr>
-        <tr>
-          <td>Mínimo privilegio</td>
-          <td id="1080303042">Sistemas diseñados y configurados otorgando los mínimos privilegios.</td>
-          <td id="1080303043">Mínimos privilegios, implica:
-            - El sistema proporcionará la funcionalidad imprescindible.
-            - Las funciones de operación, administración y registro de actividad serán las mínimas necesarias, y se asegurará que sólo son accesibles por las personas autorizadas.
-            - Se eliminarán o desactivarán las funciones que sean innecesarias o inadecuadas.
-            - El uso ordinario del sistema ha de ser sencillo y seguro.
-            - Se aplicarán guías de configuración de seguridad para las diferentes tecnologías, según la categoría del sistema.</td>
-        </tr>
-        <tr>
-          <td>Integridad y actualización del sistema</td>
-          <td id="1080303044">Todo elemento físico o lógico requerirá autorización formal previa a su instalación en el sistema.</td>
-          <td id="1080303045">La evaluación y monitorización permanentes permitirán adecuar el estado de seguridad de los sistemas atendiendo a las deficiencias de configuración, las vulnerabilidades identificadas y las actualizaciones que les afecten.</td>
-        </tr>
-        <tr>
-          <td>Protección de información almacenada y en tránsito</td>
-          <td id="1080303046">Se prestará especial atención a la información almacenada o en tránsito a través de los equipos o dispositivos portátiles o móviles, los dispositivos periféricos, los soportes de información y las comunicaciones sobre redes abiertas.</td>
-          <td id="1080303047">- Se aplicarán procedimientos que garanticen la recuperación y conservación de los documentos electrónicos de las AAPP.
-            - La información en soporte no electrónico deberá ser protegida con el mismo grado de seguridad que información electrónica.</td>
-        </tr>
-        <tr>
-          <td>Prevención ante otros sistemas de información interconectados</td>
-          <td id="1080303048">Se protegerá el perímetro del sistema de información, especialmente, si se conecta a redes públicas.</td>
-          <td id="1080303049">- Red pública: red de comunicaciones electrónicas que se utiliza para la prestación de servicios de comunicaciones electrónicas disponibles al público.
-            - Se deben analizar los riesgos derivados de la interconexión del sistema con otros sistemas.</td>
-        </tr>
-        <tr>
-          <td>Registro de actividad y detección de código dañino</td>
-          <td id="1080303050">Se registrarán las actividades de los usuarios, de acuerdo con las normas de protección de datos.</td>
-          <td id="1080303051">- Los sujetos comprendidos en el art. 2 podrán, analizar las comunicaciones entrantes o salientes, y únicamente para los fines de seguridad de la información, de forma que sea posible impedir el acceso no autorizado a las redes y sistemas de información, detener los ataques, evitar la distribución malintencionada de código dañino así como otros daños.
-            - Para corregir o, en su caso, exigir responsabilidades, cada usuario que acceda al sistema de información deberá estar identificado de forma única</td>
-        </tr>
-        <tr>
-          <td>Incidentes de seguridad</td>
-          <td id="1080303052">La entidad titular de los sistemas de información del ámbito de este RD dispondrá de procedimientos de gestión de incidentes de seguridad.</td>
-          <td id="1080303053">Se dispondrá de mecanismos de detección, criterios de clasificación, procedimientos de análisis y resolución, así como de los cauces de comunicación a las partes interesadas y el registro de las actuaciones.</td>
-        </tr>
-        <tr>
-          <td>Continuidad de la actividad</td>
-          <td id="1080303054">Los sistemas dispondrán de copias de seguridad y establecerán los mecanismos para garantizar la continuidad de las operaciones.</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Mejora continua del proceso de seguridad</td>
-          <td id="1080303055">El proceso integral de seguridad implantado deberá ser actualizado y mejorado de forma continua.</td>
-          <td id="1080303056">Se aplicarán criterios y métodos reconocidos internacionalmente sobre la gestión de las tecnologías de la información.</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <h3>3.3.1. CUMPLIMIENTO DE REQUISITOS MÍNIMOS (ART. 28)</h3>
-    
-    <span id="1080303057">
-      <p>Para dar cumplimiento a los requisitos mínimos establecidos en el presente RD, las entidades adoptarán las medidas y refuerzos de seguridad indicados en el anexo II, teniendo en cuenta:</p>
+        <p id="1080303009">En la AGE, cada ministerio contará con su política de seguridad, que aprobará la persona titular del Departamento. Los organismos públicos y entidades pertenecientes al sector público institucional estatal podrán contar con su propia política de seguridad, aprobada por el órgano competente.</p>
       
-      <ol type="a">
-        <li id="1080303058">Los activos que constituyen los sistemas de información concernidos.</li>
-        <li id="1080303059">La categoría del sistema (según art. 40 y anexo I).</li>
-        <li id="1080303060">Las decisiones que se adopten para gestionar los riesgos identificados.</li>
-      </ol>
-    </span>
-    
-    <p id="1080303061">Las medidas anteriores descritas, tendrán la condición de mínimos exigibles, siendo ampliables a criterio del responsable de la seguridad.</p>
-    
-    <p id="1080303062">La relación de medidas seleccionadas del Anexo II se formalizará en un documento denominado Declaración de Aplicabilidad, firmado por el responsable de seguridad.</p>
-    
-    <p id="1080303063">Las medidas de seguridad referenciadas en el Anexo II podrán ser reemplazadas por otras compensatorias siempre y cuando se justifique documentalmente, con aprobación formal por parte del responsable de la seguridad.</p>
-    
-    <p id="1080303064">Una Guía CCN-STIC de las previstas en la disposición adicional segunda guiará en la selección de dichas medidas, así como su registro e inclusión en la Declaración de Aplicabilidad.</p>
-    
-    <h3>3.3.2. INFRAESTRUCTURAS Y SERVICIOS COMUNES (ART. 29)</h3>
-    
-    <p id="1080303065">La utilización de infraestructuras y servicios comunes de las AAPP facilitará el cumplimiento de este RD.</p>
-    
-    <h3>3.3.3. PERFILES DE CUMPLIMIENTO ESPECÍFICOS Y ACREDITACIÓN DE ENTIDADES DE IMPLEMENTACIÓN DE CONFIGURACIONES SEGURAS (ART. 30)</h3>
-    
-    <p id="1080303066">En virtud del principio de proporcionalidad, determinadas entidades o sectores de actividad concretos, se podrán implementar perfiles de cumplimiento específicos que comprenderán aquel conjunto de medidas de seguridad que, resulten idóneas para una concreta categoría de seguridad.</p>
-    
-    <p id="1080303067">De forma análoga a lo anterior, para posibilitar la adecuada implantación y configuración de soluciones o plataformas suministradas por terceros, que vayan a ser usadas por las entidades comprendidas en el ámbito de aplicación de este RD, se podrán implementar esquemas de acreditación de entidades y validación de personas, que garanticen la seguridad de dichas soluciones o plataformas y la conformidad con lo dispuesto en este RD.</p>
-    
-    <p id="1080303068">El CCN validará y publicará los correspondientes perfiles de cumplimiento específicos que se definan y los antedichos esquemas de acreditación y validación.</p>
-    
-    <p id="1080303069">Las correspondientes instrucciones técnicas de seguridad o, en su caso, las guías de Seguridad CCN-STIC, precisarán las condiciones a las que deberán sujetarse las implementaciones en modo local de productos, sistemas o servicios originariamente prestados en la nube o en forma remota, así como las condiciones específicas para su evaluación y auditoría.</p>
-    
-    </article>
+        <p id="1080303010">La SGAD del MAETD dispondrá de su propia política de seguridad, que será aprobada por la persona titular de la misma.</p>
+      
+        <p id="1080303011">Los municipios podrán disponer de una política de seguridad común elaborada por la entidad local comarcal o provincial.</p>
+      
+        <div id="1080303012" class="requirements-section">
+          <p>La política de seguridad se establecerá de acuerdo con los principios básicos señalados en el capítulo II y se desarrollará aplicando los siguientes requisitos mínimos:</p>
+          
+          <ol type="a" class="requirements-list">
+            <li id="1080303013">Organización e implantación del proceso de seguridad (art. 13)</li>
+            <li id="1080303014">Análisis y gestión de los riesgos (art. 14)</li>
+            <li id="1080303015">Gestión de personal (art. 15)</li>
+            <li id="1080303016">Profesionalidad (art. 16)</li>
+            <li id="1080303017">Autorización y control de los accesos (art. 17)</li>
+            <li id="1080303018">Protección de las instalaciones (art. 18)</li>
+            <li id="1080303019">Adquisición de productos de seguridad y contratación de servicios de seguridad (art. 19)</li>
+            <li id="1080303020">Mínimo privilegio (art. 20)</li>
+            <li id="1080303021">Integridad y actualización del sistema (art. 21)</li>
+            <li id="1080303022">Protección de la información almacenada y en tránsito (art. 22)</li>
+            <li id="1080303023">Prevención ante otros sistemas de información interconectados (art. 23)</li>
+            <li id="1080303024">Registro de la actividad y detección de código dañino (art. 24)</li>
+            <li id="1080303025">Incidentes de seguridad (art. 25)</li>
+            <li id="1080303026">Continuidad de la actividad (art. 26)</li>
+            <li id="1080303027">Mejora continua del proceso de seguridad (art. 27)</li>
+          </ol>
+        </div>
+      
+        <p id="1080303028">Los requisitos mínimos se exigirán en proporción a los riesgos identificados en cada sistema, según el art. 28, alguno de los cuales podrá obviarse en sistemas sin riesgos significativos.</p>
+      
+        <p>En la siguiente tabla, se detallan los requisitos mínimos:</p>
+      
+        <div class="table-container">
+          <table>
+            <caption>Tabla 13. ENS - Requisitos mínimos</caption>
+            <thead>
+              <tr>
+                <th>Requisito</th>
+                <th>Descripción</th>
+                <th>Características</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="requirement-name">Organización e implantación del proceso de seguridad</td>
+                <td id="1080303029">La seguridad debe comprometer a todos los miembros de la organización. Los responsables tendrán las funciones:
+                  <ul class="feature-list">
+                    <li>Responsable de la información determinará los requisitos de la información tratada.</li>
+                    <li>Responsable del servicio determinará los requisitos de los servicios.</li>
+                    <li>Responsable de la seguridad determinará las decisiones sobre requisitos de seguridad de información y servicios, y supervisará medidas.</li>
+                    <li>Responsable del sistema se encargará de desarrollar la forma de implementar la seguridad en el sistema y supervisión diaria del mismo.</li>
+                  </ul>
+                </td>
+                <td id="1080303030">
+                  <ul class="feature-list">
+                    <li>La política de seguridad (según anexo II) debe identificar a responsables de su cumplimiento y debe ser conocida por todos los miembros de la organización.</li>
+                    <li>Responsable de la seguridad será distinto del responsable del sistema, no debiendo existir dependencia jerárquica entre ambos, salvo excepciones que se aplicarán medidas compensatorias.</li>
+                    <li>Una Instrucción Técnica de Seguridad regulará el Esquema de Certificación de Responsables de la Seguridad.</li>
+                    <li>En el caso de servicios externalizados, la organización prestataria de dichos servicios deberá designar un POC (Punto o Persona de Contacto) para la seguridad de la información tratada y el servicio prestado.</li>
+                    <li>Dicho POC de seguridad será el propio Responsable de Seguridad de la organización contratada.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Análisis y gestión de riesgos</td>
+                <td id="1080303031">Realizar gestión de riesgos mediante análisis y tratamiento de riesgos empleando alguna metodología reconocida.</td>
+                <td id="1080303032">Medidas adoptadas para mitigar o suprimir riesgos deben estar justificadas y proporcionales a los riesgos.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Gestión de personal</td>
+                <td id="1080303033">Personal formado e informado sobre obligaciones, deberes y responsabilidades en materia de seguridad.</td>
+                <td id="1080303034">
+                  <ul class="feature-list">
+                    <li>Personal aplicará normas y procedimientos operativos de seguridad.</li>
+                    <li>Para uso seguro del sistema se concretará unas normas de seguridad que serán aprobadas por la dirección o el órgano superior.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Profesionalidad</td>
+                <td id="1080303035">La seguridad de los sistemas estará atendida, revisada y auditada por personal cualificado, dedicado e instruido.</td>
+                <td id="1080303036">Las organizaciones determinarán los requisitos de formación y experiencia necesaria del personal.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Autorización y control de accesos</td>
+                <td id="1080303037">El acceso al sistema deberá estar limitado a usuarios, procesos, dispositivos y otros sistemas.</td>
+                <td id="1080303038">Restringir acceso a las funciones permitidas. Disponer de los mecanismos de acceso adecuados y proporcionales en función del análisis de riesgos.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Protección de instalaciones</td>
+                <td id="1080303039">Sistemas de información e infraestructura deben estar en áreas controladas.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Adquisición de productos de seguridad</td>
+                <td id="1080303040">En la adquisición o contratación de productos de seguridad para las AAPP se utilizarán, de forma proporcionada a la categoría del sistema y nivel de seguridad determinados, aquellos que tengan certificada la funcionalidad de seguridad que corresponda.</td>
+                <td id="1080303041">Certificación debe estar de acuerdo con normas y estándares de reconocimiento internacional.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Mínimo privilegio</td>
+                <td id="1080303042">Sistemas diseñados y configurados otorgando los mínimos privilegios.</td>
+                <td id="1080303043">
+                  <p>Mínimos privilegios, implica:</p>
+                  <ul class="feature-list">
+                    <li>El sistema proporcionará la funcionalidad imprescindible.</li>
+                    <li>Las funciones de operación, administración y registro de actividad serán las mínimas necesarias, y se asegurará que sólo son accesibles por las personas autorizadas.</li>
+                    <li>Se eliminarán o desactivarán las funciones que sean innecesarias o inadecuadas.</li>
+                    <li>El uso ordinario del sistema ha de ser sencillo y seguro.</li>
+                    <li>Se aplicarán guías de configuración de seguridad para las diferentes tecnologías, según la categoría del sistema.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Integridad y actualización del sistema</td>
+                <td id="1080303044">Todo elemento físico o lógico requerirá autorización formal previa a su instalación en el sistema.</td>
+                <td id="1080303045">La evaluación y monitorización permanentes permitirán adecuar el estado de seguridad de los sistemas atendiendo a las deficiencias de configuración, las vulnerabilidades identificadas y las actualizaciones que les afecten.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Protección de información almacenada y en tránsito</td>
+                <td id="1080303046">Se prestará especial atención a la información almacenada o en tránsito a través de los equipos o dispositivos portátiles o móviles, los dispositivos periféricos, los soportes de información y las comunicaciones sobre redes abiertas.</td>
+                <td id="1080303047">
+                  <ul class="feature-list">
+                    <li>Se aplicarán procedimientos que garanticen la recuperación y conservación de los documentos electrónicos de las AAPP.</li>
+                    <li>La información en soporte no electrónico deberá ser protegida con el mismo grado de seguridad que información electrónica.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Prevención ante otros sistemas de información interconectados</td>
+                <td id="1080303048">Se protegerá el perímetro del sistema de información, especialmente, si se conecta a redes públicas.</td>
+                <td id="1080303049">
+                  <ul class="feature-list">
+                    <li>Red pública: red de comunicaciones electrónicas que se utiliza para la prestación de servicios de comunicaciones electrónicas disponibles al público.</li>
+                    <li>Se deben analizar los riesgos derivados de la interconexión del sistema con otros sistemas.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Registro de actividad y detección de código dañino</td>
+                <td id="1080303050">Se registrarán las actividades de los usuarios, de acuerdo con las normas de protección de datos.</td>
+                <td id="1080303051">
+                  <ul class="feature-list">
+                    <li>Los sujetos comprendidos en el art. 2 podrán, analizar las comunicaciones entrantes o salientes, y únicamente para los fines de seguridad de la información, de forma que sea posible impedir el acceso no autorizado a las redes y sistemas de información, detener los ataques, evitar la distribución malintencionada de código dañino así como otros daños.</li>
+                    <li>Para corregir o, en su caso, exigir responsabilidades, cada usuario que acceda al sistema de información deberá estar identificado de forma única.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Incidentes de seguridad</td>
+                <td id="1080303052">La entidad titular de los sistemas de información del ámbito de este RD dispondrá de procedimientos de gestión de incidentes de seguridad.</td>
+                <td id="1080303053">Se dispondrá de mecanismos de detección, criterios de clasificación, procedimientos de análisis y resolución, así como de los cauces de comunicación a las partes interesadas y el registro de las actuaciones.</td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Continuidad de la actividad</td>
+                <td id="1080303054">Los sistemas dispondrán de copias de seguridad y establecerán los mecanismos para garantizar la continuidad de las operaciones.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="requirement-name">Mejora continua del proceso de seguridad</td>
+                <td id="1080303055">El proceso integral de seguridad implantado deberá ser actualizado y mejorado de forma continua.</td>
+                <td id="1080303056">Se aplicarán criterios y métodos reconocidos internacionalmente sobre la gestión de las tecnologías de la información.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <section class="content-section">
+          <h3>3.3.1. CUMPLIMIENTO DE REQUISITOS MÍNIMOS (ART. 28)</h3>
+        
+          <div id="1080303057" class="requirements-section">
+            <p>Para dar cumplimiento a los requisitos mínimos establecidos en el presente RD, las entidades adoptarán las medidas y refuerzos de seguridad indicados en el anexo II, teniendo en cuenta:</p>
+            
+            <ol type="a" class="requirements-list">
+              <li id="1080303058">Los activos que constituyen los sistemas de información concernidos.</li>
+              <li id="1080303059">La categoría del sistema (según art. 40 y anexo I).</li>
+              <li id="1080303060">Las decisiones que se adopten para gestionar los riesgos identificados.</li>
+            </ol>
+          </div>
+        
+          <p id="1080303061">Las medidas anteriores descritas, tendrán la condición de mínimos exigibles, siendo ampliables a criterio del responsable de la seguridad.</p>
+        
+          <p id="1080303062">La relación de medidas seleccionadas del Anexo II se formalizará en un documento denominado Declaración de Aplicabilidad, firmado por el responsable de seguridad.</p>
+        
+          <p id="1080303063">Las medidas de seguridad referenciadas en el Anexo II podrán ser reemplazadas por otras compensatorias siempre y cuando se justifique documentalmente, con aprobación formal por parte del responsable de la seguridad.</p>
+        
+          <p id="1080303064">Una Guía CCN-STIC de las previstas en la disposición adicional segunda guiará en la selección de dichas medidas, así como su registro e inclusión en la Declaración de Aplicabilidad.</p>
+        </section>
+      
+        <section class="content-section">
+          <h3>3.3.2. INFRAESTRUCTURAS Y SERVICIOS COMUNES (ART. 29)</h3>
+        
+          <p id="1080303065">La utilización de infraestructuras y servicios comunes de las AAPP facilitará el cumplimiento de este RD.</p>
+        </section>
+      
+        <section class="content-section">
+          <h3>3.3.3. PERFILES DE CUMPLIMIENTO ESPECÍFICOS Y ACREDITACIÓN DE ENTIDADES DE IMPLEMENTACIÓN DE CONFIGURACIONES SEGURAS (ART. 30)</h3>
+        
+          <p id="1080303066">En virtud del principio de proporcionalidad, determinadas entidades o sectores de actividad concretos, se podrán implementar perfiles de cumplimiento específicos que comprenderán aquel conjunto de medidas de seguridad que, resulten idóneas para una concreta categoría de seguridad.</p>
+        
+          <p id="1080303067">De forma análoga a lo anterior, para posibilitar la adecuada implantación y configuración de soluciones o plataformas suministradas por terceros, que vayan a ser usadas por las entidades comprendidas en el ámbito de aplicación de este RD, se podrán implementar esquemas de acreditación de entidades y validación de personas, que garanticen la seguridad de dichas soluciones o plataformas y la conformidad con lo dispuesto en este RD.</p>
+        
+          <p id="1080303068">El CCN validará y publicará los correspondientes perfiles de cumplimiento específicos que se definan y los antedichos esquemas de acreditación y validación.</p>
+        
+          <p id="1080303069">Las correspondientes instrucciones técnicas de seguridad o, en su caso, las guías de Seguridad CCN-STIC, precisarán las condiciones a las que deberán sujetarse las implementaciones en modo local de productos, sistemas o servicios originariamente prestados en la nube o en forma remota, así como las condiciones específicas para su evaluación y auditoría.</p>
+        </section>
+      </article>
     </div>
-    
+  </div>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .teoria {
+      background-color: var(--color-white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: 30px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+
+    h2::before {
+      content: "🔒";
+      margin-right: 10px;
+    }
+
+    h3 {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+      padding-left: 15px;
+      border-left: 4px solid var(--color-primary);
+    }
+
+    h3::before {
+      content: "📋";
+      margin-right: 10px;
+    }
+
+    .intro-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .requirements-section {
+      background-color: rgba(34, 197, 94, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid var(--color-secondary);
+    }
+
+    .requirements-list {
+      counter-reset: item;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .requirements-list li {
+      position: relative;
+      padding: 10px 10px 10px 40px;
+      margin-bottom: 8px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .requirements-list li:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateX(5px);
+    }
+
+    .requirements-list li::before {
+      content: counter(item, lower-alpha) ")";
+      counter-increment: item;
+      position: absolute;
+      left: 15px;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    .content-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .content-section:last-child {
+      border-bottom: none;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .highlight {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: var(--shadow-sm);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    caption {
+      font-weight: bold;
+      padding: 12px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 8px 8px 0 0;
+    }
+
+    th {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      border-bottom: 2px solid var(--color-primary);
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(59, 130, 246, 0.02);
+    }
+
+    tr:hover {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+
+    .requirement-name {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+
+    .requirement-name::before {
+      content: "🔐";
+      margin-right: 8px;
+    }
+
+    .feature-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .feature-list li {
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .feature-list li::marker {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      .teoria {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+    }
+  </style>
+</body>
+</html>

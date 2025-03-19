@@ -1,72 +1,717 @@
-<div class="teoria">
-  <article>
-    <!-- punto 2.1 : Arquitecturas de ordenadores -->
-    <h2>2.1. ARQUITECTURAS DE ORDENADORES</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitecturas de Ordenadores</title>
+</head>
+<body>
+  <div class="container">
+    <div class="teoria">
+      <article>
+        <h2 class="section-title">2.1. ARQUITECTURAS DE ORDENADORES</h2>
+        
+        <div class="architecture-tabs">
+          <input type="radio" name="architecture-tabs" id="tab1" checked class="tab-input">
+          <label for="tab1" class="tab-label">Von Neumann</label>
+          
+          <input type="radio" name="architecture-tabs" id="tab2" class="tab-input">
+          <label for="tab2" class="tab-label">Harvard</label>
+          
+          <input type="radio" name="architecture-tabs" id="tab3" class="tab-input">
+          <label for="tab3" class="tab-label">Harvard Modificada</label>
+          
+          <input type="radio" name="architecture-tabs" id="tab4" class="tab-input">
+          <label for="tab4" class="tab-label">Taxonomía de Flynn</label>
+          
+          <input type="radio" name="architecture-tabs" id="tab5" class="tab-input">
+          <label for="tab5" class="tab-label">Clasificación de Tanenbaum</label>
+          
+          <div class="tab-content" id="content1">
+            <h3 class="subsection-title">2.1.1. ARQUITECTURA DE VON NEUMANN</h3>
+            <div id="2010201001" class="architecture-card">
+              <p>La arquitectura von Neumann es una arquitectura de computadores basada en la descrita en 1945 por el matemático y físico John von Neumann y otros en un primer borrador sobre el ordenador EDVAC (Electronic Discrete Variable Automatic Calculator) y se considera la arquitectura clásica en la que se basan los ordenadores modernos.</p>
+              
+              <p>Esta arquitectura describe un diseño con una unidad de procesamiento (CPU), que contiene una unidad aritmético lógica (UAL o ALU, en inglés), una unidad de control (UC) y un conjunto de registros. La arquitectura incluye una memoria principal donde se almacenan tanto datos como instrucciones y sistemas para la entrada/salida de la información.</p>
+              
+              <div class="architecture-diagram">
+                <div class="diagram-title">Arquitectura Von Neumann</div>
+                <div class="diagram-content">
+                  <div class="diagram-component memory">
+                    <div class="component-icon">💾</div>
+                    <div class="component-title">Memoria Principal</div>
+                    <div class="component-desc">Almacena datos e instrucciones</div>
+                  </div>
+                  
+                  <div class="diagram-component cpu">
+                    <div class="component-icon">🧠</div>
+                    <div class="component-title">CPU</div>
+                    <div class="cpu-components">
+                      <div class="cpu-component">
+                        <div class="component-icon small">🧮</div>
+                        <div class="component-title small">ALU</div>
+                      </div>
+                      <div class="cpu-component">
+                        <div class="component-icon small">🎮</div>
+                        <div class="component-title small">UC</div>
+                      </div>
+                      <div class="cpu-component">
+                        <div class="component-icon small">📋</div>
+                        <div class="component-title small">Registros</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="diagram-component io">
+                    <div class="component-icon">🔌</div>
+                    <div class="component-title">Entrada/Salida</div>
+                    <div class="component-desc">Comunicación con el exterior</div>
+                  </div>
+                  
+                  <div class="diagram-bus"></div>
+                </div>
+              </div>
+              
+              <div id="2010201002" class="features-box">
+                <h4>Características principales de la arquitectura Von Neumann:</h4>
+                <ul class="features-list">
+                  <li><span class="feature-icon">📝</span> Existencia de programas almacenados en la memoria principal que podían contener datos e instrucciones.</li>
+                  <li><span class="feature-icon">🔄</span> Permite cambiar el código que se ejecutaba en la computadora y el comportamiento de la misma.</li>
+                  <li><span class="feature-icon">➡️</span> Las instrucciones se ejecutan secuencialmente y se requieren instrucciones de salto para cambiar el flujo de control.</li>
+                  <li><span class="feature-icon">🚧</span> Existe un bus común para datos e instrucciones, lo que puede causar el "cuello de botella Von Neumann".</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="content2">
+            <h3 class="subsection-title">2.1.2. ARQUITECTURA HARVARD</h3>
+            <div id="2010201003" class="architecture-card">
+              <p>La arquitectura Harvard pretende resolver el problema del cuello de botella Von Neumann, utilizando memorias diferentes para instrucciones y datos. Características principales:</p>
+              
+              <div class="architecture-diagram">
+                <div class="diagram-title">Arquitectura Harvard</div>
+                <div class="diagram-content harvard">
+                  <div class="diagram-component memory-data">
+                    <div class="component-icon">💾</div>
+                    <div class="component-title">Memoria de Datos</div>
+                  </div>
+                  
+                  <div class="diagram-component memory-instructions">
+                    <div class="component-icon">📝</div>
+                    <div class="component-title">Memoria de Instrucciones</div>
+                  </div>
+                  
+                  <div class="diagram-component cpu">
+                    <div class="component-icon">🧠</div>
+                    <div class="component-title">CPU</div>
+                    <div class="cpu-components">
+                      <div class="cpu-component">
+                        <div class="component-icon small">🧮</div>
+                        <div class="component-title small">ALU</div>
+                      </div>
+                      <div class="cpu-component">
+                        <div class="component-icon small">🎮</div>
+                        <div class="component-title small">UC</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="diagram-component io">
+                    <div class="component-icon">🔌</div>
+                    <div class="component-title">Entrada/Salida</div>
+                  </div>
+                  
+                  <div class="diagram-bus data-bus"></div>
+                  <div class="diagram-bus instruction-bus"></div>
+                </div>
+              </div>
+              
+              <ul class="features-list">
+                <li><span class="feature-icon">🔀</span> Memorias separadas para instrucciones y datos.</li>
+                <li><span class="feature-icon">🔄</span> Las memorias pueden diferir en anchura de palabra, tecnología de implementación y estructura de dirección de memoria.</li>
+                <li><span class="feature-icon">⚡</span> La CPU puede leer una instrucción y acceder a los datos al mismo tiempo.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="content3">
+            <h3 class="subsection-title">2.1.3. ARQUITECTURA HARVARD MODIFICADA</h3>
+            <div id="2010201004" class="architecture-card">
+              <p>Se han introducido modificaciones para reducir la rigidez de la arquitectura Harvard:</p>
+              
+              <div class="architecture-diagram">
+                <div class="diagram-title">Arquitectura Harvard Modificada</div>
+                <div class="diagram-content harvard-modified">
+                  <div class="diagram-component memory">
+                    <div class="component-icon">💾</div>
+                    <div class="component-title">Memoria Principal</div>
+                  </div>
+                  
+                  <div class="diagram-component cpu">
+                    <div class="component-icon">🧠</div>
+                    <div class="component-title">CPU</div>
+                    <div class="cpu-components">
+                      <div class="cpu-component">
+                        <div class="component-icon small">📝</div>
+                        <div class="component-title small">Caché de Instrucciones</div>
+                      </div>
+                      <div class="cpu-component">
+                        <div class="component-icon small">💾</div>
+                        <div class="component-title small">Caché de Datos</div>
+                      </div>
+                      <div class="cpu-component">
+                        <div class="component-icon small">🧮</div>
+                        <div class="component-title small">ALU</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="diagram-component io">
+                    <div class="component-icon">🔌</div>
+                    <div class="component-title">Entrada/Salida</div>
+                  </div>
+                  
+                  <div class="diagram-bus"></div>
+                </div>
+              </div>
+              
+              <ul class="features-list">
+                <li><span class="feature-icon">🔄</span> Arquitectura de caché dividida: se introducen en la CPU cachés separadas de instrucciones y de datos, pero que tienen el mismo espacio de direcciones.</li>
+                <li><span class="feature-icon">🔀</span> Arquitectura de memoria de instrucciones como los datos: conserva la naturaleza de espacio de direcciones separado característico de una máquina Harvard, pero proporciona operaciones especiales de la máquina para acceder al contenido de la memoria de instrucciones como si fueran datos.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="content4">
+            <h3 class="subsection-title">2.1.4. TAXONOMÍA DE FLYNN</h3>
+            <div id="2010201005" class="architecture-card">
+              <p>Las cuatro clasificaciones definidas por Flynn en 1972 se basan en el número de instrucciones concurrentes (control) y en los flujos de datos disponibles en la arquitectura:</p>
+              
+              <div class="flynn-grid">
+                <div class="flynn-card">
+                  <div class="flynn-header">
+                    <div class="flynn-icon">1️⃣1️⃣</div>
+                    <h4 class="flynn-title">SISD (Una instrucción, un dato)</h4>
+                  </div>
+                  <div class="flynn-content">
+                    <p>Computador secuencial que no explota el paralelismo en las instrucciones ni en flujos de datos. Es la Arquitectura Von-Neumann.</p>
+                    <div class="flynn-example">
+                      <div class="example-icon">💻</div>
+                      <div class="example-text">Ejemplo: Computadoras personales tradicionales</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flynn-card">
+                  <div class="flynn-header">
+                    <div class="flynn-icon">1️⃣🔢</div>
+                    <h4 class="flynn-title">SIMD (Una instrucción, múltiples datos)</h4>
+                  </div>
+                  <div class="flynn-content">
+                    <p>Todas las unidades ejecutan la misma instrucción sincronizadamente, pero con datos distintos.</p>
+                    <div class="flynn-example">
+                      <div class="example-icon">🎮</div>
+                      <div class="example-text">Ejemplo: Procesadores gráficos (GPU)</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flynn-card">
+                  <div class="flynn-header">
+                    <div class="flynn-icon">🔢1️⃣</div>
+                    <h4 class="flynn-title">MISD (Múltiples instrucciones, un dato)</h4>
+                  </div>
+                  <div class="flynn-content">
+                    <p>Poco común, usado en situaciones de paralelismo redundante.</p>
+                    <div class="flynn-example">
+                      <div class="example-icon">🚀</div>
+                      <div class="example-text">Ejemplo: Sistemas de control de vuelo con redundancia</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flynn-card">
+                  <div class="flynn-header">
+                    <div class="flynn-icon">🔢🔢</div>
+                    <h4 class="flynn-title">MIMD (Múltiples instrucciones, múltiples datos)</h4>
+                  </div>
+                  <div class="flynn-content">
+                    <p>Varios procesadores autónomos que ejecutan simultáneamente instrucciones diferentes sobre datos diferentes.</p>
+                    <div class="flynn-example">
+                      <div class="example-icon">🖥️</div>
+                      <div class="example-text">Ejemplo: Sistemas multiprocesador, clusters</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="content5">
+            <h3 class="subsection-title">2.1.5. CLASIFICACIÓN DE TANENBAUM</h3>
+            <div id="2010201006" class="architecture-card">
+              <p>Andrew S. Tanembaum realizó una nueva clasificación, distinguiendo en la arquitectura MIMD de Flynn:</p>
+              
+              <div class="tanenbaum-container">
+                <div class="tanenbaum-section">
+                  <h4 class="tanenbaum-title">Múltiples procesadores que comparten una memoria y están fuertemente acoplados:</h4>
+                  <div class="tanenbaum-cards">
+                    <div class="tanenbaum-card">
+                      <div class="card-icon">🔄</div>
+                      <div class="card-title">UMA (Uniform Memory Access)</div>
+                      <div class="card-desc">Acceso uniforme a memoria desde todos los procesadores</div>
+                    </div>
+                    
+                    <div class="tanenbaum-card">
+                      <div class="card-icon">⏱️</div>
+                      <div class="card-title">NUMA (Non-Uniform Memory Access)</div>
+                      <div class="card-desc">Acceso no uniforme a memoria, con tiempos variables</div>
+                    </div>
+                    
+                    <div class="tanenbaum-card">
+                      <div class="card-icon">💾</div>
+                      <div class="card-title">COMA (Cache-Only Memory Access)</div>
+                      <div class="card-desc">Toda la memoria principal se gestiona como caché</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tanenbaum-section">
+                  <h4 class="tanenbaum-title">Múltiples computadores ligeramente acoplados con su propia memoria que se comunican mediante paso de mensajes:</h4>
+                  <div class="tanenbaum-cards">
+                    <div class="tanenbaum-card">
+                      <div class="card-icon">👥</div>
+                      <div class="card-title">Equipos en cluster (COW)</div>
+                      <div class="card-desc">Cluster of workstations - Estaciones de trabajo agrupadas</div>
+                    </div>
+                    
+                    <div class="tanenbaum-card">
+                      <div class="card-icon">🔌</div>
+                      <div class="card-title">MPP</div>
+                      <div class="card-desc">Multiprocesamiento masivo paralelo con computadores independientes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <style>
+
     
-    <h3>2.1.1. ARQUITECTURA DE VON NEUMANN</h3>
-    <span id="2010201001">
-      <p>La arquitectura von Neumann es una arquitectura de computadores basada en la descrita en 1945 por el matemático y físico John von Neumann y otros en un primer borrador sobre el ordenador EDVAC (Electronic Discrete Variable Automatic Calculator) y se considera la arquitectura clásica en la que se basan los ordenadores modernos.</p>
-      <p>Esta arquitectura describe un diseño con una unidad de procesamiento (CPU), que contiene una unidad aritmético lógica (UAL o ALU, en inglés), una unidad de control (UC) y un conjunto de registros. La arquitectura incluye una memoria principal donde se almacenan tanto datos como instrucciones y sistemas para la entrada/salida de la información.</p>
-    </span>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
     
-    <span id="2010201002">
-      <p>Características principales de la arquitectura Von Neumann:</p>
-      <ul>
-        <li>Existencia de programas almacenados en la memoria principal que podían contener datos e instrucciones.</li>
-        <li>Permite cambiar el código que se ejecutaba en la computadora y el comportamiento de la misma.</li>
-        <li>Las instrucciones se ejecutan secuencialmente y se requieren instrucciones de salto para cambiar el flujo de control.</li>
-        <li>Existe un bus común para datos e instrucciones, lo que puede causar el "cuello de botella Von Neumann".</li>
-      </ul>
-    </span>
-
-    <h3>2.1.2. ARQUITECTURA HARVARD</h3>
-    <span id="2010201003">
-      <p>La arquitectura Harvard pretende resolver el problema del cuello de botella Von Neumann, utilizando memorias diferentes para instrucciones y datos. Características principales:</p>
-      <ul>
-        <li>Memorias separadas para instrucciones y datos.</li>
-        <li>Las memorias pueden diferir en anchura de palabra, tecnología de implementación y estructura de dirección de memoria.</li>
-        <li>La CPU puede leer una instrucción y acceder a los datos al mismo tiempo.</li>
-      </ul>
-    </span>
-
-    <h3>2.1.3. ARQUITECTURA HARVARD MODIFICADA</h3>
-    <span id="2010201004">
-      <p>Se han introducido modificaciones para reducir la rigidez de la arquitectura Harvard:</p>
-      <ul>
-        <li>Arquitectura de caché dividida: se introducen en la CPU cachés separadas de instrucciones y de datos, pero que tienen el mismo espacio de direcciones.</li>
-        <li>Arquitectura de memoria de instrucciones como los datos: conserva la naturaleza de espacio de direcciones separado característico de una máquina Harvard, pero proporciona operaciones especiales de la máquina para acceder al contenido de la memoria de instrucciones como si fueran datos.</li>
-      </ul>
-    </span>
-
-    <h3>2.1.4. TAXONOMÍA DE FLYNN</h3>
-    <span id="2010201005">
-      <p>Las cuatro clasificaciones definidas por Flynn en 1972 se basan en el número de instrucciones concurrentes (control) y en los flujos de datos disponibles en la arquitectura:</p>
-      <ul>
-        <li><strong>SISD (Una instrucción, un dato):</strong> Computador secuencial que no explota el paralelismo en las instrucciones ni en flujos de datos. Es la Arquitectura Von-Neumann.</li>
-        <li><strong>SIMD (Una instrucción, múltiples datos):</strong> Todas las unidades ejecutan la misma instrucción sincronizadamente, pero con datos distintos.</li>
-        <li><strong>MISD (Múltiples instrucciones, un dato):</strong> Poco común, usado en situaciones de paralelismo redundante.</li>
-        <li><strong>MIMD (Múltiples instrucciones, múltiples datos):</strong> Varios procesadores autónomos que ejecutan simultáneamente instrucciones diferentes sobre datos diferentes.</li>
-      </ul>
-    </span>
-
-    <h3>2.1.5. CLASIFICACIÓN DE TANENBAUM</h3>
-    <span id="2010201006">
-      <p>Andrew S. Tanembaum realizó una nueva clasificación, distinguiendo en la arquitectura MIMD de Flynn:</p>
-      <ul>
-        <li><strong>Múltiples procesadores que comparten una memoria y están fuertemente acoplados:</strong>
-          <ul>
-            <li>UMA (Uniform Memory Access)</li>
-            <li>NUMA (Non-Uniform Memory Access)</li>
-            <li>COMA (Cache-Only Memory Access)</li>
-          </ul>
-        </li>
-        <li><strong>Múltiples computadores ligeramente acoplados con su propia memoria que se comunican mediante paso de mensajes:</strong>
-          <ul>
-            <li>Equipos en cluster (cluster de workstations o COW)</li>
-            <li>Grupos de computadores independientes para multiprocesamiento masivo (MPP)</li>
-          </ul>
-        </li>
-      </ul>
-    </span>
-  </article>
-</div>
+    .teoria {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "💻";
+      margin-right: 10px;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    /* Tabs */
+    .architecture-tabs {
+      position: relative;
+      min-height: 500px;
+      margin-top: 20px;
+    }
+    
+    .tab-input {
+      display: none;
+    }
+    
+    .tab-label {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--color-text);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+    
+    .tab-label:hover {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-white);
+    }
+    
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3,
+    #tab4:checked ~ #content4,
+    #tab5:checked ~ #content5 {
+      display: block;
+    }
+    
+    #tab1:checked ~ label[for="tab1"],
+    #tab2:checked ~ label[for="tab2"],
+    #tab3:checked ~ label[for="tab3"],
+    #tab4:checked ~ label[for="tab4"],
+    #tab5:checked ~ label[for="tab5"] {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .architecture-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Architecture Diagrams */
+    .architecture-diagram {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .diagram-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+    
+    .diagram-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .diagram-component {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px;
+      text-align: center;
+      min-width: 150px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      z-index: 1;
+    }
+    
+    .diagram-component:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .component-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .component-icon.small {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .component-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 5px;
+    }
+    
+    .component-title.small {
+      font-size: 0.9rem;
+    }
+    
+    .component-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+    
+    .cpu-components {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .cpu-component {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .diagram-bus {
+      position: absolute;
+      width: 80%;
+      height: 10px;
+      background-color: var(--color-primary);
+      border-radius: 5px;
+      bottom: 50px;
+      z-index: 0;
+    }
+    
+    .diagram-content.harvard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+    
+    .data-bus, .instruction-bus {
+      width: 10px;
+      height: 100px;
+      background-color: var(--color-primary);
+      border-radius: 5px;
+      position: absolute;
+    }
+    
+    .data-bus {
+      left: 25%;
+      top: 50%;
+    }
+    
+    .instruction-bus {
+      right: 25%;
+      top: 50%;
+    }
+    
+    .diagram-content.harvard-modified {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Features Box */
+    .features-box {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid var(--color-primary);
+    }
+    
+    .features-box h4 {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .features-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .features-list li {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--color-border);
+    }
+    
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    /* Flynn Grid */
+    .flynn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .flynn-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .flynn-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .flynn-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: rgba(59, 130, 246, 0.1);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .flynn-icon {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .flynn-title {
+      color: var(--color-primary-dark);
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    
+    .flynn-content {
+      padding: 15px;
+    }
+    
+    .flynn-example {
+      display: flex;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    
+    .example-icon {
+      margin-right: 10px;
+      color: var(--color-primary);
+    }
+    
+    /* Tanenbaum Classification */
+    .tanenbaum-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin: 20px 0;
+    }
+    
+    .tanenbaum-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .tanenbaum-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    
+    .tanenbaum-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .tanenbaum-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+    }
+    
+    .card-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 768px) {
+      .teoria {
+        padding: 20px;
+      }
+      
+      .tab-label {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      #tab1:checked ~ label[for="tab1"],
+      #tab2:checked ~ label[for="tab2"],
+      #tab3:checked ~ label[for="tab3"],
+      #tab4:checked ~ label[for="tab4"],
+      #tab5:checked ~ label[for="tab5"] {
+        border-bottom: 1px solid var(--color-primary);
+      }
+      
+      .tab-content {
+        border-radius: 8px;
+      }
+      
+      .flynn-grid, .tanenbaum-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .diagram-content.harvard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      
+      .data-bus, .instruction-bus {
+        display: none;
+      }
+    }
+  </style>
+</body>
+</html>

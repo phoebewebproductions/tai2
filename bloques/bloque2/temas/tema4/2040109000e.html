@@ -1,118 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Comunicaciones</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.9. SISTEMA DE COMUNICACIONES</h2>
-  
-  <span id="2040109001">
-    <p>El sistema de comunicaciones es el componente de un sistema operativo que permite el intercambio de información entre procesos y programas que se ejecutan localmente con procesos y programas que se ejecutan de forma remota.</p>
-    <p>El sistema operativo es el responsable de:</p>
-    <ul>
-      <li>Controlar el envío y recepción de la información</li>
-      <li>Crear y mantener la comunicación para que las aplicaciones envíen y reciban información</li>
-      <li>Crear y mantener conexiones virtuales entre aplicaciones locales y aplicaciones remotas</li>
-    </ul>
-  </span>
-  
-  <span id="2040109002">
-    <h3>Funciones:</h3>
-    <ul>
-      <li>Gestionar los interfaces de red.</li>
-      <li>Crear y mantener puntos de comunicación que sirvan a las aplicaciones para enviar y recibir información.</li>
-      <li>Crear y mantener conexiones virtuales entre aplicaciones locales y remotas.</li>
-      <li>Comunicación de procesos locales.</li>
-    </ul>
-  </span>
-  
-  <span id="2040109003">
-    <h3>Tipos de procesos:</h3>
-    <p>Los procesos ejecutándose concurrentemente en un sistema operativo pueden ser:</p>
-    <ul>
-      <li><strong>Independientes:</strong> Si no afectan ni son afectados por otro proceso en el sistema.</li>
-      <li><strong>Cooperantes:</strong> Si afectan o son afectados por otro proceso en el sistema.</li>
-    </ul>
-  </span>
-  
-  <span id="2040109004">
-    <h3>Sistemas de comunicación entre procesos:</h3>
-    <table>
-      <tr>
-        <th>Método</th>
-        <th>Descripción</th>
-        <th>Sistema operativo</th>
-      </tr>
-      <tr>
-        <td>Archivo</td>
-        <td>Es el método de comunicación más lento debido a la sobrecarga de leer y escribir en el propio fichero.</td>
-        <td>Todos los sistemas operativos.</td>
-      </tr>
-      <tr>
-        <td>Señal</td>
-        <td>Forma limitada de comunicación entre procesos. Es una notificación enviada a un proceso para informarle de un evento.</td>
-        <td>La mayoría de los Sistemas Operativos; algunos, como Windows, solo implementan señales en las librerías de C run-time.</td>
-      </tr>
-      <tr>
-        <td>Socket</td>
-        <td>Sistema de comunicación orientado a la conexión que permite intercambiar cualquier flujo de datos de manera fiable y ordenada.</td>
-        <td>La mayoría de los sistemas operativos.</td>
-      </tr>
-      <tr>
-        <td>Tubería sin nombre/Pipes</td>
-        <td>Cadena de procesos conectados de tal forma que la salida de un proceso es la entrada del siguiente siguiendo el modelo productor/consumidor.</td>
-        <td>Todos los sistemas POSIX.</td>
-      </tr>
-      <tr>
-        <td>Tubería con nombre</td>
-        <td>Similar a la tubería sin nombre, pero es creada por el sistema de archivos y por lo tanto no es temporal.</td>
-        <td>Todos los sistemas POSIX.</td>
-      </tr>
-      <tr>
-        <td>Semáforo</td>
-        <td>Variable especial que constituye el método clásico para restringir o permitir el acceso a recursos compartidos.</td>
-        <td>Todos los sistemas POSIX.</td>
-      </tr>
-      <tr>
-        <td>Memoria compartida</td>
-        <td>Requiere que los procesos comunicantes establezcan una región de memoria compartida.</td>
-        <td>Todos los sistemas POSIX.</td>
-      </tr>
-      <tr>
-        <td>Mensajes</td>
-        <td>Permite comunicar y sincronizar sus acciones sin necesidad de compartir memoria.</td>
-        <td>Usado en los paradigmas MPI, Java RMI, CORBA y otros.</td>
-      </tr>
-      <tr>
-        <td>Mapa de Memoria</td>
-        <td>Consiste en utilizar el mismo espacio de direcciones para direccionar tanto posiciones de memoria como dispositivos físicos.</td>
-        <td>Todos los sistemas POSIX. Windows también es apto para esta técnica.</td>
-      </tr>
-      <tr>
-        <td>Cola de Mensajes</td>
-        <td>Estructura de datos gestionada por el kernel, en la cual van a poder escribir y leer los procesos que se ejecuten en el sistema.</td>
-        <td>La mayoría de los Sistemas Operativos.</td>
-      </tr>
-      <tr>
-        <td>Puertos</td>
-        <td>Zona de la memoria RAM del ordenador asociada con un puerto físico o un canal de comunicación.</td>
-        <td>Algunos Sistemas Operativos.</td>
-      </tr>
-    </table>
-  </span>
-  
-  <h2>1.9.1 GESTOR DE RECURSOS</h2>
-  
-  <span id="2040109005">
-    <p>Para que un programa pueda realizar las tareas solicitadas por el usuario requiere de la asignación de recursos para cada una de esas tareas. El sistema operativo administra los recursos que se deben asignar a los programas en ejecución.</p>
-    <p>El sistema operativo administra todos los recursos del sistema incluyendo:</p>
-    <ul>
-      <li>CPU</li>
-      <li>Dispositivos de entrada y salida</li>
-      <li>Memoria principal (acceso directo)</li>
-      <li>Memoria secundaria (virtual)</li>
-      <li>Procesos o programas en ejecución</li>
-      <li>Resto de recursos del sistema</li>
-    </ul>
-  </span>
-  
+    <h2 class="section-title">1.9. SISTEMA DE COMUNICACIONES</h2>
+    
+    <div id="2040109001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🌐</div>
+        <div class="intro-content">
+          <p>El sistema de comunicaciones es el componente de un sistema operativo que permite el intercambio de información entre procesos y programas que se ejecutan localmente con procesos y programas que se ejecutan de forma remota.</p>
+          <p>El sistema operativo es el responsable de:</p>
+          <ul class="responsibilities-list">
+            <li><span class="responsibility-bullet">📡</span> Controlar el envío y recepción de la información</li>
+            <li><span class="responsibility-bullet">📡</span> Crear y mantener la comunicación para que las aplicaciones envíen y reciban información</li>
+            <li><span class="responsibility-bullet">📡</span> Crear y mantener conexiones virtuales entre aplicaciones locales y aplicaciones remotas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040109002" class="content-block">
+      <div class="functions-card">
+        <h3 class="functions-title">Funciones:</h3>
+        <ul class="functions-list">
+          <li>
+            <div class="function-icon">🔌</div>
+            <div class="function-text">Gestionar los interfaces de red.</div>
+          </li>
+          <li>
+            <div class="function-icon">🔄</div>
+            <div class="function-text">Crear y mantener puntos de comunicación que sirvan a las aplicaciones para enviar y recibir información.</div>
+          </li>
+          <li>
+            <div class="function-icon">🌐</div>
+            <div class="function-text">Crear y mantener conexiones virtuales entre aplicaciones locales y remotas.</div>
+          </li>
+          <li>
+            <div class="function-icon">💬</div>
+            <div class="function-text">Comunicación de procesos locales.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2040109003" class="content-block">
+      <div class="process-types-card">
+        <h3 class="process-types-title">Tipos de procesos:</h3>
+        <p>Los procesos ejecutándose concurrentemente en un sistema operativo pueden ser:</p>
+        
+        <div class="process-types-container">
+          <div class="process-type-item">
+            <div class="process-type-icon">🔄</div>
+            <div class="process-type-content">
+              <h4 class="process-type-name">Independientes</h4>
+              <p class="process-type-desc">Si no afectan ni son afectados por otro proceso en el sistema.</p>
+            </div>
+          </div>
+          
+          <div class="process-type-item">
+            <div class="process-type-icon">🤝</div>
+            <div class="process-type-content">
+              <h4 class="process-type-name">Cooperantes</h4>
+              <p class="process-type-desc">Si afectan o son afectados por otro proceso en el sistema.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040109004" class="content-block">
+      <div class="communication-systems-card">
+        <h3 class="communication-systems-title">Sistemas de comunicación entre procesos:</h3>
+        
+        <div class="table-container">
+          <table class="communication-table">
+            <thead>
+              <tr>
+                <th>Método</th>
+                <th>Descripción</th>
+                <th>Sistema operativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="method-name">Archivo</td>
+                <td>Es el método de comunicación más lento debido a la sobrecarga de leer y escribir en el propio fichero.</td>
+                <td>Todos los sistemas operativos.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Señal</td>
+                <td>Forma limitada de comunicación entre procesos. Es una notificación enviada a un proceso para informarle de un evento.</td>
+                <td>La mayoría de los Sistemas Operativos; algunos, como Windows, solo implementan señales en las librerías de C run-time.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Socket</td>
+                <td>Sistema de comunicación orientado a la conexión que permite intercambiar cualquier flujo de datos de manera fiable y ordenada.</td>
+                <td>La mayoría de los sistemas operativos.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Tubería sin nombre/Pipes</td>
+                <td>Cadena de procesos conectados de tal forma que la salida de un proceso es la entrada del siguiente siguiendo el modelo productor/consumidor.</td>
+                <td>Todos los sistemas POSIX.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Tubería con nombre</td>
+                <td>Similar a la tubería sin nombre, pero es creada por el sistema de archivos y por lo tanto no es temporal.</td>
+                <td>Todos los sistemas POSIX.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Semáforo</td>
+                <td>Variable especial que constituye el método clásico para restringir o permitir el acceso a recursos compartidos.</td>
+                <td>Todos los sistemas POSIX.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Memoria compartida</td>
+                <td>Requiere que los procesos comunicantes establezcan una región de memoria compartida.</td>
+                <td>Todos los sistemas POSIX.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Mensajes</td>
+                <td>Permite comunicar y sincronizar sus acciones sin necesidad de compartir memoria.</td>
+                <td>Usado en los paradigmas MPI, Java RMI, CORBA y otros.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Mapa de Memoria</td>
+                <td>Consiste en utilizar el mismo espacio de direcciones para direccionar tanto posiciones de memoria como dispositivos físicos.</td>
+                <td>Todos los sistemas POSIX. Windows también es apto para esta técnica.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Cola de Mensajes</td>
+                <td>Estructura de datos gestionada por el kernel, en la cual van a poder escribir y leer los procesos que se ejecuten en el sistema.</td>
+                <td>La mayoría de los Sistemas Operativos.</td>
+              </tr>
+              <tr>
+                <td class="method-name">Puertos</td>
+                <td>Zona de la memoria RAM del ordenador asociada con un puerto físico o un canal de comunicación.</td>
+                <td>Algunos Sistemas Operativos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h2 class="subsection-title">1.9.1 GESTOR DE RECURSOS</h2>
+      
+      <div id="2040109005" class="content-block">
+        <div class="resource-manager-card">
+          <div class="resource-manager-icon">🔄</div>
+          <div class="resource-manager-content">
+            <p>Para que un programa pueda realizar las tareas solicitadas por el usuario requiere de la asignación de recursos para cada una de esas tareas. El sistema operativo administra los recursos que se deben asignar a los programas en ejecución.</p>
+            <p>El sistema operativo administra todos los recursos del sistema incluyendo:</p>
+            
+            <div class="resources-grid">
+              <div class="resource-item">
+                <div class="resource-icon">💻</div>
+                <div class="resource-name">CPU</div>
+              </div>
+              <div class="resource-item">
+                <div class="resource-icon">🔌</div>
+                <div class="resource-name">Dispositivos de entrada y salida</div>
+              </div>
+              <div class="resource-item">
+                <div class="resource-icon">🧠</div>
+                <div class="resource-name">Memoria principal (acceso directo)</div>
+              </div>
+              <div class="resource-item">
+                <div class="resource-icon">💾</div>
+                <div class="resource-name">Memoria secundaria (virtual)</div>
+              </div>
+              <div class="resource-item">
+                <div class="resource-icon">⚙️</div>
+                <div class="resource-name">Procesos o programas en ejecución</div>
+              </div>
+              <div class="resource-item">
+                <div class="resource-icon">🔋</div>
+                <div class="resource-name">Resto de recursos del sistema</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🌐";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .responsibilities-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .responsibility-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Functions Card */
+  .functions-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .functions-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .functions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .functions-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .functions-list li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .function-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .function-text {
+    font-weight: 500;
+  }
+  
+  /* Process Types Card */
+  .process-types-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .process-types-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .process-types-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .process-type-item {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .process-type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .process-type-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .process-type-content {
+    flex: 1;
+  }
+  
+  .process-type-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .process-type-desc {
+    margin: 0;
+  }
+  
+  /* Communication Systems Card */
+  .communication-systems-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .communication-systems-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .communication-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .communication-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .communication-table th {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .communication-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+  
+  .communication-table tbody tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .communication-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .communication-table td {
+    padding: 12px 15px;
+  }
+  
+  .method-name {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Resource Manager Card */
+  .resource-manager-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .resource-manager-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .resource-manager-content {
+    flex: 1;
+  }
+  
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .resource-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .resource-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .resource-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .resource-name {
+    font-weight: 500;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .resource-manager-card, .process-type-item {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .resource-manager-icon, .process-type-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .process-types-container {
+      flex-direction: column;
+    }
+    
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>S

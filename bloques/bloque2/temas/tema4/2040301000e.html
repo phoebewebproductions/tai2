@@ -1,208 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipos de Sistemas Operativos</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>3.1 TIPOS DE SISTEMAS OPERATIVOS</h2>
-  
-  <span id="2040301001">
-    <p>Los sistemas operativos pueden ser de distintos tipos en función de la catalogación que utilicemos.</p>
-  </span>
-  
-  <h3>3.1.1 SISTEMAS OPERATIVOS POR SU ESTRUCTURA</h3>
-  
-  <span id="2040301002">
-    <ul>
-      <li><strong>Estructura monolítica:</strong> Es la estructura de los primeros sistemas operativos, consistía en un sólo programa desarrollado con rutinas entrelazadas que podían llamarse entre sí. Por lo general, eran sistemas operativos hechos a medida, pero difíciles de mantener.</li>
-      <li><strong>Estructura jerárquica:</strong> Conforme las necesidades de los usuarios aumentaron, los sistemas operativos fueron creciendo en complejidad y funciones. Esto llevó a que se hiciera necesaria una mayor organización del software del sistema operativo, dividiéndose en partes más pequeñas, diferenciadas por funciones y con una interfaz clara para interoperar con los demás elementos. Ejemplo: MULTICS.</li>
-      <li><strong>Máquina virtual:</strong> Integran distintos sistemas operativos dando la sensación de ser varias máquinas diferentes. Presentan una interfaz a cada proceso, mostrando una máquina que parece idéntica a la máquina real subyacente. Estas máquinas no son máquinas extendidas, son una réplica de la máquina real, de manera que en cada una de ellas se pueda ejecutar un sistema operativo diferente, que será el que ofrezca la máquina extendida al usuario. Ejemplos: VMware y VM/CMS</li>
-      <li><strong>Microkernel o Cliente-Servidor:</strong> Aíslan del núcleo las operaciones de gestión de memoria, entrada/salida, sistema de archivos, etc. Éste aislamiento incrementa la seguridad, la tolerancia a fallos y la portabilidad entre plataformas de hardware. El núcleo distribuye las diferentes tareas en porciones de código modulares y sencillas. Ejemplos: MAC OS X o AIX.</li>
-    </ul>
-  </span>
-  
-  <h3>3.1.2 SISTEMAS OPERATIVOS POR LAS OPERACIONES QUE IMPLEMENTAN EN SU NÚCLEO</h3>
-  
-  <span id="2040301003">
-    <p>El modo de ejecución del procesador determina qué conjunto de instrucciones y a qué recursos del procesador se puede acceder.</p>
-    <p>Los procesadores ofrecen, como mínimo, dos modos de funcionamiento del procesador:</p>
-    <ul>
-      <li><strong>Modo privilegiado/Modo supervisor:</strong> Permite el acceso a todo el conjunto de instrucciones que ofrece el procesador y a todos los recursos del sistema. Incluye también el conjunto de instrucciones del modo no privilegiado. Es el modo en el que se ejecuta el núcleo de un sistema operativo.</li>
-      <li><strong>Modo no privilegiado:</strong> Permite acceder a un subconjunto de las instrucciones que ofrece el procesador, es el modo en el que se ejecutan los procesos.</li>
-    </ul>
-  </span>
-  
-  <span id="2040301004">
-    <p>Los sistemas operativos se pueden clasificar en base a la cantidad de funcionalidades propias del sistema operativo que se implementan en su núcleo. En general distinguimos cuatro tipos:</p>
-    <ul>
-      <li><strong>Monolíticos:</strong> Gestionan los cuatro componentes fundamentales del sistema operativo en modo supervisor, esto incluye, la planificación de procesos, la administración de la memoria principal, la gestión de E/S y el administrador de ficheros.</li>
-      <li><strong>Micronúcleos:</strong> Implementan en su núcleo únicamente la planificación de procesos, la gestión de interrupciones (la parte básica fundamental de la gestión de E/S que necesariamente se tiene que realizar en modo privilegiado) y la comunicación entre procesos. Por tanto, la administración de memoria principal, la gestión de la E/S y la gestión de ficheros se realiza en modo usuario. En este tipo de sistema operativo hay procesos especiales propios del sistema operativo que implementan dichas funcionalidades en modo usuario y se denominan proceso servidor.</li>
-      <li><strong>Híbrido:</strong> A mitad de camino entre monolítico y micronúcleo, incluyen la gestión de dispositivos de E/S en modo supervisor con el fin de mejorar el rendimiento del sistema.</li>
-      <li><strong>Unikernel:</strong> Las aplicaciones se ejecutan en modo supervisor, dentro del espacio del núcleo del Sistema Operativo. Por tanto, la totalidad del código se ejecuta en modo privilegiado. Los procesos no invocan llamadas al sistema pues tienen acceso directo a los recursos del computador. El argumento para este diseño es el rendimiento a cambio de sacrificar la fiabilidad. Sólo es aplicable a sistemas de propósito muy específico.</li>
-    </ul>
-  </span>
-  
-  <span id="2040301005">
-    <p>En número de líneas de código, el núcleo monolítico es mayor que el micronúcleo, al implementar más componentes del sistema operativo que permiten la gestión del computador en el espacio del núcleo, es decir, en modo privilegiado.</p>
-    <p>Los sistemas operativos monolíticos ofrecen mejor rendimiento que los micronúcleos, pero los micronúcleos son más fiables, pues un fallo de programación en el núcleo lleva al traste con la ejecución del sistema.</p>
-  </span>
-  
-  <h3>3.1.3 SISTEMAS OPERATIVOS POR LOS SERVICIOS QUE OFRECEN</h3>
-  
-  <span id="2040301006">
-    <p>La clasificación de Sistemas Operativos por servicio se refiere al punto de vista del usuario final. Y se clasifica por tres clases:</p>
-    <ul>
-      <li>Por el número de usuarios.</li>
-      <li>Por el número de tareas</li>
-      <li>Por el número de procesadores</li>
-    </ul>
-  </span>
-  
-  <h3>3.1.4 SISTEMAS OPERATIVOS POR EL NÚMERO DE USUARIOS</h3>
-  
-  <span id="2040301007">
-    <ul>
-      <li><strong>Monousuario:</strong> Sistema operativo que solo puede ser ocupado por un único usuario en un determinado tiempo.</li>
-      <li><strong>Multiusuario:</strong> Proveer servicio y procesamiento a múltiples usuarios simultáneamente. La acción se produce estrictamente en forma pseudo-simultánea bajo el concepto tiempo compartido.</li>
-    </ul>
-  </span>
-  
-  <h3>3.1.5 SISTEMAS OPERATIVOS POR EL NÚMERO DE TAREAS</h3>
-  
-  <span id="2040301008">
-    <ul>
-      <li><strong>Monotarea/tarea única:</strong> Solamente puede estar ejecutando un proceso en un momento dado. Cuando se ejecuta una aplicación, guarda la parte residente del s.o. que controla las llamadas del sistema, a continuación toma el control de todo el ordenador y al finalizar vuelve a cargar el sistema cuando termina. Es una característica de los sistemas operativos más antiguos como MS-DOS. Los s.o monotarea son fáciles de diseñar y de programar pero debido a sus limitaciones y su debilidad ante software malicioso no se emplean en los s.o modernos.</li>
-      <li><strong>Multitarea:</strong> Pueden ejecutar múltiples procesos o aplicaciones compartiendo el tiempo de los procesadores disponibles de forma automática. Al fraccionar el tiempo del procesador entre varios programas el usuario tiene la sensación de que los programas se ejecutan simultáneamente.
-        <ul>
-          <li><strong>Multitarea cooperativa:</strong> El s.o. da el control a un proceso y es el propio proceso el que decide ceder el control pasando al estado de Espera. Esto puede ocasionar bloqueos si el proceso no cede el control por el motivo que sea. También puede crear latencias no predecibles e irregulares por lo que no puede ser utilizado en sistemas operativos en tiempo real.</li>
-          <li><strong>Multitarea apropiativa o preventiva:</strong> El s.o es el encargado de administrar repartiendo el tiempo de uso entre los procesos</li>
-          <li><strong>Real:</strong> Sólo se da en sistemas multiprocesador donde varios procesos se ejecutan al mismo tiempo en distintos procesadores. Ejemplos: variantes de Unix, Windows NT, Mac OS X.</li>
-        </ul>
-      </li>
-    </ul>
-  </span>
-  
-  <h3>3.1.6 SISTEMAS OPERATIVOS POR EL NÚMERO DE PROCESADORES</h3>
-  
-  <h4>3.1.6.1 MULTIPROCESADOR</h4>
-  
-  <span id="2040301009">
-    <p>Los ordenadores multiprocesador presentan retos de diseño que no se encuentran en los ordenadores uniprocesador. El mayor reto es evitar las interferencias en las lecturas y escrituras en memoria que se pueden producir al poder ejecutar dos programas simultáneamente.</p>
-    <p>Existen dos arquitecturas que resuelven estos problemas: UMA (SMP) y NUMA.</p>
-  </span>
-  
-  <h5>3.1.6.1.1 UMA: UNIFORM MEMORY ACCESS (ACCESO A MEMORIA UNIFORME)</h5>
-  
-  <span id="2040301010">
-    <p>También conocida como arquitectura SMP (Symmetric Multi-Processing)</p>
-    <ul>
-      <li>La memoria física es compartida por todos los procesadores y accedida a través de un bus de interconexión.</li>
-      <li>Todos los procesadores tienen la misma latencia y velocidad de acceso a cada dirección de la memoria.</li>
-      <li>Normalmente cada procesador tiene su propia memoria caché que, a su vez, está vinculada al bus que la conecta con la memoria compartida común, por lo que éstos sistemas deben lidiar con el problema de la coherencia de caché.</li>
-      <li>Todos los procesadores tienen la misma probabilidad de leer y escribir en la memoria.</li>
-    </ul>
-  </span>
-  
-  <h5>3.1.6.1.2 NUMA: NON UNIFORM MEMORY ACCESS (ACESO A MEMORIA NO UNIFORME)</h5>
-  
-  <span id="2040301011">
-    <ul>
-      <li>Cada procesador tiene su propia memoria principal y caché locales pero también pueden acceder a la memoria de otros procesadores.</li>
-      <li>El conjunto de memorias de cada procesador se combina para crear un único espacio de direcciones.</li>
-      <li>El tiempo de acceso a la memoria se basa en la distancia que existe entre el procesador y la dirección de memoria a la que quiere acceder siendo menor si la dirección corresponde a su memoria local.</li>
-      <li>Cada procesador tiene mayor probabilidad de leer y escribir en las direcciones locales que en las remotas.</li>
-      <li>La arquitectura NUMA utiliza redes de bus jerárquicas o en árbol para interconectar los bloques de memoria con los procesadores.</li>
-    </ul>
-  </span>
-  
-  <span id="2040301012">
-    <h5>DIFERENCIAS ENTRE UMA Y NUMA</h5>
-    <table>
-      <tr>
-        <th></th>
-        <th>UMA</th>
-        <th>NUMA</th>
-      </tr>
-      <tr>
-        <td>Controlador de Memoria</td>
-        <td>Utiliza uno dos controladores</td>
-        <td>Varios controladores</td>
-      </tr>
-      <tr>
-        <td>Tipos de buses</td>
-        <td>Simple, múltiple y redes, crossbar</td>
-        <td>Árbol o jerárquico</td>
-      </tr>
-      <tr>
-        <td>Tiempo de acceso a Memoria</td>
-        <td>Igual</td>
-        <td>Variable en función de la distancia del procesador</td>
-      </tr>
-      <tr>
-        <td>Orientado a</td>
-        <td>Aplicaciones de uso general y tiempo compartido</td>
-        <td>Aplicaciones en tiempo real y de tiempo crítico (tiempo real estricto)</td>
-      </tr>
-      <tr>
-        <td>Velocidad</td>
-        <td>Más lento</td>
-        <td>Más rápido</td>
-      </tr>
-      <tr>
-        <td>Ancho de Banda</td>
-        <td>Limitado</td>
-        <td>Mayor que UMA</td>
-      </tr>
-    </table>
-  </span>
-  
-  <h5>3.1.6.1.3 DSM: DISTRIBUTED SHARED MEMORY (MEMORIA HÍBRIDA COMPARTIDA)</h5>
-  
-  <span id="2040301013">
-    <p>Implementación hardware y software (vía sistema operativo o como biblioteca de programación) donde cada nodo de un cluster tiene acceso a su propia memoria privada limitada y a una amplia memoria compartida por el resto de nodos.</p>
-    <p>En sistemas operativos el DSM puede ser implementado como extensión de la arquitectura de memoria virtual subyacente siendo totalmente transparente para los usuarios o desarrolladores.</p>
-  </span>
-  
-  <h5>3.1.6.1.4 MEMORIA HÍBRIDA</h5>
-  
-  <span id="2040301014">
-    <p>La arquitectura combina memoria local para los datos locales y memoria de sistema compartida para los datos globales.</p>
-  </span>
-  
-  <h3>3.1.7 SISTEMAS OPERATIVOS POR LA FORMA EN QUE OFRECEN SUS SERVICIOS</h3>
-  
-  <span id="2040301015">
-    <h4>Sistemas operativos de Red (NOS Network Operating System)</h4>
-    <p>Ampliación de los sistemas operativos convencionales que permite la comunicación de un equipo informático con otros equipos en el ámbito de una red con el objetivo de poder acceder a los servicios y recursos presentes en la red. Ésta ampliación puede ser añadida a un sistema operativo existente (como el caso de MathSL o las primeras versiones de Novell que corrían sobre Windows NT) o venir integrada dentro del propio sistema operativo (los sistemas operativos actuales de Microsoft, Linux, Apple, Android, IOS, Windows Phone, etc).</p>
-    <p>Los objetivos generales de un sistema operativo de red son:</p>
-    <ul>
-      <li>Compartir recursos</li>
-      <li>Conectar todos los equipos y recursos de la red.</li>
-      <li>Gestionar los usuarios de forma centralizada.</li>
-      <li>Gestionar y monitorizar la red y sus componentes.</li>
-      <li>Coordinar las funciones de red</li>
-      <li>Proporcionar seguridad.</li>
-    </ul>
-    <p>Los componentes habituales son:</p>
-    <ul>
-      <li>Servidores: Equipos que proporcionan servicios a los clientes</li>
-      <li>Clientes: Equipos que acceden a los servicios proporcionados por los servidores.</li>
-      <li>Dominios: Agrupación lógica de equipos y usuarios con administración centralizada, por ejemplo, el Directorio Activo de Microsoft Windows o OpenLDAP en Linux.</li>
-      <li>Grupos de trabajo: Agrupación lógica de equipos y usuarios sin administración centralizada.</li>
-    </ul>
-  </span>
-  
-  <span id="2040301016">
-    <h4>Sistemas operativos Distribuidos</h4>
-    <p>Unión lógica de un grupo de sistemas operativos ejecutándose sobre un conjunto de nodos independientes donde cada nodo contiene un subconjunto de programas/servicios que componen una parte del sistema operativo distribuido.</p>
-    <p>El funcionamiento interno de los sistemas operativos distribuidos es transparente para el usuario. De ésta forma las aplicaciones y usuarios ven todo el sistema como un solo nodo.</p>
-    <p>Ejemplos de sistemas operativos distribuidos son Sprite, Solaris-MC, Mach, Chorus, Spring, Amoeba, Taos.</p>
-    <p>Las características principales son:</p>
-    <ul>
-      <li>Formados por una colección de sistemas autónomos capaces de comunicarse y cooperar mediante interconexiones hardware y software.</li>
-      <li>Proporcionan una abstracción de máquina virtual a los usuarios.</li>
-      <li>Tienen como objetivo principal la transparencia.</li>
-      <li>Generalmente proporcionan medios para la compartición global de recursos.</li>
-      <li>Integran servicios añadidos como la denominación global, sistemas de archivos distribuidos, facilidades para distribución de cálculos, etc.</li>
-    </ul>
-  </span>
-  
+    <h2 class="section-title">3.1 TIPOS DE SISTEMAS OPERATIVOS</h2>
+    
+    <div id="2040301001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🖥️</div>
+        <div class="intro-content">
+          <p>Los sistemas operativos pueden ser de distintos tipos en función de la catalogación que utilicemos.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.1 SISTEMAS OPERATIVOS POR SU ESTRUCTURA</h3>
+      
+      <div id="2040301002" class="content-block">
+        <div class="structure-types">
+          <div class="structure-item">
+            <div class="structure-icon">🧱</div>
+            <div class="structure-content">
+              <h4 class="structure-name">Estructura monolítica</h4>
+              <p class="structure-desc">Es la estructura de los primeros sistemas operativos, consistía en un sólo programa desarrollado con rutinas entrelazadas que podían llamarse entre sí. Por lo general, eran sistemas operativos hechos a medida, pero difíciles de mantener.</p>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <div class="structure-icon">🏗️</div>
+            <div class="structure-content">
+              <h4 class="structure-name">Estructura jerárquica</h4>
+              <p class="structure-desc">Conforme las necesidades de los usuarios aumentaron, los sistemas operativos fueron creciendo en complejidad y funciones. Esto llevó a que se hiciera necesaria una mayor organización del software del sistema operativo, dividiéndose en partes más pequeñas, diferenciadas por funciones y con una interfaz clara para interoperar con los demás elementos. Ejemplo: MULTICS.</p>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <div class="structure-icon">🖥️</div>
+            <div class="structure-content">
+              <h4 class="structure-name">Máquina virtual</h4>
+              <p class="structure-desc">Integran distintos sistemas operativos dando la sensación de ser varias máquinas diferentes. Presentan una interfaz a cada proceso, mostrando una máquina que parece idéntica a la máquina real subyacente. Estas máquinas no son máquinas extendidas, son una réplica de la máquina real, de manera que en cada una de ellas se pueda ejecutar un sistema operativo diferente, que será el que ofrezca la máquina extendida al usuario. Ejemplos: VMware y VM/CMS</p>
+            </div>
+          </div>
+          
+          <div class="structure-item">
+            <div class="structure-icon">🔄</div>
+            <div class="structure-content">
+              <h4 class="structure-name">Microkernel o Cliente-Servidor</h4>
+              <p class="structure-desc">Aíslan del núcleo las operaciones de gestión de memoria, entrada/salida, sistema de archivos, etc. Éste aislamiento incrementa la seguridad, la tolerancia a fallos y la portabilidad entre plataformas de hardware. El núcleo distribuye las diferentes tareas en porciones de código modulares y sencillas. Ejemplos: MAC OS X o AIX.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.2 SISTEMAS OPERATIVOS POR LAS OPERACIONES QUE IMPLEMENTAN EN SU NÚCLEO</h3>
+      
+      <div id="2040301003" class="content-block">
+        <div class="processor-modes-card">
+          <p>El modo de ejecución del procesador determina qué conjunto de instrucciones y a qué recursos del procesador se puede acceder.</p>
+          <p>Los procesadores ofrecen, como mínimo, dos modos de funcionamiento del procesador:</p>
+          
+          <div class="modes-container">
+            <div class="mode-item">
+              <div class="mode-icon">🔐</div>
+              <div class="mode-content">
+                <h4 class="mode-name">Modo privilegiado/Modo supervisor</h4>
+                <p class="mode-desc">Permite el acceso a todo el conjunto de instrucciones que ofrece el procesador y a todos los recursos del sistema. Incluye también el conjunto de instrucciones del modo no privilegiado. Es el modo en el que se ejecuta el núcleo de un sistema operativo.</p>
+              </div>
+            </div>
+            
+            <div class="mode-item">
+              <div class="mode-icon">👤</div>
+              <div class="mode-content">
+                <h4 class="mode-name">Modo no privilegiado</h4>
+                <p class="mode-desc">Permite acceder a un subconjunto de las instrucciones que ofrece el procesador, es el modo en el que se ejecutan los procesos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040301004" class="content-block">
+        <div class="kernel-types-card">
+          <p>Los sistemas operativos se pueden clasificar en base a la cantidad de funcionalidades propias del sistema operativo que se implementan en su núcleo. En general distinguimos cuatro tipos:</p>
+          
+          <div class="kernel-types-grid">
+            <div class="kernel-type-item">
+              <div class="kernel-type-icon">🧱</div>
+              <div class="kernel-type-content">
+                <h4 class="kernel-type-name">Monolíticos</h4>
+                <p class="kernel-type-desc">Gestionan los cuatro componentes fundamentales del sistema operativo en modo supervisor, esto incluye, la planificación de procesos, la administración de la memoria principal, la gestión de E/S y el administrador de ficheros.</p>
+              </div>
+            </div>
+            
+            <div class="kernel-type-item">
+              <div class="kernel-type-icon">🔍</div>
+              <div class="kernel-type-content">
+                <h4 class="kernel-type-name">Micronúcleos</h4>
+                <p class="kernel-type-desc">Implementan en su núcleo únicamente la planificación de procesos, la gestión de interrupciones (la parte básica fundamental de la gestión de E/S que necesariamente se tiene que realizar en modo privilegiado) y la comunicación entre procesos. Por tanto, la administración de memoria principal, la gestión de la E/S y la gestión de ficheros se realiza en modo usuario. En este tipo de sistema operativo hay procesos especiales propios del sistema operativo que implementan dichas funcionalidades en modo usuario y se denominan proceso servidor.</p>
+              </div>
+            </div>
+            
+            <div class="kernel-type-item">
+              <div class="kernel-type-icon">🔄</div>
+              <div class="kernel-type-content">
+                <h4 class="kernel-type-name">Híbrido</h4>
+                <p class="kernel-type-desc">A mitad de camino entre monolítico y micronúcleo, incluyen la gestión de dispositivos de E/S en modo supervisor con el fin de mejorar el rendimiento del sistema.</p>
+              </div>
+            </div>
+            
+            <div class="kernel-type-item">
+              <div class="kernel-type-icon">⚡</div>
+              <div class="kernel-type-content">
+                <h4 class="kernel-type-name">Unikernel</h4>
+                <p class="kernel-type-desc">Las aplicaciones se ejecutan en modo supervisor, dentro del espacio del núcleo del Sistema Operativo. Por tanto, la totalidad del código se ejecuta en modo privilegiado. Los procesos no invocan llamadas al sistema pues tienen acceso directo a los recursos del computador. El argumento para este diseño es el rendimiento a cambio de sacrificar la fiabilidad. Sólo es aplicable a sistemas de propósito muy específico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040301005" class="content-block">
+        <div class="kernel-comparison-card">
+          <p>En número de líneas de código, el núcleo monolítico es mayor que el micronúcleo, al implementar más componentes del sistema operativo que permiten la gestión del computador en el espacio del núcleo, es decir, en modo privilegiado.</p>
+          <p>Los sistemas operativos monolíticos ofrecen mejor rendimiento que los micronúcleos, pero los micronúcleos son más fiables, pues un fallo de programación en el núcleo lleva al traste con la ejecución del sistema.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.3 SISTEMAS OPERATIVOS POR LOS SERVICIOS QUE OFRECEN</h3>
+      
+      <div id="2040301006" class="content-block">
+        <div class="services-card">
+          <p>La clasificación de Sistemas Operativos por servicio se refiere al punto de vista del usuario final. Y se clasifica por tres clases:</p>
+          <ul class="services-list">
+            <li><span class="service-bullet">•</span> Por el número de usuarios.</li>
+            <li><span class="service-bullet">•</span> Por el número de tareas</li>
+            <li><span class="service-bullet">•</span> Por el número de procesadores</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.4 SISTEMAS OPERATIVOS POR EL NÚMERO DE USUARIOS</h3>
+      
+      <div id="2040301007" class="content-block">
+        <div class="users-types-container">
+          <div class="user-type-item">
+            <div class="user-type-icon">👤</div>
+            <div class="user-type-content">
+              <h4 class="user-type-name">Monousuario</h4>
+              <p class="user-type-desc">Sistema operativo que solo puede ser ocupado por un único usuario en un determinado tiempo.</p>
+            </div>
+          </div>
+          
+          <div class="user-type-item">
+            <div class="user-type-icon">👥</div>
+            <div class="user-type-content">
+              <h4 class="user-type-name">Multiusuario</h4>
+              <p class="user-type-desc">Proveer servicio y procesamiento a múltiples usuarios simultáneamente. La acción se produce estrictamente en forma pseudo-simultánea bajo el concepto tiempo compartido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.5 SISTEMAS OPERATIVOS POR EL NÚMERO DE TAREAS</h3>
+      
+      <div id="2040301008" class="content-block">
+        <div class="tasks-types-container">
+          <div class="task-type-item">
+            <div class="task-type-header">
+              <div class="task-type-icon">1️⃣</div>
+              <h4 class="task-type-name">Monotarea/tarea única</h4>
+            </div>
+            <div class="task-type-content">
+              <p>Solamente puede estar ejecutando un proceso en un momento dado. Cuando se ejecuta una aplicación, guarda la parte residente del s.o. que controla las llamadas del sistema, a continuación toma el control de todo el ordenador y al finalizar vuelve a cargar el sistema cuando termina. Es una característica de los sistemas operativos más antiguos como MS-DOS. Los s.o monotarea son fáciles de diseñar y de programar pero debido a sus limitaciones y su debilidad ante software malicioso no se emplean en los s.o modernos.</p>
+            </div>
+          </div>
+          
+          <div class="task-type-item">
+            <div class="task-type-header">
+              <div class="task-type-icon">🔄</div>
+              <h4 class="task-type-name">Multitarea</h4>
+            </div>
+            <div class="task-type-content">
+              <p>Pueden ejecutar múltiples procesos o aplicaciones compartiendo el tiempo de los procesadores disponibles de forma automática. Al fraccionar el tiempo del procesador entre varios programas el usuario tiene la sensación de que los programas se ejecutan simultáneamente.</p>
+              
+              <div class="subtypes-container">
+                <div class="subtype-item">
+                  <div class="subtype-icon">🤝</div>
+                  <div class="subtype-content">
+                    <h5 class="subtype-name">Multitarea cooperativa</h5>
+                    <p class="subtype-desc">El s.o. da el control a un proceso y es el propio proceso el que decide ceder el control pasando al estado de Espera. Esto puede ocasionar bloqueos si el proceso no cede el control por el motivo que sea. También puede crear latencias no predecibles e irregulares por lo que no puede ser utilizado en sistemas operativos en tiempo real.</p>
+                  </div>
+                </div>
+                
+                <div class="subtype-item">
+                  <div class="subtype-icon">⚙️</div>
+                  <div class="subtype-content">
+                    <h5 class="subtype-name">Multitarea apropiativa o preventiva</h5>
+                    <p class="subtype-desc">El s.o es el encargado de administrar repartiendo el tiempo de uso entre los procesos</p>
+                  </div>
+                </div>
+                
+                <div class="subtype-item">
+                  <div class="subtype-icon">⚡</div>
+                  <div class="subtype-content">
+                    <h5 class="subtype-name">Real</h5>
+                    <p class="subtype-desc">Sólo se da en sistemas multiprocesador donde varios procesos se ejecutan al mismo tiempo en distintos procesadores. Ejemplos: variantes de Unix, Windows NT, Mac OS X.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.6 SISTEMAS OPERATIVOS POR EL NÚMERO DE PROCESADORES</h3>
+      
+      <div class="subsubsection">
+        <h4 class="subsubsection-title">3.1.6.1 MULTIPROCESADOR</h4>
+        
+        <div id="2040301009" class="content-block">
+          <div class="multiprocessor-card">
+            <p>Los ordenadores multiprocesador presentan retos de diseño que no se encuentran en los ordenadores uniprocesador. El mayor reto es evitar las interferencias en las lecturas y escrituras en memoria que se pueden producir al poder ejecutar dos programas simultáneamente.</p>
+            <p>Existen dos arquitecturas que resuelven estos problemas: UMA (SMP) y NUMA.</p>
+          </div>
+        </div>
+        
+        <div class="subsubsubsection">
+          <h5 class="subsubsubsection-title">3.1.6.1.1 UMA: UNIFORM MEMORY ACCESS (ACCESO A MEMORIA UNIFORME)</h5>
+          
+          <div id="2040301010" class="content-block">
+            <div class="uma-card">
+              <div class="uma-header">
+                <div class="uma-icon">🔄</div>
+                <h5 class="uma-title">También conocida como arquitectura SMP (Symmetric Multi-Processing)</h5>
+              </div>
+              <div class="uma-content">
+                <ul class="uma-features">
+                  <li><span class="feature-bullet">•</span> La memoria física es compartida por todos los procesadores y accedida a través de un bus de interconexión.</li>
+                  <li><span class="feature-bullet">•</span> Todos los procesadores tienen la misma latencia y velocidad de acceso a cada dirección de la memoria.</li>
+                  <li><span class="feature-bullet">•</span> Normalmente cada procesador tiene su propia memoria caché que, a su vez, está vinculada al bus que la conecta con la memoria compartida común, por lo que éstos sistemas deben lidiar con el problema de la coherencia de caché.</li>
+                  <li><span class="feature-bullet">•</span> Todos los procesadores tienen la misma probabilidad de leer y escribir en la memoria.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="subsubsubsection">
+          <h5 class="subsubsubsection-title">3.1.6.1.2 NUMA: NON UNIFORM MEMORY ACCESS (ACESO A MEMORIA NO UNIFORME)</h5>
+          
+          <div id="2040301011" class="content-block">
+            <div class="numa-card">
+              <ul class="numa-features">
+                <li><span class="feature-bullet">•</span> Cada procesador tiene su propia memoria principal y caché locales pero también pueden acceder a la memoria de otros procesadores.</li>
+                <li><span class="feature-bullet">•</span> El conjunto de memorias de cada procesador se combina para crear un único espacio de direcciones.</li>
+                <li><span class="feature-bullet">•</span> El tiempo de acceso a la memoria se basa en la distancia que existe entre el procesador y la dirección de memoria a la que quiere acceder siendo menor si la dirección corresponde a su memoria local.</li>
+                <li><span class="feature-bullet">•</span> Cada procesador tiene mayor probabilidad de leer y escribir en las direcciones locales que en las remotas.</li>
+                <li><span class="feature-bullet">•</span> La arquitectura NUMA utiliza redes de bus jerárquicas o en árbol para interconectar los bloques de memoria con los procesadores.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2040301012" class="content-block">
+          <div class="comparison-card">
+            <h5 class="comparison-title">DIFERENCIAS ENTRE UMA Y NUMA</h5>
+            <div class="table-container">
+              <table class="comparison-table">
+                <tr>
+                  <th></th>
+                  <th>UMA</th>
+                  <th>NUMA</th>
+                </tr>
+                <tr>
+                  <td>Controlador de Memoria</td>
+                  <td>Utiliza uno dos controladores</td>
+                  <td>Varios controladores</td>
+                </tr>
+                <tr>
+                  <td>Tipos de buses</td>
+                  <td>Simple, múltiple y redes, crossbar</td>
+                  <td>Árbol o jerárquico</td>
+                </tr>
+                <tr>
+                  <td>Tiempo de acceso a Memoria</td>
+                  <td>Igual</td>
+                  <td>Variable en función de la distancia del procesador</td>
+                </tr>
+                <tr>
+                  <td>Orientado a</td>
+                  <td>Aplicaciones de uso general y tiempo compartido</td>
+                  <td>Aplicaciones en tiempo real y de tiempo crítico (tiempo real estricto)</td>
+                </tr>
+                <tr>
+                  <td>Velocidad</td>
+                  <td>Más lento</td>
+                  <td>Más rápido</td>
+                </tr>
+                <tr>
+                  <td>Ancho de Banda</td>
+                  <td>Limitado</td>
+                  <td>Mayor que UMA</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="subsubsubsection">
+          <h5 class="subsubsubsection-title">3.1.6.1.3 DSM: DISTRIBUTED SHARED MEMORY (MEMORIA HÍBRIDA COMPARTIDA)</h5>
+          
+          <div id="2040301013" class="content-block">
+            <div class="dsm-card">
+              <div class="dsm-icon">🔄</div>
+              <div class="dsm-content">
+                <p>Implementación hardware y software (vía sistema operativo o como biblioteca de programación) donde cada nodo de un cluster tiene acceso a su propia memoria privada limitada y a una amplia memoria compartida por el resto de nodos.</p>
+                <p>En sistemas operativos el DSM puede ser implementado como extensión de la arquitectura de memoria virtual subyacente siendo totalmente transparente para los usuarios o desarrolladores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="subsubsubsection">
+          <h5 class="subsubsubsection-title">3.1.6.1.4 MEMORIA HÍBRIDA</h5>
+          
+          <div id="2040301014" class="content-block">
+            <div class="hybrid-memory-card">
+              <div class="hybrid-memory-icon">🔄</div>
+              <div class="hybrid-memory-content">
+                <p>La arquitectura combina memoria local para los datos locales y memoria de sistema compartida para los datos globales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">3.1.7 SISTEMAS OPERATIVOS POR LA FORMA EN QUE OFRECEN SUS SERVICIOS</h3>
+      
+      <div id="2040301015" class="content-block">
+        <div class="network-os-card">
+          <div class="network-os-header">
+            <div class="network-os-icon">🌐</div>
+            <h4 class="network-os-title">Sistemas operativos de Red (NOS Network Operating System)</h4>
+          </div>
+          <div class="network-os-content">
+            <p>Ampliación de los sistemas operativos convencionales que permite la comunicación de un equipo informático con otros equipos en el ámbito de una red con el objetivo de poder acceder a los servicios y recursos presentes en la red. Ésta ampliación puede ser añadida a un sistema operativo existente (como el caso de MathSL o las primeras versiones de Novell que corrían sobre Windows NT) o venir integrada dentro del propio sistema operativo (los sistemas operativos actuales de Microsoft, Linux, Apple, Android, IOS, Windows Phone, etc).</p>
+            
+            <div class="objectives-container">
+              <h5 class="objectives-title">Los objetivos generales de un sistema operativo de red son:</h5>
+              <ul class="objectives-list">
+                <li><span class="objective-bullet">•</span> Compartir recursos</li>
+                <li><span class="objective-bullet">•</span> Conectar todos los equipos y recursos de la red.</li>
+                <li><span class="objective-bullet">•</span> Gestionar los usuarios de forma centralizada.</li>
+                <li><span class="objective-bullet">•</span> Gestionar y monitorizar la red y sus componentes.</li>
+                <li><span class="objective-bullet">•</span> Coordinar las funciones de red</li>
+                <li><span class="objective-bullet">•</span> Proporcionar seguridad.</li>
+              </ul>
+            </div>
+            
+            <div class="components-container">
+              <h5 class="components-title">Los componentes habituales son:</h5>
+              <ul class="components-list">
+                <li><span class="component-bullet">•</span> <strong>Servidores:</strong> Equipos que proporcionan servicios a los clientes</li>
+                <li><span class="component-bullet">•</span> <strong>Clientes:</strong> Equipos que acceden a los servicios proporcionados por los servidores.</li>
+                <li><span class="component-bullet">•</span> <strong>Dominios:</strong> Agrupación lógica de equipos y usuarios con administración centralizada, por ejemplo, el Directorio Activo de Microsoft Windows o OpenLDAP en Linux.</li>
+                <li><span class="component-bullet">•</span> <strong>Grupos de trabajo:</strong> Agrupación lógica de equipos y usuarios sin administración centralizada.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040301016" class="content-block">
+        <div class="distributed-os-card">
+          <div class="distributed-os-header">
+            <div class="distributed-os-icon">🌐</div>
+            <h4 class="distributed-os-title">Sistemas operativos Distribuidos</h4>
+          </div>
+          <div class="distributed-os-content">
+            <p>Unión lógica de un grupo de sistemas operativos ejecutándose sobre un conjunto de nodos independientes donde cada nodo contiene un subconjunto de programas/servicios que componen una parte del sistema operativo distribuido.</p>
+            <p>El funcionamiento interno de los sistemas operativos distribuidos es transparente para el usuario. De ésta forma las aplicaciones y usuarios ven todo el sistema como un solo nodo.</p>
+            <p>Ejemplos de sistemas operativos distribuidos son Sprite, Solaris-MC, Mach, Chorus, Spring, Amoeba, Taos.</p>
+            
+            <div class="characteristics-container">
+              <h5 class="characteristics-title">Las características principales son:</h5>
+              <ul class="characteristics-list">
+                <li><span class="characteristic-bullet">•</span> Formados por una colección de sistemas autónomos capaces de comunicarse y cooperar mediante interconexiones hardware y software.</li>
+                <li><span class="characteristic-bullet">•</span> Proporcionan una abstracción de máquina virtual a los usuarios.</li>
+                <li><span class="characteristic-bullet">•</span> Tienen como objetivo principal la transparencia.</li>
+                <li><span class="characteristic-bullet">•</span> Generalmente proporcionan medios para la compartición global de recursos.</li>
+                <li><span class="characteristic-bullet">•</span> Integran servicios añadidos como la denominación global, sistemas de archivos distribuidos, facilidades para distribución de cálculos, etc.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🖥️";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .subsubsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 20px;
+  }
+  
+  .subsubsubsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+    padding-left: 25px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Structure Types */
+  .structure-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .structure-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .structure-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .structure-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .structure-content {
+    flex: 1;
+  }
+  
+  .structure-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .structure-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Processor Modes Card */
+  .processor-modes-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .modes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .mode-item {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .mode-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .mode-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .mode-content {
+    flex: 1;
+  }
+  
+  .mode-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .mode-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Kernel Types Card */
+  .kernel-types-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .kernel-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .kernel-type-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .kernel-type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .kernel-type-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .kernel-type-content {
+    flex: 1;
+  }
+  
+  .kernel-type-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .kernel-type-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Kernel Comparison Card */
+  .kernel-comparison-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Services Card */
+  .services-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .services-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+  
+  .services-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .service-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Users Types */
+  .users-types-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .user-type-item {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .user-type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .user-type-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .user-type-content {
+    flex: 1;
+  }
+  
+  .user-type-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .user-type-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Tasks Types */
+  .tasks-types-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .task-type-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .task-type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .task-type-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .task-type-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .task-type-name {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .task-type-content {
+    padding: 20px;
+  }
+  
+  /* Subtypes Container */
+  .subtypes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .subtype-item {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .subtype-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .subtype-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .subtype-content {
+    flex: 1;
+  }
+  
+  .subtype-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .subtype-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Multiprocessor Card */
+  .multiprocessor-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* UMA Card */
+  .uma-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .uma-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .uma-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .uma-title {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .uma-content {
+    padding: 20px;
+  }
+  
+  .uma-features, .numa-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .uma-features li, .numa-features li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .feature-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* NUMA Card */
+  .numa-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Comparison Card */
+  .comparison-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .comparison-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .comparison-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .comparison-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .comparison-table tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .comparison-table tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  /* DSM Card */
+  .dsm-card, .hybrid-memory-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .dsm-icon, .hybrid-memory-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .dsm-content, .hybrid-memory-content {
+    flex: 1;
+  }
+  
+  /* Network OS Card */
+  .network-os-card, .distributed-os-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .network-os-header, .distributed-os-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .network-os-icon, .distributed-os-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .network-os-title, .distributed-os-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .network-os-content, .distributed-os-content {
+    padding: 20px;
+  }
+  
+  .objectives-container, .components-container, .characteristics-container {
+    margin-top: 20px;
+  }
+  
+  .objectives-title, .components-title, .characteristics-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .objectives-list, .components-list, .characteristics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .objectives-list li, .components-list li, .characteristics-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .objective-bullet, .component-bullet, .characteristic-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .mode-item, .user-type-item, .subtype-item, .dsm-card, .hybrid-memory-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .mode-icon, .user-type-icon, .subtype-icon, .dsm-icon, .hybrid-memory-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .structure-item, .kernel-type-item {
+      flex-direction: column;
+    }
+    
+    .structure-icon, .kernel-type-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .modes-container, .users-types-container {
+      flex-direction: column;
+    }
+    
+    .subtypes-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .kernel-types-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .network-os-header, .distributed-os-header, .uma-header, .task-type-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .network-os-icon, .distributed-os-icon, .uma-icon, .task-type-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    
+    .table-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+</style>
+</body>
+</html>

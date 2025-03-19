@@ -1,92 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Memoria Principal</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.6 GESTIÓN DE MEMORIA PRINCIPAL</h2>
-  
-  <span id="2040106001">
-    <p>Todo proceso que vaya a ser ejecutado necesita residir en la memoria principal del ordenador bien con todo su código y datos o sólo la parte que se va a necesitar inmediatamente.</p>
-    <p>Para ello el sistema operativo dispone de un Gestor de Memoria que se encarga de gestionar la memoria disponible entre los procesos para que puedan ser ejecutados sin conflictos.</p>
-  </span>
-  
-  <span id="2040106002">
-    <h3>Objetivos del Gestor de memoria:</h3>
-    <ul>
-      <li>Administrar la memoria disponible, mantener un registro de las zonas libres de memoria y las zonas ocupadas por los procesos.</li>
-      <li>Ofrecer a cada proceso un espacio lógico propio.</li>
-      <li>Cargar los programas de disco a memoria y volcar los datos de memoria a disco.</li>
-      <li>Proporcionar protección entre procesos. Evita que un proceso referencie la memoria de otro proceso sin permiso. Evita que un error de programación de un proceso o un código malicioso interfiera en la operación de otro.
-        <ul>
-          <li>Monoprogramación: Protección del espacio de memoria del sistema operativo.</li>
-          <li>Multiprogramación: Protección del sistema operativo y de los espacios de memoria de los procesos entre sí.</li>
+    <h2 class="section-title">1.6 GESTIÓN DE MEMORIA PRINCIPAL</h2>
+    
+    <div id="2040106001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🧠</div>
+        <div class="intro-content">
+          <p>Todo proceso que vaya a ser ejecutado necesita residir en la memoria principal del ordenador bien con todo su código y datos o sólo la parte que se va a necesitar inmediatamente.</p>
+          <p>Para ello el sistema operativo dispone de un Gestor de Memoria que se encarga de gestionar la memoria disponible entre los procesos para que puedan ser ejecutados sin conflictos.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040106002" class="content-block">
+      <div class="objectives-card">
+        <h3 class="objectives-title">Objetivos del Gestor de memoria:</h3>
+        <ul class="objectives-list">
+          <li>
+            <span class="objective-icon">📊</span>
+            <span class="objective-text">Administrar la memoria disponible, mantener un registro de las zonas libres de memoria y las zonas ocupadas por los procesos.</span>
+          </li>
+          <li>
+            <span class="objective-icon">🏠</span>
+            <span class="objective-text">Ofrecer a cada proceso un espacio lógico propio.</span>
+          </li>
+          <li>
+            <span class="objective-icon">🔄</span>
+            <span class="objective-text">Cargar los programas de disco a memoria y volcar los datos de memoria a disco.</span>
+          </li>
+          <li>
+            <span class="objective-icon">🔒</span>
+            <span class="objective-text">
+              Proporcionar protección entre procesos. Evita que un proceso referencie la memoria de otro proceso sin permiso. Evita que un error de programación de un proceso o un código malicioso interfiera en la operación de otro.
+              <ul class="sub-list">
+                <li><span class="sub-bullet">•</span> Monoprogramación: Protección del espacio de memoria del sistema operativo.</li>
+                <li><span class="sub-bullet">•</span> Multiprogramación: Protección del sistema operativo y de los espacios de memoria de los procesos entre sí.</li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <span class="objective-icon">🤝</span>
+            <span class="objective-text">Permitir que los procesos compartan memoria.</span>
+          </li>
+          <li>
+            <span class="objective-icon">🔄</span>
+            <span class="objective-text">
+              Dar soporte a las regiones del proceso y transformar las referencias de memoria de programa a su nueva ubicación:
+              <ul class="sub-list">
+                <li><span class="sub-bullet">•</span> Transformación estática</li>
+                <li><span class="sub-bullet">•</span> Transformación dinámica</li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <span class="objective-icon">📈</span>
+            <span class="objective-text">Maximizar el grado de multiprogramación.</span>
+          </li>
+          <li>
+            <span class="objective-icon">🗺️</span>
+            <span class="objective-text">Proporcionar a los procesos mapas de memoria muy grandes.</span>
+          </li>
         </ul>
-      </li>
-      <li>Permitir que los procesos compartan memoria.</li>
-      <li>Dar soporte a las regiones del proceso y transformar las referencias de memoria de programa a su nueva ubicación:
-        <ul>
-          <li>Transformación estática</li>
-          <li>Transformación dinámica</li>
-        </ul>
-      </li>
-      <li>Maximizar el grado de multiprogramación.</li>
-      <li>Proporcionar a los procesos mapas de memoria muy grandes.</li>
-    </ul>
-  </span>
-  
-  <h3>1.6.1 ALGORITMOS DE REEMPLAZO DE PÁGINAS DE MEMORIA</h3>
-  
-  <span id="2040106003">
-    <h4>Óptimo</h4>
-    <p>Es un algoritmo teórico. Se utiliza como referencia de comparación del resto de algoritmos.</p>
-    <p>Su funcionamiento sería aquel que predijera con exactitud qué páginas serán menos referenciadas en el futuro para poder eliminarlas de memoria con el mínimo perjuicio al rendimiento. Es decir, el algoritmo que produjera el mínimo número de cambios de página para un trabajo dado.</p>
-  </span>
-  
-  <span id="2040106004">
-    <h4>FIFO, First In, First Out. Primera en entrar, primera en salir</h4>
-    <p>Las páginas se almacenan en una cola de tal forma que cuando se necesita espacio se elimina siempre la más antigua independientemente de lo que se use o lo que se prevea que se va a utilizar.</p>
-    <p>En la práctica no tiene un comportamiento aceptable. Presenta la llamada Anomalía FIFO o Anomalía de Belady.</p>
-    <p>Belady demostró que para determinadas secuencias de páginas aumentar el número de marcos de página en el sistema puede generar un mayor número de errores de página.</p>
-  </span>
-  
-  <span id="2040106005">
-    <h4>Segunda oportunidad (Reloj)</h4>
-    <p>Es una evolución del algoritmo FIFO.</p>
-    <p>En este caso cuando una página debe ser sacada se toma la primera en la cola, y en vez de sacarla, consulta el valor de un bit de referencia. En caso de estar fijado (en 1) se cambia el bit a 0 y se lo coloca al final de la cola, actualizando su tiempo de carga como si recién hubiera llegado al procesador. De esta forma, se le da una segunda oportunidad. Si el bit se encuentra sin fijar(en 0), la página se saca de memoria. Cada vez que la MMU accede a una página, fija su bit de referencia a 1. Para esto es necesario soporte para bit de referencia por hardware.</p>
-  </span>
-  
-  <span id="2040106006">
-    <h4>De páginas de reloj (CLOCK) (Reloj mejorado)</h4>
-    <p>Existe una mejora en el algoritmo de segunda oportunidad que presenta una mejora en la implementación. Es el algoritmo del CLOCK, que lo que hace es tener una lista circular, de forma que al llegar al último elemento de la lista, pasa automáticamente al primero. Los elementos no se mueven al final de la cola cuando son accedidos, simplemente se cambia el bit de referencia a 0. Esto nos evita tener que hacer movimientos de punteros en el caso de implementarlo con una lista enlazada. De hecho, se puede implementar con un array perfectamente, ahorrando así memoria.</p>
-  </span>
-  
-  <span id="2040106007">
-    <h4>Not Recently Used, NRU No usada recientemente</h4>
-    <p>Cuando una página es referenciada, fija el bit de referencia para esa página. Similarmente, cuando una página es modificada, fija su bit de modificación. Usualmente estas operaciones son realizadas por el hardware, aunque puede hacerse también por software. En un tiempo fijo, el sistema operativo pone en 0 los bits de referencia de todas las páginas, de modo que las páginas con su bit de referencia en 1 son las que fueron referenciadas dentro del último intervalo de reloj.</p>
-    <p>Cuando una página debe ser reemplazada, el sistema operativo divide las páginas en cuatro categorías:</p>
-    <ul>
-      <li>Categoría 0: No referenciada, No modificada</li>
-      <li>Categoría 1: No referenciada, modificada</li>
-      <li>Categoría 2: referenciada, No modificada</li>
-      <li>Categoría 3: referenciada, modificada</li>
-    </ul>
-    <p>Las mejores páginas para cambiar son las que se encuentran en la categoría 0, mientras que las peores son las de la categoría 3. Se desaloja al azar una página de la categoría más baja que no esté vacía. Este algoritmo se basa en la suposición de que es mejor desalojar una página modificada a la que no se ha hecho referencia en al menos un tic de reloj, en vez de una página limpia que se está usando mucho.</p>
-    <p>Favorece a las páginas que fueron usadas recientemente</p>
-  </span>
-  
-  <span id="2040106008">
-    <h4>LRU Least Recently Used Menos Usada Recientemente</h4>
-    <p>Este algoritmo difiere del de 'No usada recientemente' en el hecho de que aquel solo se fija en el intervalo de tiempo desde que se pusieron en 0 los bits de referencia de las páginas, mientras que el algoritmo de 'Menos usada recientemente' intenta proveer un comportamiento casi óptimo mediante la observación de las páginas que menos fueron usadas recientemente. Este tipo de páginas, estadísticamente son las que tienen menor probabilidad de ser usadas nuevamente.</p>
-    <p>Aunque este algoritmo provee un buen comportamiento en teoría, es caro de implementar, en cuanto a recursos consumidos. Hay varias implementaciones que intentan mantener bajo el costo y lograr un rendimiento considerable. Un método consiste en tener una lista enlazada y ordenada de todas las páginas en memoria. En el final de la lista está la página menos usada recientemente, y al principio la más usada recientemente. El costo alto de este método es porque cada vez que se referencia una página debe ser movida en la lista, algo que consume mucho tiempo. Otra forma, que requiere soporte de hardware, consiste en tener un contador que es incrementado en cada instrucción del CPU. Cada vez que una página es accedida, gana el número del contador en ese momento. Cuando una página debe ser retirada de memoria, simplemente hay que buscar cuál es la que tiene el menor número, que es la que fue usada hace más tiempo.</p>
-    <p>En el presente no existen contadores tan grandes para permitir esto. Debido al alto costo del LRU, se proponen algoritmos similares, pero que permiten implementaciones menos costosas.</p>
-  </span>
-  
-  <span id="2040106009">
-    <h4>Aging. Envejecimiento</h4>
-    <p>Desciende del algoritmo "No usada frecuentemente", con algunas modificaciones necesarias para tener en cuenta en qué momento fue usada frecuentemente una página, y no solamente cuántas veces fue.</p>
-    <p>En vez de solo incrementar el contador de la página cuando es referenciada, primero se desplaza a la derecha (se divide entre 2) y después sí se suma 1. Por ejemplo, si los bits de referencia de una página fueron 1, 0, 0, 1, 1 y 0 en los últimos 6 ticks del reloj, el contador se verá así: 10000000, 01000000, 00100000, 10010000, 11001000, 01100100.</p>
-    <p>De esta forma, cuando se necesite eliminar una página de memoria, se eliminará la que tenga el número más pequeño en su contador.</p>
-    <p>Este algoritmo consigue una buena aproximación al algoritmo óptimo.</p>
-  </span>
-  
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">1.6.1 ALGORITMOS DE REEMPLAZO DE PÁGINAS DE MEMORIA</h3>
+      
+      <div id="2040106003" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">⭐</div>
+            <h4 class="algorithm-title">Óptimo</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Es un algoritmo teórico. Se utiliza como referencia de comparación del resto de algoritmos.</p>
+            <p>Su funcionamiento sería aquel que predijera con exactitud qué páginas serán menos referenciadas en el futuro para poder eliminarlas de memoria con el mínimo perjuicio al rendimiento. Es decir, el algoritmo que produjera el mínimo número de cambios de página para un trabajo dado.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106004" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">🔄</div>
+            <h4 class="algorithm-title">FIFO, First In, First Out. Primera en entrar, primera en salir</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Las páginas se almacenan en una cola de tal forma que cuando se necesita espacio se elimina siempre la más antigua independientemente de lo que se use o lo que se prevea que se va a utilizar.</p>
+            <p>En la práctica no tiene un comportamiento aceptable. Presenta la llamada Anomalía FIFO o Anomalía de Belady.</p>
+            <p>Belady demostró que para determinadas secuencias de páginas aumentar el número de marcos de página en el sistema puede generar un mayor número de errores de página.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106005" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">🔄</div>
+            <h4 class="algorithm-title">Segunda oportunidad (Reloj)</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Es una evolución del algoritmo FIFO.</p>
+            <p>En este caso cuando una página debe ser sacada se toma la primera en la cola, y en vez de sacarla, consulta el valor de un bit de referencia. En caso de estar fijado (en 1) se cambia el bit a 0 y se lo coloca al final de la cola, actualizando su tiempo de carga como si recién hubiera llegado al procesador. De esta forma, se le da una segunda oportunidad. Si el bit se encuentra sin fijar(en 0), la página se saca de memoria. Cada vez que la MMU accede a una página, fija su bit de referencia a 1. Para esto es necesario soporte para bit de referencia por hardware.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106006" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">⏰</div>
+            <h4 class="algorithm-title">De páginas de reloj (CLOCK) (Reloj mejorado)</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Existe una mejora en el algoritmo de segunda oportunidad que presenta una mejora en la implementación. Es el algoritmo del CLOCK, que lo que hace es tener una lista circular, de forma que al llegar al último elemento de la lista, pasa automáticamente al primero. Los elementos no se mueven al final de la cola cuando son accedidos, simplemente se cambia el bit de referencia a 0. Esto nos evita tener que hacer movimientos de punteros en el caso de implementarlo con una lista enlazada. De hecho, se puede implementar con un array perfectamente, ahorrando así memoria.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106007" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">🕒</div>
+            <h4 class="algorithm-title">Not Recently Used, NRU No usada recientemente</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Cuando una página es referenciada, fija el bit de referencia para esa página. Similarmente, cuando una página es modificada, fija su bit de modificación. Usualmente estas operaciones son realizadas por el hardware, aunque puede hacerse también por software. En un tiempo fijo, el sistema operativo pone en 0 los bits de referencia de todas las páginas, de modo que las páginas con su bit de referencia en 1 son las que fueron referenciadas dentro del último intervalo de reloj.</p>
+            <p>Cuando una página debe ser reemplazada, el sistema operativo divide las páginas en cuatro categorías:</p>
+            <div class="categories-grid">
+              <div class="category-item">
+                <div class="category-number">0</div>
+                <div class="category-desc">No referenciada, No modificada</div>
+              </div>
+              <div class="category-item">
+                <div class="category-number">1</div>
+                <div class="category-desc">No referenciada, modificada</div>
+              </div>
+              <div class="category-item">
+                <div class="category-number">2</div>
+                <div class="category-desc">Referenciada, No modificada</div>
+              </div>
+              <div class="category-item">
+                <div class="category-number">3</div>
+                <div class="category-desc">Referenciada, modificada</div>
+              </div>
+            </div>
+            <p>Las mejores páginas para cambiar son las que se encuentran en la categoría 0, mientras que las peores son las de la categoría 3. Se desaloja al azar una página de la categoría más baja que no esté vacía. Este algoritmo se basa en la suposición de que es mejor desalojar una página modificada a la que no se ha hecho referencia en al menos un tic de reloj, en vez de una página limpia que se está usando mucho.</p>
+            <p>Favorece a las páginas que fueron usadas recientemente</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106008" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">⏱️</div>
+            <h4 class="algorithm-title">LRU Least Recently Used Menos Usada Recientemente</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Este algoritmo difiere del de 'No usada recientemente' en el hecho de que aquel solo se fija en el intervalo de tiempo desde que se pusieron en 0 los bits de referencia de las páginas, mientras que el algoritmo de 'Menos usada recientemente' intenta proveer un comportamiento casi óptimo mediante la observación de las páginas que menos fueron usadas recientemente. Este tipo de páginas, estadísticamente son las que tienen menor probabilidad de ser usadas nuevamente.</p>
+            <p>Aunque este algoritmo provee un buen comportamiento en teoría, es caro de implementar, en cuanto a recursos consumidos. Hay varias implementaciones que intentan mantener bajo el costo y lograr un rendimiento considerable. Un método consiste en tener una lista enlazada y ordenada de todas las páginas en memoria. En el final de la lista está la página menos usada recientemente, y al principio la más usada recientemente. El costo alto de este método es porque cada vez que se referencia una página debe ser movida en la lista, algo que consume mucho tiempo. Otra forma, que requiere soporte de hardware, consiste en tener un contador que es incrementado en cada instrucción del CPU. Cada vez que una página es accedida, gana el número del contador en ese momento. Cuando una página debe ser retirada de memoria, simplemente hay que buscar cuál es la que tiene el menor número, que es la que fue usada hace más tiempo.</p>
+            <p>En el presente no existen contadores tan grandes para permitir esto. Debido al alto costo del LRU, se proponen algoritmos similares, pero que permiten implementaciones menos costosas.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040106009" class="content-block">
+        <div class="algorithm-card">
+          <div class="algorithm-header">
+            <div class="algorithm-icon">👴</div>
+            <h4 class="algorithm-title">Aging. Envejecimiento</h4>
+          </div>
+          <div class="algorithm-content">
+            <p>Desciende del algoritmo "No usada frecuentemente", con algunas modificaciones necesarias para tener en cuenta en qué momento fue usada frecuentemente una página, y no solamente cuántas veces fue.</p>
+            <p>En vez de solo incrementar el contador de la página cuando es referenciada, primero se desplaza a la derecha (se divide entre 2) y después sí se suma 1. Por ejemplo, si los bits de referencia de una página fueron 1, 0, 0, 1, 1 y 0 en los últimos 6 ticks del reloj, el contador se verá así: 10000000, 01000000, 00100000, 10010000, 11001000, 01100100.</p>
+            <p>De esta forma, cuando se necesite eliminar una página de memoria, se eliminará la que tenga el número más pequeño en su contador.</p>
+            <p>Este algoritmo consigue una buena aproximación al algoritmo óptimo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🧠";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Objectives Card */
+  .objectives-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .objectives-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .objectives-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .objectives-list li {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .objectives-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .objective-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .objective-text {
+    flex: 1;
+  }
+  
+  .sub-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .sub-list li {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 8px;
+    box-shadow: none;
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .sub-list li:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .sub-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+  }
+  
+  /* Algorithm Card */
+  .algorithm-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .algorithm-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .algorithm-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .algorithm-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .algorithm-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .algorithm-content {
+    padding: 20px;
+  }
+  
+  /* Categories Grid */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .category-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .category-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .category-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .category-desc {
+    font-weight: 500;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .objectives-list li {
+      flex-direction: column;
+    }
+    
+    .objective-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .algorithm-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .algorithm-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</body>
+</html>

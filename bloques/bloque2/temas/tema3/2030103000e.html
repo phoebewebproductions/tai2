@@ -1,125 +1,1405 @@
-<div class="teoria">
-  <article>
-    <h2>Algoritmos</h2>
-  
-    <h3>Definiciones</h3>
-    <span id="2030103001">
-      <p>Un Algoritmo es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
-      <p>Características clave de los algoritmos:</p>
-      <ul>
-        <li>Ordenado: indica el orden en que se ejecuta cada paso.</li>
-        <li>Finito: el algoritmo debe terminar en algún momento.</li>
-        <li>Determinista: si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
-      </ul>
-      <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
-    </span>
-  
-    <h3>Módulos, procedimientos y funciones</h3>
-    <span id="2030103002">
-      <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
-      <p>En la programación estructurada, los módulos más comunes son:</p>
-      <ul>
-        <li><strong>Funciones:</strong> Reciben o no variables como parámetros de entrada y devuelven un único resultado.</li>
-        <li><strong>Procedimientos:</strong> Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</li>
-      </ul>
-      <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma. Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
-    </span>
-  
-    <h3>Cohesión y acoplamiento</h3>
-    <span id="2030103003">
-      <p><strong>Cohesión:</strong> Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
-      <p><strong>Acoplamiento:</strong> Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
-      <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
-    </span>
-  
-    <span id="2030103004">
-      <p>Tipos de acoplamiento (de menor a mayor):</p>
-      <ol>
-        <li>De datos: comunicación mediante parámetros de datos simples.</li>
-        <li>De marca: comunicación a través de estructuras de datos.</li>
-        <li>De control: uso de variables de control en la comunicación.</li>
-        <li>Externo: módulos ligados a componentes externos.</li>
-        <li>Común: varios módulos referenciando un área común de datos.</li>
-        <li>De contenido: un módulo accede o usa datos de parte de otro módulo.</li>
-      </ol>
-    </span>
-  
-    <span id="2030103005">
-      <p>Tipos de cohesión (de mayor a menor):</p>
-      <ol>
-        <li>Funcional: todos los elementos relacionados en una única función.</li>
-        <li>Secuencial: empaqueta en secuencia varios módulos con cohesión funcional.</li>
-        <li>De comunicación: elementos utilizan los mismos datos de entrada y salida.</li>
-        <li>Procedimental: elementos relacionados que deben ejecutarse en un orden determinado.</li>
-        <li>Temporal: tareas que deben realizarse en el mismo intervalo de tiempo.</li>
-        <li>Lógica: tareas relacionadas de forma lógica.</li>
-        <li>Casual: tareas con poca o ninguna relación entre sí.</li>
-      </ol>
-    </span>
-  
-    <h3>Variables por valor y por referencia</h3>
-    <span id="2030103006">
-      <p><strong>Variables por valor:</strong> Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
-      <p><strong>Variables por referencia:</strong> Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
-    </span>
-  
-    <h3>Algoritmos recursividad vs iterativos. Backtracking</h3>
-    <span id="2030103007">
-      <p><strong>Algoritmos recursivos:</strong> Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
-      <p><strong>Algoritmos iterativos:</strong> Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
-      <p>Ejemplo de algoritmo recursivo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialRecursiva(n)
-        Si n = 1 → devuelve 1
-        Sino devuelve n * factorial(n-1)
-      </code></pre>
-      <p>Ejemplo de algoritmo iterativo (cálculo del factorial):</p>
-      <pre><code>
-      Función factorialIterativa(n)
-        var resultado = 1
-        while (n > 1) {
-          resultado = n * resultado
-          n = n - 1
-        }
-        Devuelve resultado
-      </code></pre>
-    </span>
-  
-    <span id="2030103008">
-      <p><strong>Backtracking:</strong> Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
-      <p>Dificultades del backtracking:</p>
-      <ul>
-        <li>Evitar caer en bucles infinitos</li>
-        <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
-        <li>Pueden ser lentos en su ejecución</li>
-      </ul>
-      <p>Soluciones:</p>
-      <ul>
-        <li>Aplicar funciones heurísticas</li>
-        <li>Usar podas para limitar el número de llamadas al algoritmo</li>
-      </ul>
-    </span>
-  
-    <h3>Algoritmos de ordenación y búsqueda</h3>
-    <span id="2030103009">
-      <p>Algoritmos de búsqueda más importantes:</p>
-      <ul>
-        <li><strong>Búsqueda secuencial sin centinela:</strong> Recorre un array comparando todos los elementos hasta encontrar el buscado.</li>
-        <li><strong>Búsqueda secuencial con centinela:</strong> Añade el elemento a buscar al final del array para optimizar la búsqueda.</li>
-        <li><strong>Búsqueda binaria:</strong> Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</li>
-      </ul>
-    </span>
-  
-    <span id="2030103010">
-      <p>Algoritmos de ordenación más importantes:</p>
-      <ul>
-        <li><strong>Método de la burbuja:</strong> Compara pares adyacentes y los intercambia si no están ordenados.</li>
-        <li><strong>Método de selección:</strong> Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</li>
-        <li><strong>Método de inserción:</strong> Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</li>
-        <li><strong>Quicksort:</strong> Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</li>
-      </ul>
-    </span>
-  </article>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <div class="teoria">
+    <article>
+      <h2 class="section-title">ALGORITMOS</h2>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Definiciones</h3>
+        <div id="2030103001" class="content-block">
+          <div class="definition-card">
+            <div class="definition-icon">📝</div>
+            <div class="definition-content">
+              <p>Un <strong>Algoritmo</strong> es un conjunto ordenado y finito de operaciones que permite hallar la solución de un problema. No dependen del lenguaje de programación, y pueden expresarse en lenguaje natural, pseudocódigo o diagramas.</p>
+              
+              <div class="characteristics">
+                <h4 class="characteristics-title">Características clave de los algoritmos:</h4>
+                <ul class="characteristics-list">
+                  <li><span class="characteristic-name">Ordenado:</span> indica el orden en que se ejecuta cada paso.</li>
+                  <li><span class="characteristic-name">Finito:</span> el algoritmo debe terminar en algún momento.</li>
+                  <li><span class="characteristic-name">Determinista:</span> si se sigue el algoritmo dos veces, se obtiene el mismo resultado.</li>
+                </ul>
+              </div>
+              
+              <div class="divide-conquer">
+                <p>Para problemas complejos, se utiliza el método "divide y vencerás", dividiendo el problema grande en porciones pequeñas que se puedan resolver individualmente.</p>
+                
+                <div class="divide-illustration">
+                  <div class="problem">Problema complejo</div>
+                  <div class="divide-arrows">
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                  </div>
+                  <div class="subproblems">
+                    <div class="subproblem">Subproblema 1</div>
+                    <div class="subproblem">Subproblema 2</div>
+                    <div class="subproblem">Subproblema 3</div>
+                  </div>
+                  <div class="solve-arrows">
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                  </div>
+                  <div class="solutions">
+                    <div class="solution">Solución 1</div>
+                    <div class="solution">Solución 2</div>
+                    <div class="solution">Solución 3</div>
+                  </div>
+                  <div class="combine-arrows">
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                    <div class="arrow">↓</div>
+                  </div>
+                  <div class="final-solution">Solución final</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Módulos, procedimientos y funciones</h3>
+        <div id="2030103002" class="content-block">
+          <p>Los módulos son agrupaciones de pasos que resuelven un problema, facilitando la reutilización de código. Pueden recibir valores (variables) con los que operar para obtener un resultado.</p>
+          
+          <div class="modules-container">
+            <div class="module-card">
+              <div class="module-header">
+                <div class="module-icon">🔄</div>
+                <h4 class="module-title">Funciones</h4>
+              </div>
+              <div class="module-content">
+                <p>Reciben o no variables como parámetros de entrada y devuelven un único resultado.</p>
+                
+                <div class="module-example">
+                  <div class="example-title">Ejemplo:</div>
+                  <div class="code-block">
+                    <pre><code>función suma(a, b) {
+  return a + b;
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="module-card">
+              <div class="module-header">
+                <div class="module-icon">📋</div>
+                <h4 class="module-title">Procedimientos</h4>
+              </div>
+              <div class="module-content">
+                <p>Pueden recibir variables de entrada y devolver varios, uno o ningún resultado.</p>
+                
+                <div class="module-example">
+                  <div class="example-title">Ejemplo:</div>
+                  <div class="code-block">
+                    <pre><code>procedimiento intercambiar(a, b) {
+  temp = a;
+  a = b;
+  b = temp;
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="variables-scope">
+            <div class="scope-card local">
+              <div class="scope-icon">🔍</div>
+              <div class="scope-content">
+                <h4 class="scope-title">Variables Locales</h4>
+                <p>Las variables declaradas dentro de procedimientos y funciones son <strong>Variables Locales</strong>, pertenecientes al contexto del subprograma.</p>
+              </div>
+            </div>
+            
+            <div class="scope-card global">
+              <div class="scope-icon">🌐</div>
+              <div class="scope-content">
+                <h4 class="scope-title">Variables Globales</h4>
+                <p>Las <strong>Variables Globales</strong> se definen en el ámbito del programa principal, aunque su uso está generalmente desaconsejado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Cohesión y acoplamiento</h3>
+        <div id="2030103003" class="content-block">
+          <div class="concepts-container">
+            <div class="concept-card">
+              <div class="concept-icon">🔄</div>
+              <div class="concept-content">
+                <h4 class="concept-title">Cohesión</h4>
+                <p>Mide la relación entre las operaciones que ejecuta un módulo. Un módulo debe realizar una única tarea con un fin específico.</p>
+                
+                <div class="concept-illustration">
+                  <div class="cohesion-module">
+                    <div class="module-label">Módulo con alta cohesión</div>
+                    <div class="module-tasks">
+                      <div class="task">Tarea relacionada 1</div>
+                      <div class="task">Tarea relacionada 2</div>
+                      <div class="task">Tarea relacionada 3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="concept-card">
+              <div class="concept-icon">🔗</div>
+              <div class="concept-content">
+                <h4 class="concept-title">Acoplamiento</h4>
+                <p>Mide la dependencia entre módulos. Se busca el menor acoplamiento posible para facilitar la reutilización y el mantenimiento del código.</p>
+                
+                <div class="concept-illustration">
+                  <div class="coupling-modules">
+                    <div class="module-box">Módulo A</div>
+                    <div class="coupling-arrows">
+                      <div class="arrow weak">↔</div>
+                      <div class="arrow-label">Acoplamiento débil</div>
+                    </div>
+                    <div class="module-box">Módulo B</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="best-practice">
+            <p>Se debe buscar una alta cohesión en los módulos y un acoplamiento débil entre ellos.</p>
+          </div>
+        </div>
+        
+        <div id="2030103004" class="content-block">
+          <div class="coupling-types">
+            <h4 class="types-title">Tipos de acoplamiento (de menor a mayor):</h4>
+            
+            <div class="types-list">
+              <div class="type-item">
+                <div class="type-number">1</div>
+                <div class="type-content">
+                  <div class="type-name">De datos</div>
+                  <div class="type-desc">Comunicación mediante parámetros de datos simples.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">2</div>
+                <div class="type-content">
+                  <div class="type-name">De marca</div>
+                  <div class="type-desc">Comunicación a través de estructuras de datos.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">3</div>
+                <div class="type-content">
+                  <div class="type-name">De control</div>
+                  <div class="type-desc">Uso de variables de control en la comunicación.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">4</div>
+                <div class="type-content">
+                  <div class="type-name">Externo</div>
+                  <div class="type-desc">Módulos ligados a componentes externos.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">5</div>
+                <div class="type-content">
+                  <div class="type-name">Común</div>
+                  <div class="type-desc">Varios módulos referenciando un área común de datos.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">6</div>
+                <div class="type-content">
+                  <div class="type-name">De contenido</div>
+                  <div class="type-desc">Un módulo accede o usa datos de parte de otro módulo.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2030103005" class="content-block">
+          <div class="cohesion-types">
+            <h4 class="types-title">Tipos de cohesión (de mayor a menor):</h4>
+            
+            <div class="types-list">
+              <div class="type-item">
+                <div class="type-number">1</div>
+                <div class="type-content">
+                  <div class="type-name">Funcional</div>
+                  <div class="type-desc">Todos los elementos relacionados en una única función.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">2</div>
+                <div class="type-content">
+                  <div class="type-name">Secuencial</div>
+                  <div class="type-desc">Empaqueta en secuencia varios módulos con cohesión funcional.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">3</div>
+                <div class="type-content">
+                  <div class="type-name">De comunicación</div>
+                  <div class="type-desc">Elementos utilizan los mismos datos de entrada y salida.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">4</div>
+                <div class="type-content">
+                  <div class="type-name">Procedimental</div>
+                  <div class="type-desc">Elementos relacionados que deben ejecutarse en un orden determinado.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">5</div>
+                <div class="type-content">
+                  <div class="type-name">Temporal</div>
+                  <div class="type-desc">Tareas que deben realizarse en el mismo intervalo de tiempo.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">6</div>
+                <div class="type-content">
+                  <div class="type-name">Lógica</div>
+                  <div class="type-desc">Tareas relacionadas de forma lógica.</div>
+                </div>
+              </div>
+              
+              <div class="type-item">
+                <div class="type-number">7</div>
+                <div class="type-content">
+                  <div class="type-name">Casual</div>
+                  <div class="type-desc">Tareas con poca o ninguna relación entre sí.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Variables por valor y por referencia</h3>
+        <div id="2030103006" class="content-block">
+          <div class="variables-types">
+            <div class="variable-card">
+              <div class="variable-header">
+                <div class="variable-icon">📋</div>
+                <h4 class="variable-title">Variables por valor</h4>
+              </div>
+              <div class="variable-content">
+                <p>Se copian en el ámbito del subprograma. Las modificaciones durante la ejecución no afectan al valor original en el programa principal.</p>
+                
+                <div class="variable-illustration">
+                  <div class="memory-blocks">
+                    <div class="memory-block">
+                      <div class="block-label">Programa principal</div>
+                      <div class="block-content">
+                        <div class="variable-box">
+                          <div class="var-name">x</div>
+                          <div class="var-value">5</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="memory-arrow">→</div>
+                    <div class="memory-block">
+                      <div class="block-label">Subprograma</div>
+                      <div class="block-content">
+                        <div class="variable-box">
+                          <div class="var-name">a</div>
+                          <div class="var-value">5</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="illustration-note">
+                    <p>Modificar 'a' no afecta a 'x'</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-card">
+              <div class="variable-header">
+                <div class="variable-icon">🔗</div>
+                <h4 class="variable-title">Variables por referencia</h4>
+              </div>
+              <div class="variable-content">
+                <p>Se pasa la dirección de memoria del parámetro. Las modificaciones en el subprograma afectan al valor original en el programa principal.</p>
+                
+                <div class="variable-illustration">
+                  <div class="memory-blocks">
+                    <div class="memory-block">
+                      <div class="block-label">Programa principal</div>
+                      <div class="block-content">
+                        <div class="variable-box">
+                          <div class="var-name">x</div>
+                          <div class="var-value">5</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="memory-arrow ref-arrow">⟹</div>
+                    <div class="memory-block">
+                      <div class="block-label">Subprograma</div>
+                      <div class="block-content">
+                        <div class="variable-box ref-box">
+                          <div class="var-name">a</div>
+                          <div class="var-value">referencia a x</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="illustration-note">
+                    <p>Modificar 'a' afecta directamente a 'x'</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Algoritmos recursividad vs iterativos. Backtracking</h3>
+        <div id="2030103007" class="content-block">
+          <div class="algorithms-comparison">
+            <div class="algorithm-card">
+              <div class="algorithm-header">
+                <div class="algorithm-icon">🔄</div>
+                <h4 class="algorithm-title">Algoritmos recursivos</h4>
+              </div>
+              <div class="algorithm-content">
+                <p>Se llaman a sí mismos para resolver un problema. Tienen tres partes fundamentales: declaración, llamada recursiva y condición de parada.</p>
+                
+                <div class="algorithm-example">
+                  <div class="example-title">Ejemplo: Cálculo del factorial</div>
+                  <div class="code-block">
+                    <pre><code>Función factorialRecursiva(n)
+  Si n = 1 → devuelve 1
+  Sino devuelve n * factorial(n-1)</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="algorithm-card">
+              <div class="algorithm-header">
+                <div class="algorithm-icon">🔁</div>
+                <h4 class="algorithm-title">Algoritmos iterativos</h4>
+              </div>
+              <div class="algorithm-content">
+                <p>Utilizan sentencias iterativas (bucles) para resolver un problema.</p>
+                
+                <div class="algorithm-example">
+                  <div class="example-title">Ejemplo: Cálculo del factorial</div>
+                  <div class="code-block">
+                    <pre><code>Función factorialIterativa(n)
+  var resultado = 1
+  while (n > 1) {
+    resultado = n * resultado
+    n = n - 1
+  }
+  Devuelve resultado</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2030103008" class="content-block">
+          <div class="backtracking-section">
+            <div class="backtracking-header">
+              <div class="backtracking-icon">🔍</div>
+              <h4 class="backtracking-title">Backtracking</h4>
+            </div>
+            <div class="backtracking-content">
+              <p>Algoritmo de vuelta atrás asociado al recorrido de pilas, colas y árboles. Enumera sistemáticamente todas las alternativas posibles en cada momento, probando una y manteniendo las demás en memoria.</p>
+              
+              <div class="backtracking-illustration">
+                <div class="tree-node root">
+                  <span>A</span>
+                  <div class="tree-children">
+                    <div class="tree-node">
+                      <span>B</span>
+                      <div class="tree-children">
+                        <div class="tree-node leaf">
+                          <span>D</span>
+                        </div>
+                        <div class="tree-node leaf">
+                          <span>E</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-node">
+                      <span>C</span>
+                      <div class="tree-children">
+                        <div class="tree-node leaf">
+                          <span>F</span>
+                        </div>
+                        <div class="tree-node leaf">
+                          <span>G</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="backtracking-path">
+                  <div class="path-title">Recorrido:</div>
+                  <div class="path-steps">A → B → D → (vuelta atrás) → E → (vuelta atrás) → C → F → (vuelta atrás) → G</div>
+                </div>
+              </div>
+              
+              <div class="backtracking-issues">
+                <h5 class="issues-title">Dificultades del backtracking:</h5>
+                <ul class="issues-list">
+                  <li>Evitar caer en bucles infinitos</li>
+                  <li>Evitar evaluar demasiadas alternativas (consumo excesivo de memoria)</li>
+                  <li>Pueden ser lentos en su ejecución</li>
+                </ul>
+              </div>
+              
+              <div class="backtracking-solutions">
+                <h5 class="solutions-title">Soluciones:</h5>
+                <ul class="solutions-list">
+                  <li>Aplicar funciones heurísticas</li>
+                  <li>Usar podas para limitar el número de llamadas al algoritmo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-container">
+        <h3 class="subsection-title">Algoritmos de ordenación y búsqueda</h3>
+        <div id="2030103009" class="content-block">
+          <div class="search-algorithms">
+            <h4 class="algorithms-title">Algoritmos de búsqueda más importantes:</h4>
+            
+            <div class="algorithms-grid">
+              <div class="algorithm-item">
+                <div class="algorithm-icon">🔍</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Búsqueda secuencial sin centinela</h5>
+                  <p>Recorre un array comparando todos los elementos hasta encontrar el buscado.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="algorithm-item">
+                <div class="algorithm-icon">🔎</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Búsqueda secuencial con centinela</h5>
+                  <p>Añade el elemento a buscar al final del array para optimizar la búsqueda.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="algorithm-item">
+                <div class="algorithm-icon">🔦</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Búsqueda binaria</h5>
+                  <p>Requiere un array ordenado. Compara el elemento buscado con el central y divide la búsqueda en mitades.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(log n)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="2030103010" class="content-block">
+          <div class="sort-algorithms">
+            <h4 class="algorithms-title">Algoritmos de ordenación más importantes:</h4>
+            
+            <div class="algorithms-grid">
+              <div class="algorithm-item">
+                <div class="algorithm-icon">🫧</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Método de la burbuja</h5>
+                  <p>Compara pares adyacentes y los intercambia si no están ordenados.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n²)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="algorithm-item">
+                <div class="algorithm-icon">🔍</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Método de selección</h5>
+                  <p>Divide el array en parte ordenada y desordenada, seleccionando el menor elemento de la parte desordenada en cada iteración.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n²)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="algorithm-item">
+                <div class="algorithm-icon">📥</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Método de inserción</h5>
+                  <p>Toma elementos de la parte desordenada y los inserta en su posición correcta en la parte ordenada.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n²)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="algorithm-item">
+                <div class="algorithm-icon">⚡</div>
+                <div class="algorithm-content">
+                  <h5 class="algorithm-name">Quicksort</h5>
+                  <p>Divide la lista en dos partes usando un pivote, ordenando recursivamente cada parte.</p>
+                  <div class="complexity">
+                    <span class="complexity-label">Complejidad:</span>
+                    <span class="complexity-value">O(n log n)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
-  
-  
+
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      color: var(--color-primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: "🧮";
+      margin-right: 10px;
+    }
+    
+    .section-container {
+      margin-bottom: 2.5rem;
+    }
+    
+    .subsection-title {
+      color: var(--color-primary-dark);
+      font-size: 1.5rem;
+      margin: 1.5rem 0 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .subsection-title::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+    }
+    
+    .content-block {
+      margin-bottom: 1.5rem;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Definition Card */
+    .definition-card {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .definition-icon {
+      font-size: 2.5rem;
+      margin-right: 20px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    /* Characteristics */
+    .characteristics {
+      margin: 1.5rem 0;
+    }
+    
+    .characteristics-title {
+      color: var(--color-primary-dark);
+      margin-bottom: 1rem;
+    }
+    
+    .characteristics-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .characteristics-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .characteristics-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+    
+    .characteristic-name {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+    }
+    
+    /* Divide and Conquer */
+    .divide-conquer {
+      margin-top: 1.5rem;
+    }
+    
+    .divide-illustration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1.5rem;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .problem, .subproblems, .solutions, .final-solution {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .problem {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    
+    .subproblem, .solution {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    
+    .final-solution {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    
+    .divide-arrows, .solve-arrows, .combine-arrows {
+      display: flex;
+      gap: 50px;
+      margin: 5px 0;
+    }
+    
+    .arrow {
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+    
+    /* Modules */
+    .modules-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 1.5rem 0;
+    }
+    
+    .module-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .module-header {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 15px;
+    }
+    
+    .module-icon {
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+    
+    .module-title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .module-content {
+      padding: 20px;
+    }
+    
+    .module-example {
+      margin-top: 15px;
+    }
+    
+    .example-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .code-block {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      overflow-x: auto;
+    }
+    
+    .code-block pre {
+      margin: 0;
+    }
+    
+    .code-block code {
+      font-family: 'Courier New', Courier, monospace;
+      color: var(--color-text);
+    }
+    
+    /* Variables Scope */
+    .variables-scope {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 1.5rem;
+    }
+    
+    .scope-card {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .scope-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .scope-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    .scope-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* Concepts */
+    .concepts-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .concept-card {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .concept-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .concept-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    
+    .concept-title {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .concept-illustration {
+      margin-top: 15px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .cohesion-module {
+      border: 2px solid var(--color-primary);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .module-label {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 8px 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .module-tasks {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .task {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 8px 15px;
+      border-radius: 4px;
+    }
+    
+    .coupling-modules {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .module-box {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      min-width: 100px;
+      text-align: center;
+    }
+    
+    .coupling-arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .arrow.weak {
+      color: #10b981;
+    }
+    
+    .arrow-label {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    
+    .best-practice {
+      background-color: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid #10b981;
+      padding: 15px;
+      margin-top: 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    /* Types Lists */
+    .types-title {
+      color: var(--color-primary-dark);
+      margin-bottom: 1rem;
+    }
+    
+    .types-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .type-item {
+      display: flex;
+      align-items: flex-start;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .type-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .type-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .type-name {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 5px;
+    }
+    
+    /* Variables Types */
+    .variables-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 1.5rem;
+    }
+    
+    .variable-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .variable-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .variable-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+    }
+    
+    .variable-card:first-child .variable-header {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+    }
+    
+    .variable-card:last-child .variable-header {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    .variable-icon {
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+    
+    .variable-title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .variable-content {
+      padding: 20px;
+    }
+    
+    .variable-illustration {
+      margin-top: 15px;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+    }
+    
+    .memory-blocks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .memory-block {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      min-width: 150px;
+    }
+    
+    .block-label {
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .block-content {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .variable-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: 4px;
+      padding: 10px;
+      min-width: 80px;
+    }
+    
+    .variable-box.ref-box {
+      background-color: rgba(16, 185, 129, 0.1);
+    }
+    
+    .var-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .var-value {
+      font-family: monospace;
+    }
+    
+    .memory-arrow {
+      color: var(--color-primary);
+      font-size: 1.5rem;
+    }
+    
+    .memory-arrow.ref-arrow {
+      color: #10b981;
+    }
+    
+    .illustration-note {
+      text-align: center;
+      font-style: italic;
+      color: var(--color-text-light);
+    }
+    
+    /* Algorithms Comparison */
+    .algorithms-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .algorithm-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .algorithm-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .algorithm-header {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 15px;
+    }
+    
+    .algorithm-icon {
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+    
+    .algorithm-title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .algorithm-content {
+      padding: 20px;
+    }
+    
+    .algorithm-example {
+      margin-top: 15px;
+    }
+    
+    /* Backtracking */
+    .backtracking-section {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .backtracking-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .backtracking-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--color-primary);
+    }
+    
+    .backtracking-title {
+      color: var(--color-primary-dark);
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .backtracking-illustration {
+      margin: 1.5rem 0;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .tree-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .tree-node span {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      border-radius: 50%;
+      margin-bottom: 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .tree-children {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .tree-node.root > span {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    .backtracking-path {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .path-title {
+      font-weight: bold;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .path-steps {
+      font-family: monospace;
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .backtracking-issues, .backtracking-solutions {
+      margin-top: 1.5rem;
+    }
+    
+    .issues-title, .solutions-title {
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .issues-list, .solutions-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .issues-list li, .solutions-list li {
+      margin-bottom: 5px;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .issues-list li::before {
+      content: "⚠️";
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+    
+    .solutions-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+    
+    /* Search and Sort Algorithms */
+    .search-algorithms, .sort-algorithms {
+      margin-top: 1.5rem;
+    }
+    
+    .algorithms-title {
+      color: var(--color-primary-dark);
+      margin-bottom: 1rem;
+    }
+    
+    .algorithms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .algorithm-item {
+      display: flex;
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .algorithm-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .algorithm-name {
+      color: var(--color-primary-dark);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .complexity {
+      margin-top: 10px;
+      font-family: monospace;
+    }
+    
+    .complexity-label {
+      font-weight: bold;
+      color: var(--color-text-light);
+    }
+    
+    .complexity-value {
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .definition-card, .concept-card, .algorithm-item, .fragmentation-card {
+        flex-direction: column;
+      }
+      
+      .definition-icon, .concept-icon, .algorithm-icon, .frag-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .algorithms-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .coupling-modules {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .coupling-arrows {
+        transform: rotate(90deg);
+      }
+      
+      .memory-blocks {
+        flex-direction: column;
+      }
+      
+      .memory-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+      }
+    }
+  </style>
+</body>
+</html>

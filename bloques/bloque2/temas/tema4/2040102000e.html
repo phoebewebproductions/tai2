@@ -1,83 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Usuario - Shell</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-    <h2>1.2. INTERFAZ DE USUARIO - SHELL</h2>
+    <h2 class="section-title">1.2. INTERFAZ DE USUARIO - SHELL</h2>
   
-    <span id="2040102001">
-      <p>Es el medio con el que el usuario interactúa con el equipo para controlar su funcionamiento. El Shell o intérprete de comandos es el programa informático que provee dicha interfaz.</p>
-      <p>Generalmente es la parte del sistema operativo que el usuario ve por lo que suelen ser fáciles de entender, amigables e intuitivos.</p>
-    </span>
+    <div id="2040102001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🖥️</div>
+        <div class="intro-content">
+          <p>Es el medio con el que el usuario interactúa con el equipo para controlar su funcionamiento. El Shell o intérprete de comandos es el programa informático que provee dicha interfaz.</p>
+          <p>Generalmente es la parte del sistema operativo que el usuario ve por lo que suelen ser fáciles de entender, amigables e intuitivos.</p>
+        </div>
+      </div>
+    </div>
   
-    <span id="2040102002">
-      <p>Las funciones principales de la interfaz de usuario son las siguientes:</p>
-      <ul>
-        <li>Puesta en marcha y apagado.</li>
-        <li>Control de las funciones manipulables del equipo.</li>
-        <li>Manipulación de archivos y directorios.</li>
-        <li>Herramientas de desarrollo de aplicaciones.</li>
-        <li>Comunicación con otros sistemas.</li>
-        <li>Información de estado.</li>
-        <li>Configuración de la propia interfaz y entorno.</li>
-        <li>Intercambio de datos entre aplicaciones.</li>
-        <li>Control de acceso.</li>
-        <li>Sistema de ayuda interactivo</li>
-      </ul>
-    </span>
+    <div id="2040102002" class="content-block">
+      <div class="functions-card">
+        <h3 class="functions-title">Las funciones principales de la interfaz de usuario son las siguientes:</h3>
+        <div class="functions-grid">
+          <div class="function-item">
+            <div class="function-icon">🔄</div>
+            <div class="function-text">Puesta en marcha y apagado</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">🎮</div>
+            <div class="function-text">Control de las funciones manipulables del equipo</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">📁</div>
+            <div class="function-text">Manipulación de archivos y directorios</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">🛠️</div>
+            <div class="function-text">Herramientas de desarrollo de aplicaciones</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">🌐</div>
+            <div class="function-text">Comunicación con otros sistemas</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">📊</div>
+            <div class="function-text">Información de estado</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">⚙️</div>
+            <div class="function-text">Configuración de la propia interfaz y entorno</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">🔄</div>
+            <div class="function-text">Intercambio de datos entre aplicaciones</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">🔒</div>
+            <div class="function-text">Control de acceso</div>
+          </div>
+          <div class="function-item">
+            <div class="function-icon">❓</div>
+            <div class="function-text">Sistema de ayuda interactivo</div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-    <span id="2040102003">
-      <p>Según su construcción pueden ser de tres tipos:</p>
-      <ul>
-        <li><strong>Interfaz hardware:</strong> Utilizan dispositivos físicos para la entrada y salida de comandos de control e información al sistema operativo (teclado, ratón, pantalla, panel de control…)</li>
-        <li><strong>Interfaz software:</strong> Se utiliza para la salida de información generalmente a través de la pantalla.</li>
-        <li><strong>Interfaz software-hardware:</strong> Traductor entre la máquina y las personas. Traduce la instrucción dada a código binario y el código binario a información legible.</li>
-      </ul>
-    </span>
+    <div id="2040102003" class="content-block">
+      <div class="types-card">
+        <h3 class="types-title">Según su construcción pueden ser de tres tipos:</h3>
+        
+        <div class="type-container">
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">🔌</div>
+              <h4 class="type-name">Interfaz hardware</h4>
+            </div>
+            <div class="type-content">
+              <p>Utilizan dispositivos físicos para la entrada y salida de comandos de control e información al sistema operativo (teclado, ratón, pantalla, panel de control…)</p>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">💻</div>
+              <h4 class="type-name">Interfaz software</h4>
+            </div>
+            <div class="type-content">
+              <p>Se utiliza para la salida de información generalmente a través de la pantalla.</p>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">🔄</div>
+              <h4 class="type-name">Interfaz software-hardware</h4>
+            </div>
+            <div class="type-content">
+              <p>Traductor entre la máquina y las personas. Traduce la instrucción dada a código binario y el código binario a información legible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-    <h3>Evolución</h3>
-    <span id="2040102004">
-      <h4>CLI: Command Line Interface</h4>
-      <p>Permite interactuar con el sistema a través de líneas de texto simples o de archivos de script. Ejemplos:</p>
-      <ul>
-        <li>COMMAND.COM: Intérprete de comandos de MS-DOS</li>
-        <li>CMD: Intérprete de comandos de OS/2 y sistemas basados en Windows NT (Windows 2000, XP, 2003 Server, Vista, 7, 8, 8.1 y 10)</li>
-        <li>Bourne Shell: Intérprete usado en las primeras versiones de Unix. Se convirtió en un estándar.</li>
-        <li>BASH: Bourne-again Shell. Popular interfaz de comandos presente en Linux, Unix y Solaris.</li>
-        <li>Emacs Shell/Eshell: Intérprete de comandos implementado en Emacs</li>
-        <li>Z Shell /zsh: Potente intérprete de comandos para sistemas tipo Unix. Utilizado por MacOS Catalina</li>
-        <li>C Shell/csh: Intérprete de comandos basado en C que es el lenguaje con el que está desarrollado Unix.</li>
-        <li>TCsh: Versión mejorada de Csh.</li>
-        <li>PowerShell: Intérprete de comandos de Windows destinado a competir con la potencia de los shells de Linux.</li>
-      </ul>
-    </span>
-  
-    <span id="2040102005">
-      <h4>GUI: Graphical User Interface</h4>
-      <p>Permite interactuar con el sistema a través de un conjunto de imágenes y objetos gráficos. Ejemplos:</p>
-      <ul>
-        <li>GNOME Shell: Interfaz básica del entorno de escritorio GNOME presente en distribuciones Linux.</li>
-        <li>KDE: Interfaz potente y multiplataforma orientada para competir con los mejores interfaces gráficos. Presente en Linux</li>
-        <li>Unity: Entorno de escritorio basado en GNOME creado por la empresa Canonical para la distribución de Ubuntu.</li>
-        <li>LXQt: Entorno de escritorio libre y de código abierto utilizado en Lubuntu en sustitución de GNOME.</li>
-        <li>MATE: Continuación de GNOME 2 que cambió de nombre pare evitar conflictos con GNOME 3.</li>
-        <li>Xfce: Entorno de escritorio libre para sistemas tipo Unix.</li>
-        <li>Windows Luna: Interfaz gráfica de Windows XP</li>
-        <li>Windows Aero: Interfaz gráfica de Windows Vista y Windows 7.</li>
-        <li>Modern UI: Interfaz gráfica de Windows 8 y Windows Phone.</li>
-        <li>Continuum: Interfaz gráfica incluida en el sistema operativo Windows 10.</li>
-      </ul>
-    </span>
-  
-    <span id="2040102006">
-      <h4>NUI: Natural User Interface</h4>
-      <p>Interfaz natural de usuario. Permite interactuar con el sistema a través de movimientos gestuales del cuerpo, alguna de sus partes (como las yemas de los dedos en pantallas multitáctiles o las manos) o por reconocimiento de voz. Ejemplos:</p>
-      <ul>
-        <li>Xbox Kinect</li>
-        <li>Siri: Asistente virtual para IOS, macOS, tvOS, watchOS.</li>
-        <li>Microsoft Cortana: Asistente virtual creado por Microsoft para Windows 10, Windows 10 Mobile, Windows Phone 8.1, altavoz inteligente Invoke, Windows Mixed Reality.</li>
-        <li>Google Assistant: Asistente virtual desarrollado por Google disponible en los dispositivos móviles Google y Android y dispositivos domésticos inteligentes.</li>
-        <li>Amazon Alexa: Asistente virtual desarrollado por Alexa utilizado por primera vez con el altavoz inteligente Amazon Echo.</li>
-      </ul>
-    </span>
+    <div class="subsection">
+      <h3 class="subsection-title">Evolución</h3>
+      
+      <div id="2040102004" class="content-block">
+        <div class="evolution-card">
+          <div class="evolution-header">
+            <div class="evolution-icon">💻</div>
+            <h4 class="evolution-title">CLI: Command Line Interface</h4>
+          </div>
+          <div class="evolution-content">
+            <p>Permite interactuar con el sistema a través de líneas de texto simples o de archivos de script. Ejemplos:</p>
+            
+            <div class="examples-container">
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">COMMAND.COM</div>
+                <div class="example-desc">Intérprete de comandos de MS-DOS</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">CMD</div>
+                <div class="example-desc">Intérprete de comandos de OS/2 y sistemas basados en Windows NT (Windows 2000, XP, 2003 Server, Vista, 7, 8, 8.1 y 10)</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">Bourne Shell</div>
+                <div class="example-desc">Intérprete usado en las primeras versiones de Unix. Se convirtió en un estándar.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">BASH</div>
+                <div class="example-desc">Bourne-again Shell. Popular interfaz de comandos presente en Linux, Unix y Solaris.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">Emacs Shell/Eshell</div>
+                <div class="example-desc">Intérprete de comandos implementado en Emacs</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">Z Shell /zsh</div>
+                <div class="example-desc">Potente intérprete de comandos para sistemas tipo Unix. Utilizado por MacOS Catalina</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">C Shell/csh</div>
+                <div class="example-desc">Intérprete de comandos basado en C que es el lenguaje con el que está desarrollado Unix.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">TCsh</div>
+                <div class="example-desc">Versión mejorada de Csh.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">📝</div>
+                <div class="example-name">PowerShell</div>
+                <div class="example-desc">Intérprete de comandos de Windows destinado a competir con la potencia de los shells de Linux.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040102005" class="content-block">
+        <div class="evolution-card">
+          <div class="evolution-header">
+            <div class="evolution-icon">🖥️</div>
+            <h4 class="evolution-title">GUI: Graphical User Interface</h4>
+          </div>
+          <div class="evolution-content">
+            <p>Permite interactuar con el sistema a través de un conjunto de imágenes y objetos gráficos. Ejemplos:</p>
+            
+            <div class="examples-container">
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">GNOME Shell</div>
+                <div class="example-desc">Interfaz básica del entorno de escritorio GNOME presente en distribuciones Linux.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">KDE</div>
+                <div class="example-desc">Interfaz potente y multiplataforma orientada para competir con los mejores interfaces gráficos. Presente en Linux</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Unity</div>
+                <div class="example-desc">Entorno de escritorio basado en GNOME creado por la empresa Canonical para la distribución de Ubuntu.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">LXQt</div>
+                <div class="example-desc">Entorno de escritorio libre y de código abierto utilizado en Lubuntu en sustitución de GNOME.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">MATE</div>
+                <div class="example-desc">Continuación de GNOME 2 que cambió de nombre pare evitar conflictos con GNOME 3.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Xfce</div>
+                <div class="example-desc">Entorno de escritorio libre para sistemas tipo Unix.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Windows Luna</div>
+                <div class="example-desc">Interfaz gráfica de Windows XP</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Windows Aero</div>
+                <div class="example-desc">Interfaz gráfica de Windows Vista y Windows 7.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Modern UI</div>
+                <div class="example-desc">Interfaz gráfica de Windows 8 y Windows Phone.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🖥️</div>
+                <div class="example-name">Continuum</div>
+                <div class="example-desc">Interfaz gráfica incluida en el sistema operativo Windows 10.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040102006" class="content-block">
+        <div class="evolution-card">
+          <div class="evolution-header">
+            <div class="evolution-icon">👆</div>
+            <h4 class="evolution-title">NUI: Natural User Interface</h4>
+          </div>
+          <div class="evolution-content">
+            <p>Interfaz natural de usuario. Permite interactuar con el sistema a través de movimientos gestuales del cuerpo, alguna de sus partes (como las yemas de los dedos en pantallas multitáctiles o las manos) o por reconocimiento de voz. Ejemplos:</p>
+            
+            <div class="examples-container">
+              <div class="example-item">
+                <div class="example-icon">🎮</div>
+                <div class="example-name">Xbox Kinect</div>
+                <div class="example-desc">Sistema de control por movimiento para la consola Xbox</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🗣️</div>
+                <div class="example-name">Siri</div>
+                <div class="example-desc">Asistente virtual para IOS, macOS, tvOS, watchOS.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🗣️</div>
+                <div class="example-name">Microsoft Cortana</div>
+                <div class="example-desc">Asistente virtual creado por Microsoft para Windows 10, Windows 10 Mobile, Windows Phone 8.1, altavoz inteligente Invoke, Windows Mixed Reality.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🗣️</div>
+                <div class="example-name">Google Assistant</div>
+                <div class="example-desc">Asistente virtual desarrollado por Google disponible en los dispositivos móviles Google y Android y dispositivos domésticos inteligentes.</div>
+              </div>
+              
+              <div class="example-item">
+                <div class="example-icon">🗣️</div>
+                <div class="example-name">Amazon Alexa</div>
+                <div class="example-desc">Asistente virtual desarrollado por Alexa utilizado por primera vez con el altavoz inteligente Amazon Echo.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "🖥️";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Functions Card */
+  .functions-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .functions-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .functions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .function-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .function-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .function-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .function-text {
+    font-weight: 500;
+  }
+  
+  /* Types Card */
+  .types-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .types-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .type-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .type-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .type-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .type-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .type-name {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .type-content {
+    padding: 15px;
+  }
+  
+  /* Evolution Card */
+  .evolution-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+  }
+  
+  .evolution-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .evolution-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .evolution-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .evolution-content {
+    padding: 20px;
+  }
+  
+  .examples-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .example-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .example-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .example-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    align-self: center;
+  }
+  
+  .example-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-primary-dark);
+  }
+  
+  .example-desc {
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .type-container {
+      flex-direction: column;
+    }
+    
+    .examples-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .evolution-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .evolution-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,58 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Características de los SGBD</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.1. CARACTERÍSTICAS DE LOS SGBD</h2>
-  
-  <span id="2050101001">
-  <h3>Definición de Base de Datos</h3>
-  <p>Una base de datos es una colección de datos almacenados en un soporte informático no volátil de acceso directo. Estos datos deben estar:</p>
-  <ul>
-    <li><strong>Integrados:</strong> La definición y descripción de los datos deben ser únicas y estar integradas con los mismos datos.</li>
-    <li><strong>Estructurados:</strong> Reflejando las interrelaciones y restricciones existentes en el mundo real.</li>
-    <li><strong>Con redundancia controlada:</strong> No debe existir redundancia lógica aunque se permite redundancia física por motivos de eficiencia.</li>
-    <li><strong>Relacionados:</strong> La base de datos debe almacenar las interrelaciones entre los datos y las restricciones semánticas.</li>
-    <li><strong>Compartidos:</strong> Por diferentes usuarios y aplicaciones.</li>
-    <li><strong>Independientes:</strong> De las aplicaciones que los utilicen tanto lógica como físicamente separando entre datos y tratamiento.</li>
-  </ul>
-  </span>
-  
-  <span id="2050101002">
-  <h3>Sistema Gestor de Base de Datos (SGBD)</h3>
-  <p>Un sistema gestor de base de datos (SGBD) es un conjunto de programas que establecen el método de organización necesario para el almacenamiento y la recuperación flexible de grandes cantidades de datos garantizando todas las propiedades definidas para una base de datos. A su vez permiten la modificación y extracción de la información mediante órdenes sencillas o algún lenguaje de consultas.</p>
-  
-  <h4>Funciones de los SGBD:</h4>
-  <ul>
-    <li>Mantener la integridad de los datos</li>
-    <li>Administrar el acceso de los usuarios a los datos</li>
-    <li>Recuperar la información si el sistema se corrompe</li>
-    <li>Presentar la información de la base de datos mediante generadores de informes y, la mayoría de las veces, un visor gráfico</li>
-  </ul>
-  </span>
-  
-  <span id="2050101003">
-  <h3>Subsistemas de un SGBD</h3>
-  <ul>
-    <li><strong>Motor de la base de datos:</strong> Acepta peticiones lógicas y las convierte en su equivalente físico.</li>
-    <li><strong>Subsistema de definición de datos:</strong> Ayuda a crear y mantener el diccionario de datos y define la estructura del fichero.</li>
-    <li><strong>Subsistema de manipulación de datos:</strong> Interfaz principal del usuario con la base de datos.</li>
-    <li><strong>Subsistema de generación de aplicaciones:</strong> Contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones.</li>
-    <li><strong>Subsistema de administración:</strong> Ayuda a gestionar la base de datos ofreciendo diversas funcionalidades.</li>
-  </ul>
-  </span>
-  
-  <span id="2050101004">
-  <h3>Características principales de los SGBD</h3>
-  <ul>
-    <li>Manejo de grandes volúmenes de datos</li>
-    <li>Manejo de accesos concurrentes</li>
-    <li>Escalabilidad y elevada capacidad de proceso</li>
-    <li>Alta disponibilidad</li>
-    <li>Seguridad y control de accesos</li>
-    <li>Integridad de los datos</li>
-    <li>Documentación</li>
-    <li>Flexibilidad</li>
-  </ul>
-  </span>
-  
+    <h2 class="section-title">1.1. CARACTERÍSTICAS DE LOS SGBD</h2>
+    
+    <div id="2050101001" class="content-block">
+      <div class="definition-card">
+        <h3 class="card-title">Definición de Base de Datos</h3>
+        <div class="definition-content">
+          <p>Una base de datos es una colección de datos almacenados en un soporte informático no volátil de acceso directo. Estos datos deben estar:</p>
+          <ul class="feature-list">
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                <strong>Integrados:</strong> La definición y descripción de los datos deben ser únicas y estar integradas con los mismos datos.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🏗️</div>
+              <div class="feature-content">
+                <strong>Estructurados:</strong> Reflejando las interrelaciones y restricciones existentes en el mundo real.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                <strong>Con redundancia controlada:</strong> No debe existir redundancia lógica aunque se permite redundancia física por motivos de eficiencia.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔗</div>
+              <div class="feature-content">
+                <strong>Relacionados:</strong> La base de datos debe almacenar las interrelaciones entre los datos y las restricciones semánticas.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">👥</div>
+              <div class="feature-content">
+                <strong>Compartidos:</strong> Por diferentes usuarios y aplicaciones.
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🔀</div>
+              <div class="feature-content">
+                <strong>Independientes:</strong> De las aplicaciones que los utilicen tanto lógica como físicamente separando entre datos y tratamiento.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2050101002" class="content-block">
+      <div class="sgbd-card">
+        <h3 class="card-title">Sistema Gestor de Base de Datos (SGBD)</h3>
+        <div class="sgbd-content">
+          <p>Un sistema gestor de base de datos (SGBD) es un conjunto de programas que establecen el método de organización necesario para el almacenamiento y la recuperación flexible de grandes cantidades de datos garantizando todas las propiedades definidas para una base de datos. A su vez permiten la modificación y extracción de la información mediante órdenes sencillas o algún lenguaje de consultas.</p>
+          
+          <div class="functions-section">
+            <h4 class="subsection-title">Funciones de los SGBD:</h4>
+            <ul class="functions-list">
+              <li><span class="function-icon">🔒</span> Mantener la integridad de los datos</li>
+              <li><span class="function-icon">👥</span> Administrar el acceso de los usuarios a los datos</li>
+              <li><span class="function-icon">🔄</span> Recuperar la información si el sistema se corrompe</li>
+              <li><span class="function-icon">📊</span> Presentar la información de la base de datos mediante generadores de informes y, la mayoría de las veces, un visor gráfico</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2050101003" class="content-block">
+      <div class="subsystems-card">
+        <h3 class="card-title">Subsistemas de un SGBD</h3>
+        <ul class="subsystems-list">
+          <li>
+            <div class="subsystem-icon">⚙️</div>
+            <div class="subsystem-content">
+              <strong>Motor de la base de datos:</strong> Acepta peticiones lógicas y las convierte en su equivalente físico.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">📝</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de definición de datos:</strong> Ayuda a crear y mantener el diccionario de datos y define la estructura del fichero.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">🔄</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de manipulación de datos:</strong> Interfaz principal del usuario con la base de datos.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">🛠️</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de generación de aplicaciones:</strong> Contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones.
+            </div>
+          </li>
+          <li>
+            <div class="subsystem-icon">👨‍💼</div>
+            <div class="subsystem-content">
+              <strong>Subsistema de administración:</strong> Ayuda a gestionar la base de datos ofreciendo diversas funcionalidades.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="2050101004" class="content-block">
+      <div class="characteristics-card">
+        <h3 class="card-title">Características principales de los SGBD</h3>
+        <div class="characteristics-grid">
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📊</div>
+            <div class="characteristic-content">Manejo de grandes volúmenes de datos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">👥</div>
+            <div class="characteristic-content">Manejo de accesos concurrentes</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📈</div>
+            <div class="characteristic-content">Escalabilidad y elevada capacidad de proceso</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">⏱️</div>
+            <div class="characteristic-content">Alta disponibilidad</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">🔒</div>
+            <div class="characteristic-content">Seguridad y control de accesos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">✅</div>
+            <div class="characteristic-content">Integridad de los datos</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">📄</div>
+            <div class="characteristic-content">Documentación</div>
+          </div>
+          <div class="characteristic-item">
+            <div class="characteristic-icon">🔄</div>
+            <div class="characteristic-content">Flexibilidad</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🗃️";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Card Title */
+  .card-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 10px;
+  }
+  
+  /* Definition Card */
+  .definition-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Feature List */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .feature-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .feature-content {
+    flex: 1;
+  }
+  
+  /* SGBD Card */
+  .sgbd-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .functions-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .functions-list li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .functions-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .function-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Subsystems Card */
+  .subsystems-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .subsystems-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .subsystems-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .subsystems-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .subsystem-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .subsystem-content {
+    flex: 1;
+  }
+  
+  /* Characteristics Card */
+  .characteristics-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .characteristic-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .characteristic-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .characteristic-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .characteristic-content {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .feature-list li, .subsystems-list li, .characteristic-item {
+      flex-direction: column;
+    }
+    
+    .feature-icon, .subsystem-icon, .characteristic-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .functions-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .characteristics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</body>
+</html>

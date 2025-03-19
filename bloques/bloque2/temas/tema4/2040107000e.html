@@ -1,77 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Almacenamiento Secundario</title>
+</head>
+<body>
 <div class="teoria">
   <article>
-  <h2>1.7 GESTIÓN DE ALMACENAMIENTO SECUNDARIO/SISTEMA DE GESTIÓN DE ARCHIVOS</h2>
-  
-  <span id="2040107001">
-    <p>Un sistema de gestión de archivos es el componente del sistema operativo que proporciona la organización de la creación, el almacenamiento y el acceso a los archivos.</p>
-    <p>Los objetivos principales del sistema de gestión de ficheros son:</p>
-    <ul>
-      <li>Reemplazar la estructura física de los datos almacenados con un modelo lógico fácil de usar, que se implementa en forma de un árbol de directorios que se muestra en utilidades como Windows Explorer para Windows, Konqueror (Linux KDE), Nautilus etc.</li>
-      <li>El elemento básico de este modelo es un archivo que, al igual que el sistema de archivos en su conjunto, se puede caracterizar tanto por su estructura lógica como física.</li>
-    </ul>
-  </span>
-  
-  <span id="2040107002">
-    <p>Deben distinguirse los términos:</p>
-    <ul>
-      <li><strong>Sistema de archivos:</strong> Principios de acceso a los datos organizados como archivos.</li>
-      <li><strong>Sistema de gestión de archivos:</strong> Implementación específica del sistema de archivos, es decir conjunto de módulos de software que proporcionan trabajo con archivos en un sistema operativo específico.</li>
-    </ul>
-  </span>
-  
-  <h3>1.7.1 TIPOS DE ARCHIVO</h3>
-  
-  <span id="2040107003">
-    <h4>Archivo estándar/ ordinario:</h4>
-    <p>Contienen información con la que trabaja el usuario. El contenido de un archivo ordinario está determinado por la aplicación que trabaja con él. Pueden ser de dos tipos:</p>
-    <ul>
-      <li><strong>Archivos ejecutables:</strong> son programas escritos en el lenguaje de comandos del sistema operativo y realizan algunas funciones del sistema (tienen extensiones .exe, .com, .bat).</li>
-      <li><strong>Archivos de datos:</strong> todos los demás tipos de archivos: textos y documentos gráficos, hojas de cálculo, bases de datos, etc.</li>
-    </ul>
-  </span>
-  
-  <span id="2040107004">
-    <h4>Directorio:</h4>
-    <p>Archivos especiales que contienen referencias a otros archivos o directorios.</p>
-  </span>
-  
-  <span id="2040107005">
-    <h4>Enlaces físicos o duros (hard links):</h4>
-    <p>Asociación adicional de otro nombre y ubicación a un archivo existente. Se realiza a nivel de i-nodo por lo que el archivo original tiene constancia de los enlaces duros que le apuntan. Si se elimina un archivo se decrementa el número de enlaces duros. Sólo cuando éste número llega a cero se borra realmente el archivo. No se pueden hacer enlaces duros a directorios ni a diferentes sistemas de ficheros, particiones y ubicaciones de red.</p>
-  </span>
-  
-  <span id="2040107006">
-    <h4>Enlaces simbólicos:</h4>
-    <p>Enlace a la ruta del archivo original. Parecido a un acceso directo de Windows. Sí se pueden hacer enlaces simbólicos a directorios y ubicaciones de red.</p>
-  </span>
-  
-  <span id="2040107007">
-    <p>Comando de Linux para crear enlaces:</p>
-    <pre><code>ln [opciones] rutaArchivoOriginal rutaEnlace → Crea un enlace duro
-  ln –s [opciones] rutaArchivoDirectorioOriginal rutaEnlace → Crea un enlace simbólico</code></pre>
-  </span>
-  
-  <span id="2040107008">
-    <h4>Archivos especiales:</h4>
-    <p>Representan dispositivos físicos de entrada/salida utilizados para unificar el mecanismo de acceso a archivos y dispositivos externos.</p>
-    <ul>
-      <li>Archivo que apunta a un dispositivo de tipo bloque.</li>
-      <li>Archivo que apunta a un dispositivo tipo carácter.</li>
-      <li>Archivo de tubería llamado named pipe para la comunicación de procesos.</li>
-      <li>Archivo socket como las tuberías con nombre.</li>
-    </ul>
-  </span>
-  
-  <span id="2040107009">
-    <p>El tipo de archivo en Windows está asociado a la extensión del mismo.</p>
-  </span>
-  
-  <span id="2040107010">
-    <p>En Linux no existen per se las extensiones de nombre de archivo (el punto es un carácter más salvo si es el primer carácter del archivo que lo convierte en oculto). Para conocer el tipo y otros detalles de archivo en Linux se utiliza el comando:</p>
-    <pre><code>file nombreArchivo</code></pre>
-  </span>
-  
+    <h2 class="section-title">1.7 GESTIÓN DE ALMACENAMIENTO SECUNDARIO/SISTEMA DE GESTIÓN DE ARCHIVOS</h2>
+    
+    <div id="2040107001" class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">💾</div>
+        <div class="intro-content">
+          <p>Un sistema de gestión de archivos es el componente del sistema operativo que proporciona la organización de la creación, el almacenamiento y el acceso a los archivos.</p>
+          <p>Los objetivos principales del sistema de gestión de ficheros son:</p>
+          <ul class="feature-list">
+            <li><span class="bullet">📌</span> Reemplazar la estructura física de los datos almacenados con un modelo lógico fácil de usar, que se implementa en forma de un árbol de directorios que se muestra en utilidades como Windows Explorer para Windows, Konqueror (Linux KDE), Nautilus etc.</li>
+            <li><span class="bullet">📌</span> El elemento básico de este modelo es un archivo que, al igual que el sistema de archivos en su conjunto, se puede caracterizar tanto por su estructura lógica como física.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="2040107002" class="content-block">
+      <div class="terms-card">
+        <h3 class="terms-title">Deben distinguirse los términos:</h3>
+        <div class="terms-container">
+          <div class="term-item">
+            <div class="term-icon">📁</div>
+            <div class="term-content">
+              <h4 class="term-name">Sistema de archivos</h4>
+              <p class="term-desc">Principios de acceso a los datos organizados como archivos.</p>
+            </div>
+          </div>
+          
+          <div class="term-item">
+            <div class="term-icon">⚙️</div>
+            <div class="term-content">
+              <h4 class="term-name">Sistema de gestión de archivos</h4>
+              <p class="term-desc">Implementación específica del sistema de archivos, es decir conjunto de módulos de software que proporcionan trabajo con archivos en un sistema operativo específico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3 class="subsection-title">1.7.1 TIPOS DE ARCHIVO</h3>
+      
+      <div id="2040107003" class="content-block">
+        <div class="file-type-card">
+          <div class="file-type-header">
+            <div class="file-type-icon">📄</div>
+            <h4 class="file-type-title">Archivo estándar/ ordinario</h4>
+          </div>
+          <div class="file-type-content">
+            <p>Contienen información con la que trabaja el usuario. El contenido de un archivo ordinario está determinado por la aplicación que trabaja con él. Pueden ser de dos tipos:</p>
+            <div class="subtypes-container">
+              <div class="subtype-item">
+                <div class="subtype-icon">⚙️</div>
+                <div class="subtype-content">
+                  <h5 class="subtype-name">Archivos ejecutables</h5>
+                  <p class="subtype-desc">Son programas escritos en el lenguaje de comandos del sistema operativo y realizan algunas funciones del sistema (tienen extensiones .exe, .com, .bat).</p>
+                </div>
+              </div>
+              
+              <div class="subtype-item">
+                <div class="subtype-icon">📊</div>
+                <div class="subtype-content">
+                  <h5 class="subtype-name">Archivos de datos</h5>
+                  <p class="subtype-desc">Todos los demás tipos de archivos: textos y documentos gráficos, hojas de cálculo, bases de datos, etc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107004" class="content-block">
+        <div class="file-type-card">
+          <div class="file-type-header">
+            <div class="file-type-icon">📁</div>
+            <h4 class="file-type-title">Directorio</h4>
+          </div>
+          <div class="file-type-content">
+            <p>Archivos especiales que contienen referencias a otros archivos o directorios.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107005" class="content-block">
+        <div class="file-type-card">
+          <div class="file-type-header">
+            <div class="file-type-icon">🔗</div>
+            <h4 class="file-type-title">Enlaces físicos o duros (hard links)</h4>
+          </div>
+          <div class="file-type-content">
+            <p>Asociación adicional de otro nombre y ubicación a un archivo existente. Se realiza a nivel de i-nodo por lo que el archivo original tiene constancia de los enlaces duros que le apuntan. Si se elimina un archivo se decrementa el número de enlaces duros. Sólo cuando éste número llega a cero se borra realmente el archivo. No se pueden hacer enlaces duros a directorios ni a diferentes sistemas de ficheros, particiones y ubicaciones de red.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107006" class="content-block">
+        <div class="file-type-card">
+          <div class="file-type-header">
+            <div class="file-type-icon">🔗</div>
+            <h4 class="file-type-title">Enlaces simbólicos</h4>
+          </div>
+          <div class="file-type-content">
+            <p>Enlace a la ruta del archivo original. Parecido a un acceso directo de Windows. Sí se pueden hacer enlaces simbólicos a directorios y ubicaciones de red.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107007" class="content-block">
+        <div class="command-card">
+          <div class="command-header">
+            <div class="command-icon">💻</div>
+            <h4 class="command-title">Comando de Linux para crear enlaces</h4>
+          </div>
+          <div class="command-content">
+            <pre class="command-code"><code>ln [opciones] rutaArchivoOriginal rutaEnlace → Crea un enlace duro
+ln –s [opciones] rutaArchivoDirectorioOriginal rutaEnlace → Crea un enlace simbólico</code></pre>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107008" class="content-block">
+        <div class="file-type-card">
+          <div class="file-type-header">
+            <div class="file-type-icon">🔌</div>
+            <h4 class="file-type-title">Archivos especiales</h4>
+          </div>
+          <div class="file-type-content">
+            <p>Representan dispositivos físicos de entrada/salida utilizados para unificar el mecanismo de acceso a archivos y dispositivos externos.</p>
+            <ul class="special-files-list">
+              <li><span class="file-bullet">•</span> Archivo que apunta a un dispositivo de tipo bloque.</li>
+              <li><span class="file-bullet">•</span> Archivo que apunta a un dispositivo tipo carácter.</li>
+              <li><span class="file-bullet">•</span> Archivo de tubería llamado named pipe para la comunicación de procesos.</li>
+              <li><span class="file-bullet">•</span> Archivo socket como las tuberías con nombre.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107009" class="content-block">
+        <div class="info-card">
+          <div class="info-icon">ℹ️</div  class="content-block">
+        <div class="info-card">
+          <div class="info-icon">ℹ️</div>
+          <div class="info-content">
+            <p>El tipo de archivo en Windows está asociado a la extensión del mismo.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="2040107010" class="content-block">
+        <div class="command-card">
+          <div class="command-header">
+            <div class="command-icon">💻</div>
+            <h4 class="command-title">Comando para conocer el tipo de archivo en Linux</h4>
+          </div>
+          <div class="command-content">
+            <p>En Linux no existen per se las extensiones de nombre de archivo (el punto es un carácter más salvo si es el primer carácter del archivo que lo convierte en oculto). Para conocer el tipo y otros detalles de archivo en Linux se utiliza el comando:</p>
+            <pre class="command-code"><code>file nombreArchivo</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
-  </div>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
   
+  .section-title::before {
+    content: "💾";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 15px;
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .feature-list li {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  
+  .bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Terms Card */
+  .terms-card {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .terms-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .terms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .term-item {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .term-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .term-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .term-content {
+    flex: 1;
+  }
+  
+  .term-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .term-desc {
+    margin: 0;
+  }
+  
+  /* File Type Card */
+  .file-type-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .file-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .file-type-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .file-type-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .file-type-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .file-type-content {
+    padding: 20px;
+  }
+  
+  /* Subtypes Container */
+  .subtypes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .subtype-item {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .subtype-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .subtype-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .subtype-content {
+    flex: 1;
+  }
+  
+  .subtype-name {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .subtype-desc {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Command Card */
+  .command-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .command-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+  }
+  
+  .command-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .command-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .command-content {
+    padding: 20px;
+  }
+  
+  .command-code {
+    background-color: var(--color-gray-100);
+    border-radius: 8px;
+    padding: 15px;
+    overflow-x: auto;
+    margin: 0;
+  }
+  
+  /* Special Files List */
+  .special-files-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+  
+  .special-files-list li {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+  
+  .file-bullet {
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  /* Info Card */
+  .info-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .info-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .info-content {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .term-item, .subtype-item, .info-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .term-icon, .subtype-icon, .info-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .terms-container {
+      flex-direction: column;
+    }
+    
+    .subtypes-container {
+      flex-direction: column;
+    }
+    
+    .file-type-header, .command-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .file-type-icon, .command-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+</body>
+</html>
