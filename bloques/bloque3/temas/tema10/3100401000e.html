@@ -1,248 +1,970 @@
 <div class="teoria">
-    <span id="3100401001">
-        <h2>4.1. METODOLOGÍAS DE DESARROLLO</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria h5 {
+        color: var(--color-text);
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      .teoria h6 {
+        color: var(--color-text);
+        font-size: 1rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .methodology-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .methodology-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .method-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .method-section h3, .method-section h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .method-section h3 .icon, .method-section h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .methodology-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .methodology-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .methodology-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .methodology-type h5 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .agile-principles {
+        counter-reset: principle-counter;
+      }
+      
+      .agile-principle {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: var(--transition);
+      }
+      
+      .agile-principle:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .agile-principle::before {
+        counter-increment: principle-counter;
+        content: counter(principle-counter);
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        background-color: var(--color-primary);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+      
+      .scrum-elements {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .scrum-element {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .scrum-element:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .scrum-element h6 {
+        margin-top: 0;
+        color: var(--color-secondary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1rem 0;
+        box-shadow: var(--shadow-md);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .methodology-card {
+          padding: 1rem;
+        }
+        
+        .methodology-types,
+        .scrum-elements {
+          grid-template-columns: 1fr;
+        }
+      }
+    
+      .kanban-board {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding: 1rem 0;
+        margin: 1.5rem 0;
+      }
+      
+      .kanban-column {
+        min-width: 250px;
+        width: 250px;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .column-header {
+        padding: 0.75rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .column-header h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: #334155;
+      }
+      
+      .task-count {
+        background-color: #e2e8f0;
+        color: #475569;
+        border-radius: 12px;
+        padding: 0.1rem 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      
+      .tasks {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      
+      .task-card {
+        background-color: white;
+        border-radius: 6px;
+        padding: 0.75rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-left: 3px solid var(--color-primary);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .task-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      }
+      
+      .task-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #334155;
+      }
+      
+      .task-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+      
+      .tag {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      
+      .tag.design {
+        background-color: #e0f2fe;
+        color: #0369a1;
+      }
+      
+      .tag.dev {
+        background-color: #dcfce7;
+        color: #166534;
+      }
+      
+      .tag.docs {
+        background-color: #f3e8ff;
+        color: #7e22ce;
+      }
+      
+      .tag.planning {
+        background-color: #fef3c7;
+        color: #92400e;
+      }
+      
+      .tag.security {
+        background-color: #fee2e2;
+        color: #b91c1c;
+      }
+      
+      .tag.review {
+        background-color: #dbeafe;
+        color: #1e40af;
+      }
+      
+      .tag.devops {
+        background-color: #ffedd5;
+        color: #c2410c;
+      }
+      
+      .tag.testing {
+        background-color: #f1f5f9;
+        color: #475569;
+      }
+      
+      .task-assignee {
+        font-size: 0.8rem;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+      }
+      
+      .task-assignee::before {
+        content: "👤";
+        margin-right: 0.25rem;
+      }
+      
+      @media (max-width: 768px) {
+        .kanban-board {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .kanban-column {
+          width: 100%;
+          min-width: 100%;
+        }
+      }
+    </style>
+    
+    <div class="methodology-card">
+      <span id="3100401001">
+        <h2>🔄 4.1. METODOLOGÍAS DE DESARROLLO</h2>
         <p>Una metodología se define como un conjunto de procedimientos, métodos o técnicas, además de herramientas y documentación, que ayudan a los desarrolladores a generar software. A alto nivel, se puede decir que busca definir lo siguiente:</p>
         <ul>
-            <li>Qué hay que hacer, quién debe hacerlo y cuándo.</li>
-            <li>Cómo se debe hacer para conseguir el resultado deseado.</li>
-            <li>Cómo se verifica y se valida el progreso en el desarrollo.</li>
-            <li>Cómo se documenta el progreso.</li>
+          <li>Qué hay que hacer, quién debe hacerlo y cuándo.</li>
+          <li>Cómo se debe hacer para conseguir el resultado deseado.</li>
+          <li>Cómo se verifica y se valida el progreso en el desarrollo.</li>
+          <li>Cómo se documenta el progreso.</li>
         </ul>
-    </span>
-
-    <span id="3100401002">
-        <h3>4.1.1. ELEMENTOS DE LAS METODOLOGÍAS</h3>
-        <p>Los elementos que forman una metodología, en más detalle, son los siguientes:</p>
-        <ul>
+      </span>
+    </div>
+    
+    <div class="methodology-card">
+      <span id="3100401002">
+        <div class="method-section">
+          <h3><span class="icon">🧩</span> 4.1.1. ELEMENTOS DE LAS METODOLOGÍAS</h3>
+          <p>Los elementos que forman una metodología, en más detalle, son los siguientes:</p>
+          <ul>
             <li>El conjunto de procedimientos consiste en una serie de pasos a realizar para generar software; cada paso puede aplicar una técnica o hacer uso de una herramienta. Cada paso, define la secuencia en la que se aplican las técnicas, los productos que se obtienen tras cada paso, los mecanismos de control y directrices a seguir.</li>
             <li>Los métodos o técnicas muestran el cómo debe generarse el software, e incluyen elementos como descripciones del modelo del sistema, reglas, recomendaciones o guías.</li>
             <li>Las herramientas facilitan la aplicación de los métodos o técnicas.</li>
-        </ul>
-    </span>
-
-    <span id="3100401003">
-        <h3>4.1.2. CLASIFICACIÓN DE LAS METODOLOGÍAS</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+    
+    <div class="methodology-card">
+      <span id="3100401003">
+        <h3>📊 4.1.2. CLASIFICACIÓN DE LAS METODOLOGÍAS</h3>
         <p>Las metodologías pueden dividirse en tres grandes grupos: estructuradas, orientadas a objetos y ágiles.</p>
-    </span>
-
-    <span id="3100401004">
-        <h4>4.1.2.1. METODOLOGÍAS ESTRUCTURADAS</h4>
-        <p>Las metodologías estructuradas proponen la creación de modelos del sistema para representar tres tipos de elementos:</p>
-        <ul>
+      </span>
+    </div>
+    
+    <div class="methodology-card">
+      <span id="3100401004">
+        <div class="method-section">
+          <h4><span class="icon">🏗️</span> 4.1.2.1. METODOLOGÍAS ESTRUCTURADAS</h4>
+          <p>Las metodologías estructuradas proponen la creación de modelos del sistema para representar tres tipos de elementos:</p>
+          <ul>
             <li>Los procesos que se realizan en el sistema.</li>
             <li>Los flujos de datos, que indican cómo se transfieren los datos entre los diferentes procesos del sistema.</li>
             <li>La estructura de los datos, que indica los atributos que tienen los datos y sus relaciones entre ellos.</li>
-        </ul>
-
-        <p>Estas metodologías parten de un problema principal, que sería el objetivo a conseguir con el desarrollo del software, y se subdivide este problema en problemas más pequeños, partiendo de un nivel de abstracción alto hasta acabar en el nivel más detallado. Esto se conoce como enfoque top-down (desde arriba hasta abajo).</p>
-
-        <p>Ejemplos de este tipo de metodología incluyen Merise, SSADM (Structured System Analysis and Design Method), CMMI (Capability Maturity Model Integration) y Métrica v3.</p>
-
-        <p>Dentro de las metodologías estructuradas, dependiendo de en qué elementos tienen su foco, tenemos dos subgrupos:</p>
-
-        <h5>Metodologías estructuradas orientadas a procesos</h5>
-        <p>Se centran en lo que el sistema hace, es decir, cómo se procesa la entrada para generar la salida. Utilizan un enfoque de descomposición descendente para evaluar los procesos del espacio del problema y los flujos de datos con los que están conectados. Especifican el sistema en función de diagramas de flujo de datos, diccionarios de datos y especificaciones de procesos.</p>
-
-        <h5>Metodologías estructuradas orientadas a datos</h5>
-        <p>Estas metodologías representan los requisitos del sistema orientándolos hacia la estructura de los datos, en lugar de hacia el flujo de los mismos. Descartan el uso de los datos en sí, centrándose en obtener una organización y acceso adecuados para los datos del sistema. Estas metodologías pueden, a su vez, separarse en orientadas a datos jerárquicos o a datos no jerárquicos.</p>
-
-        <h5>Métrica v3</h5>
-        <p>Métrica, en su versión principal Métrica v3, es una metodología utilizada principalmente por el Gobierno de España para sus proyectos de desarrollo de software en las Administraciones Públicas. Si bien no se obliga a su uso en proyectos de esta índole, sí que se proporciona como una opción viable y completa para el desarrollo de proyectos a todas las organizaciones gubernamentales, autonómicas y locales; aunque estas organizaciones pueden optar a obligar su uso a nivel de contrato. Como metodología no plantea procesos sino una serie de fases:</p>
-
-        <ul>
-            <li>PSI (Planificación de Sistemas de Información). El objetivo de esta fase es conocer las necesidades de la organización en cuanto a sistemas de información, para planificar el desarrollo e implementación de nuevos servicios.</li>
-            <li>DSI (Desarrollo de Sistemas de Información). Se trata del desarrollo del software en sí. Está organizado en cinco procesos que cubren las diferentes fases del desarrollo:
+          </ul>
+    
+          <p>Estas metodologías parten de un problema principal, que sería el objetivo a conseguir con el desarrollo del software, y se subdivide este problema en problemas más pequeños, partiendo de un nivel de abstracción alto hasta acabar en el nivel más detallado. Esto se conoce como enfoque top-down (desde arriba hasta abajo).</p>
+    
+          <p>Ejemplos de este tipo de metodología incluyen Merise, SSADM (Structured System Analysis and Design Method), CMMI (Capability Maturity Model Integration) y Métrica v3.</p>
+    
+          <p>Dentro de las metodologías estructuradas, dependiendo de en qué elementos tienen su foco, tenemos dos subgrupos:</p>
+    
+          <div class="methodology-types">
+            <div class="methodology-type">
+              <h5>Metodologías estructuradas orientadas a procesos</h5>
+              <p>Se centran en lo que el sistema hace, es decir, cómo se procesa la entrada para generar la salida. Utilizan un enfoque de descomposición descendente para evaluar los procesos del espacio del problema y los flujos de datos con los que están conectados. Especifican el sistema en función de diagramas de flujo de datos, diccionarios de datos y especificaciones de procesos.</p>
+            </div>
+            
+            <div class="methodology-type">
+              <h5>Metodologías estructuradas orientadas a datos</h5>
+              <p>Estas metodologías representan los requisitos del sistema orientándolos hacia la estructura de los datos, en lugar de hacia el flujo de los mismos. Descartan el uso de los datos en sí, centrándose en obtener una organización y acceso adecuados para los datos del sistema. Estas metodologías pueden, a su vez, separarse en orientadas a datos jerárquicos o a datos no jerárquicos.</p>
+            </div>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>Métrica v3</h5>
+            <p>Métrica, en su versión principal Métrica v3, es una metodología utilizada principalmente por el Gobierno de España para sus proyectos de desarrollo de software en las Administraciones Públicas. Si bien no se obliga a su uso en proyectos de esta índole, sí que se proporciona como una opción viable y completa para el desarrollo de proyectos a todas las organizaciones gubernamentales, autonómicas y locales; aunque estas organizaciones pueden optar a obligar su uso a nivel de contrato. Como metodología no plantea procesos sino una serie de fases:</p>
+    
+            <ul>
+              <li><strong>PSI (Planificación de Sistemas de Información).</strong> El objetivo de esta fase es conocer las necesidades de la organización en cuanto a sistemas de información, para planificar el desarrollo e implementación de nuevos servicios.</li>
+              <li><strong>DSI (Desarrollo de Sistemas de Información).</strong> Se trata del desarrollo del software en sí. Está organizado en cinco procesos que cubren las diferentes fases del desarrollo:
                 <ul>
-                    <li>EVS (Estudio de Viabilidad del Sistema). Proceso de análisis inicial en el que se determinan las necesidades del proyecto y la viabilidad del mismo.</li>
-                    <li>ASI (Análisis del Sistema de Información). Se identifican y analizan los requisitos, se definen modelos y se establece la especificación detallada del sistema. También se realiza el planteamiento de las pruebas.</li>
-                    <li>DSI (Diseño del Sistema de Información). Se define la arquitectura del sistema y el entorno tecnológico que le va a dar soporte. Además, se detalla la especificación de cada uno de los componentes del sistema de información.</li>
-                    <li>CSI (Construcción del Sistema de Información). Se genera código para los componentes detallados en el paso anterior, teniendo en cuenta los requisitos de seguridad, y se elaboran también los manuales de usuario.</li>
-                    <li>IAS (Implantación y Aceptación del Sistema). Se pone el sistema en producción, y se obtiene la aceptación por parte del cliente.</li>
+                  <li><strong>EVS (Estudio de Viabilidad del Sistema).</strong> Proceso de análisis inicial en el que se determinan las necesidades del proyecto y la viabilidad del mismo.</li>
+                  <li><strong>ASI (Análisis del Sistema de Información).</strong> Se identifican y analizan los requisitos, se definen modelos y se establece la especificación detallada del sistema. También se realiza el planteamiento de las pruebas.</li>
+                  <li><strong>DSI (Diseño del Sistema de Información).</strong> Se define la arquitectura del sistema y el entorno tecnológico que le va a dar soporte. Además, se detalla la especificación de cada uno de los componentes del sistema de información.</li>
+                  <li><strong>CSI (Construcción del Sistema de Información).</strong> Se genera código para los componentes detallados en el paso anterior, teniendo en cuenta los requisitos de seguridad, y se elaboran también los manuales de usuario.</li>
+                  <li><strong>IAS (Implantación y Aceptación del Sistema).</strong> Se pone el sistema en producción, y se obtiene la aceptación por parte del cliente.</li>
                 </ul>
-            </li>
-            <li>MSI (Mantenimiento de Sistemas de Información). En este proceso se realiza la gestión de peticiones de cambio e incidencias del sistema ya puesto en producción. Las peticiones de cambio e incidencias a corregir se podrán considerar un nuevo proyecto, y pasarán de nuevo por las etapas definidas en el DSI.</li>
-        </ul>
-
-        <h5>CMMI</h5>
-        <p>CMMI, o Capability Maturity Model Integration, es un modelo para la mejora continua de procesos de ingeniería de software de una organización. En lugar de definir explícitamente qué y cómo hacer, determina lo que ya se tendría que estar haciendo si la organización tuviera cierto nivel de madurez. En base a esto, se pueden determinar los procesos que deben aplicarse para obtener dicho nivel de madurez para así obtener una metodología.</p>
-
-        <p>CMMI define cinco niveles de madurez para cada área de proceso, aplicables para todo tipo de procedimientos dentro de la organización:</p>
-        <ul>
-            <li>Inicial</li>
-            <li>Repetible</li>
-            <li>Definido</li>
-            <li>Gestionado</li>
-            <li>Optimizado</li>
-        </ul>
-
-        <p>La definición del modelo de madurez se organiza en categorías, áreas, metas/prácticas genéricas y metas/prácticas específicas. Las categorías y áreas que define CMMI son:</p>
-
-        <ul>
-            <li>Categoría de gestión de procesos
+              </li>
+              <li><strong>MSI (Mantenimiento de Sistemas de Información).</strong> En este proceso se realiza la gestión de peticiones de cambio e incidencias del sistema ya puesto en producción. Las peticiones de cambio e incidencias a corregir se podrán considerar un nuevo proyecto, y pasarán de nuevo por las etapas definidas en el DSI.</li>
+            </ul>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>CMMI</h5>
+            <p>CMMI, o Capability Maturity Model Integration, es un modelo para la mejora continua de procesos de ingeniería de software de una organización. En lugar de definir explícitamente qué y cómo hacer, determina lo que ya se tendría que estar haciendo si la organización tuviera cierto nivel de madurez. En base a esto, se pueden determinar los procesos que deben aplicarse para obtener dicho nivel de madurez para así obtener una metodología.</p>
+    
+            <p>CMMI define cinco niveles de madurez para cada área de proceso, aplicables para todo tipo de procedimientos dentro de la organización:</p>
+            <ul>
+              <li>Inicial</li>
+              <li>Repetible</li>
+              <li>Definido</li>
+              <li>Gestionado</li>
+              <li>Optimizado</li>
+            </ul>
+    
+            <p>La definición del modelo de madurez se organiza en categorías, áreas, metas/prácticas genéricas y metas/prácticas específicas. Las categorías y áreas que define CMMI son:</p>
+    
+            <ul>
+              <li>Categoría de gestión de procesos
                 <ul>
-                    <li>Definición de procesos de la organización</li>
-                    <li>Enfoque de procesos de la organización</li>
-                    <li>Gestión del rendimiento de la organización</li>
-                    <li>Rendimiento de procesos de la organización</li>
-                    <li>Formación en la organización</li>
+                  <li>Definición de procesos de la organización</li>
+                  <li>Enfoque de procesos de la organización</li>
+                  <li>Gestión del rendimiento de la organización</li>
+                  <li>Rendimiento de procesos de la organización</li>
+                  <li>Formación en la organización</li>
                 </ul>
-            </li>
-            <li>Categoría de gestión de proyectos
+              </li>
+              <li>Categoría de gestión de proyectos
                 <ul>
-                    <li>Gestión de requisitos</li>
-                    <li>Planificación del proyecto</li>
-                    <li>Monitorización y control del proyecto</li>
-                    <li>Gestión de acuerdos con proveedores</li>
-                    <li>Gestión de riesgos</li>
-                    <li>Gestión integrada del proyecto</li>
-                    <li>Gestión cuantitativa del proyecto</li>
+                  <li>Gestión de requisitos</li>
+                  <li>Planificación del proyecto</li>
+                  <li>Monitorización y control del proyecto</li>
+                  <li>Gestión de acuerdos con proveedores</li>
+                  <li>Gestión de riesgos</li>
+                  <li>Gestión integrada del proyecto</li>
+                  <li>Gestión cuantitativa del proyecto</li>
                 </ul>
-            </li>
-            <li>Categoría de ingeniería
+              </li>
+              <li>Categoría de ingeniería
                 <ul>
-                    <li>Desarrollo de requisitos</li>
-                    <li>Solución técnica</li>
-                    <li>Validación</li>
-                    <li>Verificación</li>
-                    <li>Integración del producto</li>
+                  <li>Desarrollo de requisitos</li>
+                  <li>Solución técnica</li>
+                  <li>Validación</li>
+                  <li>Verificación</li>
+                  <li>Integración del producto</li>
                 </ul>
-            </li>
-            <li>Categoría de soporte
+              </li>
+              <li>Categoría de soporte
                 <ul>
-                    <li>Gestión de la configuración</li>
-                    <li>Medición y análisis</li>
-                    <li>Aseguramiento de la calidad del proceso y del producto</li>
-                    <li>Análisis de decisiones y resolución</li>
-                    <li>Análisis causal y resolución</li>
+                  <li>Gestión de la configuración</li>
+                  <li>Medición y análisis</li>
+                  <li>Aseguramiento de la calidad del proceso y del producto</li>
+                  <li>Análisis de decisiones y resolución</li>
+                  <li>Análisis causal y resolución</li>
                 </ul>
-            </li>
-        </ul>
-
-        <h5>PMBOK</h5>
-        <p>PMBOK, o A guide to the Project Management Body Of Knowledge, es un conjunto de pautas, buenas prácticas, normas y herramientas para la dirección de proyectos, establecidas a partir de casos reales. Está pensada para la dirección de todo tipo de proyectos, no solo proyectos software.</p>
-
-        <p>Está orientada a procesos, los cuales se organizan en 5 grupos según la fase de ejecución y en 10 áreas de conocimiento.</p>
-
-        <ul>
-            <li>Grupos. Aplicables tanto al proyecto como a tareas o trabajos dentro del mismo.
+              </li>
+            </ul>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>PMBOK</h5>
+            <p>PMBOK, o A guide to the Project Management Body Of Knowledge, es un conjunto de pautas, buenas prácticas, normas y herramientas para la dirección de proyectos, establecidas a partir de casos reales. Está pensada para la dirección de todo tipo de proyectos, no solo proyectos software.</p>
+    
+            <p>Está orientada a procesos, los cuales se organizan en 5 grupos según la fase de ejecución y en 10 áreas de conocimiento.</p>
+    
+            <ul>
+              <li>Grupos. Aplicables tanto al proyecto como a tareas o trabajos dentro del mismo.
                 <ul>
-                    <li>Inicio del proyecto.</li>
-                    <li>Planificación.</li>
-                    <li>Ejecución.</li>
-                    <li>Control. Comprobación del avance y correcciones.</li>
-                    <li>Cierre del proyecto.</li>
+                  <li>Inicio del proyecto.</li>
+                  <li>Planificación.</li>
+                  <li>Ejecución.</li>
+                  <li>Control. Comprobación del avance y correcciones.</li>
+                  <li>Cierre del proyecto.</li>
                 </ul>
-            </li>
-            <li>Áreas de conocimiento. Son los ámbitos que hay que tratar dentro de un proyecto.
+              </li>
+              <li>Áreas de conocimiento. Son los ámbitos que hay que tratar dentro de un proyecto.
                 <ul>
-                    <li>Gestión del alcance. Procesos para determinar lo que hay que hacer, o no, como parte del proyecto.</li>
-                    <li>Gestión del tiempo. Procesos orientados a terminar el proyecto en el tiempo estimado.</li>
-                    <li>Gestión del coste. Procesos orientados a terminar el proyecto en el presupuesto estimado.</li>
-                    <li>Gestión de la calidad. Procesos para validar los requisitos del proyecto.</li>
-                    <li>Gestión de los recursos humanos.</li>
-                    <li>Gestión de las comunicaciones. Tanto interna como externa.</li>
-                    <li>Gestión de los riesgos.</li>
-                    <li>Gestión de las adquisiciones.</li>
-                    <li>Gestión de los interesados. Personas que pueden afectar al proyecto pero que no forman parte del equipo de desarrollo del proyecto en sí.</li>
-                    <li>Gestión de la integración del proyecto. Integración del resto de procesos y resolución de posibles dependencias.</li>
+                  <li>Gestión del alcance. Procesos para determinar lo que hay que hacer, o no, como parte del proyecto.</li>
+                  <li>Gestión del tiempo. Procesos orientados a terminar el proyecto en el tiempo estimado.</li>
+                  <li>Gestión del coste. Procesos orientados a terminar el proyecto en el presupuesto estimado.</li>
+                  <li>Gestión de la calidad. Procesos para validar los requisitos del proyecto.</li>
+                  <li>Gestión de los recursos humanos.</li>
+                  <li>Gestión de las comunicaciones. Tanto interna como externa.</li>
+                  <li>Gestión de los riesgos.</li>
+                  <li>Gestión de las adquisiciones.</li>
+                  <li>Gestión de los interesados. Personas que pueden afectar al proyecto pero que no forman parte del equipo de desarrollo del proyecto en sí.</li>
+                  <li>Gestión de la integración del proyecto. Integración del resto de procesos y resolución de posibles dependencias.</li>
                 </ul>
-            </li>
-        </ul>
-    </span>
-
-    <span id="3100401005">
-        <h4>4.1.2.2. METODOLOGÍAS ORIENTADAS A DATOS</h4>
-        <p>Dentro de esta metodología, que se fundamenta en la integración entre datos y procesos, un sistema consiste en un conjunto de objetos, que se comunica entre sí a través de mensajes. Cada objeto encapsula tanto sus datos como sus operaciones. Con esta concepción se busca acortar la distancia entre el espacio de conceptos y la implementación en sí.</p>
-
-        <p>Ejemplos de este tipo de metodología incluyen OMT (Object Modelling Technique), OOAD (Object-Oriented Analysis and Design), OOSE (Object-Oriented Software Engineering) y RUP (Rational Unified Process).</p>
-    </span>
-
-    <span id="3100401006">
-        <h4>4.1.2.3. METODOLOGÍAS ÁGILES</h4>
-        <p>Los tipos de metodología descritos anteriormente suelen determinarse como rígidas e inflexibles, lo cual no las hace ideales para proyectos donde los requisitos son cambiantes o no se tienen todos los requisitos definidos con el detalle suficiente. Teniendo en cuenta estos problemas, en 2001 surgió el uso de la palabra "ágil" dentro del contexto del desarrollo de software, con el manifiesto ágil.</p>
-
-        <h5>Principios del manifiesto ágil</h5>
-        <ol>
-            <li>Nuestra mayor prioridad es satisfacer al cliente mediante la entrega temprana y continua de software con valor.</li>
-            <li>Aceptamos que los requisitos cambien, incluso en etapas tardías del desarrollo. Los procesos Ágiles aprovechan el cambio para proporcionar ventaja competitiva al cliente.</li>
-            <li>Entregamos software funcional frecuentemente, entre dos semanas y dos meses, con preferencia al periodo de tiempo más corto posible.</li>
-            <li>Los responsables de negocio y los desarrolladores trabajamos juntos de forma cotidiana durante todo el proyecto.</li>
-            <li>Los proyectos se desarrollan en torno a individuos motivados. Hay que darles el entorno y el apoyo que necesitan, y confiarles la ejecución del trabajo.</li>
-            <li>El método más eficiente y efectivo de comunicar información al equipo de desarrollo y entre sus miembros es la conversación cara a cara.</li>
-            <li>El software funcionando es la medida principal de progreso.</li>
-            <li>Los procesos Ágiles promueven el desarrollo sostenible. Los promotores, desarrolladores y usuarios debemos ser capaces de mantener un ritmo constante de forma indefinida.</li>
-            <li>La atención continua a la excelencia técnica y al buen diseño mejora la Agilidad.</li>
-            <li>La simplicidad, o el arte de maximizar la cantidad de trabajo no realizado, es esencial.</li>
-            <li>Las mejores arquitecturas, requisitos y diseños emergen de equipos auto-organizados.</li>
-            <li>A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo para a continuación ajustar y perfeccionar su comportamiento en consecuencia.</li>
-        </ol>
-
-        <p>Estos principios se pueden resumir en los siguientes 4 aspectos, en los cuales, aunque se valoran ambas partes, se da más peso a la primera:</p>
-        <ul>
-            <li>Individuos e interacciones sobre procesos y herramientas.</li>
-            <li>Software funcionando sobre documentación extensiva.</li>
-            <li>Colaboración con el cliente sobre negociación contractual.</li>
-            <li>Respuesta ante el cambio sobre seguir un plan.</li>
-        </ul>
-
-        <h5>SCRUM</h5>
-        <p>Scrum es una de las metodologías ágiles más conocidas y con mayor auge en la actualidad. Se basa en un proceso iterativo e incremental, donde se realizan entregas parciales y regulares del producto final. Esta característica hace que sea apropiado para aplicarlo en proyectos complejos, donde se busca obtener resultados rápidamente o donde los requisitos no están bien definidos o pueden cambiar.</p>
-
-        <p>En esta metodología se definen una serie de roles, eventos y artefactos:</p>
-
-        <h6>Roles</h6>
-        <ul>
-            <li>Scrum Master. Se trata del "facilitador" del equipo. Su trabajo consiste en eliminar problemas u obstáculos que puedan impedir que el equipo consiga el objetivo propuesto en el Sprint, y que el proceso de Scrum se utilice correctamente.</li>
-            <li>Product Owner. Hace de punto de comunicación entre miembros externos al equipo, como clientes y stakeholders, y el equipo. Se encarga de escribir las historias de usuario, introducirlas en el Product Backlog, y mantenerlo priorizado para respetar así las prioridades del proyecto.</li>
-            <li>Scrum Team. Personal con la responsabilidad de entregar incrementos sobre el producto. No se compone sólo de desarrolladores, sino también de diseñadores, testers, etc.</li>
-        </ul>
-
-        <h6>Eventos</h6>
-        <ul>
-            <li>Sprint. Periodo en el que se lleva a cabo el trabajo. La duración de los Sprints debe ser constante y definida por el equipo; suele ser una duración entre 2 y 4 semanas. No se debe cambiar el objetivo del Sprint, ni añadir o eliminar tareas del Sprint Backlog en medio del mismo.</li>
-            <li>Sprint Planning. Reunión, realizada antes del comienzo de cada Sprint, en el que se toman elementos del Product Backlog para construir el Sprint Backlog, teniendo en cuenta la opinión del equipo sobre lo que probablemente se pueda realizar durante el Sprint y la prioridad de las tareas del Product Backlog.</li>
-            <li>Daily Scrum. Reunión, realizada diariamente, de no más de 15 minutos, donde cada miembro del equipo típicamente responde a tres preguntas:
+              </li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+    
+    <div class="methodology-card">
+      <span id="3100401005">
+        <div class="method-section">
+          <h4><span class="icon">🧬</span> 4.1.2.2. METODOLOGÍAS ORIENTADAS A DATOS</h4>
+          <p>Dentro de esta metodología, que se fundamenta en la integración entre datos y procesos, un sistema consiste en un conjunto de objetos, que se comunica entre sí a través de mensajes. Cada objeto encapsula tanto sus datos como sus operaciones. Con esta concepción se busca acortar la distancia entre el espacio de conceptos y la implementación en sí.</p>
+    
+          <p>Ejemplos de este tipo de metodología incluyen OMT (Object Modelling Technique), OOAD (Object-Oriented Analysis and Design), OOSE (Object-Oriented Software Engineering) y RUP (Rational Unified Process).</p>
+        </div>
+      </span>
+    </div>
+    
+    <div class="methodology-card">
+      <span id="3100401006">
+        <div class="method-section">
+          <h4><span class="icon">🚀</span> 4.1.2.3. METODOLOGÍAS ÁGILES</h4>
+          <p>Los tipos de metodología descritos anteriormente suelen determinarse como rígidas e inflexibles, lo cual no las hace ideales para proyectos donde los requisitos son cambiantes o no se tienen todos los requisitos definidos con el detalle suficiente. Teniendo en cuenta estos problemas, en 2001 surgió el uso de la palabra "ágil" dentro del contexto del desarrollo de software, con el manifiesto ágil.</p>
+    
+          <div class="methodology-type">
+            <h5>Principios del manifiesto ágil</h5>
+            <div class="agile-principles">
+              <div class="agile-principle">
+                Nuestra mayor prioridad es satisfacer al cliente mediante la entrega temprana y continua de software con valor.
+              </div>
+              
+              <div class="agile-principle">
+                Aceptamos que los requisitos cambien, incluso en etapas tardías del desarrollo. Los procesos Ágiles aprovechan el cambio para proporcionar ventaja competitiva al cliente.
+              </div>
+              
+              <div class="agile-principle">
+                Entregamos software funcional frecuentemente, entre dos semanas y dos meses, con preferencia al periodo de tiempo más corto posible.
+              </div>
+              
+              <div class="agile-principle">
+                Los responsables de negocio y los desarrolladores trabajamos juntos de forma cotidiana durante todo el proyecto.
+              </div>
+              
+              <div class="agile-principle">
+                Los proyectos se desarrollan en torno a individuos motivados. Hay que darles el entorno y el apoyo que necesitan, y confiarles la ejecución del trabajo.
+              </div>
+              
+              <div class="agile-principle">
+                El método más eficiente y efectivo de comunicar información al equipo de desarrollo y entre sus miembros es la conversación cara a cara.
+              </div>
+              
+              <div class="agile-principle">
+                El software funcionando es la medida principal de progreso.
+              </div>
+              
+              <div class="agile-principle">
+                Los procesos Ágiles promueven el desarrollo sostenible. Los promotores, desarrolladores y usuarios debemos ser capaces de mantener un ritmo constante de forma indefinida.
+              </div>
+              
+              <div class="agile-principle">
+                La atención continua a la excelencia técnica y al buen diseño mejora la Agilidad.
+              </div>
+              
+              <div class="agile-principle">
+                La simplicidad, o el arte de maximizar la cantidad de trabajo no realizado, es esencial.
+              </div>
+              
+              <div class="agile-principle">
+                Las mejores arquitecturas, requisitos y diseños emergen de equipos auto-organizados.
+              </div>
+              
+              <div class="agile-principle">
+                A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo para a continuación ajustar y perfeccionar su comportamiento en consecuencia.
+              </div>
+            </div>
+    
+            <p>Estos principios se pueden resumir en los siguientes 4 aspectos, en los cuales, aunque se valoran ambas partes, se da más peso a la primera:</p>
+            <ul>
+              <li>Individuos e interacciones sobre procesos y herramientas.</li>
+              <li>Software funcionando sobre documentación extensiva.</li>
+              <li>Colaboración con el cliente sobre negociación contractual.</li>
+              <li>Respuesta ante el cambio sobre seguir un plan.</li>
+            </ul>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>SCRUM</h5>
+            <p>Scrum es una de las metodologías ágiles más conocidas y con mayor auge en la actualidad. Se basa en un proceso iterativo e incremental, donde se realizan entregas parciales y regulares del producto final. Esta característica hace que sea apropiado para aplicarlo en proyectos complejos, donde se busca obtener resultados rápidamente o donde los requisitos no están bien definidos o pueden cambiar.</p>
+    
+            <p>En esta metodología se definen una serie de roles, eventos y artefactos:</p>
+    
+            <div class="scrum-elements">
+              <div class="scrum-element">
+                <h6>Roles</h6>
                 <ul>
-                    <li>¿Qué he hecho la jornada anterior?</li>
-                    <li>¿Qué tengo pensado hacer en esta jornada?</li>
-                    <li>¿Qué impedimentos he encontrado?</li>
+                  <li><strong>Scrum Master.</strong> Se trata del "facilitador" del equipo. Su trabajo consiste en eliminar problemas u obstáculos que puedan impedir que el equipo consiga el objetivo propuesto en el Sprint, y que el proceso de Scrum se utilice correctamente.</li>
+                  <li><strong>Product Owner.</strong> Hace de punto de comunicación entre miembros externos al equipo, como clientes y stakeholders, y el equipo. Se encarga de escribir las historias de usuario, introducirlas en el Product Backlog, y mantenerlo priorizado para respetar así las prioridades del proyecto.</li>
+                  <li><strong>Scrum Team.</strong> Personal con la responsabilidad de entregar incrementos sobre el producto. No se compone sólo de desarrolladores, sino también de diseñadores, testers, etc.</li>
                 </ul>
-            </li>
-            <li>Sprint Review. Reunión, al final de cada Sprint, donde se revisa el trabajo completado y no completado que estaba planificado para el Sprint en cuestión. Se suele hacer frente a clientes o stakeholders, con forma de demostración.</li>
-            <li>Sprint Retrospective. Reunión, tras terminar un Sprint, donde los miembros del equipo muestran sus opiniones sobre el sprint recién terminado, realizando una inspección dentro del equipo en búsqueda de prácticas que mantener, mejorar, corregir o eliminar.</li>
-        </ul>
-
-        <h6>Artefactos</h6>
-        <ul>
-            <li>Product Backlog. Documento que define todos los requisitos, funcionalidades y tareas a realizar, ordenadas de más prioritaria a menos. Puede contener estimaciones de esfuerzo para cada tarea.</li>
-            <li>Sprint Backlog. Documento que define las tareas a realizar en el Sprint actual. Durante el Sprint Planning el equipo compila el Sprint Backlog del Sprint que va a empezar con tareas extraídas del Product Backlog. Las tareas que entran en este documento son estimadas en el momento de ser introducidas.</li>
-            <li>Increment. Producto final del Sprint, que aporta valor al producto final, y mostrado en cada Sprint Review. La suma de los incrementos de todos los Sprints de un proyecto conforma el producto final.</li>
-        </ul>
-
-        <h5>KANBAN</h5>
-        <p>Kanban está definido por una idea principal: limitar el trabajo en curso. La intención es dar importancia a la visualización de las tareas que están en marcha para mostrar el trabajo que se está realizando, intentando maximizar la eficiencia y la mejora continua. El trabajo en sí suele mostrarse en tableros de Kanban, que no son más que tableros con columnas señaladas, dentro de las cuales se colocan tarjetas que representan las tareas. Cada columna indica un estado para las tareas que contiene. Algunas herramientas como Jira o Trello, ampliamente utilizadas en el entorno empresarial, incluyen tableros de Kanban para organizar el trabajo; sin embargo, podemos cualquier aplicación de este concepto, como pizarras donde las columnas están pintadas y las tareas se representan con notas adhesivas.</p>
-
-        <img src="/placeholder.svg?height=300&width=500" alt="Ejemplo de tablero Kanban" className="my-4" />
-
-        <p>Las bases de Kanban pueden definirse con seis prácticas:</p>
-        <ul>
-            <li>Visualizar el flujo de trabajo. Para esto se utiliza el tablero de Kanban descrito anteriormente. El tablero muestra el estado total del flujo de trabajo, y cada columna representa un estado dentro de ese flujo.</li>
-            <li>Limitar el trabajo en curso (WIP, Work In Progress). Dentro del tablero de Kanban se establece un número máximo de tareas que puede estar en progreso al mismo tiempo. Establecer este máximo asegura de que sólo se avanzarán de estado las tareas cuando el equipo tenga capacidad disponible.</li>
-            <li>Manejar el flujo de trabajo. Se busca administrar los procesos de trabajo sin microadministrar a los miembros del equipo de forma individual.</li>
-            <li>Hacer que las políticas de los procesos sean explícitas. Todo lo que no esté claro debe ser definido, publicado y comprendido por el equipo. Una vez el equipo esté familiarizado con el objetivo final, las decisiones que tomen afectarán positivamente al resultado.</li>
-            <li>Bucles de retroalimentación. Mantener bucles de retroalimentación que informen al equipo de posibles cambios desde los clientes u otros equipos en la organización facilita la transferencia de conocimiento.</li>
-            <li>Mejora en colaboración. La forma de conseguir mejora continua es a través de la aplicación de cambios colaborativamente, cultivando la cultura organizativa.</li>
-        </ul>
-
-        <h5>XP</h5>
-        <p>XP, del inglés eXtreme Programming, precede al manifiesto ágil, ya que surge en el año 1999. Se centra en potenciar las relaciones interpersonales como elemento fundamental para obtener un buen producto software, y propone una serie de prácticas para mejorar la calidad del código:</p>
-        <ul>
-            <li>Simplicidad.</li>
-            <li>Desarrollo incremental. Los ciclos de desarrollo en XP son muy cortos, y tras cada ciclo se pone al corriente a los clientes de los cambios realizados para su validación y aceptación.</li>
-            <li>Autodocumentación. Lo ideal es que el código esté autocomentado con nombres de variables intuitivos, intentando minimizar la documentación asociada al proyecto.</li>
-            <li>Programación por parejas (pair programming). El código es desarrollado simultáneamente por dos personas: una lo escribe y la otra lo revisa y discute sobre la marcha. Esto repercute favorablemente en la calidad del código generado.</li>
-            <li>Pruebas unitarias continuas.</li>
-            <li>Refactorización ("limpiar el código"). Consiste en realizar cambios en la estructura interna del código para que sea más fácil de entender y de modificar, sin cambiar su funcionalidad. Repercute favorablemente en la calidad y mantenibilidad del código.</li>
-        </ul>
-    </span>
-</div>
+              </div>
+              
+              <div class="scrum-element">
+                <h6>Eventos</h6>
+                <ul>
+                  <li><strong>Sprint.</strong> Periodo en el que se lleva a cabo el trabajo. La duración de los Sprints debe ser constante y definida por el equipo; suele ser una duración entre 2 y 4 semanas. No se debe cambiar el objetivo del Sprint, ni añadir o eliminar tareas del Sprint Backlog en medio del mismo.</li>
+                  <li><strong>Sprint Planning.</strong> Reunión, realizada antes del comienzo de cada Sprint, en el que se toman elementos del Product Backlog para construir el Sprint Backlog, teniendo en cuenta la opinión del equipo sobre lo que probablemente se pueda realizar durante el Sprint y la prioridad de las tareas del Product Backlog.</li>
+                  <li><strong>Daily Scrum.</strong> Reunión, realizada diariamente, de no más de 15 minutos, donde cada miembro del equipo típicamente responde a tres preguntas:
+                    <ul>
+                      <li>¿Qué he hecho la jornada anterior?</li>
+                      <li>¿Qué tengo pensado hacer en esta jornada?</li>
+                      <li>¿Qué impedimentos he encontrado?</li>
+                    </ul>
+                  </li>
+                  <li><strong>Sprint Review.</strong> Reunión, al final de cada Sprint, donde se revisa el trabajo completado y no completado que estaba planificado para el Sprint en cuestión. Se suele hacer frente a clientes o stakeholders, con forma de demostración.</li>
+                  <li><strong>Sprint Retrospective.</strong> Reunión, tras terminar un Sprint, donde los miembros del equipo muestran sus opiniones sobre el sprint recién terminado, realizando una inspección dentro del equipo en búsqueda de prácticas que mantener, mejorar, corregir o eliminar.</li>
+                </ul>
+              </div>
+              
+              <div class="scrum-element">
+                <h6>Artefactos</h6>
+                <ul>
+                  <li><strong>Product Backlog.</strong> Documento que define todos los requisitos, funcionalidades y tareas a realizar, ordenadas de más prioritaria a menos. Puede contener estimaciones de esfuerzo para cada tarea.</li>
+                  <li><strong>Sprint Backlog.</strong> Documento que define las tareas a realizar en el Sprint actual. Durante el Sprint Planning el equipo compila el Sprint Backlog del Sprint que va a empezar con tareas extraídas del Product Backlog. Las tareas que entran en este documento son estimadas en el momento de ser introducidas.</li>
+                  <li><strong>Increment.</strong> Producto final del Sprint, que aporta valor al producto final, y mostrado en cada Sprint Review. La suma de los incrementos de todos los Sprints de un proyecto conforma el producto final.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>KANBAN</h5>
+            <p>Kanban está definido por una idea principal: limitar el trabajo en curso. La intención es dar importancia a la visualización de las tareas que están en marcha para mostrar el trabajo que se está realizando, intentando maximizar la eficiencia y la mejora continua. El trabajo en sí suele mostrarse en tableros de Kanban, que no son más que tableros con columnas señaladas, dentro de las cuales se colocan tarjetas que representan las tareas. Cada columna indica un estado para las tareas que contiene. Algunas herramientas como Jira o Trello, ampliamente utilizadas en el entorno empresarial, incluyen tableros de Kanban para organizar el trabajo; sin embargo, podemos cualquier aplicación de este concepto, como pizarras donde las columnas están pintadas y las tareas se representan con notas adhesivas.</p>
+    
+            <div class="kanban-board">
+              <div class="kanban-column">
+                <div class="column-header">
+                  <h3>Por hacer</h3>
+                  <span class="task-count">3</span>
+                </div>
+                <div class="tasks">
+                  <div class="task-card">
+                    <div class="task-title">Diseñar interfaz de usuario</div>
+                    <div class="task-tags">
+                      <span class="tag design">Diseño</span>
+                    </div>
+                    <div class="task-assignee">María G.</div>
+                  </div>
+                  <div class="task-card">
+                    <div class="task-title">Crear documentación API</div>
+                    <div class="task-tags">
+                      <span class="tag docs">Docs</span>
+                    </div>
+                    <div class="task-assignee">Carlos R.</div>
+                  </div>
+                  <div class="task-card">
+                    <div class="task-title">Planificar sprint 4</div>
+                    <div class="task-tags">
+                      <span class="tag planning">Planificación</span>
+                    </div>
+                    <div class="task-assignee">Ana M.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="kanban-column">
+                <div class="column-header">
+                  <h3>En progreso</h3>
+                  <span class="task-count">2</span>
+                </div>
+                <div class="tasks">
+                  <div class="task-card">
+                    <div class="task-title">Implementar autenticación</div>
+                    <div class="task-tags">
+                      <span class="tag dev">Desarrollo</span>
+                      <span class="tag security">Seguridad</span>
+                    </div>
+                    <div class="task-assignee">Pedro L.</div>
+                  </div>
+                  <div class="task-card">
+                    <div class="task-title">Optimizar consultas DB</div>
+                    <div class="task-tags">
+                      <span class="tag dev">Desarrollo</span>
+                    </div>
+                    <div class="task-assignee">Laura S.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="kanban-column">
+                <div class="column-header">
+                  <h3>En revisión</h3>
+                  <span class="task-count">1</span>
+                </div>
+                <div class="tasks">
+                  <div class="task-card">
+                    <div class="task-title">Refactorizar módulo de pagos</div>
+                    <div class="task-tags">
+                      <span class="tag dev">Desarrollo</span>
+                      <span class="tag review">Revisión</span>
+                    </div>
+                    <div class="task-assignee">Javier M.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="kanban-column">
+                <div class="column-header">
+                  <h3>Terminado</h3>
+                  <span class="task-count">2</span>
+                </div>
+                <div class="tasks">
+                  <div class="task-card">
+                    <div class="task-title">Configurar CI/CD</div>
+                    <div class="task-tags">
+                      <span class="tag devops">DevOps</span>
+                    </div>
+                    <div class="task-assignee">Miguel A.</div>
+                  </div>
+                  <div class="task-card">
+                    <div class="task-title">Crear tests unitarios</div>
+                    <div class="task-tags">
+                      <span class="tag testing">Testing</span>
+                    </div>
+                    <div class="task-assignee">Sofía V.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+          <style>
+            .kanban-board {
+              display: flex;
+              gap: 1rem;
+              overflow-x: auto;
+              padding: 1rem 0;
+              margin: 1.5rem 0;
+            }
+            
+            .kanban-column {
+              min-width: 250px;
+              width: 250px;
+              background-color: #f1f5f9;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            .column-header {
+              padding: 0.75rem;
+              border-bottom: 1px solid #e2e8f0;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            
+            .column-header h3 {
+              margin: 0;
+              font-size: 1rem;
+              color: #334155;
+            }
+            
+            .task-count {
+              background-color: #e2e8f0;
+              color: #475569;
+              border-radius: 12px;
+              padding: 0.1rem 0.5rem;
+              font-size: 0.8rem;
+              font-weight: 600;
+            }
+            
+            .tasks {
+              padding: 0.75rem;
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+              max-height: 400px;
+              overflow-y: auto;
+            }
+            
+            .task-card {
+              background-color: white;
+              border-radius: 6px;
+              padding: 0.75rem;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+              border-left: 3px solid var(--color-primary);
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            
+            .task-card:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+            }
+            
+            .task-title {
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+              color: #334155;
+            }
+            
+            .task-tags {
+              display: flex;
+              gap: 0.5rem;
+              margin-bottom: 0.5rem;
+              flex-wrap: wrap;
+            }
+            
+            .tag {
+              font-size: 0.7rem;
+              padding: 0.1rem 0.5rem;
+              border-radius: 4px;
+              font-weight: 600;
+            }
+            
+            .tag.design {
+              background-color: #e0f2fe;
+              color: #0369a1;
+            }
+            
+            .tag.dev {
+              background-color: #dcfce7;
+              color: #166534;
+            }
+            
+            .tag.docs {
+              background-color: #f3e8ff;
+              color: #7e22ce;
+            }
+            
+            .tag.planning {
+              background-color: #fef3c7;
+              color: #92400e;
+            }
+            
+            .tag.security {
+              background-color: #fee2e2;
+              color: #b91c1c;
+            }
+            
+            .tag.review {
+              background-color: #dbeafe;
+              color: #1e40af;
+            }
+            
+            .tag.devops {
+              background-color: #ffedd5;
+              color: #c2410c;
+            }
+            
+            .tag.testing {
+              background-color: #f1f5f9;
+              color: #475569;
+            }
+            
+            .task-assignee {
+              font-size: 0.8rem;
+              color: #64748b;
+              display: flex;
+              align-items: center;
+            }
+            
+            .task-assignee::before {
+              content: "👤";
+              margin-right: 0.25rem;
+            }
+            
+            @media (max-width: 768px) {
+              .kanban-board {
+                flex-direction: column;
+                align-items: center;
+              }
+              
+              .kanban-column {
+                width: 100%;
+                min-width: 100%;
+              }
+            }
+          </style>
+          </div>
+    
+          <div class="methodology-type">
+            <h5>XP</h5>
+            <p>XP, del inglés eXtreme Programming, precede al manifiesto ágil, ya que surge en el año 1999. Se centra en potenciar las relaciones interpersonales como elemento fundamental para obtener un buen producto software, y propone una serie de prácticas para mejorar la calidad del código:</p>
+            <ul>
+              <li><strong>Simplicidad.</strong></li>
+              <li><strong>Desarrollo incremental.</strong> Los ciclos de desarrollo en XP son muy cortos, y tras cada ciclo se pone al corriente a los clientes de los cambios realizados para su validación y aceptación.</li>
+              <li><strong>Autodocumentación.</strong> Lo ideal es que el código esté autocomentado con nombres de variables intuitivos, intentando minimizar la documentación asociada al proyecto.</li>
+              <li><strong>Programación por parejas (pair programming).</strong> El código es desarrollado simultáneamente por dos personas: una lo escribe y la otra lo revisa y discute sobre la marcha. Esto repercute favorablemente en la calidad del código generado.</li>
+              <li><strong>Pruebas unitarias continuas.</strong></li>
+              <li><strong>Refactorización ("limpiar el código").</strong> Consiste en realizar cambios en la estructura interna del código para que sea más fácil de entender y de modificar, sin cambiar su funcionalidad. Repercute favorablemente en la calidad y mantenibilidad del código.</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+    </div>
+    
+    

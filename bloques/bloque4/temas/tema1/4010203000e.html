@@ -1,109 +1,350 @@
 <div class="teoria">
-    <span id="4010203001">
-        <h2>2.3. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
-    </span>
-    
-    <span id="4010203002">
-        <h3>2.3.1. SERVIDOR DNS (DOMAIN NAME SERVER)</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .server-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .server-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .server-type h3 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .server-type h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .dns-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        display: block;
+      }
+      
+      .dns-table th, .dns-table td {
+        border: 1px solid var(--color-border);
+        padding: 0.75rem;
+        text-align: left;
+      }
+      
+      .dns-table th {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .dns-table tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.03);
+      }
+      
+      .dns-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.07);
+      }
+      
+      .dhcp-steps {
+        counter-reset: step-counter;
+        margin: 1.5rem 0;
+      }
+      
+      .dhcp-step {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 3rem;
+        transition: var(--transition);
+      }
+      
+      .dhcp-step:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .dhcp-step::before {
+        counter-increment: step-counter;
+        content: counter(step-counter);
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--color-primary);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      
+      .dhcp-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .dhcp-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .dhcp-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .dhcp-type strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .server-card {
+          padding: 1rem;
+        }
+        
+        .dhcp-types {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="server-card" id="4010203001">
+      <h2>🖥️ 2.3. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
+    </div>
+  
+    <div class="server-card" id="4010203002">
+      <div class="server-type">
+        <h3><span class="icon">🔍</span> 2.3.1. SERVIDOR DNS (DOMAIN NAME SERVER)</h3>
         <p>Servidores encargados de gestionar los nombres de dominio de una corporación, empresa o país.</p>
         <p>Los espacios de nombres dentro de un servidor DNS son gestionados a través del concepto de Zona.</p>
         <p>Una Zona contendrá todos los dominios, subdominios y registros que compartan un espacio de nomenclatura común.</p>
         <p>Por ejemplo: La zona "es" contendrá el dominio "edu" que a su vez puede contener el subdominio "cetic" y dentro un equipo llamado "www" o cuyo alias es "www".</p>
         <p>Los servidores DNS son los encargados de almacenar los datos de las zonas a las que dan soporte y de responder a las consultas realizadas por los clientes. Las consultas son, generalmente, de dos tipos:</p>
         <ul>
-            <li>Consulta de búsqueda directa: Dado un nombre de dominio devuelven la direcciones ip asociadas</li>
-            <li>Consulta de búsqueda inversa: Dada una ip devuelven el nombre de la máquina a la que pertenece</li>
+          <li>Consulta de búsqueda directa: Dado un nombre de dominio devuelven la direcciones ip asociadas</li>
+          <li>Consulta de búsqueda inversa: Dada una ip devuelven el nombre de la máquina a la que pertenece</li>
         </ul>
         <p>Los tipos de registros más comunes que podemos encontrar dentro de un servidor DNS son los siguientes:</p>
-        <table>
+        
+        <div class="dns-table">
+          <table>
             <tr>
-                <th>TIPO</th>
-                <th>NOMBRE</th>
-                <th>DESCRIPCIÓN</th>
+              <th>TIPO</th>
+              <th>NOMBRE</th>
+              <th>DESCRIPCIÓN</th>
             </tr>
             <tr>
-                <td>SOA</td>
-                <td>Start Of Authority</td>
-                <td>Devuelve el DNS que es el principal para servir una zona. Una zona puede ser servida por varios servidores DNS por redundancia, pero sólo uno es el que está autorizado para hacer cambios sobre ella.</td>
+              <td>SOA</td>
+              <td>Start Of Authority</td>
+              <td>Devuelve el DNS que es el principal para servir una zona. Una zona puede ser servida por varios servidores DNS por redundancia, pero sólo uno es el que está autorizado para hacer cambios sobre ella.</td>
             </tr>
             <tr>
-                <td>NS</td>
-                <td>Name Server</td>
-                <td>Registro que establece que servidores DNS están autorizados para servir/resolver los nombres pertenecientes a la zona.</td>
+              <td>NS</td>
+              <td>Name Server</td>
+              <td>Registro que establece que servidores DNS están autorizados para servir/resolver los nombres pertenecientes a la zona.</td>
             </tr>
             <tr>
-                <td>A (Address)</td>
-                <td>Registro de dirección</td>
-                <td>Asocia un nombre de dominio con una dirección ip v4.</td>
+              <td>A (Address)</td>
+              <td>Registro de dirección</td>
+              <td>Asocia un nombre de dominio con una dirección ip v4.</td>
             </tr>
             <tr>
-                <td>AAAA (Address)</td>
-                <td>Registro de dirección IPv6.</td>
-                <td>Asocia un nombre de dominio con una dirección ip v6</td>
+              <td>AAAA (Address)</td>
+              <td>Registro de dirección IPv6.</td>
+              <td>Asocia un nombre de dominio con una dirección ip v6</td>
             </tr>
             <tr>
-                <td>CAA (Certification Authority Authorization)</td>
-                <td>Autorización de la Autoridad de Certificación.</td>
-                <td>Establece quienes son las autoridades certificadoras válidas para un dominio. Una entidad certificadora es aquella que puede emitir certificados de seguridad (SSL) para el dominio y comprobar su validez.</td>
+              <td>CAA (Certification Authority Authorization)</td>
+              <td>Autorización de la Autoridad de Certificación.</td>
+              <td>Establece quienes son las autoridades certificadoras válidas para un dominio. Una entidad certificadora es aquella que puede emitir certificados de seguridad (SSL) para el dominio y comprobar su validez.</td>
             </tr>
             <tr>
-                <td>CNAME (Canonical Name)</td>
-                <td>Registro de nombre canónico.</td>
-                <td>Asocia un alias con un registro A. De esta forma podemos asignar varios apodos a un mismo equipo. Por ejemplo los equipos "www" realmente suelen llamarse de otra forma.</td>
+              <td>CNAME (Canonical Name)</td>
+              <td>Registro de nombre canónico.</td>
+              <td>Asocia un alias con un registro A. De esta forma podemos asignar varios apodos a un mismo equipo. Por ejemplo los equipos "www" realmente suelen llamarse de otra forma.</td>
             </tr>
             <tr>
-                <td>MX (Mail eXchange)</td>
-                <td>Registro de intercambio del correo.</td>
-                <td>Los registros MX apuntan al servidor de correo del dominio. Un dominio puede tener varios registros MX estableciendo una prioridad entre ellos.</td>
+              <td>MX (Mail eXchange)</td>
+              <td>Registro de intercambio del correo.</td>
+              <td>Los registros MX apuntan al servidor de correo del dominio. Un dominio puede tener varios registros MX estableciendo una prioridad entre ellos.</td>
             </tr>
             <tr>
-                <td>PTR (Pointer)</td>
-                <td>Registro de puntero</td>
-                <td>Registro inverso. Asocia una dirección ip a un nombre de dominio. Se utiliza para realizar búsquedas inversas. Los registros PTR se dan de alta en la zona DNS inversa (in-addres.arpa)</td>
+              <td>PTR (Pointer)</td>
+              <td>Registro de puntero</td>
+              <td>Registro inverso. Asocia una dirección ip a un nombre de dominio. Se utiliza para realizar búsquedas inversas. Los registros PTR se dan de alta en la zona DNS inversa (in-addres.arpa)</td>
             </tr>
             <tr>
-                <td>SRV (Service record)</td>
-                <td>Localizador de servicios. Es un registro para servicios especiales que proporciona información relacionada con los servicios disponibles para un determinado dominio. Es habitual su uso con XMPP, LDAP o SIP.</td>
-                <td>Registro utilizado para indicar servicios especiales dentro de un dominio. Por ejemplo: XMPP, LDAP o SIP.</td>
+              <td>SRV (Service record)</td>
+              <td>Localizador de servicios. Es un registro para servicios especiales que proporciona información relacionada con los servicios disponibles para un determinado dominio. Es habitual su uso con XMPP, LDAP o SIP.</td>
+              <td>Registro utilizado para indicar servicios especiales dentro de un dominio. Por ejemplo: XMPP, LDAP o SIP.</td>
             </tr>
             <tr>
-                <td>TXT (Text)</td>
-                <td>TXT (Text), Registro de texto.</td>
-                <td>Registro comodín utilizado para insertar texto. Suele utilizarse para verificar la autoridad del dominio o para evitar usos incorrectos de las direcciones de correo. Además, TXT permite la creación de registros especiales y Domain-Keys.</td>
+              <td>TXT (Text)</td>
+              <td>TXT (Text), Registro de texto.</td>
+              <td>Registro comodín utilizado para insertar texto. Suele utilizarse para verificar la autoridad del dominio o para evitar usos incorrectos de las direcciones de correo. Además, TXT permite la creación de registros especiales y Domain-Keys.</td>
             </tr>
-        </table>
-    </span>
-    
-    <span id="4010203003">
-        <h3>2.3.2. SERVIDOR DHCP (DYNAMIC HOST CONTROL PROTOCOL)</h3>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010203003">
+      <div class="server-type">
+        <h3><span class="icon">🌐</span> 2.3.2. SERVIDOR DHCP (DYNAMIC HOST CONTROL PROTOCOL)</h3>
         <p>Servidor encargado de suministrar toda la configuración ip a los clientes. Asigna entre otros valores la dirección ip, máscara, puerta de enlace, servidores DNS… a los clientes. La ip asignada se suministra por un tiempo determinado llamado tiempo de arrendamiento (leasing time). Los clientes deben encargarse de solicitar la dirección ip y posteriormente renovarla en caso necesario.</p>
         <p>El servidor DHCP deriva del servidor BootP (Protocolo de arranque).</p>
         <p>La conversación entre un cliente DHCP y un servidor DHCP al solicitar una dirección ip es la siguiente:</p>
-        <ul>
-            <li>Cliente: Envía un paquete DHCPDISCOVER solicitando una ip</li>
-            <li>Servidores DHCP en la red: Envían un paquete DHCPOFFER con las ips disponibles y el resto de configuración de red.</li>
-            <li>Cliente: El cliente recibe las ofertas y selecciona aquella que desea utilizar. A continuación envía un paquete DHCPDHCPREQUEST al servidor que ha seleccionado con la ip elegida.</li>
-            <li>Servidor: El servidor recibe la petición, marca la dirección como cedida y envía un paquete DHCPACK al cliente.</li>
-        </ul>
+        
+        <div class="dhcp-steps">
+          <div class="dhcp-step">
+            <strong>Cliente:</strong> Envía un paquete DHCPDISCOVER solicitando una ip
+          </div>
+          <div class="dhcp-step">
+            <strong>Servidores DHCP en la red:</strong> Envían un paquete DHCPOFFER con las ips disponibles y el resto de configuración de red.
+          </div>
+          <div class="dhcp-step">
+            <strong>Cliente:</strong> El cliente recibe las ofertas y selecciona aquella que desea utilizar. A continuación envía un paquete DHCPDHCPREQUEST al servidor que ha seleccionado con la ip elegida.
+          </div>
+          <div class="dhcp-step">
+            <strong>Servidor:</strong> El servidor recibe la petición, marca la dirección como cedida y envía un paquete DHCPACK al cliente.
+          </div>
+        </div>
+        
         <p>El cliente intenta renovar su dirección ip cuando ha transcurrido la mitad de su tiempo de cesión mediante un DHCPPREREQUEST al servidor. Si el servidor acepta la renovación envía un DHCPACK. Si el servidor no responde el cliente puede seguir utilizando la ip hasta que caduque su cesión. Cuando haya caducado el cliente tiene que comenzar el proceso de petición de ip mediante un comando DHCPDISCOVER.</p>
         <p>El cliente finaliza la cesión enviando un mensaje DHCPRELEASE al servidor.</p>
         <p>El servidor DHCP contempla tres formas de asignación de direcciones ip:</p>
-        <ul>
-            <li>Asignación automática: El tiempo de arrendamiento de la ip asignada es ilimitado.</li>
-            <li>Asignación dinámica: El tiempo de arrendamiento de la ip asignada está acotado.</li>
-            <li>Asignación estática: La ip asignada está reservada al cliente y suele ser permanente. El cliente es reconocido por su dirección física o mac.</li>
-        </ul>
-    </span>
-    
-    <span id="4010203004">
-        <h3>2.3.3. SERVIDOR DE ACCESO REMOTO</h3>
+        
+        <div class="dhcp-types">
+          <div class="dhcp-type">
+            <strong>Asignación automática</strong>
+            <p>El tiempo de arrendamiento de la ip asignada es ilimitado.</p>
+          </div>
+          
+          <div class="dhcp-type">
+            <strong>Asignación dinámica</strong>
+            <p>El tiempo de arrendamiento de la ip asignada está acotado.</p>
+          </div>
+          
+          <div class="dhcp-type">
+            <strong>Asignación estática</strong>
+            <p>La ip asignada está reservada al cliente y suele ser permanente. El cliente es reconocido por su dirección física o mac.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010203004">
+      <div class="server-type">
+        <h3><span class="icon">🔌</span> 2.3.3. SERVIDOR DE ACCESO REMOTO</h3>
         <p>Utilizado principalmente en las telecomunicaciones, es un protocolo de red que le permite a los usuarios gestionar, enviar y recibir datos para solucionar problemas con las redes relacionadas con la telefonía.</p>
         <p>Asimismo, almacena los datos de los mensajes de voz, contestadoras, encima las llamadas y controla la red del Internet móvil.</p>
-    </span>
-    
-    <span id="4010203005">
-        <h3>2.3.4. SERVIDOR PROXY</h3>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010203005">
+      <div class="server-type">
+        <h3><span class="icon">🔄</span> 2.3.4. SERVIDOR PROXY</h3>
         <p>Servidor que hace de intermediario en las peticiones de recursos que realiza un cliente (A) a otro servidor (C). El servidor Proxy suele utilizarse para centralizar el acceso a internet de toda la red corporativa, comprobando y filtrando las direcciones a las que los clientes quieren acceder.</p>
         <p>Puesto que el intermediario entre Internet y los clientes también puede implementar una caché de páginas (Proxy-cache) así como diferentes extensiones de control de usuarios y sesiones.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

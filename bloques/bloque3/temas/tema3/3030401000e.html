@@ -1,65 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vectores, Registros y Estructura de Programas en C</title>
+</head>
+<body>
 <div class="teoria">
-    <span id="3030401001">
-        <h1>8 VECTORES Y REGISTROS</h1>
-        <p>Los arrays son un tipo de estructura de datos que puede almacenar una colección de
-        un número de elementos conocido y prefijado, todos del mismo tipo.</p>
-        <p>La forma de declarar un array es:</p>
-        <pre>type arrayName [ arraySize];</pre>
-        <p>Por ejemplo: <code>double balance[10]</code> quiere decir que balance es un array de 10 elementos
-        de tipo double.</p>
-        <p>En C es necesario inicializar los arrays, ya que pueden contener valores "sucios" en
-        memoria.</p>
-        <pre>double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};</pre>
-        <p>Para acceder a un valor del array, se utiliza la sentencia:</p>
-        <pre>double salary = balance[3] //¿qué valor tiene salary?</pre>
-        <p>Otras peculiaridades de los arrays son que:</p>
-        <ul>
-            <li>C soporta Arrays multidimensionales</li>
-            <li>Los arrays se pueden pasar como parámetro por referencia a una función</li>
-            <li>Las funciones pueden devolver arrays</li>
-            <li>Se puede utilizar un puntero al primer elemento del array simplemente
-            llamando por el nombre del array, sin utilizar el índice.</li>
-        </ul>
-        <p>Por su lado, las estructuras permiten agrupar y combinar datos de diferentes tipos.</p>
-        <p>Y se pueden utilizar de la siguiente forma:</p>
-        <pre>
-struct Books {
-char  title[50];
-char  author[50];
-char  subject[100];
-int   book_id;
-} book;
-        </pre>
-        <p>Además, se pueden pasar por referencia como variable a una función. El puntero se
-        definiría:</p>
-        <pre>struct Books *struct_pointer;</pre>
-        <p>Para acceder a la posición de memoria dónde se almacena el primer libro:</p>
-        <pre>struct_pointer = &Book1;</pre>
-        <p>Y para acceder a los miembros de una estructura:</p>
-        <pre>struct_pointer→title;</pre>
-    </span>
+  <article>
+    <section class="content-section" id="3030401001">
+      <h2 class="section-title">8. VECTORES Y REGISTROS</h2>
+      
+      <div class="content-block">
+        <div class="intro-card">
+          <div class="intro-icon">📊</div>
+          <div class="intro-content">
+            <p>Los arrays son un tipo de estructura de datos que puede almacenar una colección de un número de elementos conocido y prefijado, todos del mismo tipo.</p>
+            <p>La forma de declarar un array es:</p>
+            <pre class="code-block">type arrayName [ arraySize];</pre>
+            <p>Por ejemplo: <code class="inline-code">double balance[10]</code> quiere decir que balance es un array de 10 elementos de tipo double.</p>
+            <p>En C es necesario inicializar los arrays, ya que pueden contener valores "sucios" en memoria.</p>
+            <pre class="code-block">double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};</pre>
+            <p>Para acceder a un valor del array, se utiliza la sentencia:</p>
+            <pre class="code-block">double salary = balance[3] //¿qué valor tiene salary?</pre>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="features-card">
+          <h3 class="card-title">Características de los Arrays</h3>
+          <div class="features-content">
+            <ul class="feature-list">
+              <li><span class="feature-bullet">•</span> C soporta Arrays multidimensionales</li>
+              <li><span class="feature-bullet">•</span> Los arrays se pueden pasar como parámetro por referencia a una función</li>
+              <li><span class="feature-bullet">•</span> Las funciones pueden devolver arrays</li>
+              <li><span class="feature-bullet">•</span> Se puede utilizar un puntero al primer elemento del array simplemente llamando por el nombre del array, sin utilizar el índice.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="example-card">
+          <h3 class="card-title">Ejemplos de Arrays</h3>
+          
+          <div class="css-tabs">
+            <div class="tab-container">
+              <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+              <label for="tab-1" class="tab-label">Declaración</label>
+              <div class="tab-content">
+                <pre class="code-block">
+// Declaración de un array de enteros
+int numbers[5];
 
-    <span id="3030401002">
-        <h1>9 ESTRUCTURA DE UN PROGRAMA</h1>
-        <p>Un programa en C consiste, básicamente de:</p>
-        <ul>
-            <li>Comandos de preprocesador</li>
-            <li>Funciones</li>
-            <li>Variables</li>
-            <li>Instrucciones y expresiones</li>
-            <li>Comentarios</li>
-        </ul>
-        <p>En el ejemplo hello, world tenemos:</p>
-        <ul>
-            <li>Los includes, que es un comando de preprocesador para invocar a otras
-            librerías de C antes de comenzar a procesar el fichero actual.</li>
-            <li>Main() es la función principal, la primera que se ejecutara en el programación.</li>
-            <li>Los comentarios, entre /* … */, aunque también podrían haberse incluido con
-            //</li>
-            <li>Las sentencias: printf</li>
-            <li>La finalización del programa: return</li>
-        </ul>
-        <p>Una vez que se ha escrito un programa, es necesario compilarlo, y si no hay errores, se
-        podrá ejecutar.</p>
-    </span>
+// Declaración de un array de caracteres
+char name[50];
+
+// Declaración de un array de flotantes
+float prices[100];</pre>
+              </div>
+            </div>
+            
+            <div class="tab-container">
+              <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+              <label for="tab-2" class="tab-label">Inicialización</label>
+              <div class="tab-content">
+                <pre class="code-block">
+// Inicialización completa
+int numbers[5] = {1, 2, 3, 4, 5};
+
+// Inicialización parcial (el resto serán 0)
+int partial[5] = {1, 2};
+
+// Inicialización sin tamaño (se infiere del número de elementos)
+int auto_size[] = {1, 2, 3, 4, 5};</pre>
+              </div>
+            </div>
+            
+            <div class="tab-container">
+              <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+              <label for="tab-3" class="tab-label">Multidimensional</label>
+              <div class="tab-content">
+                <pre class="code-block">
+// Array bidimensional (matriz 3x4)
+int matrix[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+};
+
+// Acceso a un elemento
+int element = matrix[1][2];  // Valor: 7</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="structures-card">
+          <h3 class="card-title">Estructuras (Registros)</h3>
+          <div class="structures-content">
+            <p>Por su lado, las estructuras permiten agrupar y combinar datos de diferentes tipos.</p>
+            <p>Y se pueden utilizar de la siguiente forma:</p>
+            <pre class="code-block">
+struct Books {
+    char  title[50];
+    char  author[50];
+    char  subject[100];
+    int   book_id;
+} book;</pre>
+            <p>Además, se pueden pasar por referencia como variable a una función. El puntero se definiría:</p>
+            <pre class="code-block">struct Books *struct_pointer;</pre>
+            <p>Para acceder a la posición de memoria dónde se almacena el primer libro:</p>
+            <pre class="code-block">struct_pointer = &Book1;</pre>
+            <p>Y para acceder a los miembros de una estructura:</p>
+            <pre class="code-block">struct_pointer→title;</pre>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="example-card">
+          <h3 class="card-title">Ejemplo Completo de Estructuras</h3>
+          <pre class="code-block">
+#include <stdio.h>
+#include <string.h>
+
+struct Books {
+    char  title[50];
+    char  author[50];
+    char  subject[100];
+    int   book_id;
+};
+
+int main() {
+    struct Books Book1;
+    struct Books Book2;
+    
+    // Libro 1 - Especificación
+    strcpy(Book1.title, "C Programming");
+    strcpy(Book1.author, "Nuha Ali");
+    strcpy(Book1.subject, "C Programming Tutorial");
+    Book1.book_id = 6495407;
+    
+    // Libro 2 - Especificación
+    strcpy(Book2.title, "Telecom Billing");
+    strcpy(Book2.author, "Zara Ali");
+    strcpy(Book2.subject, "Telecom Billing Tutorial");
+    Book2.book_id = 6495700;
+    
+    // Imprimir información del Libro 1
+    printf("Book 1 title : %s\n", Book1.title);
+    printf("Book 1 author : %s\n", Book1.author);
+    printf("Book 1 subject : %s\n", Book1.subject);
+    printf("Book 1 book_id : %d\n", Book1.book_id);
+    
+    // Imprimir información del Libro 2
+    printf("Book 2 title : %s\n", Book2.title);
+    printf("Book 2 author : %s\n", Book2.author);
+    printf("Book 2 subject : %s\n", Book2.subject);
+    printf("Book 2 book_id : %d\n", Book2.book_id);
+    
+    return 0;
+}</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section" id="3030401002">
+      <h2 class="section-title">9. ESTRUCTURA DE UN PROGRAMA</h2>
+      
+      <div class="content-block">
+        <div class="intro-card">
+          <div class="intro-icon">📝</div>
+          <div class="intro-content">
+            <p>Un programa en C consiste, básicamente de:</p>
+            <ul class="feature-list">
+              <li><span class="feature-bullet">•</span> Comandos de preprocesador</li>
+              <li><span class="feature-bullet">•</span> Funciones</li>
+              <li><span class="feature-bullet">•</span> Variables</li>
+              <li><span class="feature-bullet">•</span> Instrucciones y expresiones</li>
+              <li><span class="feature-bullet">•</span> Comentarios</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="example-card">
+          <h3 class="card-title">Ejemplo "Hello, World"</h3>
+          <pre class="code-block">
+#include <stdio.h>  /* Comando de preprocesador */
+
+/* Función principal */
+int main() {
+    /* Instrucción para imprimir en pantalla */
+    printf("Hello, World!\n");
+    
+    /* Finalización del programa */
+    return 0;
+}</pre>
+          <div class="example-explanation">
+            <ul class="explanation-list">
+              <li><span class="explanation-bullet">•</span> Los <code class="inline-code">includes</code>, que es un comando de preprocesador para invocar a otras librerías de C antes de comenzar a procesar el fichero actual.</li>
+              <li><span class="explanation-bullet">•</span> <code class="inline-code">Main()</code> es la función principal, la primera que se ejecutara en el programación.</li>
+              <li><span class="explanation-bullet">•</span> Los comentarios, entre <code class="inline-code">/* … */</code>, aunque también podrían haberse incluido con <code class="inline-code">//</code></li>
+              <li><span class="explanation-bullet">•</span> Las sentencias: <code class="inline-code">printf</code></li>
+              <li><span class="explanation-bullet">•</span> La finalización del programa: <code class="inline-code">return</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="compilation-card">
+          <h3 class="card-title">Proceso de Compilación</h3>
+          <div class="compilation-content">
+            <p>Una vez que se ha escrito un programa, es necesario compilarlo, y si no hay errores, se podrá ejecutar.</p>
+            <div class="compilation-steps">
+              <div class="compilation-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4 class="step-title">Escritura del Código</h4>
+                  <p>Crear un archivo con extensión .c que contenga el código fuente.</p>
+                </div>
+              </div>
+              <div class="compilation-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4 class="step-title">Preprocesamiento</h4>
+                  <p>El preprocesador procesa las directivas como #include y #define.</p>
+                </div>
+              </div>
+              <div class="compilation-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4 class="step-title">Compilación</h4>
+                  <p>El compilador traduce el código fuente a código objeto.</p>
+                </div>
+              </div>
+              <div class="compilation-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4 class="step-title">Enlazado</h4>
+                  <p>El enlazador combina el código objeto con las bibliotecas necesarias.</p>
+                </div>
+              </div>
+              <div class="compilation-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h4 class="step-title">Ejecución</h4>
+                  <p>El programa compilado puede ser ejecutado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+  }
+  
+  .content-section {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2rem;
+  }
+  
+  .content-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Code Blocks */
+  .code-block {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-gray-100);
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  
+  .inline-code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(59, 130, 246, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  /* Features Card */
+  .features-card, .structures-card, .compilation-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .feature-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .feature-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Example Card */
+  .example-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+  
+  .example-explanation {
+    margin-top: 15px;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .explanation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .explanation-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .explanation-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* CSS-only Tabs */
+  .css-tabs {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+  }
+  
+  .tab-container {
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .tab-switch {
+    display: none;
+  }
+  
+  .tab-label {
+    display: inline-block;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-gray-100);
+    font-weight: bold;
+    color: var(--color-gray-600);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-switch:checked + .tab-label {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+  }
+  
+  .tab-content {
+    display: none;
+    padding: 15px;
+    background-color: var(--color-white);
+  }
+  
+  .tab-switch:checked ~ .tab-content {
+    display: block;
+  }
+  
+  /* Compilation Steps */
+  .compilation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .compilation-step {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .compilation-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .step-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--color-primary-dark);
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .tab-label {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+</body>
+</html>

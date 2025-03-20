@@ -1,137 +1,390 @@
 <div class="teoria">
-    <span id="3080401001">
-        <h2>4.1 LENGUAJES DE MARCADO (SGML, HTML, XML)</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .markup-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .markup-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .markup-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .markup-type h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .markup-type h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .advantage-disadvantage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .advantage, .disadvantage {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      
+      .advantage {
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .disadvantage {
+        border-left: 3px solid #ef4444;
+      }
+      
+      .advantage h4, .disadvantage h4 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .advantage h4 {
+        color: var(--color-secondary-dark);
+      }
+      
+      .disadvantage h4 {
+        color: #dc2626;
+      }
+      
+      .advantage h4 .icon, .disadvantage h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .code-example {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 6px;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-x: auto;
+      }
+      
+      .code-example code {
+        color: var(--color-primary-dark);
+      }
+      
+      .html5-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+      }
+      
+      .html5-feature {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+      }
+      
+      .html5-feature:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .markup-card {
+          padding: 1rem;
+        }
+        
+        .advantage-disadvantage {
+          grid-template-columns: 1fr;
+        }
+        
+        .html5-features {
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <div class="markup-card">
+      <span id="3080401001">
+        <h2>📄 4.1 LENGUAJES DE MARCADO (SGML, HTML, XML)</h2>
         <p>Su origen es la Industria de la publicación electrónica. Inicialmente eran anotaciones de instrucciones de diseño para el tipógrafo, que maquetaba y componía las publicaciones.</p>
         <p>Estas tecnologías presentan en común las siguientes características:</p>
         <h3>Tipos</h3>
-        <h4>Marcado procedural</h4>
-        <p>Conlleva un procedimiento para el dispositivo de salida. El usuario identifica por separado cada elemento significativo, también se especifica la apariencia del texto (tipo de fuente, tamaño, posición), utilizando los comandos apropiados para producir el formato deseado para cada elemento. Es similar al tradicional, la única diferencia es que el marcado se almacena electrónicamente.</p>
-        <p>Desventajas:</p>
-        <ul>
-            <li>Pérdida estructura</li>
-            <li>No es flexible. Cualquier cambio a las normas de formato implica cambiar de manera manual del documento</li>
-            <li>El procesado es lento y propenso a errores</li>
-        </ul>
-    </span>
-
-    <span id="3080401002">
-        <h4>Marcado estructural</h4>
-        <p>Codificación genérica o estructurada. Las etiquetas se asocian a normas de formato, es decir un formateador procesa el texto y produce un documento de salida.</p>
-        <p>Ventajas:</p>
-        <ul>
-            <li>El marcado describe únicamente la estructura lógica del documento</li>
-            <li>Es más flexible</li>
-            <li>Facilita el procesado automático de la información</li>
-        </ul>
-    </span>
-
-    <span id="3080401003">
-        <h3>4.1.1 SGML</h3>
+        
+        <div class="markup-type">
+          <h4><span class="icon">📝</span> Marcado procedural</h4>
+          <p>Conlleva un procedimiento para el dispositivo de salida. El usuario identifica por separado cada elemento significativo, también se especifica la apariencia del texto (tipo de fuente, tamaño, posición), utilizando los comandos apropiados para producir el formato deseado para cada elemento. Es similar al tradicional, la única diferencia es que el marcado se almacena electrónicamente.</p>
+          
+          <div class="disadvantage">
+            <h4><span class="icon">❌</span> Desventajas:</h4>
+            <ul>
+              <li>Pérdida estructura</li>
+              <li>No es flexible. Cualquier cambio a las normas de formato implica cambiar de manera manual del documento</li>
+              <li>El procesado es lento y propenso a errores</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401002">
+        <div class="markup-type">
+          <h4><span class="icon">🏗️</span> Marcado estructural</h4>
+          <p>Codificación genérica o estructurada. Las etiquetas se asocian a normas de formato, es decir un formateador procesa el texto y produce un documento de salida.</p>
+          
+          <div class="advantage">
+            <h4><span class="icon">✅</span> Ventajas:</h4>
+            <ul>
+              <li>El marcado describe únicamente la estructura lógica del documento</li>
+              <li>Es más flexible</li>
+              <li>Facilita el procesado automático de la información</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401003">
+        <h3>📋 4.1.1 SGML</h3>
         <p><strong>Standard Generalized Markup Language</strong>, presenta las siguientes características generales:</p>
         <ul>
-            <li>Lenguaje de Marcado de Tipo estructural</li>
-            <li>Historia:
-                <ul>
-                    <li>Se basa en los trabajos iniciales del Dr. Charles Goldfarb de IBM</li>
-                    <li>Trataron de definir lenguaje de marcas universal para todo tipo de documentos</li>
-                    <li>Finalmente acabaron con un Metalenguaje</li>
-                </ul>
-            </li>
-            <li>Es un estándar internacional publicado por la ISO (Organización Internacional de Estándares). ISO 8879:1986</li>
+          <li>Lenguaje de Marcado de Tipo estructural</li>
+          <li>Historia:
+            <ul>
+              <li>Se basa en los trabajos iniciales del Dr. Charles Goldfarb de IBM</li>
+              <li>Trataron de definir lenguaje de marcas universal para todo tipo de documentos</li>
+              <li>Finalmente acabaron con un Metalenguaje</li>
+            </ul>
+          </li>
+          <li>Es un estándar internacional publicado por la ISO (Organización Internacional de Estándares). ISO 8879:1986</li>
         </ul>
         <p>Características principales:</p>
         <ul>
-            <li>El marcado describe la estructura, no su apariencia</li>
-            <li>El marcado se ajusta a un modelo</li>
-            <li>El material que constituye un documento se puede distribuir en diferentes archivos (Un archivo para portada, introducción, etc.) que se denominan entidades</li>
+          <li>El marcado describe la estructura, no su apariencia</li>
+          <li>El marcado se ajusta a un modelo</li>
+          <li>El material que constituye un documento se puede distribuir en diferentes archivos (Un archivo para portada, introducción, etc.) que se denominan entidades</li>
         </ul>
-    </span>
-
-    <span id="3080401004">
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401004">
         <p>Las entidades pueden estar compartidas por distintos documentos. Un documento estará definido en función de la estructura de las entidades que lo conforman.</p>
         <p>Las entidades se organizan en una estructura lógica de manera jerarquizada, en la que se definen conceptos como capítulos, tablas y párrafos. Cada entidad contiene elementos del documento.</p>
         <p>Los Elementos y entidades pueden coincidir: un elemento lógico como tabla puede ser también una entidad en un archivo hoja de cálculo.</p>
         <p>Los objetos SGML son principalmente dos:</p>
         <ul>
-            <li>Entidades, para caracteres especiales, texto almacenado y archivos externos</li>
-            <li>Elementos, insertados como etiquetas y sus atributos locales</li>
+          <li>Entidades, para caracteres especiales, texto almacenado y archivos externos</li>
+          <li>Elementos, insertados como etiquetas y sus atributos locales</li>
         </ul>
         <p>Pensado para grandes sistemas de gestión de Documentos Muy potente pero también muy complicado.</p>
-    </span>
-
-    <span id="3080401005">
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401005">
         <p>Un documento SGML está compuesto de tres archivos que trabajan de manera conjunta:</p>
         <ul>
-            <li>El DTD (Document Type Definition o Definición del Tipo de Documento)</li>
-            <li>La declaración SGML</li>
-            <li>La Muestra de Documento</li>
+          <li>El DTD (Document Type Definition o Definición del Tipo de Documento)</li>
+          <li>La declaración SGML</li>
+          <li>La Muestra de Documento</li>
         </ul>
-    </span>
-
-    <span id="3080401006">
-        <h3>4.1.2 DTD</h3>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401006">
+        <h3>📋 4.1.2 DTD</h3>
         <p>Es donde se define la Estructura del documento. Contiene las reglas de dichos elementos: el nombre, su significado, dónde pueden ser utilizados y qué pueden contener.</p>
         <p>Se puede almacenar en un archivo separado. Sin el DTD (o una referencia a él), el documento SGML no será validado apropiadamente por el parser.</p>
         <p>El parser es una herramienta que asegura la adecuada conformación de SGML dentro de las múltiples especificaciones que un documento SGML puede tener. Escribir el DTD es la tarea más compleja e importante.</p>
         <p>El DTD permite a las aplicaciones como editores, motores de búsqueda y visualizadores interpretar los documentos SGML.</p>
-    </span>
-
-    <span id="3080401007">
-        <h4>Declaración SGML</h4>
-        <p>Es lo que indica en el documento qué puede y qué no puede estar contenido, qué caracteres serán usados, qué características específicas de SGML serán implementadas y qué sintaxis se utilizará en el documento.</p>
-        <p>La declaración SGML y el DTD trabajan juntos. Si la declaración SGML dice que una función en particular no podrá ser usada, el DTD debe respetarlo, de otra manera existirán errores en el documento. Ésta puede ser parte de la Muestra de Documento y es necesaria para cada documento SGML. Puede utilizarse desde cualquier ubicación considerada no local.</p>
-    </span>
-
-    <span id="3080401008">
-        <h3>4.1.3 HTML</h3>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401007">
+        <div class="markup-type">
+          <h4><span class="icon">📜</span> Declaración SGML</h4>
+          <p>Es lo que indica en el documento qué puede y qué no puede estar contenido, qué caracteres serán usados, qué características específicas de SGML serán implementadas y qué sintaxis se utilizará en el documento.</p>
+          <p>La declaración SGML y el DTD trabajan juntos. Si la declaración SGML dice que una función en particular no podrá ser usada, el DTD debe respetarlo, de otra manera existirán errores en el documento. Ésta puede ser parte de la Muestra de Documento y es necesaria para cada documento SGML. Puede utilizarse desde cualquier ubicación considerada no local.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401008">
+        <h3>🌐 4.1.3 HTML</h3>
         <p>Aplicación de SGML, no de XML. Desarrollado originalmente por Tim Berners-Lee mientras estaba en el CERN (Centro Europeo de Investigaciones Nucleares), y fue popularizado por el navegador Mosaic desarrollado en el NCSA (Nacional Center of SuperComputing of Applications).</p>
         <p>La primera web data de 1993: http://info.cern.ch/hypertext/WWW/TheProject.html</p>
         <p>HTML no es un lenguaje de programación, sino un formato de representación. El formato HTML permite indicar a los navegadores como queremos que se visualice la información que hemos introducido en la página. Para ello utiliza etiquetas o elementos, que a su vez están configuradas o parametrizadas mediante atributos.</p>
-    </span>
-
-    <span id="3080401009">
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401009">
         <h4>Características de HTML</h4>
         <p>Algunas de las características de HTML más importantes son:</p>
         <ul>
-            <li>Utiliza marcado estructural, procedural e hipertextual:
-                <ul>
-                    <li>Estructural: <code>&lt;h1&gt; Coche &lt;/h1&gt;</code> define que Coche es un contenido de tipo cabecera de primer nivel</li>
-                    <li>Presentacional: <code>&lt;br&gt; Casa&lt;/br&gt;</code> indica que este texto se debe presentar salto de línea</li>
-                    <li>Hipertextual: <code>&lt;a href:"www.w3c.com"&gt; Enlace a W3C &lt;/a&gt;</code> etiqueta ancla para enlazar</li>
-                </ul>
-            </li>
-            <li>Lenguaje muy simple para la visualización de documentos hipermedia en navegadores</li>
-            <li>Gramática fija, es decir, NO ES UN METALENGUAJE</li>
-            <li>Formato mediante etiquetas (tags) que indican el comienzo y el final de los elementos</li>
-            <li>La gramática HTML no necesita de validación</li>
-            <li>Estructura monolítica, comienza con la etiqueta &lt;html&gt;, y termina con &lt;/html&gt;</li>
+          <li>Utiliza marcado estructural, procedural e hipertextual:
+            <ul>
+              <li>Estructural: 
+                <div class="code-example">
+                  <code>&lt;h1&gt; Coche &lt;/h1&gt;</code>
+                </div>
+                define que Coche es un contenido de tipo cabecera de primer nivel
+              </li>
+              <li>Presentacional: 
+                <div class="code-example">
+                  <code>&lt;br&gt; Casa&lt;/br&gt;</code>
+                </div>
+                indica que este texto se debe presentar salto de línea
+              </li>
+              <li>Hipertextual: 
+                <div class="code-example">
+                  <code>&lt;a href:"www.w3c.com"&gt; Enlace a W3C &lt;/a&gt;</code>
+                </div>
+                etiqueta ancla para enlazar
+              </li>
+            </ul>
+          </li>
+          <li>Lenguaje muy simple para la visualización de documentos hipermedia en navegadores</li>
+          <li>Gramática fija, es decir, NO ES UN METALENGUAJE</li>
+          <li>Formato mediante etiquetas (tags) que indican el comienzo y el final de los elementos</li>
+          <li>La gramática HTML no necesita de validación</li>
+          <li>Estructura monolítica, comienza con la etiqueta &lt;html&gt;, y termina con &lt;/html&gt;</li>
         </ul>
-    </span>
-
-    <span id="3080401010">
-        <h3>4.1.4 HTML 5</h3>
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401010">
+        <h3>🌐 4.1.4 HTML 5</h3>
         <p>Aprobado el estándar W3C en Octubre de 2014, aunque ya se está usando por desarrolladores web desde hace años.</p>
         <p>Pretende englobar y actualizar HTML4.01, XHTML1.1. Cuando se acabe, será la mayor actualización de una versión de HTML.</p>
         <p>Resultado de la colaboración entre W3C y WHATWG (Web Hypertext Application Technology Working Group), comunidad de fabricantes y personas interesadas en el avance de HTML.</p>
         <p>Se buscaba:</p>
         <ul>
-            <li>Nuevas características basadas en HTML, CSS, DOM y JavaScript</li>
-            <li>Reducir la necesidad de plugins externos</li>
-            <li>Mejor gestión de errores</li>
-            <li>Más etiquetas de marcado para reducir la necesidad de lenguajes de script</li>
+          <li>Nuevas características basadas en HTML, CSS, DOM y JavaScript</li>
+          <li>Reducir la necesidad de plugins externos</li>
+          <li>Mejor gestión de errores</li>
+          <li>Más etiquetas de marcado para reducir la necesidad de lenguajes de script</li>
         </ul>
-    </span>
-
-    <span id="3080401011">
+      </span>
+    </div>
+  
+    <div class="markup-card">
+      <span id="3080401011">
         <h4>Novedades de HTML5</h4>
         <p>Como novedades frente a otros protocolos derivados de HTML, HTML5 aporta:</p>
-        <ul>
-            <li>Reproducción de contenido multimedia sin necesidad de plugins</li>
-            <li>Visores: MathML y SVG</li>
-            <li>Drag & Drop</li>
-            <li>Avance en el desarrollo de la Web Semántica (Web 3.0)</li>
-            <li>Nuevas etiquetas semánticas: header, footer, article, nav, time, etc.</li>
-            <li>Novedades en API's y Javascript</li>
-        </ul>
-    </span>
-</div>
+        
+        <div class="html5-features">
+          <div class="html5-feature">Reproducción de contenido multimedia sin necesidad de plugins</div>
+          <div class="html5-feature">Visores: MathML y SVG</div>
+          <div class="html5-feature">Drag & Drop</div>
+          <div class="html5-feature">Avance en el desarrollo de la Web Semántica (Web 3.0)</div>
+          <div class="html5-feature">Nuevas etiquetas semánticas: header, footer, article, nav, time, etc.</div>
+          <div class="html5-feature">Novedades en API's y Javascript</div>
+        </div>
+      </span>
+    </div>
+  </div>

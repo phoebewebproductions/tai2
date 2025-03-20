@@ -1,81 +1,254 @@
 <div class="teoria">
+  <style>
+    .teoria {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .teoria h2 {
+      color: var(--color-primary-dark);
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--color-primary);
+      padding-left: 1rem;
+    }
+    
+    .teoria h3 {
+      color: var(--color-text);
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .teoria h4 {
+      color: var(--color-text);
+      font-size: 1.2rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    
+    .teoria p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+    
+    .teoria strong {
+      color: var(--color-primary-dark);
+      font-weight: 600;
+    }
+    
+    .accessibility-card {
+      background-color: var(--color-background);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-top: 4px solid var(--color-primary);
+      transition: var(--transition);
+    }
+    
+    .accessibility-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+    }
+    
+    .benefit-section {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 3px solid var(--color-primary);
+    }
+    
+    .benefit-section h4 {
+      margin-top: 0;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+    }
+    
+    .benefit-section h4 .icon {
+      margin-right: 0.5rem;
+    }
+    
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .benefit-item {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: var(--transition);
+      border-left: 3px solid var(--color-secondary);
+    }
+    
+    .benefit-item:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .procedure-list {
+      counter-reset: procedure-counter;
+    }
+    
+    .procedure-item {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      transition: var(--transition);
+      padding-left: 2.5rem;
+    }
+    
+    .procedure-item:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .procedure-item::before {
+      counter-increment: procedure-counter;
+      content: counter(procedure-counter);
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      background-color: var(--color-primary);
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    
+    .disability-section {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 3px solid var(--color-primary);
+      transition: var(--transition);
+    }
+    
+    .disability-section:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .disability-section h4 {
+      margin-top: 0;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+    }
+    
+    .disability-section h4 .icon {
+      margin-right: 0.5rem;
+    }
+    
+    blockquote {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-left: 3px solid var(--color-primary);
+      padding: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+    
+    blockquote footer {
+      margin-top: 0.5rem;
+      text-align: right;
+      font-weight: 600;
+    }
+    
+    .teoria ul, .teoria ol {
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .teoria li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    
+    .teoria ul li {
+      list-style-type: none;
+      padding-left: 1.5rem;
+    }
+    
+    .teoria ul li::before {
+      content: "🔹";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+    }
+    
+    @media (max-width: 768px) {
+      .teoria {
+        padding: 1rem;
+      }
+      
+      .teoria h2 {
+        font-size: 1.5rem;
+      }
+      
+      .accessibility-card {
+        padding: 1rem;
+      }
+      
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="accessibility-card">
     <span id="3090101001">
-        <h2>1. ACCESIBILIDAD</h2>
-        <p>La accesibilidad dentro del ámbito informático está enfocada en que todas las personas puedan acceder a los distintos servicios de una forma fácil e intuitiva.</p>
-        
-        <h3>1.1. ACCESIBILIDAD WEB</h3>
-        <p>La accesibilidad web está enfocada en garantizar que las páginas web sean utilizadas por el mayor número de ciudadanos sin importar los conocimientos, las características del hardware utilizado y las capacidades personales.</p>
-        <blockquote>
-            <p>"El poder de la Web está en su universalidad. El acceso por cualquier persona, independientemente de la discapacidad que presente, es un aspecto esencial."</p>
-            <footer>- Tim Berners-Lee, inventor de la World Wide Web</footer>
-        </blockquote>
+      <h2>♿ 1. ACCESIBILIDAD</h2>
+      <p>La accesibilidad dentro del ámbito informático está enfocada en que todas las personas puedan acceder a los distintos servicios de una forma fácil e intuitiva.</p>
+      
+      <h3>🌐 1.1. ACCESIBILIDAD WEB</h3>
+      <p>La accesibilidad web está enfocada en garantizar que las páginas web sean utilizadas por el mayor número de ciudadanos sin importar los conocimientos, las características del hardware utilizado y las capacidades personales.</p>
+      <blockquote>
+        <p>"El poder de la Web está en su universalidad. El acceso por cualquier persona, independientemente de la discapacidad que presente, es un aspecto esencial."</p>
+        <footer>- Tim Berners-Lee, inventor de la World Wide Web</footer>
+      </blockquote>
     </span>
+  </div>
 
+  <div class="accessibility-card">
     <span id="3090101002">
-        <h4>1.1.1. BENEFICIOS DE UNA WEB ACCESIBLE</h4>
-        <ul>
-            <li>Incrementar la cuota de mercado y audiencia</li>
-            <li>Mejorar el acceso para personas mayores</li>
-            <li>Optimizar resultados en buscadores</li>
-            <li>Permitir reutilización de contenidos en múltiples formatos</li>
-            <li>Reducir la brecha digital</li>
-            <li>Mejorar eficiencia y tiempo de respuesta</li>
-            <li>Reducir costes de desarrollo y mantenimiento</li>
-            <li>Demostrar responsabilidad social</li>
-            <li>Reforzar imagen empresarial</li>
-            <li>Diferenciación competitiva</li>
-            <li>Cumplimiento legal</li>
-            <li>Aumentar productividad y crecimiento</li>
-            <li>Mejorar acceso a herramientas de información</li>
-        </ul>
-    </span>
-
-    <span id="3090101003">
-        <h4>1.1.2. PROCEDIMIENTO PARA CONSEGUIR UNA WEB ACCESIBLE</h4>
-        <p>El World Wide Web Consortium (W3C) define las siguientes recomendaciones:</p>
-        <ol>
-            <li><strong>Imágenes y animaciones:</strong> Usar el atributo alt para describir la función de elementos visuales</li>
-            <li><strong>Mapas de imagen:</strong> Usar mapas y texto del lado del cliente para puntos de acceso</li>
-            <li><strong>Multimedia:</strong> Incluir subtítulos, transcripciones de audio y descripciones de vídeo</li>
-            <li><strong>Enlaces:</strong> Usar texto significativo fuera de contexto (evitar "haga clic aquí")</li>
-            <li><strong>Organización:</strong> Usar encabezados, listas y estructura consistente con CSS</li>
-            <li><strong>Gráficos y tablas:</strong> Proporcionar resúmenes o usar atributo longdesc</li>
-            <li><strong>Scripts y complementos:</strong> Ofrecer contenido alternativo</li>
-            <li><strong>Frames:</strong> Usar noframes y títulos significativos</li>
-            <li><strong>Tablas:</strong> Asegurar lectura línea por línea coherente</li>
-            <li><strong>Validación:</strong> Usar herramientas y pautas W3C</li>
-        </ol>
-    </span>
-
-    <span id="3090101004">
-        <h3>1.1.3 ÁMBITOS DE APLICACIÓN DE LA ACCESIBILIDAD</h3>
-        <p>Las recomendaciones según el tipo de discapacidad incluyen:</p>
-
-        <h4>Discapacidad auditiva</h4>
-        <ul>
-            <li>Acompañar contenido sonoro con imágenes representativas</li>
-            <li>Proporcionar transcripciones de audio</li>
-            <li>Incluir subtítulos en videos</li>
-            <li>Ofrecer alternativas visuales para alertas sonoras</li>
-        </ul>
-
-        <h4>Discapacidad física</h4>
-        <ul>
-            <li>Permitir conexión de hardware adicional</li>
-            <li>Asegurar navegación por teclado</li>
-            <li>Proporcionar atajos de teclado</li>
-            <li>Diseñar interfaces que no requieran movimientos precisos</li>
-            <li>Dar tiempo suficiente para completar acciones</li>
-        </ul>
-
-        <h4>Discapacidad visual</h4>
-        <ul>
-            <li>Proporcionar descripciones de texto para imágenes</li>
-            <li>Asegurar suficiente contraste de color</li>
-            <li>Permitir redimensionar texto</li>
-            <li>Estructurar contenido para lectores de pantalla</li>
-            <li>Evitar contenido que parpadee o destelle</li>
-            <li>Ofrecer navegación consistente</li>
-        </ul>
-    </span>
-</div>
+      <div class="benefit-section">
+        <h4><span class="icon">💼</span> 1.1.1. BENEFICIOS DE UNA WEB ACCESIBLE</h4>
+        
+        <div class="benefit-grid">
+          <div class="benefit-item">
+            <p>Incrementar la cuota de mercado y audiencia</p>
+          </div>
+          
+          <div class="benefit-item">
+            <p>Mejorar el acceso para personas mayores</p>
+          </div>
+          
+          <div class="benefit-item">
+            <p>Optimizar resultados en buscadores</p>
+          </div>
+          
+          <div class="benefit-item">
+            <p>Permitir reutilización de contenidos en múltiples formatos</p>
+          </div>
+          
+          <div class="benefit-item">
+            

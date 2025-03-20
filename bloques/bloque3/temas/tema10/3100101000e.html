@@ -1,15 +1,183 @@
 <div class="teoria">
-    <span id="3100101001">
-        <h2>1.1. HERRAMIENTAS CASE</h2>
-        <p>Las herramientas CASE (Computer Aided Software Engineering) o Ingeniería de Software Asistida por Ordenador es un término utilizado dentro de la ingeniería de software destinado para definir aquellas herramientas cuyo principal objetivo es apoyar y acelerar cada una de las fases del ciclo de vida del desarrollo software.</p>
-    </span>
-    
-    <span id="3100101002">
-        <h3>1.1.1. OBJETIVO Y CARACTERÍSTICAS</h3>
-        <p>Su objetivo más importante es fomentar la automatización con el fin de mejorar la calidad y productividad de los desarrollos.</p>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .case-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .case-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .objective-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .objective-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .objective-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .objective-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .objective-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .objective-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .classification-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .classification-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .classification-section h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .classification-section h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
         
-        <p>Algunos de los fines de las herramientas CASE son:</p>
-        <ul>
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .case-card {
+          padding: 1rem;
+        }
+        
+        .objective-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="case-card">
+      <span id="3100101001">
+        <h2>🛠️ 1.1. HERRAMIENTAS CASE</h2>
+        <p>Las herramientas CASE (Computer Aided Software Engineering) o Ingeniería de Software Asistida por Ordenador es un término utilizado dentro de la ingeniería de software destinado para definir aquellas herramientas cuyo principal objetivo es apoyar y acelerar cada una de las fases del ciclo de vida del desarrollo software.</p>
+      </span>
+    </div>
+  
+    <div class="case-card">
+      <span id="3100101002">
+        <div class="objective-section">
+          <h3><span class="icon">🎯</span> 1.1.1. OBJETIVO Y CARACTERÍSTICAS</h3>
+          <p>Su objetivo más importante es fomentar la automatización con el fin de mejorar la calidad y productividad de los desarrollos.</p>
+          
+          <p>Algunos de los fines de las herramientas CASE son:</p>
+          <ul>
             <li>Facilitar el control de cambios.</li>
             <li>Simplificar el mantenimiento de los programas.</li>
             <li>Mejorar la productividad en el desarrollo y mantenimiento del software.</li>
@@ -21,39 +189,53 @@
             <li>Aumentar la portabilidad de las aplicaciones en las diferentes plataformas.</li>
             <li>Realizar un correcto control de versiones.</li>
             <li>Etc.</li>
-        </ul>
-    </span>
-    
-    <span id="3100101003">
-        <h3>1.1.2. CLASIFICACIÓN</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="case-card">
+      <span id="3100101003">
+        <h3>📊 1.1.2. CLASIFICACIÓN</h3>
         <p>Las herramientas CASE se pueden clasificar de diversas maneras: según la fase del ciclo de vida, según su soporte o según su funcionalidad.</p>
-    </span>
-    
-    <span id="3100101004">
-        <h4>1.1.2.1. HERRAMIENTAS CASE SEGÚN FASE DEL CICLO DE VIDA</h4>
-        <ul>
-            <li>UPPER CASE (U-CASE). Para planificación estratégica y gestión de proyecto.</li>
-            <li>MIDDLE CASE (M-CASE). Análisis y diseño del sistema.</li>
-            <li>LOWER CASE (L-CASE). Para el desarrollo, pruebas y mantenimiento del sistema.</li>
-        </ul>
-    </span>
-    
-    <span id="3100101005">
-        <h4>1.1.2.2. HERRAMIENTAS CASE SEGÚN EL SOPORTE AL DESARROLLO</h4>
-        <ul>
-            <li>Tool CASE. Dan soporte solo a alguna parte del proceso del desarrollo.</li>
-            <li>I-CASE. Dan soporte a todo el proceso de desarrollo del software.</li>
-        </ul>
-    </span>
-    
-    <span id="3100101006">
-        <h4>1.1.2.3. HERRAMIENTAS CASE SEGÚN FUNCIONALIDAD</h4>
-        <p>Según funcionalidad, se pueden listar un sinfín de herramientas. A continuación, se van a incluir algunas de las clasificaciones más utilizadas, pero debido a la amplitud del tema cuando queramos clasificar una herramienta CASE según su funcionalidad, siempre se deberá plantear la pregunta:</p>
-        
-        <p>¿Cuál es el objetivo principal de esta herramienta?</p>
-        
-        <p>Algunas de las funcionalidades pueden ser:</p>
-        <ul>
+      </span>
+    </div>
+  
+    <div class="case-card">
+      <span id="3100101004">
+        <div class="classification-section">
+          <h4><span class="icon">⏱️</span> 1.1.2.1. HERRAMIENTAS CASE SEGÚN FASE DEL CICLO DE VIDA</h4>
+          <ul>
+            <li><strong>UPPER CASE (U-CASE).</strong> Para planificación estratégica y gestión de proyecto.</li>
+            <li><strong>MIDDLE CASE (M-CASE).</strong> Análisis y diseño del sistema.</li>
+            <li><strong>LOWER CASE (L-CASE).</strong> Para el desarrollo, pruebas y mantenimiento del sistema.</li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="case-card">
+      <span id="3100101005">
+        <div class="classification-section">
+          <h4><span class="icon">🔄</span> 1.1.2.2. HERRAMIENTAS CASE SEGÚN EL SOPORTE AL DESARROLLO</h4>
+          <ul>
+            <li><strong>Tool CASE.</strong> Dan soporte solo a alguna parte del proceso del desarrollo.</li>
+            <li><strong>I-CASE.</strong> Dan soporte a todo el proceso de desarrollo del software.</li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="case-card">
+      <span id="3100101006">
+        <div class="classification-section">
+          <h4><span class="icon">🧩</span> 1.1.2.3. HERRAMIENTAS CASE SEGÚN FUNCIONALIDAD</h4>
+          <p>Según funcionalidad, se pueden listar un sinfín de herramientas. A continuación, se van a incluir algunas de las clasificaciones más utilizadas, pero debido a la amplitud del tema cuando queramos clasificar una herramienta CASE según su funcionalidad, siempre se deberá plantear la pregunta:</p>
+          
+          <p>¿Cuál es el objetivo principal de esta herramienta?</p>
+          
+          <p>Algunas de las funcionalidades pueden ser:</p>
+          <ul>
             <li>Herramientas de generación semiautomática de código.</li>
             <li>Editores UML.</li>
             <li>Herramientas de Refactorización de código.</li>
@@ -63,6 +245,8 @@
             <li>Herramientas de administración de proyectos.</li>
             <li>Herramientas de ingeniería inversa.</li>
             <li>Etc.</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

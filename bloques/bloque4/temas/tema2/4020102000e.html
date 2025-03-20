@@ -1,53 +1,234 @@
 <div class="teoria">
-    <span id="4020102001">
-        <h2>1.2. MODELOS Y SISTEMAS DE GESTIÓN DE BASES DE DATOS</h2>
-        <p>Las bases de datos son elementos de almacenamiento de la información que representan o modelan una parte de la realidad. De esa forma, dependiendo de la orientación de esos mecanismos se tienen diferentes tipos de modelos de bases de datos.</p>
-    </span>
-    
-    <span id="4020102002">
-        <h3>1.2.1. PRINCIPALES MODELOS DE BASES DE DATOS</h3>
-        <ul>
-            <li><strong>Modelo jerárquico.</strong> Se trata de un modelo que representa las relaciones entre las entidades involucradas de una forma similar a un árbol, es decir, de una manera basada en jerarquía tal y como su propio nombre indica.
-                <p>Modelo de estructura jerárquica</p>
-                <p>Tal y como se puede observar se trata de un modelo de representación sencillo pero que presenta limitaciones en cuanto a su rigidez y capacidad de representación, dado que sólo permite representación de relaciones con cardinalidad 1 a N (un padre con varios hijos), pero no la inversa, por ejemplo (un hijo con varios padres).</p>
-                <p>Actualmente los ejemplos más significativos de bases de datos jerárquicas que pueden citarse son IMS de IBM o el Registro del sistema operativo Windows de Microsoft.</p>
-            </li>
-            <li><strong>Modelo en red.</strong> Se trata de un modelo que permite la representación de relaciones más complejas que el modelo jerárquico anterior. Las entidades se relacionan entre ellas mediante diferentes conexiones -para alcanzar un determinado nodo desde otro pueden existir varios caminos -, lo que equivale a la representación de relaciones N a M.
-                <p>Modelo de estructura en red</p>
-                <p>Este modelo fue propuesto por Charles Bachman, y el estándar relacionado fue publicado en 1969 por CODASYL.</p>
-            </li>
-            <li><strong>Modelo relacional.</strong> La estructura relacional es, con mucha diferencia, la más extendida hoy en día. Se basa en la representación de las entidades mediante tablas que se componen de filas (tuplas) y columnas (atributos). Adicionalmente, los atributos que actúan como claves en cada una de las tablas actúa como mecanismo de relación entre ellas.
-                <p>Modelo de estructura relacional</p>
-                <p>Fue concebido por el trabajador de la empresa IBM, E. F. Codd en el año 1972, basándose en conceptos de la teoría de conjuntos y la lógica de predicados.</p>
-            </li>
-            <li><strong>Modelo multidimensional.</strong> Su representación es similar a la del modelo relacional, pero en lugar de las dos dimensiones mencionadas de dicho modelo filas -tuplas - y columnas -atributos-, amplía hasta N dimensiones.
-                <p>Modelo de estructura multidimensional</p>
-                <p>Dadas sus altas prestaciones para casos de análisis y minería de datos han hecho de este tipo de modelo de base de datos el más popular y adecuado para el proceso analítico de transacciones en línea (OLAP: OnLine Analytical Process).</p>
-            </li>
-            <li><strong>Modelo orientado a objetos.</strong> Se basa en la representación mediante objetos de las entidades propias del universo modelado. De esa forma, dichos objetos incluyen tanto los datos propiamente dichos, como capacidades computacionales a los propios objetos. Es una aproximación similar a los lenguajes de programación orientados a objetos.
-                <p>Modelo de estructura orientada a objetos</p>
-            </li>
-        </ul>
-    </span>
-    
-    <span id="4020102003">
-        <h3>1.2.2. SISTEMAS DE GESTIÓN DE BASES DE DATOS</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .db-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .db-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
+      }
+      
+      .db-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .db-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .model-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .model-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      
+      .model-card h4 {
+        color: var(--color-primary-dark);
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .model-card h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .component-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .component-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .component-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul li ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .db-card {
+          padding: 1rem;
+        }
+        
+        .component-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="db-card" id="4020102001">
+      <h2>🗃️ 1.2. MODELOS Y SISTEMAS DE GESTIÓN DE BASES DE DATOS</h2>
+      <p>Las bases de datos son elementos de almacenamiento de la información que representan o modelan una parte de la realidad. De esa forma, dependiendo de la orientación de esos mecanismos se tienen diferentes tipos de modelos de bases de datos.</p>
+    </div>
+  
+    <div class="db-card" id="4020102002">
+      <div class="db-section">
+        <h3>🏗️ 1.2.1. PRINCIPALES MODELOS DE BASES DE DATOS</h3>
+        
+        <div class="model-card">
+          <h4><span class="icon">🌲</span> Modelo jerárquico</h4>
+          <p>Se trata de un modelo que representa las relaciones entre las entidades involucradas de una forma similar a un árbol, es decir, de una manera basada en jerarquía tal y como su propio nombre indica.</p>
+          <p><em>Modelo de estructura jerárquica</em></p>
+          <p>Tal y como se puede observar se trata de un modelo de representación sencillo pero que presenta limitaciones en cuanto a su rigidez y capacidad de representación, dado que sólo permite representación de relaciones con cardinalidad 1 a N (un padre con varios hijos), pero no la inversa, por ejemplo (un hijo con varios padres).</p>
+          <p>Actualmente los ejemplos más significativos de bases de datos jerárquicas que pueden citarse son IMS de IBM o el Registro del sistema operativo Windows de Microsoft.</p>
+        </div>
+        
+        <div class="model-card">
+          <h4><span class="icon">🕸️</span> Modelo en red</h4>
+          <p>Se trata de un modelo que permite la representación de relaciones más complejas que el modelo jerárquico anterior. Las entidades se relacionan entre ellas mediante diferentes conexiones -para alcanzar un determinado nodo desde otro pueden existir varios caminos -, lo que equivale a la representación de relaciones N a M.</p>
+          <p><em>Modelo de estructura en red</em></p>
+          <p>Este modelo fue propuesto por Charles Bachman, y el estándar relacionado fue publicado en 1969 por CODASYL.</p>
+        </div>
+        
+        <div class="model-card">
+          <h4><span class="icon">📊</span> Modelo relacional</h4>
+          <p>La estructura relacional es, con mucha diferencia, la más extendida hoy en día. Se basa en la representación de las entidades mediante tablas que se componen de filas (tuplas) y columnas (atributos). Adicionalmente, los atributos que actúan como claves en cada una de las tablas actúa como mecanismo de relación entre ellas.</p>
+          <p><em>Modelo de estructura relacional</em></p>
+          <p>Fue concebido por el trabajador de la empresa IBM, E. F. Codd en el año 1972, basándose en conceptos de la teoría de conjuntos y la lógica de predicados.</p>
+        </div>
+        
+        <div class="model-card">
+          <h4><span class="icon">🧊</span> Modelo multidimensional</h4>
+          <p>Su representación es similar a la del modelo relacional, pero en lugar de las dos dimensiones mencionadas de dicho modelo filas -tuplas - y columnas -atributos-, amplía hasta N dimensiones.</p>
+          <p><em>Modelo de estructura multidimensional</em></p>
+          <p>Dadas sus altas prestaciones para casos de análisis y minería de datos han hecho de este tipo de modelo de base de datos el más popular y adecuado para el proceso analítico de transacciones en línea (OLAP: OnLine Analytical Process).</p>
+        </div>
+        
+        <div class="model-card">
+          <h4><span class="icon">🧩</span> Modelo orientado a objetos</h4>
+          <p>Se basa en la representación mediante objetos de las entidades propias del universo modelado. De esa forma, dichos objetos incluyen tanto los datos propiamente dichos, como capacidades computacionales a los propios objetos. Es una aproximación similar a los lenguajes de programación orientados a objetos.</p>
+          <p><em>Modelo de estructura orientada a objetos</em></p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="db-card" id="4020102003">
+      <div class="db-section">
+        <h3>⚙️ 1.2.2. SISTEMAS DE GESTIÓN DE BASES DE DATOS</h3>
         <p>En cualquier caso, con independencia del modelo de base de datos de que se trate, en todos los casos resulta necesaria la realización de una serie de tareas sobre las bases de datos. La herramienta que se encarga de realizar esas funciones es el sistema de gestión de bases de datos o SGBD.</p>
         <p>De esa forma, como decimos, dependiendo del modelo de base de datos de que se trate, se hablará de sistema gestor de base de datos relacional, jerárquico, en red, etc., aunque en todos los casos debe incluir una serie de componentes y funcionalidades:</p>
-        <ul>
-            <li><strong>Administración de la base de datos y su entorno.</strong>
-                <p>El subsistema de administración aporta soporte para la gestión de la base de datos, en cuanto a funcionalidades tales como almacenamiento y recuperación, gestión de la seguridad (permisos, roles, etc.), optimización de consultas, control de concurrencia y gestión de cambios.</p>
-            </li>
-            <li><strong>Definición y manipulación de los datos de la base de datos:</strong>
-                <ul>
-                    <li>El subsistema de definición de datos debe permitir crear y mantener el diccionario de datos y definir la estructura del fichero que soporta la base de datos.</li>
-                    <li>El subsistema de manipulación de datos permite realizar operaciones para añadir, cambiar y borrar información de la base de datos, junto con la consulta para extraer información. El subsistema de manipulación de datos suele ser la interfaz principal del usuario con la base de datos.</li>
-                    <li>El motor de la base de datos se encarga de recibir las peticiones de operaciones lógicas sobre la base de datos –definición y manipulación-, las convierte en un lenguaje operacional físico y accede a la base de datos y diccionario de datos en el dispositivo de almacenamiento.</li>
-                </ul>
-            </li>
-            <li><strong>Apoyo al desarrollo de aplicaciones.</strong>
-                <p>El subsistema de generación de aplicaciones contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones. Usualmente proporciona pantallas de entrada de datos, lenguajes de programación e interfaces.</p>
-            </li>
-        </ul>
-    </span>
-</div>
+        
+        <div class="component-list">
+          <div class="component-item">
+            <strong>Administración de la base de datos y su entorno</strong>
+            <p>El subsistema de administración aporta soporte para la gestión de la base de datos, en cuanto a funcionalidades tales como almacenamiento y recuperación, gestión de la seguridad (permisos, roles, etc.), optimización de consultas, control de concurrencia y gestión de cambios.</p>
+          </div>
+          
+          <div class="component-item">
+            <strong>Definición y manipulación de los datos de la base de datos</strong>
+            <ul>
+              <li>El subsistema de definición de datos debe permitir crear y mantener el diccionario de datos y definir la estructura del fichero que soporta la base de datos.</li>
+              <li>El subsistema de manipulación de datos permite realizar operaciones para añadir, cambiar y borrar información de la base de datos, junto con la consulta para extraer información. El subsistema de manipulación de datos suele ser la interfaz principal del usuario con la base de datos.</li>
+              <li>El motor de la base de datos se encarga de recibir las peticiones de operaciones lógicas sobre la base de datos –definición y manipulación-, las convierte en un lenguaje operacional físico y accede a la base de datos y diccionario de datos en el dispositivo de almacenamiento.</li>
+            </ul>
+          </div>
+          
+          <div class="component-item">
+            <strong>Apoyo al desarrollo de aplicaciones</strong>
+            <p>El subsistema de generación de aplicaciones contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones. Usualmente proporciona pantallas de entrada de datos, lenguajes de programación e interfaces.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

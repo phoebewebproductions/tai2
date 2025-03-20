@@ -1,53 +1,227 @@
 <div class="teoria">
-    <span id="4020201001">
-        <h2>2.1. EL MODELO DE BASE DE DATOS RELACIONAL</h2>
-    </span>
-    
-    <span id="4020201002">
-        <h3>2.1.1. ANTECEDENTES Y UN POCO DE HISTORIA</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .db-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .db-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
+      }
+      
+      .db-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .db-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .concept-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .concept-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .concept-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .db-card {
+          padding: 1rem;
+        }
+        
+        .concept-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="db-card" id="4020201001">
+      <h2>📊 2.1. EL MODELO DE BASE DE DATOS RELACIONAL</h2>
+    </div>
+  
+    <div class="db-card" id="4020201002">
+      <div class="db-section">
+        <h3>🏛️ 2.1.1. ANTECEDENTES Y UN POCO DE HISTORIA</h3>
         <p>Como ya se ha comentado, el modelo relacional es, con mucha diferencia el más utilizado en la actualidad para modelar y administrar bases de datos. Fue propuesto en el año 1970 por el ingeniero Edgar Frank Codd en los laboratorios IBM en San José (California), basándose en conceptos de la teoría de conjuntos y la lógica de predicados. No tardó en consolidarse como el paradigma de referencia para los modelos y sistemas de gestión de base de datos.</p>
         <p>Como veremos su idea fundamental se basa en el uso de relaciones, que podrían considerarse en forma lógica como conjuntos de datos llamados "tuplas". En cualquier caso, cada relación puede equipararse con una tabla cuyas filas o registros, representarían tales tuplas, compuestas por atributos o campos -que serían la visión de las columnas de la tabla-.</p>
         <p>De esa forma, en este modelo, frente a otros como el jerárquico o el de red, el lugar y la forma en que se almacenen los datos no tienen relevancia, lo que aporta ciertas ventajas.</p>
         <p>Finalmente, la información puede ser recuperada o almacenada mediante consultas que ofrecen una amplia flexibilidad y operatividad para administrar la información contenida en la base de datos. Para ello, el lenguaje más habitual para construir estas operaciones o consultas sobre las bases de datos relacionales es el SQL -Structured Query Language- cuyas principales características veremos.</p>
-    </span>
-    
-    <span id="4020201003">
-        <h3>2.1.2. PRINCIPALES ELEMENTOS Y CONCEPTOS DEL MODELO RELACIONAL</h3>
-    </span>
-    
-    <span id="4020201004">
-        <h4>2.1.2.1. ELEMENTOS BÁSICOS DEL MODELO RELACIONAL</h4>
+      </div>
+    </div>
+  
+    <div class="db-card" id="4020201003">
+      <h3>🧩 2.1.2. PRINCIPALES ELEMENTOS Y CONCEPTOS DEL MODELO RELACIONAL</h3>
+    </div>
+  
+    <div class="db-card" id="4020201004">
+      <div class="db-section">
+        <h4>📋 2.1.2.1. ELEMENTOS BÁSICOS DEL MODELO RELACIONAL</h4>
         <p>Los principales elementos del modelo relacional son los que se presentan a continuación.</p>
         <p>Elementos básicos del modelo relacional</p>
-        <ul>
-            <li><strong>Relación.</strong> Se trata de la estructura básica del modelo y representa cada una de las entidades del universo del discurso de la información de que se trate. Se modela mediante una tabla de dos dimensiones (filas y columnas). En la imagen de ejemplo anterior tenemos la relación (o tabla) PELICULA.</li>
-            <li><strong>Atributo.</strong> Representa cada una de las propiedades de la relación y se equipara con las columnas de la tabla que representa la relación. El número de atributos que tiene una relación, o lo que es lo mismo, el número de columnas de la tabla correspondiente, recibe el nombre de grado. En la imagen de ejemplo anterior tenemos que la relación (o tabla) PELICULA tiene grado 3, contando con los atributos TÍTULO, AÑO y DURACIÓN.</li>
-            <li><strong>Tupla.</strong> Se trata de cada una de las ocurrencias de los atributos de una relación y se identifica con cada una de las filas de la tabla que representa la relación. El número de tuplas que contiene una tabla, o de ocurrencias de los atributos de una relación, recibe el nombre de cardinalidad de dicha relación. En la imagen de ejemplo anterior tenemos que la relación (o tabla) PELICULA tiene cardinalidad 4, contando con 4 las ocurrencias.</li>
-            <li><strong>Dominio.</strong> Define el espacio para los posibles valores que puede tomar un determinado atributo. En la imagen de ejemplo anterior tenemos que los atributos de la relación (o tabla) PELICULA tienen diferentes dominios: texto para el TÍTULO, valores de años para el atributo AÑO o un valor numérico entero para el campo DURACIÓN.</li>
-        </ul>
-    </span>
-    
-    <span id="4020201005">
-        <h4>2.1.2.2. EL VALOR NULO (NULL) EN EL MODELO RELACIONAL</h4>
+        
+        <div class="concept-list">
+          <div class="concept-item">
+            <strong>Relación</strong>
+            <p>Se trata de la estructura básica del modelo y representa cada una de las entidades del universo del discurso de la información de que se trate. Se modela mediante una tabla de dos dimensiones (filas y columnas). En la imagen de ejemplo anterior tenemos la relación (o tabla) PELICULA.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Atributo</strong>
+            <p>Representa cada una de las propiedades de la relación y se equipara con las columnas de la tabla que representa la relación. El número de atributos que tiene una relación, o lo que es lo mismo, el número de columnas de la tabla correspondiente, recibe el nombre de grado. En la imagen de ejemplo anterior tenemos que la relación (o tabla) PELICULA tiene grado 3, contando con los atributos TÍTULO, AÑO y DURACIÓN.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Tupla</strong>
+            <p>Se trata de cada una de las ocurrencias de los atributos de una relación y se identifica con cada una de las filas de la tabla que representa la relación. El número de tuplas que contiene una tabla, o de ocurrencias de los atributos de una relación, recibe el nombre de cardinalidad de dicha relación. En la imagen de ejemplo anterior tenemos que la relación (o tabla) PELICULA tiene cardinalidad 4, contando con 4 las ocurrencias.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Dominio</strong>
+            <p>Define el espacio para los posibles valores que puede tomar un determinado atributo. En la imagen de ejemplo anterior tenemos que los atributos de la relación (o tabla) PELICULA tienen diferentes dominios: texto para el TÍTULO, valores de años para el atributo AÑO o un valor numérico entero para el campo DURACIÓN.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="db-card" id="4020201005">
+      <div class="db-section">
+        <h4>⚠️ 2.1.2.2. EL VALOR NULO (NULL) EN EL MODELO RELACIONAL</h4>
         <p>Con independencia del dominio del atributo de que se trate, en el modelo relacional debe existir un valor de uso especial, se trata del valor nulo o null. Este valor, no debe equipararse con un cero ni con un blanco, sino que significa que el valor particular para un determinado atributo es desconocido o no está disponible en ese momento dado.</p>
         <p>De esa forma, como veremos, una de las 13 reglas de Codd, la regla del tratamiento sistemático de valores nulos establece que el sistema de gestión de base de datos debe permitir la existencia de campos con valores nulos, como representación de información que no disponible o inaplicable que sea sistemática y distinta de todos los valores regulares (no son valores blancos o ceros).</p>
         <p>Finalmente, como también se verá, las reglas de integridad que buscan asegurar la corrección, consistencia y coherencia de los datos del modelo, harán que este valor no resulte admisible en algunas situaciones (en las claves primarias).</p>
-    </span>
-    
-    <span id="4020201006">
-        <h4>2.1.2.3. ATRIBUTOS CLAVE EN EL MODELO RELACIONAL: IDENTIFICACIÓN DE TUPLAS</h4>
+      </div>
+    </div>
+  
+    <div class="db-card" id="4020201006">
+      <div class="db-section">
+        <h4>🔑 2.1.2.3. ATRIBUTOS CLAVE EN EL MODELO RELACIONAL: IDENTIFICACIÓN DE TUPLAS</h4>
         <p>Adicionalmente, las relaciones cuentan con claves o identificadores, que identifican las tuplas, marcando una dependencia funcional del resto de los atributos con ellas.</p>
-        <ul>
-            <li><strong>Clave candidata:</strong> Cada uno de los conjuntos de atributos (ya sean formados por uno sólo o una concatenación de varios de ellos) que identifica de manera unívoca y mínima a cada una de las tuplas de una relación. Lógicamente, las claves candidatas, para poder identificar unívocamente una relación, no pueden contener valores nulos.
-                <p>Por ejemplo, en la siguiente relación Empleados_Centros que almacena los empleados de cada centro, el atributo único Id_Empleado es clave candidata, puesto que identifica a cada una de las tuplas.</p>
-                <p>Relación que incluye redundancia de datos</p>
-            </li>
-            <li><strong>Superclave.</strong> Es aquel atributo o conjunto de atributos concatenados que identifican de manera única a las tuplas de una relación.</li>
-            <li><strong>Clave primaria (o primary key).</strong> Es la clave elegida entre las llaves candidatas. El criterio de selección marca elegir aquella que sea más sencilla, contando con el menor número de atributos posible.</li>
-            <li><strong>Clave secundaria.</strong> Se trata del resto de las llaves candidatas, en caso de existir, que no son elegidas como clave principal de la relación.</li>
-            <li><strong>Clave foránea (o foreign key).</strong> Se trata de un atributo, ya sea simple o compuesto, de una relación que está definido en el mismo dominio que la clave primaria de otra relación.
- 
-            </li>
-        </ul>
-    </span>
-</div>
+        
+        <div class="concept-list">
+          <div class="concept-item">
+            <strong>Clave candidata</strong>
+            <p>Cada uno de los conjuntos de atributos (ya sean formados por uno sólo o una concatenación de varios de ellos) que identifica de manera unívoca y mínima a cada una de las tuplas de una relación. Lógicamente, las claves candidatas, para poder identificar unívocamente una relación, no pueden contener valores nulos.</p>
+            <p>Por ejemplo, en la siguiente relación Empleados_Centros que almacena los empleados de cada centro, el atributo único Id_Empleado es clave candidata, puesto que identifica a cada una de las tuplas.</p>
+            <p>Relación que incluye redundancia de datos</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Superclave</strong>
+            <p>Es aquel atributo o conjunto de atributos concatenados que identifican de manera única a las tuplas de una relación.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Clave primaria (o primary key)</strong>
+            <p>Es la clave elegida entre las llaves candidatas. El criterio de selección marca elegir aquella que sea más sencilla, contando con el menor número de atributos posible.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Clave secundaria</strong>
+            <p>Se trata del resto de las llaves candidatas, en caso de existir, que no son elegidas como clave principal de la relación.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>Clave foránea (o foreign key)</strong>
+            <p>Se trata de un atributo, ya sea simple o compuesto, de una relación que está definido en el mismo dominio que la clave primaria de otra relación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

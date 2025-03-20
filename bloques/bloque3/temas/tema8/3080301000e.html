@@ -1,82 +1,317 @@
 <div class="teoria">
-    <span id="3080301001">
-        <h2>3.1 DISEÑO WEB MULTIDISPOSITIVO</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .responsive-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .responsive-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .framework-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .framework-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .framework-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .framework-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .framework-category {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+      }
+      
+      .framework-category:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .framework-category h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .media-query-box {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .media-types {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      
+      .media-type {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        transition: var(--transition);
+      }
+      
+      .media-type:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .device-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1rem 0;
+      }
+      
+      .device-feature {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+      }
+      
+      .device-feature:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .responsive-card {
+          padding: 1rem;
+        }
+        
+        .framework-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .media-types {
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <div class="responsive-card">
+      <span id="3080301001">
+        <h2>📱 3.1 DISEÑO WEB MULTIDISPOSITIVO</h2>
         <p>El <strong>diseño web adaptable</strong> o diseño web adaptativo o responsivo (responsive web design) es una filosofía de diseño y desarrollo cuyo objetivo es adaptar la apariencia de las páginas web al dispositivo que se esté utilizando para visitarlas.</p>
         <p>Hoy día las páginas web se ven en multitud de dispositivos como tablets, smartphones, libros electrónicos, portátiles, PC, etcétera.</p>
         <p>Además, aún dentro de cada tipo, cada dispositivo tiene sus características concretas:</p>
-        <ul>
-            <li>tamaño de pantalla</li>
-            <li>Resolución</li>
-            <li>potencia de CPU</li>
-            <li>sistema operativo</li>
-            <li>capacidad de memoria</li>
-            <li>otras</li>
-        </ul>
+        
+        <div class="device-features">
+          <div class="device-feature">tamaño de pantalla</div>
+          <div class="device-feature">Resolución</div>
+          <div class="device-feature">potencia de CPU</div>
+          <div class="device-feature">sistema operativo</div>
+          <div class="device-feature">capacidad de memoria</div>
+          <div class="device-feature">otras</div>
+        </div>
+        
         <p>Esta tecnología pretende que con un único diseño web, todo se vea correctamente en cualquier dispositivo.</p>
-    </span>
-
-    <span id="3080301002">
-        <h3>3.1.1 FRAMEWORKS RESPONSIVE WEB DESIGN</h3>
-        <p>Se crea a partir de los artículos A List Appart de Ethan Marcotte, partiendo del concepto de One Web.</p>
-        <p>Es una técnica de diseño web que busca la correcta visualización de una misma página en distintos dispositivos. Desde ordenadores de escritorio a tablets y móviles. Contenido multiplataforma, multidispositivo.</p>
-        <p>Se trata de redimensionar y colocar los elementos de la web de forma que se adapten al ancho de cada dispositivo permitiendo una correcta visualización y una mejor experiencia de usuario.</p>
-        <p>Se caracteriza porque los layouts (contenidos) e imágenes son fluidos y se usa código media-queries de CSS3.</p>
-        <p>El diseño responsive permite reducir el tiempo de desarrollo, evita los contenidos duplicados, y aumenta la viralidad de los contenidos ya que permite compartirlos de una forma mucho más rápida y natural.</p>
-    </span>
-
-    <span id="3080301003">
+      </span>
+    </div>
+  
+    <div class="responsive-card">
+      <span id="3080301002">
+        <div class="framework-section">
+          <h3><span class="icon">🔄</span> 3.1.1 FRAMEWORKS RESPONSIVE WEB DESIGN</h3>
+          <p>Se crea a partir de los artículos A List Appart de Ethan Marcotte, partiendo del concepto de One Web.</p>
+          <p>Es una técnica de diseño web que busca la correcta visualización de una misma página en distintos dispositivos. Desde ordenadores de escritorio a tablets y móviles. Contenido multiplataforma, multidispositivo.</p>
+          <p>Se trata de redimensionar y colocar los elementos de la web de forma que se adapten al ancho de cada dispositivo permitiendo una correcta visualización y una mejor experiencia de usuario.</p>
+          <p>Se caracteriza porque los layouts (contenidos) e imágenes son fluidos y se usa código media-queries de CSS3.</p>
+          <p>El diseño responsive permite reducir el tiempo de desarrollo, evita los contenidos duplicados, y aumenta la viralidad de los contenidos ya que permite compartirlos de una forma mucho más rápida y natural.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="responsive-card">
+      <span id="3080301003">
         <p>Podemos denominarlos <strong>Frameworks de front-end</strong>, o frameworks CSS.</p>
         <p>Es una colección de herramientas para HTML, CSS y JavaScript que contiene patrones de diseño que pueden ser utilizados en la construcción de contenido de usuario cliente.</p>
         <p>Descargan al desarrollador de perder tiempo en escribir código continuamente, así como ayudan a escribir código más optimo.</p>
         <p>Permiten que el código resultante funcione adecuadamente en diversos dispositivos (multiplataforma, multidispositivo), incluyendo ordenadores de escritorio y portátiles, tables y teléfonos móviles.</p>
         <p>Utilizan CSS media queries y mobile-first approach.</p>
         <p>Se crean diseños unificados para una variedad de tamaños de pantalla, asegurando que el contenido es correcto independientemente del dispositivo.</p>
-    </span>
-
-    <span id="3080301004">
+      </span>
+    </div>
+  
+    <div class="responsive-card">
+      <span id="3080301004">
         <p>A continuación exponemos algunos ejemplos de estos frameworks:</p>
-        <h4>Simples:</h4>
-        <ul>
-            <li>1140 CSS Grid – optimo para monitores de 1080puntos.</li>
-            <li>Golden Grid System</li>
-            <li>Resposive Grid System, by Graham Miller</li>
-            <li>Columnal</li>
-            <li>Toast</li>
-        </ul>
-        <h4>Completos:</h4>
-        <ul>
-            <li>Bootstrap</li>
-            <li>Foundation</li>
-            <li>Skeleton (mobile friendly)</li>
-            <li>HTML5 Boilerplate</li>
-            <li>Montage HTML5 Framework</li>
-        </ul>
-    </span>
-
-    <span id="3080301005">
-        <h3>3.1.2 MEDIA QUERY</h3>
-        <p>En desarrollo web, las <strong>media queries</strong> son un módulo CSS3 que permite adaptar la representación del contenido a características del dispositivo como la resolución de pantalla (por ejemplo, un smartphone frente a pantallas de alta definición) o la presencia de características de accesibilidad como el braille.</p>
-        <p>Se convirtió en un estándar recomendado por la W3C en junio de 2012 y es un principio básico de la tecnología de Diseño web adaptativo (responsive web design).</p>
-        <p>Una media query consiste en un media type y una o más expresiones, que implican media features, que se resuelve en true o false.</p>
-        <p>El resultado de la consulta es verdadero si el media type especificado en el media query coincide con el tipo de dispositivo sobre el que el documento está siendo mostrado y todas las expresiones del media query son verdaderas.</p>
-    </span>
-
-    <span id="3080301006">
+        
+        <div class="framework-grid">
+          <div class="framework-category">
+            <h4>Simples</h4>
+            <ul>
+              <li>1140 CSS Grid – optimo para monitores de 1080puntos.</li>
+              <li>Golden Grid System</li>
+              <li>Resposive Grid System, by Graham Miller</li>
+              <li>Columnal</li>
+              <li>Toast</li>
+            </ul>
+          </div>
+          
+          <div class="framework-category">
+            <h4>Completos</h4>
+            <ul>
+              <li>Bootstrap</li>
+              <li>Foundation</li>
+              <li>Skeleton (mobile friendly)</li>
+              <li>HTML5 Boilerplate</li>
+              <li>Montage HTML5 Framework</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="responsive-card">
+      <span id="3080301005">
+        <div class="media-query-box">
+          <h3>📏 3.1.2 MEDIA QUERY</h3>
+          <p>En desarrollo web, las <strong>media queries</strong> son un módulo CSS3 que permite adaptar la representación del contenido a características del dispositivo como la resolución de pantalla (por ejemplo, un smartphone frente a pantallas de alta definición) o la presencia de características de accesibilidad como el braille.</p>
+          <p>Se convirtió en un estándar recomendado por la W3C en junio de 2012 y es un principio básico de la tecnología de Diseño web adaptativo (responsive web design).</p>
+          <p>Una media query consiste en un media type y una o más expresiones, que implican media features, que se resuelve en true o false.</p>
+          <p>El resultado de la consulta es verdadero si el media type especificado en el media query coincide con el tipo de dispositivo sobre el que el documento está siendo mostrado y todas las expresiones del media query son verdaderas.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="responsive-card">
+      <span id="3080301006">
         <p>Cuando un media query es verdadero, se aplica la hoja de estilo correspondiente o las reglas de estilo, siguiendo las reglas normales en cascada.</p>
         <p>Un media type puede ser declarado en la cabecera de un documento HTML usando el atributo "media" dentro de un elemento &lt;link&gt;.</p>
         <p>El valor específico del atributo "media" indica en que dispositivo el documento vinculado será mostrado.</p>
         <p>Media types también pueden ser declarados dentro de instrucciones de procesamiento XML, el @import at-rule, y el @media at-rule. CSS2 definen los siguientes medias types:</p>
-        <ul>
-            <li>braille</li>
-            <li>embossed</li>
-            <li>handheld</li>
-            <li>print</li>
-            <li>projection</li>
-            <li>screen</li>
-            <li>speech</li>
-            <li>tty</li>
-            <li>tv</li>
-        </ul>
+        
+        <div class="media-types">
+          <div class="media-type">braille</div>
+          <div class="media-type">embossed</div>
+          <div class="media-type">handheld</div>
+          <div class="media-type">print</div>
+          <div class="media-type">projection</div>
+          <div class="media-type">screen</div>
+          <div class="media-type">speech</div>
+          <div class="media-type">tty</div>
+          <div class="media-type">tv</div>
+        </div>
+        
         <p>El media type "all" también puede ser usado para indicar que las hojas de estilo apliquen todos los media types.</p>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

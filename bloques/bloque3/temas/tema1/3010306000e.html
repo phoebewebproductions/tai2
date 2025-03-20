@@ -1,147 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flujogramas</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>3.6.1. FLUJOGRAMAS</h2>
+  <article>
+    <h2 class="section-title">3.6.1. FLUJOGRAMAS</h2>
     
-    <span id="3010306001">
-        <p>Un flujograma o diagrama de flujo es la representación gráfica de alto nivel de hechos, situaciones, movimientos o relaciones mediante el uso de símbolos.</p>
-    </span>
-
-    <span id="3010306002">
-        <p>El objetivo es ayudar a la definición, análisis y solución del problema y representación del algoritmo del programa (antes de pasar a la codificación).</p>
-    </span>
-
-    <span id="3010306003">
-        <p>Es empleado en la parte algorítmica del diseño de programas (como por ejemplo en el proceso Diseño de Sistemas de Información, según Métrica v3).</p>
-    </span>
-
-    <span id="3010306004">
-        <p>Existen diferentes tipos de flujogramas:</p>
-        <table>
-            <tr>
-                <th>Tipo</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>De formato vertical</td>
-                <td>Flujo/'secuencia de operaciones' transcurre de arriba abajo.</td>
-            </tr>
-            <tr>
-                <td>De formato horizontal</td>
-                <td>Flujo/'secuencia de operaciones' transcurre de izquierda derecha.</td>
-            </tr>
-            <tr>
-                <td>De bloques</td>
-                <td>Rutina representada a través de una secuencia de bloques (con significado y encadenados entre sí).</td>
-            </tr>
-        </table>
-    </span>
-
-    <span id="3010306005">
-        <p>Por otro lado, los símbolos que se utilizan para representar los flujogramas son:</p>
-        <table>
-            <tr>
-                <th>Símbolo</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>[Símbolo de línea de flujo]</td>
-                <td>Línea de flujo</td>
-                <td>Muestra el orden de funcionamiento del proceso. Una línea que sale de un símbolo y apunta a otro. Se añaden puntas de flecha si el flujo no es el estándar de arriba a abajo, de izquierda a derecha.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de terminal]</td>
-                <td>Terminal</td>
-                <td>Indica el comienzo y el final de un programa o subproceso. Se representa como un estadio, óvalo o rectángulo redondeado. Suelen contener la palabra "Inicio" o "Fin", u otra frase que señale el inicio o el final de un proceso, como "enviar consulta" o "recibir producto".</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de proceso]</td>
-                <td>Proceso</td>
-                <td>Representa un conjunto de operaciones que cambia el valor, la forma o la ubicación de los datos. Se representa como un rectángulo.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de decisión]</td>
-                <td>Decisión</td>
-                <td>Muestra una operación condicional que determina cuál de los dos caminos tomará el programa. La operación suele ser una pregunta de sí/no o una prueba de verdadero/falso. Se representa como un diamante (rombo).</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de entrada/salida]</td>
-                <td>Entrada/Salida</td>
-                <td>Indica el proceso de entrada y salida de datos, como en la introducción de datos o la visualización de resultados. Representado como un rombo.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de comentario]</td>
-                <td>Comentario</td>
-                <td>Muestra un proceso con nombre que se define en otra parte. Se representa como un rectángulo con bordes verticales de doble trazo.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de proceso predefinido]</td>
-                <td>Proceso predefinido</td>
-                <td>Muestra un proceso con nombre que se define en otro lugar. Se representa como un rectángulo con bordes verticales de doble trazo.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de conector en la página]</td>
-                <td>Conector en la página</td>
-                <td>Los pares de conectores etiquetados sustituyen a las líneas largas o confusas en una página de diagrama de flujo. Representado por un pequeño círculo con una letra dentro.</td>
-            </tr>
-            <tr>
-                <td>[Símbolo de conector fuera de página]</td>
-                <td>Conector fuera de página</td>
-                <td>Un conector etiquetado para usar cuando el objetivo está en otra página. Representado como un pentágono en forma de plato de casa.</td>
-            </tr>
-        </table>
-    </span>
-
-    <h3>3.6.2. FLUJOGRAMAS DE SISTEMA</h3>
-
-    <span id="3010306006">
-        <p>Los flujogramas de sistema (también llamados organigramas) son representaciones gráficas de alto nivel que muestran la forma en que funciona un sistema, ilustrando al menos el orden de los pasos. Son representaciones gráficas que son útiles para usuarios pero que no son formales como los DFD que además tienen mucho más en consideración la información que transita entre los procesos.</p>
-    </span>
-
-    <span id="3010306007">
-        <p>Un organigrama debe reflejar:</p>
-        <ul>
-            <li>Las distintas áreas o programas en los que se divide la solución del problema y el nombre de cada uno de ellos.</li>
-            <li>Las entradas y salidas de cada área, indicando los soportes que serán utilizados para el almacenamiento.</li>
-            <li>El flujo de los datos.</li>
-        </ul>
-    </span>
-
-    <span id="3010306008">
-        <p>Todo ello debe proporcionar una visión global de la solución del problema, una fácil realización de futuras correcciones y un control de todas las posibles soluciones.</p>
-    </span>
-
-    <span id="3010306009">
-        <p>Deben seguir las siguientes normas:</p>
-        <ol>
-            <li>Arriba dispositivos de entrada.</li>
-            <li>A la izquierda y derecha dispositivos de salida.</li>
-            <li>Abajo dispositivos de salida.</li>
-            <li>En el centro el nombre del proceso, tarea, programa.</li>
-        </ol>
-    </span>
-
-    <h3>3.6.3 FLUJOGRAMAS DE PROGRAMA</h3>
-
-    <span id="3010306010">
-        <p>Los flujogramas de programa (también llamados ordinogramas) se usan en la parte de algorítmica del diseño de los programas (por tanto, en el proceso de diseño del sistema de Métrica v3) y se basan en estructurar de forma gráfica el algoritmo del programa antes de pasar a su codificación. Para ello, se dispone de grafismos para representar el diagrama. Los flujogramas de programa también se utilizan a la hora de especificar los procesos.</p>
-    </span>
-
-    <span id="3010306011">
-        <p>El diseño de un ordinograma debe reflejar:</p>
-        <ul>
-            <li>Un principio que marca el comienzo de ejecución del programa y que viene determinado por la palabra "INICIO".</li>
-            <li>La secuencia de operaciones, lo más detallada posible y siguiendo siempre el orden en el que se deberán ejecutar, de arriba abajo y de izquierda a derecha.</li>
-            <li>Un final que marca la finalización de la ejecución del programa y que viene determinado por la palabra "FIN".</li>
-        </ul>
-    </span>
-
-    <span id="3010306012">
-        <p>Las normas que hay que cumplir son:</p>
-        <ol>
-            <li>Debe existir un principio y un final.</li>
-            <li>La secuencia detallada de operaciones se realiza de arriba abajo.</li>
-            <li>Todos los elementos están conectados por líneas de flujo de datos sin que las líneas se crucen entre sí.</li>
-            <li>El ordinograma en conjunto debe guardar una cierta simetría.</li>
-        </ol>
-    </span>
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">📊</div>
+        <div class="intro-content">
+          <p id="3010306001">Un flujograma o diagrama de flujo es la representación gráfica de alto nivel de hechos, situaciones, movimientos o relaciones mediante el uso de símbolos.</p>
+          <p id="3010306002">El objetivo es ayudar a la definición, análisis y solución del problema y representación del algoritmo del programa (antes de pasar a la codificación).</p>
+          <p id="3010306003">Es empleado en la parte algorítmica del diseño de programas (como por ejemplo en el proceso Diseño de Sistemas de Información, según Métrica v3).</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="types-card">
+        <h3 class="card-title">Tipos de Flujogramas</h3>
+        <div class="types-table-container" id="3010306004">
+          <div class="table-responsive">
+            <table class="types-table">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>De formato vertical</td>
+                  <td>Flujo/'secuencia de operaciones' transcurre de arriba abajo.</td>
+                </tr>
+                <tr>
+                  <td>De formato horizontal</td>
+                  <td>Flujo/'secuencia de operaciones' transcurre de izquierda derecha.</td>
+                </tr>
+                <tr>
+                  <td>De bloques</td>
+                  <td>Rutina representada a través de una secuencia de bloques (con significado y encadenados entre sí).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="symbols-card">
+        <h3 class="card-title">Símbolos de Flujogramas</h3>
+        <div class="symbols-content" id="3010306005">
+          <p>Por otro lado, los símbolos que se utilizan para representar los flujogramas son:</p>
+          <div class="table-responsive">
+            <table class="symbols-table">
+              <thead>
+                <tr>
+                  <th>Símbolo</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="flow-line-symbol"></div>
+                  </td>
+                  <td>Línea de flujo</td>
+                  <td>Muestra el orden de funcionamiento del proceso. Una línea que sale de un símbolo y apunta a otro. Se añaden puntas de flecha si el flujo no es el estándar de arriba a abajo, de izquierda a derecha.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="terminal-symbol"></div>
+                  </td>
+                  <td>Terminal</td>
+                  <td>Indica el comienzo y el final de un programa o subproceso. Se representa como un estadio, óvalo o rectángulo redondeado. Suelen contener la palabra "Inicio" o "Fin", u otra frase que señale el inicio o el final de un proceso, como "enviar consulta" o "recibir producto".</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="process-symbol"></div>
+                  </td>
+                  <td>Proceso</td>
+                  <td>Representa un conjunto de operaciones que cambia el valor, la forma o la ubicación de los datos. Se representa como un rectángulo.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="decision-symbol"></div>
+                  </td>
+                  <td>Decisión</td>
+                  <td>Muestra una operación condicional que determina cuál de los dos caminos tomará el programa. La operación suele ser una pregunta de sí/no o una prueba de verdadero/falso. Se representa como un diamante (rombo).</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="io-symbol"></div>
+                  </td>
+                  <td>Entrada/Salida</td>
+                  <td>Indica el proceso de entrada y salida de datos, como en la introducción de datos o la visualización de resultados. Representado como un rombo.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="comment-symbol"></div>
+                  </td>
+                  <td>Comentario</td>
+                  <td>Muestra un proceso con nombre que se define en otra parte. Se representa como un rectángulo con bordes verticales de doble trazo.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="predefined-symbol"></div>
+                  </td>
+                  <td>Proceso predefinido</td>
+                  <td>Muestra un proceso con nombre que se define en otro lugar. Se representa como un rectángulo con bordes verticales de doble trazo.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="connector-symbol"></div>
+                  </td>
+                  <td>Conector en la página</td>
+                  <td>Los pares de conectores etiquetados sustituyen a las líneas largas o confusas en una página de diagrama de flujo. Representado por un pequeño círculo con una letra dentro.</td>
+                </tr>
+                <tr>
+                  <td class="symbol-cell">
+                    <div class="off-page-symbol"></div>
+                  </td>
+                  <td>Conector fuera de página</td>
+                  <td>Un conector etiquetado para usar cuando el objetivo está en otra página. Representado como un pentágono en forma de plato de casa.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">3.6.2. FLUJOGRAMAS DE SISTEMA</h3>
+      
+      <div class="system-flowchart-card">
+        <div class="system-flowchart-content">
+          <p id="3010306006">Los flujogramas de sistema (también llamados organigramas) son representaciones gráficas de alto nivel que muestran la forma en que funciona un sistema, ilustrando al menos el orden de los pasos. Son representaciones gráficas que son útiles para usuarios pero que no son formales como los DFD que además tienen mucho más en consideración la información que transita entre los procesos.</p>
+          
+          <div class="requirements-block" id="3010306007">
+            <h4 class="requirements-title">Un organigrama debe reflejar:</h4>
+            <ul class="requirements-list">
+              <li><span class="requirement-bullet">•</span> Las distintas áreas o programas en los que se divide la solución del problema y el nombre de cada uno de ellos.</li>
+              <li><span class="requirement-bullet">•</span> Las entradas y salidas de cada área, indicando los soportes que serán utilizados para el almacenamiento.</li>
+              <li><span class="requirement-bullet">•</span> El flujo de los datos.</li>
+            </ul>
+          </div>
+          
+          <p id="3010306008">Todo ello debe proporcionar una visión global de la solución del problema, una fácil realización de futuras correcciones y un control de todas las posibles soluciones.</p>
+          
+          <div class="rules-block" id="3010306009">
+            <h4 class="rules-title">Deben seguir las siguientes normas:</h4>
+            <ol class="rules-list">
+              <li><span class="rule-number">1</span> Arriba dispositivos de entrada.</li>
+              <li><span class="rule-number">2</span> A la izquierda y derecha dispositivos de salida.</li>
+              <li><span class="rule-number">3</span> Abajo dispositivos de salida.</li>
+              <li><span class="rule-number">4</span> En el centro el nombre del proceso, tarea, programa.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">3.6.3 FLUJOGRAMAS DE PROGRAMA</h3>
+      
+      <div class="program-flowchart-card">
+        <div class="program-flowchart-content">
+          <p id="3010306010">Los flujogramas de programa (también llamados ordinogramas) se usan en la parte de algorítmica del diseño de los programas (por tanto, en el proceso de diseño del sistema de Métrica v3) y se basan en estructurar de forma gráfica el algoritmo del programa antes de pasar a su codificación. Para ello, se dispone de grafismos para representar el diagrama. Los flujogramas de programa también se utilizan a la hora de especificar los procesos.</p>
+          
+          <div class="design-block" id="3010306011">
+            <h4 class="design-title">El diseño de un ordinograma debe reflejar:</h4>
+            <ul class="design-list">
+              <li><span class="design-bullet">•</span> Un principio que marca el comienzo de ejecución del programa y que viene determinado por la palabra "INICIO".</li>
+              <li><span class="design-bullet">•</span> La secuencia de operaciones, lo más detallada posible y siguiendo siempre el orden en el que se deberán ejecutar, de arriba abajo y de izquierda a derecha.</li>
+              <li><span class="design-bullet">•</span> Un final que marca la finalización de la ejecución del programa y que viene determinado por la palabra "FIN".</li>
+            </ul>
+          </div>
+          
+          <div class="rules-block" id="3010306012">
+            <h4 class="rules-title">Las normas que hay que cumplir son:</h4>
+            <ol class="rules-list">
+              <li><span class="rule-number">1</span> Debe existir un principio y un final.</li>
+              <li><span class="rule-number">2</span> La secuencia detallada de operaciones se realiza de arriba abajo.</li>
+              <li><span class="rule-number">3</span> Todos los elementos están conectados por líneas de flujo de datos sin que las líneas se crucen entre sí.</li>
+              <li><span class="rule-number">4</span> El ordinograma en conjunto debe guardar una cierta simetría.</li>
+            </ol>
+          </div>
+          
+          <div class="flowchart-example">
+            <h4 class="example-title">Ejemplo de Flujograma de Programa</h4>
+            <div class="example-diagram">
+              <div class="terminal-example">INICIO</div>
+              <div class="arrow-down"></div>
+              <div class="process-example">Inicializar variables</div>
+              <div class="arrow-down"></div>
+              <div class="io-example">Leer datos</div>
+              <div class="arrow-down"></div>
+              <div class="decision-example">
+                <div class="decision-text">¿Datos válidos?</div>
+                <div class="decision-paths">
+                  <div class="path-no">
+                    <div class="path-label">NO</div>
+                    <div class="arrow-right"></div>
+                    <div class="process-example small">Mostrar error</div>
+                    <div class="arrow-down"></div>
+                    <div class="connector-example">A</div>
+                    <div class="arrow-left-up"></div>
+                  </div>
+                  <div class="path-yes">
+                    <div class="path-label">SÍ</div>
+                    <div class="arrow-down"></div>
+                    <div class="process-example">Procesar datos</div>
+                    <div class="arrow-down"></div>
+                    <div class="io-example">Mostrar resultados</div>
+                    <div class="arrow-down"></div>
+                    <div class="terminal-example">FIN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📊";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Types Card */
+  .types-card, .symbols-card, .system-flowchart-card, .program-flowchart-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .types-table, .symbols-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .types-table th, .symbols-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .types-table td, .symbols-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .types-table tr:nth-child(even), .symbols-table tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .types-table tr:hover, .symbols-table tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Symbols */
+  .symbol-cell {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .flow-line-symbol {
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-primary);
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .flow-line-symbol::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-width: 5px 0 5px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--color-primary);
+  }
+  
+  .terminal-symbol {
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 15px;
+    margin: 0 auto;
+  }
+  
+  .process-symbol {
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    margin: 0 auto;
+  }
+  
+  .decision-symbol {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-primary);
+    transform: rotate(45deg);
+    margin: 0 auto;
+  }
+  
+  .io-symbol {
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    transform: skew(-20deg);
+    margin: 0 auto;
+  }
+  
+  .comment-symbol, .predefined-symbol {
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    border-left: 4px double var(--color-primary);
+    border-right: 4px double var(--color-primary);
+    margin: 0 auto;
+  }
+  
+  .connector-symbol {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .connector-symbol::after {
+    content: "A";
+    transform: rotate(0deg);
+    color: var(--color-primary);
+  }
+  
+  .off-page-symbol {
+    width: 40px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 0 0 20px 20px;
+    margin: 0 auto;
+  }
+  
+  /* Requirements and Rules */
+  .requirements-block, .rules-block, .design-block {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .requirements-title, .rules-title, .design-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .requirements-list, .design-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .requirements-list li, .design-list li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .requirement-bullet, .design-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .rules-list li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .rule-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  
+  /* Flowchart Example */
+  .flowchart-example {
+    margin-top: 30px;
+  }
+  
+  .example-title {
+    color: var(--color-primary-dark);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .example-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .terminal-example {
+    width: 120px;
+    height: 40px;
+    border: 2px solid var(--color-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    font-weight: bold;
+  }
+  
+  .process-example {
+    width: 150px;
+    height: 40px;
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    text-align: center;
+  }
+  
+  .process-example.small {
+    width: 120px;
+  }
+  
+  .io-example {
+    width: 150px;
+    height: 40px;
+    border: 2px solid var(--color-primary);
+    transform: skew(-20deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+  }
+  
+  .io-example > * {
+    transform: skew(20deg);
+  }
+  
+  .decision-example {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  
+  .decision-text {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--color-primary);
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    position: absolute;
+    top: 0;
+    left: 50px;
+    text-align: center;
+  }
+  
+  .decision-text > * {
+    transform: rotate(-45deg);
+  }
+  
+  .decision-paths {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .path-yes, .path-no {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .path-no {
+    position: relative;
+    left: -50px;
+  }
+  
+  .path-label {
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+  
+  .connector-example {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    font-weight: bold;
+  }
+  
+  .arrow-down, .arrow-right, .arrow-left-up {
+    position: relative;
+    width: 2px;
+    height: 20px;
+    background-color: var(--color-primary);
+  }
+  
+  .arrow-down::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    border-width: 8px 5px 0 5px;
+    border-style: solid;
+    border-color: var(--color-primary) transparent transparent transparent;
+  }
+  
+  .arrow-right {
+    width: 20px;
+    height: 2px;
+  }
+  
+  .arrow-right::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-width: 5px 0 5px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--color-primary);
+  }
+  
+  .arrow-left-up {
+    width: 20px;
+    height: 40px;
+    background-color: transparent;
+    border-left: 2px solid var(--color-primary);
+    border-top: 2px solid var(--color-primary);
+  }
+  
+  .arrow-left-up::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 0;
+    border-width: 0 5px 8px 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--color-primary) transparent;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .decision-example {
+      width: 100%;
+      height: 400px;
+    }
+    
+    .decision-text {
+      left: calc(50% - 50px);
+    }
+    
+    .decision-paths {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .path-no {
+      left: 0;
+    }
+  }
+</style>
+</body>
+</html>

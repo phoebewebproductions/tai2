@@ -1,20 +1,208 @@
 <div class="teoria">
-    <span id="4010501001">
-        <h2>5.1. DISTRIBUCIÓN DE SOFTWARE Y ADMINISTRACIÓN DE HARDWARE</h2>
-    </span>
-    
-    <span id="4010501002">
-        <h3>5.1.1. PXE (PREBOOT EXECUTION ENVIROMENT)</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .deployment-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .deployment-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .tool-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .tool-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .tool-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .tool-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .wsus-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .wsus-feature {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .wsus-feature:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .wsus-feature strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .workflow-steps {
+        counter-reset: step-counter;
+        margin: 1.5rem 0;
+      }
+      
+      .workflow-step {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 3rem;
+        transition: var(--transition);
+      }
+      
+      .workflow-step:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .workflow-step::before {
+        counter-increment: step-counter;
+        content: counter(step-counter);
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--color-primary);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .deployment-card {
+          padding: 1rem;
+        }
+        
+        .wsus-features {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="deployment-card" id="4010501001">
+      <h2>📦 5.1. DISTRIBUCIÓN DE SOFTWARE Y ADMINISTRACIÓN DE HARDWARE</h2>
+    </div>
+  
+    <div class="deployment-card" id="4010501002">
+      <div class="tool-section">
+        <h3><span class="icon">🔄</span> 5.1.1. PXE (PREBOOT EXECUTION ENVIROMENT)</h3>
         <p>Entorno para arrancar e instalar el sistema operativo en computadoras a través de una red, de manera independiente de los dispositivos de almacenamiento de datos disponibles (como discos duros) o de los sistemas operativos instalados.</p>
         <p>Un cliente PXE puede ser un servidor, una computadora de mesa, portátil o cualquier otra máquina que esté equipada con código de arranque PXE.</p>
         <p>El firmware del cliente trata de encontrar un servicio de redirección PXE en la red para recabar información sobre los servidores de arranque PXE disponibles. Tras analizar la respuesta, el firmware solicitará al servidor de arranque apropiado la ruta de un network bootstrap program (NBP), lo descargará en la memoria RAM del computador mediante TFTP, lo verificará, y finalmente lo ejecutará.</p>
         <p>Si se utiliza un único NBP para todos los clientes PXE se puede especificar mediante BOOTP sin necesidad de un proxy DHCP, pero aún será necesario un servidor TFTP.</p>
         <p>Pantalla del cliente PXE proporcionado por el firmware del equipo</p>
         <p>Carga de imagen a través de la red</p>
-    </span>
-    
-    <span id="4010501003">
-        <h3>5.1.2. WDS (WINDOWS DEPLOYMENT SERVICES)</h3>
+      </div>
+    </div>
+  
+    <div class="deployment-card" id="4010501003">
+      <div class="tool-section">
+        <h3><span class="icon">💿</span> 5.1.2. WDS (WINDOWS DEPLOYMENT SERVICES)</h3>
         <p>Es la versión revisada de Servicios de instalación remota (RIS: Remote Installation Services). WDS permite la implementación y configuración de sistemas operativos Windows en los nuevos clientes con una instalación basada en red sin necesidad de que los administradores visiten cada equipo o se instalen directamente desde medios de CD o DVD.</p>
         <p>Permite un despliegue de los clientes de Windows de forma automatizada y personalizada a través de la utilización de archivos de secuencias de comandos (scripts) de instalación desatendida.</p>
         <p>Puede realizar tareas automáticas como asignar un nombre a las máquinas de forma automática, unirlas a un dominio, agregar o quitar programas y características e instalar funciones o roles de servidor en sistemas operativos de servidor.</p>
@@ -25,28 +213,50 @@
         <p>WDS trabaja junto con el Preboot Execution Environment (PXE) de las máquinas cliente cargando una versión en miniatura de Windows (Windows PE) para las tareas de instalación y mantenimiento.</p>
         <p>WDS almacena tanto las imágenes de arranque de red PXE como las imágenes del sistema operativo real que se instalarán en el equipo de destino.</p>
         <p>Cuando hay varias imágenes de arranque disponibles, el arranque PXE a través de WDS presenta un menú de arranque para seleccionar la imagen que desee cargar.</p>
-    </span>
-    
-    <span id="4010501004">
-        <h3>5.1.3. WINDOWS SERVER UPDATE SERVICES (WSUS)</h3>
+      </div>
+    </div>
+  
+    <div class="deployment-card" id="4010501004">
+      <div class="tool-section">
+        <h3><span class="icon">🔄</span> 5.1.3. WINDOWS SERVER UPDATE SERVICES (WSUS)</h3>
         <p>Rol de servidor que permite administrar de forma centralizada la distribución e instalación de actualizaciones que se publican a través de Microsoft Update a los equipos de la red.</p>
         <p>El servidor WSUS permite controlar la distribución. Puede ser un mero controlador, ser el origen de las actualizaciones o formar parte de una cadena de distribución de actualizaciones.</p>
         <p>La principal ventaja del WSUS es que ahorra tiempo, ancho de banda y espacio de almacenamiento porque evita que los ordenadores se tengan que conectar individualmente a servidores externos de a la organización, sino que se conectan a servidores locales.</p>
         <p>El administrador puede determinar, en función de la configuración y seguridad de red, la cantidad de servidores WSUS que quiere que se conecten directamente a Microsoft Update.</p>
-        <ul>
-            <li>Administración centralizada de actualizaciones</li>
-            <li>Automatización de administración de actualizaciones</li>
-        </ul>
+        
+        <div class="wsus-features">
+          <div class="wsus-feature">
+            <strong>Administración centralizada de actualizaciones</strong>
+          </div>
+          
+          <div class="wsus-feature">
+            <strong>Automatización de administración de actualizaciones</strong>
+          </div>
+        </div>
+        
         <p>El funcionamiento general de un servidor WSUS es el siguiente:</p>
-        <ul>
-            <li>El administrador divide los equipos de la red en distintos grupos. Por ejemplo, servidores, equipos de desarrollo, equipos de ofimática, equipos de prueba, etc.</li>
-            <li>A continuación selecciona el tipo de actualizaciones a descargar en función del parque informático de la red (sistemas operativos instalados, paquetes ofimáticos, paquetes de desarrollo, servidores, etc)</li>
-            <li>El servidor WSUS procederá a descargar las actualizaciones y las marcará como disponibles.</li>
-            <li>El administrador (idealmente) evalúa las actualizaciones aprobándolas para un grupo restringido de equipos de prueba. Si todo funciona correctamente aprueba las actualizaciones para ser descargadas e instaladas en el resto de grupos de equipos de la red.</li>
-            <li>También se pueden configurar reglas de aprobación automática (para actualizaciones de seguridad críticas) y revisar en todo momento las actualizaciones instaladas mediante los informes generados por el WSUS.</li>
-        </ul>
+        
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            El administrador divide los equipos de la red en distintos grupos. Por ejemplo, servidores, equipos de desarrollo, equipos de ofimática, equipos de prueba, etc.
+          </div>
+          <div class="workflow-step">
+            A continuación selecciona el tipo de actualizaciones a descargar en función del parque informático de la red (sistemas operativos instalados, paquetes ofimáticos, paquetes de desarrollo, servidores, etc)
+          </div>
+          <div class="workflow-step">
+            El servidor WSUS procederá a descargar las actualizaciones y las marcará como disponibles.
+          </div>
+          <div class="workflow-step">
+            El administrador (idealmente) evalúa las actualizaciones aprobándolas para un grupo restringido de equipos de prueba. Si todo funciona correctamente aprueba las actualizaciones para ser descargadas e instaladas en el resto de grupos de equipos de la red.
+          </div>
+          <div class="workflow-step">
+            También se pueden configurar reglas de aprobación automática (para actualizaciones de seguridad críticas) y revisar en todo momento las actualizaciones instaladas mediante los informes generados por el WSUS.
+          </div>
+        </div>
+        
         <p>Un paso fundamental es que los equipos cliente del WSUS deben ser configurados para que busquen las actualizaciones en el servidor WSUS de la organización en lugar de en los servidores de Microsoft Update.</p>
         <p>Esto se hace a través de una directiva de grupo que se suele aplicar a todo el Dominio (excepto a los servidores WSUS)</p>
         <p>Los clientes buscarán las actualizaciones normalmente a través de Windows Update</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

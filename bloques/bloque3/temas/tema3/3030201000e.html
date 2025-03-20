@@ -1,196 +1,541 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipos de Datos y Operadores</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipos de Datos y Operadores en C</title>
 </head>
 <body>
-    <div class="teoria">
-        <span id="3030201001">
-            <h1>3 REPRESENTACIÓN DE TIPOS DE DATOS</h1>
-            <p>Mientras los humanos utilizamos distintos tipos de conceptos de información, las
-            máquinas solo pueden utilizar los valores lógicos 0 y 1 (sistema binario). El más
-            utilizado por los humanos es el sistema decimal (del 0 al 9). Por lo tanto, se establecen
-            agrupaciones de símbolos para representar más de los dos números del sistema
-            binario.</p>
-            
-            <p>Esto ocurre no solo con números, también con letras. El ordenador no es capaz de
-            interpretarlas, por lo que se establece una codificación ASCII (American Standard Code
-            for Information Interchange)</p>
-        </span>
-
-        <span id="3030201002">
-            <h2>Tipos de Datos en C</h2>
-            <table border="1">
+<div class="teoria">
+  <article>
+    <section class="content-section" id="3030201001">
+      <h2 class="section-title">3. REPRESENTACIÓN DE TIPOS DE DATOS</h2>
+      
+      <div class="content-block">
+        <div class="intro-card">
+          <div class="intro-icon">🔢</div>
+          <div class="intro-content">
+            <p>Mientras los humanos utilizamos distintos tipos de conceptos de información, las máquinas solo pueden utilizar los valores lógicos 0 y 1 (sistema binario). El más utilizado por los humanos es el sistema decimal (del 0 al 9). Por lo tanto, se establecen agrupaciones de símbolos para representar más de los dos números del sistema binario.</p>
+            <p>Esto ocurre no solo con números, también con letras. El ordenador no es capaz de interpretarlas, por lo que se establece una codificación ASCII (American Standard Code for Information Interchange).</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="data-types-card" id="3030201002">
+          <h3 class="card-title">Tipos de Datos en C</h3>
+          <div class="table-responsive">
+            <table class="data-types-table">
+              <thead>
                 <tr>
-                    <th>Tipo de Dato</th>
-                    <th>Bits</th>
-                    <th>Rango</th>
-                    <th>Especificador</th>
+                  <th>Tipo de Dato</th>
+                  <th>Bits</th>
+                  <th>Rango</th>
+                  <th>Especificador</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>short int</td>
+                  <td>2</td>
+                  <td>-32,768 to 32,767</td>
+                  <td>%hd</td>
                 </tr>
                 <tr>
-                    <td>short int</td>
-                    <td>2</td>
-                    <td>-32,768 to 32,767</td>
-                    <td>%hd</td>
+                  <td>unsigned short int</td>
+                  <td>2</td>
+                  <td>0 to 65,535</td>
+                  <td>%hu</td>
                 </tr>
                 <tr>
-                    <td>unsigned short int</td>
-                    <td>2</td>
-                    <td>0 to 65,535</td>
-                    <td>%hu</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>-2,147,483,648 to 2,147,483,647</td>
+                  <td>%d</td>
                 </tr>
                 <tr>
-                    <td>int</td>
-                    <td>4</td>
-                    <td>-2,147,483,648 to 2,147,483,647</td>
-                    <td>%d</td>
+                  <td>unsigned int</td>
+                  <td>4</td>
+                  <td>0 to 4,294,967,295</td>
+                  <td>%u</td>
                 </tr>
                 <tr>
-                    <td>unsigned int</td>
-                    <td>4</td>
-                    <td>0 to 4,294,967,295</td>
-                    <td>%u</td>
+                  <td>long int</td>
+                  <td>4</td>
+                  <td>-2,147,483,648 to 2,147,483,647</td>
+                  <td>%ld</td>
                 </tr>
                 <tr>
-                    <td>long int</td>
-                    <td>4</td>
-                    <td>-2,147,483,648 to 2,147,483,647</td>
-                    <td>%ld</td>
+                  <td>unsigned long int</td>
+                  <td>4</td>
+                  <td>0 to 4,294,967,295</td>
+                  <td>%lu</td>
                 </tr>
                 <tr>
-                    <td>unsigned long int</td>
-                    <td>4</td>
-                    <td>0 to 4,294,967,295</td>
-                    <td>%lu</td>
+                  <td>float</td>
+                  <td>4</td>
+                  <td>3.4E-38 to 3.4E+38</td>
+                  <td>%f</td>
                 </tr>
                 <tr>
-                    <td>float</td>
-                    <td>4</td>
-                    <td>3.4E-38 to 3.4E+38</td>
-                    <td>%f</td>
+                  <td>double</td>
+                  <td>8</td>
+                  <td>1.7E-308 to 1.7E+308</td>
+                  <td>%lf</td>
                 </tr>
                 <tr>
-                    <td>double</td>
-                    <td>8</td>
-                    <td>1.7E-308 to 1.7E+308</td>
-                    <td>%lf</td>
+                  <td>long double</td>
+                  <td>16</td>
+                  <td>3.4E-4932 to 1.1E+4932</td>
+                  <td>%Lf</td>
                 </tr>
-                <tr>
-                    <td>long double</td>
-                    <td>16</td>
-                    <td>3.4E-4932 to 1.1E+4932</td>
-                    <td>%Lf</td>
-                </tr>
+              </tbody>
             </table>
-        </span>
-
-        <span id="3030201003">
-            <h2>4 OPERADORES</h2>
-            <p>Los operadores son los símbolos reservados por el lenguaje de programación para
-            especificar una función lógica o matemática. Pueden ser:</p>
-            <ul>
-                <li>Aritméticos</li>
-                <li>Relacionales</li>
-                <li>Lógicos</li>
-                <li>de Bit</li>
-                <li>de Asignación</li>
-                <li>Otros</li>
-            </ul>
-        </span>
-
-        <span id="3030201004">
-            <h3>Operadores de Asignación</h3>
-            <table border="1">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section" id="3030201003">
+      <h2 class="section-title">4. OPERADORES</h2>
+      
+      <div class="content-block">
+        <div class="operators-intro-card">
+          <div class="operators-intro-icon">🔣</div>
+          <div class="operators-intro-content">
+            <p>Los operadores son los símbolos reservados por el lenguaje de programación para especificar una función lógica o matemática. Pueden ser:</p>
+            <div class="operators-types">
+              <div class="operator-type">Aritméticos</div>
+              <div class="operator-type">Relacionales</div>
+              <div class="operator-type">Lógicos</div>
+              <div class="operator-type">de Bit</div>
+              <div class="operator-type">de Asignación</div>
+              <div class="operator-type">Otros</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="assignment-operators-card" id="3030201004">
+          <h3 class="card-title">Operadores de Asignación</h3>
+          <div class="table-responsive">
+            <table class="operators-table">
+              <thead>
                 <tr>
-                    <th>Operador</th>
-                    <th>Descripción</th>
-                    <th>Ejemplo</th>
+                  <th>Operador</th>
+                  <th>Descripción</th>
+                  <th>Ejemplo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>=</td>
+                  <td>Asignación simple</td>
+                  <td>C = A + B asignará el valor de A + B a C</td>
                 </tr>
                 <tr>
-                    <td>=</td>
-                    <td>Asignación simple</td>
-                    <td>C = A + B asignará el valor de A + B a C</td>
+                  <td>+=</td>
+                  <td>Suma y asignación</td>
+                  <td>C += A es equivalente a C = C + A</td>
                 </tr>
                 <tr>
-                    <td>+=</td>
-                    <td>Suma y asignación</td>
-                    <td>C += A es equivalente a C = C + A</td>
+                  <td>-=</td>
+                  <td>Resta y asignación</td>
+                  <td>C -= A es equivalente a C = C - A</td>
                 </tr>
                 <tr>
-                    <td>-=</td>
-                    <td>Resta y asignación</td>
-                    <td>C -= A es equivalente a C = C - A</td>
+                  <td>*=</td>
+                  <td>Multiplicación y asignación</td>
+                  <td>C *= A es equivalente a C = C * A</td>
                 </tr>
                 <tr>
-                    <td>*=</td>
-                    <td>Multiplicación y asignación</td>
-                    <td>C *= A es equivalente a C = C * A</td>
+                  <td>/=</td>
+                  <td>División y asignación</td>
+                  <td>C /= A es equivalente a C = C / A</td>
                 </tr>
                 <tr>
-                    <td>/=</td>
-                    <td>División y asignación</td>
-                    <td>C /= A es equivalente a C = C / A</td>
+                  <td>%=</td>
+                  <td>Módulo y asignación</td>
+                  <td>C %= A es equivalente a C = C % A</td>
                 </tr>
-                <tr>
-                    <td>%=</td>
-                    <td>Módulo y asignación</td>
-                    <td>C %= A es equivalente a C = C % A</td>
-                </tr>
+              </tbody>
             </table>
-        </span>
-
-        <span id="3030201005">
-            <h3>Operadores Especiales</h3>
-            <table border="1">
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="special-operators-card" id="3030201005">
+          <h3 class="card-title">Operadores Especiales</h3>
+          <div class="table-responsive">
+            <table class="operators-table">
+              <thead>
                 <tr>
-                    <th>Operador</th>
-                    <th>Descripción</th>
-                    <th>Ejemplo</th>
+                  <th>Operador</th>
+                  <th>Descripción</th>
+                  <th>Ejemplo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>sizeof()</td>
+                  <td>Devuelve el tamaño de una variable</td>
+                  <td>sizeof(int) devolverá 4</td>
                 </tr>
                 <tr>
-                    <td>sizeof()</td>
-                    <td>Devuelve el tamaño de una variable</td>
-                    <td>sizeof(int) devolverá 4</td>
+                  <td>&</td>
+                  <td>Devuelve la dirección de una variable</td>
+                  <td>&a devuelve la dirección de memoria de a</td>
                 </tr>
                 <tr>
-                    <td>&</td>
-                    <td>Devuelve la dirección de una variable</td>
-                    <td>&a devuelve la dirección de memoria de a</td>
+                  <td>*</td>
+                  <td>Puntero a una variable</td>
+                  <td>*a declara un puntero a</td>
                 </tr>
                 <tr>
-                    <td>*</td>
-                    <td>Puntero a una variable</td>
-                    <td>*a declara un puntero a</td>
+                  <td>?:</td>
+                  <td>Operador ternario</td>
+                  <td>condición ? valor_si_verdadero : valor_si_falso</td>
                 </tr>
-                <tr>
-                    <td>?:</td>
-                    <td>Operador ternario</td>
-                    <td>condición ? valor_si_verdadero : valor_si_falso</td>
-                </tr>
+              </tbody>
             </table>
-        </span>
-
-        <span id="3030201006">
-            <h3>Precedencia de Operadores</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="precedence-card" id="3030201006">
+          <h3 class="card-title">Precedencia de Operadores</h3>
+          <div class="precedence-content">
             <p>La precedencia de operadores determina el orden en que se evalúan las operaciones. Aquí hay una lista simplificada de mayor a menor precedencia:</p>
-            <ol>
-                <li>() [] -> . :: Paréntesis y acceso a miembros</li>
-                <li>! ~ ++ -- + - * & (type) sizeof Operadores unarios</li>
-                <li>* / % Multiplicación, división y módulo</li>
-                <li>+ - Suma y resta</li>
-                <li><< >> Desplazamiento de bits</li>
-                <li>< <= > >= Comparaciones</li>
-                <li>== != Igualdad y desigualdad</li>
-                <li>& ^ | Operaciones de bits</li>
-                <li>&& || Operaciones lógicas</li>
-                <li>?: Operador ternario</li>
-                <li>= += -= *= /= %= &= ^= |= <<= >>= Asignaciones</li>
-                <li>, Operador coma</li>
-            </ol>
-            <p>Los operadores con mayor precedencia se evalúan primero. Cuando los operadores tienen la misma precedencia, se evalúan de izquierda a derecha, excepto las asignaciones que se evalúan de derecha a izquierda.</p>
-        </span>
-    </div>
+            <div class="precedence-list">
+              <div class="precedence-item">
+                <div class="precedence-number">1</div>
+                <div class="precedence-text">() [] -> . :: <span class="precedence-desc">Paréntesis y acceso a miembros</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">2</div>
+                <div class="precedence-text">! ~ ++ -- + - * & (type) sizeof <span class="precedence-desc">Operadores unarios</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">3</div>
+                <div class="precedence-text">* / % <span class="precedence-desc">Multiplicación, división y módulo</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">4</div>
+                <div class="precedence-text">+ - <span class="precedence-desc">Suma y resta</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">5</div>
+                <div class="precedence-text"><< >> <span class="precedence-desc">Desplazamiento de bits</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">6</div>
+                <div class="precedence-text">< <= > >= <span class="precedence-desc">Comparaciones</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">7</div>
+                <div class="precedence-text">== != <span class="precedence-desc">Igualdad y desigualdad</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">8</div>
+                <div class="precedence-text">& ^ | <span class="precedence-desc">Operaciones de bits</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">9</div>
+                <div class="precedence-text">&& || <span class="precedence-desc">Operaciones lógicas</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">10</div>
+                <div class="precedence-text">?: <span class="precedence-desc">Operador ternario</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">11</div>
+                <div class="precedence-text">= += -= *= /= %= &= ^= |= <<= >>= <span class="precedence-desc">Asignaciones</span></div>
+              </div>
+              <div class="precedence-item">
+                <div class="precedence-number">12</div>
+                <div class="precedence-text">, <span class="precedence-desc">Operador coma</span></div>
+              </div>
+            </div>
+            <p class="precedence-note">Los operadores con mayor precedencia se evalúan primero. Cuando los operadores tienen la misma precedencia, se evalúan de izquierda a derecha, excepto las asignaciones que se evalúan de derecha a izquierda.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block">
+        <div class="example-card">
+          <h3 class="card-title">Ejemplos de Precedencia de Operadores</h3>
+          <div class="examples-content">
+            <div class="example-item">
+              <div class="example-code">a = b + c * d;</div>
+              <div class="example-explanation">Primero se evalúa c * d, luego se suma b, y finalmente se asigna a a.</div>
+            </div>
+            <div class="example-item">
+              <div class="example-code">a = (b + c) * d;</div>
+              <div class="example-explanation">Primero se evalúa b + c (debido a los paréntesis), luego se multiplica por d, y finalmente se asigna a a.</div>
+            </div>
+            <div class="example-item">
+              <div class="example-code">a = b || c && d;</div>
+              <div class="example-explanation">Primero se evalúa c && d (porque && tiene mayor precedencia que ||), luego se evalúa b || (resultado de c && d).</div>
+            </div>
+            <div class="example-item">
+              <div class="example-code">a = b ? c : d;</div>
+              <div class="example-explanation">Si b es verdadero, a = c; si b es falso, a = d.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+  }
+  
+  .content-section {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2rem;
+  }
+  
+  .content-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Data Types Card */
+  .data-types-card, .assignment-operators-card, .special-operators-card, .precedence-card, .example-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .data-types-table, .operators-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .data-types-table th, .operators-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .data-types-table td, .operators-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .data-types-table tr:nth-child(even), .operators-table tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .data-types-table tr:hover, .operators-table tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Operators Intro */
+  .operators-intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .operators-intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .operators-intro-content {
+    flex: 1;
+  }
+  
+  .operators-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .operator-type {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  /* Precedence */
+  .precedence-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .precedence-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: var(--transition);
+  }
+  
+  .precedence-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .precedence-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .precedence-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  
+  .precedence-desc {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--color-gray-600);
+    margin-left: 10px;
+  }
+  
+  .precedence-note {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left: 4px solid var(--color-warning);
+    color: var(--color-gray-800);
+  }
+  
+  /* Examples */
+  .examples-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .example-item {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .example-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .example-code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-gray-100);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .example-explanation {
+    color: var(--color-gray-700);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .operators-intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .operators-intro-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .operators-types {
+      justify-content: center;
+    }
+  }
+</style>
 </body>
 </html>

@@ -1,112 +1,385 @@
 <div class="teoria">
-    <span id="3080402001">
-        <h2>4.2 XML</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .xml-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .xml-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .xml-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .xml-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .xml-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .code-example {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 6px;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-x: auto;
+      }
+      
+      .code-example code {
+        color: var(--color-primary-dark);
+      }
+      
+      .xml-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .xml-feature {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+      }
+      
+      .xml-feature:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .xml-feature h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .css-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+      }
+      
+      .css-method {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+      }
+      
+      .css-method:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .preprocessor-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      
+      .preprocessor-item {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        transition: var(--transition);
+      }
+      
+      .preprocessor-item:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .xml-card {
+          padding: 1rem;
+        }
+        
+        .xml-features {
+          grid-template-columns: 1fr;
+        }
+        
+        .css-methods {
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <div class="xml-card">
+      <span id="3080402001">
+        <h2>🔄 4.2 XML</h2>
         <p><strong>Extensible Markup Language (XML)</strong> es un subconjunto de SGML, con los mismos objetivos pero sin su complejidad.</p>
         <p>Diseñado para ser compatible con SGML. Todo XML es un documento SGML pero no a la inversa.</p>
         <p>XML es un estándar abierto del W3C: garantía de calidad del proceso de desarrollo.</p>
         <p>Al igual que SGML es un metalenguaje. Se denomina extensible porque cada usuario puede crear su propio lenguaje para el formato de datos y documentos, su propio vocabulario, según sus necesidades, siguiendo las reglas de XML.</p>
-    </span>
-
-    <span id="3080402002">
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402002">
         <p>XML es potente, permite separar contenido y estructura: Un mismo documento puede tener diferentes presentaciones, MARCADO ESTRUCTURAL.</p>
         <p>Se puede procesar de forma automática por ser de tipo estructural. (Parser XML).</p>
-        <h3>Componentes de un documento XML:</h3>
-        <h4>Elementos</h4>
-        <p><code>&lt;nombre de elemento&gt;elemento &lt;/nombre de elemento&gt;</code></p>
-        <p>Un elemento puede contener subelementos. Es decir se agrupa la información en jerarquías.</p>
-        <p>Los elementos pueden contener atributos.</p>
-        <p>Un atributo es una pareja (nombre, valor) que permite dar cierta información sobre un elemento. Ejemplo: <code>&lt;libro edición="primera"&gt;</code></p>
-    </span>
-
-    <span id="3080402003">
-        <h3>La DTD (Document Type Definition)</h3>
-        <p>Define cómo son los documentos XML utilizados en un cierto dominio de aplicación, etiquetas que se pueden utilizar, contenido de cada elemento, es decir, qué elementos pueden formar parte del contenido de una etiqueta y si el elemento puede contener texto o no, así como los atributos de cada elemento, opcionales u obligatorios.</p>
-        <p>Si el documento XML cumple las reglas de XML (sin DTD), -> documento XML es "bien formado".</p>
-        <p>Si además el doc. XML sigue las reglas definidas en un DTD-> documento XML es "válido".</p>
-    </span>
-
-    <span id="3080402004">
-        <h3>Espacios de nombres</h3>
-        <p>Objetivos:</p>
-        <ul>
+        
+        <div class="xml-section">
+          <h3><span class="icon">🧩</span> Componentes de un documento XML:</h3>
+          
+          <h4>Elementos</h4>
+          <div class="code-example">
+            <code>&lt;nombre de elemento&gt;elemento &lt;/nombre de elemento&gt;</code>
+          </div>
+          <p>Un elemento puede contener subelementos. Es decir se agrupa la información en jerarquías.</p>
+          <p>Los elementos pueden contener atributos.</p>
+          <p>Un atributo es una pareja (nombre, valor) que permite dar cierta información sobre un elemento. Ejemplo: <code>&lt;libro edición="primera"&gt;</code></p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402003">
+        <div class="xml-section">
+          <h3><span class="icon">📋</span> La DTD (Document Type Definition)</h3>
+          <p>Define cómo son los documentos XML utilizados en un cierto dominio de aplicación, etiquetas que se pueden utilizar, contenido de cada elemento, es decir, qué elementos pueden formar parte del contenido de una etiqueta y si el elemento puede contener texto o no, así como los atributos de cada elemento, opcionales u obligatorios.</p>
+          <p>Si el documento XML cumple las reglas de XML (sin DTD), -> documento XML es "bien formado".</p>
+          <p>Si además el doc. XML sigue las reglas definidas en un DTD-> documento XML es "válido".</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402004">
+        <div class="xml-section">
+          <h3><span class="icon">🔄</span> Espacios de nombres</h3>
+          <p>Objetivos:</p>
+          <ul>
             <li>Distinguir elementos y atributos de distintos vocabularios con distintos significados que pueden compartir el mismo nombre.</li>
             <li>Agrupar todos los elementos y atributos relacionados con una sola aplicación XML para que el SW los reconozca con facilidad.</li>
-        </ul>
-        <p>Se añade un prefijo a cada elementos y atributo. Cada prefijo se le asigna un URI (xmlns:prefijo), llamado nombre de espacio de nombres. Existen URI predeterminados para los elementos que no tengan un prefijo definido. Para esto se usa el atributo xmlns.</p>
-    </span>
-
-    <span id="3080402005">
-        <h3>XML Schema (XSD)</h3>
-        <p>XSD (XML Schema Definition) contiene la descripción formal del contenido del documento XML válido. Es una recomendación del W3C (Recommendation on 2 May 2001)</p>
-        <p>Los esquemas solucionan las limitaciones de los DTDs:</p>
-        <ul>
+          </ul>
+          <p>Se añade un prefijo a cada elementos y atributo. Cada prefijo se le asigna un URI (xmlns:prefijo), llamado nombre de espacio de nombres. Existen URI predeterminados para los elementos que no tengan un prefijo definido. Para esto se usa el atributo xmlns.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402005">
+        <div class="xml-section">
+          <h3><span class="icon">📝</span> XML Schema (XSD)</h3>
+          <p>XSD (XML Schema Definition) contiene la descripción formal del contenido del documento XML válido. Es una recomendación del W3C (Recommendation on 2 May 2001)</p>
+          <p>Los esquemas solucionan las limitaciones de los DTDs:</p>
+          <ul>
             <li>Ampliables por ser notación XML</li>
             <li>Herramientas maduras</li>
             <li>Soporte DOM</li>
             <li>Permite tipos de Datos</li>
             <li>Permite Herencia</li>
             <li>Múltiples vocabularios mediante espacio de nombres</li>
-        </ul>
-    </span>
-
-    <span id="3080402006">
-        <h3>XSL</h3>
-        <p>Extensible StyleSheet Language (XSL) es de la familia de lenguajes basada en XML, para la presentación de documentos complejos. XSL está formado por:</p>
-        <h4>XSLT (Extensible Style Sheet for Transformations)</h4>
-        <p>Plantillas con una serie de reglas de transformación y formato que se disparan cuando los elementos coinciden con la plantilla. A través de árboles de transformación, puede convertir a otros formatos (PDF, Word, etc.)</p>
-        <h4>XPath</h4>
-        <p>Es una notación que permite hacer referencia a una o varias partes de un documento XML.</p>
-        <h4>Formatting Objects (XSL-FO)</h4>
-        <p>Es una aplicación XML cuya semántica define como presentar un documento XML que utilice los componentes definidos en XSL-FO.</p>
-    </span>
-
-    <span id="3080402007">
-        <h3>CSS</h3>
-        <p>Las Hojas de Estilo (o CSS, por Cascading StyleSheets) son un mecanismo que permiten aplicar formato a los documentos escritos en HTML ó XHTML (y en otros lenguajes estructurados, como XML) separando el contenido de las páginas de su apariencia.</p>
-        <p>La idea más importante detrás de las hojas de estilo CSS es separar el contenido de su presentación, es decir, de su aspecto visual.</p>
-        <p>El modo de funcionamiento de las CSS consiste en definir, mediante una sintaxis especial, la forma de presentación que le aplicaremos a:</p>
-        <ul>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402006">
+        <div class="xml-features">
+          <div class="xml-feature">
+            <h4>XSL</h4>
+            <p>Extensible StyleSheet Language (XSL) es de la familia de lenguajes basada en XML, para la presentación de documentos complejos. XSL está formado por:</p>
+          </div>
+          
+          <div class="xml-feature">
+            <h4>XSLT (Extensible Style Sheet for Transformations)</h4>
+            <p>Plantillas con una serie de reglas de transformación y formato que se disparan cuando los elementos coinciden con la plantilla. A través de árboles de transformación, puede convertir a otros formatos (PDF, Word, etc.)</p>
+          </div>
+          
+          <div class="xml-feature">
+            <h4>XPath</h4>
+            <p>Es una notación que permite hacer referencia a una o varias partes de un documento XML.</p>
+          </div>
+          
+          <div class="xml-feature">
+            <h4>Formatting Objects (XSL-FO)</h4>
+            <p>Es una aplicación XML cuya semántica define como presentar un documento XML que utilice los componentes definidos en XSL-FO.</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402007">
+        <div class="xml-section">
+          <h3><span class="icon">🎨</span> CSS</h3>
+          <p>Las Hojas de Estilo (o CSS, por Cascading StyleSheets) son un mecanismo que permiten aplicar formato a los documentos escritos en HTML ó XHTML (y en otros lenguajes estructurados, como XML) separando el contenido de las páginas de su apariencia.</p>
+          <p>La idea más importante detrás de las hojas de estilo CSS es separar el contenido de su presentación, es decir, de su aspecto visual.</p>
+          <p>El modo de funcionamiento de las CSS consiste en definir, mediante una sintaxis especial, la forma de presentación que le aplicaremos a:</p>
+          <ul>
             <li>Una web entera</li>
             <li>Un documento HTML o página</li>
             <li>Una porción del documento</li>
             <li>Una etiqueta en concreto</li>
-        </ul>
-    </span>
-
-    <span id="3080402008">
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402008">
         <h4>Formas de declarar CSS</h4>
         <p>Podemos declarar un estilo CSS en varios lugares:</p>
-        <ul>
-            <li><strong>Enlazado en otro archivo:</strong> Crear un archivo .css y enlazarlo con <code>&lt;link rel="stylesheet" href="mi_hoja.css"&gt;</code></li>
-            <li><strong>Interno en la cabecera:</strong> Usando la etiqueta <code>&lt;style&gt;</code> en el head</li>
-            <li><strong>Dentro de la etiqueta:</strong> Usando el atributo style en elementos HTML</li>
-        </ul>
-    </span>
-
-    <span id="3080402009">
+        
+        <div class="css-methods">
+          <div class="css-method">
+            <strong>Enlazado en otro archivo:</strong> Crear un archivo .css y enlazarlo con <code>&lt;link rel="stylesheet" href="mi_hoja.css"&gt;</code>
+          </div>
+          
+          <div class="css-method">
+            <strong>Interno en la cabecera:</strong> Usando la etiqueta <code>&lt;style&gt;</code> en el head
+          </div>
+          
+          <div class="css-method">
+            <strong>Dentro de la etiqueta:</strong> Usando el atributo style en elementos HTML
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402009">
         <h4>Preprocesadores CSS</h4>
         <p>Los preprocesadores CSS son herramientas que posibilitan traducir hojas de estilo comunes a un código estándar y reconocible por los navegadores.</p>
         <p>Los preprocesadores más conocidos son:</p>
-        <ul>
-            <li>SASS</li>
-            <li>LESS</li>
-            <li>STYLUS</li>
-            <li>POSTCSS</li>
-        </ul>
-    </span>
-
-    <span id="3080402010">
-        <h3>XHTML</h3>
-        <p>El lenguaje XHTML (eXtensible HyperText Markup Language) es muy similar al lenguaje HTML, pero con algunas diferencias que lo hacen más robusto y aconsejable para la modelación de páginas web. De hecho, XHTML no es más que una adaptación de HTML al lenguaje XML.</p>
-        <p>Técnicamente, HTML es descendiente directo del lenguaje SGML, mientras que XHTML lo es del XML (que, a su vez, también es descendiente de SGML).</p>
-        <p>XHTML es un lenguaje semántico, lo que quiere decir que no definimos el aspecto de las cosas, sino lo que significan.</p>
-    </span>
-
-    <span id="3080402011">
+        
+        <div class="preprocessor-list">
+          <div class="preprocessor-item">SASS</div>
+          <div class="preprocessor-item">LESS</div>
+          <div class="preprocessor-item">STYLUS</div>
+          <div class="preprocessor-item">POSTCSS</div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402010">
+        <div class="xml-section">
+          <h3><span class="icon">🌐</span> XHTML</h3>
+          <p>El lenguaje XHTML (eXtensible HyperText Markup Language) es muy similar al lenguaje HTML, pero con algunas diferencias que lo hacen más robusto y aconsejable para la modelación de páginas web. De hecho, XHTML no es más que una adaptación de HTML al lenguaje XML.</p>
+          <p>Técnicamente, HTML es descendiente directo del lenguaje SGML, mientras que XHTML lo es del XML (que, a su vez, también es descendiente de SGML).</p>
+          <p>XHTML es un lenguaje semántico, lo que quiere decir que no definimos el aspecto de las cosas, sino lo que significan.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="xml-card">
+      <span id="3080402011">
         <h4>Estructura XHTML</h4>
         <p>Siempre debe llevar un DOCTYPE. El doctype se encarga de decirle al navegador qué contiene el archivo que está abriendo.</p>
         <p>Después del DOCTYPE tenemos a la cabecera y al cuerpo encerrado entre las etiquetas <code>&lt;html&gt;</code>.</p>
         <p>En la etiqueta html debemos indicar que nuestro documento es XHTML y qué lengua estamos usando.</p>
         <p>XHTML trata de separar totalmente la forma del contenido, por ello se deben utilizar sólo las etiquetas y atributos que sirven para definir qué es cada cosa y no las que sirven para definir cómo se ha de ver cada cosa. Para dar formato en XHTML se utiliza CSS.</p>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

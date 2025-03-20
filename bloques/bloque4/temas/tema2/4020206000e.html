@@ -1,609 +1,883 @@
 <div class="teoria">
-    <span id="4020206001">
-        <h2>2.6. NORMALIZACIÓN EN EL MODELO RELACIONAL</h2>
-        <p>El diseño conceptual de datos, proveniente en la mayoría de los casos de los diagramas de Entidad/Relación, debe ser convertido en un modelo lógico trasladable a un Sistema Gestor de Bases de Datos Relacional.</p>
-        <p>En ese sentido, esa conversión no será única en todos los casos, pudiendo dar lugar a diferentes modelos lógicos. De esa forma, la normalización realiza una serie de operaciones sobre dichos modelos lógicos resultantes con el fin de evitar, principalmente, redundancia en los datos, junto con las diferentes anomalías que produce dicha redundancia.</p>
-        <p>En ese contexto se propusieron las formas normales como grados de normalización, incluyendo cada una de ellas a las anteriores. Esto es, si un determinado modelo lógico de datos está en tercera forma normal, estará también en segunda y en primera forma normal.</p>
-    </span>
-
-    <span id="4020206002">
-        <h3>2.6.1. PROBLEMAS DE REDUNDANCIA DE DATOS Y ANOMALÍAS ASOCIADAS</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .norm-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .norm-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
+      }
+      
+      .norm-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .norm-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .anomaly-item {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .anomaly-item:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      
+      .solution-item {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--color-accent);
+        transition: var(--transition);
+      }
+      
+      .solution-item:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      
+      .table-container {
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .teoria table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      .teoria caption {
+        font-weight: bold;
+        padding: 0.5rem;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 8px 8px 0 0;
+      }
+      
+      .teoria th {
+        background-color: rgba(59, 130, 246, 0.1);
+        padding: 0.75rem;
+        text-align: left;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      .teoria td {
+        padding: 0.75rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      .teoria tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+      
+      .teoria tr:hover {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .table-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .table-grid .table-container {
+        flex: 1 1 300px;
+        max-width: 100%;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul li ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .norm-card {
+          padding: 1rem;
+        }
+        
+        .norm-section {
+          padding: 1rem;
+        }
+        
+        .anomaly-item, .solution-item {
+          padding: 0.8rem;
+        }
+        
+        .table-grid {
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <div class="norm-card" id="4020206001">
+      <h2>📐 2.6. NORMALIZACIÓN EN EL MODELO RELACIONAL</h2>
+      <p>El diseño conceptual de datos, proveniente en la mayoría de los casos de los diagramas de Entidad/Relación, debe ser convertido en un modelo lógico trasladable a un Sistema Gestor de Bases de Datos Relacional.</p>
+      <p>En ese sentido, esa conversión no será única en todos los casos, pudiendo dar lugar a diferentes modelos lógicos. De esa forma, la normalización realiza una serie de operaciones sobre dichos modelos lógicos resultantes con el fin de evitar, principalmente, redundancia en los datos, junto con las diferentes anomalías que produce dicha redundancia.</p>
+      <p>En ese contexto se propusieron las formas normales como grados de normalización, incluyendo cada una de ellas a las anteriores. Esto es, si un determinado modelo lógico de datos está en tercera forma normal, estará también en segunda y en primera forma normal.</p>
+    </div>
+  
+    <div class="norm-card" id="4020206002">
+      <div class="norm-section">
+        <h3>⚠️ 2.6.1. PROBLEMAS DE REDUNDANCIA DE DATOS Y ANOMALÍAS ASOCIADAS</h3>
         <p>Tal y como se ha comentado, al convertir el modelo conceptual en un modelo lógico interpretable por un SGBD relacional, puede dar como resultado un modelo que incluya redundancia en los datos.</p>
         <p>Por ejemplo, en la siguiente relación, los atributos Dirección C y Teléfono, no sólo dependen de la clave primaria de la relación, el atributo Id_empleado. De esa forma, como vemos, se almacenan datos de manera redundante, puesto que dichos atributos (DireccionC y Teléfono) se almacenan en varias ocasiones.</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Relación que incluye redundancia de datos</caption>
             <tr>
+              <th>Id_empleado</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Centro</th>
+              <th>DireccionC</th>
+              <th>Teléfono</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Juan</td>
+              <td>Pérez</td>
+              <td>Informática</td>
+              <td>Calle Mayor 1</td>
+              <td>91-123-45-67</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Ana</td>
+              <td>García</td>
+              <td>Somosaguas</td>
+              <td>Calle Principal 10</td>
+              <td>91-987-65-43</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Luis</td>
+              <td>Martínez</td>
+              <td>Informática</td>
+              <td>Calle Mayor 1</td>
+              <td>91-123-45-67</td>
+            </tr>
+          </table>
+        </div>
+        
+        <p>Más allá de que una redundancia acaba significando una mayor necesidad de almacenamiento innecesario, para el ejemplo anterior, en el caso de que un centro cambie de dirección (DireccionC) o Teléfono, dicha operación debe realizarse en todos aquellos puntos donde la información aparece, con el fin de conservar la consistencia de la información almacenada.</p>
+        <p>Adicionalmente, más allá de estos problemas, la redundancia de datos como las anteriores presentan otras pegas, que son conocidas como anomalías de inserción, borrado o modificación:</p>
+        
+        <div class="anomaly-item">
+          <h4><span class="icon">➕</span> Anomalías de inserción</h4>
+          <ul>
+            <li>La existencia de atributos que no dependen completamente de la clave primaria de la relación en la que se encuentran, permite que se puedan realizar inserciones sin respetar las dependencias funcionales correspondientes. Por ejemplo, en el caso anterior, podría añadirse un nuevo empleado en el centro de Somosaguas pero con un teléfono diferente.</li>
+            <li>No podrán añadirse datos con valores nuevos para aquellos atributos para los que no exista una clave principal asociada, sin que exista una dependencia funcional real entre ellos. Por ejemplo, en el caso anterior, no sería posible añadir un nuevo centro salvo que existan empleados asociados a él. Habría que dejar con valor nulo la clave primaria Id_empleado, lo que resulta imposible a nivel de integridad.</li>
+          </ul>
+        </div>
+        
+        <div class="anomaly-item">
+          <h4><span class="icon">❌</span> Anomalías de borrado</h4>
+          <p>Se produce en aquellos casos en los que la eliminación de una fila conlleva la eliminación de los datos asociados con los que no existe realmente una dependencia funcional completa. Por ejemplo, en el caso anterior, cuando se borra el único empleado asociado a un determinado centro, se pierde también la información de dicho centro.</p>
+        </div>
+        
+        <div class="anomaly-item">
+          <h4><span class="icon">🔄</span> Anomalías de modificación</h4>
+          <p>Se producen en aquellos casos en los que la modificación de determinados datos redundantes sólo se realiza para algunas de sus ocurrencias, perdiéndose de esa forma la consistencia global de dichos datos. Por ejemplo, en el caso anterior, la dirección o el teléfono de los centros puede acabar siendo diferente dependiendo de los puntos de la relación en la que se consulte.</p>
+        </div>
+        
+        <p>De esa forma, finalmente, una normalización para la corrección de las redundancias anteriores daría lugar a la creación de una segunda relación para los Centros que almacenaría la información relativa a cada uno de ellos, junto con sus atributos de DirecciónC y Teléfono. De esa forma, la información de los Centros se guarda en un único punto y se asegura que la dependencia de sus atributos (DireccionC y Teléfono) es en su totalidad del centro concreto de que se trate.</p>
+        
+        <div class="table-grid">
+          <div class="table-container">
+            <table>
+              <caption>Tabla Empleados</caption>
+              <tr>
                 <th>Id_empleado</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Centro</th>
-                <th>DireccionC</th>
-                <th>Teléfono</th>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>1</td>
                 <td>Juan</td>
                 <td>Pérez</td>
                 <td>Informática</td>
-                <td>Calle Mayor 1</td>
-                <td>91-123-45-67</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>2</td>
                 <td>Ana</td>
                 <td>García</td>
                 <td>Somosaguas</td>
-                <td>Calle Principal 10</td>
-                <td>91-987-65-43</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>3</td>
                 <td>Luis</td>
                 <td>Martínez</td>
                 <td>Informática</td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Centros</caption>
+              <tr>
+                <th>NombreC</th>
+                <th>DireccionC</th>
+                <th>Teléfono</th>
+              </tr>
+              <tr>
+                <td>Informática</td>
                 <td>Calle Mayor 1</td>
                 <td>91-123-45-67</td>
-            </tr>
-        </table>
-        
-        <p>Más allá de que una redundancia acaba significando una mayor necesidad de almacenamiento innecesario, para el ejemplo anterior, en el caso de que un centro cambie de dirección (DireccionC) o Teléfono, dicha operación debe realizarse en todos aquellos puntos donde la información aparece, con el fin de conservar la consistencia de la información almacenada.</p>
-        <p>Adicionalmente, más allá de estos problemas, la redundancia de datos como las anteriores presentan otras pegas, que son conocidas como anomalías de inserción, borrado o modificación:</p>
-        <ul>
-            <li><strong>Anomalías de inserción.</strong>
-                <ul>
-                    <li>La existencia de atributos que no dependen completamente de la clave primaria de la relación en la que se encuentran, permite que se puedan realizar inserciones sin respetar las dependencias funcionales correspondientes. Por ejemplo, en el caso anterior, podría añadirse un nuevo empleado en el centro de Somosaguas pero con un teléfono diferente.</li>
-                    <li>No podrán añadirse datos con valores nuevos para aquellos atributos para los que no exista una clave principal asociada, sin que exista una dependencia funcional real entre ellos. Por ejemplo, en el caso anterior, no sería posible añadir un nuevo centro salvo que existan empleados asociados a él. Habría que dejar con valor nulo la clave primaria Id_empleado, lo que resulta imposible a nivel de integridad.</li>
-                </ul>
-            </li>
-            <li><strong>Anomalías de borrado.</strong> Se produce en aquellos casos en los que la eliminación de una fila conlleva la eliminación de los datos asociados con los que no existe realmente una dependencia funcional completa. Por ejemplo, en el caso anterior, cuando se borra el único empleado asociado a un determinado centro, se pierde también la información de dicho centro.</li>
-            <li><strong>Anomalías de modificación.</strong> Se producen en aquellos casos en los que la modificación de determinados datos redundantes sólo se realiza para algunas de sus ocurrencias, perdiéndose de esa forma la consistencia global de dichos datos. Por ejemplo, en el caso anterior, la dirección o el teléfono de los centros puede acabar siendo diferente dependiendo de los puntos de la relación en la que se consulte.</li>
-        </ul>
-        <p>De esa forma, finalmente, una normalización para la corrección de las redundancias anteriores daría lugar a la creación de una segunda relación para los Centros que almacenaría la información relativa a cada uno de ellos, junto con sus atributos de DirecciónC y Teléfono. De esa forma, la información de los Centros se guarda en un único punto y se asegura que la dependencia de sus atributos (DireccionC y Teléfono) es en su totalidad del centro concreto de que se trate.</p>
-        
-        <div style="display: flex; justify-content: space-around; margin: 20px 0;">
-            <table border="1">
-                <caption>Tabla Empleados</caption>
-                <tr>
-                    <th>Id_empleado</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Centro</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Juan</td>
-                    <td>Pérez</td>
-                    <td>Informática</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Ana</td>
-                    <td>García</td>
-                    <td>Somosaguas</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Luis</td>
-                    <td>Martínez</td>
-                    <td>Informática</td>
-                </tr>
+              </tr>
+              <tr>
+                <td>Somosaguas</td>
+                <td>Calle Principal 10</td>
+                <td>91-987-65-43</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Centros</caption>
-                <tr>
-                    <th>NombreC</th>
-                    <th>DireccionC</th>
-                    <th>Teléfono</th>
-                </tr>
-                <tr>
-                    <td>Informática</td>
-                    <td>Calle Mayor 1</td>
-                    <td>91-123-45-67</td>
-                </tr>
-                <tr>
-                    <td>Somosaguas</td>
-                    <td>Calle Principal 10</td>
-                    <td>91-987-65-43</td>
-                </tr>
-            </table>
+          </div>
         </div>
         <p>Creación de segunda relación para eliminación de redundancia de datos</p>
         
         <p>En cualquier caso, para realizar operaciones de descomposición como esta, deben tenerse en cuenta, de manera general, las siguientes propiedades:</p>
         <ul>
-            <li>La propiedad de preservación de dependencias, que asegura que las dependencias funcionales originales se mantienen en algún esquema de relación después de la descomposición.</li>
-            <li>La propiedad de unión (join) no aditiva (o sin pérdida), que evita el problema de la generación de tuplas incorrecta.</li>
+          <li>La propiedad de preservación de dependencias, que asegura que las dependencias funcionales originales se mantienen en algún esquema de relación después de la descomposición.</li>
+          <li>La propiedad de unión (join) no aditiva (o sin pérdida), que evita el problema de la generación de tuplas incorrecta.</li>
         </ul>
-    </span>
-
-    <span id="4020206003">
-        <h3>2.6.2. PRIMERA FORMA NORMAL (1FN)</h3>
+      </div>
+    </div>
+  
+    <div class="norm-card" id="4020206003">
+      <div class="norm-section">
+        <h3>1️⃣ 2.6.2. PRIMERA FORMA NORMAL (1FN)</h3>
         <p>Un esquema estará en primera forma normal (1FN) si todos los valores de sus atributos se establecen en dominios atómicos, evitando para ellos atributos multivalorados, compuestos o sus combinaciones.</p>
         <p>Así, para el ejemplo anterior, si se considera que los centros pueden tener varios teléfonos, una posible representación, sería la siguiente:</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Ejemplo de relación con atributos multivalorados</caption>
             <tr>
-                <th>NombreC</th>
-                <th>DireccionC</th>
-                <th>Teléfonos</th>
+              <th>NombreC</th>
+              <th>DireccionC</th>
+              <th>Teléfonos</th>
             </tr>
             <tr>
-                <td>Informática</td>
-                <td>Calle Mayor 1</td>
-                <td>91-123-45-67, 91-123-45-68</td>
+              <td>Informática</td>
+              <td>Calle Mayor 1</td>
+              <td>91-123-45-67, 91-123-45-68</td>
             </tr>
             <tr>
-                <td>Somosaguas</td>
-                <td>Calle Principal 10</td>
-                <td>91-987-65-43</td>
+              <td>Somosaguas</td>
+              <td>Calle Principal 10</td>
+              <td>91-987-65-43</td>
             </tr>
-        </table>
+          </table>
+        </div>
         
         <p>De esa forma, la relación anterior no estaría en primera forma normal, puesto que dicho atributo Teléfonos se ha definido en un dominio no atómico, que le permite tener valores multivalorados.</p>
         <p>Para resolver esta situación, podemos considerar hasta tres posibles soluciones.</p>
-        <ul>
-            <li><strong>Solución 1.</strong> Eliminar el atributo Teléfonos y crear una nueva relación que asocie en cada fila un centro con un teléfono. La clave de la primera relación debe formar parte de la clave de la segunda relación.
-                <div style="display: flex; justify-content: space-around; margin: 20px 0;">
-                    <table border="1">
-                        <caption>Tabla Centros</caption>
-                        <tr>
-                            <th>NombreC</th>
-                            <th>DireccionC</th>
-                        </tr>
-                        <tr>
-                            <td>Informática</td>
-                            <td>Calle Mayor 1</td>
-                        </tr>
-                        <tr>
-                            <td>Somosaguas</td>
-                            <td>Calle Principal 10</td>
-                        </tr>
-                    </table>
-                    
-                    <table border="1">
-                        <caption>Tabla Teléfonos</caption>
-                        <tr>
-                            <th>NombreC</th>
-                            <th>Teléfono</th>
-                        </tr>
-                        <tr>
-                            <td>Informática</td>
-                            <td>91-123-45-67</td>
-                        </tr>
-                        <tr>
-                            <td>Informática</td>
-                            <td>91-123-45-68</td>
-                        </tr>
-                        <tr>
-                            <td>Somosaguas</td>
-                            <td>91-987-65-43</td>
-                        </tr>
-                    </table>
-                </div>
-                <p>Creación de segunda relación para tener atributos atómicos</p>
-                <p>Esta solución presenta, además del inconveniente de la necesidad de inclusión de una segunda relación al modelo, la anomalía de borrado que puede producirse cuando se elimina un centro, pero no se elimina los teléfonos asociados de la otra relación. Esta anomalía puede eliminarse mediante la correspondiente regla de identidad referencial.</p>
-            </li>
-            <li><strong>Solución 2.</strong> Ampliar la clave de la relación de manera que incluya al atributo multivalorado.
-                <table border="1">
-                    <caption>Ampliación de la clave de la relación para tener atributos atómicos</caption>
-                    <tr>
-                        <th>NombreC</th>
-                        <th>DireccionC</th>
-                        <th>Teléfono</th>
-                    </tr>
-                    <tr>
-                        <td>Informática</td>
-                        <td>Calle Mayor 1</td>
-                        <td>91-123-45-67</td>
-                    </tr>
-                    <tr>
-                        <td>Informática</td>
-                        <td>Calle Mayor 1</td>
-                        <td>91-123-45-68</td>
-                    </tr>
-                    <tr>
-                        <td>Somosaguas</td>
-                        <td>Calle Principal 10</td>
-                        <td>91-987-65-43</td>
-                    </tr>
-                </table>
-                <p>Esta solución presenta el inconveniente de incluir información redundante a la relación, puesto que aparecerán en ella tantas ocurrencias de ciertos atributos como la cardinalidad del elemento multivalorado que se desdobla (número de elementos del dominio del atributo multivalorado).</p>
-            </li>
-            <li><strong>Solución 3.</strong> En caso de conocerse la cardinalidad máxima del atributo multivalorado a desdoblar, pueden crearse tantas columnas como sea necesario para sus valores.
-                <table border="1">
-                    <caption>Ampliación del número de columnas para atributos multivalorados</caption>
-                    <tr>
-                        <th>NombreC</th>
-                        <th>DireccionC</th>
-                        <th>Teléfono1</th>
-                        <th>Teléfono2</th>
-                    </tr>
-                    <tr>
-                        <td>Informática</td>
-                        <td>Calle Mayor 1</td>
-                        <td>91-123-45-67</td>
-                        <td>91-123-45-68</td>
-                    </tr>
-                    <tr>
-                        <td>Somosaguas</td>
-                        <td>Calle Principal 10</td>
-                        <td>91-987-65-43</td>
-                        <td>NULL</td>
-                    </tr>
-                </table>
-                <p>Dado que el número de columnas a crear será un valor dado por un máximo, tiene como inconveniente la posible aparición de muchos atributos que tomarán valor nulo (null), para todos aquellos atributos que tengan una cardinalidad menor a dicho valor máximo. Por supuesto, este problema no surgirá en los casos en los que la cardinalidad sea la misma para todos los atributos.</p>
-            </li>
-        </ul>
-    </span>
-
-    <span id="4020206004">
-        <h3>2.6.3. SEGUNDA FORMA NORMAL (2FN)</h3>
+        
+        <div class="solution-item">
+          <h4><span class="icon">1️⃣</span> Solución 1</h4>
+          <p>Eliminar el atributo Teléfonos y crear una nueva relación que asocie en cada fila un centro con un teléfono. La clave de la primera relación debe formar parte de la clave de la segunda relación.</p>
+          
+          <div class="table-grid">
+            <div class="table-container">
+              <table>
+                <caption>Tabla Centros</caption>
+                <tr>
+                  <th>NombreC</th>
+                  <th>DireccionC</th>
+                </tr>
+                <tr>
+                  <td>Informática</td>
+                  <td>Calle Mayor 1</td>
+                </tr>
+                <tr>
+                  <td>Somosaguas</td>
+                  <td>Calle Principal 10</td>
+                </tr>
+              </table>
+            </div>
+            
+            <div class="table-container">
+              <table>
+                <caption>Tabla Teléfonos</caption>
+                <tr>
+                  <th>NombreC</th>
+                  <th>Teléfono</th>
+                </tr>
+                <tr>
+                  <td>Informática</td>
+                  <td>91-123-45-67</td>
+                </tr>
+                <tr>
+                  <td>Informática</td>
+                  <td>91-123-45-68</td>
+                </tr>
+                <tr>
+                  <td>Somosaguas</td>
+                  <td>91-987-65-43</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>Creación de segunda relación para tener atributos atómicos</p>
+          <p>Esta solución presenta, además del inconveniente de la necesidad de inclusión de una segunda relación al modelo, la anomalía de borrado que puede producirse cuando se elimina un centro, pero no se elimina los teléfonos asociados de la otra relación. Esta anomalía puede eliminarse mediante la correspondiente regla de identidad referencial.</p>
+        </div>
+        
+        <div class="solution-item">
+          <h4><span class="icon">2️⃣</span> Solución 2</h4>
+          <p>Ampliar la clave de la relación de manera que incluya al atributo multivalorado.</p>
+          
+          <div class="table-container">
+            <table>
+              <caption>Ampliación de la clave de la relación para tener atributos atómicos</caption>
+              <tr>
+                <th>NombreC</th>
+                <th>DireccionC</th>
+                <th>Teléfono</th>
+              </tr>
+              <tr>
+                <td>Informática</td>
+                <td>Calle Mayor 1</td>
+                <td>91-123-45-67</td>
+              </tr>
+              <tr>
+                <td>Informática</td>
+                <td>Calle Mayor 1</td>
+                <td>91-123-45-68</td>
+              </tr>
+              <tr>
+                <td>Somosaguas</td>
+                <td>Calle Principal 10</td>
+                <td>91-987-65-43</td>
+              </tr>
+            </table>
+          </div>
+          
+          <p>Esta solución presenta el inconveniente de incluir información redundante a la relación, puesto que aparecerán en ella tantas ocurrencias de ciertos atributos como la cardinalidad del elemento multivalorado que se desdobla (número de elementos del dominio del atributo multivalorado).</p>
+        </div>
+        
+        <div class="solution-item">
+          <h4><span class="icon">3️⃣</span> Solución 3</h4>
+          <p>En caso de conocerse la cardinalidad máxima del atributo multivalorado a desdoblar, pueden crearse tantas columnas como sea necesario para sus valores.</p>
+          
+          <div class="table-container">
+            <table>
+              <caption>Ampliación del número de columnas para atributos multivalorados</caption>
+              <tr>
+                <th>NombreC</th>
+                <th>DireccionC</th>
+                <th>Teléfono1</th>
+                <th>Teléfono2</th>
+              </tr>
+              <tr>
+                <td>Informática</td>
+                <td>Calle Mayor 1</td>
+                <td>91-123-45-67</td>
+                <td>91-123-45-68</td>
+              </tr>
+              <tr>
+                <td>Somosaguas</td>
+                <td>Calle Principal 10</td>
+                <td>91-987-65-43</td>
+                <td>NULL</td>
+              </tr>
+            </table>
+          </div>
+          
+          <p>Dado que el número de columnas a crear será un valor dado por un máximo, tiene como inconveniente la posible aparición de muchos atributos que tomarán valor nulo (null), para todos aquellos atributos que tengan una cardinalidad menor a dicho valor máximo. Por supuesto, este problema no surgirá en los casos en los que la cardinalidad sea la misma para todos los atributos.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="norm-card" id="4020206004">
+      <div class="norm-section">
+        <h3>2️⃣ 2.6.3. SEGUNDA FORMA NORMAL (2FN)</h3>
         <p>Un esquema estará en segunda forma normal cuando está en primera forma normal (1FN) y todos los atributos de cualquier relación que no formen parte de su clave tienen una dependencia funcional completa de los atributos que forman la clave de dicha relación.</p>
         <p>Por dependencia funcional completa, entendemos que si el atributo Y depende del atributo clave X (lo que habitualmente se denota por X → Y), no existe ningún subconjunto de X del que Y dependa (esto es, no existe ningún {A} como subconjunto de X tal que X - {A} → Y). En cambio, cuando sí existe dicho subconjunto {A} de X tal que X - {A} → Y se dice que existe una dependencia parcial de X.</p>
         <p>Así, por ejemplo, para la siguiente relación en la que aparecen los proyectos a los que están asignados los empleados, tenemos que varios atributos tienen dependencias no completas (parciales) de la clave formada por la tupla de atributos {Id_empleado, NúmeroP}.</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Ejemplo de relación con dependencias funcionales parciales (no completas)</caption>
             <tr>
-                <th>Id_empleado</th>
-                <th>NombreE</th>
-                <th>NúmeroP</th>
-                <th>NombreP</th>
-                <th>Horas</th>
+              <th>Id_empleado</th>
+              <th>NombreE</th>
+              <th>NúmeroP</th>
+              <th>NombreP</th>
+              <th>Horas</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Juan</td>
-                <td>10</td>
-                <td>Proyecto A</td>
-                <td>20</td>
+              <td>1</td>
+              <td>Juan</td>
+              <td>10</td>
+              <td>Proyecto A</td>
+              <td>20</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Juan</td>
-                <td>20</td>
-                <td>Proyecto B</td>
-                <td>15</td>
+              <td>1</td>
+              <td>Juan</td>
+              <td>20</td>
+              <td>Proyecto B</td>
+              <td>15</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>Ana</td>
-                <td>10</td>
-                <td>Proyecto A</td>
-                <td>30</td>
+              <td>2</td>
+              <td>Ana</td>
+              <td>10</td>
+              <td>Proyecto A</td>
+              <td>30</td>
             </tr>
-        </table>
+          </table>
+        </div>
         
         <p>De esa forma, el atributo NombreE sólo depende de una parte de la clave, el atributo Id_empleado, mientras que el atributo NombreP sólo depende de otra parte de la clave, el atributo NúmeroP.</p>
         <p>Entonces, para poner en segunda forma normal (2FN) un esquema que, como ocurre con el anterior, no lo esté, la solución es crear tantas relaciones adicionales como dependencias funcionales no completas existan.</p>
         <p>En cada una de esas relaciones, la clave candidata será la parte de la clave inicial de la que dependen parcialmente los atributos que se incorporen a ella proveniente de la relación inicial.</p>
         <p>De esa forma, la relación anterior queda dividida en las tres relaciones siguientes, teniendo los atributos de cada una de ellas dependencia funcional completa de la clave en cada caso.</p>
         
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
-            <table border="1">
-                <caption>Tabla Asignaciones</caption>
-                <tr>
-                    <th>Id_empleado</th>
-                    <th>NúmeroP</th>
-                    <th>Horas</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>10</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>20</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
+        <div class="table-grid">
+          <div class="table-container">
+            <table>
+              <caption>Tabla Asignaciones</caption>
+              <tr>
+                <th>Id_empleado</th>
+                <th>NúmeroP</th>
+                <th>Horas</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>20</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>10</td>
+                <td>30</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Empleados</caption>
-                <tr>
-                    <th>Id_empleado</th>
-                    <th>NombreE</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Juan</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Ana</td>
-                </tr>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Empleados</caption>
+              <tr>
+                <th>Id_empleado</th>
+                <th>NombreE</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Juan</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Ana</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Proyectos</caption>
-                <tr>
-                    <th>NúmeroP</th>
-                    <th>NombreP</th>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Proyecto A</td>
-                </tr>
-                <tr>
-                    <td>20</td>
-                    <td>Proyecto B</td>
-                </tr>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Proyectos</caption>
+              <tr>
+                <th>NúmeroP</th>
+                <th>NombreP</th>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Proyecto A</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Proyecto B</td>
+              </tr>
             </table>
+          </div>
         </div>
         <p>Relaciones adicionales creadas con dependencias funcionales completas</p>
         
         <p>En la primera de las relaciones el atributo Horas tiene una dependencia funcional completa de la tupla {Id_empleado, NúmeroP}, mientras que en la segunda el atributo NombreE depende del atributo clave Id_empleado y, en la tercera de las relaciones, el atributo NombreP depende del atributo NúmeroP.</p>
-    </span>
-
-    <span id="4020206005">
-        <h3>2.6.4. TERCERA FORMA NORMAL (3FN)</h3>
+      </div>
+    </div>
+  
+    <div class="norm-card" id="4020206005">
+      <div class="norm-section">
+        <h3>3️⃣ 2.6.4. TERCERA FORMA NORMAL (3FN)</h3>
         <p>Un esquema estará en tercera forma normal (3FN) si satisface la segunda forma normal (2FN) y ninguno de los atributos que no forman parte de una clave candidata depende transitivamente de ninguna clave candidata.</p>
         <p>Por dependencia funcional transitiva se entiende aquella que se da a través de un cierto conjunto de atributos. Es decir, la dependencia funcional X → Y es una dependencia funcional transitiva si existe un conjunto de atributos Z que ni forman clave candidata ni son subconjunto de ninguna clave y además se cumple X → Z y Z → Y.</p>
         <p>Así, por ejemplo, para la siguiente relación en la que aparecen los empleados que forman parte de un departamento, tenemos que los atributos NombreD y DirectorD tienen dependencias funcionales transitivas de la clave de la relación a través del atributo CódigoD.</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Ejemplo de relación con atributos con dependencia transitiva</caption>
             <tr>
-                <th>Id_empleado</th>
-                <th>NombreE</th>
-                <th>DirecciónE</th>
-                <th>CódigoD</th>
-                <th>NombreD</th>
-                <th>DirectorD</th>
+              <th>Id_empleado</th>
+              <th>NombreE</th>
+              <th>DirecciónE</th>
+              <th>CódigoD</th>
+              <th>NombreD</th>
+              <th>DirectorD</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Juan</td>
-                <td>Calle A, 1</td>
-                <td>10</td>
-                <td>Informática</td>
-                <td>Pedro</td>
+              <td>1</td>
+              <td>Juan</td>
+              <td>Calle A, 1</td>
+              <td>10</td>
+              <td>Informática</td>
+              <td>Pedro</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>Ana</td>
-                <td>Calle B, 2</td>
-                <td>20</td>
-                <td>Contabilidad</td>
-                <td>María</td>
+              <td>2</td>
+              <td>Ana</td>
+              <td>Calle B, 2</td>
+              <td>20</td>
+              <td>Contabilidad</td>
+              <td>María</td>
             </tr>
             <tr>
-                <td>3</td>
-                <td>Luis</td>
-                <td>Calle C, 3</td>
-                <td>10</td>
-                <td>Informática</td>
-                <td>Pedro</td>
+              <td>3</td>
+              <td>Luis</td>
+              <td>Calle C, 3</td>
+              <td>10</td>
+              <td>Informática</td>
+              <td>Pedro</td>
             </tr>
-        </table>
+          </table>
+        </div>
         
         <p>Entonces, para poner en tercera forma normal (3FN) un esquema que, como ocurre con el anterior, no lo esté, la solución es crear tantas relaciones adicionales como dependencias funcionales transitivas existan.</p>
         <p>En cada una de esas relaciones, la clave candidata será la parte de la clave inicial de la que dependen transitivamente los atributos que se incorporen a ella proveniente de la relación inicial. De esa forma, la relación anterior queda dividida en las dos relaciones siguientes, teniendo los atributos de cada una de ellas dependencia funcional completa y sin transitividad de la clave en cada caso.</p>
         
-        <div style="display: flex; justify-content: space-around; margin: 20px 0;">
-            <table border="1">
-                <caption>Tabla Empleados</caption>
-                <tr>
-                    <th>Id_empleado</th>
-                    <th>NombreE</th>
-                    <th>DirecciónE</th>
-                    <th>CódigoD</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Juan</td>
-                    <td>Calle A, 1</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Ana</td>
-                    <td>Calle B, 2</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Luis</td>
-                    <td>Calle C, 3</td>
-                    <td>10</td>
-                </tr>
+        <div class="table-grid">
+          <div class="table-container">
+            <table>
+              <caption>Tabla Empleados</caption>
+              <tr>
+                <th>Id_empleado</th>
+                <th>NombreE</th>
+                <th>DirecciónE</th>
+                <th>CódigoD</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Juan</td>
+                <td>Calle A, 1</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Ana</td>
+                <td>Calle B, 2</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Luis</td>
+                <td>Calle C, 3</td>
+                <td>10</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Departamentos</caption>
-                <tr>
-                    <th>CódigoD</th>
-                    <th>NombreD</th>
-                    <th>DirectorD</th>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Informática</td>
-                    <td>Pedro</td>
-                </tr>
-                <tr>
-                    <td>20</td>
-                    <td>Contabilidad</td>
-                    <td>María</td>
-                </tr>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Departamentos</caption>
+              <tr>
+                <th>CódigoD</th>
+                <th>NombreD</th>
+                <th>DirectorD</th>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Informática</td>
+                <td>Pedro</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Contabilidad</td>
+                <td>María</td>
+              </tr>
             </table>
+          </div>
         </div>
         <p>Relaciones adicionales creadas con dependencias funcionales completas y sin transitividad</p>
         
         <p>En la primera de las relaciones los atributos NombreE, DirecciónE y CódigoD tiene una dependencia funcional completa del atributo Id_empleado, mientras que en la segunda los atributos NombreD y DirectorD dependen del atributo CódigoD.</p>
-    </span>
-
-    <span id="4020206006">
-        <h3>2.6.5. FORMA NORMAL DE BOYCE CODD (FNBC)</h3>
+      </div>
+    </div>
+  
+    <div class="norm-card" id="4020206006">
+      <div class="norm-section">
+        <h3>🔄 2.6.5. FORMA NORMAL DE BOYCE CODD (FNBC)</h3>
         <p>La forma normal de Boyce Codd es algo más restrictiva que la tercera forma normal (3FN), estableciendo que todas las dependencias funcionales deben serlo de un atributo que sea superclave.</p>
         <p>Por ejemplo, pese a que la siguiente relación que se muestra está en tercera forma normal (3FN), no lo está en cambio en la forma normal de Boyce Codd (FNBC). En ella se representa información de los investigadores participantes en los diferentes proyectos, que pueden ser codirigidos, pero teniendo en cuenta que los investigadores principales no pueden dirigir más de un proyecto.</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Relación en 3FN pero no en FN Boyce Codd</caption>
             <tr>
-                <th>Proyecto</th>
-                <th>Investigador</th>
-                <th>IPrincipal</th>
+              <th>Proyecto</th>
+              <th>Investigador</th>
+              <th>IPrincipal</th>
             </tr>
             <tr>
-                <td>P1</td>
-                <td>I1</td>
-                <td>I1</td>
+              <td>P1</td>
+              <td>I1</td>
+              <td>I1</td>
             </tr>
             <tr>
-                <td>P1</td>
-                <td>I2</td>
-                <td>I1</td>
+              <td>P1</td>
+              <td>I2</td>
+              <td>I1</td>
             </tr>
             <tr>
-                <td>P2</td>
-                <td>I3</td>
-                <td>I3</td>
+              <td>P2</td>
+              <td>I3</td>
+              <td>I3</td>
             </tr>
             <tr>
-                <td>P2</td>
-                <td>I4</td>
-                <td>I3</td>
+              <td>P2</td>
+              <td>I4</td>
+              <td>I3</td>
             </tr>
-        </table>
+          </table>
+        </div>
         
         <p>De esa forma en la relación anterior se genera una dependencia funcional del atributo IPrincipal sobre el atributo Proyecto, de tal forma que si no se vigila dicha dependencia se puede dar el caso de que tengamos un investigador principal dirigiendo varios de los proyectos.</p>
         <p>Aunque la descomposición para pasar a forma normal de Boyce Codd no es ni mucho menos inmediata, las tres opciones siguientes tratan de llevarla a cabo.</p>
         
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
-            <table border="1">
-                <caption>Tabla Proyectos</caption>
-                <tr>
-                    <th>Proyecto</th>
-                    <th>IPrincipal</th>
-                </tr>
-                <tr>
-                    <td>P1</td>
-                    <td>I1</td>
-                </tr>
-                <tr>
-                    <td>P2</td>
-                    <td>I3</td>
-                </tr>
+        <div class="table-grid">
+          <div class="table-container">
+            <table>
+              <caption>Tabla Proyectos</caption>
+              <tr>
+                <th>Proyecto</th>
+                <th>IPrincipal</th>
+              </tr>
+              <tr>
+                <td>P1</td>
+                <td>I1</td>
+              </tr>
+              <tr>
+                <td>P2</td>
+                <td>I3</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Participaciones</caption>
-                <tr>
-                    <th>Proyecto</th>
-                    <th>Investigador</th>
-                </tr>
-                <tr>
-                    <td>P1</td>
-                    <td>I1</td>
-                </tr>
-                <tr>
-                    <td>P1</td>
-                    <td>I2</td>
-                </tr>
-                <tr>
-                    <td>P2</td>
-                    <td>I3</td>
-                </tr>
-                <tr>
-                    <td>P2</td>
-                    <td>I4</td>
-                </tr>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Participaciones</caption>
+              <tr>
+                <th>Proyecto</th>
+                <th>Investigador</th>
+              </tr>
+              <tr>
+                <td>P1</td>
+                <td>I1</td>
+              </tr>
+              <tr>
+                <td>P1</td>
+                <td>I2</td>
+              </tr>
+              <tr>
+                <td>P2</td>
+                <td>I3</td>
+              </tr>
+              <tr>
+                <td>P2</td>
+                <td>I4</td>
+              </tr>
             </table>
-            
-            <table border="1">
-                <caption>Tabla Direcciones</caption>
-                <tr>
-                    <th>IPrincipal</th>
-                    <th>Proyecto</th>
-                </tr>
-                <tr>
-                    <td>I1</td>
-                    <td>P1</td>
-                </tr>
-                <tr>
-                    <td>I3</td>
-                    <td>P2</td>
-                </tr>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <caption>Tabla Direcciones</caption>
+              <tr>
+                <th>IPrincipal</th>
+                <th>Proyecto</th>
+              </tr>
+              <tr>
+                <td>I1</td>
+                <td>P1</td>
+              </tr>
+              <tr>
+                <td>I3</td>
+                <td>P2</td>
+              </tr>
             </table>
+          </div>
         </div>
         <p>Descomposición de la relación para pasar a FN Boyce Codd</p>
-    </span>
-
-    <span id="4020206007">
-        <h3>2.6.6. CUARTA FORMA NORMAL (4FN)</h3>
+      </div>
+    </div>
+  
+    <div class="norm-card" id="4020206007">
+      <div class="norm-section">
+        <h3>4️⃣ 2.6.6. CUARTA FORMA NORMAL (4FN)</h3>
         <p>Un esquema estará en cuarta forma normal (4FN) si satisface la tercera forma normal (3FN) o la forma normal de Boyce Codd y no posee dependencias multivaluadas no triviales.</p>
         <p>Una tabla con una dependencia multivaluada es aquella en la que la existencia de dos o más relaciones independientes M a N (o muchos a muchos) causa redundancia de información, y es, precisamente esta redundancia, la que es suprimida por la cuarta forma normal.</p>
         
-        <table border="1">
+        <div class="table-container">
+          <table>
             <caption>Relación con dependencias multivaluadas</caption>
             <tr>
-                <th>Restaurante</th>
-                <th>Variedad de Pizza</th>
-                <th>Área de Envío</th>
+              <th>Restaurante</th>
+              <th>Variedad de Pizza</th>
+              <th>Área de Envío</th>
             </tr>
             <tr>
-                <td>Vincenzo's Pizza</td>
-                <td>Corteza Gruesa</td>
-                <td>Springfield</td>
+              <td>Vincenzo's Pizza</td>
+              <td>Corteza Gruesa</td>
+              <td>Springfield</td>
             </tr>
             <tr>
-                <td>Vincenzo's Pizza</td>
-                <td>Corteza Gruesa</td>
-                <td>Shelbyville</td>
+              <td>Vincenzo's Pizza</td>
+              <td>Corteza Gruesa</td>
+              <td>Shelbyville</td>
             </tr>
             <tr>
-                <td>Vincenzo's Pizza</td>
-                <td>Corteza Fina</td>
-                <td>Springfield</td>
+              <td>Vincenzo's Pizza</td>
+              <td>Corteza Fina</td>
+              <td>Springfield</td>
             </tr>
             <tr>
-                <td>Vincenzo's Pizza</td>
-                <td>Corteza Fina</td>
-                <td>Shelbyville</td>
+              <td>Vincenzo's Pizza</td>
+              <td>Corteza Fina</td>
+              <td>Shelbyville</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Gruesa</td>
-                <td>Springfield</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Gruesa</td>
+              <td>Springfield</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Gruesa</td>
-                <td>Shelbyville</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Gruesa</td>
+              <td>Shelbyville</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Gruesa</td>
-                <td>Capital City</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Gruesa</td>
+              <td>Capital City</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Rellena</td>
-                <td>Springfield</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Rellena</td>
+              <td>Springfield</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Rellena</td>
-                <td>Shelbyville</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Rellena</td>
+              <td>Shelbyville</td>
             </tr>
             <tr>
-                <td>A1 Pizza</td>
-                <td>Corteza Rellena</td>
-                <td>Capital City</td>
+              <td>A1 Pizza</td>
+              <td>Corteza Rellena</td>
+              <td>Capital City</td>
             </tr>
-        </table>
+          </table>
+        </div>
         
         <p>Por ejemplo, la relación anterior que muestra las zonas a los que ciertos restaurantes pueden mandar ciertos tipos de pizza, pese a satisfacer la tercera forma normal (3FN), incluye mucha información redundante: 2 veces que el restaurante Vincenzo's Pizza ofrece la Variedad de Pizza de Corteza Gruesa u otras 2 veces la Variedad de Pizza de Corteza Fina, 3 veces que el restaurante A1 Pizza ofrece la Variedad de Pizza de Corteza Gruesa u 3 veces la Variedad de Pizza de Corteza Rellena, etc.</p>
         <p>De esa forma, en términos formales, esto se describe como que el atributo Variedad de pizza tiene una dependencia multivalorada del atributo Restaurante. De esa forma, para deshacerla, sería necesaria la separación en dos relaciones diferentes, una para las Variedades de pizza y otra para las áreas de envío en función del Restaurante.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

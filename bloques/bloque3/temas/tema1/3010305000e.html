@@ -1,163 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ampliación de Ward y Mellor</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>3.5.1 AMPLIACIÓN DE WARD Y MELLOR</h2>
+  <article>
+    <h2 class="section-title">3.5.1 AMPLIACIÓN DE WARD Y MELLOR</h2>
     
-    <span id="3010305001">
-        <p>Ward y Mellor amplían la notación básica de los diagramas de flujo de datos para que se adapte a las siguientes a los sistemas de tiempo real:</p>
-        <ul>
-            <li>Flujo de información que es recogido o producido de forma continua en el tiempo.</li>
-            <li>Información de control que pasa por el sistema y el procesamiento de control asociado.</li>
-            <li>Ocurrencias múltiples de la misma transformación que se encuentran a menudo en situaciones de multitarea.</li>
-            <li>Estados del sistema y mecanismos que producen transición de estados en el sistema</li>
-        </ul>
-    </span>
-
-    <span id="3010305002">
-        <p>Es decir, se emplea en sistemas de tiempo real y se representa de la siguiente forma:</p>
-        <p>[Aquí iría una imagen con la notación para representación de componentes según Ward y Mellor, y Métrica v3]</p>
-    </span>
-
-    <span id="3010305003">
-        <p>Los elementos a los que afecta la ampliación de Ward y Mellor son los siguientes:</p>
-        <table>
-            <tr>
-                <th>Elemento</th>
-                <th>Representa</th>
-                <th>Características</th>
-            </tr>
-            <tr>
-                <td>Procesos de control</td>
-                <td>
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🔄</div>
+        <div class="intro-content">
+          <p id="3010305001">Ward y Mellor amplían la notación básica de los diagramas de flujo de datos para que se adapte a las siguientes a los sistemas de tiempo real:</p>
+          <ul class="feature-list">
+            <li><span class="feature-bullet">•</span> Flujo de información que es recogido o producido de forma continua en el tiempo.</li>
+            <li><span class="feature-bullet">•</span> Información de control que pasa por el sistema y el procesamiento de control asociado.</li>
+            <li><span class="feature-bullet">•</span> Ocurrencias múltiples de la misma transformación que se encuentran a menudo en situaciones de multitarea.</li>
+            <li><span class="feature-bullet">•</span> Estados del sistema y mecanismos que producen transición de estados en el sistema</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="representation-card">
+        <div class="representation-content">
+          <p id="3010305002">Es decir, se emplea en sistemas de tiempo real y se representa de la siguiente forma:</p>
+          <div class="notation-diagram">
+            <div class="notation-title">Notación para representación de componentes según Ward y Mellor, y Métrica v3</div>
+            <div class="notation-elements">
+              <div class="notation-element">
+                <div class="element-name">Proceso de Control</div>
+                <div class="element-symbol control-process"></div>
+              </div>
+              <div class="notation-element">
+                <div class="element-name">Proceso Múltiple</div>
+                <div class="element-symbol multiple-process"></div>
+              </div>
+              <div class="notation-element">
+                <div class="element-name">Almacén de Control</div>
+                <div class="element-symbol control-store"></div>
+              </div>
+              <div class="notation-element">
+                <div class="element-name">Flujo de Control</div>
+                <div class="element-symbol control-flow"></div>
+              </div>
+              <div class="notation-element">
+                <div class="element-name">Flujo de Datos Continuo</div>
+                <div class="element-symbol continuous-flow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="elements-card">
+        <h3 class="card-title">Elementos de la Ampliación de Ward y Mellor</h3>
+        <div class="elements-table-container" id="3010305003">
+          <div class="table-responsive">
+            <table class="elements-table">
+              <thead>
+                <tr>
+                  <th>Elemento</th>
+                  <th>Representa</th>
+                  <th>Características</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Procesos de control</td>
+                  <td>
                     <ul>
-                        <li>Representan: Procesamiento de señales de control.</li>
-                        <li>Representan: Coordinación y sincronización de actividades de otros procesos.</li>
-                        <li>Representan: Activación/desactivación de procesos.</li>
+                      <li>Representan: Procesamiento de señales de control.</li>
+                      <li>Representan: Coordinación y sincronización de actividades de otros procesos.</li>
+                      <li>Representan: Activación/desactivación de procesos.</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ul>
-                        <li>Ward y Mellor, y Métrica v3.</li>
-                        <li>Señales de control pueden ser: Entrada/salida</li>
+                      <li>Ward y Mellor, y Métrica v3.</li>
+                      <li>Señales de control pueden ser: Entrada/salida</li>
                     </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Procesos múltiples</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Procesos múltiples</td>
+                  <td>
                     <ul>
-                        <li>Representan: Varias instancias de un mismo proceso.</li>
+                      <li>Representan: Varias instancias de un mismo proceso.</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ul>
-                        <li>Ward y Mellor.</li>
+                      <li>Ward y Mellor.</li>
                     </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Almacenes de control</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Almacenes de control</td>
+                  <td>
                     <ul>
-                        <li>Representan: Almacén de info./señal de control (del sistema).</li>
+                      <li>Representan: Almacén de info./señal de control (del sistema).</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ul>
-                        <li>Ward y Mellor.</li>
+                      <li>Ward y Mellor.</li>
                     </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Flujos de control</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Flujos de control</td>
+                  <td>
                     <ul>
-                        <li>Representan: Transmisión de señales de control a procesos (salen de proceso origen para activar proceso destino).</li>
+                      <li>Representan: Transmisión de señales de control a procesos (salen de proceso origen para activar proceso destino).</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ul>
-                        <li>Ward y Mellor, y Métrica v3.</li>
-                        <li>Flujos de control = Eventos.</li>
+                      <li>Ward y Mellor, y Métrica v3.</li>
+                      <li>Flujos de control = Eventos.</li>
                     </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Flujos de datos continuos</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Flujos de datos continuos</td>
+                  <td>
                     <ul>
-                        <li>Representan: Flujos de datos → Entran/salen de un proceso (de forma constante/continua).</li>
+                      <li>Representan: Flujos de datos → Entran/salen de un proceso (de forma constante/continua).</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ul>
-                        <li>Ward y Mellor.</li>
+                      <li>Ward y Mellor.</li>
                     </ul>
-                </td>
-            </tr>
-        </table>
-    </span>
-
-    <h2>3.5.2 TÉCNICAS ALTERNATIVAS O COMPLEMENTARIAS AL DFD</h2>
-
-    <span id="3010305004">
-        <p>Existen otras técnicas complementarios o alternativas para la definición de los diagramas de flujo de datos que se presentan en la siguiente tabla:</p>
-        <table>
-            <tr>
-                <th>Técnica</th>
-                <th>Descripción</th>
-                <th>Procedimiento</th>
-            </tr>
-            <tr>
-                <td>SRD (Structured Requirement Definition – Definición de Requisitos Estructurados)</td>
-                <td>Método para completar conj. de entradas y salida de sist. de info.</td>
-                <td>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h2 class="section-title">3.5.2 TÉCNICAS ALTERNATIVAS O COMPLEMENTARIAS AL DFD</h2>
+      
+      <div class="techniques-card">
+        <div class="techniques-content" id="3010305004">
+          <p>Existen otras técnicas complementarios o alternativas para la definición de los diagramas de flujo de datos que se presentan en la siguiente tabla:</p>
+          <div class="table-responsive">
+            <table class="techniques-table">
+              <thead>
+                <tr>
+                  <th>Técnica</th>
+                  <th>Descripción</th>
+                  <th>Procedimiento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SRD (Structured Requirement Definition – Definición de Requisitos Estructurados)</td>
+                  <td>Método para completar conj. de entradas y salida de sist. de info.</td>
+                  <td>
                     <ol>
-                        <li>Definir DFD de nivel de usuario: Para cada usuario se registran en un DFD:
-                            <ul>
-                                <li>Entradas que produce el sistema.</li>
-                                <li>Salidas que produce el sistema.</li>
-                            </ul>
-                        </li>
-                        <li>Definir DFD de nivel de usuario combinado.</li>
-                        <li>Definir DFD de nivel de aplicación (diagrama del contexto – entradas y salidas externas).</li>
-                        <li>Definir funciones del nivel de aplicación (entradas y salidas del sistema para mostrar el orden de sucesos).</li>
+                      <li>Definir DFD de nivel de usuario: Para cada usuario se registran en un DFD:
+                        <ul>
+                          <li>Entradas que produce el sistema.</li>
+                          <li>Salidas que produce el sistema.</li>
+                        </ul>
+                      </li>
+                      <li>Definir DFD de nivel de usuario combinado.</li>
+                      <li>Definir DFD de nivel de aplicación (diagrama del contexto – entradas y salidas externas).</li>
+                      <li>Definir funciones del nivel de aplicación (entradas y salidas del sistema para mostrar el orden de sucesos).</li>
                     </ol>
-                </td>
-            </tr>
-            <tr>
-                <td>SADT (Structured Analisys & Design Technique – Técnica de Análisis y Diseño Estructurado)</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SADT (Structured Analisys & Design Technique – Técnica de Análisis y Diseño Estructurado)</td>
+                  <td>
                     <ul>
-                        <li>Método para construir modelo del problema.</li>
-                        <li>Método emplea notación gráfica para representación.</li>
-                        <li>Método compuesto por jerarquía de diagramas.</li>
+                      <li>Método para construir modelo del problema.</li>
+                      <li>Método emplea notación gráfica para representación.</li>
+                      <li>Método compuesto por jerarquía de diagramas.</li>
                     </ul>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <ol>
-                        <li>Obtener Jerarquía de diagramas:
-                            <ul>
-                                <li>Diagrama de contexto define problema de forma abstracta.</li>
-                                <li>Caja representa acciones del problema.</li>
-                                <li>Flecha representa interconexiones entre cajas (flechas entran por izqda./arriba/abajo; flechas salen por dcha.).</li>
-                            </ul>
-                        </li>
+                      <li>Obtener Jerarquía de diagramas:
+                        <ul>
+                          <li>Diagrama de contexto define problema de forma abstracta.</li>
+                          <li>Caja representa acciones del problema.</li>
+                          <li>Flecha representa interconexiones entre cajas (flechas entran por izqda./arriba/abajo; flechas salen por dcha.).</li>
+                        </ul>
+                      </li>
                     </ol>
-                </td>
-            </tr>
-            <tr>
-                <td>SASS (Structured Analisys & System Specification – Análisis Estructurado y Especificación del Sistema)</td>
-                <td>Método que representa y refina continuamente diagrama de contexto.</td>
-                <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SASS (Structured Analisys & System Specification – Análisis Estructurado y Especificación del Sistema)</td>
+                  <td>Método que representa y refina continuamente diagrama de contexto.</td>
+                  <td>
                     <ol>
-                        <li>Obtener DFD físico actual (muestra flujos de datos producidos en la organización NO automatizada).</li>
-                        <li>Obtener equivalentes lógicos.</li>
-                        <li>Verificar modelo (por parte del cliente).</li>
-                        <li>Definir alternativas de automatización diferentes.</li>
-                        <li>Analizar alternativas de automatización (junto con el cliente).</li>
-                        <li>Seleccionar 1 de los DFD físicos para su implementación.</li>
+                      <li>Obtener DFD físico actual (muestra flujos de datos producidos en la organización NO automatizada).</li>
+                      <li>Obtener equivalentes lógicos.</li>
+                      <li>Verificar modelo (por parte del cliente).</li>
+                      <li>Definir alternativas de automatización diferentes.</li>
+                      <li>Analizar alternativas de automatización (junto con el cliente).</li>
+                      <li>Seleccionar 1 de los DFD físicos para su implementación.</li>
                     </ol>
-                </td>
-            </tr>
-        </table>
-    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🔄";
+    margin-right: 10px;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .feature-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Representation Card */
+  .representation-card, .elements-card, .techniques-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .notation-diagram {
+    margin-top: 20px;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .notation-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--color-primary-dark);
+  }
+  
+  .notation-elements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .notation-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .element-name {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .element-symbol {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .control-process {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .control-process::before {
+    content: "C";
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+  
+  .multiple-process {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .multiple-process::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-white);
+    z-index: -1;
+  }
+  
+  .control-store {
+    width: 80px;
+    height: 30px;
+    border-top: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .control-store::before {
+    content: "C";
+    font-weight: bold;
+    color: var(--color-primary);
+    position: absolute;
+    left: 5px;
+  }
+  
+  .control-flow {
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: relative;
+  }
+  
+  .control-flow::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top: 2px dashed var(--color-primary);
+    top: -4px;
+  }
+  
+  .control-flow::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-width: 5px 0 5px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--color-primary);
+  }
+  
+  .continuous-flow {
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: relative;
+  }
+  
+  .continuous-flow::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid var(--color-primary);
+    top: -4px;
+  }
+  
+  .continuous-flow::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-width: 5px 0 5px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--color-primary);
+  }
+  
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .elements-table, .techniques-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .elements-table th, .techniques-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .elements-table td, .techniques-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+  
+  .elements-table tr:nth-child(even), .techniques-table tr:nth-child(even) {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .elements-table tr:hover, .techniques-table tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .elements-table ul, .techniques-table ul, .techniques-table ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .elements-table li, .techniques-table li {
+    margin-bottom: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .notation-elements {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,88 +1,291 @@
 <div class="teoria">
-    <span id="3080501001">
-        <h2>5.1 JAVASCRIPT</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .js-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .js-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .framework-card {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .framework-card:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .framework-card h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .framework-card h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .applet-comparison {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .advantage, .disadvantage {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      
+      .advantage {
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .disadvantage {
+        border-left: 3px solid #ef4444;
+      }
+      
+      .advantage h4, .disadvantage h4 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .advantage h4 {
+        color: var(--color-secondary-dark);
+      }
+      
+      .disadvantage h4 {
+        color: #dc2626;
+      }
+      
+      .advantage h4 .icon, .disadvantage h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .js-card {
+          padding: 1rem;
+        }
+        
+        .applet-comparison {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="js-card">
+      <span id="3080501001">
+        <h2>📜 5.1 JAVASCRIPT</h2>
         <p>JavaScript permite la generación dinámica de contenido HTML en el navegador. Existe una interacción con applets y plug-ins. Manejo de cookies del cliente.</p>
         <p>Se ejecuta en general en el navegador del usuario (en el cliente) cuando al cargar la página, cuando sucede un evento (ejemplo: pulsar un enlace).</p>
         <p>Tiene una funcionalidad limitada. En concreto JavaScript presenta sintaxis similar a java pero no es java 100%.</p>
         <p>JavaScript es un lenguaje de programación posterior a Java, que surgió como propuesta de Netscape.</p>
-    </span>
-
-    <span id="3080501002">
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501002">
         <p>Características principales:</p>
         <ul>
-            <li>Extensión de HTML</li>
-            <li>Interpretado</li>
-            <li>Basado en prototipos</li>
-            <li>Es sensible a las mayúsculas y minúsculas</li>
-            <li>Java JDK 8 integra un motor de JavaScript</li>
+          <li>Extensión de HTML</li>
+          <li>Interpretado</li>
+          <li>Basado en prototipos</li>
+          <li>Es sensible a las mayúsculas y minúsculas</li>
+          <li>Java JDK 8 integra un motor de JavaScript</li>
         </ul>
         <p>JavaScript normalmente depende del entorno en el que se ejecute. Su uso es más común para escribir funciones embebidas o incluidas en páginas HTML y que interactúan con el Document Object Model (DOM) o Modelo de Objetos del Documento) de la página.</p>
-    </span>
-
-    <span id="3080501003">
-        <h3>Ejemplos de uso:</h3>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501003">
+        <h3>🚀 Ejemplos de uso:</h3>
         <ul>
-            <li>Cargar nuevo contenido para la página o enviar datos al servidor a través de AJAX sin necesidad de recargar la página</li>
-            <li>Animación de los elementos de página</li>
-            <li>Validaciones de primer nivel (ejemplo: formularios)</li>
-            <li>Transmisión de información sobre los hábitos de lectura de los usuarios y las actividades de navegación</li>
-            <li>Utilizar cookies en Javascript</li>
+          <li>Cargar nuevo contenido para la página o enviar datos al servidor a través de AJAX sin necesidad de recargar la página</li>
+          <li>Animación de los elementos de página</li>
+          <li>Validaciones de primer nivel (ejemplo: formularios)</li>
+          <li>Transmisión de información sobre los hábitos de lectura de los usuarios y las actividades de navegación</li>
+          <li>Utilizar cookies en Javascript</li>
         </ul>
-    </span>
-
-    <span id="3080501004">
-        <h3>5.1.1 FRAMEWORKS DE JAVASCRIPT</h3>
-        <h4>React</h4>
-        <p>Es una librería de Facebook enfocada en la creación de vistas con particularidades como los patrones de eventos que permiten actualizar las mencionadas vistas cuando los datos hayan sido modificados, aportando una carga en tiempo real a nuestro desarrollo.</p>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501004">
+        <h3>🧩 5.1.1 FRAMEWORKS DE JAVASCRIPT</h3>
         
-        <h4>AngularJS 1.x y Angular 2.0+</h4>
-        <p>Este framework fue creado y es promovido por Google. Angular 2.0 introduce grandes cambios respecto a su versión anterior, incluyendo el uso de TypeScript y una nueva API. Las versiones posteriores mantienen retrocompatibilidad.</p>
+        <div class="framework-card">
+          <h4><span class="icon">⚛️</span> React</h4>
+          <p>Es una librería de Facebook enfocada en la creación de vistas con particularidades como los patrones de eventos que permiten actualizar las mencionadas vistas cuando los datos hayan sido modificados, aportando una carga en tiempo real a nuestro desarrollo.</p>
+        </div>
         
-        <h4>VueJS</h4>
-        <p>Vue fue creado por un ex-empleado de Google, que pretendía coger sus partes favoritas de AngularJS y crear algo muy ligero. Desde 2014 está disponible a toda la comunidad como proyecto Open Source.</p>
-    </span>
-
-    <span id="3080501005">
-        <h4>NodeJS</h4>
-        <p>Es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación ECMAScript. Es asíncrono, con entrada y salida de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google.</p>
-        <p>Fue creado con el enfoque de ser útil en la creación de programas de red altamente escalables, como, por ejemplo, servidores web.</p>
+        <div class="framework-card">
+          <h4><span class="icon">🅰️</span> AngularJS 1.x y Angular 2.0+</h4>
+          <p>Este framework fue creado y es promovido por Google. Angular 2.0 introduce grandes cambios respecto a su versión anterior, incluyendo el uso de TypeScript y una nueva API. Las versiones posteriores mantienen retrocompatibilidad.</p>
+        </div>
         
-        <h4>Otros Frameworks</h4>
-        <ul>
+        <div class="framework-card">
+          <h4><span class="icon">🟢</span> VueJS</h4>
+          <p>Vue fue creado por un ex-empleado de Google, que pretendía coger sus partes favoritas de AngularJS y crear algo muy ligero. Desde 2014 está disponible a toda la comunidad como proyecto Open Source.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501005">
+        <div class="framework-card">
+          <h4><span class="icon">🟢</span> NodeJS</h4>
+          <p>Es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación ECMAScript. Es asíncrono, con entrada y salida de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google.</p>
+          <p>Fue creado con el enfoque de ser útil en la creación de programas de red altamente escalables, como, por ejemplo, servidores web.</p>
+        </div>
+        
+        <div class="framework-card">
+          <h4><span class="icon">🧰</span> Otros Frameworks</h4>
+          <ul>
             <li><strong>Meteor:</strong> Una plataforma completa que permite exportar código a diferentes entornos: web, mobile y desktop.</li>
             <li><strong>KOA:</strong> Nueva generación de framework web, más ligero y expresivo que Express.</li>
             <li><strong>SailsJS:</strong> Framework web con generador de acciones integrado.</li>
-        </ul>
-    </span>
-
-    <span id="3080501006">
-        <h3>5.1.2 APPLETS</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501006">
+        <h3>☕ 5.1.2 APPLETS</h3>
         <p>Los applets son pequeños programas en JAVA que se ejecutan en el navegador. Pueden ejecutarse utilizando la Java Virtual Machine (JVM), o en el AppletViewer de Sun.</p>
         <p>En Java, un applet es un programa que puede incrustarse en una página web. Cuando un navegador carga una página web que contiene un applet, este se descarga en el navegador web y comienza a ejecutarse.</p>
-    </span>
-
-    <span id="3080501007">
-        <h4>Ventajas de los Applets</h4>
-        <ul>
-            <li>Son multiplataforma</li>
-            <li>Compatibilidad con múltiples versiones de Java</li>
-            <li>Pueden almacenarse en caché</li>
-            <li>Pueden tener acceso completo a la máquina con permiso del usuario</li>
-            <li>Rendimiento comparable a lenguajes compilados</li>
-            <li>Trasladan trabajo del servidor al cliente</li>
-        </ul>
-    </span>
-
-    <span id="3080501008">
-        <h4>Desventajas de los Applets</h4>
-        <ul>
-            <li>Requieren el plugin de Java (no soportado en Chrome ni Edge)</li>
-            <li>Tiempo de inicio de JVM</li>
-            <li>Acceso limitado al sistema si no están firmados</li>
-            <li>Restricciones de instalación en algunas organizaciones</li>
-            <li>Pueden requerir versiones específicas del JRE</li>
-            <li>Posibles vulnerabilidades de seguridad</li>
-            <li>Incompatibilidad con la mayoría de navegadores modernos</li>
-        </ul>
-    </span>
-</div>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501007">
+        <div class="applet-comparison">
+          <div class="advantage">
+            <h4><span class="icon">✅</span> Ventajas de los Applets</h4>
+            <ul>
+              <li>Son multiplataforma</li>
+              <li>Compatibilidad con múltiples versiones de Java</li>
+              <li>Pueden almacenarse en caché</li>
+              <li>Pueden tener acceso completo a la máquina con permiso del usuario</li>
+              <li>Rendimiento comparable a lenguajes compilados</li>
+              <li>Trasladan trabajo del servidor al cliente</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="js-card">
+      <span id="3080501008">
+        <div class="applet-comparison">
+          <div class="disadvantage">
+            <h4><span class="icon">❌</span> Desventajas de los Applets</h4>
+            <ul>
+              <li>Requieren el plugin de Java (no soportado en Chrome ni Edge)</li>
+              <li>Tiempo de inicio de JVM</li>
+              <li>Acceso limitado al sistema si no están firmados</li>
+              <li>Restricciones de instalación en algunas organizaciones</li>
+              <li>Pueden requerir versiones específicas del JRE</li>
+              <li>Posibles vulnerabilidades de seguridad</li>
+              <li>Incompatibilidad con la mayoría de navegadores modernos</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>

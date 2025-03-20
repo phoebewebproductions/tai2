@@ -8,127 +8,281 @@
 <body>
     <div class="teoria">
         <span id="3040201001">
-            <h1>2. DML (LENGUAJE DE MANIPULACIÓN DE DATOS)</h1>
-            <p>Lenguaje que permite la manipulación y recuperación de datos. El más popular es SQL.</p>
+            <h1 class="main-title">2. DML (LENGUAJE DE MANIPULACIÓN DE DATOS)</h1>
+            <div class="intro-card">
+                <div class="intro-icon">🔄</div>
+                <div class="intro-content">
+                    <p>Lenguaje que permite la manipulación y recuperación de datos. El más popular es SQL.</p>
+                </div>
+            </div>
         </span>
 
         <span id="3040201002">
-            <h2>2.1. COMENTARIOS</h2>
-            <p>Como todo lenguaje que se precie, el ANSI SQL permite introducir comentarios dentro de los scripts.</p>
-            <ul>
-                <li>Los comentarios de una línea van precedidos por dos guiones "--".</li>
-                <li>Los comentarios multi línea siguen el estándar de C++. Van encerrados entre /* Comentario */</li>
-            </ul>
-            <p>Se permiten los comentarios anidados.</p>
+            <h2 class="section-title">2.1. COMENTARIOS</h2>
+            <div class="content-card">
+                <p>Como todo lenguaje que se precie, el ANSI SQL permite introducir comentarios dentro de los scripts.</p>
+                <ul class="feature-list">
+                    <li><span class="feature-bullet">•</span> Los comentarios de una línea van precedidos por dos guiones "--".</li>
+                    <li><span class="feature-bullet">•</span> Los comentarios multi línea siguen el estándar de C++. Van encerrados entre /* Comentario */</li>
+                </ul>
+                <p>Se permiten los comentarios anidados.</p>
+            </div>
         </span>
 
         <span id="3040201003">
-            <h2>2.2. SELECT</h2>
-            <p>Permite obtener datos de la base de datos. Los datos devueltos se almacenan en la tabla de resultados denominada result-set.</p>
-            <pre><code>SELECT Columna1, Columna2, ... FROM tabla;
+            <h2 class="section-title">2.2. SELECT</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Consulta de datos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite obtener datos de la base de datos. Los datos devueltos se almacenan en la tabla de resultados denominada result-set.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT Columna1, Columna2, ... FROM tabla;
 SELECT * FROM Tabla;</code></pre>
-            <p>Si la sentencia SELECT contiene campos de más de una tabla deben tener un nombre único o usar la forma Tabla.Campo para evitar ambigüedades.</p>
-            <p>Los nombres de las columnas y de las tablas pueden ser renombrados mediante un alias con la cláusula AS.</p>
-            <pre><code>SELECT Columna1 AS nombreNuevo1 FROM tabla
+                    </div>
+                    <p>Si la sentencia SELECT contiene campos de más de una tabla deben tener un nombre único o usar la forma Tabla.Campo para evitar ambigüedades.</p>
+                    <p>Los nombres de las columnas y de las tablas pueden ser renombrados mediante un alias con la cláusula AS.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT Columna1 AS nombreNuevo1 FROM tabla
 SELECT Columna1, Columna2 FROM tabla AS nombreTable</code></pre>
-            <p>El uso de alias se utiliza principalmente para:</p>
-            <ul>
-                <li>Renombrar una columna con un nombre más descriptivo (o en otro idioma)</li>
-                <li>Darle un nombre a una expresión generada sobre los campos</li>
-                <li>Darle un nombre más "manejable" a una tabla que va a ser utilizada posteriormente en la consulta sql.</li>
-            </ul>
+                    </div>
+                    <p>El uso de alias se utiliza principalmente para:</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> Renombrar una columna con un nombre más descriptivo (o en otro idioma)</li>
+                        <li><span class="feature-bullet">•</span> Darle un nombre a una expresión generada sobre los campos</li>
+                        <li><span class="feature-bullet">•</span> Darle un nombre más "manejable" a una tabla que va a ser utilizada posteriormente en la consulta sql.</li>
+                    </ul>
+                </div>
+            </div>
         </span>
 
         <span id="3040201004">
-            <h2>2.3. WHERE</h2>
-            <p>Permite filtrar los datos que se desean obtener o sobre los que se desea trabajar.</p>
-            <pre><code>SELECT Columna1, Columna2, ... FROM Tabla WHERE condicion;</code></pre>
-            <p>Condición puede ser cualquier condición lógica o aritmética</p>
-            <p>Condición: CAMPO operador VALOR</p>
-            <p>Por ejemplo, dada una tabla con un campo edad podríamos efectuar las siguientes consultas:</p>
-            <pre><code>SELECT * FROM Clientes WHERE Edad = 18</code></pre>
+            <h2 class="section-title">2.3. WHERE</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔎</div>
+                    <h3 class="command-title">Filtrado de datos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite filtrar los datos que se desean obtener o sobre los que se desea trabajar.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT Columna1, Columna2, ... FROM Tabla WHERE condicion;</code></pre>
+                    </div>
+                    <p>Condición puede ser cualquier condición lógica o aritmética</p>
+                    <p>Condición: CAMPO operador VALOR</p>
+                    <p>Por ejemplo, dada una tabla con un campo edad podríamos efectuar las siguientes consultas:</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT * FROM Clientes WHERE Edad = 18</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201005">
-            <h2>2.4. OPERADORES</h2>
-            <h3>Operadores de comparación</h3>
-            <ul>
-                <li>= (Igual)</li>
-                <li>> (Mayor)</li>
-                <li>< (Menor)</li>
-                <li>>= (Mayor o igual)</li>
-                <li><= (Menor o igual)</li>
-                <li><> (Distinto)</li>
-                <li>BETWEEN (Entre un rango dado)</li>
-                <li>LIKE (Busca un patrón)</li>
-                <li>IN (Especifica múltiples valores para la columna)</li>
-            </ul>
-            <h3>Operadores aritméticos</h3>
-            <ul>
-                <li>+ (Suma)</li>
-                <li>- (Resta)</li>
-                <li>* (Multiplicación)</li>
-                <li>/ (División)</li>
-                <li>% (Módulo)</li>
-            </ul>
-            <h3>Operadores lógicos</h3>
-            <ul>
-                <li>AND (Y)</li>
-                <li>OR (O)</li>
-                <li>NOT (No)</li>
-            </ul>
+            <h2 class="section-title">2.4. OPERADORES</h2>
+            <div class="content-card">
+                <div class="operators-grid">
+                    <div class="operator-category">
+                        <h3 class="operator-category-title">Operadores de comparación</h3>
+                        <ul class="operator-list">
+                            <li><span class="operator-symbol">=</span> (Igual)</li>
+                            <li><span class="operator-symbol">></span> (Mayor)</li>
+                            <li><span class="operator-symbol"><</span> (Menor)</li>
+                            <li><span class="operator-symbol">>=</span> (Mayor o igual)</li>
+                            <li><span class="operator-symbol"><=</span> (Menor o igual)</li>
+                            <li><span class="operator-symbol"><></span> (Distinto)</li>
+                            <li><span class="operator-symbol">BETWEEN</span> (Entre un rango dado)</li>
+                            <li><span class="operator-symbol">LIKE</span> (Busca un patrón)</li>
+                            <li><span class="operator-symbol">IN</span> (Especifica múltiples valores para la columna)</li>
+                        </ul>
+                    </div>
+                    <div class="operator-category">
+                        <h3 class="operator-category-title">Operadores aritméticos</h3>
+                        <ul class="operator-list">
+                            <li><span class="operator-symbol">+</span> (Suma)</li>
+                            <li><span class="operator-symbol">-</span> (Resta)</li>
+                            <li><span class="operator-symbol">*</span> (Multiplicación)</li>
+                            <li><span class="operator-symbol">/</span> (División)</li>
+                            <li><span class="operator-symbol">%</span> (Módulo)</li>
+                        </ul>
+                    </div>
+                    <div class="operator-category">
+                        <h3 class="operator-category-title">Operadores lógicos</h3>
+                        <ul class="operator-list">
+                            <li><span class="operator-symbol">AND</span> (Y)</li>
+                            <li><span class="operator-symbol">OR</span> (O)</li>
+                            <li><span class="operator-symbol">NOT</span> (No)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201006">
-            <h2>2.5. LIKE</h2>
-            <p>El operador Like se utiliza junto a la cláusula WHERE para especificar un patrón de búsqueda.</p>
-            <p>Los caracteres comodín utilizados normalmente son:</p>
-            <ul>
-                <li>'%' representa una cadena de cero o más caracteres.</li>
-                <li>'_' representa un único carácter.</li>
-                <li>'\' carácter de escape. Se utiliza para poder usar los caracteres '%' y '_' como tal no como comodines ('\%', '\_', '\\').</li>
-            </ul>
-            <table border="1">
-                <tr><th>LIKE</th><th>Descripción</th></tr>
-                <tr><td>WHERE NOMBRE LIKE 'a%'</td><td>Devuelve las filas cuyo nombre empieza con "a"</td></tr>
-                <tr><td>WHERE NOMBRE LIKE '%a'</td><td>Devuelve las filas cuyo nombre termina con "a"</td></tr>
-                <tr><td>WHERE NOMBRE LIKE '%or%'</td><td>Devuelve las filas cuyo nombre contienen "or" en cualquier posición</td></tr>
-                <tr><td>WHERE NOMBRE LIKE '_r%'</td><td>Devuelve las filas cuyo nombre contiene una "r" en la segunda posición</td></tr>
-                <tr><td>WHERE NOMBRE LIKE 'a_%'</td><td>Devuelve las filas cuyo nombre empieza con "a" y tiene al menos dos caracteres.</td></tr>
-                <tr><td>WHERE NOMBRE LIKE 'a__%'</td><td>Devuelve las filas cuyo nombre empieza con "a" y tiene al menos tres caracteres.</td></tr>
-                <tr><td>WHERE NOMBRE LIKE 'a%o'</td><td>Devuelve las filas cuyo nombre empieza con "a" y termina con una "o" (como "Antonio")</td></tr>
-            </table>
+            <h2 class="section-title">2.5. LIKE</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Búsqueda por patrones</h3>
+                </div>
+                <div class="command-content">
+                    <p>El operador Like se utiliza junto a la cláusula WHERE para especificar un patrón de búsqueda.</p>
+                    <p>Los caracteres comodín utilizados normalmente son:</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> '<strong>%</strong>' representa una cadena de cero o más caracteres.</li>
+                        <li><span class="feature-bullet">•</span> '<strong>_</strong>' representa un único carácter.</li>
+                        <li><span class="feature-bullet">•</span> '<strong>\</strong>' carácter de escape. Se utiliza para poder usar los caracteres '%' y '_' como tal no como comodines ('\%', '\_', '\\').</li>
+                    </ul>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>LIKE</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE 'a%'</td>
+                                    <td>Devuelve las filas cuyo nombre empieza con "a"</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE '%a'</td>
+                                    <td>Devuelve las filas cuyo nombre termina con "a"</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE '%or%'</td>
+                                    <td>Devuelve las filas cuyo nombre contienen "or" en cualquier posición</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE '_r%'</td>
+                                    <td>Devuelve las filas cuyo nombre contiene una "r" en la segunda posición</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE 'a_%'</td>
+                                    <td>Devuelve las filas cuyo nombre empieza con "a" y tiene al menos dos caracteres.</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE 'a__%'</td>
+                                    <td>Devuelve las filas cuyo nombre empieza con "a" y tiene al menos tres caracteres.</td>
+                                </tr>
+                                <tr>
+                                    <td>WHERE NOMBRE LIKE 'a%o'</td>
+                                    <td>Devuelve las filas cuyo nombre empieza con "a" y termina con una "o" (como "Antonio")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201007">
-            <h2>2.6. COMODINES EN ACCESS</h2>
-            <table border="1">
-                <tr><th>Símbolo</th><th>Descripción</th><th>Ejemplo</th></tr>
-                <tr><td>*</td><td>Cero o mas caracteres</td><td>bl* devuelve bl, black, blue, y blob</td></tr>
-                <tr><td>?</td><td>Un único caracter</td><td>h?t devuelve hot, hat, y hit</td></tr>
-                <tr><td>[]</td><td>Cualquier caracteres contenido entre los corchetes</td><td>h[oa]t devuelve hot y hat, pero no hit</td></tr>
-                <tr><td>!</td><td>Cualquier caractere NO contenido entre los corchetes</td><td>h[!oa]t devuelve hit, pero no hot ni hat</td></tr>
-                <tr><td>-</td><td>Cualquier caracter en el rango especificado</td><td>c[a-b]t devuelve cat y cbt</td></tr>
-                <tr><td>#</td><td>Cualquier número</td><td>2#5 devuelve 205, 215, 225, 235, 245, 255, 265, 275, 285, y 295</td></tr>
-            </table>
+            <h2 class="section-title">2.6. COMODINES EN ACCESS</h2>
+            <div class="content-card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Símbolo</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>*</td>
+                                <td>Cero o mas caracteres</td>
+                                <td>bl* devuelve bl, black, blue, y blob</td>
+                            </tr>
+                            <tr>
+                                <td>?</td>
+                                <td>Un único caracter</td>
+                                <td>h?t devuelve hot, hat, y hit</td>
+                            </tr>
+                            <tr>
+                                <td>[]</td>
+                                <td>Cualquier caracteres contenido entre los corchetes</td>
+                                <td>h[oa]t devuelve hot y hat, pero no hit</td>
+                            </tr>
+                            <tr>
+                                <td>!</td>
+                                <td>Cualquier caractere NO contenido entre los corchetes</td>
+                                <td>h[!oa]t devuelve hit, pero no hot ni hat</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Cualquier caracter en el rango especificado</td>
+                                <td>c[a-b]t devuelve cat y cbt</td>
+                            </tr>
+                            <tr>
+                                <td>#</td>
+                                <td>Cualquier número</td>
+                                <td>2#5 devuelve 205, 215, 225, 235, 245, 255, 265, 275, 285, y 295</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </span>
 
         <span id="3040201008">
-            <h2>2.7. COMODINES EN SQL SERVER</h2>
-            <table border="1">
-                <tr><th>Símbolo</th><th>Descripción</th><th>Ejemplo</th></tr>
-                <tr><td>%</td><td>Cero o mas caracteres</td><td>bl% devuelve bl, black, blue, y blob</td></tr>
-                <tr><td>_</td><td>Un único caracter</td><td>h_t devuelve hot, hat, y hit</td></tr>
-                <tr><td>[]</td><td>Cualquier caracter contenido entre los corchetes</td><td>h[oa]t devuelve hot y hat, pero no hit</td></tr>
-                <tr><td>^</td><td>Cualquier caracter NO contenido entre los corchetes</td><td>h[^oa]t devuelve hit, pero no hot ni hat</td></tr>
-                <tr><td>-</td><td>Cualquier caracter en el rango especificado</td><td>c[a-b]t devuelve cat y cbt</td></tr>
-            </table>
+            <h2 class="section-title">2.7. COMODINES EN SQL SERVER</h2>
+            <div class="content-card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Símbolo</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>%</td>
+                                <td>Cero o mas caracteres</td>
+                                <td>bl% devuelve bl, black, blue, y blob</td>
+                            </tr>
+                            <tr>
+                                <td>_</td>
+                                <td>Un único caracter</td>
+                                <td>h_t devuelve hot, hat, y hit</td>
+                            </tr>
+                            <tr>
+                                <td>[]</td>
+                                <td>Cualquier caracter contenido entre los corchetes</td>
+                                <td>h[oa]t devuelve hot y hat, pero no hit</td>
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>Cualquier caracter NO contenido entre los corchetes</td>
+                                <td>h[^oa]t devuelve hit, pero no hot ni hat</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Cualquier caracter en el rango especificado</td>
+                                <td>c[a-b]t devuelve cat y cbt</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </span>
 
         <span id="3040201009">
-            <h2>2.8. CASE</h2>
-            <p>Estructura parecida a un Switch o SELECT CASE de un lenguaje tradicional. Devuelve un valor cuando se cumple la condición indicada. Si varias condiciones se cumplen, devuelve el valor de la que primero se cumpla</p>
-            <pre><code>CASE
+            <h2 class="section-title">2.8. CASE</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔀</div>
+                    <h3 class="command-title">Evaluación condicional</h3>
+                </div>
+                <div class="command-content">
+                    <p>Estructura parecida a un Switch o SELECT CASE de un lenguaje tradicional. Devuelve un valor cuando se cumple la condición indicada. Si varias condiciones se cumplen, devuelve el valor de la que primero se cumpla</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>CASE
     WHEN condicion1 THEN resultado1
     WHEN condicion2 THEN resultado2
     WHEN condicionN THEN resultadoN
@@ -142,110 +296,245 @@ CASE
     ELSE 0
 END AS descuento
 FROM pedidos;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201010">
-            <h2>2.9. SELECT DISTINCT</h2>
-            <p>Permite filtrar las filas seleccionadas originalmente devolviendo sólo las que tienen valores diferentes en las columnas en las que se aplica el DISTINCT.</p>
-            <pre><code>SELECT DISTINCT columna1, columna2… FROM table
+            <h2 class="section-title">2.9. SELECT DISTINCT</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Selección de valores únicos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite filtrar las filas seleccionadas originalmente devolviendo sólo las que tienen valores diferentes en las columnas en las que se aplica el DISTINCT.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT DISTINCT columna1, columna2… FROM table
 SELECT DISTINCT provincia FROM pedidos</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201011">
-            <h2>2.10. SELECT TOP</h2>
-            <p>Permite delimitar el número de registros que se devuelven que cumplen la condición.</p>
-            <pre><code>SELECT TOP número|PERCENT FROM table WHERE condicion
+            <h2 class="section-title">2.10. SELECT TOP</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔝</div>
+                    <h3 class="command-title">Limitación de resultados</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite delimitar el número de registros que se devuelven que cumplen la condición.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT TOP número|PERCENT FROM table WHERE condicion
 SELECT TOP 50 PERCENT FROM clientes
 SELECT TOP 50 FROM clientes</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201012">
-            <h2>2.11. ORDER BY</h2>
-            <p>Ordena el result-set obtenido por la columna especificada de forma ascendente o descendente.</p>
-            <pre><code>SELECT DISTINCT columna1, columna2… FROM table ORDER BY
+            <h2 class="section-title">2.11. ORDER BY</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">↕️</div>
+                    <h3 class="command-title">Ordenación de resultados</h3>
+                </div>
+                <div class="command-content">
+                    <p>Ordena el result-set obtenido por la columna especificada de forma ascendente o descendente.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT DISTINCT columna1, columna2… FROM table ORDER BY
 columna1, columna2…. [ASC|DESC]
 SELECT * from alumnos order by nombre asc, ap1 asc, ap2 asc</code></pre>
-            <p>La forma de ordenación predeterminada si se omite es ascendente</p>
+                    </div>
+                    <p>La forma de ordenación predeterminada si se omite es ascendente</p>
+                </div>
+            </div>
         </span>
 
         <span id="3040201013">
-            <h2>2.12. FUNCIONES DE AGREGADO</h2>
-            <p>Funciones que permiten trabajar sobre el resultado como un conjunto no como registros individuales. Devuelven un solo valor que es el resultado obtenido al aplicar la función de agregado sobre el conjunto seleccionado.</p>
-            <p>Las funciones de agregado más utilizadas son:</p>
-            <table border="1">
-                <tr><th>Función</th><th>Uso</th></tr>
-                <tr><td>AVG(expresion)</td><td>Media aritmética</td></tr>
-                <tr><td>COUNT(expression)</td><td>Cuenta las filas cuyo valor es no nulo</td></tr>
-                <tr><td>COUNT(*)</td><td>Cuenta todas las filas de una tabla</td></tr>
-                <tr><td>MIN(expression)</td><td>Devuelve el valor mínimo de la expresión</td></tr>
-                <tr><td>MAX(expression)</td><td>Devuelve el valor máximo de la expresión</td></tr>
-                <tr><td>SUM(expression)</td><td>Devuelve el sumatorio de la expresión</td></tr>
-            </table>
-            <p>La expression típica suele ser un campo, pero puede ser una operación con los campos.</p>
-            <pre><code>SELECT SUM(salario) FROM datosFinancieros
+            <h2 class="section-title">2.12. FUNCIONES DE AGREGADO</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">📊</div>
+                    <h3 class="command-title">Cálculos sobre conjuntos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Funciones que permiten trabajar sobre el resultado como un conjunto no como registros individuales. Devuelven un solo valor que es el resultado obtenido al aplicar la función de agregado sobre el conjunto seleccionado.</p>
+                    <p>Las funciones de agregado más utilizadas son:</p>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Función</th>
+                                    <th>Uso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AVG(expresion)</td>
+                                    <td>Media aritmética</td>
+                                </tr>
+                                <tr>
+                                    <td>COUNT(expression)</td>
+                                    <td>Cuenta las filas cuyo valor es no nulo</td>
+                                </tr>
+                                <tr>
+                                    <td>COUNT(*)</td>
+                                    <td>Cuenta todas las filas de una tabla</td>
+                                </tr>
+                                <tr>
+                                    <td>MIN(expression)</td>
+                                    <td>Devuelve el valor mínimo de la expresión</td>
+                                </tr>
+                                <tr>
+                                    <td>MAX(expression)</td>
+                                    <td>Devuelve el valor máximo de la expresión</td>
+                                </tr>
+                                <tr>
+                                    <td>SUM(expression)</td>
+                                    <td>Devuelve el sumatorio de la expresión</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>La expression típica suele ser un campo, pero puede ser una operación con los campos.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT SUM(salario) FROM datosFinancieros
 SELECT SUM(salarioMensual*14) AS saldoAnual FROM datosFinancieros</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201014">
-            <h2>2.13. GROUP BY</h2>
-            <p>Agrupa los resultados que tienen los mismos valores en la columna especificada de agrupamiento. Siempre se utiliza junto a funciones de agregado, para obtener subtotales por grupo.</p>
-            <pre><code>SELECT columnas FROM tabletabla WHERE condicion
+            <h2 class="section-title">2.13. GROUP BY</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔄</div>
+                    <h3 class="command-title">Agrupación de resultados</h3>
+                </div>
+                <div class="command-content">
+                    <p>Agrupa los resultados que tienen los mismos valores en la columna especificada de agrupamiento. Siempre se utiliza junto a funciones de agregado, para obtener subtotales por grupo.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabletabla WHERE condicion
 GROUP BY Columna1, Columna2, …
 SELECT COUNT(IDCliente), Pais FROM Clientes
 GROUP BY Pais;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201015">
-            <h2>2.14. HAVING</h2>
-            <p>Permite especificar una condición al resultado agrupado obtenido. La cláusula WHERE establece la condición que debe cumplir cada registro, la cláusula HAVING establece la condición que debe cumplir el valor una vez agrupado.</p>
-            <pre><code>SELECT columnas FROM tabla WHERE condition
+            <h2 class="section-title">2.14. HAVING</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Filtrado de grupos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite especificar una condición al resultado agrupado obtenido. La cláusula WHERE establece la condición que debe cumplir cada registro, la cláusula HAVING establece la condición que debe cumplir el valor una vez agrupado.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla WHERE condition
 GROUP BY columna HAVING condición</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201016">
-            <h2>2.15. INSERT INTO</h2>
-            <p>Permite insertar registros nuevos en la tabla</p>
-            <pre><code>INSERT INTO table (columna1, columna2,…) VALUES (valor1, valor2, …)</code></pre>
+            <h2 class="section-title">2.15. INSERT INTO</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">➕</div>
+                    <h3 class="command-title">Inserción de datos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite insertar registros nuevos en la tabla</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>INSERT INTO table (columna1, columna2,…) VALUES (valor1, valor2, …)</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201017">
-            <h2>2.16. UPDATE</h2>
-            <p>Permite modificar registros existentes en la tabla que cumplan el criterio de la cláusula WHERE. Atención, si no se especifica una clausula WHERE se actualizará todo el contenido de la tabla.</p>
-            <pre><code>UPDATE tabla SET columna1=valor1, columna2=valor2,… WHERE condición
+            <h2 class="section-title">2.16. UPDATE</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔄</div>
+                    <h3 class="command-title">Actualización de datos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite modificar registros existentes en la tabla que cumplan el criterio de la cláusula WHERE. Atención, si no se especifica una clausula WHERE se actualizará todo el contenido de la tabla.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>UPDATE tabla SET columna1=valor1, columna2=valor2,… WHERE condición
 UPDATE datosPersonales SET apellido1='Rodriguez' WHERE idPersonal=23452
 UPDATE datosFinancieros SET salario=salario*1.01 WHERE nivel > 20</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201018">
-            <h2>2.17. DELETE</h2>
-            <p>Permite eliminar registros existentes en la tabla que cumplan el criterio de la cláusula WHERE. Atención, si no se especifica una clausula WHERE se borrará todo el contenido de la tabla.</p>
-            <pre><code>DELETE FROM tabla where condicion
+            <h2 class="section-title">2.17. DELETE</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">❌</div>
+                    <h3 class="command-title">Eliminación de datos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite eliminar registros existentes en la tabla que cumplan el criterio de la cláusula WHERE. Atención, si no se especifica una clausula WHERE se borrará todo el contenido de la tabla.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>DELETE FROM tabla where condicion
 DELETE FROM clientes where idCliente=2342
 DELETE FROM clientes where fechaUltimaCompra < '2005-12-31'</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201019">
-            <h2>2.18. JOINS</h2>
-            <p>La clausula JOIN se utiliza para combinar filas de dos o más tablas basándose en las columnas relacionadas entre ellas.</p>
-            <p>Las relaciones entre tablas pueden estar especificadas y reforzadas dentro de la propia base de datos a través de las reglas de integridad referencial o pueden ser establecidas en la propia consulta SQL.</p>
-            <p>La relación más típica es la de igualdad. Dos registros de dos tablas distintas están relacionadas si tienen el mismo valor en el campo especificado.</p>
-            <p>Existen diferentes tipos de JOINs:</p>
-            <ul>
-                <li>(INNER) JOIN: JOIN interior</li>
-                <li>OUTER JOINs: JOINS exteriores
-                    <ul>
-                        <li>LEFT (OUTER) JOIN</li>
-                        <li>RIGHT (OUTER) JOIN</li>
-                        <li>FULL (OUTER) JOIN</li>
+            <h2 class="section-title">2.18. JOINS</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔗</div>
+                    <h3 class="command-title">Combinación de tablas</h3>
+                </div>
+                <div class="command-content">
+                    <p>La clausula JOIN se utiliza para combinar filas de dos o más tablas basándose en las columnas relacionadas entre ellas.</p>
+                    <p>Las relaciones entre tablas pueden estar especificadas y reforzadas dentro de la propia base de datos a través de las reglas de integridad referencial o pueden ser establecidas en la propia consulta SQL.</p>
+                    <p>La relación más típica es la de igualdad. Dos registros de dos tablas distintas están relacionadas si tienen el mismo valor en el campo especificado.</p>
+                    <p>Existen diferentes tipos de JOINs:</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> (INNER) JOIN: JOIN interior</li>
+                        <li><span class="feature-bullet">•</span> OUTER JOINs: JOINS exteriores
+                            <ul class="feature-sublist">
+                                <li><span class="feature-bullet">◦</span> LEFT (OUTER) JOIN</li>
+                                <li><span class="feature-bullet">◦</span> RIGHT (OUTER) JOIN</li>
+                                <li><span class="feature-bullet">◦</span> FULL (OUTER) JOIN</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </span>
 
         <span id="3040201020">
-            <h2>2.19. INNER JOIN</h2>
-            <p>Selecciona sólo los registros coincidentes de ambas tablas, descarta todos los registros que no tienen su correspondencia en la otra tabla.</p>
-            <pre><code>SELECT columnas FROM tabla1
+            <h2 class="section-title">2.19. INNER JOIN</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔄</div>
+                    <h3 class="command-title">Unión interna</h3>
+                </div>
+                <div class="command-content">
+                    <p>Selecciona sólo los registros coincidentes de ambas tablas, descarta todos los registros que no tienen su correspondencia en la otra tabla.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1
 INNER JOIN tabla2
 ON tabla1.columna1 = table2.columna2;
 
@@ -266,12 +555,22 @@ FROM ((Pedido
 INNER JOIN Clientes ON Pedidos.FKCliente = Clientes.IDCliente)
 INNER JOIN Transportistas ON Pedidos.FKTransportista =
 Transportistas.IDTransportista);</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201021">
-            <h2>2.20. LEFT JOIN</h2>
-            <p>Selecciona todos los registros de la tabla izquierda y sólo los registros coincidentes de la tabla derecha.</p>
-            <pre><code>SELECT columnas FROM tabla1
+            <h2 class="section-title">2.20. LEFT JOIN</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">⬅️</div>
+                    <h3 class="command-title">Unión izquierda</h3>
+                </div>
+                <div class="command-content">
+                    <p>Selecciona todos los registros de la tabla izquierda y sólo los registros coincidentes de la tabla derecha.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1
 LEFT JOIN tabla2
 ON tabla1.columna1 = table2.columna2;
 
@@ -280,12 +579,22 @@ nombre de TODOS los clientes incluyendo los que tienen pedidos
 (si algún cliente no tiene pedidos aparecerá NULL en IDPedido)
 SELECT Pedidos.IDPedido, Clientes.Nombre FROM Clientes
 LEFT JOIN Pedidos ON Pedidos.FKCliente = Clientes.IDCliente;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201022">
-            <h2>2.21. RIGHT JOIN</h2>
-            <p>Selecciona todos los registros de la tabla derecha y sólo los registros coincidentes de la tabla izquierda.</p>
-            <pre><code>SELECT columnas FROM tabla1
+            <h2 class="section-title">2.21. RIGHT JOIN</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">➡️</div>
+                    <h3 class="command-title">Unión derecha</h3>
+                </div>
+                <div class="command-content">
+                    <p>Selecciona todos los registros de la tabla derecha y sólo los registros coincidentes de la tabla izquierda.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1
 RIGHT JOIN tabla2
 ON tabla1.columna1 = table2.columna2;
 
@@ -296,38 +605,76 @@ Atención: Se han cambiado de lugar el nombre de las tablas para
 que ahora la de clientes esté a la derecha del JOIN
 SELECT Pedidos.IDPedido, Clientes.Nombre FROM Pedidos
 RIGHT JOIN Clientes ON Pedidos.FKCliente = Clientes.IDCliente;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201023">
-            <h2>2.22. FULL JOIN</h2>
-            <p>Selecciona todos los registros de la tabla izquierda y todos los registros de la tabla derecha. Rellena a NULL los valores que no tienen correspondencia.</p>
+            <h2 class="section-title">2.22. FULL JOIN</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">↔️</div>
+                    <h3 class="command-title">Unión completa</h3>
+                </div>
+                <div class="command-content">
+                    <p>Selecciona todos los registros de la tabla izquierda y todos los registros de la tabla derecha. Rellena a NULL los valores que no tienen correspondencia.</p>
+                </div>
+            </div>
         </span>
 
         <span id="3040201024">
-            <h2>2.23. UNION</h2>
-            <p>Permite combinar resultados de dos o más tablas:</p>
-            <ul>
-                <li>Cada sentencia SELECT de la UNION tiene que tener el mismo número de columnas</li>
-                <li>Las columnas tienen que tener tipos de datos similares</li>
-                <li>Las columnas en el mismo SELECT tienen que tener el mismo orden</li>
-                <li>UNION sólo valores DISTINCT, UNION ALL permite registros duplicados</li>
-            </ul>
-            <pre><code>SELECT columnas FROM tabla1
+            <h2 class="section-title">2.23. UNION</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔄</div>
+                    <h3 class="command-title">Combinación de resultados</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite combinar resultados de dos o más tablas:</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> Cada sentencia SELECT de la UNION tiene que tener el mismo número de columnas</li>
+                        <li><span class="feature-bullet">•</span> Las columnas tienen que tener tipos de datos similares</li>
+                        <li><span class="feature-bullet">•</span> Las columnas en el mismo SELECT tienen que tener el mismo orden</li>
+                        <li><span class="feature-bullet">•</span> UNION sólo valores DISTINCT, UNION ALL permite registros duplicados</li>
+                    </ul>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1
 UNION | UNION ALL
 SELECT columnas FROM tabla2;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201025">
-            <h2>2.24. SUBCONSULTAS</h2>
-            <p>Una consulta puede ser utilizada en lugar de una tabla.</p>
-            <pre><code>SELECT precio, nombre FROM productos WHERE precio >
+            <h2 class="section-title">2.24. SUBCONSULTAS</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Consultas anidadas</h3>
+                </div>
+                <div class="command-content">
+                    <p>Una consulta puede ser utilizada en lugar de una tabla.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT precio, nombre FROM productos WHERE precio >
 (SELECT AVG(precio) FROM productos) ORDER BY precio DESC</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201026">
-            <h2>2.25. EXISTS</h2>
-            <p>Permite comprobar la existencia de un registro en una subconsulta. La ventaja es que en cuanto encuentra un registro que cumple la condición deja de buscar.</p>
-            <pre><code>SELECT columnas FROM tabla1 WHERE EXISTS
+            <h2 class="section-title">2.25. EXISTS</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Comprobación de existencia</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite comprobar la existencia de un registro en una subconsulta. La ventaja es que en cuanto encuentra un registro que cumple la condición deja de buscar.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1 WHERE EXISTS
 (SELECT columna FROM tabla2 WHERE condicion);
 
 -- Comprobamos si tenemos algún producto sin stock en el
@@ -335,22 +682,42 @@ inventario
 SELECT nombre FROM productos WHERE EXISTS
 (SELECT fkProducto FROM inventario WHERE productos.idProducto =
 inventario.fkProducto AND cantidad = 0);</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201027">
-            <h2>2.26. ANY/ALL</h2>
-            <p>Permiten comparar el valor de una columna con un rango de valores</p>
-            <pre><code>SELECT columnas FROM tabla1 WHERE columna operador ANY
+            <h2 class="section-title">2.26. ANY/ALL</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔍</div>
+                    <h3 class="command-title">Comparación con rangos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permiten comparar el valor de una columna con un rango de valores</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT columnas FROM tabla1 WHERE columna operador ANY
 (SELECT columnas FROM tabla WHERE condicion);
 
 SELECT columnas FROM tabla1 WHERE columna operador ALL
 (SELECT columnas FROM tabla WHERE condicion);</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201028">
-            <h2>2.27. INSERT INTO SELECT</h2>
-            <p>Permite copiar datos de una tabla en otra. Para ello requiere que los tipos de datos de la tabla destino coincidan con los de la tabla origen.</p>
-            <pre><code>INSERT INTO tabla2
+            <h2 class="section-title">2.27. INSERT INTO SELECT</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">➕</div>
+                    <h3 class="command-title">Inserción desde consulta</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite copiar datos de una tabla en otra. Para ello requiere que los tipos de datos de la tabla destino coincidan con los de la tabla origen.</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>INSERT INTO tabla2
 SELECT * FROM tabla1
 WHERE condicion;
 
@@ -358,12 +725,22 @@ INSERT INTO tabla2 (columna1, columna2, columna3, ...)
 SELECT columna1, columna2, columna3, ...
 FROM tabla1
 WHERE condicion;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201029">
-            <h2>2.28. SELECT INTO</h2>
-            <p>Permite copiar datos de una tabla en otra nueva. La propia sentencia crea la tabla infiriendo los tipos de datos de las columnas a partir de la tabla original</p>
-            <pre><code>SELECT *
+            <h2 class="section-title">2.28. SELECT INTO</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">📋</div>
+                    <h3 class="command-title">Creación de tabla desde consulta</h3>
+                </div>
+                <div class="command-content">
+                    <p>Permite copiar datos de una tabla en otra nueva. La propia sentencia crea la tabla infiriendo los tipos de datos de las columnas a partir de la tabla original</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>SELECT *
 INTO nuevaTabla [IN bbdd]
 FROM tabla1
 WHERE condicion;
@@ -372,13 +749,23 @@ SELECT columna1, columna2, columna3, ...
 INTO nuevaTabla [IN bbdd]
 FROM tabla1
 WHERE condicion;</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201030">
-            <h2>2.29. PROCEDIMIENTOS ALMACENADOS</h2>
-            <p>Un procedimiento almacenado es una secuencia de sentecias sql almacenadas dentro de la propia bbdd.</p>
-            <p>Una vez almacenados pueden ser invocados con la sentencia EXEC o EXECUTE</p>
-            <pre><code>CREATE PROCEDURE nombreProcedimiento AS
+            <h2 class="section-title">2.29. PROCEDIMIENTOS ALMACENADOS</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">📦</div>
+                    <h3 class="command-title">Secuencias de sentencias SQL</h3>
+                </div>
+                <div class="command-content">
+                    <p>Un procedimiento almacenado es una secuencia de sentecias sql almacenadas dentro de la propia bbdd.</p>
+                    <p>Una vez almacenados pueden ser invocados con la sentencia EXEC o EXECUTE</p>
+                    <div class="code-container">
+                        <pre class="code-block"><code>CREATE PROCEDURE nombreProcedimiento AS
 secuencia sentencias SQL;
 GO;
 
@@ -392,19 +779,29 @@ GO;
 
 EXECUTE nombreProcedimiento valorParametro1, valorParametro2
 EXECUTE nombreProcedimiento valorParametro1, valorParametro2</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201031">
-            <h2>2.30. TRIGGERS</h2>
-            <p>Un trigger o disparador es un objeto que se asocia con tablas, se almacena en la base de datos y se ejecuta cuando sucede algún evento sobre las tablas a las que se encuentra asociado. Los eventos que desencadenan un trigger son las operaciones de inserción (INSERT), borrado (DELETE) o actualización (UPDATE). El SELECT no activa un trigger puesto que no modifica los datos de una tabla.</p>
-            <h3>2.30.1. TIPOS DE TRIGGERS</h3>
-            <ul>
-                <li>Before statement: Se ejecuta antes de ejecutar la sentencia de disparo.</li>
-                <li>Before row: Se ejecuta antes de modificar cada fila afectada por la sentencia de disparo, y antes de chequear las restricciones de integridad apropiadas.</li>
-                <li>After statement: Se ejecuta después de ejecutar la sentencia de disparo, y después de chequear las restricciones de integridad apropiadas.</li>
-                <li>After row: Se ejecuta después de modificar cada fila afectada por la sentencia de disparo y posiblemente aplicando las restricciones de integridad apropiadas.</li>
-            </ul>
-            <pre><code>CREATE TRIGGER &lt;Trigger name&gt;
+            <h2 class="section-title">2.30. TRIGGERS</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">⚡</div>
+                    <h3 class="command-title">Disparadores automáticos</h3>
+                </div>
+                <div class="command-content">
+                    <p>Un trigger o disparador es un objeto que se asocia con tablas, se almacena en la base de datos y se ejecuta cuando sucede algún evento sobre las tablas a las que se encuentra asociado. Los eventos que desencadenan un trigger son las operaciones de inserción (INSERT), borrado (DELETE) o actualización (UPDATE). El SELECT no activa un trigger puesto que no modifica los datos de una tabla.</p>
+                    <h3 class="subsection-title">2.30.1. TIPOS DE TRIGGERS</h3>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> Before statement: Se ejecuta antes de ejecutar la sentencia de disparo.</li>
+                        <li><span class="feature-bullet">•</span> Before row: Se ejecuta antes de modificar cada fila afectada por la sentencia de disparo, y antes de chequear las restricciones de integridad apropiadas.</li>
+                        <li><span class="feature-bullet">•</span> After statement: Se ejecuta después de ejecutar la sentencia de disparo, y después de chequear las restricciones de integridad apropiadas.</li>
+                        <li><span class="feature-bullet">•</span> After row: Se ejecuta después de modificar cada fila afectada por la sentencia de disparo y posiblemente aplicando las restricciones de integridad apropiadas.</li>
+                    </ul>
+                    <div class="code-container">
+                        <pre class="code-block"><code>CREATE TRIGGER &lt;Trigger name&gt;
 {BEFORE | AFTER} &lt;trigger event&gt; ON &lt;Table name&gt;
 [ REFERENCING &lt;old or new values alias list&gt; ]
 &lt;triggered action&gt;
@@ -435,32 +832,45 @@ NEW TABLE [ AS ] &lt;new values Table alias&gt;
 &lt;triggered SQL statement&gt; ::=
 SQL statement |
 BEGIN ATOMIC {SQL statement;}... END</code></pre>
+                    </div>
+                </div>
+            </div>
         </span>
 
         <span id="3040201032">
-            <h2>2.31. TRANSACCIONES</h2>
-            <p>Una transacción en un sistema de gestión de bases de datos es un conjunto de órdenes que se ejecutan formando una unidad de trabajo, es decir, en forma indivisible o atómica.</p>
-            <p>Un SGBD se dice transaccional si es capaz de mantener la integridad de datos, haciendo que estas transacciones no puedan finalizar en un estado intermedio. Cuando por alguna causa el sistema debe cancelar la transacción, empieza a deshacer las órdenes ejecutadas hasta dejar la base de datos en su estado inicial (punto de integridad), como si la orden de la transacción nunca se hubiese realizado.</p>
-            <p>Una transacción debe contar con ACID (un acrónimo inglés) que quiere decir: Atomicidad, consistencia, aislamiento y durabilidad.</p>
-            <ul>
-                <li><strong>Atomicidad (Atomicity):</strong> es la propiedad que asegura que la operación se ha realizado o no, y por lo tanto ante un fallo del sistema no puede quedar a medias.</li>
-                <li><strong>Consistencia (Consistency):</strong> es la propiedad que asegura que sólo se empieza aquello que se puede acabar. Por lo tanto, se ejecutan aquellas operaciones que no van a romper la reglas y directrices de integridad de la base de datos.</li>
-                <li><strong>Aislamiento (Isolation):</strong> es la propiedad que asegura que una operación no puede afectar a otras. Esto asegura que la realización de dos transacciones sobre la misma información nunca generará ningún tipo de error.</li>
-                <li><strong>Durabilidad (Durability):</strong> es la propiedad que asegura que una vez realizada la operación, ésta persistirá y no se podrá deshacer aunque falle el sistema.</li>
-            </ul>
-            <p>El lenguaje de consulta de datos SQL provee los mecanismos para especificar que un conjunto de acciones deben constituir una transacción mediante el Lenguaje de control de transacciones (TCL Transaction Control Language).</p>
-            <ul>
-                <li><code>BEGIN TRANSACTION</code>: Especifica que va a empezar una transacción.</li>
-                <li><code>COMMIT TRANSACTION</code>: Le indica al motor que puede considerar la transacción completada con éxito.</li>
-                <li><code>ROLLBACK TRANSACTION</code>: Indica que se ha alcanzado un fallo y que debe restablecer la base al punto de integridad.</li>
-                <li><code>SAVEPOINT</code>: Permite crear puntos de guardado para poder hacer rollback a ese punto en vez de tener que deshacer la transacción al completo.</li>
-            </ul>
-            <p>En un sistema ideal, las transacciones deberían garantizar todas las propiedades ACID; en la práctica, a veces alguna de estas propiedades se simplifica o debilita con vistas a obtener un mejor rendimiento.</p>
+            <h2 class="section-title">2.31. TRANSACCIONES</h2>
+            <div class="content-card">
+                <div class="command-header">
+                    <div class="command-icon">🔄</div>
+                    <h3 class="command-title">Operaciones atómicas</h3>
+                </div>
+                <div class="command-content">
+                    <p>Una transacción en un sistema de gestión de bases de datos es un conjunto de órdenes que se ejecutan formando una unidad de trabajo, es decir, en forma indivisible o atómica.</p>
+                    <p>Un SGBD se dice transaccional si es capaz de mantener la integridad de datos, haciendo que estas transacciones no puedan finalizar en un estado intermedio. Cuando por alguna causa el sistema debe cancelar la transacción, empieza a deshacer las órdenes ejecutadas hasta dejar la base de datos en su estado inicial (punto de integridad), como si la orden de la transacción nunca se hubiese realizado.</p>
+                    <p>Una transacción debe contar con ACID (un acrónimo inglés) que quiere decir: Atomicidad, consistencia, aislamiento y durabilidad.</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> <strong>Atomicidad (Atomicity):</strong> es la propiedad que asegura que la operación se ha realizado o no, y por lo tanto ante un fallo del sistema no puede quedar a medias.</li>
+                        <li><span class="feature-bullet">•</span> <strong>Consistencia (Consistency):</strong> es la propiedad que asegura que sólo se empieza aquello que se puede acabar. Por lo tanto, se ejecutan aquellas operaciones que no van a romper la reglas y directrices de integridad de la base de datos.</li>
+                        <li><span class="feature-bullet">•</span> <strong>Aislamiento (Isolation):</strong> es la propiedad que asegura que una operación no puede afectar a otras. Esto asegura que la realización de dos transacciones sobre la misma información nunca generará ningún tipo de error.</li>
+                        <li><span class="feature-bullet">•</span> <strong>Durabilidad (Durability):</strong> es la propiedad que asegura que una vez realizada la operación, ésta persistirá y no se podrá deshacer aunque falle el sistema.</li>
+                    </ul>
+                    <p>El lenguaje de consulta de datos SQL provee los mecanismos para especificar que un conjunto de acciones deben constituir una transacción mediante el Lenguaje de control de transacciones (TCL Transaction Control Language).</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-bullet">•</span> <code>BEGIN TRANSACTION</code>: Especifica que va a empezar una transacción.</li>
+                        <li><span class="feature-bullet">•</span> <code>COMMIT TRANSACTION</code>: Le indica al motor que puede considerar la transacción completada con éxito.</li>
+                        <li><span class="feature-bullet">•</span> <code>ROLLBACK TRANSACTION</code>: Indica que se ha alcanzado un fallo y que debe restablecer la base al punto de integridad.</li>
+                        <li><span class="feature-bullet">•</span> <code>SAVEPOINT</code>: Permite crear puntos de guardado para poder hacer rollback a ese punto en vez de tener que deshacer la transacción al completo.</li>
+                    </ul>
+                    <p>En un sistema ideal, las transacciones deberían garantizar todas las propiedades ACID; en la práctica, a veces alguna de estas propiedades se simplifica o debilita con vistas a obtener un mejor rendimiento.</p>
+                </div>
+            </div>
         </span>
 
         <span id="3040201033">
-            <h3>2.31.1 EJEMPLO TRANSACCIONES</h3>
-            <pre><code>1. BEGIN TRANSACTION
+            <h3 class="section-title">2.31.1 EJEMPLO TRANSACCIONES</h3>
+            <div class="content-card">
+                <div class="code-container">
+                    <pre class="code-block"><code>1. BEGIN TRANSACTION
 2. INSERT INTO Productos VALUES(117, 'USB Drive', 1500, 10)
 3. -- Grabamos un punto de control para volver si hay problemas
 4. SAVE TRANSACTION Insercion
@@ -471,7 +881,246 @@ BEGIN ATOMIC {SQL statement;}... END</code></pre>
 9. ROLLBACK TRANSACTION Insercion
 10. COMMIT
 11. SELECT * FROM Productos;</code></pre>
+                </div>
+            </div>
         </span>
     </div>
+
+<style>
+    .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Header */
+    .main-title {
+        color: var(--color-primary);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    /* Intro Card */
+    .intro-card {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 1.5rem;
+    }
+    
+    .intro-icon {
+        font-size: 2.5rem;
+        margin-right: 20px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .intro-content {
+        flex: 1;
+    }
+    
+    /* Section Container */
+    .section-title {
+        color: var(--color-primary);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid var(--color-primary-light);
+    }
+    
+    .subsection-title {
+        color: var(--color-primary-dark);
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Content Card */
+    .content-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+        margin-bottom: 2rem;
+        transition: var(--transition);
+    }
+    
+    .content-card:hover {
+        box-shadow: var(--shadow-md);
+    }
+    
+    /* Command Header */
+    .command-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .command-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .command-title {
+        margin: 0;
+        color: var(--color-primary-dark);
+        font-size: 1.3rem;
+    }
+    
+    .command-content {
+        padding-left: 10px;
+    }
+    
+    /* Feature List */
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
+    .feature-list li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .feature-bullet {
+        color: var(--color-primary);
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    
+    .feature-sublist {
+        list-style: none;
+        padding-left: 20px;
+        margin: 5px 0;
+    }
+    
+    /* Code Container */
+    .code-container {
+        background-color: var(--color-gray-100);
+        border-radius: 8px;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+    
+    .code-block {
+        padding: 15px;
+        margin: 0;
+        overflow-x: auto;
+        font-family: 'Courier New', Courier, monospace;
+        line-height: 1.5;
+    }
+    
+    /* Table */
+    .table-responsive {
+        overflow-x: auto;
+        margin: 15px 0;
+    }
+    
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .data-table th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    .data-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .data-table tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .data-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Operators Grid */
+    .operators-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .operator-category {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .operator-category:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .operator-category-title {
+        color: var(--color-primary-dark);
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--color-primary-light);
+    }
+    
+    .operator-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .operator-list li {
+        margin-bottom: 5px;
+        padding: 5px 0;
+    }
+    
+    .operator-symbol {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgba(59, 130, 246, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: bold;
+        color: var(--color-primary-dark);
+        margin-right: 5px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .intro-card, .command-header {
+            flex-direction: column;
+        }
+        
+        .intro-icon, .command-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .operators-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 </body>
 </html>

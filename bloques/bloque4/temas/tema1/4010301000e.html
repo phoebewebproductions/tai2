@@ -1,69 +1,340 @@
 <div class="teoria">
-    <span id="4010301001">
-        <h2>3.1. TIPOS DE MANTENIMIENTO</h2>
-        <ul>
-            <li><strong>Mantenimiento in site (in situ):</strong> El trabajo se realiza a la propia ubicación donde se encuentra el sistema. El personal técnico se desplaza a la empresa, con el material necesario (piezas de recambio, software, etc) para realizar las actuaciones necesarias del servicio. Los contratos de mantenimiento in-site suelen establecer una claúsula que permite recoger el equipo si no se puede realizar la reparación in situ para realizarla on site. El contrato también puede establecer que el sistema deba ser sustituido por uno similar durante el tiempo de reparación.</li>
-            <li><strong>Mantenimiento on site:</strong> El trabajo se realiza en las instalaciones de la propia empresa de mantenimiento. El servicio puede incluir la recogida del sistema, el transporte, la reparación y la devolución aunque generalmente es el propio cliente el que debe encargarse de trasladar el sistema a la empresa de reparación y posteriormente volverlo a recoger.</li>
-            <li><strong>Mantenimiento correctivo:</strong> Conjunto de tareas destinadas a reparar una avería una vez producida y comunicada. Pese que las averías a veces son difíciles de prever se debe disponer de un plan de mantenimiento para evitarlas en la medida de lo posible y reducir el tiempo de reparación e inactividad una vez producidas. Por ejemplo en el caso de averías de microinformática la empresa debería disponer recambios de fuentes de alimentación, discos duros, memorias, etc para reducir el tiempo de parada de un equipo.</li>
-            <li><strong>Mantenimiento preventivo:</strong> Conjunto de tareas destinadas a mantener un nivel de servicio determinado en los equipos. Tiene un carácter periódico y sistemático, es decir consiste en programar intervenciones en los equipos aunque no hayan presentado ningún fallo, bien siguiendo las tareas prescritas por el fabricante o por la propia política de la empresa.</li>
-            <li><strong>Mantenimiento predictivo:</strong> Conjunto de tareas destinadas a recopilar e interpretar datos estadísticos de los equipos para conocer e informar permanentemente del estado y operatividad de las instalaciones.
-                <p>Los datos estadísticos están compuestos por los valores de determinadas variables físicas o lógicas que representan el estado y operatividad del sistema:</p>
-                <ul>
-                    <li>Variables físicas típicas: temperatura, vibración, humedad, consumo de energía, etc.</li>
-                    <li>Variables lógicas: valores SMART de un disco duro, paquetes perdidos en una red…</li>
-                </ul>
-            </li>
-            <li><strong>Mantenimiento adaptativo:</strong> Conjunto de tareas cuyo objetivo es modificar el sistema, sin alterar su funcionamiento, con el objetivo de dar respuesta a cambios en el entorno de operación. Éstos cambios pueden ser físicos (cambio de componentes de red) o lógicos (cambios en el API de los programas conectados, en el framework, sistema operativo…).</li>
-            <li><strong>Mantenimiento perfectivo:</strong> Conjunto de tareas cuyos objetivos son:
-                <ul>
-                    <li>Incorporar nuevas funcionalidades o modificar las existentes.</li>
-                    <li>Realizar las mejoras necesarias para asegurar el rendimiento del sistema cuando existe un incremento del volumen considerable.</li>
-                </ul>
-            </li>
-            <li><strong>Mantenimiento Cero Horas (Overhaul):</strong> Conjunto de tareas cuyo objetivo es dejar el equipo como nuevo (como si tuviera cero horas de funcionamiento). Consiste en revisar los equipos a intervalos programados, independientemente del estado aparente del equipo. En estas revisiones se sustituyen o se reparan todos los elementos sometidos a desgaste. Intenta asegurar un tiempo de buen funcionamiento fijado de antemano.</li>
-            <li><strong>Mantenimiento En Uso:</strong> es el mantenimiento básico de un equipo realizado por los usuarios del mismo. Es la base del TPM (Total Productive Maintenance, Mantenimiento Productivo Total).</li>
-        </ul>
-    </span>
-    
-    <span id="4010301002">
-        <h3>3.1.1. CONCEPTOS MANTENIMIENTO</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .maintenance-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .maintenance-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .maintenance-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .maintenance-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .maintenance-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .maintenance-type strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .concept-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .concept-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .concept-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .concept-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .concept-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .concept-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .concept-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .concept-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .environment-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .environment-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .environment-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .environment-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .maintenance-card {
+          padding: 1rem;
+        }
+        
+        .maintenance-types,
+        .concept-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="maintenance-card" id="4010301001">
+      <h2>🔧 3.1. TIPOS DE MANTENIMIENTO</h2>
+      
+      <div class="maintenance-types">
+        <div class="maintenance-type">
+          <strong>Mantenimiento in site (in situ)</strong>
+          <p>El trabajo se realiza a la propia ubicación donde se encuentra el sistema. El personal técnico se desplaza a la empresa, con el material necesario (piezas de recambio, software, etc) para realizar las actuaciones necesarias del servicio. Los contratos de mantenimiento in-site suelen establecer una claúsula que permite recoger el equipo si no se puede realizar la reparación in situ para realizarla on site. El contrato también puede establecer que el sistema deba ser sustituido por uno similar durante el tiempo de reparación.</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento on site</strong>
+          <p>El trabajo se realiza en las instalaciones de la propia empresa de mantenimiento. El servicio puede incluir la recogida del sistema, el transporte, la reparación y la devolución aunque generalmente es el propio cliente el que debe encargarse de trasladar el sistema a la empresa de reparación y posteriormente volverlo a recoger.</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento correctivo</strong>
+          <p>Conjunto de tareas destinadas a reparar una avería una vez producida y comunicada. Pese que las averías a veces son difíciles de prever se debe disponer de un plan de mantenimiento para evitarlas en la medida de lo posible y reducir el tiempo de reparación e inactividad una vez producidas. Por ejemplo en el caso de averías de microinformática la empresa debería disponer recambios de fuentes de alimentación, discos duros, memorias, etc para reducir el tiempo de parada de un equipo.</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento preventivo</strong>
+          <p>Conjunto de tareas destinadas a mantener un nivel de servicio determinado en los equipos. Tiene un carácter periódico y sistemático, es decir consiste en programar intervenciones en los equipos aunque no hayan presentado ningún fallo, bien siguiendo las tareas prescritas por el fabricante o por la propia política de la empresa.</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento predictivo</strong>
+          <p>Conjunto de tareas destinadas a recopilar e interpretar datos estadísticos de los equipos para conocer e informar permanentemente del estado y operatividad de las instalaciones.</p>
+          <p>Los datos estadísticos están compuestos por los valores de determinadas variables físicas o lógicas que representan el estado y operatividad del sistema:</p>
+          <ul>
+            <li>Variables físicas típicas: temperatura, vibración, humedad, consumo de energía, etc.</li>
+            <li>Variables lógicas: valores SMART de un disco duro, paquetes perdidos en una red…</li>
+          </ul>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento adaptativo</strong>
+          <p>Conjunto de tareas cuyo objetivo es modificar el sistema, sin alterar su funcionamiento, con el objetivo de dar respuesta a cambios en el entorno de operación. Éstos cambios pueden ser físicos (cambio de componentes de red) o lógicos (cambios en el API de los programas conectados, en el framework, sistema operativo…).</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento perfectivo</strong>
+          <p>Conjunto de tareas cuyos objetivos son:</p>
+          <ul>
+            <li>Incorporar nuevas funcionalidades o modificar las existentes.</li>
+            <li>Realizar las mejoras necesarias para asegurar el rendimiento del sistema cuando existe un incremento del volumen considerable.</li>
+          </ul>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento Cero Horas (Overhaul)</strong>
+          <p>Conjunto de tareas cuyo objetivo es dejar el equipo como nuevo (como si tuviera cero horas de funcionamiento). Consiste en revisar los equipos a intervalos programados, independientemente del estado aparente del equipo. En estas revisiones se sustituyen o se reparan todos los elementos sometidos a desgaste. Intenta asegurar un tiempo de buen funcionamiento fijado de antemano.</p>
+        </div>
+        
+        <div class="maintenance-type">
+          <strong>Mantenimiento En Uso</strong>
+          <p>es el mantenimiento básico de un equipo realizado por los usuarios del mismo. Es la base del TPM (Total Productive Maintenance, Mantenimiento Productivo Total).</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="maintenance-card" id="4010301002">
+      <div class="concept-section">
+        <h3><span class="icon">📊</span> 3.1.1. CONCEPTOS MANTENIMIENTO</h3>
         <p>Los conceptos más importantes a la hora de realizar tareas de mantenimiento y de comparar servicios de mantenimiento son los siguientes:</p>
+        
+        <div class="concept-grid">
+          <div class="concept-item">
+            <strong>MTTR: Mean Time to Repair/Recovery</strong>
+            <p>Tiempo medio de reparación, es el tiempo medio necesario para resolver fallos y reparar el activo que sufrió una avería, devolviéndole las condiciones normales de funcionamiento.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>MTBF: Mean Time Between Failures</strong>
+            <p>Tiempo medio entre averías de un activo</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>MTTR: Mean Time to Recovery</strong>
+            <p>Tiempo medio de recuperación.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>MTTR: Mean Time to resolve</strong>
+            <p>Tiempo medio de resolver una incidencia. Es el tiempo medio necesario para resolver fallos y reparar de un servicio.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>MTTF: Mean time to failure</strong>
+            <p>Tiempo medio entre averías no reparables de un activo.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>MTTA: Mean time to acknowledge</strong>
+            <p>Tiempo medio transcurrido entre que se lanza una alerta y que se empieza a trabajar en su reparación.</p>
+          </div>
+        </div>
+        
+        <p><strong>Otros conceptos:</strong></p>
         <ul>
-            <li><strong>MTTR: Mean Time to Repair/Recovery.</strong> Tiempo medio de reparación, es el tiempo medio necesario para resolver fallos y reparar el activo que sufrió una avería, devolviéndole las condiciones normales de funcionamiento.</li>
-            <li><strong>MTBF: Mean Time Between Failures.</strong> Tiempo medio entre averías de un activo</li>
-            <li><strong>MTTR: Mean Time to Recovery:</strong> Tiempo medio de recuperación.</li>
-            <li><strong>MTTR: Mean Time to resolve.</strong> Tiempo medio de resolver una incidencia. Es el tiempo medio necesario para resolver fallos y reparar de un servicio.</li>
-            <li><strong>MTTF: Mean time to failure:</strong> Tiempo medio entre averías no reparables de un activo.</li>
-            <li><strong>MTTA: Mean time to acknowledge.</strong> Tiempo medio transcurrido entre que se lanza una alerta y que se empieza a trabajar en su reparación.</li>
-            <li><strong>Otros conceptos:</strong>
-                <ul>
-                    <li>Tiempo máximo de parada por revisión</li>
-                    <li>Tiempo mínimo garantizado de disponibilidad</li>
-                    <li>Tiempo mínimo garantizado de disponibilidad en un periodo T</li>
-                </ul>
-            </li>
+          <li>Tiempo máximo de parada por revisión</li>
+          <li>Tiempo mínimo garantizado de disponibilidad</li>
+          <li>Tiempo mínimo garantizado de disponibilidad en un periodo T</li>
         </ul>
+        
         <p>Estos conceptos también son utilizados a la hora de realizar las copias de seguridad y restaurarlas.</p>
-        <ul>
-            <li><strong>RTO (Recovery Time Objetive):</strong> Tiempo Objetivo de recuperación. Tiempo límite para que un cierto servicio vuelva a estar en funcionamiento.</li>
-            <li><strong>RPO (Recovery Point Objetive):</strong> Punto objetivo de recuperación. Indica el tiempo máximo de pérdida de información.</li>
-        </ul>
+        
+        <div class="concept-grid">
+          <div class="concept-item">
+            <strong>RTO (Recovery Time Objetive)</strong>
+            <p>Tiempo Objetivo de recuperación. Tiempo límite para que un cierto servicio vuelva a estar en funcionamiento.</p>
+          </div>
+          
+          <div class="concept-item">
+            <strong>RPO (Recovery Point Objetive)</strong>
+            <p>Punto objetivo de recuperación. Indica el tiempo máximo de pérdida de información.</p>
+          </div>
+        </div>
+        
         <p>En copias de seguridad, un menor RPO puede conllevar un mayor RTO si queremos mantener contenido el espacio destinado dedicado a copias de seguridad.</p>
-    </span>
-    
-    <span id="4010301003">
-        <h3>3.1.2. FACTORES DEL ENTORNO QUE AFECTAN A LOS EQUIPOS</h3>
+      </div>
+    </div>
+  
+    <div class="maintenance-card" id="4010301003">
+      <div class="environment-section">
+        <h3><span class="icon">🌡️</span> 3.1.2. FACTORES DEL ENTORNO QUE AFECTAN A LOS EQUIPOS</h3>
         <ul>
-            <li>Temperatura</li>
-            <li>Humedad</li>
-            <li>Ubicación.</li>
-            <li>Insectos y alimañas</li>
+          <li>Temperatura</li>
+          <li>Humedad</li>
+          <li>Ubicación.</li>
+          <li>Insectos y alimañas</li>
         </ul>
         <p>Foto del origen de la leyenda del primer bug informático conocido</p>
         <ul>
-            <li>Problemas eléctricos (fluctuaciones de la línea, picos de voltaje, cambios de fase)</li>
-            <li>Electricidad estática</li>
-            <li>Altitud: Algunos equipos tienen un Modo gran altitud (ajustes especiales para altitudes superiores a 1.500/1.800 metros.</li>
+          <li>Problemas eléctricos (fluctuaciones de la línea, picos de voltaje, cambios de fase)</li>
+          <li>Electricidad estática</li>
+          <li>Altitud: Algunos equipos tienen un Modo gran altitud (ajustes especiales para altitudes superiores a 1.500/1.800 metros.</li>
         </ul>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

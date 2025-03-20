@@ -1,88 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagramas de Flujo de Datos (DFD)</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>3. DIAGRAMAS DE FLUJO DE DATOS (DFD)</h2>
+  <article>
+    <h2 class="section-title">3. DIAGRAMAS DE FLUJO DE DATOS (DFD)</h2>
     
-    <span id="3010301001">
-        <p>Un diagrama de flujo de datos es una técnica muy apropiada para reflejar de una forma clara y precisa los procesos que conforman el sistema de información. Permite representar gráficamente los límites del sistema y la lógica de los procesos, estableciendo qué funciones hay que desarrollar. Además, muestra el flujo o movimiento de los datos a través del sistema y sus transformaciones como resultado de la ejecución de los procesos.</p>
-    </span>
-
-    <span id="3010301002">
-        <p>Esta técnica consiste en la descomposición sucesiva de los procesos, desde un nivel general, hasta llegar al nivel de detalle necesario para reflejar toda la semántica que debe soportar el sistema en estudio.</p>
-    </span>
-
-    <span id="3010301003">
-        <p>El objetivo del diagrama de flujo de datos es la obtención de un modelo lógico de procesos que represente el sistema, con independencia de las restricciones físicas del entorno. Así se facilita su comprensión por los usuarios y los miembros del equipo de desarrollo.</p>
-    </span>
-
-    <span id="3010301004">
-        <p>El sistema se divide en distintos niveles de detalle, con el objetivo de:</p>
-        <ul>
-            <li>Simplificar la complejidad del sistema, representando los diferentes procesos de que consta.</li>
-            <li>Facilitar el mantenimiento del sistema.</li>
-        </ul>
-    </span>
-
-    <h3>3.1. ELEMENTOS DE UN DIAGRAMA DE FLUJO DE DATOS</h3>
-
-    <span id="3010301005">
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">📊</div>
+        <div class="intro-content">
+          <p id="3010301001">Un diagrama de flujo de datos es una técnica muy apropiada para reflejar de una forma clara y precisa los procesos que conforman el sistema de información. Permite representar gráficamente los límites del sistema y la lógica de los procesos, estableciendo qué funciones hay que desarrollar. Además, muestra el flujo o movimiento de los datos a través del sistema y sus transformaciones como resultado de la ejecución de los procesos.</p>
+          <p id="3010301002">Esta técnica consiste en la descomposición sucesiva de los procesos, desde un nivel general, hasta llegar al nivel de detalle necesario para reflejar toda la semántica que debe soportar el sistema en estudio.</p>
+          <p id="3010301003">El objetivo del diagrama de flujo de datos es la obtención de un modelo lógico de procesos que represente el sistema, con independencia de las restricciones físicas del entorno. Así se facilita su comprensión por los usuarios y los miembros del equipo de desarrollo.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="objectives-card">
+        <h3 class="card-title">Objetivos de la División en Niveles</h3>
+        <div class="objectives-content" id="3010301004">
+          <p>El sistema se divide en distintos niveles de detalle, con el objetivo de:</p>
+          <div class="objective-item">
+            <div class="objective-icon">🔍</div>
+            <div class="objective-text">Simplificar la complejidad del sistema, representando los diferentes procesos de que consta.</div>
+          </div>
+          <div class="objective-item">
+            <div class="objective-icon">🔧</div>
+            <div class="objective-text">Facilitar el mantenimiento del sistema.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">3.1. ELEMENTOS DE UN DIAGRAMA DE FLUJO DE DATOS</h3>
+      
+      <div class="elements-intro" id="3010301005">
         <p>El diagrama de flujo de datos se compone de los siguientes elementos:</p>
-    </span>
-
-    <h4>3.1.1. ENTIDADES EXTERNAS</h4>
-
-    <span id="3010301006">
-        <p>Representa un ente ajeno al sistema que proporciona o recibe información del mismo. Puede hacer referencia a departamentos, personas, máquinas, recursos u otros sistemas. El estudio de las relaciones entre entidades externas no forma parte del modelo.</p>
-    </span>
-
-    <span id="3010301007">
-        <p>Reglas de construcción:</p>
-        <ul>
-            <li>Representa personas, organizaciones, o sistemas que no pertenecen al sistema</li>
-            <li>En el caso de que las entidades externas se comunicasen entre sí, esto no se contemplaría en el diagrama, por estar fuera del ámbito de nuestro sistema</li>
-            <li>Puede aparecer en los distintos niveles de DFD para mejorar su comprensión, aunque normalmente sólo aparecerá en el diagrama de contexto.</li>
-            <li>Pueden aparecer varias veces en un mismo diagrama, para evitar entrecruzamientos de líneas.</li>
-            <li>Suministra información acerca de la conexión del sistema con el mundo exterior.</li>
-        </ul>
-    </span>
-
-    <span id="3010301008">
-        <p>Notación:</p>
-        <ul>
-            <li>Se representa mediante una elipse con un identificador y un nombre significativo en su interior.</li>
-            <li>Si la entidad externa aparece varias veces en un mismo diagrama, se representa con una línea inclinada en el ángulo superior izquierdo.</li>
-        </ul>
-    </span>
-
-    <h4>3.1.2. PROCESOS</h4>
-
-    <span id="3010301009">
-        <p>Representa una funcionalidad que tiene que llevar a cabo el sistema para transformar o manipular datos. El proceso debe ser capaz de generar los flujos de datos de salida a partir de los de entrada, más una información constante o variable al proceso.</p>
-    </span>
-
-    <span id="3010301010">
-        <p>Reglas de construcción:</p>
-        <ul>
-            <li>El proceso nunca es el origen ni el final de los datos, sólo lugar de transformación de ellos.</li>
-            <li>Puede transformar un flujo de datos de entrada en varios de salida.</li>
-            <li>Siempre es necesario como intermediario entre una entidad externa y un almacén de datos.</li>
-        </ul>
-    </span>
-
-    <span id="3010301011">
-        <p>Notación:</p>
-        <ul>
-            <li>Se representa por un rectángulo subdividido en tres casillas donde se indica el nombre del proceso, un número identificativo y la localización (expresa la unidad o área dentro de la organización donde se realiza el proceso).</li>
-            <li>El nombre del proceso debe ser lo más representativo posible. Normalmente estará constituido por un verbo más un sustantivo.</li>
-            <li>El número identificativo se representa en la parte superior izquierda e indica el nivel del DFD en que se está.</li>
-            <li>Hay que resaltar que el número no indica orden de ejecución alguno entre los procesos ya que en un DFD no se representa una secuencia en el tratamiento de los datos.</li>
-        </ul>
-    </span>
-
-    <span id="3010301012">
-        <p>El número que identifica el proceso es único en el sistema y debe seguir el siguiente estándar de notación:</p>
-        <ul>
-            <li>El proceso del diagrama de contexto se numera como cero.</li>
-            <li>Los procesos del siguiente nivel se enumeran desde 1 y de forma creciente hasta completar el número de procesos del diagrama.</li>
-            <li>En los niveles inferiores se forma con el número del proceso en el que está incluido seguido de un número que lo identifica en ese contexto.</li>
-        </ul>
-    </span>
+      </div>
+      
+      <div class="element-card">
+        <h4 class="element-title">3.1.1. ENTIDADES EXTERNAS</h4>
+        <div class="element-content">
+          <div class="element-description">
+            <div class="element-icon">🏢</div>
+            <div class="element-text">
+              <p id="3010301006">Representa un ente ajeno al sistema que proporciona o recibe información del mismo. Puede hacer referencia a departamentos, personas, máquinas, recursos u otros sistemas. El estudio de las relaciones entre entidades externas no forma parte del modelo.</p>
+            </div>
+          </div>
+          
+          <div class="element-rules" id="3010301007">
+            <h5 class="rules-title">Reglas de construcción:</h5>
+            <ul class="rules-list">
+              <li><span class="rule-bullet">•</span> Representa personas, organizaciones, o sistemas que no pertenecen al sistema</li>
+              <li><span class="rule-bullet">•</span> En el caso de que las entidades externas se comunicasen entre sí, esto no se contemplaría en el diagrama, por estar fuera del ámbito de nuestro sistema</li>
+              <li><span class="rule-bullet">•</span> Puede aparecer en los distintos niveles de DFD para mejorar su comprensión, aunque normalmente sólo aparecerá en el diagrama de contexto.</li>
+              <li><span class="rule-bullet">•</span> Pueden aparecer varias veces en un mismo diagrama, para evitar entrecruzamientos de líneas.</li>
+              <li><span class="rule-bullet">•</span> Suministra información acerca de la conexión del sistema con el mundo exterior.</li>
+            </ul>
+          </div>
+          
+          <div class="element-notation" id="3010301008">
+            <h5 class="notation-title">Notación:</h5>
+            <ul class="notation-list">
+              <li><span class="notation-bullet">•</span> Se representa mediante una elipse con un identificador y un nombre significativo en su interior.</li>
+              <li><span class="notation-bullet">•</span> Si la entidad externa aparece varias veces en un mismo diagrama, se representa con una línea inclinada en el ángulo superior izquierdo.</li>
+            </ul>
+            <div class="notation-example">
+              <div class="entity-example">
+                <div class="entity-shape">Cliente</div>
+              </div>
+              <div class="entity-example duplicate">
+                <div class="entity-shape">Cliente</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="element-card">
+        <h4 class="element-title">3.1.2. PROCESOS</h4>
+        <div class="element-content">
+          <div class="element-description">
+            <div class="element-icon">⚙️</div>
+            <div class="element-text">
+              <p id="3010301009">Representa una funcionalidad que tiene que llevar a cabo el sistema para transformar o manipular datos. El proceso debe ser capaz de generar los flujos de datos de salida a partir de los de entrada, más una información constante o variable al proceso.</p>
+            </div>
+          </div>
+          
+          <div class="element-rules" id="3010301010">
+            <h5 class="rules-title">Reglas de construcción:</h5>
+            <ul class="rules-list">
+              <li><span class="rule-bullet">•</span> El proceso nunca es el origen ni el final de los datos, sólo lugar de transformación de ellos.</li>
+              <li><span class="rule-bullet">•</span> Puede transformar un flujo de datos de entrada en varios de salida.</li>
+              <li><span class="rule-bullet">•</span> Siempre es necesario como intermediario entre una entidad externa y un almacén de datos.</li>
+            </ul>
+          </div>
+          
+          <div class="element-notation" id="3010301011">
+            <h5 class="notation-title">Notación:</h5>
+            <ul class="notation-list">
+              <li><span class="notation-bullet">•</span> Se representa por un rectángulo subdividido en tres casillas donde se indica el nombre del proceso, un número identificativo y la localización (expresa la unidad o área dentro de la organización donde se realiza el proceso).</li>
+              <li><span class="notation-bullet">•</span> El nombre del proceso debe ser lo más representativo posible. Normalmente estará constituido por un verbo más un sustantivo.</li>
+              <li><span class="notation-bullet">•</span> El número identificativo se representa en la parte superior izquierda e indica el nivel del DFD en que se está.</li>
+              <li><span class="notation-bullet">•</span> Hay que resaltar que el número no indica orden de ejecución alguno entre los procesos ya que en un DFD no se representa una secuencia en el tratamiento de los datos.</li>
+            </ul>
+            <div class="notation-example">
+              <div class="process-example">
+                <div class="process-id">1.2</div>
+                <div class="process-name">Validar Datos</div>
+                <div class="process-location">Dpto. Sistemas</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="element-numbering" id="3010301012">
+            <h5 class="numbering-title">Numeración de procesos:</h5>
+            <p>El número que identifica el proceso es único en el sistema y debe seguir el siguiente estándar de notación:</p>
+            <ul class="numbering-list">
+              <li><span class="numbering-bullet">•</span> El proceso del diagrama de contexto se numera como cero.</li>
+              <li><span class="numbering-bullet">•</span> Los procesos del siguiente nivel se enumeran desde 1 y de forma creciente hasta completar el número de procesos del diagrama.</li>
+              <li><span class="numbering-bullet">•</span> En los niveles inferiores se forma con el número del proceso en el que está incluido seguido de un número que lo identifica en ese contexto.</li>
+            </ul>
+            <div class="numbering-example">
+              <div class="level-example">
+                <div class="level-title">Nivel 0</div>
+                <div class="process-example small">
+                  <div class="process-id">0</div>
+                  <div class="process-name">Sistema</div>
+                </div>
+              </div>
+              <div class="level-example">
+                <div class="level-title">Nivel 1</div>
+                <div class="processes-container">
+                  <div class="process-example small">
+                    <div class="process-id">1</div>
+                    <div class="process-name">Proceso 1</div>
+                  </div>
+                  <div class="process-example small">
+                    <div class="process-id">2</div>
+                    <div class="process-name">Proceso 2</div>
+                  </div>
+                </div>
+              </div>
+              <div class="level-example">
+                <div class="level-title">Nivel 2</div>
+                <div class="processes-container">
+                  <div class="process-example small">
+                    <div class="process-id">1.1</div>
+                    <div class="process-name">Subproceso 1.1</div>
+                  </div>
+                  <div class="process-example small">
+                    <div class="process-id">1.2</div>
+                    <div class="process-name">Subproceso 1.2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📊";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Objectives Card */
+  .objectives-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .objectives-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .objective-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .objective-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .objective-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .objective-text {
+    flex: 1;
+  }
+  
+  /* Elements */
+  .elements-intro {
+    margin-bottom: 1.5rem;
+  }
+  
+  .element-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .element-title {
+    color: var(--color-primary-dark);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .element-description {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .element-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .element-text {
+    flex: 1;
+  }
+  
+  .element-rules, .element-notation, .element-numbering {
+    margin-bottom: 1.5rem;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .rules-title, .notation-title, .numbering-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .rules-list, .notation-list, .numbering-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .rules-list li, .notation-list li, .numbering-list li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .rule-bullet, .notation-bullet, .numbering-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Notation Examples */
+  .notation-example, .numbering-example {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+    justify-content: center;
+  }
+  
+  .entity-example {
+    position: relative;
+  }
+  
+  .entity-example.duplicate::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid var(--color-primary);
+    border-left: 2px solid var(--color-primary);
+  }
+  
+  .entity-shape {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-white);
+    font-weight: bold;
+  }
+  
+  .process-example {
+    width: 150px;
+    height: 100px;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-example.small {
+    width: 120px;
+    height: 80px;
+  }
+  
+  .process-id {
+    padding: 5px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .process-name {
+    padding: 10px 5px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .process-location {
+    padding: 5px;
+    background-color: rgba(59, 130, 246, 0.2);
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  /* Numbering Example */
+  .level-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .level-title {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+  }
+  
+  .processes-container {
+    display: flex;
+    gap: 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .element-description {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .element-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .processes-container {
+      flex-direction: column;
+    }
+  }
+</style>
+</body>
+</html>

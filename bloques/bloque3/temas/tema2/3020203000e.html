@@ -7,326 +7,808 @@
 </head>
 <body>
     <div class="teoria">
-        <h1>4 NORMALIZACIÓN</h1>
+        <div class="header-container">
+            <h1 class="main-title">2.3 NORMALIZACIÓN</h1>
+        </div>
         
-        <span id="3020203001">
-            <p>La normalización es una técnica de diseño de base de datos que organiza las tablas de una manera que reduce la redundancia y la dependencia de los datos.</p>
-            <p>Para realizar la normalización de bases de datos y eliminar anomalías en las tablas, se utilizan lo que se llaman formas normales. Se dice que una tabla está en una determinada forma normal si satisface un conjunto de restricciones impuestas por esa regla.</p>
-            <p>Utilizando las diferentes formas normales, se dividen tablas grandes en otras de tamaño más pequeñas, vinculadas entre sí mediante relaciones. Utilizando técnicas de normalización, se obtienen estructuras de datos más simples, estables y fáciles de mantener, además de reducir problemas de redundancia y ambigedad.</p>
-        </span>
-
-        <span id="3020203002">
-            <p>Existen diferentes formas normales para una base de datos. Edgar Codd, el inventor del modelo relacional, propuso la teoría de la normalización introduciendo la primera forma normal (1NF), y posteriormente extendió esta idea con la segunda y tercera forma normal (2NF y 3NF). Con la colaboración de Raymond F. Boyce, desarrollaron la forma normal de Boyce-Codd (BCNF). Existen formas normales más allá de la de Boyce-Codd, pero desde un punto de vista práctico, la normalización suele aplicarse hasta la tercera forma normal. Una forma normal de cierto nivel debe cumplir las reglas de las formas normales de niveles inferiores.</p>
-        </span>
-
-        <h2>CONCEPTOS DE DEPENDENCIA</h2>
-        <span id="3020203003">
-            <p>Para describir ciertos aspectos de las formas normales se utilizan diferentes conceptos de dependencia:</p>
-            <ul>
-                <li><strong>Dependencia funcional:</strong> se dice que un atributo A depende funcionalmente de otro atributo B (B determina a A) si para cada valor de B le corresponde un único valor de A. En esta situación, el atributo B es el determinante.</li>
-                <li><strong>Determinante:</strong> Un determinante es un atributo que depende de otro atributo.</li>
-                <li><strong>Dependencia funcional completa:</strong> se dice que un atributo A tiene una relación de dependencia funcional completa de un grupo de atributos B si depende funcionalmente de B, pero no de ningún subconjunto de B. Es decir, que si al eliminar un atributo de una relación, esta deja de existir.</li>
-                <li><strong>Dependencia funcional transitiva:</strong> dados tres atributos, A, B y C, dentro de una misma tabla, y teniendo que B depende funcionalmente de A y C dependen funcionalmente de B, se dice que C depende transitivamente de A.</li>
-                <li><strong>Dependencia multivaluada:</strong> se dice que un atributo B multidetermina a un atributo A si a cada valor de B le corresponde un conjunto definido de valores de A.</li>
-            </ul>
-        </span>
-
-        <h2>PASOS PARA LA NORMALIZACIÓN</h2>
-        <span id="3020203004">
-            <p>El proceso de normalización puede generalizarse en los siguientes pasos:</p>
-            <ol>
-                <li>Descomponer todos los grupos de datos en registros bidimensionales.</li>
-                <li>Eliminar las relaciones donde los datos no son completamente dependientes de la clave primaria del registro.</li>
-                <li>Eliminar las relaciones que tienen dependencias transitivas.</li>
-            </ol>
-        </span>
-
-        <h2>TABLA DE BASE DE DATOS A NORMALIZAR</h2>
-        <span id="3020203005">
-            <p>Tomemos la siguiente tabla de una base de datos de alquiler de películas como ejemplo para realizar los procesos de normalización. La clave principal de esta tabla es una clave compuesta, utilizando el Nombre completo y la Dirección de cada registro para identificarlo.</p>
-            <table border="1">
-                <tr>
-                    <th>Nombre completo</th>
-                    <th>Dirección</th>
-                    <th>Película alquilada</th>
-                    <th>Tratamiento</th>
-                    <th>Categoría</th>
-                </tr>
-                <tr>
-                    <td>Nombre Apellido</td>
-                    <td>Calle I, nº 2</td>
-                    <td>Película 1, Película 2</td>
-                    <td>Señora</td>
-                    <td>Comedia, Comedia</td>
-                </tr>
-                <tr>
-                    <td>Primero Segundo</td>
-                    <td>Segunda calle 45</td>
-                    <td>Película 3, Película 4</td>
-                    <td>Señor</td>
-                    <td>Romance, Romance</td>
-                </tr>
-                <tr>
-                    <td>Primero Segundo</td>
-                    <td>Avenida tercera</td>
-                    <td>Película 2</td>
-                    <td>Señor</td>
-                    <td>Comedia</td>
-                </tr>
-            </table>
-        </span>
-
-        <h2>PRIMERA FORMA NORMAL (1NF)</h2>
-        <span id="3020203006">
-            <p>La primera forma normal requiere que cada tabla de una base de datos cumpla los siguientes requisitos:</p>
-            <ul>
-                <li>Todos los atributos clave están definidos.</li>
-                <li>No hay registros con más de un valor por cada columna (no contiene grupos repetitivos). Cada fila o columna contiene un valor, no un conjunto de ellos.</li>
-                <li>Todos los atributos son dependientes de la clave primaria.</li>
-                <li>Todos los atributos son atómicos. Un atributo es atómico si los elementos del dominio son simples e indivisibles.</li>
-                <li>No existe variación en el número de columnas para cada fila.</li>
-            </ul>
-            <p>Para convertir una tabla a 1NF, se dividen las filas que tienen varios atributos en tantas filas como atributos tenga. En la tabla anterior, encontramos varios ejemplos de filas de la tabla con varios valores. Veamos ahora dicha tabla en 1NF:</p>
-            <table border="1">
-                <tr>
-                    <th>Nombre completo</th>
-                    <th>Dirección</th>
-                    <th>Película alquilada</th>
-                    <th>Tratamiento</th>
-                    <th>Categoría</th>
-                </tr>
-                <tr>
-                    <td>Nombre Apellido</td>
-                    <td>Calle I, nº 2</td>
-                    <td>Película 1</td>
-                    <td>Señora</td>
-                    <td>Comedia</td>
-                </tr>
-                <tr>
-                    <td>Nombre Apellido</td>
-                    <td>Calle I, nº 2</td>
-                    <td>Película 2</td>
-                    <td>Señora</td>
-                    <td>Comedia</td>
-                </tr>
-                <tr>
-                    <td>Primero Segundo</td>
-                    <td>Segunda calle 45</td>
-                    <td>Película 3</td>
-                    <td>Señor</td>
-                    <td>Romance</td>
-                </tr>
-                <tr>
-                    <td>Primero Segundo</td>
-                    <td>Segunda calle 45</td>
-                    <td>Película 4</td>
-                    <td>Señor</td>
-                    <td>Romance</td>
-                </tr>
-                <tr>
-                    <td>Primero Segundo</td>
-                    <td>Avenida tercera</td>
-                    <td>Película 2</td>
-                    <td>Señor</td>
-                    <td>Comedia</td>
-                </tr>
-            </table>
-        </span>
-
-        <h2>SEGUNDA FORMA NORMAL (2NF)</h2>
-        <span id="3020203007">
-            <p>La segunda forma normal tiene los siguientes requisitos:</p>
-            <ul>
-                <li>La tabla debe estar en 1NF.</li>
-                <li>Los atributos no principales tienen dependencia funcional completa respecto de las claves candidatas. Es decir, que si alguno de los atributos desaparece, la relación entre atributos y clave también se pierde.</li>
-            </ul>
-            <p>Para convertir una tabla a 2NF, se separa la tabla en cuantas tablas sean necesarias para eliminar dichas dependencias. En el caso de la tabla anterior, el atributo Categoría no tiene una dependencia funcional completa de la clave, ya que depende funcionalmente de Película alquilada. Podemos conseguir 2NF separando en dos tablas, y relacionando mediante una clave foránea. Para facilitar la visualización, crearemos una columna ID en la tabla que sustituirá a la tupla Nombre completo y Dirección como clave principal de la tabla.</p>
-            <table border="1">
-                <caption>Tabla de usuarios en 2NF</caption>
-                <tr>
-                    <th>ID usuario</th>
-                    <th>Nombre completo</th>
-                    <th>Dirección</th>
-                    <th>Tratamiento</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Nombre Apellido</td>
-                    <td>Calle I, nº 2</td>
-                    <td>Señora</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Primero Segundo</td>
-                    <td>Segunda calle 45</td>
-                    <td>Señor</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Primero Segundo</td>
-                    <td>Avenida tercera</td>
-                    <td>Señor</td>
-                </tr>
-            </table>
-            <table border="1">
-                <caption>Tabla de películas alquiladas en 2NF</caption>
-                <tr>
-                    <th>ID usuario</th>
-                    <th>Película alquilada</th>
-                    <th>Categoría</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Película 1</td>
-                    <td>Comedia</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Película 2</td>
-                    <td>Comedia</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Película 3</td>
-                    <td>Romance</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Película 4</td>
-                    <td>Romance</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Película 2</td>
-                    <td>Comedia</td>
-                </tr>
-            </table>
-        </span>
-
-        <h2>TERCERA FORMA NORMAL (3NF)</h2>
-        <span id="3020203008">
-            <p>La tercera forma normal tiene los siguientes requisitos:</p>
-            <ul>
-                <li>La tabla debe estar en 2NF.</li>
-                <li>Los atributos no principales no deben depender transitivamente de la clave; o lo que es lo mismo, todos los atributos de la tabla dependen solo de la clave principal.</li>
-            </ul>
-            <p>Para convertir la tabla con la que hemos estado trabajando a 3NF, separamos el Tratamiento, ya que es una dependencia que no depende directamente de la clave principal, sino de forma transitiva a través del Nombre completo del registro. Podemos separar una tabla de Tratamientos, asignando un ID a cada tratamiento, y enlazando cada tratamiento en el registro correspondiente de la tabla de usuarios. Lo mismo podemos hacer con las Categorías de las películas, ya que se encuentran en una situación similar. Las tablas quedarían de la siguiente forma:</p>
-            <table border="1">
-                <caption>Tabla de usuarios en 3NF</caption>
-                <tr>
-                    <th>ID usuario</th>
-                    <th>Nombre completo</th>
-                    <th>Dirección</th>
-                    <th>ID tratamiento</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Nombre Apellido</td>
-                    <td>Calle I, nº 2</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Primero Segundo</td>
-                    <td>Segunda calle 45</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Primero Segundo</td>
-                    <td>Avenida tercera</td>
-                    <td>2</td>
-                </tr>
-            </table>
-            <table border="1">
-                <caption>Tabla de películas alquiladas en 3NF</caption>
-                <tr>
-                    <th>ID usuario</th>
-                    <th>Película alquilada</th>
-                    <th>ID categoría</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Película 1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Película 2</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Película 3</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Película 4</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Película 2</td>
-                    <td>1</td>
-                </tr>
-            </table>
-            <table border="1">
-                <caption>Tabla de tratamientos en 3NF</caption>
-                <tr>
-                    <th>ID tratamiento</th>
-                    <th>Tratamiento</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Señora</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Señor</td>
-                </tr>
-            </table>
-            <table border="1">
-                <caption>Tabla de categorías en 3NF</caption>
-                <tr>
-                    <th>ID categoría</th>
-                    <th>Categoría</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Comedia</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Romance</td>
-                </tr>
-            </table>
-        </span>
-
-        <h2>FORMA NORMAL DE BOYCE-CODD (BCNF)</h2>
-        <span id="3020203009">
-            <p>La forma normal de Boyce-Codd es muy similar a la 3NF, pero con una restricción adicional. Tiene los siguientes requisitos:</p>
-            <ul>
-                <li>La tabla debe estar en 3NF.</li>
-                <li>Los atributos no determinantes son claves candidatas.</li>
-            </ul>
-            <p>En el caso que hemos estado trabajando, podemos ver los atributos no determinantes son claves candidatas de cada una de sus tablas, por lo que se encuentra en BCNF.</p>
-        </span>
-
-        <h2>CUARTA FORMA NORMAL (4NF)</h2>
-        <span id="3020203010">
-            <p>Está basada en dependencias multivaluadas, y, además de hallarse la base de datos en BCNF, se ocupa de las relaciones muchos a muchos entre los diferentes atributos.</p>
-        </span>
-
-        <h2>QUINTA FORMA NORMAL (5NF)</h2>
-        <span id="3020203011">
-            <p>Está basada en dependencias de combinación, y, además de hallarse la base de datos en 4NF, ocupa de la representación de las relaciones uno a muchos entre los atributos.</p>
-        </span>
-
-        <h2>SEXTA FORMA NORMAL (6NF)</h2>
-        <span id="3020203012">
-            <p>Además de hallarse la base de datos en 5NF, se basa en el principio de que en tablas con más de dos claves candidatas en una tabla, se deben crear otras tablas que relacionen dichas claves.</p>
-        </span>
+        <div class="intro-section" id="3020203001">
+            <div class="intro-card">
+                <div class="intro-icon">🗃️</div>
+                <div class="intro-content">
+                    <p>La normalización es una técnica de diseño de base de datos que organiza las tablas de una manera que reduce la redundancia y la dependencia de los datos.</p>
+                    <p>Para realizar la normalización de bases de datos y eliminar anomalías en las tablas, se utilizan lo que se llaman formas normales. Se dice que una tabla está en una determinada forma normal si satisface un conjunto de restricciones impuestas por esa regla.</p>
+                    <p>Utilizando las diferentes formas normales, se dividen tablas grandes en otras de tamaño más pequeñas, vinculadas entre sí mediante relaciones. Utilizando técnicas de normalización, se obtienen estructuras de datos más simples, estables y fáciles de mantener, además de reducir problemas de redundancia y ambigedad.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-section" id="3020203002">
+            <div class="history-card">
+                <div class="history-icon">📜</div>
+                <div class="history-content">
+                    <p>Existen diferentes formas normales para una base de datos. Edgar Codd, el inventor del modelo relacional, propuso la teoría de la normalización introduciendo la primera forma normal (1NF), y posteriormente extendió esta idea con la segunda y tercera forma normal (2NF y 3NF). Con la colaboración de Raymond F. Boyce, desarrollaron la forma normal de Boyce-Codd (BCNF). Existen formas normales más allá de la de Boyce-Codd, pero desde un punto de vista práctico, la normalización suele aplicarse hasta la tercera forma normal. Una forma normal de cierto nivel debe cumplir las reglas de las formas normales de niveles inferiores.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">CONCEPTOS DE DEPENDENCIA</h2>
+            <div class="concepts-card" id="3020203003">
+                <p>Para describir ciertos aspectos de las formas normales se utilizan diferentes conceptos de dependencia:</p>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <div class="concept-icon">🔗</div>
+                        <div class="concept-content">
+                            <h3 class="concept-title">Dependencia funcional</h3>
+                            <p>Se dice que un atributo A depende funcionalmente de otro atributo B (B determina a A) si para cada valor de B le corresponde un único valor de A. En esta situación, el atributo B es el determinante.</p>
+                        </div>
+                    </div>
+                    <div class="concept-item">
+                        <div class="concept-icon">🔑</div>
+                        <div class="concept-content">
+                            <h3 class="concept-title">Determinante</h3>
+                            <p>Un determinante es un atributo que depende de otro atributo.</p>
+                        </div>
+                    </div>
+                    <div class="concept-item">
+                        <div class="concept-icon">🔄</div>
+                        <div class="concept-content">
+                            <h3 class="concept-title">Dependencia funcional completa</h3>
+                            <p>Se dice que un atributo A tiene una relación de dependencia funcional completa de un grupo de atributos B si depende funcionalmente de B, pero no de ningún subconjunto de B. Es decir, que si al eliminar un atributo de una relación, esta deja de existir.</p>
+                        </div>
+                    </div>
+                    <div class="concept-item">
+                        <div class="concept-icon">⛓️</div>
+                        <div class="concept-content">
+                            <h3 class="concept-title">Dependencia funcional transitiva</h3>
+                            <p>Dados tres atributos, A, B y C, dentro de una misma tabla, y teniendo que B depende funcionalmente de A y C dependen funcionalmente de B, se dice que C depende transitivamente de A.</p>
+                        </div>
+                    </div>
+                    <div class="concept-item">
+                        <div class="concept-icon">🔀</div>
+                        <div class="concept-content">
+                            <h3 class="concept-title">Dependencia multivaluada</h3>
+                            <p>Se dice que un atributo B multidetermina a un atributo A si a cada valor de B le corresponde un conjunto definido de valores de A.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">PASOS PARA LA NORMALIZACIÓN</h2>
+            <div class="steps-card" id="3020203004">
+                <p>El proceso de normalización puede generalizarse en los siguientes pasos:</p>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <p>Descomponer todos los grupos de datos en registros bidimensionales.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <p>Eliminar las relaciones donde los datos no son completamente dependientes de la clave primaria del registro.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <p>Eliminar las relaciones que tienen dependencias transitivas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">TABLA DE BASE DE DATOS A NORMALIZAR</h2>
+            <div class="example-card" id="3020203005">
+                <p>Tomemos la siguiente tabla de una base de datos de alquiler de películas como ejemplo para realizar los procesos de normalización. La clave principal de esta tabla es una clave compuesta, utilizando el Nombre completo y la Dirección de cada registro para identificarlo.</p>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre completo</th>
+                                <th>Dirección</th>
+                                <th>Película alquilada</th>
+                                <th>Tratamiento</th>
+                                <th>Categoría</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nombre Apellido</td>
+                                <td>Calle I, nº 2</td>
+                                <td>Película 1, Película 2</td>
+                                <td>Señora</td>
+                                <td>Comedia, Comedia</td>
+                            </tr>
+                            <tr>
+                                <td>Primero Segundo</td>
+                                <td>Segunda calle 45</td>
+                                <td>Película 3, Película 4</td>
+                                <td>Señor</td>
+                                <td>Romance, Romance</td>
+                            </tr>
+                            <tr>
+                                <td>Primero Segundo</td>
+                                <td>Avenida tercera</td>
+                                <td>Película 2</td>
+                                <td>Señor</td>
+                                <td>Comedia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">PRIMERA FORMA NORMAL (1NF)</h2>
+            <div class="normal-form-card" id="3020203006">
+                <div class="normal-form-header">
+                    <div class="form-badge">1NF</div>
+                    <h3 class="normal-form-title">Primera Forma Normal</h3>
+                </div>
+                <div class="normal-form-content">
+                    <p>La primera forma normal requiere que cada tabla de una base de datos cumpla los siguientes requisitos:</p>
+                    <ul class="requirements-list">
+                        <li><span class="requirement-bullet">•</span> Todos los atributos clave están definidos.</li>
+                        <li><span class="requirement-bullet">•</span> No hay registros con más de un valor por cada columna (no contiene grupos repetitivos). Cada fila o columna contiene un valor, no un conjunto de ellos.</li>
+                        <li><span class="requirement-bullet">•</span> Todos los atributos son dependientes de la clave primaria.</li>
+                        <li><span class="requirement-bullet">•</span> Todos los atributos son atómicos. Un atributo es atómico si los elementos del dominio son simples e indivisibles.</li>
+                        <li><span class="requirement-bullet">•</span> No existe variación en el número de columnas para cada fila.</li>
+                    </ul>
+                    <p>Para convertir una tabla a 1NF, se dividen las filas que tienen varios atributos en tantas filas como atributos tenga. En la tabla anterior, encontramos varios ejemplos de filas de la tabla con varios valores. Veamos ahora dicha tabla en 1NF:</p>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre completo</th>
+                                    <th>Dirección</th>
+                                    <th>Película alquilada</th>
+                                    <th>Tratamiento</th>
+                                    <th>Categoría</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nombre Apellido</td>
+                                    <td>Calle I, nº 2</td>
+                                    <td>Película 1</td>
+                                    <td>Señora</td>
+                                    <td>Comedia</td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre Apellido</td>
+                                    <td>Calle I, nº 2</td>
+                                    <td>Película 2</td>
+                                    <td>Señora</td>
+                                    <td>Comedia</td>
+                                </tr>
+                                <tr>
+                                    <td>Primero Segundo</td>
+                                    <td>Segunda calle 45</td>
+                                    <td>Película 3</td>
+                                    <td>Señor</td>
+                                    <td>Romance</td>
+                                </tr>
+                                <tr>
+                                    <td>Primero Segundo</td>
+                                    <td>Segunda calle 45</td>
+                                    <td>Película 4</td>
+                                    <td>Señor</td>
+                                    <td>Romance</td>
+                                </tr>
+                                <tr>
+                                    <td>Primero Segundo</td>
+                                    <td>Avenida tercera</td>
+                                    <td>Película 2</td>
+                                    <td>Señor</td>
+                                    <td>Comedia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">SEGUNDA FORMA NORMAL (2NF)</h2>
+            <div class="normal-form-card" id="3020203007">
+                <div class="normal-form-header">
+                    <div class="form-badge">2NF</div>
+                    <h3 class="normal-form-title">Segunda Forma Normal</h3>
+                </div>
+                <div class="normal-form-content">
+                    <p>La segunda forma normal tiene los siguientes requisitos:</p>
+                    <ul class="requirements-list">
+                        <li><span class="requirement-bullet">•</span> La tabla debe estar en 1NF.</li>
+                        <li><span class="requirement-bullet">•</span> Los atributos no principales tienen dependencia funcional completa respecto de las claves candidatas. Es decir, que si alguno de los atributos desaparece, la relación entre atributos y clave también se pierde.</li>
+                    </ul>
+                    <p>Para convertir una tabla a 2NF, se separa la tabla en cuantas tablas sean necesarias para eliminar dichas dependencias. En el caso de la tabla anterior, el atributo Categoría no tiene una dependencia funcional completa de la clave, ya que depende funcionalmente de Película alquilada. Podemos conseguir 2NF separando en dos tablas, y relacionando mediante una clave foránea. Para facilitar la visualización, crearemos una columna ID en la tabla que sustituirá a la tupla Nombre completo y Dirección como clave principal de la tabla.</p>
+                    
+                    <div class="tables-container">
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de usuarios en 2NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID usuario</th>
+                                            <th>Nombre completo</th>
+                                            <th>Dirección</th>
+                                            <th>Tratamiento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Nombre Apellido</td>
+                                            <td>Calle I, nº 2</td>
+                                            <td>Señora</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Primero Segundo</td>
+                                            <td>Segunda calle 45</td>
+                                            <td>Señor</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Primero Segundo</td>
+                                            <td>Avenida tercera</td>
+                                            <td>Señor</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de películas alquiladas en 2NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID usuario</th>
+                                            <th>Película alquilada</th>
+                                            <th>Categoría</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Película 1</td>
+                                            <td>Comedia</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Película 2</td>
+                                            <td>Comedia</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Película 3</td>
+                                            <td>Romance</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Película 4</td>
+                                            <td>Romance</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Película 2</td>
+                                            <td>Comedia</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">TERCERA FORMA NORMAL (3NF)</h2>
+            <div class="normal-form-card" id="3020203008">
+                <div class="normal-form-header">
+                    <div class="form-badge">3NF</div>
+                    <h3 class="normal-form-title">Tercera Forma Normal</h3>
+                </div>
+                <div class="normal-form-content">
+                    <p>La tercera forma normal tiene los siguientes requisitos:</p>
+                    <ul class="requirements-list">
+                        <li><span class="requirement-bullet">•</span> La tabla debe estar en 2NF.</li>
+                        <li><span class="requirement-bullet">•</span> Los atributos no principales no deben depender transitivamente de la clave; o lo que es lo mismo, todos los atributos de la tabla dependen solo de la clave principal.</li>
+                    </ul>
+                    <p>Para convertir la tabla con la que hemos estado trabajando a 3NF, separamos el Tratamiento, ya que es una dependencia que no depende directamente de la clave principal, sino de forma transitiva a través del Nombre completo del registro. Podemos separar una tabla de Tratamientos, asignando un ID a cada tratamiento, y enlazando cada tratamiento en el registro correspondiente de la tabla de usuarios. Lo mismo podemos hacer con las Categorías de las películas, ya que se encuentran en una situación similar. Las tablas quedarían de la siguiente forma:</p>
+                    
+                    <div class="tables-container">
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de usuarios en 3NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID usuario</th>
+                                            <th>Nombre completo</th>
+                                            <th>Dirección</th>
+                                            <th>ID tratamiento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Nombre Apellido</td>
+                                            <td>Calle I, nº 2</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Primero Segundo</td>
+                                            <td>Segunda calle 45</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Primero Segundo</td>
+                                            <td>Avenida tercera</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de películas alquiladas en 3NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID usuario</th>
+                                            <th>Película alquilada</th>
+                                            <th>ID categoría</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Película 1</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Película 2</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Película 3</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Película 4</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Película 2</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de tratamientos en 3NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID tratamiento</th>
+                                            <th>Tratamiento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Señora</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Señor</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="table-wrapper">
+                            <div class="table-caption">Tabla de categorías en 3NF</div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID categoría</th>
+                                            <th>Categoría</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Comedia</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Romance</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">FORMA NORMAL DE BOYCE-CODD (BCNF)</h2>
+            <div class="normal-form-card" id="3020203009">
+                <div class="normal-form-header">
+                    <div class="form-badge">BCNF</div>
+                    <h3 class="normal-form-title">Forma Normal de Boyce-Codd</h3>
+                </div>
+                <div class="normal-form-content">
+                    <p>La forma normal de Boyce-Codd es muy similar a la 3NF, pero con una restricción adicional. Tiene los siguientes requisitos:</p>
+                    <ul class="requirements-list">
+                        <li><span class="requirement-bullet">•</span> La tabla debe estar en 3NF.</li>
+                        <li><span class="requirement-bullet">•</span> Los atributos no determinantes son claves candidatas.</li>
+                    </ul>
+                    <p>En el caso que hemos estado trabajando, podemos ver los atributos no determinantes son claves candidatas de cada una de sus tablas, por lo que se encuentra en BCNF.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="advanced-forms-container">
+            <div class="advanced-form-card" id="3020203010">
+                <div class="advanced-form-header">
+                    <div class="form-badge">4NF</div>
+                    <h3 class="advanced-form-title">Cuarta Forma Normal</h3>
+                </div>
+                <div class="advanced-form-content">
+                    <p>Está basada en dependencias multivaluadas, y, además de hallarse la base de datos en BCNF, se ocupa de las relaciones muchos a muchos entre los diferentes atributos.</p>
+                </div>
+            </div>
+            
+            <div class="advanced-form-card" id="3020203011">
+                <div class="advanced-form-header">
+                    <div class="form-badge">5NF</div>
+                    <h3 class="advanced-form-title">Quinta Forma Normal</h3>
+                </div>
+                <div class="advanced-form-content">
+                    <p>Está basada en dependencias de combinación, y, además de hallarse la base de datos en 4NF, ocupa de la representación de las relaciones uno a muchos entre los atributos.</p>
+                </div>
+            </div>
+            
+            <div class="advanced-form-card" id="3020203012">
+                <div class="advanced-form-header">
+                    <div class="form-badge">6NF</div>
+                    <h3 class="advanced-form-title">Sexta Forma Normal</h3>
+                </div>
+                <div class="advanced-form-content">
+                    <p>Además de hallarse la base de datos en 5NF, se basa en el principio de que en tablas con más de dos claves candidatas en una tabla, se deben crear otras tablas que relacionen dichas claves.</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+<style>
+    .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Header */
+    .header-container {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .main-title {
+        color: var(--color-primary);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid var(--color-primary);
+        display: inline-block;
+    }
+    
+    /* Intro Section */
+    .intro-section, .history-section {
+        margin-bottom: 2rem;
+    }
+    
+    .intro-card, .history-card {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .intro-icon, .history-icon {
+        font-size: 2.5rem;
+        margin-right: 20px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .intro-content, .history-content {
+        flex: 1;
+    }
+    
+    /* Section Container */
+    .section-container {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+        color: var(--color-primary);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    /* Concepts Card */
+    .concepts-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+    }
+    
+    .concepts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .concept-item {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .concept-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .concept-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .concept-content {
+        flex: 1;
+    }
+    
+    .concept-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--color-primary-dark);
+        font-size: 1.2rem;
+    }
+    
+    /* Steps Card */
+    .steps-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+    }
+    
+    .steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .step-item {
+        display: flex;
+        align-items: flex-start;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .step-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-radius: 50%;
+        margin-right: 15px;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    
+    .step-content {
+        flex: 1;
+    }
+    
+    /* Example Card */
+    .example-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+    }
+    
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto;
+        margin: 15px 0;
+    }
+    
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .data-table th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    .data-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .data-table tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .data-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Normal Form Cards */
+    .normal-form-card, .advanced-form-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+        margin-bottom: 20px;
+    }
+    
+    .normal-form-header, .advanced-form-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .form-badge {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-right: 15px;
+    }
+    
+    .normal-form-title, .advanced-form-title {
+        margin: 0;
+        color: var(--color-primary-dark);
+        font-size: 1.5rem;
+    }
+    
+    .requirements-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+    
+    .requirements-list li {
+        display: flex;
+        margin-bottom: 8px;
+    }
+    
+    .requirement-bullet {
+        color: var(--color-primary);
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    
+    /* Tables Container */
+    .tables-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .table-wrapper {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .table-wrapper:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .table-caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: var(--color-primary-dark);
+        text-align: center;
+    }
+    
+    /* Advanced Forms Container */
+    .advanced-forms-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .intro-card, .history-card, .concept-item {
+            flex-direction: column;
+        }
+        
+        .intro-icon, .history-icon, .concept-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .tables-container, .advanced-forms-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 </body>
 </html>

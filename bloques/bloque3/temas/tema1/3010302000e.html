@@ -1,62 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descomposición en Niveles</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>3.2. DESCOMPOSICIÓN EN NIVELES</h2>
+  <article>
+    <h2 class="section-title">3.2. DESCOMPOSICIÓN EN NIVELES</h2>
     
-    <span id="3010302001">
-        <p>Los diagramas de flujo de datos han de representar el sistema de la forma más clara posible, por ello su construcción se basa en el principio de descomposición o explosión en distintos niveles de detalle.</p>
-    </span>
-
-    <span id="3010302002">
-        <p>La descomposición por niveles se realiza de arriba abajo (top-down), es decir, se comienza en el nivel más general y se termina en el más detallado, pasando por los niveles intermedios. De este modo se dispondrá de un conjunto de particiones del sistema que facilitarán su estudio y su desarrollo.</p>
-    </span>
-
-    <span id="3010302003">
-        <p>La descomposición de cada proceso de un DFD origina otro DFD y es necesario comprobar que se mantiene la consistencia de información entre ellos, es decir, que la información de entrada y de salida de un proceso cualquiera se corresponde con la información de entrada y de salida del diagrama de flujo de datos en el que se descompone.</p>
-    </span>
-
-    <span id="3010302004">
-        <p>En cualquiera de las descomposiciones o explosiones puede aparecer un proceso que no necesite descomposición. A éste se le denomina proceso primitivo y sólo se detalla en él su entrada y su salida, además de una descripción de lo que realiza. En la construcción hay que evitar en lo posible la descomposición desigual, es decir, que un nivel contenga un proceso primitivo, y otro que necesite ser particionado en uno o varios niveles más.</p>
-    </span>
-
-    <span id="3010302005">
-        <p>El modelo de procesos deberá contener:</p>
-        <ul>
-            <li>Un diagrama de contexto (Nivel 0).</li>
-            <li>Un diagrama 0 (Nivel 1).</li>
-            <li>Tantos diagramas 1, 2, 3, … n como funciones haya en el diagrama 0 (Nivel 2).</li>
-            <li>Tantos niveles intermedios como sea necesario.</li>
-            <li>Varios DFD en el último nivel de detalle.</li>
-        </ul>
-    </span>
-
-    <span id="3010302006">
-        <p>Es decir:</p>
-        <ul>
-            <li>Nivel 0: Diagrama de Contexto (representa al sistema).</li>
-            <li>Nivel 1: Diagrama de Subsistemas (representa a áreas funcionales).</li>
-            <li>Nivel 2: Diagrama de Funciones (de cada subsistema).</li>
-            <li>Nivel 3: Diagrama de Subfunciones (de cada función).</li>
-            <li>Nivel 4: Diagrama de Procesos (para tratamiento de cada subfunción).</li>
-        </ul>
-    </span>
-
-    <span id="3010302007">
-        <p>Por tanto, los pasos para esta descomposición en niveles serían los siguientes:</p>
-        <ol>
-            <li>El diagrama de contexto tiene como objetivo delimitar el ámbito del sistema con el mundo exterior definiendo sus interfaces. En este diagrama se representa un único proceso que corresponde al sistema en estudio, un conjunto de entidades externas que representan la procedencia y destino de la información y un conjunto de flujos de datos que representan los caminos por los que fluye dicha información.</li>
-            <li>A continuación, este proceso se descompone en otro DFD, en el que se representan los procesos principales o subsistemas. Un subsistema es un conjunto de procesos cuyas funcionalidades tienen algo en común. Éstos deberán ser identificados en base a determinados criterios, como por ejemplo: funciones organizativas o administrativas propias del sistema, funciones homogéneas de los procesos, localización geográfica de los mismos, procesos que actualicen los mismos almacenes de datos, etc.</li>
-            <li>Cada uno de los procesos principales se descompone a su vez en otros que representan funciones más simples y se sigue descomponiendo hasta que los procesos estén suficientemente detallados y tengan una funcionalidad concreta, es decir, sean procesos primitivos.</li>
-        </ol>
-    </span>
-
-    <span id="3010302008">
-        <p>Por tanto, como resultado de los pasos anteriores, se obtiene un modelo de procesos del sistema de información que consta de un conjunto de diagramas de flujo de datos de diferentes niveles de abstracción, de modo que cada uno proporciona una visión más detallada de una parte definida en el nivel anterior.</p>
-    </span>
-
-    <span id="3010302009">
-        <p>Además de los diagramas de flujo de datos, el modelo de procesos incluye la especificación de los flujos de datos, de los almacenes de datos y la especificación detallada de los procesos que no precisan descomposición, es decir los procesos de último nivel o primitivos. En la especificación de un proceso primitivo se debe describir, de una manera más o menos formal, cómo se obtienen los flujos de datos de salida a partir de los flujos de datos de entrada y características propias del proceso.</p>
-    </span>
-
-    <span id="3010302010">
-        <p>Dependiendo del tipo de proceso se puede describir el procedimiento asociado utilizando un lenguaje estructurado o un pseudocódigo, apoyándose en tablas de decisión o árboles de decisión.</p>
-    </span>
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">🔍</div>
+        <div class="intro-content">
+          <p id="3010302001">Los diagramas de flujo de datos han de representar el sistema de la forma más clara posible, por ello su construcción se basa en el principio de descomposición o explosión en distintos niveles de detalle.</p>
+          <p id="3010302002">La descomposición por niveles se realiza de arriba abajo (top-down), es decir, se comienza en el nivel más general y se termina en el más detallado, pasando por los niveles intermedios. De este modo se dispondrá de un conjunto de particiones del sistema que facilitarán su estudio y su desarrollo.</p>
+          <p id="3010302003">La descomposición de cada proceso de un DFD origina otro DFD y es necesario comprobar que se mantiene la consistencia de información entre ellos, es decir, que la información de entrada y de salida de un proceso cualquiera se corresponde con la información de entrada y de salida del diagrama de flujo de datos en el que se descompone.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="primitive-process-card">
+        <div class="process-icon">⚙️</div>
+        <div class="process-content">
+          <p id="3010302004">En cualquiera de las descomposiciones o explosiones puede aparecer un proceso que no necesite descomposición. A éste se le denomina <strong>proceso primitivo</strong> y sólo se detalla en él su entrada y su salida, además de una descripción de lo que realiza. En la construcción hay que evitar en lo posible la descomposición desigual, es decir, que un nivel contenga un proceso primitivo, y otro que necesite ser particionado en uno o varios niveles más.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="levels-card">
+        <h3 class="card-title">Niveles del Modelo de Procesos</h3>
+        <div class="levels-content">
+          <p id="3010302005">El modelo de procesos deberá contener:</p>
+          <ul class="levels-list">
+            <li><span class="level-bullet">•</span> Un diagrama de contexto (Nivel 0).</li>
+            <li><span class="level-bullet">•</span> Un diagrama 0 (Nivel 1).</li>
+            <li><span class="level-bullet">•</span> Tantos diagramas 1, 2, 3, … n como funciones haya en el diagrama 0 (Nivel 2).</li>
+            <li><span class="level-bullet">•</span> Tantos niveles intermedios como sea necesario.</li>
+            <li><span class="level-bullet">•</span> Varios DFD en el último nivel de detalle.</li>
+          </ul>
+          
+          <p id="3010302006">Es decir:</p>
+          <div class="levels-diagram">
+            <div class="level-item">
+              <div class="level-number">Nivel 0</div>
+              <div class="level-description">Diagrama de Contexto (representa al sistema)</div>
+            </div>
+            <div class="level-arrow">↓</div>
+            <div class="level-item">
+              <div class="level-number">Nivel 1</div>
+              <div class="level-description">Diagrama de Subsistemas (representa a áreas funcionales)</div>
+            </div>
+            <div class="level-arrow">↓</div>
+            <div class="level-item">
+              <div class="level-number">Nivel 2</div>
+              <div class="level-description">Diagrama de Funciones (de cada subsistema)</div>
+            </div>
+            <div class="level-arrow">↓</div>
+            <div class="level-item">
+              <div class="level-number">Nivel 3</div>
+              <div class="level-description">Diagrama de Subfunciones (de cada función)</div>
+            </div>
+            <div class="level-arrow">↓</div>
+            <div class="level-item">
+              <div class="level-number">Nivel 4</div>
+              <div class="level-description">Diagrama de Procesos (para tratamiento de cada subfunción)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="steps-card">
+        <h3 class="card-title">Pasos para la Descomposición en Niveles</h3>
+        <div class="steps-content" id="3010302007">
+          <p>Por tanto, los pasos para esta descomposición en niveles serían los siguientes:</p>
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-description">
+              <p>El diagrama de contexto tiene como objetivo delimitar el ámbito del sistema con el mundo exterior definiendo sus interfaces. En este diagrama se representa un único proceso que corresponde al sistema en estudio, un conjunto de entidades externas que representan la procedencia y destino de la información y un conjunto de flujos de datos que representan los caminos por los que fluye dicha información.</p>
+              <div class="step-diagram">
+                <div class="context-diagram">
+                  <div class="entity-shape">Entidad 1</div>
+                  <div class="flow-arrow right">→</div>
+                  <div class="process-shape">
+                    <div class="process-id">0</div>
+                    <div class="process-name">Sistema</div>
+                  </div>
+                  <div class="flow-arrow left">←</div>
+                  <div class="entity-shape">Entidad 2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-description">
+              <p>A continuación, este proceso se descompone en otro DFD, en el que se representan los procesos principales o subsistemas. Un subsistema es un conjunto de procesos cuyas funcionalidades tienen algo en común. Éstos deberán ser identificados en base a determinados criterios, como por ejemplo: funciones organizativas o administrativas propias del sistema, funciones homogéneas de los procesos, localización geográfica de los mismos, procesos que actualicen los mismos almacenes de datos, etc.</p>
+              <div class="step-diagram">
+                <div class="subsystems-diagram">
+                  <div class="process-shape small">
+                    <div class="process-id">1</div>
+                    <div class="process-name">Subsistema 1</div>
+                  </div>
+                  <div class="process-shape small">
+                    <div class="process-id">2</div>
+                    <div class="process-name">Subsistema 2</div>
+                  </div>
+                  <div class="process-shape small">
+                    <div class="process-id">3</div>
+                    <div class="process-name">Subsistema 3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-description">
+              <p>Cada uno de los procesos principales se descompone a su vez en otros que representan funciones más simples y se sigue descomponiendo hasta que los procesos estén suficientemente detallados y tengan una funcionalidad concreta, es decir, sean procesos primitivos.</p>
+              <div class="step-diagram">
+                <div class="functions-diagram">
+                  <div class="process-shape small">
+                    <div class="process-id">1.1</div>
+                    <div class="process-name">Función 1.1</div>
+                  </div>
+                  <div class="process-shape small">
+                    <div class="process-id">1.2</div>
+                    <div class="process-name">Función 1.2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="result-card">
+        <div class="result-icon">📋</div>
+        <div class="result-content">
+          <p id="3010302008">Por tanto, como resultado de los pasos anteriores, se obtiene un modelo de procesos del sistema de información que consta de un conjunto de diagramas de flujo de datos de diferentes niveles de abstracción, de modo que cada uno proporciona una visión más detallada de una parte definida en el nivel anterior.</p>
+          <p id="3010302009">Además de los diagramas de flujo de datos, el modelo de procesos incluye la especificación de los flujos de datos, de los almacenes de datos y la especificación detallada de los procesos que no precisan descomposición, es decir los procesos de último nivel o primitivos. En la especificación de un proceso primitivo se debe describir, de una manera más o menos formal, cómo se obtienen los flujos de datos de salida a partir de los flujos de datos de entrada y características propias del proceso.</p>
+          <p id="3010302010">Dependiendo del tipo de proceso se puede describir el procedimiento asociado utilizando un lenguaje estructurado o un pseudocódigo, apoyándose en tablas de decisión o árboles de decisión.</p>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+     font-family: Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "🔍";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Primitive Process Card */
+  .primitive-process-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .process-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .process-content {
+    flex: 1;
+  }
+  
+  /* Levels Card */
+  .levels-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .levels-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .levels-list li {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .level-bullet {
+    color: var(--color-primary);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .levels-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .level-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    transition: var(--transition);
+  }
+  
+  .level-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .level-number {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 80px;
+  }
+  
+  .level-description {
+    flex: 1;
+  }
+  
+  .level-arrow {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  /* Steps Card */
+  .steps-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .steps-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .step-item {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .step-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .step-description {
+    flex: 1;
+  }
+  
+  .step-diagram {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Context Diagram */
+  .context-diagram {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .entity-shape {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-white);
+    font-weight: bold;
+  }
+  
+  .process-shape {
+    width: 120px;
+    height: 80px;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .process-shape.small {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .process-id {
+    padding: 5px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .process-name {
+    padding: 10px 5px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .flow-arrow {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  
+  .flow-arrow.right {
+    margin-left: 5px;
+  }
+  
+  .flow-arrow.left {
+    margin-right: 5px;
+  }
+  
+  /* Subsystems and Functions Diagrams */
+  .subsystems-diagram, .functions-diagram {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Result Card */
+  .result-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .result-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .result-content {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .primitive-process-card, .step-item, .result-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .process-icon, .result-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .step-number {
+      margin-right: 0;
+      margin-bottom: 10px;
+      align-self: center;
+    }
+    
+    .context-diagram {
+      flex-direction: column;
+    }
+    
+    .flow-arrow.right, .flow-arrow.left {
+      transform: rotate(90deg);
+      margin: 5px 0;
+    }
+  }
+</style>
+</body>
+</html>

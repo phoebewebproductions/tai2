@@ -1,31 +1,235 @@
 <div class="teoria">
-    <span id="4010202001">
-        <h2>2.2. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
-    </span>
-    
-    <span id="4010202002">
-        <h3>2.2.1. SERVIDOR DE BASES DE DATOS</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .server-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .server-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .server-type h3 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .server-type h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .db-servers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .db-server {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .db-server:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .db-server strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .cloud-service {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .cloud-service:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .cloud-service h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .cloud-service h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .server-card {
+          padding: 1rem;
+        }
+        
+        .db-servers {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="server-card" id="4010202001">
+      <h2>🖥️ 2.2. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
+    </div>
+  
+    <div class="server-card" id="4010202002">
+      <div class="server-type">
+        <h3><span class="icon">🗄️</span> 2.2.1. SERVIDOR DE BASES DE DATOS</h3>
         <p>Almacenan grandes cantidades de información permitiendo acceder a la información contenido de forma rápida y eficiente.</p>
         <p>También son capaces de analizar, manipular y alojar los datos de acuerdo a los requerimientos del usuario.</p>
         <p>Los servidores de BBDD más populares en la actualidad son:</p>
-        <ul>
-            <li>Oracle Database: Gestor de Bases de datos desarrollado por Oracle Corporation. Especializado en grandes bases de datos. Utiliza PLSQL</li>
-            <li>MySQL: Sistema Gestor de Bases de datos relacional desarrollado bajo licencia dual (Pública general y comercial). Considerada la base de datos de código abierto más popular del mundo. Facebook trabaja con MySql</li>
-            <li>MariaDB: Bifurcación (fork) de MySql con licencia GPL</li>
-            <li>Microsoft Sql Server: Sistema de gestión de base de datos relacionales creado por Microsoft. Utiliza Transact SQL (TSQL). Permite la instalación de instancias independientes dentro del mismo servidor.</li>
-            <li>PostgreSql/Postgres: Sistema de gestión de bases de datos relacional orientado a objetos y de código abierto, publicado bajo la licencia PostgreSQL y mantenido por la comunidad PGDG (PostgreSQL Global Development Group). Permite la alta concurrencia mediante la ausencia de bloqueos de tabla.</li>
-            <li>Firebird: RDBMS de código abierto basado en Interbase programada en C++ y desarrollada por la Firebird Foundation. La última versión 3.0.9 fue liberado el 15 de febrero de 2022</li>
-        </ul>
-    </span>
-    
-    <span id="4010202003">
-        <h3>2.2.2. SERVIDOR CLOUD</h3>
+        
+        <div class="db-servers">
+          <div class="db-server">
+            <strong>Oracle Database</strong>
+            <p>Gestor de Bases de datos desarrollado por Oracle Corporation. Especializado en grandes bases de datos. Utiliza PLSQL</p>
+          </div>
+          
+          <div class="db-server">
+            <strong>MySQL</strong>
+            <p>Sistema Gestor de Bases de datos relacional desarrollado bajo licencia dual (Pública general y comercial). Considerada la base de datos de código abierto más popular del mundo. Facebook trabaja con MySql</p>
+          </div>
+          
+          <div class="db-server">
+            <strong>MariaDB</strong>
+            <p>Bifurcación (fork) de MySql con licencia GPL</p>
+          </div>
+          
+          <div class="db-server">
+            <strong>Microsoft Sql Server</strong>
+            <p>Sistema de gestión de base de datos relacionales creado por Microsoft. Utiliza Transact SQL (TSQL). Permite la instalación de instancias independientes dentro del mismo servidor.</p>
+          </div>
+          
+          <div class="db-server">
+            <strong>PostgreSql/Postgres</strong>
+            <p>Sistema de gestión de bases de datos relacional orientado a objetos y de código abierto, publicado bajo la licencia PostgreSQL y mantenido por la comunidad PGDG (PostgreSQL Global Development Group). Permite la alta concurrencia mediante la ausencia de bloqueos de tabla.</p>
+          </div>
+          
+          <div class="db-server">
+            <strong>Firebird</strong>
+            <p>RDBMS de código abierto basado en Interbase programada en C++ y desarrollada por la Firebird Foundation. La última versión 3.0.9 fue liberado el 15 de febrero de 2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010202003">
+      <div class="server-type">
+        <h3><span class="icon">☁️</span> 2.2.2. SERVIDOR CLOUD</h3>
         <p>Servidores proporcionados por compañías que se dedican a rentar un espacio en sus servidores para que otras personas o empresas guarden la información de manera remota o utilicen sus servicios.</p>
         <p>El nivel de utilización de la nube puede variar en función del tipo de arquitectura contratada:</p>
-    </span>
-    
-    <span id="4010202004">
-        <h4>2.2.2.1. IAAS: INFRAESTRUCTURE AS A SERVICE</h4>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010202004">
+      <div class="cloud-service">
+        <h4><span class="icon">🏗️</span> 2.2.2.1. IAAS: INFRAESTRUCTURE AS A SERVICE</h4>
         <p>Servicio de pago según el consumo, donde un tercero le presta los servicios de infraestructura, como el almacenamiento y la virtualización, cuando el usuario los necesita, a través de la nube o de Internet. El usuario es responsable del sistema operativo y de todos los datos, las aplicaciones, el middleware y los tiempos de ejecución; pero el proveedor le brinda acceso a la red, a los servidores, a la virtualización y al almacenamiento que necesite, y administra esos recursos por usted.</p>
         <p>El usuario no necesita mantener ni actualizar su propio centro de datos local, ya que el servicio contratado se encarga de hacerlo.</p>
         <p>El usuario accede a la infraestructura y la controla a través de una interfaz de programación de aplicaciones (API) o de un panel.</p>
@@ -33,19 +237,23 @@
         <p>Se suele usar IaaS como una forma rápida y flexible de crear y desmontar entornos de prueba y de desarrollo, pudiendo utilizar únicamente la infraestructura que necesite para diseñar el entorno de desarrollo y ampliarlo o reducirlo durante el tiempo que sea necesario. Una vez que termine, puede detenerse y pagar solo por lo que utilizó.</p>
         <p>Las principales desventajas de la IaaS son los posibles problemas de seguridad del proveedor, los sistemas multiempresa donde el proveedor debe compartir los recursos de infraestructura con varios clientes y la confiabilidad del servicio.</p>
         <p>Algunos ejemplos de IaaS son los proveedores de nube pública como AWS, Microsoft Azure y Google Cloud.</p>
-    </span>
-    
-    <span id="4010202005">
-        <h4>2.2.2.2. PAAS: PLATFORM AS A SERVICE</h4>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010202005">
+      <div class="cloud-service">
+        <h4><span class="icon">⚙️</span> 2.2.2.2. PAAS: PLATFORM AS A SERVICE</h4>
         <p>El proveedor aloja el hardware y el software en su propia infraestructura y ofrece la plataforma al usuario como una solución integrada, una pila de soluciones o un servicio a través de Internet.</p>
         <p>Una PaaS permite al usuario desarrollar, ejecutar y gestionar sus propias aplicaciones sin tener que diseñar ni mantener la infraestructura ni la plataforma que, por lo general, se relaciona con el proceso. Todo esto es especialmente útil para los desarrolladores y los programadores.</p>
         <p>El usuario escribe el código, y diseña, implementa y gestiona las aplicaciones en un entorno que le proporciona un tercero, algo que evita la complicación de tener que actualizar el software o hacer un mantenimiento del hardware.</p>
         <p>Con la PaaS, los desarrolladores pueden crear un marco a partir del cual diseñan y personalizan sus aplicaciones basadas en la Web. También pueden utilizar elementos de software incorporados para desarrollar las aplicaciones, y así reducir la cantidad de código que deben escribir ellos mismos.</p>
         <p>Algunos ejemplos de PaaS son AWS Elastic Beanstalk, Heroku y Red Hat OpenShift.</p>
-    </span>
-    
-    <span id="4010202006">
-        <h4>2.2.2.3. SAAS: SOFTWARE AS A SERVICE</h4>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010202006">
+      <div class="cloud-service">
+        <h4><span class="icon">📦</span> 2.2.2.3. SAAS: SOFTWARE AS A SERVICE</h4>
         <p>El software como servicio (SaaS), también conocido como servicios de aplicaciones en la nube, es la más completa de las opciones de cloud computing. Ofrece una aplicación integral que gestiona el proveedor, a través de un explorador web.</p>
         <p>Este se encarga de las actualizaciones, las correcciones de errores y el mantenimiento general del software, mientras que el usuario se conecta a la aplicación a través de un panel o una API.</p>
         <p>El software no se instala en los equipos individuales, y el acceso del grupo al programa es más fácil y confiable.</p>
@@ -53,5 +261,6 @@
         <p>Es una excelente opción para las pequeñas empresas que no tienen el personal o el ancho de banda necesarios para encargarse de la instalación del software y sus actualizaciones, así como para las aplicaciones que no requieren mucha personalización o solo se utilizarán de forma periódica.</p>
         <p>Sin embargo, el ahorro en tiempo y mantenimiento que ofrece el SaaS podría suponer un costo en términos de control, seguridad y rendimiento; por eso es importante elegir a un proveedor confiable.</p>
         <p>Algunos ejemplos de SaaS son Dropbox, Salesforce, Google Apps y Red Hat Insights.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

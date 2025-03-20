@@ -1,27 +1,179 @@
 <div class="teoria">
-    <span id="4010502001">
-        <h2>5.2. HERRAMIENTAS DE ADMINISTRACIÓN DE SISTEMAS</h2>
-    </span>
-    
-    <span id="4010502002">
-        <h3>5.2.1. MICROSOFT ENDPOINT CONFIGURATION MANAGER</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .admin-tool-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .admin-tool-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .tool-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .tool-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .tool-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .tool-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .feature-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .feature-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .feature-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .admin-tool-card {
+          padding: 1rem;
+        }
+        
+        .feature-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="admin-tool-card" id="4010502001">
+      <h2>🛠️ 5.2. HERRAMIENTAS DE ADMINISTRACIÓN DE SISTEMAS</h2>
+    </div>
+  
+    <div class="admin-tool-card" id="4010502002">
+      <div class="tool-section">
+        <h3><span class="icon">🖥️</span> 5.2.1. MICROSOFT ENDPOINT CONFIGURATION MANAGER</h3>
         <p>Desde octubre de 2019, Configuration Manager forma parte de Microsoft Endpoint Manager.</p>
-    </span>
-    
-    <span id="4010502003">
-        <h3>5.2.2. WINDOWS ADK</h3>
+      </div>
+    </div>
+  
+    <div class="admin-tool-card" id="4010502003">
+      <div class="tool-section">
+        <h3><span class="icon">📦</span> 5.2.2. WINDOWS ADK</h3>
         <p>Windows Assessment and Deployment Kit (Kit de evaluación e implementación de Windows) y el complemento de Windows PE es un conjunto de herramientas diseñadas a personalizar imágenes de Windows para la implementación a gran escala en equipos cliente o en imágenes de disco duro virutal (VHD). También permiten probar la calidad y el rendimiento del sistema, sus componentes agregados y las aplicaciones que se ejecutan en él.</p>
         <p>Incluye:</p>
         <ul>
-            <li>El Kit de herramientas de evaluación de Windows y el Windows Performance Toolkit para evaluar la calidad y el rendimiento de los sistemas o componentes.</li>
-            <li>Herramientas de implementación como Windows PE, Sysprep y otras herramientas que puede usar para personalizar e implementar Windows 10 imágenes.</li>
-            <li>Windows de preinstalación (Windows PE) como una descarga independiente del Kit de evaluación e implementación (ADK).</li>
-            <li>También se le conoce como Windows Automated Installation Kit (Windows AIK o WAIK)</li>
+          <li>El Kit de herramientas de evaluación de Windows y el Windows Performance Toolkit para evaluar la calidad y el rendimiento de los sistemas o componentes.</li>
+          <li>Herramientas de implementación como Windows PE, Sysprep y otras herramientas que puede usar para personalizar e implementar Windows 10 imágenes.</li>
+          <li>Windows de preinstalación (Windows PE) como una descarga independiente del Kit de evaluación e implementación (ADK).</li>
+          <li>También se le conoce como Windows Automated Installation Kit (Windows AIK o WAIK)</li>
         </ul>
-    </span>
-    
-    <span id="4010502004">
-        <h3>5.2.3. WINDOWS ADMIN CENTER</h3>
+      </div>
+    </div>
+  
+    <div class="admin-tool-card" id="4010502004">
+      <div class="tool-section">
+        <h3><span class="icon">⚙️</span> 5.2.3. WINDOWS ADMIN CENTER</h3>
         <p>Windows Admin Center es la evolución de plataformas de administración tradicionales conocidas como el Administrador de servidores y la Microsoft Management Console (MMC). Se ha creado desde un principio pensando en la forma en que los sistemas se crean y administran hoy en día.</p>
         <p>Contiene muchas de las herramientas familiares que se utilizan actualmente para administrar clientes y servidores de Windows Server asi como herramientas nuevas.</p>
         <p>Permite administrar los servidores Windows Server sin ninguna dependencia de Azure ni de la nube. Complementa a System Center (no lo sustituye).</p>
@@ -37,42 +189,67 @@
         <p>Diagrama de la arquitectura de Windows Admin Center</p>
         <p>Windows Admin Center funciona con soluciones como System Center y la administración y seguridad de Azure, y se agrega a sus funcionalidades para realizar tareas de administración detalladas en un solo equipo.</p>
         <p>Características</p>
-        <ul>
-            <li>Permite la administración desde cualquier lugar de forma segura mediante la instalación de la puerta de enlace de Windows Admin Center.</li>
-            <li>Seguridad mejorada para la plataforma de administración mediante un control de acceso basado en roles.
-                <ul>
-                    <li>Permite ajustar con precisión qué administradores tienen acceso a cada característica de administración.</li>
-                    <li>Las opciones de autenticación de puerta de enlace incluyen grupos locales, Active Directory basado en dominios locales y Azure Active Directory basado en la nube.</li>
-                    <li>Permite obtener información útil acerca de las acciones de administración realizadas en tu entorno.</li>
-                </ul>
-            </li>
-            <li>Integración de Azure.</li>
-            <li>Permite la implementación de clústeres hiperconvergidos y de conmutación por error a través de un asistente fácil de usar.</li>
-            <li>Permite la administración de clústeres hiperconvergidos</li>
-            <li>Extensibilidad: Microsoft ofrece un SDK que permite a los programadores crear sus propias herramientas para Windows Admin Center.</li>
-        </ul>
-    </span>
-    
-    <span id="4010502005">
-        <h3>5.2.4. NAGIOS</h3>
+        
+        <div class="feature-list">
+          <div class="feature-item">
+            <strong>Administración remota segura</strong>
+            <p>Permite la administración desde cualquier lugar de forma segura mediante la instalación de la puerta de enlace de Windows Admin Center.</p>
+          </div>
+          
+          <div class="feature-item">
+            <strong>Seguridad mejorada</strong>
+            <p>Seguridad mejorada para la plataforma de administración mediante un control de acceso basado en roles.</p>
+            <ul>
+              <li>Permite ajustar con precisión qué administradores tienen acceso a cada característica de administración.</li>
+              <li>Las opciones de autenticación de puerta de enlace incluyen grupos locales, Active Directory basado en dominios locales y Azure Active Directory basado en la nube.</li>
+              <li>Permite obtener información útil acerca de las acciones de administración realizadas en tu entorno.</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <strong>Integración de Azure</strong>
+          </div>
+          
+          <div class="feature-item">
+            <strong>Implementación de clústeres</strong>
+            <p>Permite la implementación de clústeres hiperconvergidos y de conmutación por error a través de un asistente fácil de usar.</p>
+          </div>
+          
+          <div class="feature-item">
+            <strong>Administración de clústeres</strong>
+            <p>Permite la administración de clústeres hiperconvergidos</p>
+          </div>
+          
+          <div class="feature-item">
+            <strong>Extensibilidad</strong>
+            <p>Microsoft ofrece un SDK que permite a los programadores crear sus propias herramientas para Windows Admin Center.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="admin-tool-card" id="4010502005">
+      <div class="tool-section">
+        <h3><span class="icon">📊</span> 5.2.4. NAGIOS</h3>
         <p>Sistema de monitorización de redes ampliamente utilizado, de código abierto, que vigila los equipos (hardware) y servicios (software) que se especifiquen, alertando cuando el comportamiento de los mismos no sea el deseado y proporcionando una gran versatilidad para consultar prácticamente cualquier parámetro de interés de un sistema.</p>
         <p>N.A.G.I.O.S. es un acrónimo recursivo: «Nagios Ain't Gonna Insist On Sainthood»</p>
         <p>Entre sus características principales figuran:</p>
         <ul>
-            <li>Monitorización de servicios de red (SMTP, POP3, HTTP, NNTP, ICMP, SNMP).</li>
-            <li>Monitorización de los recursos de equipos hardware (carga del procesador, uso de los discos, logs del sistema) en varios sistemas operativos, incluso Microsoft Windows con los plugins NRPE_NT o NSClient++.</li>
-            <li>Monitorización remota, a través de túneles SSL cifrados o SSH.</li>
-            <li>Diseño simple de plugins, que permiten a los usuarios desarrollar sus propios chequeos de servicios dependiendo de sus necesidades, usando sus herramientas preferidas (Bash, C++, Perl, Ruby, Python, PHP, C#...).</li>
-            <li>Chequeo de servicios paralizados.</li>
-            <li>Posibilidad de definir la jerarquía de la red, permitiendo distinguir entre host caídos y host inaccesibles.</li>
-            <li>Notificaciones a los contactos cuando ocurren problemas en servicios o hosts, así como cuando son resueltos (a través del correo electrónico, buscapersonas, Jabber, SMS, o cualquier método definido por el usuario junto con su correspondiente complemento).</li>
-            <li>Posibilidad de definir manejadores de eventos que ejecuten al ocurrir un evento de un servicio o host para resoluciones de problemas proactivas.</li>
-            <li>Rotación automática del archivo de registro.</li>
-            <li>Soporte para implementar hosts de monitores redundantes.</li>
-            <li>Visualización del estado de la red en tiempo real a través de interfaz web, con la posibilidad de generar informes y gráficas de comportamiento de los sistemas monitorizados, y visualización del listado de notificaciones enviadas, historial de problemas, archivos de registros....</li>
-            <li>Originalmente se denominaba Netsaint.</li>
+          <li>Monitorización de servicios de red (SMTP, POP3, HTTP, NNTP, ICMP, SNMP).</li>
+          <li>Monitorización de los recursos de equipos hardware (carga del procesador, uso de los discos, logs del sistema) en varios sistemas operativos, incluso Microsoft Windows con los plugins NRPE_NT o NSClient++.</li>
+          <li>Monitorización remota, a través de túneles SSL cifrados o SSH.</li>
+          <li>Diseño simple de plugins, que permiten a los usuarios desarrollar sus propios chequeos de servicios dependiendo de sus necesidades, usando sus herramientas preferidas (Bash, C++, Perl, Ruby, Python, PHP, C#...).</li>
+          <li>Chequeo de servicios paralizados.</li>
+          <li>Posibilidad de definir la jerarquía de la red, permitiendo distinguir entre host caídos y host inaccesibles.</li>
+          <li>Notificaciones a los contactos cuando ocurren problemas en servicios o hosts, así como cuando son resueltos (a través del correo electrónico, buscapersonas, Jabber, SMS, o cualquier método definido por el usuario junto con su correspondiente complemento).</li>
+          <li>Posibilidad de definir manejadores de eventos que ejecuten al ocurrir un evento de un servicio o host para resoluciones de problemas proactivas.</li>
+          <li>Rotación automática del archivo de registro.</li>
+          <li>Soporte para implementar hosts de monitores redundantes.</li>
+          <li>Visualización del estado de la red en tiempo real a través de interfaz web, con la posibilidad de generar informes y gráficas de comportamiento de los sistemas monitorizados, y visualización del listado de notificaciones enviadas, historial de problemas, archivos de registros....</li>
+          <li>Originalmente se denominaba Netsaint.</li>
         </ul>
         <p>Nagios fue originalmente diseñado para ser ejecutado en GNU/Linux, pero también se ejecuta bien en variantes de Unix.</p>
         <p>Nagios está disponible en virtud de la GNU General Public License Version 2 publicada por la Free Software Fundation.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

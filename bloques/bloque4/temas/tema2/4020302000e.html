@@ -1,333 +1,560 @@
 <div class="teoria">
-    <span id="4020302001">
-        <h2>3.2. SISTEMAS RAID</h2>
-        <p>Los sistemas RAID -Redundant Array of Independent Disks- son matrices o agrupaciones de discos que, mediante el uso de ciertos mecanismos de control de errores, redundancia, paridad o duplicidad, buscan evitar, o al menos minimizar, la posibilidad de pérdida de información en el caso de que se produzca un error en alguno de ellos.</p>
-        <p>Evidentemente la redundancia que aparece en su nombre, casi siempre en forma de almacenamiento de información de paridad, hace referencia a una cierta información extra que no sería necesaria si no se produjesen errores. Este tipo de información por un lado agrega seguridad y permite la tolerancia de ciertos fallos o errores, pero, por otro lado, hace que el 100% del almacenamiento disponible no pueda dedicarse en su totalidad a almacenamiento útil.</p>
-    </span>
-
-    <span id="4020302002">
-        <h3>3.2.1 PRINCIPALES CONFIGURACIONES RAID</h3>
-        <p>A continuación, se describen las principales configuraciones RAID, aportando para cada una de ellas las características más relevantes:</p>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-primary-dark);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .teoria h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .raid-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .raid-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
+      }
+      
+      .raid-type {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .raid-type:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      
+      .raid-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-sm);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .raid-table caption {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .raid-table th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 0.75rem;
+        text-align: left;
+      }
+      
+      .raid-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      .raid-table tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .raid-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      
+      .raid-comparison {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-md);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .raid-comparison caption {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+        font-size: 1.1rem;
+      }
+      
+      .raid-comparison th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 0.75rem;
+        text-align: left;
+      }
+      
+      .raid-comparison td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      .raid-comparison tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .raid-comparison tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      
+      .raid-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul li ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
         
-        <h4>RAID 0 (conocido como disk striping, discos en bandas)</h4>
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .raid-card {
+          padding: 1rem;
+        }
+        
+        .raid-type {
+          padding: 1rem;
+        }
+        
+        .raid-table, .raid-comparison {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  
+    <div class="raid-card" id="4020302001">
+      <h2>🔄 3.2. SISTEMAS RAID</h2>
+      <p>Los sistemas RAID -Redundant Array of Independent Disks- son matrices o agrupaciones de discos que, mediante el uso de ciertos mecanismos de control de errores, redundancia, paridad o duplicidad, buscan evitar, o al menos minimizar, la posibilidad de pérdida de información en el caso de que se produzca un error en alguno de ellos.</p>
+      <p>Evidentemente la redundancia que aparece en su nombre, casi siempre en forma de almacenamiento de información de paridad, hace referencia a una cierta información extra que no sería necesaria si no se produjesen errores. Este tipo de información por un lado agrega seguridad y permite la tolerancia de ciertos fallos o errores, pero, por otro lado, hace que el 100% del almacenamiento disponible no pueda dedicarse en su totalidad a almacenamiento útil.</p>
+    </div>
+  
+    <div class="raid-card" id="4020302002">
+      <h3>📋 3.2.1 PRINCIPALES CONFIGURACIONES RAID</h3>
+      <p>A continuación, se describen las principales configuraciones RAID, aportando para cada una de ellas las características más relevantes:</p>
+      
+      <div class="raid-type">
+        <h4><span class="icon">0️⃣</span> RAID 0 (conocido como disk striping, discos en bandas)</h4>
         <ul>
-            <li><strong>Descripción:</strong> Distribuye la información entre todos los discos que forman el conjunto RAID, proporcionando una mayor velocidad en las transferencias debido al trabajo conjunto de todos los discos para acceder a un mismo archivo.</li>
-            <li><strong>Redundancia:</strong> No tiene. Si falla alguno de los discos hay pérdida de información.</li>
-            <li><strong>Paridad:</strong> No se hace uso de ningún mecanismo de paridad.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> 100% (n con n discos).</li>
-            <li><strong>Número de discos necesarios:</strong> 2 discos como mínimo.</li>
+          <li><strong>Descripción:</strong> Distribuye la información entre todos los discos que forman el conjunto RAID, proporcionando una mayor velocidad en las transferencias debido al trabajo conjunto de todos los discos para acceder a un mismo archivo.</li>
+          <li><strong>Redundancia:</strong> No tiene. Si falla alguno de los discos hay pérdida de información.</li>
+          <li><strong>Paridad:</strong> No se hace uso de ningún mecanismo de paridad.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> 100% (n con n discos).</li>
+          <li><strong>Número de discos necesarios:</strong> 2 discos como mínimo.</li>
         </ul>
-        
-        <h4>RAID 1 (conocido como disk mirroring o discos en espejo)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">1️⃣</span> RAID 1 (conocido como disk mirroring o discos en espejo)</h4>
         <ul>
-            <li><strong>Descripción:</strong> Basado en el empleo de discos para duplicar la información. Con este método, cada vez que se escriba en un disco, deberá grabarse la información de su disco copia para mantener la coherencia.</li>
-            <li><strong>Redundancia:</strong> A diferencia del método anterior, si en éste falla un disco, el sistema podrá continuar funcionando sin detenerse.</li>
-            <li><strong>Paridad:</strong> No se hace uso de ningún mecanismo de paridad.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> 50% (n/2 con n discos).</li>
-            <li><strong>Número de discos necesarios:</strong> Es habitual implementar RAID 1 con 2 discos.</li>
+          <li><strong>Descripción:</strong> Basado en el empleo de discos para duplicar la información. Con este método, cada vez que se escriba en un disco, deberá grabarse la información de su disco copia para mantener la coherencia.</li>
+          <li><strong>Redundancia:</strong> A diferencia del método anterior, si en éste falla un disco, el sistema podrá continuar funcionando sin detenerse.</li>
+          <li><strong>Paridad:</strong> No se hace uso de ningún mecanismo de paridad.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> 50% (n/2 con n discos).</li>
+          <li><strong>Número de discos necesarios:</strong> Es habitual implementar RAID 1 con 2 discos.</li>
         </ul>
-        
-        <h4>RAID 2 (conocido como paridad de Hamming)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">2️⃣</span> RAID 2 (conocido como paridad de Hamming)</h4>
         <p>Ofrece detección y corrección de errores en los discos mediante la utilización de códigos de Hamming. Este nivel está incluido en la actualidad en los propios discos, por lo que ha dejado de ser una opción a considerar cuando se diseña una arquitectura de almacenamiento.</p>
-        
-        <h4>RAID 3 (conocido como disco dedicado a paridad a nivel de byte)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">3️⃣</span> RAID 3 (conocido como disco dedicado a paridad a nivel de byte)</h4>
         <ul>
-            <li><strong>Descripción:</strong> Emplea un disco para almacenar la paridad. La información se distribuye a nivel de bits entre los distintos discos. Si un disco falla, la información se reconstruiría mediante la operación O-exclusiva (XOR) de los discos restantes.</li>
-            <li><strong>Redundancia:</strong> El disco de paridad permite el fallo de uno de los discos.</li>
-            <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El disco dedicado a paridad.</li>
-            <li><strong>Número de discos necesarios:</strong> Son necesarios un mínimo de 3 discos para implementar un RAID 3. La necesidad de acceder siempre al disco de paridad, puede suponer un cuello de botella y la degradación del rendimiento.</li>
+          <li><strong>Descripción:</strong> Emplea un disco para almacenar la paridad. La información se distribuye a nivel de bits entre los distintos discos. Si un disco falla, la información se reconstruiría mediante la operación O-exclusiva (XOR) de los discos restantes.</li>
+          <li><strong>Redundancia:</strong> El disco de paridad permite el fallo de uno de los discos.</li>
+          <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El disco dedicado a paridad.</li>
+          <li><strong>Número de discos necesarios:</strong> Son necesarios un mínimo de 3 discos para implementar un RAID 3. La necesidad de acceder siempre al disco de paridad, puede suponer un cuello de botella y la degradación del rendimiento.</li>
+        </ul>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">4️⃣</span> RAID 4 (conocido como disco dedicado a paridad a nivel de bloque)</h4>
+        <ul>
+          <li><strong>Descripción:</strong> Utiliza un disco para el almacenamiento de la paridad, al igual que el RAID 3. Sin embargo, los datos se distribuyen a nivel de bloque (en lugar de a nivel de bits) y se puede acceder a cada disco de forma individual. Esto mejora el rendimiento en sistemas transaccionales.</li>
+          <li><strong>Redundancia:</strong> El disco de paridad permite el fallo de uno de los discos.</li>
+          <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El disco dedicado a paridad.</li>
+          <li><strong>Número de discos necesarios:</strong> Son necesarios un mínimo de 3 discos para implementar un RAID 4. La necesidad de acceder siempre al disco de paridad, puede suponer un cuello de botella y la degradación del rendimiento.</li>
+        </ul>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">5️⃣</span> RAID 5 (paridad distribuida en varios discos)</h4>
+        <ul>
+          <li><strong>Descripción:</strong> La paridad se almacena entre todos los discos, eliminando el excesivo uso del disco de paridad que hacían los dos niveles anteriores. Este método es el más eficiente, ofreciendo la mayor tasa rendimiento/coste y el menos coste por megabyte de información.</li>
+          <li><strong>Redundancia:</strong> La paridad distribuida permite el fallo de uno de los discos.</li>
+          <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El equivalente a un disco se dedica a paridad, aunque esta se almacena distribuida.</li>
         </ul>
         
-        <h4>RAID 4 (conocido como disco dedicado a paridad a nivel de bloque)</h4>
-        <ul>
-            <li><strong>Descripción:</strong> Utiliza un disco para el almacenamiento de la paridad, al igual que el RAID 3. Sin embargo, los datos se distribuyen a nivel de bloque (en lugar de a nivel de bits) y se puede acceder a cada disco de forma individual. Esto mejora el rendimiento en sistemas transaccionales.</li>
-            <li><strong>Redundancia:</strong> El disco de paridad permite el fallo de uno de los discos.</li>
-            <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El disco dedicado a paridad.</li>
-            <li><strong>Número de discos necesarios:</strong> Son necesarios un mínimo de 3 discos para implementar un RAID 4. La necesidad de acceder siempre al disco de paridad, puede suponer un cuello de botella y la degradación del rendimiento.</li>
-        </ul>
-        
-        <h4>RAID 5 (paridad distribuida en varios discos)</h4>
-        <ul>
-            <li><strong>Descripción:</strong> La paridad se almacena entre todos los discos, eliminando el excesivo uso del disco de paridad que hacían los dos niveles anteriores. Este método es el más eficiente, ofreciendo la mayor tasa rendimiento/coste y el menos coste por megabyte de información.</li>
-            <li><strong>Redundancia:</strong> La paridad distribuida permite el fallo de uno de los discos.</li>
-            <li><strong>Paridad:</strong> Paridad distribuida basada en XOR.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> (n-1)/n. El equivalente a un disco se dedica a paridad, aunque esta se almacena distribuida.</li>
-        </ul>
-        
-        <table border="1" style="width: 50%; border-collapse: collapse; margin: 10px 0;">
-            <caption>Porcentaje de espacio útil en RAID 5 según número de discos</caption>
-            <thead>
-                <tr>
-                    <th>Número de discos</th>
-                    <th>Porcentaje de espacio útil</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>3</td>
-                    <td>66% (2/3)</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>75% (3/4)</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>80% (4/5)</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>83% (5/6)</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>85% (6/7)</td>
-                </tr>
-            </tbody>
+        <table class="raid-table">
+          <caption>Porcentaje de espacio útil en RAID 5 según número de discos</caption>
+          <thead>
+            <tr>
+              <th>Número de discos</th>
+              <th>Porcentaje de espacio útil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td>66% (2/3)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>75% (3/4)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>80% (4/5)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>83% (5/6)</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>85% (6/7)</td>
+            </tr>
+          </tbody>
         </table>
         
         <p><strong>Número de discos necesarios:</strong> Se necesitan al menos 3 discos para su desarrollo. No obstante, el funcionamiento óptimo, en cuanto a uso de espacio de almacenamiento útil, se alcanza a partir de los 7 discos.</p>
-        
-        <h4>RAID 6 (Doble paridad distribuida)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">6️⃣</span> RAID 6 (Doble paridad distribuida)</h4>
         <ul>
-            <li><strong>Descripción:</strong> La paridad se almacena entre todos los discos, eliminando el excesivo uso del disco de paridad que hacían los dos niveles anteriores. Este método es el más eficiente, ofreciendo la mayor tasa rendimiento/coste y el menos coste por megabyte de información.</li>
-            <li><strong>Redundancia:</strong> La doble paridad distribuida permite el fallo de hasta dos discos.</li>
-            <li><strong>Paridad:</strong> Paridad distribuida basada en Reed Solomon.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> (n-2)/n. El equivalente a dos discos se dedica a paridad, aunque esta se almacena distribuida.</li>
-            <li><strong>Número de discos necesarios:</strong> Se necesitan al menos 4 discos para su desarrollo. No obstante, el funcionamiento óptimo, en cuanto a uso de espacio de almacenamiento útil, se alcanza a partir de los 7 discos.</li>
+          <li><strong>Descripción:</strong> La paridad se almacena entre todos los discos, eliminando el excesivo uso del disco de paridad que hacían los dos niveles anteriores. Este método es el más eficiente, ofreciendo la mayor tasa rendimiento/coste y el menos coste por megabyte de información.</li>
+          <li><strong>Redundancia:</strong> La doble paridad distribuida permite el fallo de hasta dos discos.</li>
+          <li><strong>Paridad:</strong> Paridad distribuida basada en Reed Solomon.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> (n-2)/n. El equivalente a dos discos se dedica a paridad, aunque esta se almacena distribuida.</li>
+          <li><strong>Número de discos necesarios:</strong> Se necesitan al menos 4 discos para su desarrollo. No obstante, el funcionamiento óptimo, en cuanto a uso de espacio de almacenamiento útil, se alcanza a partir de los 7 discos.</li>
         </ul>
         
-        <table border="1" style="width: 50%; border-collapse: collapse; margin: 10px 0;">
-            <caption>Porcentaje de espacio útil en RAID 6 según número de discos</caption>
-            <thead>
-                <tr>
-                    <th>Número de discos</th>
-                    <th>Porcentaje de espacio útil</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>3</td>
-                    <td>33% (1/3)</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>50% (2/4)</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>60% (3/5)</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>66% (4/6)</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>71% (5/7)</td>
-                </tr>
-            </tbody>
+        <table class="raid-table">
+          <caption>Porcentaje de espacio útil en RAID 6 según número de discos</caption>
+          <thead>
+            <tr>
+              <th>Número de discos</th>
+              <th>Porcentaje de espacio útil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td>33% (1/3)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>50% (2/4)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>60% (3/5)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>66% (4/6)</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>71% (5/7)</td>
+            </tr>
+          </tbody>
         </table>
-        
+      </div>
+      
+      <div class="raid-section">
         <p>Finalmente, la siguiente tabla recoge un resumen de las configuraciones RAID.</p>
         
-        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-            <thead>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Nombre</th>
-                    <th>Paridad</th>
-                    <th>Mín discos</th>
-                    <th>Información útil</th>
-                    <th>Información redundante</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>RAID 0</td>
-                    <td>Striping (sin redundancia)</td>
-                    <td>NO</td>
-                    <td>2</td>
-                    <td>n</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>RAID 1</td>
-                    <td>Mirroring o espejado</td>
-                    <td>NO</td>
-                    <td>2</td>
-                    <td>n/2</td>
-                    <td>n/2</td>
-                </tr>
-                <tr>
-                    <td>RAID 2</td>
-                    <td>Paridad de Hamming</td>
-                    <td>Hamming</td>
-                    <td>3</td>
-                    <td>(n-1)/n</td>
-                    <td>1/n</td>
-                </tr>
-                <tr>
-                    <td>RAID 3</td>
-                    <td>Paridad dedicada (byte)</td>
-                    <td>ECC XOR</td>
-                    <td>3</td>
-                    <td>(n-1)/n</td>
-                    <td>1/n</td>
-                </tr>
-                <tr>
-                    <td>RAID 4</td>
-                    <td>Paridad dedicada (bloque)</td>
-                    <td>XOR</td>
-                    <td>3</td>
-                    <td>(n-1)/n</td>
-                    <td>1/n</td>
-                </tr>
-                <tr>
-                    <td>RAID 5</td>
-                    <td>Paridad distribuida</td>
-                    <td>XOR</td>
-                    <td>3 (óptimo 7)</td>
-                    <td>(n-1)/n</td>
-                    <td>1/n</td>
-                </tr>
-                <tr>
-                    <td>RAID 6</td>
-                    <td>Doble paridad distribuida</td>
-                    <td>Reed Solomon</td>
-                    <td>4</td>
-                    <td>(n-2)/n</td>
-                    <td>2/n</td>
-                </tr>
-            </tbody>
+        <table class="raid-comparison">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Nombre</th>
+              <th>Paridad</th>
+              <th>Mín discos</th>
+              <th>Información útil</th>
+              <th>Información redundante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RAID 0</td>
+              <td>Striping (sin redundancia)</td>
+              <td>NO</td>
+              <td>2</td>
+              <td>n</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>RAID 1</td>
+              <td>Mirroring o espejado</td>
+              <td>NO</td>
+              <td>2</td>
+              <td>n/2</td>
+              <td>n/2</td>
+            </tr>
+            <tr>
+              <td>RAID 2</td>
+              <td>Paridad de Hamming</td>
+              <td>Hamming</td>
+              <td>3</td>
+              <td>(n-1)/n</td>
+              <td>1/n</td>
+            </tr>
+            <tr>
+              <td>RAID 3</td>
+              <td>Paridad dedicada (byte)</td>
+              <td>ECC XOR</td>
+              <td>3</td>
+              <td>(n-1)/n</td>
+              <td>1/n</td>
+            </tr>
+            <tr>
+              <td>RAID 4</td>
+              <td>Paridad dedicada (bloque)</td>
+              <td>XOR</td>
+              <td>3</td>
+              <td>(n-1)/n</td>
+              <td>1/n</td>
+            </tr>
+            <tr>
+              <td>RAID 5</td>
+              <td>Paridad distribuida</td>
+              <td>XOR</td>
+              <td>3 (óptimo 7)</td>
+              <td>(n-1)/n</td>
+              <td>1/n</td>
+            </tr>
+            <tr>
+              <td>RAID 6</td>
+              <td>Doble paridad distribuida</td>
+              <td>Reed Solomon</td>
+              <td>4</td>
+              <td>(n-2)/n</td>
+              <td>2/n</td>
+            </tr>
+          </tbody>
         </table>
         
         <p>Adicionalmente, existen configuraciones RAID anidadas que se basan en la aplicación de dos soluciones RAID de forma combinada:</p>
-        
-        <h4>RAID 10 (combinación de RAID 0 y RAID 1, es decir, mirroring + striping)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">🔄</span> RAID 10 (combinación de RAID 0 y RAID 1, es decir, mirroring + striping)</h4>
         <ul>
-            <li><strong>Descripción:</strong> Pueden combinarse RAID 0 y RAID 1 para formar el sistema RAID 10. Con RAID 10, la información se distribuye en bandas por varios discos y cada disco se duplica, lo que requiere un número par de discos (4, 6, 8, …).</li>
-            <li><strong>Redundancia:</strong> Con fallos hasta en la mitad de los discos que forman el RAID 1, el sistema podrá continuar funcionando sin detenerse/pérdida de servicio.</li>
-            <li><strong>Paridad:</strong> Sin paridad (aunque con información duplicada).</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> n/2, es decir un 50%.</li>
-            <li><strong>Número de discos necesarios:</strong> Requiere un número par de discos.</li>
+          <li><strong>Descripción:</strong> Pueden combinarse RAID 0 y RAID 1 para formar el sistema RAID 10. Con RAID 10, la información se distribuye en bandas por varios discos y cada disco se duplica, lo que requiere un número par de discos (4, 6, 8, …).</li>
+          <li><strong>Redundancia:</strong> Con fallos hasta en la mitad de los discos que forman el RAID 1, el sistema podrá continuar funcionando sin detenerse/pérdida de servicio.</li>
+          <li><strong>Paridad:</strong> Sin paridad (aunque con información duplicada).</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> n/2, es decir un 50%.</li>
+          <li><strong>Número de discos necesarios:</strong> Requiere un número par de discos.</li>
         </ul>
-        
-        <h4>RAID 50 (combinación de RAID 0 y RAID 5, es decir, mirroring + striping)</h4>
+      </div>
+      
+      <div class="raid-type">
+        <h4><span class="icon">🔄</span> RAID 50 (combinación de RAID 0 y RAID 5, es decir, mirroring + striping)</h4>
         <ul>
-            <li><strong>Redundancia:</strong> La aceptación de fallos antes de que se produzca una afectación del servicio sería:
-                <ul>
-                    <li>En el ámbito de los RAID 5, puede producirse el fallo en uno de los discos.</li>
-                    <li>En el ámbito del RAID 0, podrían fallar hasta dos discos, uno en cada parte.</li>
-                </ul>
-            </li>
-            <li><strong>Paridad:</strong> Paridad distribuida basada en XOR como en el RAID 5.</li>
-            <li><strong>Porcentaje de espacio útil para datos:</strong> (n-2)/n.</li>
-            <li><strong>Número de discos necesarios:</strong> Requiere un número par de discos.</li>
+          <li><strong>Redundancia:</strong> La aceptación de fallos antes de que se produzca una afectación del servicio sería:
+            <ul>
+              <li>En el ámbito de los RAID 5, puede producirse el fallo en uno de los discos.</li>
+              <li>En el ámbito del RAID 0, podrían fallar hasta dos discos, uno en cada parte.</li>
+            </ul>
+          </li>
+          <li><strong>Paridad:</strong> Paridad distribuida basada en XOR como en el RAID 5.</li>
+          <li><strong>Porcentaje de espacio útil para datos:</strong> (n-2)/n.</li>
+          <li><strong>Número de discos necesarios:</strong> Requiere un número par de discos.</li>
         </ul>
-    </span>
-
-    <span id="4020302003">
-        <h3>3.2.2 CONFIGURACIONES RAID PROPIETARIAS</h3>
-        <p>Aunque las anteriores son las configuraciones RAID estándar, académicas o aceptadas generalmente, existen otras propietarias, creadas por diferentes fabricantes de la industria, entro los que pueden citarse:</p>
-        
-        <ul>
-            <li><strong>RAID 1.5.</strong> Nivel RAID propietario de HighPoint. Cuando se lee, los datos se recuperar de ambos discos simultáneamente y la mayoría del trabajo se hace en hardware en lugar de en el controlador software.</li>
-            <li><strong>RAID 7.</strong> Propietario del fabricante Storage Computer Corporation. La tarjeta controladora utiliza su propia CPU y combina la creación de bandas y el almacenamiento similar a RAID-5.</li>
-            <li><strong>IBM ServeRAID 1E.</strong> La serie de adaptadores IBM ServeRAID soportan un espejado doble de un número arbitrario de discos.</li>
-            <li><strong>RAID Z.</strong> Esquema similar al RAID 5 y que aparece integrado en el sistema de archivos ZFS de Sun Microsystems.</li>
-        </ul>
-    </span>
-
-    <span id="4020302004">
-        <h3>3.2.3 CONFIGURACIONES RAID HW VS CONFIGURACIONES RAID SW</h3>
-        <p>Por otro lado, comentar que las soluciones RAID pueden implementarse tanto mediante hardware como software:</p>
-        
-        <ul>
-            <li><strong>RAID basado en hardware.</strong> En este caso la configuración RAID se realiza con un elemento hardware, ya sea la controladora de la placa base o una controladora RAID especifica. Se trata de una solución más cara que la basada en hardware, pero frente a eso, aporta ventajas como su independencia de la plataforma y una mayor rapidez.</li>
-            <li><strong>RAID basado en software.</strong> En este caso la configuración RAID no se crea en la controladora de discos, sino que se utiliza un programa software pare ello, ya sea de terceros o alguna herramienta del propio sistema operativo. Aunque su coste suele ser menor que el basado en hardware, puede demandar mayores necesidades de gestión, en cuanto a configuración, actualización, etc.</li>
-        </ul>
-        
-        <p>En muchas ocasiones, la decisión de diseño de qué tipo de RAID utilizar en cada caso resulta muy importante y depende de factores tales como el tipo de dato a almacenar de que se trate (logs, bases de datos, etc), las opciones tecnológicas disponibles, la necesidad de fiabilidad y respaldo de la información, los condicionantes económicos, etc.</p>
-    </span>
-
-    <span id="4020302005">
-        <h3>3.2.4 APLICACIONES DE LAS CONFIGURACIONES RAID</h3>
-        <p>Como hemos visto, las configuraciones RAID se basan en el uso de redundancia de información (ya sea mediante paridad o directamente duplicidad) para conseguir tolerancia ante fallos o errores en los elementos que soportan el almacenamiento.</p>
-        
-        <p>De esa forma, mediante el uso de sistemas RAID podemos conseguir:</p>
-        <ul>
-            <li>Dotar al almacenamiento de tolerancia a fallos, lo que acabará redundando en un mayor uptime del servicio que se presta. Como hemos visto, algunas de las configuraciones admiten hasta varios fallos.</li>
-            <li>En algunas ocasiones, debido al reparto de los datos en varios discos, resulta posible la atención de varias operaciones (por ejemplo, de lectura) simultáneamente.</li>
-        </ul>
-        
-        <p>Ahora bien, mediante la aplicación de sistemas RAID no resulta posible conseguir:</p>
-        <ul>
-            <li>No permite restaurar los datos en caso de error lógico, esto es, no debe ser entendido como una herramienta de backup.</li>
-            <li>No mejora el rendimiento de acceso a los datos de todas las aplicaciones.</li>
-        </ul>
-    </span>
-
-    <span id="4020302006">
-        <h3>3.2.5 ELECCIÓN DE LA CONFIGURACIÓN RAID MÁS ADECUADA</h3>
-        <p>La elección de qué configuración RAID resulta más adecuada a cada caso de uso, es una decisión de diseño que depende de factores tales como el tipo de dato a almacenar de que se trate (logs, bases de datos, etc.), opciones tecnológicas disponibles, necesidad de fiabilidad y respaldo de la información, condicionantes económicos, etc.</p>
-        
-        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-            <caption>Comparativa de configuraciones RAID según necesidades</caption>
-            <thead>
-                <tr>
-                    <th>Configuración</th>
-                    <th>Rendimiento en lectura</th>
-                    <th>Rendimiento en escritura</th>
-                    <th>Tolerancia a fallos</th>
-                    <th>Eficiencia de almacenamiento</th>
-                    <th>Caso de uso recomendado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>RAID 0</td>
-                    <td>Excelente</td>
-                    <td>Excelente</td>
-                    <td>Ninguna</td>
-                    <td>100%</td>
-                    <td>Datos temporales, alto rendimiento sin necesidad de redundancia</td>
-                </tr>
-                <tr>
-                    <td>RAID 1</td>
-                    <td>Bueno</td>
-                    <td>Medio</td>
-                    <td>Alta (1 disco)</td>
-                    <td>50%</td>
-                    <td>Sistemas operativos, datos críticos que requieren alta disponibilidad</td>
-                </tr>
-                <tr>
-                    <td>RAID 5</td>
-                    <td>Bueno</td>
-                    <td>Medio</td>
-                    <td>Media (1 disco)</td>
-                    <td>(n-1)/n</td>
-                    <td>Servidores de archivos, bases de datos con más lecturas que escrituras</td>
-                </tr>
-                <tr>
-                    <td>RAID 6</td>
-                    <td>Bueno</td>
-                    <td>Bajo</td>
-                    <td>Alta (2 discos)</td>
-                    <td>(n-2)/n</td>
-                    <td>Almacenamiento a largo plazo, grandes volúmenes de datos</td>
-                </tr>
-                <tr>
-                    <td>RAID 10</td>
-                    <td>Excelente</td>
-                    <td>Bueno</td>
-                    <td>Alta (hasta n/2 discos)</td>
-                    <td>50%</td>
-                    <td>Bases de datos con alta transaccionalidad, servidores críticos</td>
-                </tr>
-            </tbody>
-        </table>
-    </span>
-</div>
+      </div>
+    </div>
+  
+    <div class="raid-card" id="4020302003">
+      <h3>🏢 3.2.2 CONFIGURACIONES RAID PROPIETARIAS</h3>
+      <p>Aunque las anteriores son las configuraciones RAID estándar, académicas o aceptadas generalmente, existen otras propietarias, creadas por diferentes fabricantes de la industria, entro los que pueden citarse:</p>
+      
+      <ul>
+        <li><strong>RAID 1.5.</strong> Nivel RAID propietario de HighPoint. Cuando se lee, los datos se recuperar de ambos discos simultáneamente y la mayoría del trabajo se hace en hardware en lugar de en el controlador software.</li>
+        <li><strong>RAID 7.</strong> Propietario del fabricante Storage Computer Corporation. La tarjeta controladora utiliza su propia CPU y combina la creación de bandas y el almacenamiento similar a RAID-5.</li>
+        <li><strong>IBM ServeRAID 1E.</strong> La serie de adaptadores IBM ServeRAID soportan un espejado doble de un número arbitrario de discos.</li>
+        <li><strong>RAID Z.</strong> Esquema similar al RAID 5 y que aparece integrado en el sistema de archivos ZFS de Sun Microsystems.</li>
+      </ul>
+    </div>
+  
+    <div class="raid-card" id="4020302004">
+      <h3>💻 3.2.3 CONFIGURACIONES RAID HW VS CONFIGURACIONES RAID SW</h3>
+      <p>Por otro lado, comentar que las soluciones RAID pueden implementarse tanto mediante hardware como software:</p>
+      
+      <ul>
+        <li><strong>RAID basado en hardware.</strong> En este caso la configuración RAID se realiza con un elemento hardware, ya sea la controladora de la placa base o una controladora RAID especifica. Se trata de una solución más cara que la basada en hardware, pero frente a eso, aporta ventajas como su independencia de la plataforma y una mayor rapidez.</li>
+        <li><strong>RAID basado en software.</strong> En este caso la configuración RAID no se crea en la controladora de discos, sino que se utiliza un programa software pare ello, ya sea de terceros o alguna herramienta del propio sistema operativo. Aunque su coste suele ser menor que el basado en hardware, puede demandar mayores necesidades de gestión, en cuanto a configuración, actualización, etc.</li>
+      </ul>
+      
+      <p>En muchas ocasiones, la decisión de diseño de qué tipo de RAID utilizar en cada caso resulta muy importante y depende de factores tales como el tipo de dato a almacenar de que se trate (logs, bases de datos, etc), las opciones tecnológicas disponibles, la necesidad de fiabilidad y respaldo de la información, los condicionantes económicos, etc.</p>
+    </div>
+  
+    <div class="raid-card" id="4020302005">
+      <h3>🎯 3.2.4 APLICACIONES DE LAS CONFIGURACIONES RAID</h3>
+      <p>Como hemos visto, las configuraciones RAID se basan en el uso de redundancia de información (ya sea mediante paridad o directamente duplicidad) para conseguir tolerancia ante fallos o errores en los elementos que soportan el almacenamiento.</p>
+      
+      <p>De esa forma, mediante el uso de sistemas RAID podemos conseguir:</p>
+      <ul>
+        <li>Dotar al almacenamiento de tolerancia a fallos, lo que acabará redundando en un mayor uptime del servicio que se presta. Como hemos visto, algunas de las configuraciones admiten hasta varios fallos.</li>
+        <li>En algunas ocasiones, debido al reparto de los datos en varios discos, resulta posible la atención de varias operaciones (por ejemplo, de lectura) simultáneamente.</li>
+      </ul>
+      
+      <p>Ahora bien, mediante la aplicación de sistemas RAID no resulta posible conseguir:</p>
+      <ul>
+        <li>No permite restaurar los datos en caso de error lógico, esto es, no debe ser entendido como una herramienta de backup.</li>
+        <li>No mejora el rendimiento de acceso a los datos de todas las aplicaciones.</li>
+      </ul>
+    </div>
+  
+    <div class="raid-card" id="4020302006">
+      <h3>🔍 3.2.5 ELECCIÓN DE LA CONFIGURACIÓN RAID MÁS ADECUADA</h3>
+      <p>La elección de qué configuración RAID resulta más adecuada a cada caso de uso, es una decisión de diseño que depende de factores tales como el tipo de dato a almacenar de que se trate (logs, bases de datos, etc.), opciones tecnológicas disponibles, necesidad de fiabilidad y respaldo de la información, condicionantes económicos, etc.</p>
+      
+      <table class="raid-comparison">
+        <caption>Comparativa de configuraciones RAID según necesidades</caption>
+        <thead>
+          <tr>
+            <th>Configuración</th>
+            <th>Rendimiento en lectura</th>
+            <th>Rendimiento en escritura</th>
+            <th>Tolerancia a fallos</th>
+            <th>Eficiencia de almacenamiento</th>
+            <th>Caso de uso recomendado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RAID 0</td>
+            <td>Excelente</td>
+            <td>Excelente</td>
+            <td>Ninguna</td>
+            <td>100%</td>
+            <td>Datos temporales, alto rendimiento sin necesidad de redundancia</td>
+          </tr>
+          <tr>
+            <td>RAID 1</td>
+            <td>Bueno</td>
+            <td>Medio</td>
+            <td>Alta (1 disco)</td>
+            <td>50%</td>
+            <td>Sistemas operativos, datos críticos que requieren alta disponibilidad</td>
+          </tr>
+          <tr>
+            <td>RAID 5</td>
+            <td>Bueno</td>
+            <td>Medio</td>
+            <td>Media (1 disco)</td>
+            <td>(n-1)/n</td>
+            <td>Servidores de archivos, bases de datos con más lecturas que escrituras</td>
+          </tr>
+          <tr>
+            <td>RAID 6</td>
+            <td>Bueno</td>
+            <td>Bajo</td>
+            <td>Alta (2 discos)</td>
+            <td>(n-2)/n</td>
+            <td>Almacenamiento a largo plazo, grandes volúmenes de datos</td>
+          </tr>
+          <tr>
+            <td>RAID 10</td>
+            <td>Excelente</td>
+            <td>Bueno</td>
+            <td>Alta (hasta n/2 discos)</td>
+            <td>50%</td>
+            <td>Bases de datos con alta transaccionalidad, servidores críticos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

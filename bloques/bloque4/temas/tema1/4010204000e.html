@@ -1,48 +1,250 @@
 <div class="teoria">
-    <span id="4010204001">
-        <h2>2.4. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
-    </span>
-    
-    <span id="4010204002">
-        <h3>2.4.1. SERVIDOR FTP (FILE TRANSPORT PROTOCOL)</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .server-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .server-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .server-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .server-type h3, .server-type h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .server-type h3 .icon, .server-type h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .storage-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .storage-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .storage-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .storage-type strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .protocol-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .protocol-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .protocol-section h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .protocol-section h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .server-card {
+          padding: 1rem;
+        }
+        
+        .storage-types {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="server-card" id="4010204001">
+      <h2>🖥️ 2.4. TIPOS DE SERVIDORES (CONTINUACIÓN)</h2>
+    </div>
+  
+    <div class="server-card" id="4010204002">
+      <div class="server-type">
+        <h3><span class="icon">📂</span> 2.4.1. SERVIDOR FTP (FILE TRANSPORT PROTOCOL)</h3>
         <p>Servidor que permite transferir archivos y datos entre otros ordenadores y servidores.</p>
-    </span>
-    
-    <span id="4010204003">
-        <h3>2.4.2. SERVIDOR DE ACCESO REMOTO RAS</h3>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010204003">
+      <div class="server-type">
+        <h3><span class="icon">🔌</span> 2.4.2. SERVIDOR DE ACCESO REMOTO RAS</h3>
         <p>Antiguamente se encargaba de vigilar las líneas de módem de los ordenadores u otros medios de comunicación de Internet, de manera tal que los requerimientos conecten con la red en forma remota, contesta llamadas e interviene la petición de la red.</p>
         <p>Actualmente se utiliza para configurar accesos por VPN (Redes privadas virtuales) y APNs.</p>
-    </span>
-    
-    <span id="4010204004">
-        <h3>2.4.3. SERVIDORES DE ALMACENAMIENTO</h3>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010204004">
+      <div class="server-type">
+        <h3><span class="icon">💾</span> 2.4.3. SERVIDORES DE ALMACENAMIENTO</h3>
         <p>Son los servidores encargados de almacenar los datos de la organización.</p>
         <p>Existen varios tipos:</p>
-        <ul>
-            <li>Das: Direct Access Storage. El almacenamiento se realiza en un dispositivo conectado directamente el equipo. Puede ser un disco duro USB</li>
-            <li>Servidor Nas (Network Attached Storaged): Dispositivos de almacenamiento conectados a la red. Suelen ser baratos en comparación con otras tecnologías. Se utilizan mayormente para almacenar copias de seguridad o como servidores de archivos. También pueden ser utilizados como otro tipo de servidores puesto que suelen tener un sistema operativo que permite instalar software.</li>
-            <li>SAN: Storage Area Network. Redes de almacenamiento compartido centralizado. Las unidades de disco lógicas (LUN) están conectadas por redes de alto rendimiento y baja latencia de fibra óptica.</li>
-            <li>Servidores en la nube: Cada vez es mas común almacenar datos en la nube permitiendo un ahorro en la adquisición de hardware y en la contratación de personal. Por ejemplo las copias de seguridad en la nube permiten tener un respaldo alejado del sitio principal lo que alivia los problemas generados por catástrofes, virus o ataques de ramsonware.
-                <ul>
-                    <li>Azure Backup: Solución sencilla, segura y rentable tanto para realizar copias de seguridad de datos de la nube de Microsoft Azure como para recuperarlos.</li>
-                </ul>
-            </li>
-        </ul>
-    </span>
-    
-    <span id="4010204005">
-        <h3>2.4.4. PROTOCOLOS DE ADMINISTRACIÓN</h3>
-    </span>
-    
-    <span id="4010204006">
-        <h4>2.4.4.1. CMIP (COMMON MANAGEMENT INFORMATION PROTOCOL)</h4>
+        
+        <div class="storage-types">
+          <div class="storage-type">
+            <strong>DAS (Direct Access Storage)</strong>
+            <p>El almacenamiento se realiza en un dispositivo conectado directamente el equipo. Puede ser un disco duro USB</p>
+          </div>
+          
+          <div class="storage-type">
+            <strong>NAS (Network Attached Storaged)</strong>
+            <p>Dispositivos de almacenamiento conectados a la red. Suelen ser baratos en comparación con otras tecnologías. Se utilizan mayormente para almacenar copias de seguridad o como servidores de archivos. También pueden ser utilizados como otro tipo de servidores puesto que suelen tener un sistema operativo que permite instalar software.</p>
+          </div>
+          
+          <div class="storage-type">
+            <strong>SAN (Storage Area Network)</strong>
+            <p>Redes de almacenamiento compartido centralizado. Las unidades de disco lógicas (LUN) están conectadas por redes de alto rendimiento y baja latencia de fibra óptica.</p>
+          </div>
+          
+          <div class="storage-type">
+            <strong>Servidores en la nube</strong>
+            <p>Cada vez es mas común almacenar datos en la nube permitiendo un ahorro en la adquisición de hardware y en la contratación de personal. Por ejemplo las copias de seguridad en la nube permiten tener un respaldo alejado del sitio principal lo que alivia los problemas generados por catástrofes, virus o ataques de ramsonware.</p>
+            <ul>
+              <li>Azure Backup: Solución sencilla, segura y rentable tanto para realizar copias de seguridad de datos de la nube de Microsoft Azure como para recuperarlos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010204005">
+      <div class="server-type">
+        <h3><span class="icon">⚙️</span> 2.4.4. PROTOCOLOS DE ADMINISTRACIÓN</h3>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010204006">
+      <div class="protocol-section">
+        <h4><span class="icon">🔄</span> 2.4.4.1. CMIP (COMMON MANAGEMENT INFORMATION PROTOCOL)</h4>
         <p>El Protocolo de administración de información común (CMIP) es un protocolo de administración de red utilizado para administrar y supervisar dispositivos de red, como routers, switches y servidores.</p>
         <p>CMIP define un conjunto de objetos de gestión que se utilizan para recopilar información sobre el estado de los dispositivos de red y realizar acciones de administración, como la configuración de parámetros y la recuperación de errores.</p>
-    </span>
-    
-    <span id="4010204007">
-        <h4>2.4.4.2. SNMP (SIMPLE NETWORK MANAGEMENT PROTOCOL)</h4>
+      </div>
+    </div>
+  
+    <div class="server-card" id="4010204007">
+      <div class="protocol-section">
+        <h4><span class="icon">📊</span> 2.4.4.2. SNMP (SIMPLE NETWORK MANAGEMENT PROTOCOL)</h4>
         <p>El Protocolo simple de administración de red o SNMP es un protocolo de la capa de aplicación que facilita el intercambio de información de administración entre dispositivos de red. Los dispositivos que normalmente soportan SNMP incluyen routers, switches, servidores, estaciones de trabajo, impresoras, bastidores de módem y muchos más. Permite a los administradores supervisar el funcionamiento de la red, buscar y resolver sus problemas, y planear su crecimiento.</p>
         <p>Podemos encontrar mas información sobre este protocolo en el apartado 4.18 del tema IV-07.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

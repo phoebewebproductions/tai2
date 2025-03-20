@@ -1,78 +1,302 @@
 <div class="teoria">
-    <span id="3100701001">
-        <h2>7.1. PLATAFORMA DE DESARROLLO COLABORATIVO DE SOFTWARE</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .collab-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .collab-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .platform-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .platform-section h3, .platform-section h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .platform-section h3 .icon, .platform-section h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .platform-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .platform-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .platform-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .platform-type strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .solution-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-secondary);
+        transition: var(--transition);
+      }
+      
+      .solution-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .solution-section strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .agile-platform {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .agile-platform:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .agile-platform h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .agile-platform h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .collab-card {
+          padding: 1rem;
+        }
+        
+        .platform-types {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="collab-card">
+      <span id="3100701001">
+        <h2>👥 7.1. PLATAFORMA DE DESARROLLO COLABORATIVO DE SOFTWARE</h2>
         <p>El apartado de plataformas de desarrollo colaborativo de software incluye toda una amalgama de herramientas que permiten entre otras funciones, la cooperación entre distintas personas o equipos para el desarrollo de una actividad determinada, que en este punto es el desarrollo del software. Hay que destacar que el desarrollo de un software incluye:</p>
         <ul>
-            <li>Documentación inicial en la que se debe incluir el análisis, diseño y mantenimiento.</li>
-            <li>Manual de uso y los distintos manuales.</li>
-            <li>El código fuente.</li>
-            <li>Listado de tareas a realizar.</li>
-            <li>Listado de preguntas frecuentes</li>
-            <li>Etc.</li>
+          <li>Documentación inicial en la que se debe incluir el análisis, diseño y mantenimiento.</li>
+          <li>Manual de uso y los distintos manuales.</li>
+          <li>El código fuente.</li>
+          <li>Listado de tareas a realizar.</li>
+          <li>Listado de preguntas frecuentes</li>
+          <li>Etc.</li>
         </ul>
         <p>Llegados a este punto del tema, es normal preguntarse si los sistemas de control de versiones, vistos anteriormente son considerados un tipo de plataformas de desarrollo colaborativo. He de confirmarte que así es, aunque en el próximo apartado entraremos en detalle de las distintas plataformas de desarrollo colaborativo.</p>
-    </span>
-
-    <span id="3100701002">
-        <h3>7.1.1. TIPOS DE PLATAFORMAS DE DESARROLLO COLABORATIVO</h3>
-        <p>Para los tipos de plataformas de desarrollo colaborativo se va a ser distinción entre adaptaciones que existían antes y después de la aparición de las metodologías ágiles.</p>
-        
-        <h4>Plataformas de desarrollo colaborativo tradicionales</h4>
-        <ul>
-            <li><strong>Foros.</strong> Espacio web donde los usuarios pueden compartir ideas, soluciones o ayudar en la resolución de problemas. Uno de los foros más utilizados por los programadores es Stackoverflow (https://es.stackoverflow.com/).</li>
+      </span>
+    </div>
+  
+    <div class="collab-card">
+      <span id="3100701002">
+        <div class="platform-section">
+          <h3><span class="icon">🔄</span> 7.1.1. TIPOS DE PLATAFORMAS DE DESARROLLO COLABORATIVO</h3>
+          <p>Para los tipos de plataformas de desarrollo colaborativo se va a ser distinción entre adaptaciones que existían antes y después de la aparición de las metodologías ágiles.</p>
+          
+          <h4>🛠️ Plataformas de desarrollo colaborativo tradicionales</h4>
+          
+          <div class="platform-types">
+            <div class="platform-type">
+              <strong>Foros</strong>
+              <p>Espacio web donde los usuarios pueden compartir ideas, soluciones o ayudar en la resolución de problemas. Uno de los foros más utilizados por los programadores es Stackoverflow (https://es.stackoverflow.com/).</p>
+            </div>
             
-            <li><strong>Wikis.</strong> Forma interactiva de incluir documentación. Permite gestionar un historial de cambios y pueden ser editadas por cualquier persona. Para asegurar que la información que se publique sea verídica muchas wikis están orientadas a ser solo editables por los miembros de un determinado proyecto. Las wikis pueden ayudar a:
-                <ul>
-                    <li>Mejor el seguimiento de un proyecto gracias a la documentación del desarrollo del mismo y las incidencias surgidas.</li>
-                    <li>Centralización de recursos como manuales de integración de una determinada herramienta.</li>
-                </ul>
-            </li>
+            <div class="platform-type">
+              <strong>Wikis</strong>
+              <p>Forma interactiva de incluir documentación. Permite gestionar un historial de cambios y pueden ser editadas por cualquier persona. Para asegurar que la información que se publique sea verídica muchas wikis están orientadas a ser solo editables por los miembros de un determinado proyecto. Las wikis pueden ayudar a:</p>
+              <ul>
+                <li>Mejor el seguimiento de un proyecto gracias a la documentación del desarrollo del mismo y las incidencias surgidas.</li>
+                <li>Centralización de recursos como manuales de integración de una determinada herramienta.</li>
+              </ul>
+            </div>
             
-            <li><strong>Gestión de tareas.</strong> Herramientas que permiten:
-                <ul>
-                    <li>gestionar las actividades pendientes</li>
-                    <li>planificar el trabajo asignando o autoasignando a cada integrante del equipo las tareas a realizar en un periodo de tiempo</li>
-                    <li>Ver el estado y el encargado de una determinada tarea</li>
-                </ul>
-            </li>
+            <div class="platform-type">
+              <strong>Gestión de tareas</strong>
+              <p>Herramientas que permiten:</p>
+              <ul>
+                <li>gestionar las actividades pendientes</li>
+                <li>planificar el trabajo asignando o autoasignando a cada integrante del equipo las tareas a realizar en un periodo de tiempo</li>
+                <li>Ver el estado y el encargado de una determinada tarea</li>
+              </ul>
+            </div>
             
-            <li><strong>Gestión de incidencias.</strong> Los técnicos o representantes del servicio al cliente registran los detalles sobre el incidente o problema y revisan el problema. Las incidencias quedan registradas y asignadas de manera que el conocimiento puede ayudar a futuros desarrollos. Así mismo es normal tener una base de datos de incidencias.
-                <p>Algunos ejemplos de gestores de incidencias son JIRA o Mantis Bug Trucker.</p>
-            </li>
+            <div class="platform-type">
+              <strong>Gestión de incidencias</strong>
+              <p>Los técnicos o representantes del servicio al cliente registran los detalles sobre el incidente o problema y revisan el problema. Las incidencias quedan registradas y asignadas de manera que el conocimiento puede ayudar a futuros desarrollos. Así mismo es normal tener una base de datos de incidencias.</p>
+              <p>Algunos ejemplos de gestores de incidencias son JIRA o Mantis Bug Trucker.</p>
+            </div>
             
-            <li><strong>Sistemas de control de versiones.</strong> Como se ha indicado en el apartado anterior, este tipo de sistemas permiten que un equipo trabaje paralelamente sobre el mismo código fuente permitiendo tener un historial de los cambios realizados tanto en el código fuente como en la documentación. Algunos de los sistemas de gestión de versiones más utilizados son:
-                <ul>
-                    <li>Github. Plataforma de desarrollo colaborativo para alojar proyectos usando GIT. Normalmente el código publicado es público pudiendo ser privado previo pago. Las funcionalidades de poder clonar otros repositorios lo hacen especialmente llamativo para el desarrollo colaborativo.</li>
-                    <li>Gitlab. Herramienta de desarrollo colaborativo basada en GIT que permite repositorios privados gratuitos.</li>
-                    <li>Bitbucket. Herramienta de desarrollo colaborativo que puede basarse en Mercurial o GIT. Permiten tanto la gestión de repositorios privados o públicos, con posibilidad de aumentar especificaciones previo pago.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <p>Actualmente existen soluciones que abarcan uno o más de las características definidas anteriormente:</p>
-        <ul>
-            <li><strong>Azure Devops.</strong> Es el caso de Azure Devops que nos permite para un equipo, tener una serie de repositorios con su gestor de versiones, una wiki de los proyectos y un board con las tareas a realizar. Es una herramienta incluida en la suscripción de azure.</li>
-            
-            <li><strong>Redmine.</strong> Herramienta de código abierto que permite el seguimiento de incidentes, errores, calendario de actividades, diagramas de Gantt para representar visualmente la línea del tiempo de los proyectos, wiki, control basado en roles, integración con correo electrónico y un largo etcétera de características que nos resultarán muy útiles.</li>
-            
-            <li><strong>Apache Allura.</strong> Es un software de forja de código abierto para administrar repositorios de código fuente, informes de errores, discusiones, páginas wiki, blogs y más para cualquier cantidad de proyectos individuales.</li>
-        </ul>
-    </span>
-
-    <span id="3100701003">
-        <h3>7.1.2. PLATAFORMAS DE DESARROLLO COLABORATIVO EN METODOLOGÍAS ÁGILES</h3>
-        <p>Aunque lo hemos visto en el apartado de metodologías, es importante recordar ciertos aspectos de las metodologías ágiles que son una adaptación de las plataformas tradicionales.</p>
-        <ul>
+            <div class="platform-type">
+              <strong>Sistemas de control de versiones</strong>
+              <p>Como se ha indicado en el apartado anterior, este tipo de sistemas permiten que un equipo trabaje paralelamente sobre el mismo código fuente permitiendo tener un historial de los cambios realizados tanto en el código fuente como en la documentación. Algunos de los sistemas de gestión de versiones más utilizados son:</p>
+              <ul>
+                <li><strong>Github.</strong> Plataforma de desarrollo colaborativo para alojar proyectos usando GIT. Normalmente el código publicado es público pudiendo ser privado previo pago. Las funcionalidades de poder clonar otros repositorios lo hacen especialmente llamativo para el desarrollo colaborativo.</li>
+                <li><strong>Gitlab.</strong> Herramienta de desarrollo colaborativo basada en GIT que permite repositorios privados gratuitos.</li>
+                <li><strong>Bitbucket.</strong> Herramienta de desarrollo colaborativo que puede basarse en Mercurial o GIT. Permiten tanto la gestión de repositorios privados o públicos, con posibilidad de aumentar especificaciones previo pago.</li>
+              </ul>
+            </div>
+          </div>
+  
+          <p>Actualmente existen soluciones que abarcan uno o más de las características definidas anteriormente:</p>
+          
+          <div class="solution-section">
+            <strong>Azure Devops</strong>
+            <p>Es el caso de Azure Devops que nos permite para un equipo, tener una serie de repositorios con su gestor de versiones, una wiki de los proyectos y un board con las tareas a realizar. Es una herramienta incluida en la suscripción de azure.</p>
+          </div>
+          
+          <div class="solution-section">
+            <strong>Redmine</strong>
+            <p>Herramienta de código abierto que permite el seguimiento de incidentes, errores, calendario de actividades, diagramas de Gantt para representar visualmente la línea del tiempo de los proyectos, wiki, control basado en roles, integración con correo electrónico y un largo etcétera de características que nos resultarán muy útiles.</p>
+          </div>
+          
+          <div class="solution-section">
+            <strong>Apache Allura</strong>
+            <p>Es un software de forja de código abierto para administrar repositorios de código fuente, informes de errores, discusiones, páginas wiki, blogs y más para cualquier cantidad de proyectos individuales.</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="collab-card">
+      <span id="3100701003">
+        <div class="agile-platform">
+          <h3><span class="icon">🔄</span> 7.1.2. PLATAFORMAS DE DESARROLLO COLABORATIVO EN METODOLOGÍAS ÁGILES</h3>
+          <p>Aunque lo hemos visto en el apartado de metodologías, es importante recordar ciertos aspectos de las metodologías ágiles que son una adaptación de las plataformas tradicionales.</p>
+          <ul>
             <li>SCRUM
-                <ul>
-                    <li>Burn Down Chart. Nos permiten gestionar el trabajo pendiente.</li>
-                </ul>
+              <ul>
+                <li>Burn Down Chart. Nos permiten gestionar el trabajo pendiente.</li>
+              </ul>
             </li>
             <li>Kanban
-                <ul>
-                    <li>Tableros Kanban. Son una forma de gestionar las tareas e historias de usuarios</li>
-                </ul>
+              <ul>
+                <li>Tableros Kanban. Son una forma de gestionar las tareas e historias de usuarios</li>
+              </ul>
             </li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

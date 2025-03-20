@@ -1,199 +1,490 @@
 <div class="teoria">
-    <span >
-        <h2>4. CONCEPTOS DE SEGURIDAD EN EL DESARROLLO DE LOS SISTEMAS</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .security-concept-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .security-concept-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .security-pillar {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .security-pillar:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .security-pillar h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .security-pillar h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .ens-dimensions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .dimension-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .dimension-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .dimension-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .ens-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .category-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+      }
+      
+      .category-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .category-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .vulnerability-list {
+        counter-reset: vuln-counter;
+      }
+      
+      .vulnerability-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: var(--transition);
+        padding-left: 2.5rem;
+      }
+      
+      .vulnerability-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .vulnerability-item::before {
+        counter-increment: vuln-counter;
+        content: counter(vuln-counter);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background-color: var(--color-primary);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item, lower-alpha) ".";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .security-concept-card {
+          padding: 1rem;
+        }
+        
+        .ens-dimensions,
+        .ens-categories {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="security-concept-card">
+      <span>
+        <h2>🔐 4. CONCEPTOS DE SEGURIDAD EN EL DESARROLLO DE LOS SISTEMAS</h2>
         <p>Cuando se habla de seguridad de los sistemas siempre se tienen en cuenta una serie de características que llevan asociados una sería de riesgos de seguridad de la información.</p>
         
         <p>El objetivo principal de la seguridad informática es proporcionar protección para la disponibilidad, integridad y confidencialidad de la información.</p>
-
+  
         <ul id="3090401001">
-            <li><strong>Confidencialidad</strong>
-                <ul>
-                    <li>Se trata de una propiedad de la información que pretende garantizar el acceso solo a las personas autorizadas. En un sistema es esencial que tengamos un seguimiento de quien accede a los sistemas.</li>
-                    <li>Esto tiene un riesgo asociado, que es el acceso no autorizado.</li>
-                </ul>
-            </li>
-
-            <li><strong>Integridad</strong>
-                <ul>
-                    <li>Los datos se mantienen intactos libre de modificaciones o alteraciones por terceros.</li>
-                    <li>El riesgo asociado que tiene es la modificación o destrucción de información no autorizada, lo que se llama una violación de integridad.</li>
-                </ul>
-            </li>
-
-            <li><strong>Disponibilidad</strong>
-                <ul>
-                    <li>La disponibilidad de la información o de los activos de información es el principio fundamental de la seguridad informática que asegura la fiabilidad y el acceso oportuno a los datos y recursos por parte de los individuos o personas autorizadas.</li>
-                </ul>
-            </li>
+          <div class="security-pillar">
+            <h4><span class="icon">🔒</span> Confidencialidad</h4>
+            <ul>
+              <li>Se trata de una propiedad de la información que pretende garantizar el acceso solo a las personas autorizadas. En un sistema es esencial que tengamos un seguimiento de quien accede a los sistemas.</li>
+              <li>Esto tiene un riesgo asociado, que es el acceso no autorizado.</li>
+            </ul>
+          </div>
+  
+          <div class="security-pillar">
+            <h4><span class="icon">✅</span> Integridad</h4>
+            <ul>
+              <li>Los datos se mantienen intactos libre de modificaciones o alteraciones por terceros.</li>
+              <li>El riesgo asociado que tiene es la modificación o destrucción de información no autorizada, lo que se llama una violación de integridad.</li>
+            </ul>
+          </div>
+  
+          <div class="security-pillar">
+            <h4><span class="icon">🔄</span> Disponibilidad</h4>
+            <ul>
+              <li>La disponibilidad de la información o de los activos de información es el principio fundamental de la seguridad informática que asegura la fiabilidad y el acceso oportuno a los datos y recursos por parte de los individuos o personas autorizadas.</li>
+            </ul>
+          </div>
         </ul>
-
+  
         <p>Así mismo también hay otros dos aspectos importantes a tener en cuenta para garantizar la seguridad:</p>
-
-        <ul>
-            <li><strong>Autenticidad.</strong> La autenticidad consiste en garantizar la legitimidad del origen de la transmisión; es decir, busca atestiguar que el emisor de un mensaje es quien dice ser.</li>
-            
-            <li><strong>Trazabilidad.</strong> la trazabilidad es la propiedad que certifica que las acciones de una entidad se pueden rastrear únicamente hasta dicha entidad. Es decir, quién y cuando accede/modifica la información.</li>
-        </ul>
-
+  
+        <div class="security-pillar">
+          <h4><span class="icon">🔐</span> Autenticidad</h4>
+          <p>La autenticidad consiste en garantizar la legitimidad del origen de la transmisión; es decir, busca atestiguar que el emisor de un mensaje es quien dice ser.</p>
+        </div>
+        
+        <div class="security-pillar">
+          <h4><span class="icon">👣</span> Trazabilidad</h4>
+          <p>La trazabilidad es la propiedad que certifica que las acciones de una entidad se pueden rastrear únicamente hasta dicha entidad. Es decir, quién y cuando accede/modifica la información.</p>
+        </div>
+  
         <p>Por otro lado, hay que destacar los dos mecanismos básicos para gestionar el acceso a los sistemas de información.</p>
-
-        <ul>
-            <li><strong>Autenticación</strong> es el acto de probar la identidad de un usuario del sistema informático (por ejemplo, comparando la contraseña introducida con la contraseña almacenada en la base de datos). Es decir, se identifica el usuario al que accede. Los métodos de identificación se clasifican en:
-                <ul>
-                    <li>"algo que se sabe": contraseñas o claves concertadas.</li>
-                    <li>"algo que se tiene": componentes lógicos (tales como certificados software) o dispositivos físicos (en expresión inglesa, tokens).</li>
-                    <li>"algo que se es": elementos biométricos.</li>
-                </ul>
-            </li>
-
-            <li><strong>Autorización</strong> es la función de especificar los derechos o privilegios de acceso a los recursos. Existen varias formas de autorización:
-                <ul>
-                    <li>Modelo "Todo o nada". Accede al 100% de los recursos o a ninguno.</li>
-                    <li>Creación de roles. Se crean roles con una serie de permisos. Por ejemplo, dentro de un entono, podemos tener usuarios con permisos de administración, el cual tendría permisos para realizar prácticamente cualquier acción, mientras que otros usuarios tendrán una cuenta con un rol estándar, limitada y sin permisos adicionales.</li>
-                </ul>
-            </li>
-        </ul>
-    </span>
-
-    <span id="3090401002">
-        <h3>4.1. EL ESQUEMA NACIONAL DE SEGURIDAD</h3>
+  
+        <div class="security-pillar">
+          <h4><span class="icon">🔑</span> Autenticación</h4>
+          <p>Es el acto de probar la identidad de un usuario del sistema informático (por ejemplo, comparando la contraseña introducida con la contraseña almacenada en la base de datos). Es decir, se identifica el usuario al que accede. Los métodos de identificación se clasifican en:</p>
+          <ul>
+            <li>"algo que se sabe": contraseñas o claves concertadas.</li>
+            <li>"algo que se tiene": componentes lógicos (tales como certificados software) o dispositivos físicos (en expresión inglesa, tokens).</li>
+            <li>"algo que se es": elementos biométricos.</li>
+          </ul>
+        </div>
+  
+        <div class="security-pillar">
+          <h4><span class="icon">🛡️</span> Autorización</h4>
+          <p>Es la función de especificar los derechos o privilegios de acceso a los recursos. Existen varias formas de autorización:</p>
+          <ul>
+            <li>Modelo "Todo o nada". Accede al 100% de los recursos o a ninguno.</li>
+            <li>Creación de roles. Se crean roles con una serie de permisos. Por ejemplo, dentro de un entono, podemos tener usuarios con permisos de administración, el cual tendría permisos para realizar prácticamente cualquier acción, mientras que otros usuarios tendrán una cuenta con un rol estándar, limitada y sin permisos adicionales.</li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="security-concept-card">
+      <span id="3090401002">
+        <h3>🏛️ 4.1. EL ESQUEMA NACIONAL DE SEGURIDAD</h3>
         <p>El Esquema Nacional de Seguridad (ENS) define un conjunto de normas que deben ser de aplicación en el ámbito de la Administración Pública (AAPP).</p>
         
         <p>Establecido en el Real Decreto 311/2022 (derogando el RD 03/2010) por el que se regula el Esquema Nacional de Seguridad en el ámbito de las Administraciones Públicas.</p>
-
+  
         <h4>4.1.1. DIMENSIONES ENS</h4>
         <p>A fin de poder determinar el impacto que tendría sobre la organización un incidente que afectara a la seguridad de la información o de los sistemas, y de poder establecer la categoría del sistema, se tendrán en cuenta las siguientes dimensiones de la seguridad, que serán identificadas por sus correspondientes iniciales en mayúsculas:</p>
-
-        <ol id="3090401009" type="a">
-            <li>Disponibilidad [D].</li>
-            <li>Autenticidad [A].</li>
-            <li>Integridad [I].</li>
-            <li>Confidencialidad [C].</li>
-            <li>Trazabilidad [T].</li>
-        </ol>
-
+  
+        <div class="ens-dimensions">
+          <div class="dimension-item">
+            <strong>Disponibilidad [D]</strong>
+          </div>
+          <div class="dimension-item">
+            <strong>Autenticidad [A]</strong>
+          </div>
+          <div class="dimension-item">
+            <strong>Integridad [I]</strong>
+          </div>
+          <div class="dimension-item">
+            <strong>Confidencialidad [C]</strong>
+          </div>
+          <div class="dimension-item">
+            <strong>Trazabilidad [T]</strong>
+          </div>
+        </div>
+  
         <p>Cada una de estas dimensiones puede tener el valor BAJO, MEDIO o ALTO en base al impacto que hubiera tenido el incidente de seguridad, y así elegir las medidas apropiadas para el sistema en cuestión.</p>
-
+  
         <p>Las dimensiones NO cambian entre lo establecido en el nuevo ENS (rd 311/2022) y el antiguo ENS (rd 03/2010).</p>
-
+  
         <p>Se definen tres categorías para los sistemas de información: BÁSICA, MEDIA y ALTA.</p>
-
-        <ol id="3090401010" type="a">
-            <li>Un sistema de información será de categoría ALTA si alguna de sus dimensiones de seguridad alcanza el nivel ALTO.</li>
-            <li>Un sistema de información será de categoría MEDIA si alguna de sus dimensiones de seguridad alcanza el nivel MEDIO, y ninguna alcanza un nivel superior.</li>
-            <li>Un sistema de información será de categoría BÁSICA si alguna de sus dimensiones de seguridad alcanza el nivel BAJO, y ninguna alcanza un nivel superior.</li>
-        </ol>
-    </span>
-
-    <span id="3090401003">
+  
+        <div class="ens-categories">
+          <div class="category-item">
+            <strong>ALTA</strong>
+            <p>Un sistema de información será de categoría ALTA si alguna de sus dimensiones de seguridad alcanza el nivel ALTO.</p>
+          </div>
+          <div class="category-item">
+            <strong>MEDIA</strong>
+            <p>Un sistema de información será de categoría MEDIA si alguna de sus dimensiones de seguridad alcanza el nivel MEDIO, y ninguna alcanza un nivel superior.</p>
+          </div>
+          <div class="category-item">
+            <strong>BÁSICA</strong>
+            <p>Un sistema de información será de categoría BÁSICA si alguna de sus dimensiones de seguridad alcanza el nivel BAJO, y ninguna alcanza un nivel superior.</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="security-concept-card">
+      <span id="3090401003">
         <h4>4.1.2. MEDIDAS DEL ENS</h4>
         <p>Las medidas de seguridad se dividen en tres grupos:</p>
-
+  
         <ol type="a">
-            <li>Marco organizativo [org]. Constituido por el conjunto de medidas relacionadas con la organización global de la seguridad.</li>
-            <li>Marco operacional [op]. Formado por las medidas a tomar para proteger la operación del sistema como conjunto integral de componentes para un fin. En el RD 311/2022 se ha incluido un nuevo apartado sobre servicios en la nube.</li>
-            <li>Medidas de protección [mp]. Se centran en proteger activos concretos, según su naturaleza y la calidad exigida por el nivel de seguridad de las dimensiones afectadas.</li>
+          <li>Marco organizativo [org]. Constituido por el conjunto de medidas relacionadas con la organización global de la seguridad.</li>
+          <li>Marco operacional [op]. Formado por las medidas a tomar para proteger la operación del sistema como conjunto integral de componentes para un fin. En el RD 311/2022 se ha incluido un nuevo apartado sobre servicios en la nube.</li>
+          <li>Medidas de protección [mp]. Se centran en proteger activos concretos, según su naturaleza y la calidad exigida por el nivel de seguridad de las dimensiones afectadas.</li>
         </ol>
-
+  
         <p>Dentro de cada grupo se incluyen una serie de medidas que serán de obligado cumplimiento según la categorización del sistema. Como ejemplo presentamos la protección de la confidencialidad:</p>
-
+  
         <p>Como se muestra en la imagen, nos indica que es:</p>
         <ul>
-            <li>Mp: Medida de protección</li>
-            <li>Dimensión afectada: Confidencialidad.</li>
-            <li>Nivel: Medio y Alto</li>
+          <li>Mp: Medida de protección</li>
+          <li>Dimensión afectada: Confidencialidad.</li>
+          <li>Nivel: Medio y Alto</li>
         </ul>
-
+  
         <p>Estas medidas son de aplicación cuando la confidencialidad tenga la categorización de MEDIO/ALTO.</p>
-
+  
         <p>El ENS lista una serie de medidas según el grupo que serán de aplicación. A continuación, se incluirá un subgrupo de las mismas:</p>
-
+  
         <ul>
-            <li>Marco Organizacional
+          <li><strong>Marco Organizacional</strong>
+            <ul>
+              <li>Org.1. Política de seguridad.</li>
+              <li>Org.4. Proceso de Autorización.</li>
+            </ul>
+          </li>
+          <li><strong>Marco operacional</strong>
+            <ul>
+              <li>Planificación
                 <ul>
-                    <li>Org.1. Política de seguridad.</li>
-                    <li>Org.4. Proceso de Autorización.</li>
+                  <li>Op.pl.1. Análisis de riesgos</li>
                 </ul>
-            </li>
-            <li>Marco operacional
+              </li>
+              <li>Control de acceso
                 <ul>
-                    <li>Planificación
-                        <ul>
-                            <li>Op.pl.1. Análisis de riesgos</li>
-                        </ul>
-                    </li>
-                    <li>Control de acceso
-                        <ul>
-                            <li>Op.acc.1. Identificación</li>
-                            <li>Op.acc.5. Mecanismos de autenticación.</li>
-                        </ul>
-                    </li>
+                  <li>Op.acc.1. Identificación</li>
+                  <li>Op.acc.5. Mecanismos de autenticación.</li>
                 </ul>
-            </li>
-            <li>Medidas de protección
+              </li>
+            </ul>
+          </li>
+          <li><strong>Medidas de protección</strong>
+            <ul>
+              <li>Protección de la información
                 <ul>
-                    <li>Protección de la información
-                        <ul>
-                            <li>Mp.info.1. Datos de carácter personal</li>
-                            <li>Mp.info.3 Cifrado de la información.</li>
-                            <li>Mp.info.4. Firma electrónica.</li>
-                        </ul>
-                    </li>
+                  <li>Mp.info.1. Datos de carácter personal</li>
+                  <li>Mp.info.3 Cifrado de la información.</li>
+                  <li>Mp.info.4. Firma electrónica.</li>
                 </ul>
-            </li>
+              </li>
+            </ul>
+          </li>
         </ul>
-    </span>
-
-    <span id="3090401004">
+      </span>
+    </div>
+  
+    <div class="security-concept-card">
+      <span id="3090401004">
         <h4>4.1.3. PRINCIPIOS BÁSICOS DEL ENS</h4>
         <p>El objeto último de la seguridad de la información es garantizar que una organización podrá cumplir sus objetivos, desarrollar sus funciones y ejercer sus competencias utilizando sistemas de información. Por ello, en materia de seguridad de la información deberán tenerse en cuenta los siguientes principios básicos:</p>
-
+  
         <ol type="a">
-            <li>Seguridad como proceso integral.</li>
-            <li>Gestión de la seguridad basada en los riesgos.</li>
-            <li>Prevención, detección, respuesta y conservación.</li>
-            <li>Existencia de líneas de defensa.</li>
-            <li>Vigilancia continua. Incluido en el RD 311/2022.</li>
-            <li>Reevaluación periódica.</li>
-            <li>Diferenciación de responsabilidades.</li>
+          <li>Seguridad como proceso integral.</li>
+          <li>Gestión de la seguridad basada en los riesgos.</li>
+          <li>Prevención, detección, respuesta y conservación.</li>
+          <li>Existencia de líneas de defensa.</li>
+          <li>Vigilancia continua. Incluido en el RD 311/2022.</li>
+          <li>Reevaluación periódica.</li>
+          <li>Diferenciación de responsabilidades.</li>
         </ol>
-
+  
         <h4>4.1.4. NOTIFICACIÓN DE INCIDENTES SEGÚN DEL RD 311/2022</h4>
         <p>El Centro Criptológico Nacional articula la respuesta a los incidentes de seguridad.</p>
-
+  
         <p>Establece la obligación de notificar al CCN-CERT los incidentes de seguridad:</p>
         <ul>
-            <li>Las entidades del sector público notificarán al CCN aquellos incidentes que tengan un impacto significativo en la seguridad de los sistemas de información concernidos.</li>
-            <li>INCIBE-CERT pondrá inmediatamente en conocimiento del CCN-CERT los incidentes que afecten a las organizaciones del sector privado que presten servicios a las entidades públicas.</li>
+          <li>Las entidades del sector público notificarán al CCN aquellos incidentes que tengan un impacto significativo en la seguridad de los sistemas de información concernidos.</li>
+          <li>INCIBE-CERT pondrá inmediatamente en conocimiento del CCN-CERT los incidentes que afecten a las organizaciones del sector privado que presten servicios a las entidades públicas.</li>
         </ul>
-    </span>
-
-    <span id="3090401005">
-        <h3>4.2. OWASP</h3>
+      </span>
+    </div>
+  
+    <div class="security-concept-card">
+      <span id="3090401005">
+        <h3>🛡️ 4.2. OWASP</h3>
         <p>El Open Web Application Security Project (OWASP) es una organización sin ánimo de lucro a nivel mundial dedicada a mejorar la seguridad de las aplicaciones y del software en general.</p>
-
+  
         <p>A continuación, vamos a enumerar las 10 vulnerabilidades más comunes del informe realizado hasta 2017:</p>
-
-        <ol>
-            <li><strong>Inyección:</strong> este ataque se produce cuando datos no confiables son enviados a un intérprete (ya sea del sistema operativo, de una base de datos o cualquier intérprete) como parte de un comando o consulta. Los datos hostiles introducidos por el atacante pueden engañar al intérprete haciendo que se ejecuten comandos no intencionados o accediendo a información sobre la que no se está autorizado. Uno de los ejemplos más significativos de este tipo de ataque es SQL Injection.</li>
-
-            <li><strong>Pérdida de autenticación y gestión de sesiones:</strong> este tipo de ataque se produce cuando los mecanismos de la aplicación relacionados con la autenticación, autorización y control de sesiones son, frecuentemente, implementados de forma incorrecta o su configuración no se ha realizado de forma correcta. Esto provoca que un usuario malicioso pueda obtener las credenciales de un usuario, el identificador de la sesión o, incluso, el identificador de acceso y hacerse pasar por dicho usuario accediendo a todos sus datos.</li>
-
-            <li><strong>Secuencia de comandos en sitios cruzados (XSS):</strong> este tipo de ataque ocurre cuando se obtienen datos no confiables y se envían directamente al navegador web. Esto provoca que se puedan ejecutar comandos no deseados en el navegador del usuario. Estos comandos pueden obtener desde las credenciales de acceso del usuario como instalar ciertos programas maliciosos.</li>
-
-            <li><strong>Referencia directa insegura a objetos:</strong> este tipo de ataque ocurre cuando no se controlan los accesos a recursos sobre los que un usuario no debería tener acceso. En las aplicaciones, la mayoría de las veces, existen distintos usuarios y cada usuario tiene una serie de recursos sobre los que tiene acceso y otros sobre los que no debería tener acceso.</li>
-
-            <li><strong>Configuración de seguridad incorrecta:</strong> este tipo de ataque ocurre cuando se han realizado malas configuraciones en las aplicaciones, en los servidores de las aplicaciones, en las bases de datos o en la configuración del propio sistema operativo. Es importante tener todo el software bien actualizado con la última versión disponible.</li>
-
-            <li><strong>Exposición de datos sensibles:</strong> este tipo de ataque ocurre cuando se puede acceder de forma fácil a datos de carácter sensible almacenados en la aplicación. Por ejemplo, cuando se almacenan las credenciales de los usuarios sin codificar o si la comunicación del servidor no es segura a la hora de realizar un pago con una tarjeta de crédito.</li>
-
-            <li><strong>Ausencia de control de acceso a funciones:</strong> este tipo de ataque ocurre cuando se acceden a funciones del servidor sobre las que un usuario no debería tener permiso. Por ejemplo, cuando el servicio de listado de usuario sólo debería estar disponible por la aplicación, pero cualquier usuario puede también acceder a esta información.</li>
-
-            <li><strong>Falsificación de peticiones en sitios cruzados:</strong> este tipo de ataque ocurre cuando se realizan peticiones HTTP falsificadas del ordenador de la víctima a una aplicación web vulnerable.</li>
-
-            <li><strong>Utilización de componentes con vulnerabilidades conocidas:</strong> este tipo de ataque ocurre cuando se emplean librerías o frameworks que contienen vulnerabilidades. Es por esto que es importante actualizar estos componentes o revisar el histórico de revisiones para comprobar las mejoras de seguridad implementadas.</li>
-
-            <li><strong>Redirecciones y reenvíos validados:</strong> este tipo de ataque ocurre cuando, al redireccionar al usuario a otra página, no se comprueba que el destino sea válido. Es por esto que se puede redirigir a un usuario a una página que contenga contenido malicioso para robar las credenciales de dicho usuario.</li>
-        </ol>
-    </span>
-</div>
+  
+        <div class="vulnerability-list">
+          <div class="vulnerability-item">
+            <strong>Inyección:</strong> este ataque se produce cuando datos no confiables son enviados a un intérprete (ya sea del sistema operativo, de una base de datos o cualquier intérprete) como parte de un comando o consulta. Los datos hostiles introducidos por el atacante pueden engañar al intérprete haciendo que se ejecuten comandos no intencionados o accediendo a información sobre la que no se está autorizado. Uno de los ejemplos más significativos de este tipo de ataque es SQL Injection.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Pérdida de autenticación y gestión de sesiones:</strong> este tipo de ataque se produce cuando los mecanismos de la aplicación relacionados con la autenticación, autorización y control de sesiones son, frecuentemente, implementados de forma incorrecta o su configuración no se ha realizado de forma correcta. Esto provoca que un usuario malicioso pueda obtener las credenciales de un usuario, el identificador de la sesión o, incluso, el identificador de acceso y hacerse pasar por dicho usuario accediendo a todos sus datos.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Secuencia de comandos en sitios cruzados (XSS):</strong> este tipo de ataque ocurre cuando se obtienen datos no confiables y se envían directamente al navegador web. Esto provoca que se puedan ejecutar comandos no deseados en el navegador del usuario. Estos comandos pueden obtener desde las credenciales de acceso del usuario como instalar ciertos programas maliciosos.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Referencia directa insegura a objetos:</strong> este tipo de ataque ocurre cuando no se controlan los accesos a recursos sobre los que un usuario no debería tener acceso. En las aplicaciones, la mayoría de las veces, existen distintos usuarios y cada usuario tiene una serie de recursos sobre los que tiene acceso y otros sobre los que no debería tener acceso.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Configuración de seguridad incorrecta:</strong> este tipo de ataque ocurre cuando se han realizado malas configuraciones en las aplicaciones, en los servidores de las aplicaciones, en las bases de datos o en la configuración del propio sistema operativo. Es importante tener todo el software bien actualizado con la última versión disponible.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Exposición de datos sensibles:</strong> este tipo de ataque ocurre cuando se puede acceder de forma fácil a datos de carácter sensible almacenados en la aplicación. Por ejemplo, cuando se almacenan las credenciales de los usuarios sin codificar o si la comunicación del servidor no es segura a la hora de realizar un pago con una tarjeta de crédito.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Ausencia de control de acceso a funciones:</strong> este tipo de ataque ocurre cuando se acceden a funciones del servidor sobre las que un usuario no debería tener permiso. Por ejemplo, cuando el servicio de listado de usuario sólo debería estar disponible por la aplicación, pero cualquier usuario puede también acceder a esta información.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Falsificación de peticiones en sitios cruzados:</strong> este tipo de ataque ocurre cuando se realizan peticiones HTTP falsificadas del ordenador de la víctima a una aplicación web vulnerable.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Utilización de componentes con vulnerabilidades conocidas:</strong> este tipo de ataque ocurre cuando se emplean librerías o frameworks que contienen vulnerabilidades. Es por esto que es importante actualizar estos componentes o revisar el histórico de revisiones para comprobar las mejoras de seguridad implementadas.
+          </div>
+  
+          <div class="vulnerability-item">
+            <strong>Redirecciones y reenvíos validados:</strong> este tipo de ataque ocurre cuando, al redireccionar al usuario a otra página, no se comprueba que el destino sea válido. Es por esto que se puede redirigir a un usuario a una página que contenga contenido malicioso para robar las credenciales de dicho usuario.
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>

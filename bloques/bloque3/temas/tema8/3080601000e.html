@@ -1,88 +1,352 @@
 <div class="teoria">
-    <span id="3080601001">
-        <h2>6.1 AJAX (ASYNCHRONOUS JAVASCRIPT AND XML)</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .tech-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .tech-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .component-box {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .component-box:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .ajax-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .flow-step {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        position: relative;
+        transition: var(--transition);
+      }
+      
+      .flow-step:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .flow-step::after {
+        content: "↓";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--color-primary);
+        font-size: 1.2rem;
+      }
+      
+      .flow-step:last-child::after {
+        display: none;
+      }
+      
+      .tech-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .feature-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .feature-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .feature-item h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .tech-card {
+          padding: 1rem;
+        }
+        
+        .tech-features {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="tech-card">
+      <span id="3080601001">
+        <h2>🔄 6.1 AJAX (ASYNCHRONOUS JAVASCRIPT AND XML)</h2>
         <p>AJAX son las siglas de Asynchronous JavaScript And XML, (Javascript asíncrono y XML).</p>
         <p>No es en sí un lenguaje de programación, sino una nueva técnica que combina varios lenguajes de programación.</p>
         <p>La ventaja de AJAX respecto a otros lenguajes de programación web es la asincronía. Esto consiste en que cuando queremos intercambiar datos con el servidor, la página no se queda parada esperando la respuesta, sino que se pueden seguir ejecutando acciones mientras tanto.</p>
-    </span>
-
-    <span id="3080601002">
-        <h3>Componentes de AJAX</h3>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601002">
+        <h3>🧩 Componentes de AJAX</h3>
         <p>Ajax es una combinación de los siguientes lenguajes de programación y elementos:</p>
         <ul>
-            <li><strong>HTML (o XHTML) y CSS:</strong> Base para el diseño de la página</li>
-            <li><strong>DOM y Javascript:</strong> Forma de acceder dinámicamente a las partes de la página</li>
-            <li><strong>Objeto XMLHttpRequest:</strong> Es el que permite la comunicación asíncrona con el servidor</li>
-            <li><strong>XML:</strong> Formato en el que están los datos que se solicitan al servidor (aunque otros formatos también pueden funcionar)</li>
-            <li><strong>PHP:</strong> O cualquier otro lenguaje de programación del lado del servidor</li>
+          <li><strong>HTML (o XHTML) y CSS:</strong> Base para el diseño de la página</li>
+          <li><strong>DOM y Javascript:</strong> Forma de acceder dinámicamente a las partes de la página</li>
+          <li><strong>Objeto XMLHttpRequest:</strong> Es el que permite la comunicación asíncrona con el servidor</li>
+          <li><strong>XML:</strong> Formato en el que están los datos que se solicitan al servidor (aunque otros formatos también pueden funcionar)</li>
+          <li><strong>PHP:</strong> O cualquier otro lenguaje de programación del lado del servidor</li>
         </ul>
-    </span>
-
-    <span id="3080601003">
-        <h3>¿Cómo Funciona?</h3>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601003">
+        <h3>⚙️ ¿Cómo Funciona?</h3>
         <p>Con AJAX, al trabajar de forma asíncrona, permite que el usuario pueda seguir haciendo otras cosas o la página pueda mostrar otras cosas mientras se produce la respuesta.</p>
         <p>A diferencia de usar solo PHP u otros lenguajes de servidor, donde la página permanece en espera mientras se procesa la petición, AJAX permite una experiencia más fluida al usuario.</p>
-    </span>
-
-    <span id="3080601004">
-        <h3>Objeto XMLHttpRequest</h3>
+        
+        <div class="ajax-flow">
+          <div class="flow-step">
+            <p>1. El usuario interactúa con la página web (ej: hace clic en un botón)</p>
+          </div>
+          <div class="flow-step">
+            <p>2. JavaScript captura el evento y crea un objeto XMLHttpRequest</p>
+          </div>
+          <div class="flow-step">
+            <p>3. El objeto XMLHttpRequest envía una petición al servidor</p>
+          </div>
+          <div class="flow-step">
+            <p>4. El servidor procesa la petición y envía una respuesta</p>
+          </div>
+          <div class="flow-step">
+            <p>5. JavaScript recibe la respuesta y actualiza la página sin recargarla</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601004">
+        <h3>📡 Objeto XMLHttpRequest</h3>
         <p>Este objeto es fundamental para la programación con AJAX. Es una interfaz empleada para realizar peticiones HTTP y HTTPS a servidores Web.</p>
         <p>Nos sirve tanto para incorporar datos en la página que tengamos en otros archivos del servidor, como para mandar datos de la página al servidor, y todo esto de forma asíncrona.</p>
         <p>La diferencia entre utilizar XMLHttpRequest o simplemente utilizar PHP es que XMLHttpRequest permite mandar los datos en segundo plano, sin tener que parar el flujo de la página mientras se envían o reciben los datos.</p>
-    </span>
-
-    <span id="3080601005">
-        <h2>6.2 JQUERY</h2>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601005">
+        <h2>🔄 6.2 JQUERY</h2>
         <p>JQuery es una biblioteca multiplataforma de JavaScript, creada inicialmente por John Resig, que permite simplificar la manera de interactuar con los documentos HTML, manipular el árbol DOM, manejar eventos, desarrollar animaciones y agregar interacción con la técnica AJAX a páginas web.</p>
         <p>JQuery es software libre y de código abierto, posee un doble licenciamiento bajo la Licencia MIT y la Licencia Pública General de GNU v2.</p>
-    </span>
-
-    <span id="3080601006">
-        <h3>Características de jQuery</h3>
-        <ul>
-            <li>Manipulación HTML/DOM</li>
-            <li>Manipulación de CSS</li>
-            <li>Métodos de eventos HTML</li>
-            <li>Efectos y animaciones</li>
-            <li>AJAX</li>
-            <li>Utilidades</li>
-        </ul>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601006">
+        <h3>✨ Características de jQuery</h3>
+        
+        <div class="tech-features">
+          <div class="feature-item">
+            <h4>Manipulación HTML/DOM</h4>
+            <p>Permite seleccionar y modificar elementos HTML de forma sencilla.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Manipulación de CSS</h4>
+            <p>Facilita la aplicación y cambio de estilos en los elementos.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Métodos de eventos HTML</h4>
+            <p>Simplifica la gestión de eventos como clic, hover, etc.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Efectos y animaciones</h4>
+            <p>Proporciona métodos para crear animaciones visuales.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>AJAX</h4>
+            <p>Facilita las peticiones asíncronas al servidor.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Utilidades</h4>
+            <p>Incluye funciones auxiliares para tareas comunes.</p>
+          </div>
+        </div>
+        
         <p>Hay varias formas de comenzar a usar jQuery en una web:</p>
         <ul>
-            <li>Descargar la biblioteca jQuery de jQuery.com</li>
-            <li>Incluir jQuery de una CDN (Red de distribución de contenidos)</li>
+          <li>Descargar la biblioteca jQuery de jQuery.com</li>
+          <li>Incluir jQuery de una CDN (Red de distribución de contenidos)</li>
         </ul>
-    </span>
-
-    <span id="3080601007">
-        <h2>6.3 JSON (JAVASCRIPT OBJECT NOTATION)</h2>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601007">
+        <h2>📄 6.3 JSON (JAVASCRIPT OBJECT NOTATION)</h2>
         <ul>
-            <li>Formato ligero de intercambio de datos</li>
-            <li>Simple de leer y escribir para humanos</li>
-            <li>Simple de interpretar y generar para máquinas</li>
-            <li>Los datos están encerrados entre llaves, las propiedades se separan por comas y los nombres preceden al valor, separados por dos puntos</li>
+          <li>Formato ligero de intercambio de datos</li>
+          <li>Simple de leer y escribir para humanos</li>
+          <li>Simple de interpretar y generar para máquinas</li>
+          <li>Los datos están encerrados entre llaves, las propiedades se separan por comas y los nombres preceden al valor, separados por dos puntos</li>
         </ul>
-    </span>
-
-    <span id="3080601008">
-        <h2>6.4 TECNOLOGÍAS DE SERVIDOR</h2>
-        <h3>ASP (ACTIVE SERVER PAGES)</h3>
-        <p>Características principales:</p>
-        <ul>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3080601008">
+        <h2>🖥️ 6.4 TECNOLOGÍAS DE SERVIDOR</h2>
+        
+        <div class="component-box">
+          <h3>ASP (ACTIVE SERVER PAGES)</h3>
+          <p>Características principales:</p>
+          <ul>
             <li>Tecnología propietaria de Microsoft</li>
             <li>Usa lenguajes de script como Jscript o Vbscript interpretados</li>
             <li>Superado por ASP.NET (framework desarrollo .NET)</li>
             <li>Se ejecuta solo en servidores MS IIS</li>
-        </ul>
-
-        <h3>JSP (JAVA SERVER PAGES)</h3>
-        <p>Características principales:</p>
-        <ul>
+          </ul>
+        </div>
+  
+        <div class="component-box">
+          <h3>JSP (JAVA SERVER PAGES)</h3>
+          <p>Características principales:</p>
+          <ul>
             <li>Abstracción de alto nivel de servlets de Java</li>
             <li>Se traducen en servlets en tiempo de ejecución</li>
             <li>Se puede utilizar como componente de vista en MVC</li>
             <li>Puede entregar documentos HTML, XML y otros tipos de datos</li>
             <li>El contenedor web crea objetos JSP implícitos</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

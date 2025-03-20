@@ -1,40 +1,215 @@
 <div class="teoria">
-    <span id="4010801001">
-        <h2>8.1. WINDOWS CONTAINERS</h2>
-        <p>Tecnología para empaquetar y ejecutar aplicaciones de Windows y Linux en diversos entornos locales y en la nube proporcionando un entorno ligero y aislado que facilita el desarrollo, implementación y administración de las aplicaciones.</p>
-        <p>Los contenedores se inician y detienen rápidamente, por lo que son ideales para las aplicaciones que necesitan adaptarse rápidamente a la demanda cambiante.</p>
-        <p>Un contenedor es un paquete aislado y ligero para ejecutar una aplicación en el sistema operativo host. Los contenedores se basan en el kernel del sistema operativo host.</p>
-        <p>Un contenedor tiene acceso restringido al kernel del sistema operativo host mediante una vista aislada (y, en ocasiones, virtualizada) del sistema. Por ejemplo, un contenedor puede tener acceso a una versión virtualizada del sistema de archivos y el registro, pero los cambios solo afectan al contenedor y se descartan cuando se detiene. Para guardar los datos, el contenedor puede montar una instancia de almacenamiento persistente, como Azure Disk o un recurso compartido de archivos (incluido Azure Files).</p>
-        <p>En comparación con las máquinas virtuales los contenedores son mucho más ligeros porque cada contenedor no necesita instalar y ejecutar un sistema operativo completo lo que permite aumentar la densidad y el uso de la infraestructura (menos espacio en disco, consumo de ram, cpu, etc).</p>
-        <p>Las aplicaciones que se quieran incluir en un contenedor deben ser compatibles con el modo contenedor.</p>
-        <p>Actualmente algunos tipos de aplicaciones no son compatibles con los contenedores, por ejemplo:</p>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .container-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .container-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .container-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .container-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .container-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .container-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .isolation-modes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .isolation-mode {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .isolation-mode:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .isolation-mode strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .docker-advantages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .docker-advantage {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .docker-advantage:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .container-card {
+          padding: 1rem;
+        }
+        
+        .isolation-modes,
+        .docker-advantages {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="container-card" id="4010801001">
+      <h2>🐳 8.1. WINDOWS CONTAINERS</h2>
+      <p>Tecnología para empaquetar y ejecutar aplicaciones de Windows y Linux en diversos entornos locales y en la nube proporcionando un entorno ligero y aislado que facilita el desarrollo, implementación y administración de las aplicaciones.</p>
+      <p>Los contenedores se inician y detienen rápidamente, por lo que son ideales para las aplicaciones que necesitan adaptarse rápidamente a la demanda cambiante.</p>
+      <p>Un contenedor es un paquete aislado y ligero para ejecutar una aplicación en el sistema operativo host. Los contenedores se basan en el kernel del sistema operativo host.</p>
+      <p>Un contenedor tiene acceso restringido al kernel del sistema operativo host mediante una vista aislada (y, en ocasiones, virtualizada) del sistema. Por ejemplo, un contenedor puede tener acceso a una versión virtualizada del sistema de archivos y el registro, pero los cambios solo afectan al contenedor y se descartan cuando se detiene. Para guardar los datos, el contenedor puede montar una instancia de almacenamiento persistente, como Azure Disk o un recurso compartido de archivos (incluido Azure Files).</p>
+      <p>En comparación con las máquinas virtuales los contenedores son mucho más ligeros porque cada contenedor no necesita instalar y ejecutar un sistema operativo completo lo que permite aumentar la densidad y el uso de la infraestructura (menos espacio en disco, consumo de ram, cpu, etc).</p>
+      <p>Las aplicaciones que se quieran incluir en un contenedor deben ser compatibles con el modo contenedor.</p>
+      <p>Actualmente algunos tipos de aplicaciones no son compatibles con los contenedores, por ejemplo:</p>
+      <ul>
+        <li>No se admiten contenedores Windows Microsoft DTC (Transacciones Distribuidas)</li>
+        <li>Office tampoco puede ser usado con contenedores</li>
+        <li>Aplicaciones cliente con interfaces de usuario visuales</li>
+        <li>Tampoco se pueden crear contenedores Windows de roles típicos de Infraestructuras como DHCP, DNS, DC, NTP, Servidor de Impresión, de archivos o administrador de identidades.</li>
+      </ul>
+      <p>Podemos ejecutar contenedores Windows de dos formas diferentes:</p>
+      
+      <div class="isolation-modes">
+        <div class="isolation-mode">
+          <strong>Modo Aislamiento de Procesos (Isolation)</strong>
+          <p>Es el modo tradicional de ejecutar contenedores. Los contenedores comparten el kernel del host en su ejecución, tal y como se hace en Linux. Aunque es el modo tradicional, puede ser menos seguro, puesto que comparte el kernel tanto con el hosts, como con el resto de contenedores.</p>
+        </div>
+        
+        <div class="isolation-mode">
+          <strong>Modo Aislamiento bajo Hyper-V</strong>
+          <p>Es el modo más seguro de ejecutar contenedores, ya que permite una mayor compatibilidad entre el host y el contenedor. La ejecución se realiza mediante máquinas virtuales con su propio kernel. También se proporciona aislamiento entre el hardware del host y cada contenedor.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container-card" id="4010801002">
+      <div class="container-section">
+        <h3><span class="icon">🔄</span> 8.1.1. DIFERENCIAS CONTENEDORES WINDOWS VS DOCKER</h3>
         <ul>
-            <li>No se admiten contenedores Windows Microsoft DTC (Transacciones Distribuidas)</li>
-            <li>Office tampoco puede ser usado con contenedores</li>
-            <li>Aplicaciones cliente con interfaces de usuario visuales</li>
-            <li>Tampoco se pueden crear contenedores Windows de roles típicos de Infraestructuras como DHCP, DNS, DC, NTP, Servidor de Impresión, de archivos o administrador de identidades.</li>
+          <li>No existen grandes diferencias entre los contenedores Windows / Linux, cuando la isolación o aislamiento se hace con el propio host y no con Hyper-V.</li>
+          <li>Cambia el kernel entre un host a otro, y con ello el tipo de contenedor que puedes ejecutar.</li>
+          <li>Un host Linux puede ejecutar contenedores Linux. Un host Windows puede ejecutar contenedores Windows nativamente o ejecutar contenedores Linux mediante el aislamiento de Hyper-V.</li>
+          <li>Actualmente el desarrollo y diseño de contenedores es mayoritariamente Linux, y aunque se pueden ejecutar contenedores .NET y de otros tipos, su uso no está tan extendido.</li>
+          <li>Ambas infraestructuras pueden implementarse vía On-Premise o Cloud.</li>
+          <li>El soporte en proveedores cloud está centrado en Linux y no Windows, aunque ya las grandes plataformas le dan soporte.</li>
         </ul>
-        <p>Podemos ejecutar contenedores Windows de dos formas diferentes:</p>
-        <ul>
-            <li><strong>Modo Aislamiento de Procesos (Isolation):</strong> Es el modo tradicional de ejecutar contenedores. Los contenedores comparten el kernel del host en su ejecución, tal y como se hace en Linux. Aunque es el modo tradicional, puede ser menos seguro, puesto que comparte el kernel tanto con el hosts, como con el resto de contenedores.</li>
-            <li><strong>Modo Aislamiento bajo Hyper-V:</strong> Es el modo más seguro de ejecutar contenedores, ya que permite una mayor compatibilidad entre el host y el contenedor. La ejecución se realiza mediante máquinas virtuales con su propio kernel. También se proporciona aislamiento entre el hardware del host y cada contenedor.</li>
-        </ul>
-    </span>
-    
-    <span id="4010801002">
-        <h3>8.1.1. DIFERENCIAS CONTENEDORES WINDOWS VS DOCKER</h3>
-        <ul>
-            <li>No existen grandes diferencias entre los contenedores Windows / Linux, cuando la isolación o aislamiento se hace con el propio host y no con Hyper-V.</li>
-            <li>Cambia el kernel entre un host a otro, y con ello el tipo de contenedor que puedes ejecutar.</li>
-            <li>Un host Linux puede ejecutar contenedores Linux. Un host Windows puede ejecutar contenedores Windows nativamente o ejecutar contenedores Linux mediante el aislamiento de Hyper-V.</li>
-            <li>Actualmente el desarrollo y diseño de contenedores es mayoritariamente Linux, y aunque se pueden ejecutar contenedores .NET y de otros tipos, su uso no está tan extendido.</li>
-            <li>Ambas infraestructuras pueden implementarse vía On-Premise o Cloud.</li>
-            <li>El soporte en proveedores cloud está centrado en Linux y no Windows, aunque ya las grandes plataformas le dan soporte.</li>
-        </ul>
-    </span>
-    
-    <span id="4010801003">
-        <h3>8.1.2. DOCKER</h3>
+      </div>
+    </div>
+  
+    <div class="container-card" id="4010801003">
+      <div class="container-section">
+        <h3><span class="icon">🐳</span> 8.1.2. DOCKER</h3>
         <p>Proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</p>
         <p>Un contenedor de software empaqueta una aplicación y sus dependencias en un contenedor virtual. El contenedor puede ser ejecutado en cualquier servidor Linux.</p>
         <p>Permite la flexibilidad y portabilidad en donde la aplicación se puede ejecutar, ya sea en las instalaciones físicas, la nube pública, nube privada.</p>
@@ -44,19 +219,40 @@
         <p>Construido sobre las facilidades proporcionadas por el kernel Linux, un contenedor Docker, a diferencia de una máquina virtual, no requiere incluir un sistema operativo independiente.</p>
         <p>Se basa en las funcionalidades del kernel y utiliza el aislamiento de recursos (CPU, la memoria, el bloque E / S, red, etc.) y namespaces separados para aislar la vista de una aplicación del sistema operativo.</p>
         <p>Las principales ventajas de Docker son:</p>
-        <ul>
-            <li>Permite que los recursos puedan ser aislados, los servicios restringidos.</li>
-            <li>Otorga a los procesos la capacidad de tener una visión casi completamente privada del sistema operativo con su propio identificador de espacio de proceso, la estructura del sistema de archivos, y las interfaces de red.</li>
-            <li>Permite que contenedores múltiples compartan el mismo núcleo, pero cada contenedor pueda estar restringido a utilizar solo una cantidad definida de recursos como CPU, memoria y E / S.</li>
-            <li>Simplifica la creación de sistemas altamente distribuidos, permitiendo que múltiples aplicaciones, las tareas de los trabajadores y otros procesos funcionen de forma autónoma en una única máquina física o en varias máquinas virtuales.</li>
-            <li>Permite que el despliegue de nodos se realice a medida que se dispone de recursos o cuando se necesiten más nodos, lo que permite una plataforma como servicio (PaaS - Platform as a Service) de estilo de despliegue y ampliación de los sistemas como Apache Cassandra, MongoDB o Riak.</li>
-            <li>Simplifica la creación y el funcionamiento de las tareas de carga de trabajo o las colas y otros sistemas distribuidos.</li>
-        </ul>
-    </span>
-    
-    <span id="4010801004">
-        <h3>8.1.3. KUBERNETES</h3>
+        
+        <div class="docker-advantages">
+          <div class="docker-advantage">
+            <p>Permite que los recursos puedan ser aislados, los servicios restringidos.</p>
+          </div>
+          
+          <div class="docker-advantage">
+            <p>Otorga a los procesos la capacidad de tener una visión casi completamente privada del sistema operativo con su propio identificador de espacio de proceso, la estructura del sistema de archivos, y las interfaces de red.</p>
+          </div>
+          
+          <div class="docker-advantage">
+            <p>Permite que contenedores múltiples compartan el mismo núcleo, pero cada contenedor pueda estar restringido a utilizar solo una cantidad definida de recursos como CPU, memoria y E / S.</p>
+          </div>
+          
+          <div class="docker-advantage">
+            <p>Simplifica la creación de sistemas altamente distribuidos, permitiendo que múltiples aplicaciones, las tareas de los trabajadores y otros procesos funcionen de forma autónoma en una única máquina física o en varias máquinas virtuales.</p>
+          </div>
+          
+          <div class="docker-advantage">
+            <p>Permite que el despliegue de nodos se realice a medida que se dispone de recursos o cuando se necesiten más nodos, lo que permite una plataforma como servicio (PaaS - Platform as a Service) de estilo de despliegue y ampliación de los sistemas como Apache Cassandra, MongoDB o Riak.</p>
+          </div>
+          
+          <div class="docker-advantage">
+            <p>Simplifica la creación y el funcionamiento de las tareas de carga de trabajo o las colas y otros sistemas distribuidos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container-card" id="4010801004">
+      <div class="container-section">
+        <h3><span class="icon">⚙️</span> 8.1.3. KUBERNETES</h3>
         <p>Sistema open source creado por Google.</p>
         <p>Herramienta de orquestación / programador de contenedores y se usa para implementar y escalar su aplicación mediante la administración de múltiples contenedores implementados en múltiples máquinas host.</p>
-    </span>
-</div>
+      </div>
+    </div>
+  </div>

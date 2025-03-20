@@ -1,60 +1,234 @@
 <div class="teoria">
-    <span id="4010101001">
-        <h2>1.1. ADMINISTRACIÓN DE SISTEMAS</h2>
-        <p>La administración de sistemas es el trabajo realizado por expertos en tecnología de la información (TI) para una organización. Su trabajo es garantizar que los sistemas informáticos y todos los servicios relacionados funcionen bien.</p>
-    </span>
-    
-    <span id="4010101002">
-        <h3>1.1.1. TAREAS DE UN ADMINISTRADOR DEL SISTEMA</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .admin-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .admin-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .task-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .task-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .task-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .task-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .task-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      .celebration {
+        background-color: rgba(34, 197, 94, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-secondary);
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+      }
+      
+      .celebration:hover {
+        background-color: rgba(34, 197, 94, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .celebration-icon {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .admin-card {
+          padding: 1rem;
+        }
+        
+        .task-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="admin-card" id="4010101001">
+      <h2>🖥️ 1.1. ADMINISTRACIÓN DE SISTEMAS</h2>
+      <p>La administración de sistemas es el trabajo realizado por expertos en tecnología de la información (TI) para una organización. Su trabajo es garantizar que los sistemas informáticos y todos los servicios relacionados funcionen bien.</p>
+    </div>
+  
+    <div class="admin-card" id="4010101002">
+      <div class="task-section">
+        <h3>📋 1.1.1. TAREAS DE UN ADMINISTRADOR DEL SISTEMA</h3>
         <p>Tareas comunes:</p>
         <ul>
-            <li>Administrar el hardware de los sistemas</li>
-            <li>Administrar la red</li>
-            <li>Administrar la web (si existe)</li>
-            <li>Administrar el sistema operativo y las aplicaciones instaladas de los clientes y servidores.</li>
-            <li>Administrar usuarios (altas, modificaciones, bajas)
-                <ul>
-                    <li>Directorio activo</li>
-                    <li>Dominio</li>
-                    <li>OpenLDAP</li>
-                </ul>
-            </li>
-            <li>Administración de la seguridad
-                <ul>
-                    <li>Derechos de acceso</li>
-                    <li>Permisos</li>
-                    <li>Auditorías</li>
-                    <li>Cuotas</li>
-                    <li>Copias de seguridad: Realización y comprobación</li>
-                </ul>
-            </li>
-            <li>Comprobar el buen funcionamiento del sistema</li>
-            <li>Contabilizar el uso de recursos por parte de los usuarios</li>
-            <li>Mantenimiento de la documentación: Incluyendo situación y configuración de toda la infraestructura informática, de red y de comunicaciones y los procedimientos y protocolos para realizar las operaciones comunes.</li>
-            <li>Soporte técnico a usuarios</li>
-            <li>Monitorización del sistema.</li>
-            <li>Afinación del rendimiento de los sistemas.</li>
-            <li>Asegurar el correcto funcionamiento de los sistemas el mayor tiempo posible.</li>
-            <li>Prevenir en la media de lo posible el futuro crecimiento</li>
+          <li>Administrar el hardware de los sistemas</li>
+          <li>Administrar la red</li>
+          <li>Administrar la web (si existe)</li>
+          <li>Administrar el sistema operativo y las aplicaciones instaladas de los clientes y servidores.</li>
+          <li>Administrar usuarios (altas, modificaciones, bajas)
+            <ul>
+              <li>Directorio activo</li>
+              <li>Dominio</li>
+              <li>OpenLDAP</li>
+            </ul>
+          </li>
+          <li>Administración de la seguridad
+            <ul>
+              <li>Derechos de acceso</li>
+              <li>Permisos</li>
+              <li>Auditorías</li>
+              <li>Cuotas</li>
+              <li>Copias de seguridad: Realización y comprobación</li>
+            </ul>
+          </li>
+          <li>Comprobar el buen funcionamiento del sistema</li>
+          <li>Contabilizar el uso de recursos por parte de los usuarios</li>
+          <li>Mantenimiento de la documentación: Incluyendo situación y configuración de toda la infraestructura informática, de red y de comunicaciones y los procedimientos y protocolos para realizar las operaciones comunes.</li>
+          <li>Soporte técnico a usuarios</li>
+          <li>Monitorización del sistema.</li>
+          <li>Afinación del rendimiento de los sistemas.</li>
+          <li>Asegurar el correcto funcionamiento de los sistemas el mayor tiempo posible.</li>
+          <li>Prevenir en la media de lo posible el futuro crecimiento</li>
         </ul>
-    </span>
-    
-    <span id="4010101003">
+      </div>
+    </div>
+  
+    <div class="admin-card" id="4010101003">
+      <div class="task-section">
         <p>Las tareas específicas dependen del entorno de trabajo el administrador:</p>
-        <ul>
-            <li>Cumplimiento del SLA (Acuerdo de nivel de servicio) contratado por la empresa.</li>
-            <li>Nivel de seguridad
-                <ul>
-                    <li>Directivas y políticas aplicables</li>
-                </ul>
-            </li>
-            <li>Tipos de usuarios.</li>
-            <li>Parque de equipos informáticos</li>
-            <li>Software Disponible</li>
-        </ul>
-    </span>
-    
-    <span id="4010101004">
-        <p>El SAAD o SAD es el Día del Administrador de Sistemas Informáticos (System Administrator Appreciation Day) es una celebración que reconoce la labor del administrador de sistemas informáticos. Se celebra el último viernes de julio desde el año 2000.</p>
-    </span>
-</div>
+        
+        <div class="task-list">
+          <div class="task-item">
+            <p><strong>📊 SLA</strong></p>
+            <p>Cumplimiento del SLA (Acuerdo de nivel de servicio) contratado por la empresa.</p>
+          </div>
+          
+          <div class="task-item">
+            <p><strong>🔒 Seguridad</strong></p>
+            <p>Nivel de seguridad</p>
+            <ul>
+              <li>Directivas y políticas aplicables</li>
+            </ul>
+          </div>
+          
+          <div class="task-item">
+            <p><strong>👥 Usuarios</strong></p>
+            <p>Tipos de usuarios.</p>
+          </div>
+          
+          <div class="task-item">
+            <p><strong>💻 Equipos</strong></p>
+            <p>Parque de equipos informáticos</p>
+          </div>
+          
+          <div class="task-item">
+            <p><strong>📦 Software</strong></p>
+            <p>Software Disponible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="admin-card" id="4010101004">
+      <div class="celebration">
+        <div class="celebration-icon">🎉</div>
+        <div>
+          <p>El SAAD o SAD es el Día del Administrador de Sistemas Informáticos (System Administrator Appreciation Day) es una celebración que reconoce la labor del administrador de sistemas informáticos. Se celebra el último viernes de julio desde el año 2000.</p>
+        </div>
+      </div>
+    </div>
+  </div>

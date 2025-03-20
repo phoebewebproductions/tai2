@@ -1,123 +1,411 @@
 <div class="teoria">
-    <span id="3070501001">
-        <h2>5.1. PROTOCOLOS ASOCIADOS A LAS ARQUITECTURAS</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria h5 {
+        color: var(--color-text);
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .protocol-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .protocol-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .protocol-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .protocol-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .protocol-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .comparison-table thead tr {
+        background-color: var(--color-primary);
+        color: white;
+      }
+      
+      .comparison-table th {
+        padding: 0.8rem;
+        text-align: left;
+        font-weight: 600;
+      }
+      
+      .comparison-table tbody tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .comparison-table tbody tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      
+      .comparison-table td {
+        padding: 0.8rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+      }
+      
+      .advantage-disadvantage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .advantage, .disadvantage {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      
+      .advantage {
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .disadvantage {
+        border-left: 3px solid #ef4444;
+      }
+      
+      .advantage h4, .disadvantage h4 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .advantage h4 {
+        color: var(--color-secondary-dark);
+      }
+      
+      .disadvantage h4 {
+        color: #dc2626;
+      }
+      
+      .advantage h4 .icon, .disadvantage h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .http-structure {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      
+      .http-part {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 8px;
+        padding: 0.8rem;
+        border-left: 4px solid var(--color-primary);
+      }
+      
+      .http-part strong {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .protocol-card {
+          padding: 1rem;
+        }
+        
+        .advantage-disadvantage {
+          grid-template-columns: 1fr;
+        }
+        
+        .comparison-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  
+    <div class="protocol-card">
+      <span id="3070501001">
+        <h2>🔄 5.1. PROTOCOLOS ASOCIADOS A LAS ARQUITECTURAS</h2>
         <p>En este apartado vamos a describir los diferentes protocolos utilizados en las arquitecturas que hemos analizado durante el tema.</p>
-    </span>
-
-    <span id="3070501002">
-        <h3>5.1.1. REST</h3>
-        <p><strong>REST</strong> (Representational State Transfer) surge ya que muchos desarrolladores de Servicios Web piensan que SOAP es demasiado complicado.</p>
-        <p>Como solución están comenzando a utilizar Servicios Web basados en REST para el tratamiento de cantidades de datos masivas.</p>
-        <p>Este es el caso de grandes empresas como eBay y Google.</p>
-        <p>Este nuevo estilo ha supuesto una nueva opción de estilo de uso de los Servicios Web.</p>
-        <p>Los servicios RESTful son la alternativa de los servicios Web SOAP. En la actualidad han experimentado un creciente uso por su simplicidad y ligereza.</p>
-        <p>Evitan la sobrecarga que supone el uso de XML y protocolos complejos de interacción entre aplicaciones.</p>
-        <p>Los servicios RESTful siguen el estilo de arquitectura denominado REST (REpresentational State Transfer).</p>
-        <p>Los servicios RESTful comparten varias características con los servicios web SOAP.</p>
-    </span>
-
-    <span id="3070501003">
-        <h3>5.1.2. REST VS SOAP</h3>
-        <h4>REST</h4>
-        <ul>
-            <li>Las operaciones se definen en los mensajes.</li>
-            <li>Una dirección única para cada instancia del proceso.</li>
-            <li>Cada objeto soporta las operaciones estándares definidas.</li>
-            <li>Componentes débilmente acoplados.</li>
-            <li>No conserva el estado (stateless).</li>
-        </ul>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501002">
+        <div class="protocol-section">
+          <h3><span class="icon">🌐</span> 5.1.1. REST</h3>
+          <p><strong>REST</strong> (Representational State Transfer) surge ya que muchos desarrolladores de Servicios Web piensan que SOAP es demasiado complicado.</p>
+          <p>Como solución están comenzando a utilizar Servicios Web basados en REST para el tratamiento de cantidades de datos masivas.</p>
+          <p>Este es el caso de grandes empresas como eBay y Google.</p>
+          <p>Este nuevo estilo ha supuesto una nueva opción de estilo de uso de los Servicios Web.</p>
+          <p>Los servicios RESTful son la alternativa de los servicios Web SOAP. En la actualidad han experimentado un creciente uso por su simplicidad y ligereza.</p>
+          <p>Evitan la sobrecarga que supone el uso de XML y protocolos complejos de interacción entre aplicaciones.</p>
+          <p>Los servicios RESTful siguen el estilo de arquitectura denominado REST (REpresentational State Transfer).</p>
+          <p>Los servicios RESTful comparten varias características con los servicios web SOAP.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501003">
+        <h3>⚔️ 5.1.2. REST VS SOAP</h3>
         
-        <h4>SOAP</h4>
-        <ul>
-            <li>Las operaciones son definidas como puertos WSDL.</li>
-            <li>Dirección única para todas las operaciones.</li>
-            <li>Múltiple instancias del proceso comparten la misma operación.</li>
-            <li>Componentes fuertemente acoplados.</li>
-        </ul>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>REST</th>
+                <th>SOAP</th>
+                <th>REST Y SOAP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Las operaciones se definen en los mensajes.</td>
+                <td>Las operaciones son definidas como puertos WSDL.</td>
+                <td rowspan="5">
+                  <ul>
+                    <li>Son componentes software.</li>
+                    <li>Permiten la interoperabilidad entre sistemas heterogéneos implementados con diferentes tecnologías y lenguajes.</li>
+                    <li>Utilizan protocolos y estándares.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Una dirección única para cada instancia del proceso.</td>
+                <td>Dirección única para todas las operaciones.</td>
+              </tr>
+              <tr>
+                <td>Cada objeto soporta las operaciones estándares definidas.</td>
+                <td>Múltiple instancias del proceso comparten la misma operación.</td>
+              </tr>
+              <tr>
+                <td>Componentes débilmente acoplados.</td>
+                <td>Componentes fuertemente acoplados.</td>
+              </tr>
+              <tr>
+                <td>No conserva el estado (stateless).</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501004">
+        <h3>⚖️ 5.1.3. VENTAJAS E INCONVENIENTES</h3>
         
-        <h4>REST Y SOAP</h4>
-        <ul>
-            <li>Son componentes software.</li>
-            <li>Permiten la interoperabilidad entre sistemas heterogéneos implementados con diferentes tecnologías y lenguajes.</li>
-            <li>Utilizan protocolos y estándares.</li>
-        </ul>
-    </span>
-
-    <span id="3070501004">
-        <h3>5.1.3. VENTAJAS E INCONVENIENTES</h3>
-        <h4>Ventajas</h4>
-        <h5>REST</h5>
-        <ul>
-            <li>Bajo consumo de recursos.</li>
-            <li>Las instancias del proceso son creadas explícitamente.</li>
-            <li>El cliente no necesita información de enrutamiento a partir de la URI inicial.</li>
-            <li>Los clientes pueden tener una interfaz "listener" (escuchadora) genérica para las notificaciones.</li>
-            <li>Generalmente fácil de construir y adoptar.</li>
-        </ul>
-        
-        <h5>SOAP</h5>
-        <ul>
-            <li>Fácil (generalmente) de utilizar.</li>
-            <li>La depuración es posible.</li>
-            <li>Las operaciones complejas pueden ser escondidas detrás de una fachada.</li>
-            <li>Incrementa la privacidad.</li>
-            <li>Herramientas de desarrollo.</li>
-        </ul>
-        
-        <h4>Inconvenientes</h4>
-        <h5>REST</h5>
-        <ul>
-            <li>Gran número de objetos.</li>
-            <li>Manejar el espacio de nombres (URIs) puede ser engorroso.</li>
-            <li>La descripción sintáctica/semántica muy informal (orientada al usuario).</li>
-            <li>Pocas herramientas de desarrollo.</li>
-        </ul>
-        
-        <h5>SOAP</h5>
-        <ul>
-            <li>Los clientes necesitan saber las operaciones y su semántica antes del uso.</li>
-            <li>Los clientes necesitan puertos dedicados para diferentes tipos de notificaciones.</li>
-            <li>Las instancias del proceso son creadas implícitamente.</li>
-        </ul>
-    </span>
-
-    <span id="3070501005">
-        <h3>5.1.4. SERVICIOS WEB REST VS SERVICIOS WEB SOAP</h3>
+        <div class="advantage-disadvantage">
+          <div class="advantage">
+            <h4><span class="icon">✅</span> Ventajas</h4>
+            
+            <h5>REST</h5>
+            <ul>
+              <li>Bajo consumo de recursos.</li>
+              <li>Las instancias del proceso son creadas explícitamente.</li>
+              <li>El cliente no necesita información de enrutamiento a partir de la URI inicial.</li>
+              <li>Los clientes pueden tener una interfaz "listener" (escuchadora) genérica para las notificaciones.</li>
+              <li>Generalmente fácil de construir y adoptar.</li>
+            </ul>
+            
+            <h5>SOAP</h5>
+            <ul>
+              <li>Fácil (generalmente) de utilizar.</li>
+              <li>La depuración es posible.</li>
+              <li>Las operaciones complejas pueden ser escondidas detrás de una fachada.</li>
+              <li>Incrementa la privacidad.</li>
+              <li>Herramientas de desarrollo.</li>
+            </ul>
+          </div>
+          
+          <div class="disadvantage">
+            <h4><span class="icon">❌</span> Inconvenientes</h4>
+            
+            <h5>REST</h5>
+            <ul>
+              <li>Gran número de objetos.</li>
+              <li>Manejar el espacio de nombres (URIs) puede ser engorroso.</li>
+              <li>La descripción sintáctica/semántica muy informal (orientada al usuario).</li>
+              <li>Pocas herramientas de desarrollo.</li>
+            </ul>
+            
+            <h5>SOAP</h5>
+            <ul>
+              <li>Los clientes necesitan saber las operaciones y su semántica antes del uso.</li>
+              <li>Los clientes necesitan puertos dedicados para diferentes tipos de notificaciones.</li>
+              <li>Las instancias del proceso son creadas implícitamente.</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501005">
+        <h3>🔄 5.1.4. SERVICIOS WEB REST VS SERVICIOS WEB SOAP</h3>
         <p>Los servicios web SOAP y los servicios web RESTful se diferencian fundamentalmente en:</p>
-        <h4>Su complejidad:</h4>
-        <ul>
+        
+        <div class="protocol-section">
+          <h4>Su complejidad:</h4>
+          <ul>
             <li>Los servicios web SOAP son muy complejos (adaptabilidad a cualquier necesidad, seguridad avanzada, transaccionalidad, QoS).</li>
             <li>Los servicios web RESTful son extremadamente simples.</li>
-        </ul>
+          </ul>
+        </div>
         
-        <h4>El tipo de interfaz:</h4>
-        <ul>
+        <div class="protocol-section">
+          <h4>El tipo de interfaz:</h4>
+          <ul>
             <li>Los servicios web SOAP están orientados a RPC (llamada a métodos remotos).</li>
             <li>Los servicios web REST están dirigidos a recursos accesibles con identificadores (URIs) y manejados con acciones basadas en métodos HTTP.</li>
-        </ul>
-    </span>
-
-    <span id="3070501006">
-        <h3>5.1.5. HYPERTEXT TRANSFER PROTOCOL (HTTP)</h3>
-        <p>Es un protocolo para el intercambio de información entre un cliente, que realiza una petición, y un servidor (identificado por una URL) que la responde. Los mensajes intercambiados están en texto plano.</p>
-        <p>Estructura:</p>
-        <ul>
-            <li>Una parte inicial con:
-                <ul>
-                    <li>Para la petición, la acción requerida (método de petición) y la URL del recurso.</li>
-                    <li>Para la respuesta, el código con el resultado de la operación.</li>
-                </ul>
-            </li>
-            <li>Una cabecera con metadatos.</li>
-            <li>Un cuerpo (opcional) con los datos transmitidos</li>
-        </ul>
-    </span>
-
-    <span id="3070501007">
-        <h3>5.1.6. JSON Y OPEN API COMO SUSTITUTO DE XML Y WSDL</h3>
-        <p>Los servicios web RESTful se caracterizan, entre otras cosas, por su ligereza.</p>
-        <p>A ello contribuye el uso del formato JSON en lugar de XML (aunque también podría usarse XML).</p>
-        <p>Por su parte, la descripción del servicio web RESTful (equivalente a la especificación WSDL para los servicios web SOAP) puede hacerse utilizando la especificación OpenAPI.</p>
-        <p>También hay otra especificación WADL (Web Application Description Language) equivalente a WDSL pero no tiene versión definitiva mientras que OpenApi es un estándar de facto.</p>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501006">
+        <div class="protocol-section">
+          <h3><span class="icon">🌐</span> 5.1.5. HYPERTEXT TRANSFER PROTOCOL (HTTP)</h3>
+          <p>Es un protocolo para el intercambio de información entre un cliente, que realiza una petición, y un servidor (identificado por una URL) que la responde. Los mensajes intercambiados están en texto plano.</p>
+          
+          <h4>Estructura:</h4>
+          <div class="http-structure">
+            <div class="http-part">
+              <strong>Parte inicial</strong>
+              <ul>
+                <li>Para la petición, la acción requerida (método de petición) y la URL del recurso.</li>
+                <li>Para la respuesta, el código con el resultado de la operación.</li>
+              </ul>
+            </div>
+            <div class="http-part">
+              <strong>Cabecera</strong>
+              <p>Con metadatos.</p>
+            </div>
+            <div class="http-part">
+              <strong>Cuerpo (opcional)</strong>
+              <p>Con los datos transmitidos</p>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="protocol-card">
+      <span id="3070501007">
+        <div class="protocol-section">
+          <h3><span class="icon">📄</span> 5.1.6. JSON Y OPEN API COMO SUSTITUTO DE XML Y WSDL</h3>
+          <p>Los servicios web RESTful se caracterizan, entre otras cosas, por su ligereza.</p>
+          <p>A ello contribuye el uso del formato JSON en lugar de XML (aunque también podría usarse XML).</p>
+          <p>Por su parte, la descripción del servicio web RESTful (equivalente a la especificación WSDL para los servicios web SOAP) puede hacerse utilizando la especificación OpenAPI.</p>
+          <p>También hay otra especificación WADL (Web Application Description Language) equivalente a WDSL pero no tiene versión definitiva mientras que OpenApi es un estándar de facto.</p>
+        </div>
+      </span>
+    </div>
+  </div>

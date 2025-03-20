@@ -1,56 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas de Modelización</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>2. REGLAS DE MODELIZACIÓN</h2>
+  <article>
+    <h2 class="section-title">2. REGLAS DE MODELIZACIÓN</h2>
     
-    <h3>2.1. MODELO ENTIDAD/RELACIÓN</h3>
+    <div class="content-block">
+      <h3 class="subsection-title">2.1. MODELO ENTIDAD/RELACIÓN</h3>
+      
+      <div class="intro-card">
+        <div class="intro-icon">🔄</div>
+        <div class="intro-content">
+          <p id="3010201001">El modelo relacional se basa en el concepto matemático de relación. En este modelo, la información se representa en forma de tablas o relaciones, donde cada fila o tupla de la tabla se interpreta como una relación ordenada de valores (un conjunto de valores relacionados entre sí).</p>
+          
+          <p id="3010201002">Por otro lado, el modelo entidad/relación extendido (que se estudia en el tema 2 del bloque 3 "Diseño de bases de datos. Diseño lógico y físico. El modelo lógico relacional. Normalización.") describe con un alto nivel de abstracción la distribución de datos almacenados en un sistema. Existen dos elementos principales: las entidades y las relaciones. Las extensiones al modelo básico añaden además los atributos de las entidades y la jerarquía entre éstas. Estas extensiones tienen como finalidad aportar al modelo una mayor capacidad expresiva. Es decir, además de estos elementos, existen extensiones del modelo entidad/relación que incorporan determinados conceptos o mecanismos de abstracción para facilitar la representación de ciertas estructuras del mundo real, como generalización, especialización, categorías, agregación, asociación, que se verá en el siguiente tema de este bloque.</p>
+        </div>
+      </div>
+    </div>
     
-    <span id="3010201001">
-        <p>El modelo relacional se basa en el concepto matemático de relación. En este modelo, la información se representa en forma de tablas o relaciones, donde cada fila o tupla de la tabla se interpreta como una relación ordenada de valores (un conjunto de valores relacionados entre sí).</p>
-    </span>
-
-    <span id="3010201002">
-        <p>Por otro lado, el modelo entidad/relación extendido (que se estudia en el tema 2 del bloque 3 "Diseño de bases de datos. Diseño lógico y físico. El modelo lógico relacional. Normalización.") describe con un alto nivel de abstracción la distribución de datos almacenados en un sistema. Existen dos elementos principales: las entidades y las relaciones. Las extensiones al modelo básico añaden además los atributos de las entidades y la jerarquía entre éstas. Estas extensiones tienen como finalidad aportar al modelo una mayor capacidad expresiva. Es decir, además de estos elementos, existen extensiones del modelo entidad/relación que incorporan determinados conceptos o mecanismos de abstracción para facilitar la representación de ciertas estructuras del mundo real, como generalización, especialización, categorías, agregación, asociación, que se verá en el siguiente tema de este bloque.</p>
-    </span>
-
-    <span id="3010201003">
-        <p>Continuando con el modelo relacional, este modelo permite a los usuarios relacionar los registros según se requiera y no de manera predefinida, cuando se guardan los registros por primera vez en la base de datos. Además, el modelo relacional está creado de modo que las consultas funcionan con conjuntos de datos (por ejemplo, todos los clientes que tienen un saldo sobresaliente) en lugar de un registro a la vez.</p>
-    </span>
-
-    <span id="3010201004">
-        <p>El modelo relacional presenta los datos en tablas bidimensionales, como lo hace una hoja de cálculo. Pero a diferencia de lo que sucede en ésta, no es necesario que los datos se guarden en forma tabular; además, el modelo también permite combinar o unir tablas para formar vistas, que también se presentan como tablas bidimensionales. En resumen, sigue el modelo ANSI/SPARC y, por lo tanto, aporta independencia física y lógica de los datos. En lugar de vincular los registros relacionados con apuntadores a una dirección física, se guarda en cada tabla un elemento de datos común, como se hace en los sistemas de archivo simple.</p>
-    </span>
-
-    <span id="3010201005">
-        <p>Por tanto, se trata de una técnica cuyo objetivo es la representación y definición de todos los datos que se introducen, almacenan, transforman y producen dentro de un sistema de información, sin tener en cuenta las necesidades de la tecnología existente, ni otras restricciones.</p>
-    </span>
-
-    <span id="3010201006">
-        <p>Dado que el modelo de datos es un medio para comunicar el significado de los datos, las relaciones entre ellos y las reglas de negocio de un sistema de información, una organización puede obtener numerosos beneficios de la aplicación de esta técnica, pues la definición de los datos y la manera en que éstos operan son compartidos por todos los usuarios.</p>
-    </span>
-
-    <span id="3010201007">
-        <p>Las ventajas de realizar un modelo de datos son, entre otras:</p>
-        <ul>
-            <li>Comprensión de los datos de una organización y del funcionamiento de la organización.</li>
-            <li>Obtención de estructuras de datos independientes del entorno físico.</li>
-            <li>Control de los posibles errores desde el principio, o al menos, darse cuenta de las deficiencias lo antes posible.</li>
-            <li>Mejora del mantenimiento.</li>
-        </ul>
-    </span>
-
-    <span id="3010201008">
-        <p>Aunque la estructura de datos puede ser cambiante y dinámica, normalmente es mucho más estable que la estructura de procesos. Como resultado, una estructura de datos estable e integrada proporciona datos consistentes que puedan ser fácilmente accesibles según las necesidades de los usuarios, de manera que, aunque se produzcan cambios organizativos, los datos permanecerán estables.</p>
-    </span>
-
-    <span id="3010201009">
-        <p>Este diagrama se centra en los datos, independientemente del procesamiento que los transforma y sin entrar en consideraciones de eficiencia. Por ello, es independiente del entorno físico y debe ser una fiel representación del sistema de información objeto del estudio, proporcionando a los usuarios toda la información que necesiten y en la forma en que la necesiten.</p>
-    </span>
-
-    <span id="3010201010">
-        <p>Los elementos fundamentales del modelo son (que se verán en detalle en los siguientes apartados):</p>
-        <ul>
-            <li>Entidades</li>
-            <li>Relaciones</li>
-            <li>Atributos</li>
-        </ul>
-    </span>
+    <div class="content-block">
+      <div class="model-comparison-card">
+        <h3 class="card-title">Comparación de Modelos</h3>
+        <div class="comparison-container">
+          <div class="model-item">
+            <div class="model-icon">📊</div>
+            <div class="model-content">
+              <h4 class="model-title">Modelo Relacional</h4>
+              <p id="3010201003">Este modelo permite a los usuarios relacionar los registros según se requiera y no de manera predefinida, cuando se guardan los registros por primera vez en la base de datos. Además, el modelo relacional está creado de modo que las consultas funcionan con conjuntos de datos (por ejemplo, todos los clientes que tienen un saldo sobresaliente) en lugar de un registro a la vez.</p>
+              <p id="3010201004">El modelo relacional presenta los datos en tablas bidimensionales, como lo hace una hoja de cálculo. Pero a diferencia de lo que sucede en ésta, no es necesario que los datos se guarden en forma tabular; además, el modelo también permite combinar o unir tablas para formar vistas, que también se presentan como tablas bidimensionales. En resumen, sigue el modelo ANSI/SPARC y, por lo tanto, aporta independencia física y lógica de los datos. En lugar de vincular los registros relacionados con apuntadores a una dirección física, se guarda en cada tabla un elemento de datos común, como se hace en los sistemas de archivo simple.</p>
+            </div>
+          </div>
+          
+          <div class="model-item">
+            <div class="model-icon">🔗</div>
+            <div class="model-content">
+              <h4 class="model-title">Modelo Entidad/Relación</h4>
+              <p id="3010201005">Se trata de una técnica cuyo objetivo es la representación y definición de todos los datos que se introducen, almacenan, transforman y producen dentro de un sistema de información, sin tener en cuenta las necesidades de la tecnología existente, ni otras restricciones.</p>
+              <p id="3010201006">Dado que el modelo de datos es un medio para comunicar el significado de los datos, las relaciones entre ellos y las reglas de negocio de un sistema de información, una organización puede obtener numerosos beneficios de la aplicación de esta técnica, pues la definición de los datos y la manera en que éstos operan son compartidos por todos los usuarios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="benefits-card">
+        <h3 class="card-title">Ventajas del Modelado de Datos</h3>
+        <div class="benefits-list" id="3010201007">
+          <div class="benefit-item">
+            <div class="benefit-icon">🧠</div>
+            <div class="benefit-content">
+              <p>Comprensión de los datos de una organización y del funcionamiento de la organización.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🔄</div>
+            <div class="benefit-content">
+              <p>Obtención de estructuras de datos independientes del entorno físico.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-content">
+              <p>Control de los posibles errores desde el principio, o al menos, darse cuenta de las deficiencias lo antes posible.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🔧</div>
+            <div class="benefit-content">
+              <p>Mejora del mantenimiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="stability-card">
+        <div class="stability-icon">📊</div>
+        <div class="stability-content">
+          <p id="3010201008">Aunque la estructura de datos puede ser cambiante y dinámica, normalmente es mucho más estable que la estructura de procesos. Como resultado, una estructura de datos estable e integrada proporciona datos consistentes que puedan ser fácilmente accesibles según las necesidades de los usuarios, de manera que, aunque se produzcan cambios organizativos, los datos permanecerán estables.</p>
+          <p id="3010201009">Este diagrama se centra en los datos, independientemente del procesamiento que los transforma y sin entrar en consideraciones de eficiencia. Por ello, es independiente del entorno físico y debe ser una fiel representación del sistema de información objeto del estudio, proporcionando a los usuarios toda la información que necesiten y en la forma en que la necesiten.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="elements-card">
+        <h3 class="card-title">Elementos Fundamentales del Modelo</h3>
+        <div class="elements-container" id="3010201010">
+          <div class="element-item">
+            <div class="element-icon">📦</div>
+            <div class="element-content">
+              <h4 class="element-title">Entidades</h4>
+              <p>Objetos del mundo real sobre los que se quiere almacenar información.</p>
+            </div>
+          </div>
+          <div class="element-item">
+            <div class="element-icon">🔗</div>
+            <div class="element-content">
+              <h4 class="element-title">Relaciones</h4>
+              <p>Asociaciones entre entidades que tienen algún significado.</p>
+            </div>
+          </div>
+          <div class="element-item">
+            <div class="element-icon">📝</div>
+            <div class="element-content">
+              <h4 class="element-title">Atributos</h4>
+              <p>Propiedades o características que describen a las entidades o relaciones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📊";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Model Comparison Card */
+  .model-comparison-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .comparison-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .model-item {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .model-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .model-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .model-content {
+    flex: 1;
+  }
+  
+  .model-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  /* Benefits Card */
+  .benefits-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .benefit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .benefit-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .benefit-content {
+    flex: 1;
+  }
+  
+  /* Stability Card */
+  .stability-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .stability-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .stability-content {
+    flex: 1;
+  }
+  
+  /* Elements Card */
+  .elements-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .elements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .element-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .element-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .element-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .element-content {
+    flex: 1;
+  }
+  
+  .element-title {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .model-item, .benefit-item, .stability-card, .element-item {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .model-icon, .benefit-icon, .stability-icon, .element-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .benefits-list, .elements-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,69 +1,224 @@
 <div class="teoria">
-    <span id="3060401001">
-        <h2>4.1 SERVICIOS JAVA EE</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .service-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .service-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .service-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .service-item h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .service-item h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .service-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      
+      .service-tag {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "✓";
+        color: var(--color-primary);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .service-card {
+          padding: 1rem;
+        }
+        
+        .service-item {
+          padding: 0.8rem;
+        }
+        
+        .service-tag {
+          padding: 0.2rem 0.4rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  
+    <div class="service-card">
+      <span id="3060401001">
+        <h2>⚙️ 4.1 SERVICIOS JAVA EE</h2>
         <p>La arquitectura Java EE ofrece una serie de servicios que son:</p>
-        <ul>
-            <li><strong>Servicio de nombres (Java Naming and Directory Interface - JNDI)</strong>: ofrece acceso a componentes y recursos mediante nombres lógicos. Nos aporta: Portabilidad y mantenibilidad.</li>
-            
-            <li><strong>Servicio de transacciones (Java Transaction Service - JTS)</strong>: se encarga de la ejecución de una serie de pasos de forma atómica y aislada mediante descriptores.</li>
-            
-            <li><strong>Servicio de seguridad (Java Authentication & Authorization Service - JAAS)</strong>: implementa directivas de seguridad para recursos protegidos. Características principales: Control de acceso en dos pasos: autentificación y autorización.</li>
-            
-            <li><strong>Comunicación</strong>: distintas técnicas de comunicación, proporcionadas por el proveedor de servicio de aplicación o de contenedores. Existen dos modelos:
-                <ul>
-                    <li>Comunicaciones Web: TCP/IP, UDP/IP, HTTP y HTTPS (con SSL/TLS)</li>
-                    <li>Procesamiento de objetos distribuidos:
-                        <ul>
-                            <li>RMI (Remote Method Invocation)</li>
-                            <li>Java Remote Method Protocol (JRMP)</li>
-                            <li>CORBA-IIOP para interoperabilidad entre Java EE y sistemas CORBA</li>
-                            <li>JAX-WS/JAX-RPC para interoperabilidad entre Java EE y Web Services</li>
-                        </ul>
-                    </li>
-                </ul>
+        
+        <div class="service-item">
+          <h4><span class="icon">📋</span> Servicio de nombres (Java Naming and Directory Interface - JNDI)</h4>
+          <p>Ofrece acceso a componentes y recursos mediante nombres lógicos. Nos aporta: Portabilidad y mantenibilidad.</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><span class="icon">🔄</span> Servicio de transacciones (Java Transaction Service - JTS)</h4>
+          <p>Se encarga de la ejecución de una serie de pasos de forma atómica y aislada mediante descriptores.</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><span class="icon">🔒</span> Servicio de seguridad (Java Authentication & Authorization Service - JAAS)</h4>
+          <p>Implementa directivas de seguridad para recursos protegidos. Características principales: Control de acceso en dos pasos: autentificación y autorización.</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><span class="icon">🌐</span> Comunicación</h4>
+          <p>Distintas técnicas de comunicación, proporcionadas por el proveedor de servicio de aplicación o de contenedores. Existen dos modelos:</p>
+          <ul>
+            <li>Comunicaciones Web: TCP/IP, UDP/IP, HTTP y HTTPS (con SSL/TLS)</li>
+            <li>Procesamiento de objetos distribuidos:
+              <ul>
+                <li>RMI (Remote Method Invocation)</li>
+                <li>Java Remote Method Protocol (JRMP)</li>
+                <li>CORBA-IIOP para interoperabilidad entre Java EE y sistemas CORBA</li>
+                <li>JAX-WS/JAX-RPC para interoperabilidad entre Java EE y Web Services</li>
+              </ul>
             </li>
-            
-            <li><strong>Persistencia</strong>: almacenamiento persistente de objetos y estados de objetos, normalmente realizado en bases de datos relacionales.
-                <p>Puede ser de dos tipos:</p>
-                <ul>
-                    <li>Declarativa: persistencia gestionada por el contenedor (CMP)</li>
-                    <li>Programática: persistencia gestionada por bean (BMP) via API JDBC</li>
-                </ul>
-            </li>
-            
-            <li><strong>Servicios de configuración y administración</strong>: empaquetamiento, instalación y configuración flexible de componentes y la administración de aplicaciones. Descripción mediante esquemas XML de las características de servidores, contenedores, aplicaciones, componentes y servicios.</li>
-        </ul>
-    </span>
-
-    <span id="3060401002">
-        <h3>4.1.1. Soporte Java para web services</h3>
+          </ul>
+        </div>
+        
+        <div class="service-item">
+          <h4><span class="icon">💾</span> Persistencia</h4>
+          <p>Almacenamiento persistente de objetos y estados de objetos, normalmente realizado en bases de datos relacionales.</p>
+          <p>Puede ser de dos tipos:</p>
+          <ul>
+            <li>Declarativa: persistencia gestionada por el contenedor (CMP)</li>
+            <li>Programática: persistencia gestionada por bean (BMP) via API JDBC</li>
+          </ul>
+        </div>
+        
+        <div class="service-item">
+          <h4><span class="icon">⚙️</span> Servicios de configuración y administración</h4>
+          <p>Empaquetamiento, instalación y configuración flexible de componentes y la administración de aplicaciones. Descripción mediante esquemas XML de las características de servidores, contenedores, aplicaciones, componentes y servicios.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="service-card">
+      <span id="3060401002">
+        <h3>🌐 4.1.1. Soporte Java para web services</h3>
         <p>La arquitectura presta una serie de servicios web (Web Services) para facilitar la comunicación entre las diferentes capas de la arquitectura:</p>
-        <ul>
-            <li><strong>JAXP</strong>: Procesamiento de documentos XML mediante modelo</li>
-            <li><strong>JAX-RPC</strong>: permite llamada a procedimientos remotos mediante XML (se recomienda JAX-WS para nuevas versiones)</li>
-            <li><strong>JAX-WS</strong> (Java API for XML Web Services 2.0): evolución de JAX-RPC</li>
-            <li><strong>JAXB</strong> (Java Architecture for XML Binding): permite vincular objetos Java con datos en formato XML</li>
-            <li><strong>JAXR</strong> (Java API for XML Registries): facilitar acceso a UDDI o ebXML</li>
-            <li><strong>SAAJ</strong> (SOAP with attachments API for Java): generar y recoger mensajes SOAP</li>
-            <li><strong>XMSS</strong> (XML and Web Services Security): seguridad a nivel de mensaje</li>
-        </ul>
-    </span>
-
-    <span id="3060401003">
-        <h3>4.1.2. Servicios Adicionales</h3>
-        <ul>
-            <li><strong>JDBC</strong>: API estándar para conectar programas desarrollados en Java con SGBD</li>
-            <li><strong>Java Persistence</strong>: API estándar para la gestión de la persistencia y el mapeo objetos/modelo relacional</li>
-            <li><strong>JMS</strong> (Java Message Service): Estándar para la creación, recepción y lectura de mensajes</li>
-            <li><strong>RMI</strong> (Java Remote Method Invocation): manera de tratar cliente-servidor (RPC)</li>
-            <li><strong>Java IDL</strong>: permite a las aplicaciones Java EE invocar a objetos CORBA externos usando el protocolo IIOP</li>
-            <li><strong>Java Mail Technology</strong>: API para leer, componer y enviar mensajes electrónicos</li>
-            <li><strong>StAX</strong> (Streaming API for XML): Expone métodos para el procesamiento de documentos XML de forma iterativa</li>
-            <li><strong>JAF</strong> (JavaBeans Activation Framework): Permite descubrir el tipo de datos de un objeto arbitrario</li>
-            <li><strong>JACC</strong> (Java Authorization Service Provider Contract for Containers): Define un contrato entre servidor y proveedor de servicios</li>
-            <li><strong>JCA</strong> (J2EE Connector Architecture): Módulos de SW para abstraer detalles de acceso a EIS</li>
-            <li><strong>JMX</strong> (Java Management Extensions): API para crear sistemas de gestión y monitoreo</li>
-            <li><strong>CORBA</strong>: permite crear objetos distribuidos, diferenciando stub y skeleton</li>
-        </ul>
-    </span>
-</div>
+        
+        <div class="service-list">
+          <div class="service-tag"><strong>JAXP</strong>: Procesamiento de documentos XML mediante modelo</div>
+          <div class="service-tag"><strong>JAX-RPC</strong>: permite llamada a procedimientos remotos mediante XML</div>
+          <div class="service-tag"><strong>JAX-WS</strong>: evolución de JAX-RPC</div>
+          <div class="service-tag"><strong>JAXB</strong>: permite vincular objetos Java con datos en formato XML</div>
+          <div class="service-tag"><strong>JAXR</strong>: facilitar acceso a UDDI o ebXML</div>
+          <div class="service-tag"><strong>SAAJ</strong>: generar y recoger mensajes SOAP</div>
+          <div class="service-tag"><strong>XMSS</strong>: seguridad a nivel de mensaje</div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="service-card">
+      <span id="3060401003">
+        <h3>🧰 4.1.2. Servicios Adicionales</h3>
+        <div class="service-list">
+          <div class="service-tag"><strong>JDBC</strong>: API estándar para conectar programas desarrollados en Java con SGBD</div>
+          <div class="service-tag"><strong>Java Persistence</strong>: API estándar para la gestión de la persistencia</div>
+          <div class="service-tag"><strong>JMS</strong>: Estándar para la creación, recepción y lectura de mensajes</div>
+          <div class="service-tag"><strong>RMI</strong>: manera de tratar cliente-servidor (RPC)</div>
+          <div class="service-tag"><strong>Java IDL</strong>: permite invocar a objetos CORBA externos</div>
+          <div class="service-tag"><strong>Java Mail Technology</strong>: API para leer, componer y enviar mensajes</div>
+          <div class="service-tag"><strong>StAX</strong>: Procesamiento de documentos XML de forma iterativa</div>
+          <div class="service-tag"><strong>JAF</strong>: Permite descubrir el tipo de datos de un objeto arbitrario</div>
+          <div class="service-tag"><strong>JACC</strong>: Define un contrato entre servidor y proveedor de servicios</div>
+          <div class="service-tag"><strong>JCA</strong>: Módulos de SW para abstraer detalles de acceso a EIS</div>
+          <div class="service-tag"><strong>JMX</strong>: API para crear sistemas de gestión y monitoreo</div>
+          <div class="service-tag"><strong>CORBA</strong>: permite crear objetos distribuidos</div>
+        </div>
+      </span>
+    </div>
+  </div>

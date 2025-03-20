@@ -1,14 +1,295 @@
 <div class="teoria">
-    <span id="3080602001">
-        <h2>6.2 PHP</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .php-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .php-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .feature-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .feature-section:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .feature-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .feature-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .php-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .flow-step {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        position: relative;
+        transition: var(--transition);
+      }
+      
+      .flow-step:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .flow-step::after {
+        content: "↓";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--color-primary);
+        font-size: 1.2rem;
+      }
+      
+      .flow-step:last-child::after {
+        display: none;
+      }
+      
+      .php-variables {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .variable-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+      }
+      
+      .variable-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .variable-item code {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+        font-family: 'Courier New', Courier, monospace;
+      }
+      
+      .php-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .php-feature {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .php-feature:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .php-feature strong {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      
+      .package-comparison {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .package-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+      }
+      
+      .package-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .package-item h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .code-example {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 6px;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-x: auto;
+      }
+      
+      .code-example code {
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .php-card {
+          padding: 1rem;
+        }
+        
+        .php-variables,
+        .php-features,
+        .package-comparison {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="php-card">
+      <span id="3080602001">
+        <h2>🐘 6.2 PHP</h2>
         <p>PHP es un lenguaje de programación de uso general del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico.</p>
         <p>Fue uno de los primeros lenguajes de programación del lado del servidor que se podían incorporar directamente en el documento HTML en lugar de llamar a un archivo externo que procese los datos.</p>
         <p>El código es interpretado por un servidor web con un módulo de procesador de PHP que genera la página web resultante.</p>
-    </span>
-
-    <span id="3080602002">
-        <h3>Características principales de PHP</h3>
-        <ul>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602002">
+        <div class="feature-section">
+          <h3><span class="icon">✨</span> Características principales de PHP</h3>
+          <ul>
             <li>Es considerado un lenguaje fácil de aprender</li>
             <li>Es software libre</li>
             <li>Es un lenguaje interpretado</li>
@@ -16,77 +297,176 @@
             <li>Tiene una amplia integración con bases de datos</li>
             <li>Cuenta con una gran comunidad de desarrolladores</li>
             <li>Ofrece un rendimiento optimizable mediante técnicas de caché</li>
-        </ul>
-    </span>
-
-    <span id="3080602003">
-        <h3>Funcionamiento de PHP</h3>
-        <p>Cuando un cliente realiza una petición al servidor para que le envíe una página PHP, el servidor sigue estos pasos:</p>
-        <ol>
-            <li>Lee el archivo PHP del disco</li>
-            <li>Identifica el código PHP entre las etiquetas especiales</li>
-            <li>Procesa el código PHP</li>
-            <li>Convierte el resultado en HTML</li>
-            <li>Envía el HTML resultante al cliente</li>
-        </ol>
-    </span>
-
-    <span id="3080602004">
-        <h3>Variables predefinidas en PHP</h3>
-        <ul>
-            <li><code>$GLOBALS</code> - Referencias a todas las variables disponibles en el ámbito global</li>
-            <li><code>$_SERVER</code> - Información del entorno del servidor y de ejecución</li>
-            <li><code>$_GET</code> - Variables HTTP GET</li>
-            <li><code>$_POST</code> - Variables POST de HTTP</li>
-            <li><code>$_FILES</code> - Variables de subida de ficheros HTTP</li>
-            <li><code>$_SESSION</code> - Variables de sesión</li>
-            <li><code>$_COOKIE</code> - Cookies HTTP</li>
-            <li><code>$_REQUEST</code> - Variables HTTP Request</li>
-            <li><code>$_ENV</code> - Variables de entorno</li>
-        </ul>
-    </span>
-
-    <span id="3080602005">
-        <h3>Novedades de PHP 8</h3>
-        <ul>
-            <li><strong>Compilador JIT:</strong> Mejora el rendimiento compilando parte del código durante la ejecución</li>
-            <li><strong>Union Types:</strong> Permite crear uniones de dos o más tipos de datos</li>
-            <li><strong>Static return type:</strong> Permite usar static como tipo de retorno</li>
-            <li><strong>WeakMap:</strong> Extensión para mejor gestión de memoria</li>
-            <li><strong>Nuevas funciones string:</strong> str_contains, str_starts_with, str_ends_with</li>
-            <li><strong>Función fdiv():</strong> División segura que maneja división por cero</li>
-            <li><strong>Mejoras en el sistema de tipos:</strong> Anotaciones de tipo más precisas</li>
-        </ul>
-    </span>
-
-    <span id="3080602006">
-        <h3>Paquetes de instalación PHP</h3>
-        <h4>XAMPP</h4>
-        <ul>
-            <li>X (multiplataforma)</li>
-            <li>Apache (servidor web)</li>
-            <li>MariaDB/MySQL (base de datos)</li>
-            <li>PHP</li>
-            <li>Perl</li>
-        </ul>
-
-        <h4>LAMP (Linux)</h4>
-        <ul>
-            <li>Linux</li>
-            <li>Apache</li>
-            <li>MySQL/MariaDB</li>
-            <li>PHP/Perl/Python</li>
-        </ul>
-
-        <h4>WAMP (Windows) y MAMP (Mac)</h4>
-        <p>Versiones específicas para Windows y Mac OS X respectivamente, con componentes similares.</p>
-    </span>
-
-    <span id="3080602007">
-        <h2>6.3 PERL</h2>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602003">
+        <div class="feature-section">
+          <h3><span class="icon">⚙️</span> Funcionamiento de PHP</h3>
+          <p>Cuando un cliente realiza una petición al servidor para que le envíe una página PHP, el servidor sigue estos pasos:</p>
+          
+          <div class="php-flow">
+            <div class="flow-step">
+              <p>1. Lee el archivo PHP del disco</p>
+            </div>
+            <div class="flow-step">
+              <p>2. Identifica el código PHP entre las etiquetas especiales</p>
+            </div>
+            <div class="flow-step">
+              <p>3. Procesa el código PHP</p>
+            </div>
+            <div class="flow-step">
+              <p>4. Convierte el resultado en HTML</p>
+            </div>
+            <div class="flow-step">
+              <p>5. Envía el HTML resultante al cliente</p>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602004">
+        <h3>🔄 Variables predefinidas en PHP</h3>
+        
+        <div class="php-variables">
+          <div class="variable-item">
+            <code>$GLOBALS</code>
+            <p>Referencias a todas las variables disponibles en el ámbito global</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_SERVER</code>
+            <p>Información del entorno del servidor y de ejecución</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_GET</code>
+            <p>Variables HTTP GET</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_POST</code>
+            <p>Variables POST de HTTP</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_FILES</code>
+            <p>Variables de subida de ficheros HTTP</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_SESSION</code>
+            <p>Variables de sesión</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_COOKIE</code>
+            <p>Cookies HTTP</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_REQUEST</code>
+            <p>Variables HTTP Request</p>
+          </div>
+          
+          <div class="variable-item">
+            <code>$_ENV</code>
+            <p>Variables de entorno</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602005">
+        <h3>🚀 Novedades de PHP 8</h3>
+        
+        <div class="php-features">
+          <div class="php-feature">
+            <strong>Compilador JIT</strong>
+            <p>Mejora el rendimiento compilando parte del código durante la ejecución</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>Union Types</strong>
+            <p>Permite crear uniones de dos o más tipos de datos</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>Static return type</strong>
+            <p>Permite usar static como tipo de retorno</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>WeakMap</strong>
+            <p>Extensión para mejor gestión de memoria</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>Nuevas funciones string</strong>
+            <p>str_contains, str_starts_with, str_ends_with</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>Función fdiv()</strong>
+            <p>División segura que maneja división por cero</p>
+          </div>
+          
+          <div class="php-feature">
+            <strong>Mejoras en el sistema de tipos</strong>
+            <p>Anotaciones de tipo más precisas</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602006">
+        <h3>📦 Paquetes de instalación PHP</h3>
+        
+        <div class="package-comparison">
+          <div class="package-item">
+            <h4>XAMPP</h4>
+            <ul>
+              <li>X (multiplataforma)</li>
+              <li>Apache (servidor web)</li>
+              <li>MariaDB/MySQL (base de datos)</li>
+              <li>PHP</li>
+              <li>Perl</li>
+            </ul>
+          </div>
+          
+          <div class="package-item">
+            <h4>LAMP (Linux)</h4>
+            <ul>
+              <li>Linux</li>
+              <li>Apache</li>
+              <li>MySQL/MariaDB</li>
+              <li>PHP/Perl/Python</li>
+            </ul>
+          </div>
+          
+          <div class="package-item">
+            <h4>WAMP/MAMP</h4>
+            <p>Versiones específicas para Windows y Mac OS X respectivamente, con componentes similares.</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="php-card">
+      <span id="3080602007">
+        <h2>🐪 6.3 PERL</h2>
         <p>Practical Extraction and Report Language (PERL) es un lenguaje creado por Larry Wall en 1987.</p>
-        <p>Características principales:</p>
-        <ul>
+        
+        <div class="feature-section">
+          <h3><span class="icon">✨</span> Características principales:</h3>
+          <ul>
             <li>Orientado inicialmente a administradores de sistemas</li>
             <li>Basado en C y la programación shell de Unix</li>
             <li>De propósito general</li>
@@ -94,6 +474,8 @@
             <li>Especializado en tratamiento de texto</li>
             <li>Eficiente en programación CGI</li>
             <li>Usa DBI/DBD para interactuar con bases de datos</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

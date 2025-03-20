@@ -1,61 +1,238 @@
 <div class="teoria">
-    <span id="3060201001">
-        <h2>2.0 TECNOLOGÍAS DE LA PLATAFORMA JAVA EE</h2>
-        <ul>
-            <li><strong>Enterprise JavaBeans (EJB)</strong></li>
-            <li><strong>Java Servlet</strong></li>
-            <li><strong>JavaServer Page (JSP)</strong></li>
-            <li><strong>JavaServer Pages Standard Tag Library (JSTL)</strong></li>
-            <li><strong>JavaServer Faces (JSF)</strong></li>
-            <li><strong>Java Message Service (JMS)</strong></li>
-            <li><strong>Java Transaction API (JTA)</strong></li>
-            <li><strong>JavaMail API</strong> y <strong>JavaBeans Activation Framework (JAF)</strong></li>
-            <li>Tecnologías XML (<strong>JAXP</strong>, <strong>JAX-RPC</strong>, <strong>JAX-WS</strong>, <strong>JAXB</strong>, <strong>SAAJ</strong>, <strong>JAXR</strong>)</li>
-            <li><strong>JPA</strong>, <strong>JDBC API</strong></li>
-            <li><strong>Java Naming and Directory Interface (JNDI)</strong></li>
-            <li><strong>Java Authentication and Authorization Service (JAAS)</strong></li>
-        </ul>
-    </span>
-
-    <span id="3060201002">
-        <h2>2.1. Concepto de aplicación web</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .tech-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .tech-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .tech-item {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        transition: var(--transition);
+      }
+      
+      .tech-item:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .mvc-diagram {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .mvc-component {
+        flex: 1 1 200px;
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        padding: 1rem;
+        border-left: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .mvc-component:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      
+      .mvc-component h4 {
+        color: var(--color-primary-dark);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .mvc-component h4 .icon {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+      
+      .mvc-component p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "✓";
+        color: var(--color-primary);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .tech-card {
+          padding: 1rem;
+        }
+        
+        .tech-list {
+          gap: 0.3rem;
+        }
+        
+        .tech-item {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  
+    <div class="tech-card">
+      <span id="3060201001">
+        <h2>🧰 2.0 TECNOLOGÍAS DE LA PLATAFORMA JAVA EE</h2>
+        <div class="tech-list">
+          <div class="tech-item"><strong>Enterprise JavaBeans (EJB)</strong></div>
+          <div class="tech-item"><strong>Java Servlet</strong></div>
+          <div class="tech-item"><strong>JavaServer Page (JSP)</strong></div>
+          <div class="tech-item"><strong>JavaServer Pages Standard Tag Library (JSTL)</strong></div>
+          <div class="tech-item"><strong>JavaServer Faces (JSF)</strong></div>
+          <div class="tech-item"><strong>Java Message Service (JMS)</strong></div>
+          <div class="tech-item"><strong>Java Transaction API (JTA)</strong></div>
+          <div class="tech-item"><strong>JavaMail API</strong> y <strong>JAF</strong></div>
+          <div class="tech-item">Tecnologías XML (<strong>JAXP</strong>, <strong>JAX-RPC</strong>, <strong>JAX-WS</strong>, <strong>JAXB</strong>, <strong>SAAJ</strong>, <strong>JAXR</strong>)</div>
+          <div class="tech-item"><strong>JPA</strong>, <strong>JDBC API</strong></div>
+          <div class="tech-item"><strong>Java Naming and Directory Interface (JNDI)</strong></div>
+          <div class="tech-item"><strong>Java Authentication and Authorization Service (JAAS)</strong></div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3060201002">
+        <h2>🌐 2.1. Concepto de aplicación web</h2>
         <p>Antes de adentrarnos en el estudio de la arquitectura JavaEE, es necesario el conocer lo que es una aplicación web, ya que como ya veremos es una parte fundamental de la arquitectura JavaEE en la actualidad el grueso de aplicaciones que se desarrollan están orientadas hacia usuarios que interactúan con ellas a través de interfaces web.</p>
         <p>La característica más importante que caracteriza a una aplicación web es que no es una aplicación monolítica, sino que es un conjunto de componentes que se ejecutan en diferentes capas ubicadas tanto en el cliente como en la parte servidora para que, conjuntamente, logren el objetivo para el cual han sido desarrolladas.</p>
         <p>El cambio hacia esta nueva forma de desarrollar aplicaciones ha motivado que los equipos de desarrollo de aplicaciones tengan que especializarse en cada capa, de igual manera que los lenguajes de programación.</p>
-    </span>
-
-    <span id="3060201003">
-        <h2>2.2. Arquitectura multicapa</h2>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3060201003">
+        <h2>🏗️ 2.2. Arquitectura multicapa</h2>
         <p>El principio fundamental de este tipo de arquitectura radica en dividir el sistema a desarrollar en diferentes capas o niveles que se comunican entre sí para lograr la funcionalidad mediante el uso de interfaces.</p>
         
         <h3>Capas principales:</h3>
         <ul>
-            <li><strong>Capa de presentación</strong>: encargada de la interacción cliente-interfaz.</li>
-            <li><strong>Capa de lógica de negocio</strong>: donde se recepcionan las peticiones dirigidas desde la capa de presentación y se ejecuta la lógica transaccional del sistema.</li>
-            <li><strong>Capa de persistencia o datos</strong>: donde se almacenan los datos necesarios para mantener el sistema.</li>
+          <li><strong>Capa de presentación</strong>: encargada de la interacción cliente-interfaz.</li>
+          <li><strong>Capa de lógica de negocio</strong>: donde se recepcionan las peticiones dirigidas desde la capa de presentación y se ejecuta la lógica transaccional del sistema.</li>
+          <li><strong>Capa de persistencia o datos</strong>: donde se almacenan los datos necesarios para mantener el sistema.</li>
         </ul>
-
+  
         <h3>Características principales:</h3>
         <ul>
-            <li>Escalabilidad y mayor rendimiento</li>
-            <li>Integridad transaccional</li>
-            <li>Robustez</li>
-            <li>Interoperabilidad</li>
-            <li>Seguridad</li>
+          <li>Escalabilidad y mayor rendimiento</li>
+          <li>Integridad transaccional</li>
+          <li>Robustez</li>
+          <li>Interoperabilidad</li>
+          <li>Seguridad</li>
         </ul>
-    </span>
-
-    <span id="3060201004">
-        <h2>2.3. Patrón Modelo-Vista-Controlador (MVC)</h2>
+      </span>
+    </div>
+  
+    <div class="tech-card">
+      <span id="3060201004">
+        <h2>🔄 2.3. Patrón Modelo-Vista-Controlador (MVC)</h2>
         <p>El patrón de diseño <strong>MVC</strong> es un modelo que logra dividir la funcionalidad de un sistema o aplicación en diferentes componentes de forma lógica y ordenada.</p>
-
-        <h3>Niveles del modelo:</h3>
-        <ul>
-            <li><strong>Nivel "modelo"</strong>: representa los componentes que implementan el acceso a los datos del sistema y las reglas funcionales del mismo (reglas de negocio). Es habitual el uso del patrón DAO (Data Access Object) para el desarrollo del modelo.</li>
-            <li><strong>Nivel "vista"</strong>: se encarga de la interfaz de usuario que se encargará de interactuar con él y presentar los resultados obtenidos por los componentes del nivel "modelo". Para implementarlo es habitual el uso de tecnología JSP, páginas ASP, XML/XSL.</li>
-            <li><strong>Nivel "controlador"</strong>: se encarga de dirigir qué resultados mostrar al nivel "vista" dependiendo del tipo de usuario que interactúa con el sistema.</li>
-        </ul>
-
+  
+        <div class="mvc-diagram">
+          <div class="mvc-component">
+            <h4><span class="icon">📊</span> Nivel "modelo"</h4>
+            <p>Representa los componentes que implementan el acceso a los datos del sistema y las reglas funcionales del mismo (reglas de negocio). Es habitual el uso del patrón DAO (Data Access Object) para el desarrollo del modelo.</p>
+          </div>
+          
+          <div class="mvc-component">
+            <h4><span class="icon">👁️</span> Nivel "vista"</h4>
+            <p>Se encarga de la interfaz de usuario que se encargará de interactuar con él y presentar los resultados obtenidos por los componentes del nivel "modelo". Para implementarlo es habitual el uso de tecnología JSP, páginas ASP, XML/XSL.</p>
+          </div>
+          
+          <div class="mvc-component">
+            <h4><span class="icon">🎮</span> Nivel "controlador"</h4>
+            <p>Se encarga de dirigir qué resultados mostrar al nivel "vista" dependiendo del tipo de usuario que interactúa con el sistema.</p>
+          </div>
+        </div>
+  
         <p>Para terminar, mencionaremos que cada nivel es independiente del resto por lo que cualquier modificación en los componentes de cada uno de ellos no debería afectare al resto de componentes de otros niveles.</p>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

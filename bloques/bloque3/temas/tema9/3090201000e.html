@@ -1,146 +1,411 @@
 <div class="teoria">
-    <span id="3090201001">
-        <h2>2. USABILIDAD</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .usability-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .usability-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .principle-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .principle-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .principle-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .principle-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .principle-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .principle-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .benefit-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .benefit-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .benefit-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-secondary-dark);
+      }
+      
+      .design-principles {
+        counter-reset: principle-counter;
+      }
+      
+      .design-principle {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: var(--transition);
+      }
+      
+      .design-principle:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .design-principle::before {
+        counter-increment: principle-counter;
+        content: counter(principle-counter);
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        background-color: var(--color-primary);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .usability-card {
+          padding: 1rem;
+        }
+        
+        .principle-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="usability-card">
+      <span id="3090201001">
+        <h2>🎯 2. USABILIDAD</h2>
         <h3>2.1. PRINCIPIOS BÁSICOS DE LA USABILIDAD</h3>
         <p>Jakob Nielsen propuso los 10 principios generales de usabilidad web o las 10 reglas heurísticas de usabilidad. Estas reglas sugieren las formas de proceder a la hora de diseñar sitios "User Friendly".</p>
         
         <p>Los 10 principios de Usabilidad son:</p>
-        <ol id="3090201012">
-            <li><strong>Visibilidad del estado del sistema:</strong> el sistema siempre debería mantener informados a los usuarios de lo que está ocurriendo, a través de retroalimentación apropiada dentro de un tiempo razonable.</li>
-            
-            <li><strong>Relación entre el sistema y el mundo real:</strong> el sistema debería hablar el lenguaje de los usuarios mediante palabras, frases y conceptos que sean familiares al usuario, más que con términos relacionados con el sistema. Seguir las convenciones del mundo real, haciendo que la información aparezca en un orden natural y lógico.</li>
-            
-            <li><strong>Control y libertad del usuario:</strong> hay ocasiones en que los usuarios elegirán las funciones del sistema por error y necesitarán una "salida de emergencia" claramente marcada para dejar el estado no deseado al que accedieron, sin tener que pasar por una serie de pasos. Se deben apoyar las funciones de deshacer y rehacer.</li>
-            
-            <li><strong>Consistencia y estándares:</strong> los usuarios no deberían cuestionarse si acciones, situaciones o palabras diferentes significan en realidad la misma cosa; siga las convenciones establecidas.</li>
-            
-            <li><strong>Prevención de errores:</strong> mucho mejor que un buen diseño de mensajes de error es realizar un diseño cuidadoso que prevenga la ocurrencia de problemas.</li>
-            
-            <li><strong>Reconocimiento antes que memorizar:</strong> se deben hacer visibles los objetos, acciones y opciones. El usuario no tendría que recordar la información que se le da en una parte del proceso para seguir adelante. Las instrucciones para el uso del sistema deben estar a la vista o ser fácilmente recuperables cuando sea necesario.</li>
-            
-            <li><strong>Flexibilidad y eficiencia de uso:</strong> la presencia de aceleradores, que no son vistos por los usuarios novatos, puede ofrecer una interacción más rápida a los usuarios expertos que la que el sistema puede proveer a los usuarios de todo tipo. Se debe permitir que los usuarios adapten el sistema para usos frecuentes.</li>
-            
-            <li><strong>Estética y diseño minimalista:</strong> los diálogos no deben contener información que es irrelevante o poco usada. Cada unidad extra de información en un diálogo, compite con las unidades de información relevante y disminuye su visibilidad relativa.</li>
-            
-            <li><strong>Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores:</strong> los mensajes de error se deben entregar en un lenguaje claro y simple, indicando en forma precisa el problema y sugerir una solución constructiva al problema.</li>
-            
-            <li><strong>Ayuda y documentación:</strong> incluso en los casos en que el sistema pueda ser usado sin documentación, podría ser necesario ofrecer ayuda y documentación. Dicha información debería ser fácil de buscar, estar enfocada en las tareas del usuario, con una lista concreta de pasos a desarrollar y no ser demasiado extensa.</li>
+        <ol id="3090201012" class="design-principles">
+          <div class="design-principle">
+            <strong>Visibilidad del estado del sistema:</strong> el sistema siempre debería mantener informados a los usuarios de lo que está ocurriendo, a través de retroalimentación apropiada dentro de un tiempo razonable.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Relación entre el sistema y el mundo real:</strong> el sistema debería hablar el lenguaje de los usuarios mediante palabras, frases y conceptos que sean familiares al usuario, más que con términos relacionados con el sistema. Seguir las convenciones del mundo real, haciendo que la información aparezca en un orden natural y lógico.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Control y libertad del usuario:</strong> hay ocasiones en que los usuarios elegirán las funciones del sistema por error y necesitarán una "salida de emergencia" claramente marcada para dejar el estado no deseado al que accedieron, sin tener que pasar por una serie de pasos. Se deben apoyar las funciones de deshacer y rehacer.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Consistencia y estándares:</strong> los usuarios no deberían cuestionarse si acciones, situaciones o palabras diferentes significan en realidad la misma cosa; siga las convenciones establecidas.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Prevención de errores:</strong> mucho mejor que un buen diseño de mensajes de error es realizar un diseño cuidadoso que prevenga la ocurrencia de problemas.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Reconocimiento antes que memorizar:</strong> se deben hacer visibles los objetos, acciones y opciones. El usuario no tendría que recordar la información que se le da en una parte del proceso para seguir adelante. Las instrucciones para el uso del sistema deben estar a la vista o ser fácilmente recuperables cuando sea necesario.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Flexibilidad y eficiencia de uso:</strong> la presencia de aceleradores, que no son vistos por los usuarios novatos, puede ofrecer una interacción más rápida a los usuarios expertos que la que el sistema puede proveer a los usuarios de todo tipo. Se debe permitir que los usuarios adapten el sistema para usos frecuentes.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Estética y diseño minimalista:</strong> los diálogos no deben contener información que es irrelevante o poco usada. Cada unidad extra de información en un diálogo, compite con las unidades de información relevante y disminuye su visibilidad relativa.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores:</strong> los mensajes de error se deben entregar en un lenguaje claro y simple, indicando en forma precisa el problema y sugerir una solución constructiva al problema.
+          </div>
+          
+          <div class="design-principle">
+            <strong>Ayuda y documentación:</strong> incluso en los casos en que el sistema pueda ser usado sin documentación, podría ser necesario ofrecer ayuda y documentación. Dicha información debería ser fácil de buscar, estar enfocada en las tareas del usuario, con una lista concreta de pasos a desarrollar y no ser demasiado extensa.
+          </div>
         </ol>
-    </span>
-
-    <span id="3090201002">
-        <h3>2.2. BENEFICIOS DE LA USABILIDAD</h3>
+      </span>
+    </div>
+  
+    <div class="usability-card">
+      <span id="3090201002">
+        <h3>💼 2.2. BENEFICIOS DE LA USABILIDAD</h3>
         <p>Según ha establecido ISO/IEC 25010, el establecimiento de unos principios de diseño en ingeniería de usabilidad ha tenido como ventajas:</p>
-        <ul>
-            <li><strong>Reducción de los costes de producción:</strong> los costes y tiempos de desarrollo totales pueden ser reducidos evitando el sobrediseño y reduciendo el número de cambios posteriores requeridos en el producto.</li>
-            
-            <li><strong>Reducción de los costes de mantenimiento y apoyo:</strong> los sistemas que son fáciles de usar requieren menos entrenamiento, menos soporte para el usuario y menos mantenimiento.</li>
-            
-            <li><strong>Reducción de los costes de uso:</strong> los sistemas que mejor se ajustan a las necesidades del usuario mejoran la productividad y la calidad de las acciones y las decisiones. Los sistemas más fáciles de utilizar reducen el esfuerzo (stress) y permiten a los trabajadores manejar una variedad más amplia de tareas.</li>
-            
-            <li><strong>Mejora en la calidad del producto:</strong> el diseño centrado en el usuario resulta en productos de mayor calidad de uso, más competitivos en un mercado que demanda productos de fácil uso.</li>
-        </ul>
-    </span>
-
-    <span id="3090201003">
-        <h3>2.3. NORMAS IEC/ISO</h3>
+        
+        <div class="benefit-item">
+          <strong>Reducción de los costes de producción:</strong> los costes y tiempos de desarrollo totales pueden ser reducidos evitando el sobrediseño y reduciendo el número de cambios posteriores requeridos en el producto.
+        </div>
+        
+        <div class="benefit-item">
+          <strong>Reducción de los costes de mantenimiento y apoyo:</strong> los sistemas que son fáciles de usar requieren menos entrenamiento, menos soporte para el usuario y menos mantenimiento.
+        </div>
+        
+        <div class="benefit-item">
+          <strong>Reducción de los costes de uso:</strong> los sistemas que mejor se ajustan a las necesidades del usuario mejoran la productividad y la calidad de las acciones y las decisiones. Los sistemas más fáciles de utilizar reducen el esfuerzo (stress) y permiten a los trabajadores manejar una variedad más amplia de tareas.
+        </div>
+        
+        <div class="benefit-item">
+          <strong>Mejora en la calidad del producto:</strong> el diseño centrado en el usuario resulta en productos de mayor calidad de uso, más competitivos en un mercado que demanda productos de fácil uso.
+        </div>
+      </span>
+    </div>
+  
+    <div class="usability-card">
+      <span id="3090201003">
+        <h3>📋 2.3. NORMAS IEC/ISO</h3>
         <p>Según la Norma ISO/IEC 25010:2011, la usabilidad es el "grado en el que un producto o sistema puede ser usado por usuarios específicos para conseguir unos objetivos específicos con efectividad, eficiencia y satisfacción en un contexto de uso dado".</p>
         
         <p>La ISO 9241:210-2010 (Ergonomics of human-system interaction) proporciona requisitos y recomendaciones para los principios del diseño centrado en el usuario. Los seis principios clave son:</p>
         <ul>
-            <li>El diseño está basado en una comprensión explícita de usuarios, tareas y entornos.</li>
-            <li>Los usuarios están involucrados durante el diseño y el desarrollo.</li>
-            <li>El diseño está dirigido y refinado por evaluaciones centradas en usuarios.</li>
-            <li>El proceso es iterativo.</li>
-            <li>El diseño está dirigido a toda la experiencia del usuario.</li>
-            <li>El equipo de diseño incluye habilidades y perspectivas multidisciplinares.</li>
+          <li>El diseño está basado en una comprensión explícita de usuarios, tareas y entornos.</li>
+          <li>Los usuarios están involucrados durante el diseño y el desarrollo.</li>
+          <li>El diseño está dirigido y refinado por evaluaciones centradas en usuarios.</li>
+          <li>El proceso es iterativo.</li>
+          <li>El diseño está dirigido a toda la experiencia del usuario.</li>
+          <li>El equipo de diseño incluye habilidades y perspectivas multidisciplinares.</li>
         </ul>
-    </span>
-
-    <span id="3090201004">
-        <h3>2.4. DISEÑO UNIVERSAL</h3>
+      </span>
+    </div>
+  
+    <div class="usability-card">
+      <span id="3090201004">
+        <h3>🌐 2.4. DISEÑO UNIVERSAL</h3>
         <p>Según define la Convención de Naciones Unidas sobre los Derechos de las Personas con Discapacidad (2006), el diseño universal es el diseño de productos, entornos, programas y servicios que puedan utilizar todas las personas, en la mayor medida posible, sin necesidad de adaptación ni diseño especializado.</p>
         
         <p>Los principios generales del diseño universal son:</p>
-        <ol>
-            <li><strong>Igualdad de uso:</strong>
-                <ul>
-                    <li>Mismo significado de uso para todos los usuarios</li>
-                    <li>No provoca segregación o estigmatización</li>
-                    <li>Igual provisión de privacidad y seguridad</li>
-                    <li>Diseño atractivo para todos</li>
-                </ul>
-            </li>
-            
-            <li><strong>Flexibilidad de uso:</strong>
-                <ul>
-                    <li>Permite escoger el método de uso</li>
-                    <li>Acceso y uso adaptable a diestros y zurdos</li>
-                    <li>Se adapta a la precisión y exactitud de los usuarios</li>
-                    <li>Se adapta al ritmo de los usuarios</li>
-                </ul>
-            </li>
-            
-            <li><strong>Simple e intuitivo:</strong>
-                <ul>
-                    <li>Elimina la complejidad innecesaria</li>
-                    <li>Cumple expectativas e intuición del usuario</li>
-                    <li>Se adapta a diferentes habilidades culturales y de lenguaje</li>
-                    <li>Información ordenada por importancia</li>
-                    <li>Genera avisos e información útil durante y después de las tareas</li>
-                </ul>
-            </li>
-            
-            <li><strong>Información perceptible:</strong>
-                <ul>
-                    <li>Utiliza diferentes modos de presentación</li>
-                    <li>Proporciona contraste adecuado</li>
-                    <li>Compatible con dispositivos y adaptaciones para personas con problemas sensoriales</li>
-                </ul>
-            </li>
-            
-            <li><strong>Tolerancia al error:</strong>
-                <ul>
-                    <li>Minimiza riesgos y errores</li>
-                    <li>Elementos peligrosos eliminados o aislados</li>
-                    <li>Proporciona avisos de peligro o error</li>
-                    <li>Facilita elementos de seguridad ante fallos</li>
-                </ul>
-            </li>
-            
-            <li><strong>Bajo esfuerzo físico:</strong>
-                <ul>
-                    <li>Permite posición natural del cuerpo</li>
-                    <li>Minimiza acciones repetitivas</li>
-                    <li>Minimiza esfuerzos físicos continuados</li>
-                </ul>
-            </li>
-            
-            <li><strong>Espacio suficiente de aproximación y uso:</strong>
-                <ul>
-                    <li>Amplio campo de visión de elementos importantes</li>
-                    <li>Alcance cómodo de componentes independiente de la posición</li>
-                    <li>Espacio adecuado para ayudas técnicas o asistente personal</li>
-                </ul>
-            </li>
-        </ol>
-    </span>
-
-    <span id="3090201005">
-        <h3>2.5. ACCESO Y USABILIDAD DE LAS TECNOLOGÍAS, PRODUCTOS Y SERVICIOS RELACIONADOS CON LA SOCIEDAD DE LA INFORMACIÓN</h3>
+        
+        <div class="principle-grid">
+          <div class="principle-item">
+            <strong>1. Igualdad de uso:</strong>
+            <ul>
+              <li>Mismo significado de uso para todos los usuarios</li>
+              <li>No provoca segregación o estigmatización</li>
+              <li>Igual provisión de privacidad y seguridad</li>
+              <li>Diseño atractivo para todos</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>2. Flexibilidad de uso:</strong>
+            <ul>
+              <li>Permite escoger el método de uso</li>
+              <li>Acceso y uso adaptable a diestros y zurdos</li>
+              <li>Se adapta a la precisión y exactitud de los usuarios</li>
+              <li>Se adapta al ritmo de los usuarios</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>3. Simple e intuitivo:</strong>
+            <ul>
+              <li>Elimina la complejidad innecesaria</li>
+              <li>Cumple expectativas e intuición del usuario</li>
+              <li>Se adapta a diferentes habilidades culturales y de lenguaje</li>
+              <li>Información ordenada por importancia</li>
+              <li>Genera avisos e información útil durante y después de las tareas</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>4. Información perceptible:</strong>
+            <ul>
+              <li>Utiliza diferentes modos de presentación</li>
+              <li>Proporciona contraste adecuado</li>
+              <li>Compatible con dispositivos y adaptaciones para personas con problemas sensoriales</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>5. Tolerancia al error:</strong>
+            <ul>
+              <li>Minimiza riesgos y errores</li>
+              <li>Elementos peligrosos eliminados o aislados</li>
+              <li>Proporciona avisos de peligro o error</li>
+              <li>Facilita elementos de seguridad ante fallos</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>6. Bajo esfuerzo físico:</strong>
+            <ul>
+              <li>Permite posición natural del cuerpo</li>
+              <li>Minimiza acciones repetitivas</li>
+              <li>Minimiza esfuerzos físicos continuados</li>
+            </ul>
+          </div>
+          
+          <div class="principle-item">
+            <strong>7. Espacio suficiente de aproximación y uso:</strong>
+            <ul>
+              <li>Amplio campo de visión de elementos importantes</li>
+              <li>Alcance cómodo de componentes independiente de la posición</li>
+              <li>Espacio adecuado para ayudas técnicas o asistente personal</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="usability-card">
+      <span id="3090201005">
+        <h3>📱 2.5. ACCESO Y USABILIDAD DE LAS TECNOLOGÍAS, PRODUCTOS Y SERVICIOS RELACIONADOS CON LA SOCIEDAD DE LA INFORMACIÓN</h3>
         <p>El Real Decreto 1112/2018 garantiza los requisitos de accesibilidad de los sitios web y aplicaciones para dispositivos móviles de organismos del sector público y entidades privadas que prestan servicios públicos.</p>
         
         <p>Principales cambios:</p>
         <ul>
-            <li>Equiparación de requisitos al estándar europeo EN 301 549</li>
-            <li>Inclusión de aplicaciones móviles (antes del 23 de junio de 2021)</li>
-            <li>Inclusión de intranets o extranets nuevas (desde 23 de septiembre de 2019)</li>
-            <li>Declaración de accesibilidad obligatoria</li>
-            <li>Mecanismo de comunicación sobre requisitos de accesibilidad</li>
-            <li>Mecanismo de comunicación para contenidos excluidos</li>
-            <li>Mecanismo de reclamación</li>
-            <li>Seguimiento periódico mediante unidades responsables de accesibilidad</li>
-            <li>Reportes públicos a la Comisión Europea cada 3 años</li>
+          <li>Equiparación de requisitos al estándar europeo EN 301 549</li>
+          <li>Inclusión de aplicaciones móviles (antes del 23 de junio de 2021)</li>
+          <li>Inclusión de intranets o extranets nuevas (desde 23 de septiembre de 2019)</li>
+          <li>Declaración de accesibilidad obligatoria</li>
+          <li>Mecanismo de comunicación sobre requisitos de accesibilidad</li>
+          <li>Mecanismo de comunicación para contenidos excluidos</li>
+          <li>Mecanismo de reclamación</li>
+          <li>Seguimiento periódico mediante unidades responsables de accesibilidad</li>
+          <li>Reportes públicos a la Comisión Europea cada 3 años</li>
         </ul>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

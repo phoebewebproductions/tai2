@@ -1,80 +1,302 @@
 <div class="teoria">
-    <span id="3060901001">
-        <h2>9.1 LA ARQUITECTURA .NET</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .dotnet-arch-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .dotnet-arch-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .feature-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .feature-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .feature-item h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .feature-item h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .infrastructure-components {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1rem 0;
+      }
+      
+      .infra-component {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .infra-component .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .language-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      
+      .language-item {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .dotnet-arch-card {
+          padding: 1rem;
+        }
+        
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .infrastructure-components {
+          gap: 0.5rem;
+        }
+        
+        .infra-component {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  
+    <div class="dotnet-arch-card">
+      <span id="3060901001">
+        <h2>🖥️ 9.1 LA ARQUITECTURA .NET</h2>
         <p>La respuesta de Microsoft al creciente mercado en entornos Web, como competencia a la plataforma Java de Sun Microsystems.</p>
         
-        <h3>Características principales:</h3>
-        <ul>
-            <li>Nueva plataforma de desarrollo de software</li>
-            <li>Estrategia horizontal que integra todos sus productos</li>
-            <li>Amplio conjunto de bibliotecas de desarrollo</li>
-            <li>Entorno gestionado de ejecución de aplicaciones</li>
-            <li>Conjunto único y expandible de bloques interconectados</li>
-            <li>Establece XML como norma en el transporte de información</li>
-        </ul>
-    </span>
-
-    <span id="3060901002">
-        <h3>9.1.1 Infraestructura .NET</h3>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h4><span class="icon">🧰</span> Nueva plataforma</h4>
+            <p>Nueva plataforma de desarrollo de software</p>
+          </div>
+          <div class="feature-item">
+            <h4><span class="icon">🔄</span> Estrategia horizontal</h4>
+            <p>Estrategia horizontal que integra todos sus productos</p>
+          </div>
+          <div class="feature-item">
+            <h4><span class="icon">📚</span> Bibliotecas</h4>
+            <p>Amplio conjunto de bibliotecas de desarrollo</p>
+          </div>
+          <div class="feature-item">
+            <h4><span class="icon">⚙️</span> Entorno gestionado</h4>
+            <p>Entorno gestionado de ejecución de aplicaciones</p>
+          </div>
+          <div class="feature-item">
+            <h4><span class="icon">🧩</span> Bloques interconectados</h4>
+            <p>Conjunto único y expandible de bloques interconectados</p>
+          </div>
+          <div class="feature-item">
+            <h4><span class="icon">📄</span> XML</h4>
+            <p>Establece XML como norma en el transporte de información</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="dotnet-arch-card">
+      <span id="3060901002">
+        <h3>🏗️ 9.1.1 Infraestructura .NET</h3>
         <p>Está constituida por:</p>
-        <ul>
-            <li><strong>Framework .NET</strong></li>
-            <li><strong>Microsoft Visual Studio .NET</strong></li>
-            <li><strong>.NET Enterprise Servers</strong></li>
-            <li><strong>Microsoft Windows .NET</strong></li>
-        </ul>
-
+        
+        <div class="infrastructure-components">
+          <div class="infra-component">
+            <span class="icon">🧰</span>
+            <strong>Framework .NET</strong>
+          </div>
+          <div class="infra-component">
+            <span class="icon">💻</span>
+            <strong>Microsoft Visual Studio .NET</strong>
+          </div>
+          <div class="infra-component">
+            <span class="icon">🖥️</span>
+            <strong>.NET Enterprise Servers</strong>
+          </div>
+          <div class="infra-component">
+            <span class="icon">🪟</span>
+            <strong>Microsoft Windows .NET</strong>
+          </div>
+        </div>
+  
         <h4>Framework .NET - Objetivos:</h4>
         <ul>
-            <li>Entorno coherente de programación orientada a objetos</li>
-            <li>Proporcionar un entorno de ejecución de código seguro</li>
-            <li>Basar la comunicación en estándares del sector</li>
+          <li>Entorno coherente de programación orientada a objetos</li>
+          <li>Proporcionar un entorno de ejecución de código seguro</li>
+          <li>Basar la comunicación en estándares del sector</li>
         </ul>
-    </span>
-
-    <span id="3060901003">
-        <h3>9.1.2 Lenguajes de Programación</h3>
-        <ul>
-            <li>Soporta más de 20 lenguajes de programación</li>
-            <li>Principales lenguajes:
-                <ul>
-                    <li><strong>C#</strong>: Estándar de especificación ECMA334</li>
-                    <li><strong>Visual Basic</strong></li>
-                    <li><strong>Delphi</strong> (Object Pascal)</li>
-                    <li><strong>C++</strong></li>
-                    <li><strong>J#</strong>: lenguaje transicional para programadores Java y J++</li>
-                    <li>Perl, Python, Fortran y Cobol.NET</li>
-                </ul>
-            </li>
-        </ul>
-    </span>
-
-    <span id="3060901004">
-        <h3>9.1.3 Biblioteca de Clases Base (BCL)</h3>
+      </span>
+    </div>
+  
+    <div class="dotnet-arch-card">
+      <span id="3060901003">
+        <h3>🧮 9.1.2 Lenguajes de Programación</h3>
+        <p>Soporta más de 20 lenguajes de programación</p>
+        
+        <h4>Principales lenguajes:</h4>
+        <div class="language-list">
+          <div class="language-item"><strong>C#</strong>: Estándar de especificación ECMA334</div>
+          <div class="language-item"><strong>Visual Basic</strong></div>
+          <div class="language-item"><strong>Delphi</strong> (Object Pascal)</div>
+          <div class="language-item"><strong>C++</strong></div>
+          <div class="language-item"><strong>J#</strong>: lenguaje transicional para programadores Java y J++</div>
+          <div class="language-item">Perl</div>
+          <div class="language-item">Python</div>
+          <div class="language-item">Fortran</div>
+          <div class="language-item">Cobol.NET</div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="dotnet-arch-card">
+      <span id="3060901004">
+        <h3>📚 9.1.3 Biblioteca de Clases Base (BCL)</h3>
         <p>Maneja las operaciones básicas en el desarrollo de aplicaciones, incluyendo:</p>
         <ul>
-            <li>Interacción con dispositivos periféricos</li>
-            <li>Manejo de datos (ADO.NET)</li>
-            <li>Administración de memoria</li>
-            <li>Cifrado de datos</li>
-            <li>Transmisión y recepción de datos (XML, TCP/IP)</li>
-            <li>Administración de componentes Web (ASP.NET)</li>
-            <li>Manejo de excepciones y seguridad</li>
-            <li>Sistema de ventanas y gráficos (GDI+)</li>
-            <li>Operaciones con tipos de datos, cadenas y fechas</li>
-            <li>Manipulación de archivos e imágenes</li>
+          <li>Interacción con dispositivos periféricos</li>
+          <li>Manejo de datos (ADO.NET)</li>
+          <li>Administración de memoria</li>
+          <li>Cifrado de datos</li>
+          <li>Transmisión y recepción de datos (XML, TCP/IP)</li>
+          <li>Administración de componentes Web (ASP.NET)</li>
+          <li>Manejo de excepciones y seguridad</li>
+          <li>Sistema de ventanas y gráficos (GDI+)</li>
+          <li>Operaciones con tipos de datos, cadenas y fechas</li>
+          <li>Manipulación de archivos e imágenes</li>
         </ul>
-    </span>
-
-    <span id="3060901005">
-        <h3>9.1.4 Entorno Común de Ejecución (CLR)</h3>
+      </span>
+    </div>
+  
+    <div class="dotnet-arch-card">
+      <span id="3060901005">
+        <h3>⚙️ 9.1.4 Entorno Común de Ejecución (CLR)</h3>
         <ul>
-            <li>Entorno de ejecución para todas las aplicaciones .NET</li>
-            <li>Utiliza código intermedio (MSIL, Microsoft Intermediate Language)</li>
-            <li>Se basa en el Common Language Specification (CLS)</li>
-            <li>Usa compilador JIT (Just-In-Time) para generar código máquina</li>
-            <li>Proporciona independencia de la plataforma hardware</li>
-            <li>El código ejecutable se almacena en la memoria caché</li>
+          <li>Entorno de ejecución para todas las aplicaciones .NET</li>
+          <li>Utiliza código intermedio (MSIL, Microsoft Intermediate Language)</li>
+          <li>Se basa en el Common Language Specification (CLS)</li>
+          <li>Usa compilador JIT (Just-In-Time) para generar código máquina</li>
+          <li>Proporciona independencia de la plataforma hardware</li>
+          <li>El código ejecutable se almacena en la memoria caché</li>
         </ul>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

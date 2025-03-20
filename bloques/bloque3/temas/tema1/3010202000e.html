@@ -1,65 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entidades</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>2.2. ENTIDADES</h2>
+  <article>
+    <h2 class="section-title">2.2. ENTIDADES</h2>
     
-    <span id="3010202001">
-        <p>Una entidad (que también se puede denominar objeto, instancia u ocurrencia) hace referencia a un objeto del mundo real, es decir, una entidad (o clase de entidad) es una persona, lugar, cosa, suceso o concepto sobre el que se recopilan datos. En otras palabras, las entidades son los objetos reales que nos interesan lo suficiente como para capturar y guardar sus datos en una base de datos.</p>
-    </span>
-
-    <span id="3010202002">
-        <p>Las entidades están formadas por atributos y deben poder identificarse unívocamente mediante uno o varios atributos.</p>
-    </span>
-
-    <span id="3010202003">
-        <p>Una entidad se representa como un rectángulo en el diagrama. Cualquier cosa que se designe con un nombre puede ser una entidad. Sin embargo, para no incluir en el diseño de nuestra base de datos todo lo que hay en el planeta, nos limitamos a las entidades que interesan a las personas que utilizarán nuestra base de datos. Cada entidad presentada en el modelo conceptual representa la clase completa de esa entidad. Por ejemplo, la entidad Clientes representa el conjunto de todos los clientes. A los clientes individuales se les denomina instancias de la entidad.</p>
-    </span>
-
-    <span id="3010202004">
-        <p>Entendemos por tipo de entidad (o también clase, entidad tipo o tipo) la abstracción que permite definir el conjunto de objetos con las mismas propiedades, comportamiento común, semántica común e idéntica relación con los demás objetos.</p>
-    </span>
-
-    <span id="3010202005">
-        <p>El proceso para pasar de un conjunto de entidades a un tipo de entidad se denomina abstracción. Este proceso consiste en eliminar las diferencias o distinciones entre las entidades para poder observar aspectos comunes a todas estas entidades.</p>
-    </span>
-
-    <span id="3010202006">
-        <p>Las entidades deben cumplir las siguientes tres reglas:</p>
-        <ul>
-            <li>Tienen que tener existencia propia.</li>
-            <li>Cada ocurrencia de un tipo de entidad debe poder distinguirse de las demás.</li>
-            <li>Todas las ocurrencias de un tipo de entidad deben tener los mismos atributos.</li>
-        </ul>
-    </span>
-
-    <span id="3010202007">
-        <p>Ejemplos de entidades:</p>
-        <p>Algunos ejemplos de entidad son una manzana, un coche o una persona. Otros ejemplos, que no son tangibles pero que tienen identidad y son distinguibles del resto, son un pedido a un proveedor, una petición de préstamo en una biblioteca o una incidencia municipal.</p>
-    </span>
-
-    <span id="3010202008">
-        <p>El tipo de entidad coche se define como el concepto de vehículo que describe las partes comunes de diferentes coches con independencia de la marca, el color, el modelo y otras características concretas. Un coche concreto, por ejemplo, mi coche, es una instancia u ocurrencia del tipo de entidad coche.</p>
-    </span>
-
-    <h3>2.2.1. TIPOS DE ENTIDADES</h3>
-
-    <span id="3010202009">
-        <p>Existen dos clases de entidades:</p>
-        <ul>
-            <li>Regulares o fuertes: que tienen existencia por sí mismas. Este tipo de entidad puede ser identificada unívocamente.</li>
-            <li>Débiles: cuya existencia depende de otra entidad. Es decir, es aquella que no puede existir sin participar en la relación, que no puede ser unívocamente identificada solamente por sus atributos.</li>
-        </ul>
-    </span>
-
-    <span id="3010202010">
-        <p>La siguiente imagen muestra el tipo de entidad "Mes" que es débil respecto a la relación con el tipo de entidad "Año" y fuerte respecto a la relación con el tipo de entidad "DiaDelMes".</p>
-    </span>
-
-    <h3>2.2.2. NOTACIÓN</h3>
-
-    <span id="3010202011">
-        <p>La representación gráfica de un tipo de entidad regular o fuerte es un rectángulo etiquetado con el nombre del tipo de entidad.</p>
-    </span>
-
-    <span id="3010202012">
-        <p>Un tipo de entidad débil se representa con dos rectángulos concéntricos con su nombre en el interior.</p>
-    </span>
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">📦</div>
+        <div class="intro-content">
+          <p id="3010202001">Una entidad (que también se puede denominar objeto, instancia u ocurrencia) hace referencia a un objeto del mundo real, es decir, una entidad (o clase de entidad) es una persona, lugar, cosa, suceso o concepto sobre el que se recopilan datos. En otras palabras, las entidades son los objetos reales que nos interesan lo suficiente como para capturar y guardar sus datos en una base de datos.</p>
+          <p id="3010202002">Las entidades están formadas por atributos y deben poder identificarse unívocamente mediante uno o varios atributos.</p>
+          <p id="3010202003">Una entidad se representa como un rectángulo en el diagrama. Cualquier cosa que se designe con un nombre puede ser una entidad. Sin embargo, para no incluir en el diseño de nuestra base de datos todo lo que hay en el planeta, nos limitamos a las entidades que interesan a las personas que utilizarán nuestra base de datos. Cada entidad presentada en el modelo conceptual representa la clase completa de esa entidad. Por ejemplo, la entidad Clientes representa el conjunto de todos los clientes. A los clientes individuales se les denomina instancias de la entidad.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="entity-concept-card">
+        <h3 class="card-title">Concepto de Tipo de Entidad</h3>
+        <div class="concept-content">
+          <p id="3010202004">Entendemos por tipo de entidad (o también clase, entidad tipo o tipo) la abstracción que permite definir el conjunto de objetos con las mismas propiedades, comportamiento común, semántica común e idéntica relación con los demás objetos.</p>
+          <p id="3010202005">El proceso para pasar de un conjunto de entidades a un tipo de entidad se denomina abstracción. Este proceso consiste en eliminar las diferencias o distinciones entre las entidades para poder observar aspectos comunes a todas estas entidades.</p>
+          
+          <div class="abstraction-diagram">
+            <div class="entity-instances">
+              <div class="instance">🧑 Juan</div>
+              <div class="instance">👩 María</div>
+              <div class="instance">👨 Carlos</div>
+            </div>
+            <div class="abstraction-arrow">↓ Abstracción</div>
+            <div class="entity-type">👥 Persona</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="entity-rules-card">
+        <h3 class="card-title">Reglas para las Entidades</h3>
+        <div class="rules-content" id="3010202006">
+          <p>Las entidades deben cumplir las siguientes tres reglas:</p>
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div class="rule-text">Tienen que tener existencia propia.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div class="rule-text">Cada ocurrencia de un tipo de entidad debe poder distinguirse de las demás.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div class="rule-text">Todas las ocurrencias de un tipo de entidad deben tener los mismos atributos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="examples-card">
+        <h3 class="card-title">Ejemplos de Entidades</h3>
+        <div class="examples-content">
+          <p id="3010202007">Algunos ejemplos de entidad son una manzana, un coche o una persona. Otros ejemplos, que no son tangibles pero que tienen identidad y son distinguibles del resto, son un pedido a un proveedor, una petición de préstamo en una biblioteca o una incidencia municipal.</p>
+          <p id="3010202008">El tipo de entidad coche se define como el concepto de vehículo que describe las partes comunes de diferentes coches con independencia de la marca, el color, el modelo y otras características concretas. Un coche concreto, por ejemplo, mi coche, es una instancia u ocurrencia del tipo de entidad coche.</p>
+          
+          <div class="examples-grid">
+            <div class="example-item">
+              <div class="example-icon">🚗</div>
+              <div class="example-text">Coche</div>
+            </div>
+            <div class="example-item">
+              <div class="example-icon">👤</div>
+              <div class="example-text">Persona</div>
+            </div>
+            <div class="example-item">
+              <div class="example-icon">🍎</div>
+              <div class="example-text">Manzana</div>
+            </div>
+            <div class="example-item">
+              <div class="example-icon">📝</div>
+              <div class="example-text">Pedido</div>
+            </div>
+            <div class="example-item">
+              <div class="example-icon">📚</div>
+              <div class="example-text">Préstamo</div>
+            </div>
+            <div class="example-item">
+              <div class="example-icon">⚠️</div>
+              <div class="example-text">Incidencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">2.2.1. TIPOS DE ENTIDADES</h3>
+      
+      <div class="entity-types-card">
+        <div class="types-content" id="3010202009">
+          <p>Existen dos clases de entidades:</p>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">💪</div>
+              <h4 class="type-title">Regulares o fuertes</h4>
+            </div>
+            <div class="type-description">
+              <p>Que tienen existencia por sí mismas. Este tipo de entidad puede ser identificada unívocamente.</p>
+              <div class="type-example">
+                <div class="entity-diagram strong">
+                  <div class="entity-name">Cliente</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="type-item">
+            <div class="type-header">
+              <div class="type-icon">🔗</div>
+              <h4 class="type-title">Débiles</h4>
+            </div>
+            <div class="type-description">
+              <p>Cuya existencia depende de otra entidad. Es decir, es aquella que no puede existir sin participar en la relación, que no puede ser unívocamente identificada solamente por sus atributos.</p>
+              <div class="type-example">
+                <div class="entity-diagram weak">
+                  <div class="entity-name">Línea de Pedido</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p id="3010202010">La siguiente imagen muestra el tipo de entidad "Mes" que es débil respecto a la relación con el tipo de entidad "Año" y fuerte respecto a la relación con el tipo de entidad "DiaDelMes".</p>
+          
+          <div class="entity-relationship-example">
+            <div class="entity-diagram strong">
+              <div class="entity-name">Año</div>
+            </div>
+            <div class="relationship-arrow">→</div>
+            <div class="entity-diagram weak">
+              <div class="entity-name">Mes</div>
+            </div>
+            <div class="relationship-arrow">→</div>
+            <div class="entity-diagram weak">
+              <div class="entity-name">DiaDelMes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">2.2.2. NOTACIÓN</h3>
+      
+      <div class="notation-card">
+        <div class="notation-content">
+          <div class="notation-item">
+            <div class="notation-description" id="3010202011">
+              <p>La representación gráfica de un tipo de entidad regular o fuerte es un rectángulo etiquetado con el nombre del tipo de entidad.</p>
+            </div>
+            <div class="notation-example">
+              <div class="entity-diagram strong">
+                <div class="entity-name">Entidad Fuerte</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="notation-item">
+            <div class="notation-description" id="3010202012">
+              <p>Un tipo de entidad débil se representa con dos rectángulos concéntricos con su nombre en el interior.</p>
+            </div>
+            <div class="notation-example">
+              <div class="entity-diagram weak">
+                <div class="entity-name">Entidad Débil</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📦";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Entity Concept Card */
+  .entity-concept-card, .entity-rules-card, .examples-card, .entity-types-card, .notation-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  /* Abstraction Diagram */
+  .abstraction-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+  }
+  
+  .entity-instances {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .instance {
+    padding: 10px 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .abstraction-arrow {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 10px 0;
+  }
+  
+  .entity-type {
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  /* Rules Content */
+  .rules-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .rule-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .rule-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .rule-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .rule-text {
+    flex: 1;
+  }
+  
+  /* Examples Grid */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .example-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .example-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .example-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+  
+  .example-text {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Entity Types */
+  .types-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .type-item {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .type-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .type-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .type-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .type-title {
+    margin: 0;
+    color: var(--color-primary-dark);
+  }
+  
+  .type-example {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Entity Relationship Example */
+  .entity-relationship-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .relationship-arrow {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+  
+  /* Entity Diagram */
+  .entity-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    min-width: 120px;
+    min-height: 60px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .entity-diagram.strong {
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-white);
+  }
+  
+  .entity-diagram.weak {
+    position: relative;
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-white);
+  }
+  
+  .entity-diagram.weak::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+  }
+  
+  .entity-name {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+  }
+  
+  /* Notation */
+  .notation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .notation-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .notation-example {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card {
+      flex-direction: column;
+    }
+    
+    .intro-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .entity-instances {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .entity-relationship-example {
+      flex-direction: column;
+    }
+    
+    .relationship-arrow {
+      transform: rotate(90deg);
+    }
+    
+    .examples-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  }
+</style>
+</body>
+</html>

@@ -1,216 +1,547 @@
 <div class="teoria">
-    <span id="3061101001">
-        <h2>11.1 TECNOLOGÍAS DE ACCESO A DATOS</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .data-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .data-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .tech-timeline {
+        position: relative;
+        margin: 2rem 0;
+        padding-left: 2rem;
+      }
+      
+      .tech-timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: var(--color-primary);
+        border-radius: 2px;
+      }
+      
+      .tech-item {
+        position: relative;
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+      }
+      
+      .tech-item::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+      }
+      
+      .tech-item h3 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .tech-item h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .component-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .component-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .component-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .component-item h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .component-item h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .service-types {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .service-type {
+        flex: 1 1 300px;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        border-top: 3px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .service-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .service-type h4 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      .teoria ol {
+        counter-reset: item;
+      }
+      
+      .teoria ol li {
+        counter-increment: item;
+        list-style-type: none;
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .teoria ol li::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        color: var(--color-primary);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .data-card {
+          padding: 1rem;
+        }
+        
+        .component-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .service-types {
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <div class="data-card">
+      <span id="3061101001">
+        <h2>💾 11.1 TECNOLOGÍAS DE ACCESO A DATOS</h2>
         <p>Evolución de las tecnologías de Microsoft de acceso a las Bases de Datos:</p>
-
-        <h3>ODBC (Open Database Connectivity)</h3>
-        <ul>
-            <li>Interfaz común de acceso a múltiples Bases de Datos usando SQL</li>
-            <li>Interfaz C++ de bajo nivel</li>
-            <li>Usa un driver específico para cada BBDD concreta</li>
-            <li>Permite conectar con cualquier base de datos con driver ODBC</li>
-            <li>Los creadores de las BBDD son responsables de crear drivers ODBC</li>
-            <li>Permite cambiar de BBDD sin recompilar ni modificar la aplicación</li>
-        </ul>
-    </span>
-
-    <span id="3061101002">
-        <h3>DAO (Data Access Object) y RDO (Remote Data Object)</h3>
-        <ul>
-            <li>Colección de objetos de más alto nivel que ODBC</li>
-            <li>Basado en el Motor Jet (Access)</li>
-            <li>Puede acceder a otras BBDD mediante conversión Jet a ODBC</li>
-            <li>RDO creado para usar directamente ODBC sin Jet</li>
-        </ul>
-
-        <h3>OleDB</h3>
-        <ul>
-            <li>Interfaz de acceso universal a datos (BBDD, ficheros, Exchange, Directorios)</li>
-            <li>Interfaz para lenguajes tipo C++</li>
-        </ul>
-    </span>
-
-    <span id="3061101003">
-        <h3>ADO (Active Data Object)</h3>
-        <ul>
-            <li>Arquitectura de objetos para simplificar el uso de OleDB</li>
-            <li>Utilizable en lenguajes tipo VB y de script</li>
-            <li>Puede usar OleDB u ODBC</li>
-            <li>Se basa en RecordSets conectados</li>
-            <li><strong>RDS</strong> (Remote Data Sources):
+  
+        <div class="tech-timeline">
+          <div class="tech-item">
+            <h3><span class="icon">🔄</span> ODBC (Open Database Connectivity)</h3>
+            <ul>
+              <li>Interfaz común de acceso a múltiples Bases de Datos usando SQL</li>
+              <li>Interfaz C++ de bajo nivel</li>
+              <li>Usa un driver específico para cada BBDD concreta</li>
+              <li>Permite conectar con cualquier base de datos con driver ODBC</li>
+              <li>Los creadores de las BBDD son responsables de crear drivers ODBC</li>
+              <li>Permite cambiar de BBDD sin recompilar ni modificar la aplicación</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101002">
+        <div class="tech-timeline">
+          <div class="tech-item">
+            <h3><span class="icon">📊</span> DAO (Data Access Object) y RDO (Remote Data Object)</h3>
+            <ul>
+              <li>Colección de objetos de más alto nivel que ODBC</li>
+              <li>Basado en el Motor Jet (Access)</li>
+              <li>Puede acceder a otras BBDD mediante conversión Jet a ODBC</li>
+              <li>RDO creado para usar directamente ODBC sin Jet</li>
+            </ul>
+          </div>
+  
+          <div class="tech-item">
+            <h3><span class="icon">🔗</span> OleDB</h3>
+            <ul>
+              <li>Interfaz de acceso universal a datos (BBDD, ficheros, Exchange, Directorios)</li>
+              <li>Interfaz para lenguajes tipo C++</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101003">
+        <div class="tech-timeline">
+          <div class="tech-item">
+            <h3><span class="icon">📋</span> ADO (Active Data Object)</h3>
+            <ul>
+              <li>Arquitectura de objetos para simplificar el uso de OleDB</li>
+              <li>Utilizable en lenguajes tipo VB y de script</li>
+              <li>Puede usar OleDB u ODBC</li>
+              <li>Se basa en RecordSets conectados</li>
+              <li><strong>RDS</strong> (Remote Data Sources):
                 <ul>
-                    <li>Intento de mejorar ADO</li>
-                    <li>Permite RecordSets desconectados</li>
+                  <li>Intento de mejorar ADO</li>
+                  <li>Permite RecordSets desconectados</li>
                 </ul>
-            </li>
-        </ul>
-    </span>
-
-    <span id="3061101004">
-        <h3>ADO.NET</h3>
-        <ul>
-            <li>Proporciona acceso a orígenes de datos:
+              </li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101004">
+        <div class="tech-timeline">
+          <div class="tech-item">
+            <h3><span class="icon">🔄</span> ADO.NET</h3>
+            <ul>
+              <li>Proporciona acceso a orígenes de datos:
                 <ul>
-                    <li>Microsoft SQL Server y XML</li>
-                    <li>Datos expuestos mediante OLE DB y ODBC</li>
+                  <li>Microsoft SQL Server y XML</li>
+                  <li>Datos expuestos mediante OLE DB y ODBC</li>
                 </ul>
-            </li>
-            <li>Características principales:
+              </li>
+              <li>Características principales:
                 <ul>
-                    <li>Separa el acceso a datos de la manipulación de datos</li>
-                    <li>Los resultados se procesan directamente o se colocan en un objeto DataSet</li>
+                  <li>Separa el acceso a datos de la manipulación de datos</li>
+                  <li>Los resultados se procesan directamente o se colocan en un objeto DataSet</li>
                 </ul>
-            </li>
-            <li><strong>Entity Framework</strong>:
+              </li>
+              <li><strong>Entity Framework</strong>:
                 <ul>
-                    <li>Conjunto de tecnologías de ADO.NET para desarrollo orientado a datos</li>
-                    <li>Permite trabajar con datos en forma de objetos y propiedades</li>
-                    <li>Componente de .NET Framework</li>
+                  <li>Conjunto de tecnologías de ADO.NET para desarrollo orientado a datos</li>
+                  <li>Permite trabajar con datos en forma de objetos y propiedades</li>
+                  <li>Componente de .NET Framework</li>
                 </ul>
-            </li>
-        </ul>
-    </span>
-
-    <span id="3061101005">
-        <h3>Componentes de ADO.NET</h3>
-        <h4>Proveedores de datos de .NET Framework:</h4>
-        <ul>
-            <li><strong>Connection</strong>: proporciona conectividad a un origen de datos</li>
-            <li><strong>Command</strong>: permite acceso a comandos de base de datos</li>
-            <li><strong>DataReader</strong>: proporciona secuencia de datos de alto rendimiento</li>
-            <li><strong>DataAdapter</strong>: puente entre el DataSet y el origen de datos</li>
-        </ul>
-
-        <h4>DataSet:</h4>
-        <ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101005">
+        <h3>🧩 Componentes de ADO.NET</h3>
+        
+        <div class="component-grid">
+          <div class="component-item">
+            <h4><span class="icon">🔌</span> Connection</h4>
+            <p>Proporciona conectividad a un origen de datos</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">⚙️</span> Command</h4>
+            <p>Permite acceso a comandos de base de datos</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">📖</span> DataReader</h4>
+            <p>Proporciona secuencia de datos de alto rendimiento</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">🔄</span> DataAdapter</h4>
+            <p>Puente entre el DataSet y el origen de datos</p>
+          </div>
+        </div>
+  
+        <div class="component-item">
+          <h4><span class="icon">📊</span> DataSet</h4>
+          <ul>
             <li>Diseñado para acceso a datos independiente del origen</li>
             <li>Utilizable con múltiples orígenes de datos</li>
             <li>Contiene colección de objetos DataTable con información sobre claves y relaciones</li>
-        </ul>
-    </span>
-
-    <span id="3061101006">
-        <h2>Modelo de programación</h2>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101006">
+        <h2>🧰 Modelo de programación</h2>
         <p>.NET unifica todos los modelos de programación ofreciendo:</p>
         <ul>
-            <li>Una única API</li>
-            <li>Un único entorno de ejecución</li>
-            <li>Un único conjunto de bibliotecas</li>
-            <li>Una única herramienta de desarrollo</li>
+          <li>Una única API</li>
+          <li>Un único entorno de ejecución</li>
+          <li>Un único conjunto de bibliotecas</li>
+          <li>Una única herramienta de desarrollo</li>
         </ul>
-
+  
         <h3>Modelos de programación ASP.NET:</h3>
         <ol>
-            <li><strong>ASP.NET Web Forms</strong>
-                <ul>
-                    <li>Primer modelo de programación</li>
-                    <li>Basado en eventos y controles</li>
-                    <li>Favorece la productividad mediante programación declarativa</li>
-                </ul>
-            </li>
-            <li><strong>ASP.NET MVC</strong>
-                <ul>
-                    <li>Alternativa a Web Forms</li>
-                    <li>Basado en el patrón MVC (Modelo, Vista, Controlador)</li>
-                    <li>Integración con pruebas unitarias</li>
-                    <li>Separación entre lógica de presentación, negocio y datos</li>
-                </ul>
-            </li>
-            <li><strong>ASP.NET Web Pages</strong>
-                <ul>
-                    <li>Modelo más reciente</li>
-                    <li>Más simple y rápido de aprender</li>
-                    <li>Mantiene toda la funcionalidad de ASP.NET</li>
-                </ul>
-            </li>
+          <li><strong>ASP.NET Web Forms</strong>
+            <ul>
+              <li>Primer modelo de programación</li>
+              <li>Basado en eventos y controles</li>
+              <li>Favorece la productividad mediante programación declarativa</li>
+            </ul>
+          </li>
+          <li><strong>ASP.NET MVC</strong>
+            <ul>
+              <li>Alternativa a Web Forms</li>
+              <li>Basado en el patrón MVC (Modelo, Vista, Controlador)</li>
+              <li>Integración con pruebas unitarias</li>
+              <li>Separación entre lógica de presentación, negocio y datos</li>
+            </ul>
+          </li>
+          <li><strong>ASP.NET Web Pages</strong>
+            <ul>
+              <li>Modelo más reciente</li>
+              <li>Más simple y rápido de aprender</li>
+              <li>Mantiene toda la funcionalidad de ASP.NET</li>
+            </ul>
+          </li>
         </ol>
-    </span>
-
-    <span id="3061101007">
-        <h2>13. SERVICIOS</h2>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101007">
+        <h2>🔄 13. SERVICIOS</h2>
         <p>Aspectos importantes en el diseño de servicios:</p>
         <ul>
-            <li>Seguridad en transferencia de mensajes</li>
-            <li>Interoperabilidad</li>
-            <li>Modelos de mensajería</li>
-            <li>Gestión de excepciones</li>
+          <li>Seguridad en transferencia de mensajes</li>
+          <li>Interoperabilidad</li>
+          <li>Modelos de mensajería</li>
+          <li>Gestión de excepciones</li>
         </ul>
-
-        <h3>Mecanismos de seguridad en servicios Web XML:</h3>
-        <ul>
-            <li>Seguridad a nivel de transporte (SSL)</li>
-            <li>Seguridad a nivel del mensaje (WS-Security)</li>
-        </ul>
-
-        <h3>Modelos de intercambio de mensajes WCF:</h3>
-        <ul>
-            <li>Petición-Respuesta (síncrono)</li>
-            <li>Asíncrono (one-way)</li>
-            <li>Duplex</li>
-        </ul>
-    </span>
-
-    <span id="3061101008">
-        <h3>13.1 Servicios de Azure</h3>
+  
+        <div class="component-grid">
+          <div class="component-item">
+            <h4><span class="icon">🔒</span> Mecanismos de seguridad en servicios Web XML</h4>
+            <ul>
+              <li>Seguridad a nivel de transporte (SSL)</li>
+              <li>Seguridad a nivel del mensaje (WS-Security)</li>
+            </ul>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">💬</span> Modelos de intercambio de mensajes WCF</h4>
+            <ul>
+              <li>Petición-Respuesta (síncrono)</li>
+              <li>Asíncrono (one-way)</li>
+              <li>Duplex</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101008">
+        <h3>☁️ 13.1 Servicios de Azure</h3>
         <p>Azure es un conjunto integral de servicios en la nube que incluye:</p>
-
-        <h4>AZURE IAAS (Infraestructura como servicio)</h4>
-        <ul>
-            <li>Infraestructura segura y escalable</li>
-            <li>Despliegue de entornos híbridos</li>
-            <li>Protección de aplicaciones</li>
-            <li>Reducción de costes de infraestructura</li>
-        </ul>
-
-        <h4>AZURE PAAS (Plataforma como servicio)</h4>
-        <ul>
-            <li>Gestión del ciclo de vida de aplicaciones web</li>
-            <li>Modelo de pago por uso</li>
-            <li>Sin preocupación por mantenimiento de servidores</li>
-        </ul>
-
-        <h4>AZURE SAAS (Software como servicio)</h4>
-        <ul>
-            <li>Acceso a aplicaciones a través de Internet</li>
-            <li>Soluciones de software completas</li>
-            <li>Hardware y plataforma ofrecida por el proveedor</li>
-        </ul>
-    </span>
-
-    <span id="3061101009">
-        <h2>14. HERRAMIENTAS</h2>
-        <h3>Team Foundation Server (TFS)</h3>
-        <ul>
-            <li>Administración de código fuente</li>
-            <li>Gestión de proyectos</li>
-            <li>Compilaciones automatizadas</li>
-            <li>Pruebas y liberación</li>
-            <li>Cubre todo el ciclo de vida de la aplicación</li>
-        </ul>
-
-        <h3>Visual Studio.NET</h3>
-        <p>IDE (Entorno Integrado de Desarrollo) con características:</p>
-        <ul>
-            <li>Soporte para múltiples lenguajes .NET</li>
-            <li>Plataforma completa para Servicios Web</li>
-            <li>Desarrollo Rápido de Aplicaciones (RAD)</li>
-            <li>Diseñadores visuales</li>
-            <li>Depuración extremo a extremo</li>
-            <li>Tecnología Intellisense y Ayuda Dinámica</li>
-        </ul>
-    </span>
-
-    <span id="3061101010">
-        <h3>Herramientas de .NET Framework</h3>
+  
+        <div class="service-types">
+          <div class="service-type">
+            <h4>AZURE IAAS (Infraestructura como servicio)</h4>
+            <ul>
+              <li>Infraestructura segura y escalable</li>
+              <li>Despliegue de entornos híbridos</li>
+              <li>Protección de aplicaciones</li>
+              <li>Reducción de costes de infraestructura</li>
+            </ul>
+          </div>
+          
+          <div class="service-type">
+            <h4>AZURE PAAS (Plataforma como servicio)</h4>
+            <ul>
+              <li>Gestión del ciclo de vida de aplicaciones web</li>
+              <li>Modelo de pago por uso</li>
+              <li>Sin preocupación por mantenimiento de servidores</li>
+            </ul>
+          </div>
+          
+          <div class="service-type">
+            <h4>AZURE SAAS (Software como servicio)</h4>
+            <ul>
+              <li>Acceso a aplicaciones a través de Internet</li>
+              <li>Soluciones de software completas</li>
+              <li>Hardware y plataforma ofrecida por el proveedor</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101009">
+        <h2>🛠️ 14. HERRAMIENTAS</h2>
+        
+        <div class="component-grid">
+          <div class="component-item">
+            <h4><span class="icon">🔄</span> Team Foundation Server (TFS)</h4>
+            <ul>
+              <li>Administración de código fuente</li>
+              <li>Gestión de proyectos</li>
+              <li>Compilaciones automatizadas</li>
+              <li>Pruebas y liberación</li>
+              <li>Cubre todo el ciclo de vida de la aplicación</li>
+            </ul>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">💻</span> Visual Studio.NET</h4>
+            <p>IDE (Entorno Integrado de Desarrollo) con características:</p>
+            <ul>
+              <li>Soporte para múltiples lenguajes .NET</li>
+              <li>Plataforma completa para Servicios Web</li>
+              <li>Desarrollo Rápido de Aplicaciones (RAD)</li>
+              <li>Diseñadores visuales</li>
+              <li>Depuración extremo a extremo</li>
+              <li>Tecnología Intellisense y Ayuda Dinámica</li>
+            </ul>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="data-card">
+      <span id="3061101010">
+        <h3>🧰 Herramientas de .NET Framework</h3>
         <p>Principales herramientas:</p>
-        <ul>
-            <li><strong>Al.exe</strong>: Assembly Linker para generar archivos con manifiesto</li>
-            <li><strong>Caspol.exe</strong>: Herramienta de directiva de seguridad</li>
-            <li><strong>Gacutil.exe</strong>: Herramienta Caché global de ensamblados</li>
-            <li><strong>Ngen.exe</strong>: Generador de imágenes nativas</li>
-            <li><strong>SignTool.exe</strong>: Firma digital de archivos</li>
-            <li><strong>Sn.exe</strong>: Herramienta de nombre seguro</li>
-            <li><strong>Winmdexp.exe</strong>: Herramienta de exportación de metadatos</li>
-        </ul>
-    </span>
-</div>
+        <div class="component-grid">
+          <div class="component-item">
+            <h4><span class="icon">🔗</span> Al.exe</h4>
+            <p>Assembly Linker para generar archivos con manifiesto</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">🔒</span> Caspol.exe</h4>
+            <p>Herramienta de directiva de seguridad</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">📦</span> Gacutil.exe</h4>
+            <p>Herramienta Caché global de ensamblados</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">⚙️</span> Ngen.exe</h4>
+            <p>Generador de imágenes nativas</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">✍️</span> SignTool.exe</h4>
+            <p>Firma digital de archivos</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">🔐</span> Sn.exe</h4>
+            <p>Herramienta de nombre seguro</p>
+          </div>
+          
+          <div class="component-item">
+            <h4><span class="icon">📤</span> Winmdexp.exe</h4>
+            <p>Herramienta de exportación de metadatos</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>

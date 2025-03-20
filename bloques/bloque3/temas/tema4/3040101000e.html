@@ -7,84 +7,261 @@
 </head>
 <body>
     <div class="teoria">
-        <span id="3040101001">
-            <h1>2. ANSI SQL</h1>
-            <p>En la actualidad SQL es el estándar de facto de la inmensa mayoría de los SGBD comerciales.
-            Cualquier Sistema Gestor de Bases de Datos Relacional que se precie hoy en día debe ser
-            compatible con el estándar SQL-92.</p>
-            <p>A partir de éste estándar diferentes SGBDR han ampliado la funcionalidad dando lugar a sus
-            propios lenguajes comerciales:</p>
-            <ul>
-                <li>SQL Server implementa el lenguaje TSQL (Transact SQL)</li>
-                <li>Oracle implementa el lenguaje PL/SQL</li>
-            </ul>
-            <p>La última versión es el ANSI SQL:2016</p>
-        </span>
+        <div class="header-container" id="3040101001">
+            <h1 class="main-title">1.1 ANSI SQL</h1>
+            <div class="intro-card">
+                <div class="intro-icon">📊</div>
+                <div class="intro-content">
+                    <p>En la actualidad SQL es el estándar de facto de la inmensa mayoría de los SGBD comerciales.
+                    Cualquier Sistema Gestor de Bases de Datos Relacional que se precie hoy en día debe ser
+                    compatible con el estándar SQL-92.</p>
+                    <p>A partir de éste estándar diferentes SGBDR han ampliado la funcionalidad dando lugar a sus
+                    propios lenguajes comerciales:</p>
+                    <div class="sql-dialects">
+                        <div class="dialect-item">
+                            <div class="dialect-icon">🪟</div>
+                            <div class="dialect-name">SQL Server implementa el lenguaje TSQL (Transact SQL)</div>
+                        </div>
+                        <div class="dialect-item">
+                            <div class="dialect-icon">🏛️</div>
+                            <div class="dialect-name">Oracle implementa el lenguaje PL/SQL</div>
+                        </div>
+                    </div>
+                    <p>La última versión es el ANSI SQL:2016</p>
+                </div>
+            </div>
+        </div>
 
-        <span id="3040101002">
-            <table border="1">
-                <tr>
-                    <th>Año</th>
-                    <th>Nombre</th>
-                    <th>Alias</th>
-                    <th>Comentarios</th>
-                </tr>
-                <tr>
-                    <td>1986</td>
-                    <td>SQL-86</td>
-                    <td>SQL-87</td>
-                    <td>Primera publicación hecha por ANSI. Confirmada por la Organización Internacional de Normalización en 1987.</td>
-                </tr>
-                <tr>
-                    <td>1989</td>
-                    <td>SQL-89</td>
-                    <td></td>
-                    <td>Revisión menor.</td>
-                </tr>
-                <tr>
-                    <td>1992</td>
-                    <td>SQL-92</td>
-                    <td>SQL2</td>
-                    <td>Revisión mayor.</td>
-                </tr>
-                <tr>
-                    <td>1999</td>
-                    <td>SQL:1999</td>
-                    <td>SQL2000</td>
-                    <td>Se agregaron expresiones regulares, consultas recursivas (para relaciones jerárquicas), triggers y algunas características orientadas a objetos.</td>
-                </tr>
-                <tr>
-                    <td>2003</td>
-                    <td>SQL:2003</td>
-                    <td></td>
-                    <td>Introduce algunas características de XML, cambios en las funciones, estandarización del objeto sequence y de las columnas autonuméricas.</td>
-                </tr>
-                <tr>
-                    <td>2006</td>
-                    <td>SQL:2006</td>
-                    <td></td>
-                    <td>ISO/IEC 9075-14:2006 Define las maneras en las cuales SQL se puede utilizar conjuntamente con XML. Define maneras de importar y guardar datos XML en una base de datos SQL, manipulándolos dentro de la base de datos y publicando el XML y los datos SQL convencionales en forma XML. Además, proporciona facilidades que permiten a las aplicaciones integrar dentro de su código SQL el uso de XQuery, lenguaje de consulta XML publicado por el W3C (World Wide Web Consortium) para acceso concurrente a datos ordinarios SQL y documentos XML.</td>
-                </tr>
-                <tr>
-                    <td>2008</td>
-                    <td>SQL:2008</td>
-                    <td></td>
-                    <td>Permite el uso de la cláusula ORDER BY fuera de las definiciones de los cursores. Incluye los disparadores del tipo INSTEAD OF. Añade la sentencia TRUNCATE.</td>
-                </tr>
-                <tr>
-                    <td>2011</td>
-                    <td>SQL:2011</td>
-                    <td></td>
-                    <td>Datos temporales (PERIOD FOR). Mejoras en las funciones de ventana y de la cláusula FETCH.</td>
-                </tr>
-                <tr>
-                    <td>2016</td>
-                    <td>SQL:2016</td>
-                    <td></td>
-                    <td>Permite búsqueda de patrones, funciones de tabla polimórficas y compatibilidad con los ficheros JSON.</td>
-                </tr>
-            </table>
-        </span>
+        <div class="section-container" id="3040101002">
+            <div class="timeline-card">
+                <h2 class="timeline-title">Evolución de ANSI SQL</h2>
+                <div class="table-responsive">
+                    <table class="timeline-table">
+                        <thead>
+                            <tr>
+                                <th>Año</th>
+                                <th>Nombre</th>
+                                <th>Alias</th>
+                                <th>Comentarios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1986</td>
+                                <td>SQL-86</td>
+                                <td>SQL-87</td>
+                                <td>Primera publicación hecha por ANSI. Confirmada por la Organización Internacional de Normalización en 1987.</td>
+                            </tr>
+                            <tr>
+                                <td>1989</td>
+                                <td>SQL-89</td>
+                                <td></td>
+                                <td>Revisión menor.</td>
+                            </tr>
+                            <tr>
+                                <td>1992</td>
+                                <td>SQL-92</td>
+                                <td>SQL2</td>
+                                <td>Revisión mayor.</td>
+                            </tr>
+                            <tr>
+                                <td>1999</td>
+                                <td>SQL:1999</td>
+                                <td>SQL2000</td>
+                                <td>Se agregaron expresiones regulares, consultas recursivas (para relaciones jerárquicas), triggers y algunas características orientadas a objetos.</td>
+                            </tr>
+                            <tr>
+                                <td>2003</td>
+                                <td>SQL:2003</td>
+                                <td></td>
+                                <td>Introduce algunas características de XML, cambios en las funciones, estandarización del objeto sequence y de las columnas autonuméricas.</td>
+                            </tr>
+                            <tr>
+                                <td>2006</td>
+                                <td>SQL:2006</td>
+                                <td></td>
+                                <td>ISO/IEC 9075-14:2006 Define las maneras en las cuales SQL se puede utilizar conjuntamente con XML. Define maneras de importar y guardar datos XML en una base de datos SQL, manipulándolos dentro de la base de datos y publicando el XML y los datos SQL convencionales en forma XML. Además, proporciona facilidades que permiten a las aplicaciones integrar dentro de su código SQL el uso de XQuery, lenguaje de consulta XML publicado por el W3C (World Wide Web Consortium) para acceso concurrente a datos ordinarios SQL y documentos XML.</td>
+                            </tr>
+                            <tr>
+                                <td>2008</td>
+                                <td>SQL:2008</td>
+                                <td></td>
+                                <td>Permite el uso de la cláusula ORDER BY fuera de las definiciones de los cursores. Incluye los disparadores del tipo INSTEAD OF. Añade la sentencia TRUNCATE.</td>
+                            </tr>
+                            <tr>
+                                <td>2011</td>
+                                <td>SQL:2011</td>
+                                <td></td>
+                                <td>Datos temporales (PERIOD FOR). Mejoras en las funciones de ventana y de la cláusula FETCH.</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>2016</td>
+                                <td>SQL:2016</td>
+                                <td></td>
+                                <td>Permite búsqueda de patrones, funciones de tabla polimórficas y compatibilidad con los ficheros JSON.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+<style>
+    .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Header */
+    .header-container {
+        margin-bottom: 2rem;
+    }
+    
+    .main-title {
+        color: var(--color-primary);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    /* Intro Card */
+    .intro-card {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 1.5rem;
+    }
+    
+    .intro-icon {
+        font-size: 2.5rem;
+        margin-right: 20px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .intro-content {
+        flex: 1;
+    }
+    
+    /* SQL Dialects */
+    .sql-dialects {
+        margin: 15px 0;
+    }
+    
+    .dialect-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(59, 130, 246, 0.03);
+        border-radius: 6px;
+        transition: var(--transition);
+    }
+    
+    .dialect-item:hover {
+        transform: translateX(5px);
+        background-color: rgba(59, 130, 246, 0.08);
+    }
+    
+    .dialect-icon {
+        font-size: 1.5rem;
+        margin-right: 15px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .dialect-name {
+        font-weight: 500;
+    }
+    
+    /* Section Container */
+    .section-container {
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Timeline Card */
+    .timeline-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+    }
+    
+    .timeline-title {
+        color: var(--color-primary-dark);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--color-primary-light);
+    }
+    
+    /* Table */
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .timeline-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-table th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    .timeline-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .timeline-table tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+    }
+    
+    .timeline-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    .highlight-row {
+        background-color: rgba(59, 130, 246, 0.15) !important;
+        font-weight: bold;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .intro-card {
+            flex-direction: column;
+        }
+        
+        .intro-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .timeline-table {
+            font-size: 0.9rem;
+        }
+        
+        .timeline-table th, .timeline-table td {
+            padding: 8px 10px;
+        }
+    }
+</style>
 </body>
 </html>

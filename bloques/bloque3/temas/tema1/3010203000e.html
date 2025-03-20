@@ -1,51 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atributos</title>
+</head>
+<body>
 <div class="teoria">
-    <h2>2.3. ATRIBUTOS</h2>
+  <article>
+    <h2 class="section-title">2.3. ATRIBUTOS</h2>
     
-    <span id="3010203001">
-        <p>Un atributo es una propiedad o característica que describe de alguna manera a una entidad, es decir, un atributo es la propiedad o característica asociada a una determinada entidad o de una relación.</p>
-    </span>
-
-    <span id="3010203002">
-        <p>Se trata de la unidad básica de información que sirve para identificar o describir la entidad. Un atributo se define sobre un dominio (que un dominio es un conjunto nominado de valores homogéneos y que el dominio tiene existencia propia con independencia de cualquier entidad, relación o atributo).</p>
-    </span>
-
-    <span id="3010203003">
-        <p>En el diagrama de modelo conceptual presentado en la imagen "Ejemplo de entidades, atributos y relaciones", los atributos están incorporados como nombres dentro de un rectángulo que representa la entidad a la que pertenecen.</p>
-    </span>
-
-    <h3>2.3.1. TIPOS DE ATRIBUTOS</h3>
-
-    <span id="3010203004">
-        <p>En función de sus características respecto de la entidad, los atributos pueden ser:</p>
-        <ul>
-            <li>Clave Primaria o identificador principal: hacen único el acceso a cada ocurrencia de entidad. Se representa por una elipse subrayado el atributo. Cada tipo de entidad ha de tener un conjunto mínimo de atributos que identifiquen unívocamente cada ocurrencia del tipo de entidad.</li>
-            <li>Podemos pensar en la existencia de varias claves sobre la misma entidad. Al conjunto de todas estas posibles claves se va a llamar, CLAVES CANDIDATAS o Alternativas.</li>
-        </ul>
-    </span>
-
-    <span id="3010203005">
-        <p>Atributo Descriptor: Caracteriza una ocurrencia pero no la distingue del resto de ocurrencias de entidad.</p>
-    </span>
-
-    <span id="3010203006">
-        <p>Restricciones sobre los atributos:</p>
-        <ul>
-            <li>Simple: atributos que no están divididos en partes, es decir, representan un valor indivisible.</li>
-            <li>Compuesto: atributo que puede ser subdividido en atributos más elementales: ejemplo dirección (puede estar dividido en calle, numero, portal, piso..).</li>
-            <li>Univaluado: atributo que sólo puede tomar un valor para todas y cada una de las ocurrencias del tipo de entidad al que pertenece.</li>
-            <li>Multivaluado: atributo que puede tomar más de un valor. (doble círculo) Ejemplo: teléfono (se pueden tener varios teléfonos).</li>
-            <li>Derivado: atributo cuyo valor se obtiene a partir de los valores de otros atributos de la misma o diferente tipo de entidad. Ejemplo: edad a partir de fecha de nacimiento.</li>
-            <li>Obligatorio: atributo que tiene que tomar al menos un valor para todas y cada una de las ocurrencias del tipo de entidad al que pertenece.</li>
-        </ul>
-    </span>
-
-    <h3>2.3.2. NOTACIÓN</h3>
-
-    <span id="3010203007">
-        <p>Un atributo se representa mediante una elipse, con su nombre dentro, conectada por una línea al tipo de entidad o relación.</p>
-    </span>
-
-    <span id="3010203008">
-        <p>En lugar de una elipse puede utilizarse un círculo con el nombre dentro, o un círculo más pequeño con el nombre del atributo a un lado. También pueden representarse en una lista asociada a la entidad. El identificador aparece con el nombre marcado o subrayado, o bien con su círculo en negro.</p>
-    </span>
+    <div class="content-block">
+      <div class="intro-card">
+        <div class="intro-icon">📝</div>
+        <div class="intro-content">
+          <p id="3010203001">Un atributo es una propiedad o característica que describe de alguna manera a una entidad, es decir, un atributo es la propiedad o característica asociada a una determinada entidad o de una relación.</p>
+          <p id="3010203002">Se trata de la unidad básica de información que sirve para identificar o describir la entidad. Un atributo se define sobre un dominio (que un dominio es un conjunto nominado de valores homogéneos y que el dominio tiene existencia propia con independencia de cualquier entidad, relación o atributo).</p>
+          <p id="3010203003">En el diagrama de modelo conceptual presentado en la imagen "Ejemplo de entidades, atributos y relaciones", los atributos están incorporados como nombres dentro de un rectángulo que representa la entidad a la que pertenecen.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">2.3.1. TIPOS DE ATRIBUTOS</h3>
+      
+      <div class="attribute-types-card">
+        <div class="types-content">
+          <div id="3010203004">
+            <p>En función de sus características respecto de la entidad, los atributos pueden ser:</p>
+            
+            <div class="attribute-type-item">
+              <div class="type-header">
+                <div class="type-icon">🔑</div>
+                <h4 class="type-title">Clave Primaria o identificador principal</h4>
+              </div>
+              <div class="type-description">
+                <p>Hacen único el acceso a cada ocurrencia de entidad. Se representa por una elipse subrayado el atributo. Cada tipo de entidad ha de tener un conjunto mínimo de atributos que identifiquen unívocamente cada ocurrencia del tipo de entidad.</p>
+                <p>Podemos pensar en la existencia de varias claves sobre la misma entidad. Al conjunto de todas estas posibles claves se va a llamar, CLAVES CANDIDATAS o Alternativas.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="attribute-type-item" id="3010203005">
+            <div class="type-header">
+              <div class="type-icon">📄</div>
+              <h4 class="type-title">Atributo Descriptor</h4>
+            </div>
+            <div class="type-description">
+              <p>Caracteriza una ocurrencia pero no la distingue del resto de ocurrencias de entidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="attribute-restrictions-card">
+        <h3 class="card-title">Restricciones sobre los atributos</h3>
+        <div class="restrictions-content" id="3010203006">
+          <div class="restriction-item">
+            <div class="restriction-icon">🔄</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Simple</h4>
+              <p>Atributos que no están divididos en partes, es decir, representan un valor indivisible.</p>
+            </div>
+          </div>
+          
+          <div class="restriction-item">
+            <div class="restriction-icon">📦</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Compuesto</h4>
+              <p>Atributo que puede ser subdividido en atributos más elementales: ejemplo dirección (puede estar dividido en calle, numero, portal, piso..).</p>
+            </div>
+          </div>
+          
+          <div class="restriction-item">
+            <div class="restriction-icon">1️⃣</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Univaluado</h4>
+              <p>Atributo que sólo puede tomar un valor para todas y cada una de las ocurrencias del tipo de entidad al que pertenece.</p>
+            </div>
+          </div>
+          
+          <div class="restriction-item">
+            <div class="restriction-icon">🔢</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Multivaluado</h4>
+              <p>Atributo que puede tomar más de un valor. (doble círculo) Ejemplo: teléfono (se pueden tener varios teléfonos).</p>
+            </div>
+          </div>
+          
+          <div class="restriction-item">
+            <div class="restriction-icon">🧮</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Derivado</h4>
+              <p>Atributo cuyo valor se obtiene a partir de los valores de otros atributos de la misma o diferente tipo de entidad. Ejemplo: edad a partir de fecha de nacimiento.</p>
+            </div>
+          </div>
+          
+          <div class="restriction-item">
+            <div class="restriction-icon">❗</div>
+            <div class="restriction-content">
+              <h4 class="restriction-title">Obligatorio</h4>
+              <p>Atributo que tiene que tomar al menos un valor para todas y cada una de las ocurrencias del tipo de entidad al que pertenece.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h3 class="subsection-title">2.3.2. NOTACIÓN</h3>
+      
+      <div class="notation-card">
+        <div class="notation-content">
+          <div class="notation-item" id="3010203007">
+            <div class="notation-description">
+              <p>Un atributo se representa mediante una elipse, con su nombre dentro, conectada por una línea al tipo de entidad o relación.</p>
+            </div>
+            <div class="notation-example">
+              <div class="attribute-diagram">
+                <div class="entity-box">Entidad</div>
+                <div class="attribute-connector"></div>
+                <div class="attribute-ellipse">Atributo</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="notation-item" id="3010203008">
+            <div class="notation-description">
+              <p>En lugar de una elipse puede utilizarse un círculo con el nombre dentro, o un círculo más pequeño con el nombre del atributo a un lado. También pueden representarse en una lista asociada a la entidad. El identificador aparece con el nombre marcado o subrayado, o bien con su círculo en negro.</p>
+            </div>
+            <div class="notation-examples-grid">
+              <div class="notation-example">
+                <div class="attribute-diagram-alt">
+                  <div class="entity-box">Entidad</div>
+                  <div class="attribute-connector"></div>
+                  <div class="attribute-circle">Atributo</div>
+                </div>
+              </div>
+              
+              <div class="notation-example">
+                <div class="attribute-diagram-alt">
+                  <div class="entity-box">Entidad</div>
+                  <div class="attribute-connector"></div>
+                  <div class="attribute-small-circle"></div>
+                  <div class="attribute-label">Atributo</div>
+                </div>
+              </div>
+              
+              <div class="notation-example">
+                <div class="attribute-diagram-alt">
+                  <div class="entity-box-with-list">
+                    <div class="entity-name">Entidad</div>
+                    <div class="attribute-list">
+                      <div class="attribute-item">Atributo1</div>
+                      <div class="attribute-item primary">Atributo2 (PK)</div>
+                      <div class="attribute-item">Atributo3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <div class="summary-card">
+        <h3 class="card-title">Resumen de Atributos</h3>
+        <div class="summary-content">
+          <div class="summary-item">
+            <div class="summary-icon">📝</div>
+            <div class="summary-text">
+              <p>Los atributos son las propiedades que describen a las entidades o relaciones.</p>
+            </div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-icon">🔑</div>
+            <div class="summary-text">
+              <p>Los atributos clave identifican unívocamente a las entidades.</p>
+            </div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-icon">🔄</div>
+            <div class="summary-text">
+              <p>Existen diferentes tipos de atributos según sus características y restricciones.</p>
+            </div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-icon">📊</div>
+            <div class="summary-text">
+              <p>La notación gráfica de los atributos puede variar según el contexto y la herramienta de modelado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+
+<style>
+  .teoria {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: "📝";
+    margin-right: 10px;
+  }
+  
+  .subsection-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  /* Intro Card */
+  .intro-card {
+    display: flex;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .intro-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  /* Attribute Types Card */
+  .attribute-types-card, .attribute-restrictions-card, .notation-card, .summary-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+  
+  .types-content, .restrictions-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .attribute-type-item, .restriction-item {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    transition: var(--transition);
+  }
+  
+  .attribute-type-item:hover, .restriction-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .type-header, .restriction-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .type-icon, .restriction-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .type-title, .restriction-title {
+    margin: 0;
+    color: var(--color-primary-dark);
+    font-size: 1.2rem;
+  }
+  
+  .restriction-item {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .restriction-content {
+    flex: 1;
+  }
+  
+  /* Notation */
+  .notation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .notation-item {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .notation-example {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .notation-examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  /* Attribute Diagrams */
+  .attribute-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .entity-box {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    font-weight: bold;
+  }
+  
+  .attribute-connector {
+    width: 2px;
+    height: 30px;
+    background-color: var(--color-primary);
+  }
+  
+  .attribute-ellipse {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-white);
+  }
+  
+  .attribute-circle {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-white);
+  }
+  
+  .attribute-small-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-white);
+  }
+  
+  .attribute-label {
+    margin-left: 10px;
+  }
+  
+  .attribute-diagram-alt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .attribute-diagram-alt:nth-child(2) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .entity-box-with-list {
+    width: 150px;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    overflow: hidden;
+  }
+  
+  .entity-name {
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .attribute-list {
+    padding: 10px;
+  }
+  
+  .attribute-item {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .attribute-item.primary {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .attribute-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Summary Card */
+  .summary-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .summary-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .summary-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .summary-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .summary-text {
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-card, .restriction-item {
+      flex-direction: column;
+    }
+    
+    .intro-icon, .restriction-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .notation-examples-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .summary-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</body>
+</html>

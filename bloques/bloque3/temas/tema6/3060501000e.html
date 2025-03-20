@@ -1,36 +1,195 @@
 <div class="teoria">
-    <span id="3060501001">
-        <h2>5.1 PRODUCTOS Y HERRAMIENTAS J2EE</h2>
-        <ul>
-            <li><strong>Apache Struts</strong>: código abierto. Más utilizado para Java</li>
-            <li><strong>Spring</strong>: código abierto. Inicialmente licencia Apache 2.0. Existe Spring.net</li>
-            <li><strong>Hibernate</strong>: open source</li>
-            <li><strong>WebWork</strong>: Pull HMVC (Hierarchical Model View Controller). Proviene de Struts</li>
-            <li><strong>Tapestry</strong>: Apache Software Foundation. Basado en componentes. Adopta MVC JSF</li>
-            <li><strong>iBATIS</strong>: código abierto, Apache Software Foundation</li>
-            <li><strong>Frameworks de JAX-RS y JAX-WS</strong></li>
-        </ul>
-    </span>
-
-    <span id="3060501002">
-        <h3>5.1.1 Patrones de diseño de Java EE</h3>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .tools-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .tools-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .tools-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .tool-item {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: var(--color-primary-dark);
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+      }
+      
+      .tool-item:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .tool-item .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .pattern-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .pattern-section h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        color: var(--color-primary-dark);
+      }
+      
+      .pattern-section h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .tools-card {
+          padding: 1rem;
+        }
+        
+        .tool-item {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  
+    <div class="tools-card">
+      <span id="3060501001">
+        <h2>🛠️ 5.1 PRODUCTOS Y HERRAMIENTAS J2EE</h2>
+        <div class="tools-list">
+          <div class="tool-item"><span class="icon">🔄</span><strong>Apache Struts</strong>: código abierto. Más utilizado para Java</div>
+          <div class="tool-item"><span class="icon">🌱</span><strong>Spring</strong>: código abierto. Inicialmente licencia Apache 2.0. Existe Spring.net</div>
+          <div class="tool-item"><span class="icon">💾</span><strong>Hibernate</strong>: open source</div>
+          <div class="tool-item"><span class="icon">🔄</span><strong>WebWork</strong>: Pull HMVC (Hierarchical Model View Controller). Proviene de Struts</div>
+          <div class="tool-item"><span class="icon">🧩</span><strong>Tapestry</strong>: Apache Software Foundation. Basado en componentes. Adopta MVC JSF</div>
+          <div class="tool-item"><span class="icon">🗃️</span><strong>iBATIS</strong>: código abierto, Apache Software Foundation</div>
+          <div class="tool-item"><span class="icon">🌐</span><strong>Frameworks de JAX-RS y JAX-WS</strong></div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="tools-card">
+      <span id="3060501002">
+        <h3>📐 5.1.1 Patrones de diseño de Java EE</h3>
         <p>Responden a soluciones para una serie de problemas que se repiten con cierta frecuencia en los sistemas de información.</p>
         <p>Se dividen en cinco capas: Cliente, Presentación, Negocios, Integración y Recursos</p>
-
-        <h4>Capa de Presentación</h4>
-        <ul>
+  
+        <div class="pattern-section">
+          <h4><span class="icon">👁️</span> Capa de Presentación</h4>
+          <ul>
             <li><strong>Decorating Filter/Intercepting Filter</strong>: Maneja varios tipos de peticiones que requieren un procesamiento determinado; especialmente aplicado a procesos de validación de sesión.</li>
             <li><strong>Front Controller</strong>: Acepta todas las peticiones de un cliente y las direcciona a los manejadores apropiados.</li>
             <li><strong>View Helper</strong>: Encapsula la lógica de acceso a bases de datos en beneficio de la capa de presentación.</li>
             <li><strong>Composite View</strong>: Elemento de la Vista compuesto por otros elementos del mismo tipo.</li>
             <li><strong>Service to Worker</strong>: Similar al MVC, emplea dos subpatrones, el Front Controller para el Controlador y el View Helper para la Vista.</li>
             <li><strong>Dispatcher View</strong>: Similar al MVC y al anterior, pero el Controller no realiza acciones sobre el Helper.</li>
-        </ul>
-    </span>
-
-    <span id="3060501003">
-        <h4>Capa de Negocio</h4>
-        <ul>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="tools-card">
+      <span id="3060501003">
+        <div class="pattern-section">
+          <h4><span class="icon">💼</span> Capa de Negocio</h4>
+          <ul>
             <li><strong>Business Delegate</strong>: Un objeto de la capa de presentación llama a métodos remotos de los objetos de la capa de negocio, se produce una búsqueda del elemento requerido, generando posteriormente una llamada al servicio en cuestión.</li>
             <li><strong>Transfer Object</strong>: Encapsula la serialización de un objeto que debe ser traspasado por la red.</li>
             <li><strong>Session Facade</strong>: Crea una fachada para encapsular las complejas interrelaciones de los distintos elementos de negocio.</li>
@@ -38,14 +197,20 @@
             <li><strong>Transfer Object Assembler</strong>: Es una combinación del Transfer Object y el Session Facade.</li>
             <li><strong>Value List Handler</strong>: Maneja la ejecución de sentencias SQL, empleando para ello Beans de Sesión.</li>
             <li><strong>Service Locator</strong>: Utilizado para abstraer toda la utilización de JNDI y de la creación de cualquier contexto inicial complejo.</li>
-        </ul>
-    </span>
-
-    <span id="3060501004">
-        <h4>Capa de Integración</h4>
-        <ul>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="tools-card">
+      <span id="3060501004">
+        <div class="pattern-section">
+          <h4><span class="icon">🔄</span> Capa de Integración</h4>
+          <ul>
             <li><strong>Data Access Object (DAO)</strong>: Crea un objeto que es un medio para el acceso a la Base de Datos de la aplicación, de forma que se abstraen y encapsulan todas las operaciones relacionadas con el tratamiento del acceso a datos.</li>
             <li><strong>Service Activator</strong>: Se utiliza para recibir peticiones y mensajes asíncronos por parte del cliente, buscando el elemento de negocio que contiene el método que se ha de invocar.</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

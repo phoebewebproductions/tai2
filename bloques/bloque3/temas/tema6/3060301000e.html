@@ -1,58 +1,217 @@
 <div class="teoria">
-    <span id="3060301001">
-        <h2>3.1 ARQUITECTURA DE UNA APLICACIÓN J2EE</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .arch-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .arch-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .component-card {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .component-card h4 {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+      }
+      
+      .component-card h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .flow-steps {
+        counter-reset: step;
+        padding-left: 2rem;
+      }
+      
+      .flow-step {
+        position: relative;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+      }
+      
+      .flow-step::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: -2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "✓";
+        color: var(--color-primary);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .arch-card {
+          padding: 1rem;
+        }
+      }
+    </style>
+  
+    <div class="arch-card">
+      <span id="3060301001">
+        <h2>🏗️ 3.1 ARQUITECTURA DE UNA APLICACIÓN J2EE</h2>
         <p>La arquitectura J2EE se puede observar en el siguiente gráfico.</p>
         <p>Como podemos observar, la arquitectura es multicapa en la que aparecen cuatro grandes bloques identificados por el contenedor en el que se ejecutan. Se definen dos tipos de contenedores que se encuentran en las máquinas cliente y dos tipos de contenedores que se encuadran en las máquinas servidores.</p>
         <p>Ahora analizaremos cada uno de los componentes que componen la arquitectura. Servlets y JavaServer Pages (JSP) son los componentes del nivel de presentación.</p>
-    </span>
-
-    <span id="3060301002">
-        <h3>3.1.1. Servlet</h3>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3060301002">
+        <h3>🔄 3.1.1. Servlet</h3>
         <p>Es un componente de la capa de presentación, alojado en el contenedor web. Se utiliza para generar contenido dinámico: texto (HTML o XML), imágenes, sonido, animación, los cuales son invocados a través de una URL.</p>
         <p>Su objetivo principal es generar contenido para que lo maquete otro, reseñar que lo hace de forma dinámica.</p>
         
-        <h4>Características principales:</h4>
-        <ul>
+        <div class="component-card">
+          <h4><span class="icon">📋</span> Características principales:</h4>
+          <ul>
             <li>Se puede invocar desde una URL.</li>
             <li>Java code: fácil controlar el flujo de acciones.</li>
             <li>Forma de gestionar una petición.</li>
-        </ul>
-
-        <h4>Proceso de gestión de peticiones:</h4>
-        <p>A la hora de gestionar una petición, el servidor web procesa la petición y la redirige hacia el contenedor web o de servlets, a continuación, el contenedor asocia la petición con el tipo de objeto de respuesta que ha de generar. Tras ello ejecuta el método <strong>doGet()</strong> o <strong>doPost()</strong>, dependiendo de la llamada, analiza la petición que llega con <strong>HttpServletRequest</strong> y se devuelve con <strong>HttpServletResponse</strong>, que, por último, genera la página HTML o XML devuelta al cliente.</p>
-
-        <h4>Empaquetamiento:</h4>
-        <p>La aplicación web se empaqueta en un fichero <strong>.war</strong>, que contendrá:</p>
-        <ul>
+          </ul>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">🔄</span> Proceso de gestión de peticiones:</h4>
+          <p>A la hora de gestionar una petición, el servidor web procesa la petición y la redirige hacia el contenedor web o de servlets, a continuación, el contenedor asocia la petición con el tipo de objeto de respuesta que ha de generar. Tras ello ejecuta el método <strong>doGet()</strong> o <strong>doPost()</strong>, dependiendo de la llamada, analiza la petición que llega con <strong>HttpServletRequest</strong> y se devuelve con <strong>HttpServletResponse</strong>, que, por último, genera la página HTML o XML devuelta al cliente.</p>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">📦</span> Empaquetamiento:</h4>
+          <p>La aplicación web se empaqueta en un fichero <strong>.war</strong>, que contendrá:</p>
+          <ul>
             <li>Un directorio <strong>WEB-INF/classes</strong>, que contiene los ficheros .class</li>
             <li>Un directorio <strong>WEB-INF/lib</strong>, con los ficheros .jar de librerías</li>
             <li>Un directorio <strong>WEB-INF/web.xml</strong> -> configuración estándar de la aplicación web</li>
-        </ul>
-    </span>
-
-    <span id="3060301003">
-        <h3>3.1.2. Java Server Pages (JSP)</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3060301003">
+        <h3>📄 3.1.2. Java Server Pages (JSP)</h3>
         <p>Una página JSP es un documento de texto que contiene HTML y bloques de código Java embebido que se ejecuta en el servidor para generar el contenido dinámico de una página web. Representa la parte de Vista del modelo MVC.</p>
         <p>Es un lenguaje de marcado basado en etiquetas, con el que es fácil representar información. La forma de invocarlo es una URL que termina en .jsp.</p>
-
-        <h4>Flujo de ejecución:</h4>
-        <ul>
-            <li>El cliente hace una petición HTTP al servidor web de una página JSP</li>
-            <li>El servidor web identifica la petición como una URL que está asociada con algo que se debe ejecutar en el contenedor web y reenvía la petición al contenedor</li>
-            <li>El contenedor sabe que la petición de una página JSP es la petición del servlet generado a partir de la página -> busca la clase compilada y generada a partir del JSP</li>
-            <li>Si es la primera vez, el servidor de aplicaciones genera un servlet (implementa javax.servlet.jsp.HttpJspPage) a partir de la página JSP, lo compila y lo carga en memoria</li>
-            <li>Si no es la primera vez, le pasa la petición al servlet (ya compilado y creado en memoria)</li>
-        </ul>
-    </span>
-
-    <span id="3060301004">
-        <h3>3.1.3. EJB (Enterprise JavaBeans)</h3>
+  
+        <div class="component-card">
+          <h4><span class="icon">🔄</span> Flujo de ejecución:</h4>
+          <div class="flow-steps">
+            <div class="flow-step">El cliente hace una petición HTTP al servidor web de una página JSP</div>
+            <div class="flow-step">El servidor web identifica la petición como una URL que está asociada con algo que se debe ejecutar en el contenedor web y reenvía la petición al contenedor</div>
+            <div class="flow-step">El contenedor sabe que la petición de una página JSP es la petición del servlet generado a partir de la página -> busca la clase compilada y generada a partir del JSP</div>
+            <div class="flow-step">Si es la primera vez, el servidor de aplicaciones genera un servlet (implementa javax.servlet.jsp.HttpJspPage) a partir de la página JSP, lo compila y lo carga en memoria</div>
+            <div class="flow-step">Si no es la primera vez, le pasa la petición al servlet (ya compilado y creado en memoria)</div>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3060301004">
+        <h3>🧩 3.1.3. EJB (Enterprise JavaBeans)</h3>
         <p>Son los componentes de servidor que encapsulan la lógica de negocio de una aplicación. Se pueden ejecutar de forma distribuida.</p>
         <p>Fundamentalmente son servicios que proporciona por programas que residen en un servidor web a otros programas que residen en otro servidor web mediante http.</p>
         <p>Se ejecutan en contenedores EJB.</p>
-
-        <h4>Historia de los EJB:</h4>
-        <ul>
+  
+        <div class="component-card">
+          <h4><span class="icon">📜</span> Historia de los EJB:</h4>
+          <ul>
             <li><strong>EJB 1.0</strong>: la especificación original</li>
             <li><strong>EJB 1.1</strong>: la primera incluida dentro de J2EE</li>
             <li><strong>EJB 2.0</strong>: incluida en J2EE 1.3, añadía las interfaces locales y los Message-Driven beans</li>
@@ -60,70 +219,84 @@
             <li><strong>EJB 3.0</strong>: Ahora con Clúster y está incluida en JEE 5.1</li>
             <li><strong>EJB 3.1</strong>: incluida en JavaEE 6 en diciembre de 2009</li>
             <li><strong>EJB 3.2</strong>: incluida en JavaEE 7 y JavaEE 8</li>
-        </ul>
-
-        <h4>Tipos de EJBs:</h4>
-        <ul>
+          </ul>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">🧩</span> Tipos de EJBs:</h4>
+          <ul>
             <li><strong>Session beans</strong>
-                <ul>
-                    <li>Transacción en el lado del servidor</li>
-                    <li>No persistentes</li>
-                    <li>Tipos:
-                        <ul>
-                            <li>SLSB -> sin estado (no guardan información entre diferentes llamadas del cliente)</li>
-                            <li>SFSB -> mantienen estado entre llamadas del cliente (muy pesados -> mantenerse en memoria)</li>
-                        </ul>
-                    </li>
-                </ul>
+              <ul>
+                <li>Transacción en el lado del servidor</li>
+                <li>No persistentes</li>
+                <li>Tipos:
+                  <ul>
+                    <li>SLSB -> sin estado (no guardan información entre diferentes llamadas del cliente)</li>
+                    <li>SFSB -> mantienen estado entre llamadas del cliente (muy pesados -> mantenerse en memoria)</li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li><strong>Entity beans</strong>
-                <ul>
-                    <li>Entidades del negocio que perduran en el tiempo (mapean una tabla de un SGBD para hacer de caché)</li>
-                    <li>Tipos:
-                        <ul>
-                            <li>BMP -> la persistencia la gestiona el propio bean mediante instrucciones del desarrollador</li>
-                            <li>CMP -> persistencia gestionada por el contenedor</li>
-                        </ul>
-                    </li>
-                </ul>
+              <ul>
+                <li>Entidades del negocio que perduran en el tiempo (mapean una tabla de un SGBD para hacer de caché)</li>
+                <li>Tipos:
+                  <ul>
+                    <li>BMP -> la persistencia la gestiona el propio bean mediante instrucciones del desarrollador</li>
+                    <li>CMP -> persistencia gestionada por el contenedor</li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li><strong>Message-driven beans</strong>
-                <ul>
-                    <li>Similares a los beans de sesión, pero trabajan de forma asíncrona</li>
-                    <li>Útiles cuando las operaciones a realizar son muy costosas en tiempo</li>
-                </ul>
+              <ul>
+                <li>Similares a los beans de sesión, pero trabajan de forma asíncrona</li>
+                <li>Útiles cuando las operaciones a realizar son muy costosas en tiempo</li>
+              </ul>
             </li>
-        </ul>
-    </span>
-
-    <span id="3060301005">
-        <h3>3.1.4. Contenedores</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3060301005">
+        <h3>📦 3.1.4. Contenedores</h3>
         <p>Es el software responsable de ofrecer servicios de ejecución a los componentes J2EE. Estos servicios se prestan a través del conjunto de APIs.</p>
         <p>Las llamadas a las APIs se hacen a través de los contenedores.</p>
-
-        <h4>Tipos de contenedores:</h4>
-        <ul>
+  
+        <div class="component-card">
+          <h4><span class="icon">🧰</span> Tipos de contenedores:</h4>
+          <ul>
             <li>Contenedores de applets</li>
             <li>Contenedores de aplicaciones Java en cliente</li>
             <li>Contenedores de componentes web</li>
             <li>Contenedores de EJBs: Lugar donde residen y se ejecutan los EJBs instalados en un servidor de aplicaciones</li>
-        </ul>
-
-        <h4>3.1.4.1. Contenedor Web</h4>
-        <p>Un contenedor web es el encargado de ejecutar los componentes web (servlets y páginas web creadas con JSF o JSPs) y de proporcionarles los servicios necesarios de seguridad, concurrencia, transacciones, implantación, etc.</p>
-        
-        <p>Es importante no confundir un contenedor web con un servidor web: un servidor web está optimizado fundamentalmente para servir páginas HTML estáticas, mientras que un contenedor web actúa como una capa intermedia de software entre el servidor web y el servlet.</p>
-
-        <h4>Funcionamiento:</h4>
-        <ol>
+          </ul>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">🌐</span> 3.1.4.1. Contenedor Web</h4>
+          <p>Un contenedor web es el encargado de ejecutar los componentes web (servlets y páginas web creadas con JSF o JSPs) y de proporcionarles los servicios necesarios de seguridad, concurrencia, transacciones, implantación, etc.</p>
+          
+          <p>Es importante no confundir un contenedor web con un servidor web: un servidor web está optimizado fundamentalmente para servir páginas HTML estáticas, mientras que un contenedor web actúa como una capa intermedia de software entre el servidor web y el servlet.</p>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">🔄</span> Funcionamiento:</h4>
+          <ol>
             <li>El servidor web transmite la petición HTTP al contenedor, éste crea un objeto que implementa la interfaz HttpServletRequest y pasa la petición al servlet.</li>
             <li>El servlet ejecuta su lógica, haciendo las llamadas oportunas a la lógica de negocio y genera una respuesta que el contenedor transmite al servidor web.</li>
             <li>Por cada petición HTTP el contenedor es responsable de crear y gestionar un nuevo hilo de ejecución que sirva la petición.</li>
-        </ol>
-
-        <h4>3.1.4.2. Contenedor EJB</h4>
-        <p>El contenedor de EJB es el lugar donde residen y se ejecutan los EJBs instalados en un servidor de aplicaciones Java EE. Proporciona a los EJB un conjunto de servicios como caché, concurrencia, persistencia de los objetos, seguridad, gestión de transacciones, bloqueos, etc.</p>
-        
-        <p>Un contenedor de EJBs se arranca automáticamente cuando se arranca el servidor de aplicaciones. En un mismo contenedor pueden residir varios EJBs.</p>
-    </span>
-</div>
+          </ol>
+        </div>
+  
+        <div class="component-card">
+          <h4><span class="icon">🧩</span> 3.1.4.2. Contenedor EJB</h4>
+          <p>El contenedor de EJB es el lugar donde residen y se ejecutan los EJBs instalados en un servidor de aplicaciones Java EE. Proporciona a los EJB un conjunto de servicios como caché, concurrencia, persistencia de los objetos, seguridad, gestión de transacciones, bloqueos, etc.</p>
+          
+          <p>Un contenedor de EJBs se arranca automáticamente cuando se arranca el servidor de aplicaciones. En un mismo contenedor pueden residir varios EJBs.</p>
+        </div>
+      </span>
+    </div>
+  </div>

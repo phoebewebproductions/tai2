@@ -1,13 +1,183 @@
 <div class="teoria">
-    <span id="3100201001">
-        <h2>2.1. REPOSITORIO: ESTRUCTURA Y ACTUALIZACIÓN</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .repo-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .repo-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .feature-section {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .feature-section h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .feature-section h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .feature-item {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .feature-item:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .repo-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .repo-type {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        transition: var(--transition);
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .repo-type:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .repo-type strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .repo-card {
+          padding: 1rem;
+        }
+        
+        .feature-grid,
+        .repo-types {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="repo-card">
+      <span id="3100201001">
+        <h2>📦 2.1. REPOSITORIO: ESTRUCTURA Y ACTUALIZACIÓN</h2>
         <p>Un repositorio es un espacio que se utiliza para almacenar archivos y ficheros. Los repositorios de acceso abierto son espacios virtuales en los que se puede encontrar información científica de todo tipo y formatos.</p>
-    </span>
-
-    <span id="3100201002">
-        <h3>2.1.1. CARACTERÍSTICAS</h3>
-        <p>Algunas características de los repositorios son:</p>
-        <ul>
+      </span>
+    </div>
+  
+    <div class="repo-card">
+      <span id="3100201002">
+        <div class="feature-section">
+          <h3><span class="icon">✨</span> 2.1.1. CARACTERÍSTICAS</h3>
+          <p>Algunas características de los repositorios son:</p>
+          <ul>
             <li>Contenido que puede ser público o privado.</li>
             <li>Ayudan a conservar y preservar la propiedad intelectual.</li>
             <li>Pueden ser monotemáticos.</li>
@@ -15,40 +185,69 @@
             <li>Buscan aumentar la visibilidad de la obra o institución.</li>
             <li>Facilitan el acceso a los recursos.</li>
             <li>Es sostenible en el tiempo.</li>
-        </ul>
-
-        <p>A nivel tecnológico un repositorio está formado por:</p>
-        <ul>
+          </ul>
+  
+          <p>A nivel tecnológico un repositorio está formado por:</p>
+          <ul>
             <li>Objetos (Ficheros)</li>
             <li>Metadatos (Fecha de creación, publicación…)</li>
             <li>Identificador único del objeto.</li>
-        </ul>
-    </span>
-
-    <span id="3100201003">
-        <h3>2.1.2. CREACIÓN DE UN REPOSITORIO</h3>
-        <p>A la hora de gestionar la creación de un repositorio y su estructura hay que tener en cuenta los siguientes aspectos:</p>
-        <ul>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="repo-card">
+      <span id="3100201003">
+        <div class="feature-section">
+          <h3><span class="icon">🔨</span> 2.1.2. CREACIÓN DE UN REPOSITORIO</h3>
+          <p>A la hora de gestionar la creación de un repositorio y su estructura hay que tener en cuenta los siguientes aspectos:</p>
+          <ul>
             <li>El contenido del repositorio.</li>
             <li>Los tipos de documentos y los formatos.</li>
             <li>Procedimientos de acceso a los documentos.</li>
             <li>Procedimientos de actualización y subida de los documentos.</li>
             <li>Cuestiones legales como las licencias o propiedad intelectual.</li>
-        </ul>
-    </span>
-
-    <span id="3100201004">
-        <h3>2.1.3. TEMÁTICA DE LOS REPOSITORIOS</h3>
-        <p>La temática de los repositorios puede variar según el ámbito de estudio. Por ejemplo, existen en la actualidad una gran cantidad de repositorios académicos de universidades de todo el mundo donde publican, públicamente o previa autorización, algunos de sus estudios más representativos. Por otro lado, en el ámbito informático es muy común encontrar repositorios de código fuente.</p>
-
-        <p>En resumen, podemos encontrar repositorios que abarquen:</p>
-        <ul>
-            <li>Repositorios con material académico,</li>
-            <li>Repositorios con material institucional. Es aquel creado, mantenido y autorizado por una Institución, universitaria o no, que recoge los contenidos generados por la misma.</li>
-            <li>Los repositorios centralizados son aquellos que recogen la producción científica en abierto.</li>
-            <li>Repositorios temáticos son aquellos que recogen la información centraliza en un área específica.</li>
-            <li>Repositorios de código,</li>
-            <li>Etc.</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="repo-card">
+      <span id="3100201004">
+        <div class="feature-section">
+          <h3><span class="icon">🔍</span> 2.1.3. TEMÁTICA DE LOS REPOSITORIOS</h3>
+          <p>La temática de los repositorios puede variar según el ámbito de estudio. Por ejemplo, existen en la actualidad una gran cantidad de repositorios académicos de universidades de todo el mundo donde publican, públicamente o previa autorización, algunos de sus estudios más representativos. Por otro lado, en el ámbito informático es muy común encontrar repositorios de código fuente.</p>
+  
+          <p>En resumen, podemos encontrar repositorios que abarquen:</p>
+          
+          <div class="repo-types">
+            <div class="repo-type">
+              <strong>Repositorios académicos</strong>
+              <p>Contienen material de investigación y educativo de instituciones académicas.</p>
+            </div>
+            
+            <div class="repo-type">
+              <strong>Repositorios institucionales</strong>
+              <p>Creados, mantenidos y autorizados por una Institución, universitaria o no, que recoge los contenidos generados por la misma.</p>
+            </div>
+            
+            <div class="repo-type">
+              <strong>Repositorios centralizados</strong>
+              <p>Recogen la producción científica en abierto de diversas fuentes.</p>
+            </div>
+            
+            <div class="repo-type">
+              <strong>Repositorios temáticos</strong>
+              <p>Recogen la información centralizada en un área específica del conocimiento.</p>
+            </div>
+            
+            <div class="repo-type">
+              <strong>Repositorios de código</strong>
+              <p>Almacenan y gestionan código fuente para proyectos de software.</p>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>

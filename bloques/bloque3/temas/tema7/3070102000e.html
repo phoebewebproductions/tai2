@@ -1,132 +1,369 @@
 <div class="teoria">
-    <span id="3070102001">
-        <h2>1.2. ARQUITECTURA DE TRES NIVELES</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .arch-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .arch-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .concept-box {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 3px solid var(--color-primary);
+      }
+      
+      .concept-box h3 {
+        margin-top: 0;
+        color: var(--color-primary-dark);
+        display: flex;
+        align-items: center;
+      }
+      
+      .concept-box h3 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .advantage-disadvantage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      
+      .advantage, .disadvantage {
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      
+      .advantage {
+        border-left: 3px solid var(--color-secondary);
+      }
+      
+      .disadvantage {
+        border-left: 3px solid #ef4444;
+      }
+      
+      .advantage h4, .disadvantage h4 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .advantage h4 {
+        color: var(--color-secondary-dark);
+      }
+      
+      .disadvantage h4 {
+        color: #dc2626;
+      }
+      
+      .advantage h4 .icon, .disadvantage h4 .icon {
+        margin-right: 0.5rem;
+      }
+      
+      .soa-layers {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      
+      .soa-layer {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 8px;
+        padding: 0.8rem;
+        border-left: 4px solid var(--color-primary);
+      }
+      
+      .soa-layer strong {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .arch-card {
+          padding: 1rem;
+        }
+        
+        .advantage-disadvantage {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  
+    <div class="arch-card">
+      <span id="3070102001">
+        <h2>🏢 1.2. ARQUITECTURA DE TRES NIVELES</h2>
         <p>Antes de comenzar con este apartado es importante diferenciar el concepto de <strong>capa</strong> y <strong>nivel</strong> que a veces se utiliza indistintamente y no es correcto.</p>
         <p>El término "capa" hace referencia a la forma como una solución es dividida desde el punto de vista lógico:</p>
         <ul>
-            <li>Presentación. (capa Web)</li>
-            <li>Lógica de Negocio. (capa Aplicación)</li>
-            <li>Datos. (capa de Base de Datos)</li>
+          <li>Presentación. (capa Web)</li>
+          <li>Lógica de Negocio. (capa Aplicación)</li>
+          <li>Datos. (capa de Base de Datos)</li>
         </ul>
         <p>En cambio, el término "nivel" corresponde a la forma en que las capas lógicas se encuentran distribuidas de forma física. Por ejemplo:</p>
         <p>Una solución de tres capas (presentación, lógica del negocio, datos) que reside en una sola máquina (Presentación+lógica+datos), en este escenario estaríamos en la arquitectura tres capas y un nivel.</p>
         <p>Una solución de tres capas (presentación, lógica del negocio, datos) que reside en varias máquinas (Presentación+lógica en una máquina; lógica+datos en otras). Se dice que la arquitectura es de tres capas y dos niveles.</p>
-    </span>
-
-    <span id="3070102002">
-        <h3>1.2.1. PIPELINE</h3>
-        <p>Es un concepto utilizado en la ingeniería de software, y consiste en una <strong>cadena de elementos de procesamiento</strong> ordenados de tal manera que la salida de cada elemento es la entrada del siguiente.</p>
-        <p>Un ejemplo práctico de pipeline aparece sistemas operativos multitarea en los que se ejecutan una serie de procesos de manera simultánea, los cuales son ejecutados luego de manera secuencial mediante una administrador de tareas dándoles diferente prioridad y capacidad de procesamiento, alternando entre este sistema ("pipeline") y los demás.</p>
-    </span>
-
-    <span id="3070102003">
-        <h3>1.2.2. INVOCACIÓN IMPLÍCITA</h3>
-        <p>Este tipo de mecanismo se presenta cuando en lugar de los métodos tradicionales de invocación de procedimientos de manera directa mediante una llamada, en su lugar, se asocia la intención de invocarse a través de la aparición de un <strong>evento</strong> al que previamente se debe registrar el componente a ejecutar.</p>
-        <p>Ante la ocurrencia de ese evento, esto causa la invocación "implícita" del componente que puede residir en otros módulos.</p>
-        <p>Los conectores incluyen llamadas a procedimientos tradicionales, así como el "enlace" de eventos con llamadas a procedimientos.</p>
-    </span>
-
-    <span id="3070102004">
-        <h3>1.2.3. ARQUITECTURA "EN PIZARRA"</h3>
-        <p>La arquitectura en pizarra consta de múltiples elementos funcionales, denominados <strong>agentes</strong>, y un instrumento de control denominado <strong>pizarra</strong>.</p>
-        <p>Los agentes suelen estar especializados en una tarea concreta o elemental. Todos ellos cooperan para alcanzar una meta común, si bien, sus objetivos individuales no están aparentemente coordinados.</p>
-        <p>El comportamiento básico de cualquier agente consiste en examinar la pizarra, realizar su tarea y escribir sus conclusiones en la misma pizarra. De esta manera, otro agente puede trabajar sobre los resultados generados por otro.</p>
-        <p>La computación termina cuando se alcanza alguna condición deseada entre los resultados escritos en la pizarra.</p>
-        <p>La pizarra tiene un doble papel. Por una parte, coordina a los distintos agentes y, por otra, facilita su intercomunicación. El estado inicial de la pizarra es una descripción del problema que resolver y el estado final será la solución del problema.</p>
-        <p>Los resultados generados por los agentes deben responder a un lenguaje y semántica común. En general, se suelen utilizar formalismos lógicos o matemáticos, tales como expresiones lógicas de primer orden.</p>
-        <p>Es un modelo arquitectónico de software habitualmente utilizado en sistemas expertos, sistemas multiagente y, en general, sistemas basados en el conocimiento.</p>
-    </span>
-
-    <span id="3070102005">
-        <h3>1.2.4. ARQUITECTURA DIRIGIDA POR EVENTOS</h3>
-        <p>La Arquitectura dirigida por eventos "Event-driven architecture" o EDA, es un patrón de arquitectura software que promueve la producción, detección, consumo, y reacción a partir de eventos.</p>
-        <p>Un evento puede ser lanzado para indicar un cambio de estado significativo en la arquitectura.</p>
-        <p>Ejemplo: Cuando un componente está actualizando datos sobre la base de datos surgirán eventos antes y después de realizar la operación.</p>
-        
-        <h4>Ventajas</h4>
-        <ul>
-            <li>Simplicidad.</li>
-            <li>Escalado: se puede reemplazar componentes.</li>
-            <li>Modularidad: una sola modalidad para eventos diferentes.</li>
-            <li>Puede mejorar la eficiencia, eliminando la necesidad de polling por ocurrencia de evento.</li>
-        </ul>
-        
-        <h4>Inconvenientes</h4>
-        <ul>
-            <li>Posibilidad de desborde.</li>
-            <li>Pobre comprensibilidad: puede ser difícil prever qué pasará en respuesta a una acción.</li>
-            <li>No hay garantía del lado publicador, que el suscriptor responderá al evento.</li>
-            <li>No hay mucho soporte de recuperación en caso de fallo parcial.</li>
-        </ul>
-    </span>
-
-    <span id="3070102006">
-        <h3>1.2.5. ARQUITECTURA PEER TO PEER</h3>
-        <p>El estilo arquitectónico Red entre iguales (Peer-to-peer, P2P) es una red de máquinas en donde todos los dispositivos conectados a la red actúan como cliente y servidor al mismo tiempo. En esta arquitectura no es necesario un servidor central que administre la red (aunque puede existir), si no que todos los nodos de la red pueden comunicarse entre sí.</p>
-        <p>La arquitectura P2P es para muchos solo una variante de la arquitectura Cliente-Servidor, sin embargo, tiene una diferencia importante que hace que la podamos clasificar como un estilo arquitectónico independiente, y es que la arquitectura Cliente-Servidor tiene como punto medular la centralización, mientras la arquitectura P2P busca la descentralización.</p>
-        <p>Estas redes son útiles para diversos propósitos. A menudo se usan para compartir ficheros (archivos) de cualquier tipo (por ejemplo, audio, vídeo o software).</p>
-        <p>Este tipo de red también suele usarse en telefonía VoIP para hacer más eficiente la transmisión de datos en tiempo real.</p>
-        <p>La eficacia de los nodos en el enlace y transmisión de datos puede variar según su configuración local (cortafuegos, NAT, ruteadores, etc.), velocidad de proceso, disponibilidad de ancho de banda de su conexión a la red y capacidad de almacenamiento en disco.</p>
-    </span>
-
-    <span id="3070102007">
-        <h3>1.2.6. ARQUITECTURAS ORIENTADAS A SERVICIOS (SOA)</h3>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102002">
+        <div class="concept-box">
+          <h3><span class="icon">🔄</span> 1.2.1. PIPELINE</h3>
+          <p>Es un concepto utilizado en la ingeniería de software, y consiste en una <strong>cadena de elementos de procesamiento</strong> ordenados de tal manera que la salida de cada elemento es la entrada del siguiente.</p>
+          <p>Un ejemplo práctico de pipeline aparece sistemas operativos multitarea en los que se ejecutan una serie de procesos de manera simultánea, los cuales son ejecutados luego de manera secuencial mediante una administrador de tareas dándoles diferente prioridad y capacidad de procesamiento, alternando entre este sistema ("pipeline") y los demás.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102003">
+        <div class="concept-box">
+          <h3><span class="icon">📢</span> 1.2.2. INVOCACIÓN IMPLÍCITA</h3>
+          <p>Este tipo de mecanismo se presenta cuando en lugar de los métodos tradicionales de invocación de procedimientos de manera directa mediante una llamada, en su lugar, se asocia la intención de invocarse a través de la aparición de un <strong>evento</strong> al que previamente se debe registrar el componente a ejecutar.</p>
+          <p>Ante la ocurrencia de ese evento, esto causa la invocación "implícita" del componente que puede residir en otros módulos.</p>
+          <p>Los conectores incluyen llamadas a procedimientos tradicionales, así como el "enlace" de eventos con llamadas a procedimientos.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102004">
+        <div class="concept-box">
+          <h3><span class="icon">📋</span> 1.2.3. ARQUITECTURA "EN PIZARRA"</h3>
+          <p>La arquitectura en pizarra consta de múltiples elementos funcionales, denominados <strong>agentes</strong>, y un instrumento de control denominado <strong>pizarra</strong>.</p>
+          <p>Los agentes suelen estar especializados en una tarea concreta o elemental. Todos ellos cooperan para alcanzar una meta común, si bien, sus objetivos individuales no están aparentemente coordinados.</p>
+          <p>El comportamiento básico de cualquier agente consiste en examinar la pizarra, realizar su tarea y escribir sus conclusiones en la misma pizarra. De esta manera, otro agente puede trabajar sobre los resultados generados por otro.</p>
+          <p>La computación termina cuando se alcanza alguna condición deseada entre los resultados escritos en la pizarra.</p>
+          <p>La pizarra tiene un doble papel. Por una parte, coordina a los distintos agentes y, por otra, facilita su intercomunicación. El estado inicial de la pizarra es una descripción del problema que resolver y el estado final será la solución del problema.</p>
+          <p>Los resultados generados por los agentes deben responder a un lenguaje y semántica común. En general, se suelen utilizar formalismos lógicos o matemáticos, tales como expresiones lógicas de primer orden.</p>
+          <p>Es un modelo arquitectónico de software habitualmente utilizado en sistemas expertos, sistemas multiagente y, en general, sistemas basados en el conocimiento.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102005">
+        <div class="concept-box">
+          <h3><span class="icon">⚡</span> 1.2.4. ARQUITECTURA DIRIGIDA POR EVENTOS</h3>
+          <p>La Arquitectura dirigida por eventos "Event-driven architecture" o EDA, es un patrón de arquitectura software que promueve la producción, detección, consumo, y reacción a partir de eventos.</p>
+          <p>Un evento puede ser lanzado para indicar un cambio de estado significativo en la arquitectura.</p>
+          <p>Ejemplo: Cuando un componente está actualizando datos sobre la base de datos surgirán eventos antes y después de realizar la operación.</p>
+          
+          <div class="advantage-disadvantage">
+            <div class="advantage">
+              <h4><span class="icon">✅</span> Ventajas</h4>
+              <ul>
+                <li>Simplicidad.</li>
+                <li>Escalado: se puede reemplazar componentes.</li>
+                <li>Modularidad: una sola modalidad para eventos diferentes.</li>
+                <li>Puede mejorar la eficiencia, eliminando la necesidad de polling por ocurrencia de evento.</li>
+              </ul>
+            </div>
+            
+            <div class="disadvantage">
+              <h4><span class="icon">❌</span> Inconvenientes</h4>
+              <ul>
+                <li>Posibilidad de desborde.</li>
+                <li>Pobre comprensibilidad: puede ser difícil prever qué pasará en respuesta a una acción.</li>
+                <li>No hay garantía del lado publicador, que el suscriptor responderá al evento.</li>
+                <li>No hay mucho soporte de recuperación en caso de fallo parcial.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102006">
+        <div class="concept-box">
+          <h3><span class="icon">🔄</span> 1.2.5. ARQUITECTURA PEER TO PEER</h3>
+          <p>El estilo arquitectónico Red entre iguales (Peer-to-peer, P2P) es una red de máquinas en donde todos los dispositivos conectados a la red actúan como cliente y servidor al mismo tiempo. En esta arquitectura no es necesario un servidor central que administre la red (aunque puede existir), si no que todos los nodos de la red pueden comunicarse entre sí.</p>
+          <p>La arquitectura P2P es para muchos solo una variante de la arquitectura Cliente-Servidor, sin embargo, tiene una diferencia importante que hace que la podamos clasificar como un estilo arquitectónico independiente, y es que la arquitectura Cliente-Servidor tiene como punto medular la centralización, mientras la arquitectura P2P busca la descentralización.</p>
+          <p>Estas redes son útiles para diversos propósitos. A menudo se usan para compartir ficheros (archivos) de cualquier tipo (por ejemplo, audio, vídeo o software).</p>
+          <p>Este tipo de red también suele usarse en telefonía VoIP para hacer más eficiente la transmisión de datos en tiempo real.</p>
+          <p>La eficacia de los nodos en el enlace y transmisión de datos puede variar según su configuración local (cortafuegos, NAT, ruteadores, etc.), velocidad de proceso, disponibilidad de ancho de banda de su conexión a la red y capacidad de almacenamiento en disco.</p>
+        </div>
+      </span>
+    </div>
+  
+    <div class="arch-card">
+      <span id="3070102007">
+        <h3>🔄 1.2.6. ARQUITECTURAS ORIENTADAS A SERVICIOS (SOA)</h3>
         <p>La orientación a servicios es una forma de pensar en servicios, su construcción y sus resultados.</p>
         <p>El acrónimo de esta arquitectura en inglés es Services Oriented Arquitecture.</p>
         <p>Un <strong>servicio</strong> es una representación lógica de una actividad de negocio que tiene un resultado de negocio específico.</p>
         <p>Ejemplos:</p>
         <ul>
-            <li>Comprobar el saldo de una cuenta bancaria.</li>
-            <li>Obtener datos meteorológicos.</li>
-            <li>Consolidar informes de ventas.</li>
+          <li>Comprobar el saldo de una cuenta bancaria.</li>
+          <li>Obtener datos meteorológicos.</li>
+          <li>Consolidar informes de ventas.</li>
         </ul>
         <p>Es un concepto de arquitectura de software que define la utilización de servicios para dar soporte a las necesidades del negocio.</p>
         <p>Permite la creación de sistemas de información altamente escalables que reflejan el negocio de la organización, a su vez proporciona una forma bien definida de exposición e invocación de servicios (normalmente son servicios web, pero no tienen porqué serlo), lo cual facilita la interacción entre diferentes sistemas propios o de terceros.</p>
         
-        <h4>Características de la arquitectura SOA</h4>
-        <p>El estilo de arquitectura SOA se caracteriza por:</p>
-        <ul>
+        <div class="concept-box">
+          <h4>Características de la arquitectura SOA</h4>
+          <p>El estilo de arquitectura SOA se caracteriza por:</p>
+          <ul>
             <li>Estar basado en el diseño de servicios que reflejan las actividades del negocio en el mundo real, estas actividades hacen parte de los procesos de negocio de una compañía.</li>
             <li>Representar los servicios utilizando descripciones de negocio para asignarles un contexto de negocio.</li>
             <li>Tener requerimientos de infraestructura específicos y únicos para este tipo de arquitectura, en general se recomienda el uso de estándares abiertos para la interoperabilidad y transparencia en la ubicación de servicios.</li>
             <li>Estar implementada de acuerdo con las condiciones específicas de la arquitectura de TI en cada compañía.</li>
             <li>Requerir un gobierno fuerte sobre las representación e implementación de servicios.</li>
             <li>Requerir un conjunto de pruebas que determinen que es un buen servicio.</li>
-        </ul>
+          </ul>
+        </div>
         
-        <h4>Capas de software en SOA</h4>
-        <p>Define las siguientes capas de software:</p>
-        <ul>
-            <li><strong>Aplicaciones básicas</strong>: Sistemas desarrollados bajo cualquier arquitectura o tecnología, geográficamente dispersos (distribuidos) y bajo cualquier forma de propiedad.</li>
-            <li><strong>De exposición de funcionalidades</strong>: Donde las funcionalidades de la capa aplicativa son expuestas en forma de servicios, normalmente servicios web.</li>
-            <li><strong>De integración de servicios</strong>: Facilitan el intercambio de datos entre elementos de la capa aplicativa orientada a procesos empresariales internos o en colaboración.</li>
-            <li><strong>De composición de procesos</strong>: Que define el proceso en términos de negocio y sus necesidades, y que varía en función del negocio.</li>
-            <li><strong>De entrega</strong>: Donde los servicios son desplegados a los usuarios finales.</li>
-        </ul>
+        <div class="concept-box">
+          <h4>Capas de software en SOA</h4>
+          <p>Define las siguientes capas de software:</p>
+          <div class="soa-layers">
+            <div class="soa-layer">
+              <strong>Aplicaciones básicas</strong>
+              <p>Sistemas desarrollados bajo cualquier arquitectura o tecnología, geográficamente dispersos (distribuidos) y bajo cualquier forma de propiedad.</p>
+            </div>
+            <div class="soa-layer">
+              <strong>De exposición de funcionalidades</strong>
+              <p>Donde las funcionalidades de la capa aplicativa son expuestas en forma de servicios, normalmente servicios web.</p>
+            </div>
+            <div class="soa-layer">
+              <strong>De integración de servicios</strong>
+              <p>Facilitan el intercambio de datos entre elementos de la capa aplicativa orientada a procesos empresariales internos o en colaboración.</p>
+            </div>
+            <div class="soa-layer">
+              <strong>De composición de procesos</strong>
+              <p>Que define el proceso en términos de negocio y sus necesidades, y que varía en función del negocio.</p>
+            </div>
+            <div class="soa-layer">
+              <strong>De entrega</strong>
+              <p>Donde los servicios son desplegados a los usuarios finales.</p>
+            </div>
+          </div>
+        </div>
         
         <p>SOA o las arquitecturas orientadas a servicios se han convertido en la solución de obtener flexibilidad y conseguir un ahorro de costes en las inversiones realizadas en Tecnologías de la Información y las Comunicaciones.</p>
+        
         <p>Su virtud reside en la definición de una metodología para la <strong>DEFINICIÓN</strong> y <strong>REUTILIZACIÓN DE COMPONENTES SOFTWARE Y PROCESOS DE NEGOCIO</strong>, que en la mayoría de los casos se encuentran ya desarrollados e implementados mediante TIC en las organizaciones.</p>
         
-        <h4>Definición de un servicio SOA</h4>
-        <p>Un servicio SOA, es:</p>
-        <ul>
+        <div class="concept-box">
+          <h4>Definición de un servicio SOA</h4>
+          <p>Un servicio SOA, es:</p>
+          <ul>
             <li>Una funcionalidad empaquetada como un componente reutilizable para su utilización en un proceso de negocio.</li>
-        </ul>
-        <p>Un servicio puede parecer a priori un componente de software, en el sentido de que desde la perspectiva del consumidor del servicio es un componente autónomo. Sin embargo, la implementación del servicio puede en realidad conllevar diferentes pasos ejecutados en diferentes máquinas y ser en sí mismo un proceso de negocio. Por ello, un servicio puede o puede no ser un componente en el sentido de software de encapsulación de funcionalidad, motivo por el que cobra interés el concepto de "orientación a servicios" frente a la "orientación a componentes" o la "orientación a objetos".</p>
-        <p>Para que un proyecto SOA tenga éxito, los desarrolladores de software deben de crear servicios horizontales que son orquestados a través de un middleware para implementar los procesos de negocio.</p>
+          </ul>
+          <p>Un servicio puede parecer a priori un componente de software, en el sentido de que desde la perspectiva del consumidor del servicio es un componente autónomo. Sin embargo, la implementación del servicio puede en realidad conllevar diferentes pasos ejecutados en diferentes máquinas y ser en sí mismo un proceso de negocio. Por ello, un servicio puede o puede no ser un componente en el sentido de software de encapsulación de funcionalidad, motivo por el que cobra interés el concepto de "orientación a servicios" frente a la "orientación a componentes" o la "orientación a objetos".</p>
+          <p>Para que un proyecto SOA tenga éxito, los desarrolladores de software deben de crear servicios horizontales que son orquestados a través de un middleware para implementar los procesos de negocio.</p>
+        </div>
         
-        <h4>Identificación de Servicios</h4>
-        <p>El proceso de identificación de servicios consiste en la combinación de 3 técnicas de descomposición de dominios de aplicación:</p>
-        <ul>
+        <div class="concept-box">
+          <h4>Identificación de Servicios</h4>
+          <p>El proceso de identificación de servicios consiste en la combinación de 3 técnicas de descomposición de dominios de aplicación:</p>
+          <ul>
             <li><strong>Enfoque top-down</strong>: Diagramas de casos de uso de forma descendente.</li>
             <li><strong>Enfoque bottom-up</strong>: Análisis de los sistemas preexistentes para promocionar servicios.</li>
             <li><strong>Enfoque middle-out</strong>: Modelar y definir aquellos servicios no identificados por los 2 enfoques anteriores.</li>
-        </ul>
+          </ul>
+        </div>
         
-        <h4>Implementación del servicio</h4>
-        <ul>
+        <div class="concept-box">
+          <h4>Implementación del servicio</h4>
+          <ul>
             <li>Finalmente, esta fase reconoce que el software que implementa un servicio dado deberá ser reutilizado o bien desarrollado a medida.</li>
             <li>Las opciones de implementación de un servicio incluyen la integración, transformación o suscripción de funcionalidades implementadas bajo diferentes tecnologías, paradigmas y/o sistemas (servicios web, objetos java, objetos CORBA, sistemas heredados – legacy systems, etc).</li>
-        </ul>
-    </span>
-</div>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>

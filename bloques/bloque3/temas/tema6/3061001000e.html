@@ -1,37 +1,219 @@
 <div class="teoria">
-    <span id="3061001001">
-        <h2>10.1 ASP.NET - Desarrollo Web</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+      }
+      
+      .teoria h3 {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .teoria h4 {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+      }
+      
+      .teoria p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .aspnet-card {
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-top: 4px solid var(--color-primary);
+        transition: var(--transition);
+      }
+      
+      .aspnet-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      
+      .feature-list {
+        margin: 1.5rem 0;
+      }
+      
+      .lifecycle-phases {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      
+      .lifecycle-phase {
+        flex: 1 1 200px;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        position: relative;
+        transition: var(--transition);
+      }
+      
+      .lifecycle-phase:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        z-index: 1;
+      }
+      
+      .lifecycle-phase:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .lifecycle-phase .icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      
+      .lifecycle-phase h5 {
+        margin: 0.5rem 0;
+        color: var(--color-primary-dark);
+        font-size: 1rem;
+      }
+      
+      .teoria ul, .teoria ol {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .teoria li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .teoria ul li {
+        list-style-type: none;
+        padding-left: 1.5rem;
+      }
+      
+      .teoria ul li::before {
+        content: "🔹";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+      }
+      
+      .teoria ul ul li::before {
+        content: "▪️";
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
+        
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .aspnet-card {
+          padding: 1rem;
+        }
+        
+        .lifecycle-phases {
+          flex-direction: column;
+        }
+        
+        .lifecycle-phase:not(:last-child)::after {
+          content: "↓";
+          right: 50%;
+          top: auto;
+          bottom: -1rem;
+          transform: translateX(50%);
+        }
+      }
+    </style>
+  
+    <div class="aspnet-card">
+      <span id="3061001001">
+        <h2>🌐 10.1 ASP.NET - Desarrollo Web</h2>
         <p>Las aplicaciones Web de Visual Studio se generan en torno a <strong>ASP.NET</strong>.</p>
         
         <h3>Características principales:</h3>
-        <ul>
+        <div class="feature-list">
+          <ul>
             <li>Es una plataforma para desarrollar y ejecutar aplicaciones en un servidor Web</li>
             <li>Incluye:
-                <ul>
-                    <li>Objetos y controles de tiempo de diseño</li>
-                    <li>Un contexto de tiempo de ejecución</li>
-                </ul>
+              <ul>
+                <li>Objetos y controles de tiempo de diseño</li>
+                <li>Un contexto de tiempo de ejecución</li>
+              </ul>
             </li>
             <li>Forma parte de .NET Framework, proporcionando acceso a todas sus funciones</li>
             <li>Los clientes Web se comunican a través de <strong>Servicios de Microsoft Internet Information Server (IIS)</strong></li>
             <li>Es la evolución de ASP (Active Server Page)</li>
             <li>Permite el diseño y la programación <strong>WYSIWYG</strong> (What You See Is What You Get) de los WebForms</li>
-        </ul>
-    </span>
-
-    <span id="3061001002">
-        <h3>Ciclo de vida de una página ASP.NET</h3>
+          </ul>
+        </div>
+      </span>
+    </div>
+  
+    <div class="aspnet-card">
+      <span id="3061001002">
+        <h3>🔄 Ciclo de vida de una página ASP.NET</h3>
         <p>Cuando se ejecuta una página ASP.NET, ésta recorre un ciclo de vida en el que realiza una serie de pasos de procesamiento.</p>
         
         <h4>Fases principales:</h4>
-        <ul>
-            <li>Inicialización</li>
-            <li>Creación de instancias de controles</li>
-            <li>Restauración y mantenimiento del estado</li>
-            <li>Ejecución del código del controlador de eventos</li>
-            <li>Representación</li>
-        </ul>
-
+        <div class="lifecycle-phases">
+          <div class="lifecycle-phase">
+            <span class="icon">🚀</span>
+            <h5>Inicialización</h5>
+          </div>
+          <div class="lifecycle-phase">
+            <span class="icon">🧩</span>
+            <h5>Creación de instancias de controles</h5>
+          </div>
+          <div class="lifecycle-phase">
+            <span class="icon">💾</span>
+            <h5>Restauración y mantenimiento del estado</h5>
+          </div>
+          <div class="lifecycle-phase">
+            <span class="icon">⚙️</span>
+            <h5>Ejecución del código del controlador de eventos</h5>
+          </div>
+          <div class="lifecycle-phase">
+            <span class="icon">🖥️</span>
+            <h5>Representación</h5>
+          </div>
+        </div>
+  
         <p><strong>Eventos del ciclo de vida:</strong> Dentro de cada fase del ciclo de vida de una página, ésta produce eventos que puede controlar para ejecutar su propio código.</p>
-    </span>
-</div>
+      </span>
+    </div>
+  </div>

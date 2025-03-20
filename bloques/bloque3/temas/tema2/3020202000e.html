@@ -7,87 +7,434 @@
 </head>
 <body>
     <div class="teoria">
-        <h1>3.2 DISEÑO FÍSICO</h1>
-        <span id="3020202001">
-            <p>En esta fase se definen las estructuras de almacenamiento de la base de datos de forma física. Es cuando se escribe el código (por ejemplo, SQL) para concretar el diseño en el motor de base de datos que hemos escogido.</p>
-        </span>
-
-        <h2>OBJETIVOS</h2>
-        <span id="3020202002">
-            <p>El objetivo general es definir las estructuras de almacenamiento y estructuras de acceso para que las aplicaciones que accedan a la BD obtengan un buen rendimiento del diseño físico. Lo que se busca en un buen diseño físico es:</p>
-            <ul>
-                <li>Minimizar el tiempo de respuesta
-                    <ul>
-                        <li>Tiempo entre la introducción de una transacción T de BD y la obtención de respuesta</li>
-                    </ul>
-                </li>
-                <li>Maximizar la productividad de las transacciones
-                    <ul>
-                        <li>Número medio de transacciones que SBD puede procesar por minuto</li>
-                        <li>Parámetro crítico de los sistemas de procesamiento masivo de transacciones (reservas de vuelos, servicios bancarios)</li>
-                        <li>Debe medirse en "condiciones pico" del sistema</li>
-                    </ul>
-                </li>
-                <li>Optimizar el aprovechamiento del espacio
-                    <ul>
-                        <li>Cantidad de espacio ocupado por ficheros de la BD y sus estructuras de acceso</li>
-                    </ul>
-                </li>
-            </ul>
-        </span>
-
-        <h2>DECISIONES A TOMAR</h2>
-        <span id="3020202003">
-            <ul>
-                <li>Encargarnos de la traducción de todo nuestro esquema lógico global, el cual debe ser específicamente diseñado para el "SGBD" que escogemos.</li>
-                <li>Crear todas aquellas reglas dedicadas al negocio SGBD que elegimos.</li>
-                <li>Reproducir una versión física de nuestra meta elegida durante el diseño conceptual.</li>
-                <li>Descubrir, mejorar y agregar aquellas transacciones que faciliten el uso de nuestra base de datos.</li>
-                <li>Organizar de manera funcional aquellos ficheros cargados de información.</li>
-                <li>Desarrollar los índices de contenido, tanto principales como secundarios.</li>
-                <li>Considerar hasta cierto punto introducir algunas redundancias, siempre y cuando estas se encuentren controladas.</li>
-                <li>Calcular el espacio que será necesario en un disco duro u otro dispositivo de almacenamiento, de modo que sea capaz de utilizar la base de datos.</li>
-                <li>Crear algunos mecanismos dedicados a la seguridad de los archivos.</li>
-                <li>Utilizar un sistema vistoso y que instruya a los usuarios a manejar de forma correcta las funciones desarrolladas.</li>
-                <li>Seleccionar algunas reglas únicas para el acceso de datos.</li>
-                <li>Realizar un chequeo constante de todo el sistema, con la intención de descubrir fallas y errores.</li>
-            </ul>
-        </span>
-
-        <h2>FASES PARA LA CREACIÓN DEL DISEÑO LÓGICO</h2>
-        <span id="3020202004">
-            <ul>
-                <li>Traducir el esquema lógico global para el SGBD específico. La primera fase del diseño lógico consiste en traducir el esquema lógico global a un esquema que se pueda implementar en el SGBD seleccionado. Dentro de este apartado se encuentra:
-                    <ul>
-                        <li>Diseñar las relaciones base para el SGBD específico.</li>
-                        <li>Diseñar las reglas de negocio para el SGBD específico.</li>
-                    </ul>
-                </li>
-            </ul>
-        </span>
-        <span id="3020202005">
-            <ul>
-                <li>Diseñar la representación física.
-                    <ul>
-                        <li>Analizar las transacciones. Será necesario contar con revisiones paulatinas, las cuales nos ayudarán a conocer las transacciones que están a punto de ser ejecutadas dentro de una base de datos. Las revisiones necesitan tener información cuantitativa, como lo es el peso exacto de un archivo, el tiempo que tarda en ejecutarse o el espacio necesario en el disco duro cuando es almacenado. Al mismo tiempo, también deberemos consultar información cualitativa, como la frecuencia, relaciones y atributos de cada transacción.</li>
-                        <li>Escoger las organizaciones de ficheros. La organización es un paso muy importante, ya que dependiendo del diseño que tenemos pensado crear una puede ser óptima o bastante inútil. Cabe resaltar que en el momento que decidamos seleccionar una organización para los ficheros, esta debe ser documentada dentro del "Diccionario de datos", explicando las razones de escogerla.</li>
-                        <li>Considerar la introducción de redundancias controladas. Deberemos contemplar la idea de disminuir y aligerar las normativas que hemos implementado, algo que puede ser logrado al ingresar cierto número de redundancias de manera manejable, las cuales tienen como objetivo mejorar las prestaciones de nuestro sistema. Durante todo el desarrollo de nuestro diseño lógico (la fase anterior al diseño físico) se nos recomienda alcanzar mínimo la tercera forma de nuestro esquema, de forma que este ya posea una estructura firme y sin con una cantidad misera de redundancias.</li>
-                        <li>Estimar la necesidad de espacio en disco.</li>
-                    </ul>
-                </li>
-            </ul>
-        </span>
-        <span id="3020202006">
-            <ul>
-                <li>Diseñar los mecanismos de seguridad.
-                    <ul>
-                        <li>Diseñar las vistas de los usuarios.</li>
-                        <li>Diseñar las reglas de acceso.</li>
-                    </ul>
-                </li>
-                <li>Monitorizar y afinar el sistema.</li>
-            </ul>
-        </span>
+        <div class="header-container">
+            <h1 class="main-title">2.2 DISEÑO FÍSICO</h1>
+        </div>
+        
+        <div class="intro-section" id="3020202001">
+            <div class="intro-card">
+                <div class="intro-icon">⚙️</div>
+                <div class="intro-content">
+                    <p>En esta fase se definen las estructuras de almacenamiento de la base de datos de forma física. Es cuando se escribe el código (por ejemplo, SQL) para concretar el diseño en el motor de base de datos que hemos escogido.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">OBJETIVOS</h2>
+            <div class="objectives-card" id="3020202002">
+                <p>El objetivo general es definir las estructuras de almacenamiento y estructuras de acceso para que las aplicaciones que accedan a la BD obtengan un buen rendimiento del diseño físico. Lo que se busca en un buen diseño físico es:</p>
+                
+                <div class="objectives-grid">
+                    <div class="objective-item">
+                        <div class="objective-icon">⏱️</div>
+                        <div class="objective-content">
+                            <h3 class="objective-title">Minimizar el tiempo de respuesta</h3>
+                            <ul class="objective-list">
+                                <li>Tiempo entre la introducción de una transacción T de BD y la obtención de respuesta</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="objective-item">
+                        <div class="objective-icon">📈</div>
+                        <div class="objective-content">
+                            <h3 class="objective-title">Maximizar la productividad de las transacciones</h3>
+                            <ul class="objective-list">
+                                <li>Número medio de transacciones que SBD puede procesar por minuto</li>
+                                <li>Parámetro crítico de los sistemas de procesamiento masivo de transacciones (reservas de vuelos, servicios bancarios)</li>
+                                <li>Debe medirse en "condiciones pico" del sistema</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="objective-item">
+                        <div class="objective-icon">💾</div>
+                        <div class="objective-content">
+                            <h3 class="objective-title">Optimizar el aprovechamiento del espacio</h3>
+                            <ul class="objective-list">
+                                <li>Cantidad de espacio ocupado por ficheros de la BD y sus estructuras de acceso</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">DECISIONES A TOMAR</h2>
+            <div class="decisions-card" id="3020202003">
+                <div class="decisions-list">
+                    <div class="decision-item">
+                        <div class="decision-icon">🔄</div>
+                        <div class="decision-text">Encargarnos de la traducción de todo nuestro esquema lógico global, el cual debe ser específicamente diseñado para el "SGBD" que escogemos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">📋</div>
+                        <div class="decision-text">Crear todas aquellas reglas dedicadas al negocio SGBD que elegimos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🎯</div>
+                        <div class="decision-text">Reproducir una versión física de nuestra meta elegida durante el diseño conceptual.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🔍</div>
+                        <div class="decision-text">Descubrir, mejorar y agregar aquellas transacciones que faciliten el uso de nuestra base de datos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">📁</div>
+                        <div class="decision-text">Organizar de manera funcional aquellos ficheros cargados de información.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">📑</div>
+                        <div class="decision-text">Desarrollar los índices de contenido, tanto principales como secundarios.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🔄</div>
+                        <div class="decision-text">Considerar hasta cierto punto introducir algunas redundancias, siempre y cuando estas se encuentren controladas.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">💾</div>
+                        <div class="decision-text">Calcular el espacio que será necesario en un disco duro u otro dispositivo de almacenamiento, de modo que sea capaz de utilizar la base de datos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🔒</div>
+                        <div class="decision-text">Crear algunos mecanismos dedicados a la seguridad de los archivos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">👥</div>
+                        <div class="decision-text">Utilizar un sistema vistoso y que instruya a los usuarios a manejar de forma correcta las funciones desarrolladas.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🚪</div>
+                        <div class="decision-text">Seleccionar algunas reglas únicas para el acceso de datos.</div>
+                    </div>
+                    <div class="decision-item">
+                        <div class="decision-icon">🔄</div>
+                        <div class="decision-text">Realizar un chequeo constante de todo el sistema, con la intención de descubrir fallas y errores.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <h2 class="section-title">FASES PARA LA CREACIÓN DEL DISEÑO LÓGICO</h2>
+            <div class="phases-card" id="3020202004">
+                <div class="phase-item">
+                    <div class="phase-header">
+                        <div class="phase-number">1</div>
+                        <h3 class="phase-title">Traducir el esquema lógico global para el SGBD específico</h3>
+                    </div>
+                    <div class="phase-content">
+                        <p>La primera fase del diseño lógico consiste en traducir el esquema lógico global a un esquema que se pueda implementar en el SGBD seleccionado. Dentro de este apartado se encuentra:</p>
+                        <ul class="phase-list">
+                            <li><span class="phase-bullet">•</span> Diseñar las relaciones base para el SGBD específico.</li>
+                            <li><span class="phase-bullet">•</span> Diseñar las reglas de negocio para el SGBD específico.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phases-card" id="3020202005">
+                <div class="phase-item">
+                    <div class="phase-header">
+                        <div class="phase-number">2</div>
+                        <h3 class="phase-title">Diseñar la representación física</h3>
+                    </div>
+                    <div class="phase-content">
+                        <div class="subphase-item">
+                            <h4 class="subphase-title">Analizar las transacciones</h4>
+                            <p>Será necesario contar con revisiones paulatinas, las cuales nos ayudarán a conocer las transacciones que están a punto de ser ejecutadas dentro de una base de datos. Las revisiones necesitan tener información cuantitativa, como lo es el peso exacto de un archivo, el tiempo que tarda en ejecutarse o el espacio necesario en el disco duro cuando es almacenado. Al mismo tiempo, también deberemos consultar información cualitativa, como la frecuencia, relaciones y atributos de cada transacción.</p>
+                        </div>
+                        
+                        <div class="subphase-item">
+                            <h4 class="subphase-title">Escoger las organizaciones de ficheros</h4>
+                            <p>La organización es un paso muy importante, ya que dependiendo del diseño que tenemos pensado crear una puede ser óptima o bastante inútil. Cabe resaltar que en el momento que decidamos seleccionar una organización para los ficheros, esta debe ser documentada dentro del "Diccionario de datos", explicando las razones de escogerla.</p>
+                        </div>
+                        
+                        <div class="subphase-item">
+                            <h4 class="subphase-title">Considerar la introducción de redundancias controladas</h4>
+                            <p>Deberemos contemplar la idea de disminuir y aligerar las normativas que hemos implementado, algo que puede ser logrado al ingresar cierto número de redundancias de manera manejable, las cuales tienen como objetivo mejorar las prestaciones de nuestro sistema. Durante todo el desarrollo de nuestro diseño lógico (la fase anterior al diseño físico) se nos recomienda alcanzar mínimo la tercera forma de nuestro esquema, de forma que este ya posea una estructura firme y sin con una cantidad misera de redundancias.</p>
+                        </div>
+                        
+                        <div class="subphase-item">
+                            <h4 class="subphase-title">Estimar la necesidad de espacio en disco</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phases-card" id="3020202006">
+                <div class="phase-item">
+                    <div class="phase-header">
+                        <div class="phase-number">3</div>
+                        <h3 class="phase-title">Diseñar los mecanismos de seguridad</h3>
+                    </div>
+                    <div class="phase-content">
+                        <ul class="phase-list">
+                            <li><span class="phase-bullet">•</span> Diseñar las vistas de los usuarios.</li>
+                            <li><span class="phase-bullet">•</span> Diseñar las reglas de acceso.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="phase-item">
+                    <div class="phase-header">
+                        <div class="phase-number">4</div>
+                        <h3 class="phase-title">Monitorizar y afinar el sistema</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+<style>
+    .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Header */
+    .header-container {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .main-title {
+        color: var(--color-primary);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid var(--color-primary);
+        display: inline-block;
+    }
+    
+    /* Intro Section */
+    .intro-section {
+        margin-bottom: 2rem;
+    }
+    
+    .intro-card {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .intro-icon {
+        font-size: 2.5rem;
+        margin-right: 20px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .intro-content {
+        flex: 1;
+    }
+    
+    /* Section Container */
+    .section-container {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+        color: var(--color-primary);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    /* Objectives Card */
+    .objectives-card, .decisions-card, .phases-card {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+        margin-bottom: 20px;
+    }
+    
+    .objectives-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .objective-item {
+        display: flex;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .objective-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .objective-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .objective-content {
+        flex: 1;
+    }
+    
+    .objective-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--color-primary-dark);
+        font-size: 1.2rem;
+    }
+    
+    .objective-list {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .objective-list li {
+        margin-bottom: 5px;
+    }
+    
+    /* Decisions List */
+    .decisions-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .decision-item {
+        display: flex;
+        align-items: flex-start;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        padding: 15px;
+        transition: var(--transition);
+    }
+    
+    .decision-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .decision-icon {
+        font-size: 1.5rem;
+        margin-right: 15px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+    
+    .decision-text {
+        flex: 1;
+    }
+    
+    /* Phases */
+    .phase-item {
+        margin-bottom: 25px;
+    }
+    
+    .phase-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .phase-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-radius: 50%;
+        margin-right: 15px;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    
+    .phase-title {
+        margin: 0;
+        color: var(--color-primary-dark);
+        font-size: 1.3rem;
+    }
+    
+    .phase-content {
+        padding-left: 50px;
+    }
+    
+    .phase-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+    
+    .phase-list li {
+        display: flex;
+        margin-bottom: 8px;
+    }
+    
+    .phase-bullet {
+        color: var(--color-primary);
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    
+    /* Subphases */
+    .subphase-item {
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: rgba(59, 130, 246, 0.05);
+        border-radius: 8px;
+        transition: var(--transition);
+    }
+    
+    .subphase-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .subphase-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--color-primary-dark);
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--color-primary-light);
+        padding-bottom: 5px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .intro-card, .objective-item, .decision-item {
+            flex-direction: column;
+        }
+        
+        .intro-icon, .objective-icon, .decision-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .objectives-grid, .decisions-list {
+            grid-template-columns: 1fr;
+        }
+        
+        .phase-content {
+            padding-left: 20px;
+        }
+    }
+</style>
 </body>
 </html>

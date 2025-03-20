@@ -1,92 +1,193 @@
 <div class="teoria">
-    <span id="3061301001">
-        <h2>13.1 TABLA RESUMEN DE SEMEJANZAS Y DIFERENCIAS ENTRE J2EE Y .NET</h2>
+    <style>
+      .teoria {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .teoria h2 {
+        color: var(--color-primary-dark);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid var(--color-primary);
+        padding-left: 1rem;
+        text-align: center;
+      }
+      
+      .teoria strong {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+      }
+      
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      
+      .comparison-table thead tr {
+        background-color: var(--color-primary);
+        color: white;
+        text-align: left;
+      }
+      
+      .comparison-table th {
+        padding: 1rem;
+        font-weight: 600;
+      }
+      
+      .comparison-table th:first-child {
+        width: 30%;
+      }
+      
+      .comparison-table tbody tr:nth-child(even) {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .comparison-table tbody tr:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      
+      .comparison-table td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+      }
+      
+      .comparison-table td:not(:last-child) {
+        border-right: 1px solid rgba(59, 130, 246, 0.1);
+      }
+      
+      .dotnet-col {
+        background-color: rgba(0, 120, 215, 0.05);
+      }
+      
+      .j2ee-col {
+        background-color: rgba(248, 152, 32, 0.05);
+      }
+      
+      .table-container {
+        overflow-x: auto;
+        margin: 2rem 0;
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+      }
+      
+      @media (max-width: 768px) {
+        .teoria {
+          padding: 1rem;
+        }
         
-        <table class="min-w-full border-collapse border border-gray-300">
-            <thead>
-                <tr class="bg-gray-100">
-                    <th class="border border-gray-300 p-2">Características</th>
-                    <th class="border border-gray-300 p-2">.Net</th>
-                    <th class="border border-gray-300 p-2">J2EE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border border-gray-300 p-2">Tipo de tecnología</td>
-                    <td class="border border-gray-300 p-2">Producto</td>
-                    <td class="border border-gray-300 p-2">Estándar</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Quien lo Ofrece</td>
-                    <td class="border border-gray-300 p-2">Microsoft</td>
-                    <td class="border border-gray-300 p-2">Más de 35 empresas</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Librerías de desarrollo</td>
-                    <td class="border border-gray-300 p-2">.Net Framework</td>
-                    <td class="border border-gray-300 p-2">Java como API</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Intérprete</td>
-                    <td class="border border-gray-300 p-2">CLR</td>
-                    <td class="border border-gray-300 p-2">JRE</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Páginas Dinámicas</td>
-                    <td class="border border-gray-300 p-2">ASP.Net</td>
-                    <td class="border border-gray-300 p-2">Servlets, JSP</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Componentes</td>
-                    <td class="border border-gray-300 p-2">.Net Managed Components</td>
-                    <td class="border border-gray-300 p-2">EJB</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Acceso a BBDD</td>
-                    <td class="border border-gray-300 p-2">ADO.Net</td>
-                    <td class="border border-gray-300 p-2">JDBC, SQL/J</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Web Services</td>
-                    <td class="border border-gray-300 p-2">SOAP, WSDL, UDDI</td>
-                    <td class="border border-gray-300 p-2">SOAP, WSDL, UDDI</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Interfaces Gráficas</td>
-                    <td class="border border-gray-300 p-2">Win Forms y Web Form</td>
-                    <td class="border border-gray-300 p-2">Java Swing</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Entorno de Desarrollo</td>
-                    <td class="border border-gray-300 p-2">Visual Studio .Net</td>
-                    <td class="border border-gray-300 p-2">Depende del fabricante</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Transacciones Distribuidas</td>
-                    <td class="border border-gray-300 p-2">MS-DTC</td>
-                    <td class="border border-gray-300 p-2">JTS</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Servicio de Directorio</td>
-                    <td class="border border-gray-300 p-2">ADSI</td>
-                    <td class="border border-gray-300 p-2">JNDI</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Librería de cola de mensajes</td>
-                    <td class="border border-gray-300 p-2">MSMQ</td>
-                    <td class="border border-gray-300 p-2">JMS 1.0</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Lenguajes de programación usados</td>
-                    <td class="border border-gray-300 p-2">C#, Visual Basic, C++, otros</td>
-                    <td class="border border-gray-300 p-2">Java</td>
-                </tr>
-                <tr>
-                    <td class="border border-gray-300 p-2">Lenguaje Intermedio</td>
-                    <td class="border border-gray-300 p-2">IL</td>
-                    <td class="border border-gray-300 p-2">Bytecode</td>
-                </tr>
-            </tbody>
+        .teoria h2 {
+          font-size: 1.5rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.6rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  
+    <span id="3061301001">
+      <h2>📊 13.1 TABLA RESUMEN DE SEMEJANZAS Y DIFERENCIAS ENTRE J2EE Y .NET</h2>
+      
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Características</th>
+              <th class="dotnet-col">.Net</th>
+              <th class="j2ee-col">J2EE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tipo de tecnología</strong></td>
+              <td class="dotnet-col">Producto</td>
+              <td class="j2ee-col">Estándar</td>
+            </tr>
+            <tr>
+              <td><strong>Quien lo Ofrece</strong></td>
+              <td class="dotnet-col">Microsoft</td>
+              <td class="j2ee-col">Más de 35 empresas</td>
+            </tr>
+            <tr>
+              <td><strong>Librerías de desarrollo</strong></td>
+              <td class="dotnet-col">.Net Framework</td>
+              <td class="j2ee-col">Java como API</td>
+            </tr>
+            <tr>
+              <td><strong>Intérprete</strong></td>
+              <td class="dotnet-col">CLR</td>
+              <td class="j2ee-col">JRE</td>
+            </tr>
+            <tr>
+              <td><strong>Páginas Dinámicas</strong></td>
+              <td class="dotnet-col">ASP.Net</td>
+              <td class="j2ee-col">Servlets, JSP</td>
+            </tr>
+            <tr>
+              <td><strong>Componentes</strong></td>
+              <td class="dotnet-col">.Net Managed Components</td>
+              <td class="j2ee-col">EJB</td>
+            </tr>
+            <tr>
+              <td><strong>Acceso a BBDD</strong></td>
+              <td class="dotnet-col">ADO.Net</td>
+              <td class="j2ee-col">JDBC, SQL/J</td>
+            </tr>
+            <tr>
+              <td><strong>Web Services</strong></td>
+              <td class="dotnet-col">SOAP, WSDL, UDDI</td>
+              <td class="j2ee-col">SOAP, WSDL, UDDI</td>
+            </tr>
+            <tr>
+              <td><strong>Interfaces Gráficas</strong></td>
+              <td class="dotnet-col">Win Forms y Web Form</td>
+              <td class="j2ee-col">Java Swing</td>
+            </tr>
+            <tr>
+              <td><strong>Entorno de Desarrollo</strong></td>
+              <td class="dotnet-col">Visual Studio .Net</td>
+              <td class="j2ee-col">Depende del fabricante</td>
+            </tr>
+            <tr>
+              <td><strong>Transacciones Distribuidas</strong></td>
+              <td class="dotnet-col">MS-DTC</td>
+              <td class="j2ee-col">JTS</td>
+            </tr>
+            <tr>
+              <td><strong>Servicio de Directorio</strong></td>
+              <td class="dotnet-col">ADSI</td>
+              <td class="j2ee-col">JNDI</td>
+            </tr>
+            <tr>
+              <td><strong>Librería de cola de mensajes</strong></td>
+              <td class="dotnet-col">MSMQ</td>
+              <td class="j2ee-col">JMS 1.0</td>
+            </tr>
+            <tr>
+              <td><strong>Lenguajes de programación usados</strong></td>
+              <td class="dotnet-col">C#, Visual Basic, C++, otros</td>
+              <td class="j2ee-col">Java</td>
+            </tr>
+            <tr>
+              <td><strong>Lenguaje Intermedio</strong></td>
+              <td class="dotnet-col">IL</td>
+              <td class="j2ee-col">Bytecode</td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </span>
-</div>
+  </div>
