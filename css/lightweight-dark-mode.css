@@ -1,0 +1,1107 @@
+/* 
+ * Lightweight Dark Mode CSS
+ * This file contains only the essential styles for dark mode
+ * using color inversion and CSS variable manipulation
+ */
+
+/* Dark mode variables - will override the light mode variables */
+.dark-mode:root {
+    --color-primary: #3b82f6;
+    --color-primary-dark: #60a5fa;
+    --color-secondary: #22c55e;
+    --color-secondary-dark: #4ade80;
+    --color-background: #121212;
+    --color-text: #e0e0e0;
+    --color-text-light: #a0a0a0;
+    --color-border: #333333;
+    --color-white: #1e1e1e;
+    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-correct: #064e3b;
+    --color-incorrect: #7f1d1d;
+    --color-muted: #2a2a2a;
+    --body-bg: #121212;
+    --card-bg: #1e1e1e;
+    --header-bg: rgba(26, 26, 26, 0.9);
+    --stat-item-bg: #333333;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+  
+    /* Additional variables for the new components */
+    --color-warning: #2a2410;
+    --color-warning-dark: #f59e0b;
+    --color-danger: #2a1215;
+    --color-danger-dark: #ef4444;
+    --color-info: #102a2a;
+    --color-info-dark: #06b6d4;
+    --color-success: #0f2a15;
+    --color-success-dark: #10b981;
+    --transition: all 0.3s ease;
+  }
+  *{
+    border-radius: 5px;
+  }
+  
+  /* Base element styles */
+  .dark-mode body {
+    background-color: var(--body-bg) !important;
+    color: var(--color-text) !important;
+  }
+  
+  /* General background color for all containers */
+  .dark-mode .container,
+  .dark-mode .teoria,
+  .dark-mode article,
+  .dark-mode section,
+  .dark-mode div {
+    background-color: inherit;
+  }
+  
+  /* Force text color in dark mode for better legibility */
+  .dark-mode h1,
+  .dark-mode h2,
+  .dark-mode h3,
+  .dark-mode h4,
+  .dark-mode h5,
+  .dark-mode h6,
+  .dark-mode p,
+  .dark-mode span,
+  .dark-mode div,
+  .dark-mode li,
+  .dark-mode td,
+  .dark-mode th,
+  .dark-mode label,
+  .dark-mode strong,
+  .dark-mode caption {
+    color: var(--color-text) !important;
+  }
+  
+  /* Fix for links */
+  .dark-mode a {
+    color: #3b82f6 !important;
+  }
+  
+  /* Fix for code blocks and pre elements */
+  .dark-mode code,
+  .dark-mode pre {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+  }
+  
+  /* Fix for tables */
+  .dark-mode table,
+  .dark-mode .styled-table {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode th {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+    color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode td {
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .dark-mode tr:hover {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  /* Fix for inputs */
+  .dark-mode input,
+  .dark-mode textarea,
+  .dark-mode select {
+    background-color: var(--color-white) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  /* Fix for buttons */
+  .dark-mode button {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+    border-color: var(--color-primary-dark) !important;
+  }
+  
+  /* Fix for definition cards and highlights */
+  .dark-mode .definition-card,
+  .dark-mode .highlight {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .definition-card strong {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  /* Fix for list items */
+  .dark-mode ul li::before {
+    color: var(--color-secondary) !important;
+  }
+  
+  /* Exclude certain elements from dark mode processing */
+  img,
+  video,
+  canvas {
+    filter: none !important;
+  }
+  
+  /* FIXES FOR COMPLEX COMPONENTS */
+  
+  /* Fix for info-card */
+  .dark-mode .info-card {
+    background-color: var(--color-white) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  /* Fix for card-header */
+  .dark-mode .card-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  /* Fix for card-content */
+  .dark-mode .card-content {
+    background-color: var(--color-white) !important;
+  }
+  
+  /* Fix for security-measures */
+  .dark-mode .security-measures li {
+    background-color: var(--color-muted) !important;
+  }
+  
+  /* Fix for info-item */
+  .dark-mode .info-item {
+    background-color: var(--color-muted) !important;
+    border-left: 3px solid var(--color-primary) !important;
+  }
+  
+  /* Fix for alert-card */
+  .dark-mode .alert-card {
+    background-color: var(--color-warning) !important;
+    border-left: 4px solid var(--color-warning-dark) !important;
+  }
+  
+  .dark-mode .alert-card.high-risk {
+    background-color: var(--color-danger) !important;
+    border-left: 4px solid var(--color-danger-dark) !important;
+  }
+  
+  /* Fix for info-list */
+  .dark-mode .info-list li {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .info-list li:hover {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  /* Fix for exception-card */
+  .dark-mode .exception-card {
+    background-color: var(--color-danger) !important;
+  }
+  
+  .dark-mode .exception-header {
+    background-color: #ef4444 !important;
+  }
+  
+  .dark-mode .exception-list li {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .dark-mode .exception-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  /* Fix for timeline-card */
+  .dark-mode .timeline-card {
+    background-color: var(--color-muted) !important;
+    border-left: 3px solid var(--color-primary) !important;
+  }
+  
+  /* Fix for sanction-card */
+  .dark-mode .sanction-card {
+    background-color: var(--color-muted) !important;
+    border-left: 4px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .sanction-card.severe {
+    background-color: var(--color-danger) !important;
+    border-left: 4px solid #ef4444 !important;
+  }
+  
+  .dark-mode .sanction-header {
+    background-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .sanction-card.severe .sanction-header {
+    background-color: #ef4444 !important;
+  }
+  
+  .dark-mode .sanction-list li {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .dark-mode .sanction-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  /* Fix for subsection */
+  .dark-mode .subsection-subtitle {
+    color: var(--color-primary-dark) !important;
+    border-bottom: 1px dashed var(--color-border) !important;
+  }
+  
+  /* Fix for highlight */
+  .dark-mode .highlight {
+    color: var(--color-primary-dark) !important;
+    font-weight: bold;
+  }
+  
+  /* Fix for table caption */
+  .dark-mode .styled-table caption {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  /* Fix for icons */
+  .dark-mode .info-icon,
+  .dark-mode .card-icon,
+  .dark-mode .measure-icon,
+  .dark-mode .alert-icon,
+  .dark-mode .list-icon,
+  .dark-mode .exception-icon,
+  .dark-mode .table-icon,
+  .dark-mode .timeline-icon,
+  .dark-mode .sanction-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .alert-card.high-risk .alert-icon {
+    color: var(--color-danger-dark) !important;
+  }
+  
+  /* ADDITIONAL FIXES FOR NEW COMPONENTS */
+  
+  /* Bicameralismo */
+  .dark-mode .bicameralismo {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .bic-paragraph {
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode .bic-highlight {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .bic-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .bic-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .bic-list {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .bic-list-item {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .dark-mode .bic-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .bic-article-box {
+    background-color: var(--color-muted) !important;
+  }
+  
+  /* Estatuto Parlamentario */
+  .dark-mode .estatuto-parlamentario {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ep-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .ep-section-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ep-section-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ep-list-item {
+    background-color: var(--color-white) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .ep-causes-grid {
+    background-color: transparent !important;
+  }
+  
+  .dark-mode .ep-cause-card {
+    background-color: var(--color-white) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .ep-cause-letter {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ep-privileges-container {
+    background-color: transparent !important;
+  }
+  
+  .dark-mode .ep-privilege-card {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .ep-privilege-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .ep-privilege-title {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .ep-note-box {
+    background-color: var(--color-muted) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  /* Tribunal de Cuentas */
+  .dark-mode .tribunal-cuentas {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .tc-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .tc-intro {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .tc-list-item {
+    background-color: var(--color-white) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .tc-list-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .tc-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .tc-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .tc-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .tc-highlight-box {
+    background-color: var(--color-muted) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .tc-info-box {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  /* Control Parlamentario */
+  .dark-mode .control-parlamentario {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .cp-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .cp-intro {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .cp-control-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .cp-control-letter {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .cp-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .cp-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .cp-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .cp-subsection {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .cp-subsection-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .cp-quote-box {
+    background-color: var(--color-muted) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .cp-highlight-box {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  /* Derechos y Deberes */
+  .dark-mode .derechos-deberes {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .dd-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .dd-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .dd-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .dd-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .dd-subsection {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .dd-subsection-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .dd-highlight {
+    color: var(--color-primary-dark) !important;
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  .dark-mode .dd-list-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .dd-list-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .dd-numbered-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .dd-numbered-item:before {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .dd-faults-box {
+    background-color: var(--color-warning) !important;
+    border-color: var(--color-warning-dark) !important;
+  }
+  
+  .dark-mode .dd-faults-title {
+    color: var(--color-warning-dark) !important;
+    border-bottom: 2px solid var(--color-warning-dark) !important;
+  }
+  
+  .dark-mode .dd-sanctions-box {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .dd-lettered-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .dd-lettered-letter {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  /* Tipos de Empleados */
+  .dark-mode .tipos-empleados {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .te-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .te-intro {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .te-type-card {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .te-type-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .te-type-name {
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode .te-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .te-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .te-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .te-definition-box {
+    background-color: var(--color-muted) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .te-highlight-box {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .te-note-box {
+    background-color: var(--color-warning) !important;
+    border-left: 5px solid var(--color-warning-dark) !important;
+  }
+  
+  .dark-mode .te-lettered-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .te-lettered-letter {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .te-list-item {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .te-list-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  /* Consejo de Estado */
+  .dark-mode .consejo-estado {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ce-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ce-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .ce-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ce-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ce-highlight-box {
+    background-color: var(--color-muted) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .ce-councillor-card {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .dark-mode .ce-councillor-icon {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .ce-councillor-title {
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode .ce-subsection {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ce-subsection-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-left: 5px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .ce-consultation-item,
+  .dark-mode .ce-consultation-numbered-item {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ce-consultation-letter,
+  .dark-mode .ce-consultation-number {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ce-conclusion-box {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  /* Programación de Efectivos */
+  .dark-mode .programacion-efectivos {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .pe-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .pe-title {
+    color: white !important;
+  }
+  
+  .dark-mode .pe-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .pe-box {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .pe-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .pe-section-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .pe-section-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  /* Estructuración del Empleo */
+  .dark-mode .estructuracion-empleo {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ee-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ee-title {
+    color: white !important;
+  }
+  
+  .dark-mode .ee-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ee-intro {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ee-clasificacion {
+    background-color: var(--color-muted) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ee-grupo {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ee-grupo-title {
+    background-color: var(--color-info) !important;
+    color: var(--color-primary-dark) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .ee-grupo-content {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ee-footer {
+    border-top: 1px solid var(--color-border) !important;
+  }
+  
+  /* Incompatibilidades */
+  .dark-mode .incompatibilidades {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .inc-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .inc-title {
+    color: white !important;
+  }
+  
+  .dark-mode .inc-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .inc-intro-box {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .inc-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .inc-section-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .inc-section-content {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .inc-list-item {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .inc-sublist-item {
+    background-color: var(--color-muted) !important;
+  }
+  
+  /* Movilidad de Funcionarios */
+  .dark-mode .movilidad-funcionarios {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .mf-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .mf-title {
+    color: white !important;
+  }
+  
+  .dark-mode .mf-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .mf-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .mf-section-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .mf-section-content {
+    background-color: var(--color-white) !important;
+  }
+  
+  /* Alto Cargo */
+  .dark-mode .alto-cargo {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .ac-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ac-title {
+    color: white !important;
+  }
+  
+  .dark-mode .ac-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ac-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode .ac-section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .ac-section-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ac-box {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ac-list-item {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .ac-subsection {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .ac-numbered-list {
+    background-color: transparent !important;
+  }
+  
+  /* Situaciones Administrativas */
+  .dark-mode .situaciones-administrativas {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .sa-header {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode .sa-title {
+    color: white !important;
+  }
+  
+  .dark-mode .sa-content {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode .sa-intro-box {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .sa-section {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode .sa-section-title {
+    background-color: var(--color-muted) !important;
+    color: var(--color-primary-dark) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+  }
+  
+  .dark-mode .sa-section-content {
+    background-color: var(--color-white) !important;
+  }
+  
+  .dark-mode .sa-list-item {
+    background-color: var(--color-muted) !important;
+  }
+  
+  /* Ley 34/2002 - Servicios de la Sociedad de la Información */
+  .dark-mode .section-title {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+    border-bottom: 2px solid var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .subsection-title {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  .dark-mode .intro-text {
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode .directivas-list li,
+  .dark-mode .feature-list li,
+  .dark-mode .exclusion-list li,
+  .dark-mode .services-list li,
+  .dark-mode .jurisdiction-list li,
+  .dark-mode .principles-list li,
+  .dark-mode .exception-list li,
+  .dark-mode .security-list li,
+  .dark-mode .obligations-list li {
+    background-color: var(--color-muted) !important;
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode .highlight-box,
+  .dark-mode .jurisdiction-card,
+  .dark-mode .restrictions-box,
+  .dark-mode .security-box {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .main-paragraph,
+  .dark-mode .definition-text,
+  .dark-mode .example-text,
+  .dark-mode .info-text,
+  .dark-mode .important-text,
+  .dark-mode .warning-text,
+  .dark-mode .collaboration-text,
+  .dark-mode .portability-text,
+  .dark-mode .note-text {
+    background-color: var(--color-muted) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-primary) !important;
+  }
+  
+  .dark-mode .jurisdiction-title,
+  .dark-mode .service-title {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  /* General pattern-based selectors */
+  .dark-mode [class*="-header"],
+  .dark-mode [class*="header"] {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  .dark-mode [class*="-title"],
+  .dark-mode [class*="title"] {
+    color: var(--color-text) !important;
+  }
+  
+  .dark-mode [class*="-section"],
+  .dark-mode [class*="section"],
+  .dark-mode [class*="-box"],
+  .dark-mode [class*="box"],
+  .dark-mode [class*="-card"],
+  .dark-mode [class*="card"] {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  .dark-mode [class*="-content"],
+  .dark-mode [class*="content"] {
+    background-color: var(--color-muted) !important;
+  }
+  
+  .dark-mode [class*="-list-item"],
+  .dark-mode [class*="list-item"],
+  .dark-mode [class*="-item"],
+  .dark-mode [class*="item"] {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  .dark-mode [class*="-icon"],
+  .dark-mode [class*="icon"] {
+    color: var(--color-primary-dark) !important;
+  }
+  
+  /* Override for specific elements that need different styling */
+  .dark-mode .section-title,
+  .dark-mode .subsection-title,
+  .dark-mode [class*="-section-title"],
+  .dark-mode [class*="section-title"],
+  .dark-mode [class*="-header"],
+  .dark-mode [class*="header"] {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+  
+  

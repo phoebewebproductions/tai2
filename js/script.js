@@ -1,5 +1,6 @@
 // Importar funciones de autenticación
 import { checkAuthStatus, logout } from "./auth.js"
+/*import { initializeDarkMode } from "./dark-mode.js"*/
 
 // Importar función de sincronización (con manejo de errores)
 let syncUserProgress
@@ -15,7 +16,7 @@ try {
   }
 }
 
-// Función para aplicar el modo oscuro
+/*// Función para aplicar el modo oscuro
 function applyDarkMode(isDark) {
   const root = document.documentElement
   if (isDark) {
@@ -70,7 +71,7 @@ function initializeDarkMode() {
 
   applyDarkMode(isDarkMode)
   updateDarkModeButton(isDarkMode)
-}
+}*/
 
 // Función para mostrar la información del usuario en el dashboard
 function displayUserInfo() {
@@ -238,12 +239,8 @@ function initialize() {
   // Añadir estilos para la sincronización
   addSyncStyles()
 
-  initializeDarkMode()
-
-  const darkModeToggle = document.getElementById("darkModeToggle")
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", toggleDarkMode)
-  }
+  // Dark mode is now handled by simple-dark-mode.js
+  // No need to call initializeDarkMode() here
 
   // Mostrar información del usuario si estamos en el dashboard
   if (!window.location.pathname.includes("login.html")) {
