@@ -110,157 +110,126 @@ async function loadQuestionsForBlock(blockId) {
  */
 async function loadQuestionsForTopic(topicId) {
   try {
-    // Verificar que topicId sea válido
-    if (!topicId) {
-      console.error("ID de tema inválido:", topicId)
-      return []
-    }
-
-    // Extraer bloque y tema del ID
-    // Asumimos que el formato es "BTTXXXX" donde B es el bloque y TT es el tema
-    let blockId, temaId
-
-    if (typeof topicId === "string" && topicId.length >= 3) {
-      blockId = topicId.substring(0, 1)
-      temaId = topicId.substring(1, 3)
-    } else {
-      console.error("Formato de ID de tema inválido:", topicId)
-      return []
-    }
-
-    console.log(`Cargando preguntas para el tema ${blockId}${temaId}`)
-
-    // Intentar cargar directamente el archivo de preguntas del tema
-    const rutaPreguntas = `/tai2/bloques/bloque${blockId}/temas/tema${Number.parseInt(temaId)}/preguntas.js`
-
-    try {
-      const questions = await loadQuestionsFromFile(rutaPreguntas)
-      if (questions.length > 0) {
-        console.log(`Encontradas ${questions.length} preguntas en ${rutaPreguntas}`)
-        return questions
-      }
-    } catch (e) {
-      console.log(`No se encontró archivo de preguntas en ${rutaPreguntas}`)
-    }
-
-    // Intentar rutas alternativas
-    const rutasAlternativas = [
-      `/tai2/bloques/bloque${blockId}/tema${Number.parseInt(temaId)}/preguntas.js`,
-      `/tai2/bloques/bloque${blockId}/temas/tema${Number.parseInt(temaId)}.js`,
-      `/tai2/bloques/bloque${blockId}/tema${Number.parseInt(temaId)}.js`
+    console.log(`Cargando preguntas para el tema ${topicId}`)
+    
+    // Extraer bloque y tema
+    const bloqueId = topicId.substring(0, 1)
+    const temaId = topicId.substring(1, 3)
+    
+    // Intentar todas las posibles rutas donde podrían estar las preguntas
+    const posiblesRutas = [
+      `/tai2/bloques/bloque${bloqueId}/temas/tema${temaId}/preguntas.js`,
+      `/tai2/bloques/bloque${bloqueId}/tema${temaId}/preguntas.js`,
+      `/tai2/bloques/bloque${bloqueId}/temas/tema${temaId}.js`,
+      `/tai2/bloques/bloque${bloqueId}/tema${temaId}.js`,
+      `/tai2/bloques/bloque${bloqueId}/preguntas/tema${temaId}.js`,
+      `/tai2/bloques/bloque${bloqueId}/preguntas${temaId}.js`,
+      `/tai2/bloque${bloqueId}/tema${temaId}/preguntas.js`,
+      `/tai2/bloque${bloqueId}/temas/tema${temaId}/preguntas.js`
     ]
-
-    for (const ruta of rutasAlternativas) {
+    
+    let allQuestions = []
+    let loadedFromAnyPath = false
+    
+    // Intentar cargar desde todas las rutas posibles
+    for (const ruta of posiblesRutas) {
       try {
         const questions = await loadQuestionsFromFile(ruta)
-        if (questions.length > 0) {
+        if (questions && questions.length > 0) {
           console.log(`Encontradas ${questions.length} preguntas en ${ruta}`)
-          return questions
+          allQuestions = allQuestions.concat(questions)
+          loadedFromAnyPath = true
         }
       } catch (e) {
-        console.log(`No se encontró archivo de preguntas en ${ruta}`)
+        // Continuar con la siguiente ruta
       }
     }
-
-    return []
+    
+    if (!loadedFromAnyPath) {
+      console.warn(`No se encontraron preguntas para el tema ${topicId} en ninguna ruta`)
+    }
+    
+    // Asegurarse de que todas las preguntas tengan un ID único
+    const uniqueQuestions = []
+    const seenIds = new Set()
+    
+    for (const question of allQuestions) {
+      // Si la pregunta no tiene ID, generarle uno
+      if (!question.id) {
+        question.id = `${topicId}_${Math.random().toString(36).substring(2, 10)}`
+      }
+      
+      // Evitar duplicados por ID
+      if (!seenIds.has(question.id)) {
+        seenIds.add(question.id)
+        uniqueQuestions.push(question)
+      }
+    }
+    
+    console.log(`Encontradas ${uniqueQuestions.length} preguntas únicas para el tema ${topicId}`)
+    return uniqueQuestions
   } catch (error) {
     console.error(`Error al cargar preguntas para el tema ${topicId}:`, error)
-    return []
+    throw error
   }
 }
 
 /**
- * Carga preguntas desde un archivo
- * @param {string} filePath - Ruta al archivo de preguntas
+ * Carga preguntas desde un archivo JavaScript
+ * @param {string} filePath - Ruta al archivo
  * @returns {Promise<Array>} - Array de preguntas
  */
 async function loadQuestionsFromFile(filePath) {
   try {
     console.log(`Intentando cargar preguntas desde: ${filePath}`)
-
-    // Cargar archivo de preguntas
-    const response = await fetch(filePath)
-    if (!response.ok) {
-      console.warn(`No se pudo cargar el archivo: ${filePath}`)
-      return []
-    }
-
-    // Procesar el archivo de preguntas
-    const text = await response.text()
     
-    // Intentar diferentes formatos de archivo
-    let preguntasModule = null
-    
-    try {
-      // Formato 1: export const preguntas = ...
-      const moduleText = text.replace("export const preguntas =", "const preguntas =")
-      const module = { exports: {} }
-      const moduleFunc = new Function("module", "exports", moduleText + "; return preguntas;")
-      preguntasModule = moduleFunc(module, module.exports)
-    } catch (e) {
-      console.log("Error al procesar formato 1, intentando formato 2:", e)
-      
-      try {
-        // Formato 2: export default { ... }
-        const moduleText = text.replace("export default", "return")
-        const moduleFunc = new Function(moduleText)
-        preguntasModule = moduleFunc()
-      } catch (e2) {
-        console.log("Error al procesar formato 2, intentando formato 3:", e2)
-        
+    // Cargar el archivo como un script
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = filePath
+      script.onload = () => {
         try {
-          // Formato 3: module.exports = { ... }
-          const moduleText = text.replace("module.exports =", "return")
-          const moduleFunc = new Function(moduleText)
-          preguntasModule = moduleFunc()
-        } catch (e3) {
-          console.error("No se pudo procesar ningún formato conocido:", e3)
-          return []
-        }
-      }
-    }
-
-    if (!preguntasModule) {
-      console.warn(`No se encontraron preguntas en el archivo ${filePath}`)
-      return []
-    }
-
-    // Extraer todas las preguntas de todos los exámenes
-    let allQuestions = []
-
-    // Recorrer todos los exámenes en el archivo
-    if (typeof preguntasModule === 'object') {
-      // Caso 1: Objeto con exámenes
-      for (const examId in preguntasModule) {
-        if (preguntasModule[examId] && preguntasModule[examId].preguntas) {
-          const examQuestions = preguntasModule[examId].preguntas
-          console.log(`Encontradas ${examQuestions.length} preguntas para el examen ${examId}`)
-          allQuestions = allQuestions.concat(examQuestions)
+          // Buscar todas las variables globales que podrían contener preguntas
+          const allQuestions = []
+          
+          // Buscar variables de examen (formato: examen_XXXXXXXXX)
+          for (const key in window) {
+            if (key.startsWith('examen_') && Array.isArray(window[key])) {
+              console.log(`Encontradas ${window[key].length} preguntas para el examen ${key}`)
+              allQuestions.push(...window[key])
+            }
+          }
+          
+          // Buscar también en variables como "preguntas", "questions", etc.
+          const possibleVarNames = ['preguntas', 'questions', 'preguntasTema', 'preguntasBloque']
+          for (const varName of possibleVarNames) {
+            if (window[varName] && Array.isArray(window[varName])) {
+              console.log(`Encontradas ${window[varName].length} preguntas en variable ${varName}`)
+              allQuestions.push(...window[varName])
+            }
+          }
+          
+          // Limpiar el script para evitar contaminación
+          document.body.removeChild(script)
+          
+          console.log(`Total de preguntas extraídas del archivo ${filePath}: ${allQuestions.length}`)
+          resolve(allQuestions)
+        } catch (error) {
+          reject(error)
         }
       }
       
-      // Si no encontramos preguntas en el formato anterior, verificar si el objeto mismo es un array de preguntas
-      if (allQuestions.length === 0 && Array.isArray(preguntasModule)) {
-        console.log(`Encontradas ${preguntasModule.length} preguntas en formato array directo`)
-        allQuestions = preguntasModule
+      script.onerror = () => {
+        console.log(` No se pudo cargar el archivo: ${filePath}`)
+        document.body.removeChild(script)
+        reject(new Error(`No se pudo cargar el archivo: ${filePath}`))
       }
       
-      // O si el objeto tiene una propiedad 'preguntas' que es un array
-      if (allQuestions.length === 0 && preguntasModule.preguntas && Array.isArray(preguntasModule.preguntas)) {
-        console.log(`Encontradas ${preguntasModule.preguntas.length} preguntas en propiedad 'preguntas'`)
-        allQuestions = preguntasModule.preguntas
-      }
-    } else if (Array.isArray(preguntasModule)) {
-      // Caso 2: Array directo de preguntas
-      console.log(`Encontradas ${preguntasModule.length} preguntas en formato array`)
-      allQuestions = preguntasModule
-    }
-
-    console.log(`Total de preguntas extraídas del archivo ${filePath}: ${allQuestions.length}`)
-    return allQuestions
+      document.body.appendChild(script)
+    })
   } catch (error) {
-    console.error(`Error al cargar preguntas desde el archivo ${filePath}:`, error)
-    return []
+    console.error(`Error al cargar preguntas desde ${filePath}:`, error)
+    throw error
   }
 }
 
