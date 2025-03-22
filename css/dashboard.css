@@ -1,0 +1,455 @@
+/* Estilos para el dashboard del generador de exámenes */
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 80px; /* Añadir margen superior para evitar superposición con el header */
+  }
+  
+  @media (max-width: 1024px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Panel izquierdo */
+  .dashboard-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Tarjeta de estadísticas */
+  .stats-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .stats-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .stats-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .stats-content {
+    padding: 20px;
+  }
+  
+  .stats-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:2px;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a73e8;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .stats-chart-container {
+    height: 200px;
+    margin-top: 20px;
+  }
+  
+  /* Historial de exámenes */
+  .exams-history {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1;
+  }
+  
+  .exams-history-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .exams-history-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .exams-history-content {
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .exam-history-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .exam-history-item:hover {
+    background-color: #f5f8ff;
+  }
+  
+  .exam-history-item:last-child {
+    border-bottom: none;
+  }
+  
+  .exam-history-info {
+    flex: 1;
+  }
+  
+  .exam-history-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .exam-history-date {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .exam-history-score {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .score-pass {
+    background-color: #e6f4ea;
+    color: #34a853;
+  }
+  
+  .score-fail {
+    background-color: #fce8e6;
+    color: #ea4335;
+  }
+  
+  .exam-history-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .exam-history-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1a73e8;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .exam-history-btn:hover {
+    background-color: #f1f3f4;
+  }
+  
+  .no-exams-message {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Panel derecho */
+  .dashboard-right {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Bloques expandibles */
+  .block-item {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .block-header:hover {
+    background-color: #f1f3f4;
+  }
+  
+  .block-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .block-checkbox {
+    margin: 0;
+  }
+  
+  .block-title {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .block-stats {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .block-progress {
+    width: 100px;
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-correct {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #34a853;
+  }
+  
+  .progress-incorrect {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ea4335;
+  }
+  
+  .block-toggle {
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+  
+  .block-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color: #fff; /* Fondo blanco para el contenido */
+  }
+  
+  .dark .block-content {
+    background-color: #1f1f1f; /* Fondo oscuro para el modo oscuro */
+  }
+  
+  .block-item.expanded .block-content {
+    padding: 15px;
+    max-height: 500px;
+    overflow-y: auto; /* Permitir scroll si hay muchos temas */
+  }
+  
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .topic-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s;
+    background-color: #fff; /* Fondo blanco para los temas */
+  }
+  
+  .topic-item:hover {
+    border-color: #1a73e8;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.1);
+  }
+  
+  .topic-checkbox {
+    margin-right: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .topic-info {
+    flex: 1;
+  }
+  
+  .topic-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+    display: block;
+  }
+  
+  .topic-description {
+    font-size: 14px;
+    color: #666;
+    display: block;
+  }
+  
+  .topic-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .topic-progress {
+    flex: 1;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .topic-progress-correct {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #34a853;
+  }
+  
+  .topic-progress-incorrect {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ea4335;
+  }
+  
+  .topic-progress-text {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* Soporte para modo oscuro */
+  .dark .stats-card,
+  .dark .exams-history,
+  .dark .dashboard-right {
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .stats-header,
+  .dark .exams-history-header {
+    border-bottom-color: #333;
+  }
+  
+  .dark .stats-header h3,
+  .dark .exams-history-header h3,
+  .dark .block-title {
+    color: #e0e0e0;
+  }
+  
+  .dark .stat-value {
+    color: #8ab4f8;
+  }
+  
+  .dark .stat-label,
+  .dark .exam-history-date,
+  .dark .topic-description,
+  .dark .topic-progress-text,
+  .dark .no-exams-message {
+    color: #b0b0b0;
+  }
+  
+  .dark .exam-history-item {
+    border-bottom-color: #333;
+  }
+  
+  .dark .exam-history-item:hover {
+    background-color: #2a2a2a;
+  }
+  
+  .dark .exam-history-title {
+    color: #e0e0e0;
+  }
+  
+  .dark .score-pass {
+    background-color: #0f3921;
+    color: #81c995;
+  }
+  
+  .dark .score-fail {
+    background-color: #4d1f1c;
+    color: #f28b82;
+  }
+  
+  .dark .exam-history-btn {
+    color: #8ab4f8;
+  }
+  
+  .dark .exam-history-btn:hover {
+    background-color: #2a2a2a;
+  }
+  
+  .dark .block-item {
+    border-color: #333;
+  }
+  
+  .dark .block-header {
+    background-color: #2a2a2a;
+  }
+  
+  .dark .block-header:hover {
+    background-color: #333;
+  }
+  
+  .dark .block-progress,
+  .dark .topic-progress {
+    background-color: #444;
+  }
+  
+  .dark .topic-item {
+    background-color: #2a2a2a; /* Fondo oscuro para el modo oscuro */
+    border-color: #444;
+  }
+  
+  .dark .topic-item:hover {
+    border-color: #8ab4f8;
+    box-shadow: 0 2px 8px rgba(138, 180, 248, 0.1);
+  }
+  
+  
