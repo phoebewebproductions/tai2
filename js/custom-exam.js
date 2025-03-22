@@ -131,6 +131,10 @@ class CustomExamGenerator {
     this.examDisplay = new CustomExamDisplay() // Instancia del visualizador de exámenes
     this.answeredQuestions = {} // Registro de preguntas respondidas
 
+    // Determinar la ruta base
+    this.basePath = this.determineBasePath()
+    console.log("Ruta base determinada:", this.basePath)
+
     // Referencias a elementos DOM
     this.blocksContainer = null
     this.topicsContainer = null
@@ -148,6 +152,29 @@ class CustomExamGenerator {
 
     // Inicializar la interfaz
     this.init()
+  }
+
+  // Añadir método para determinar la ruta base
+  determineBasePath() {
+    // Intentar encontrar la ruta base basada en la ubicación del script actual
+    const scripts = document.getElementsByTagName("script")
+    for (let i = 0; i < scripts.length; i++) {
+      const src = scripts[i].src
+      if (src.includes("custom-exam.js")) {
+        // Extraer la ruta base hasta la carpeta que contiene 'bloques'
+        const match = src.match(/(.*?\/)[^/]*\/[^/]*$/)
+        if (match && match[1]) {
+          return match[1]
+        }
+      }
+    }
+
+    // Si no podemos determinar la ruta, usar la ruta relativa al documento actual
+    const pathParts = window.location.pathname.split("/")
+    // Eliminar el archivo HTML actual
+    pathParts.pop()
+    // Construir la ruta base
+    return window.location.origin + pathParts.join("/") + "/"
   }
 
   async init() {
@@ -1039,7 +1066,7 @@ class CustomExamGenerator {
       // Primero intentar cargar la estructura del bloque para saber cuántos temas tiene
       let numTemas = 0
       try {
-        const estructuraResponse = await fetch(`/tai2/bloques/bloque${blockId}/estructura.json`)
+        const estructuraResponse = await fetch(`${this.basePath}bloques/bloque${blockId}/estructura.json`)
         if (estructuraResponse.ok) {
           const estructura = await estructuraResponse.json()
           if (estructura && estructura.temas && Array.isArray(estructura.temas)) {
@@ -1074,8 +1101,8 @@ class CustomExamGenerator {
         // Crear el ID del tema para el registro
         const temaId = `${blockId}${tema.toString().padStart(2, "0")}`
 
-        // Construir la ruta correcta
-        const rutaTema = `/tai2/bloques/bloque${blockId}/temas/tema${temaNumero}/preguntas.js`
+        // Construir la ruta correcta con la ruta base
+        const rutaTema = `${this.basePath}bloques/bloque${blockId}/temas/tema${temaNumero}/preguntas.js`
 
         console.log(`Intentando cargar preguntas del tema ${tema} en: ${rutaTema}`)
 
@@ -1102,11 +1129,7 @@ class CustomExamGenerator {
     }
   }
 
-  // Modificar el método loadQuestionsForTopic para actualizar el contador
-  /**
-   * Carga preguntas para un tema específico
-   * @param {string} topicId - ID del tema
-   */
+  // Modificar el método loadQuestionsForTopic para usar la ruta base
   async loadQuestionsForTopic(topicId) {
     try {
       console.log(`Cargando preguntas para el tema ${topicId}`)
@@ -1118,8 +1141,8 @@ class CustomExamGenerator {
       // Formatear correctamente el número del tema (quitar el cero inicial si es menor que 10)
       const temaNumero = Number.parseInt(temaId, 10).toString()
 
-      // Intentar la ruta principal donde deberían estar las preguntas
-      const rutaPrincipal = `/tai2/bloques/bloque${bloqueId}/temas/tema${temaNumero}/preguntas.js`
+      // Usar la ruta base
+      const rutaPrincipal = `${this.basePath}bloques/bloque${bloqueId}/temas/tema${temaNumero}/preguntas.js`
 
       try {
         const questions = await this.loadQuestionsFromFile(rutaPrincipal)
@@ -1169,12 +1192,15 @@ class CustomExamGenerator {
           .replace(/const\s+preguntas\s*=/, `window.${uniqueVarName} =`)
           .replace(/let\s+preguntas\s*=/, `window.${uniqueVarName} =`)
           .replace(/var\s+preguntas\s*=/, `window.${uniqueVarName} =`)
+          .replace(/export\s+const\s+questions\s*=/, `window.${uniqueVarName} =`)
           .replace(/const\s+questions\s*=/, `window.${uniqueVarName} =`)
           .replace(/let\s+questions\s*=/, `window.${uniqueVarName} =`)
           .replace(/var\s+questions\s*=/, `window.${uniqueVarName} =`)
+          .replace(/export\s+const\s+preguntasTema\s*=/, `window.${uniqueVarName} =`)
           .replace(/const\s+preguntasTema\s*=/, `window.${uniqueVarName} =`)
           .replace(/let\s+preguntasTema\s*=/, `window.${uniqueVarName} =`)
           .replace(/var\s+preguntasTema\s*=/, `window.${uniqueVarName} =`)
+          .replace(/export\s+const\s+preguntasBloque\s*=/, `window.${uniqueVarName} =`)
           .replace(/const\s+preguntasBloque\s*=/, `window.${uniqueVarName} =`)
           .replace(/let\s+preguntasBloque\s*=/, `window.${uniqueVarName} =`)
           .replace(/var\s+preguntasBloque\s*=/, `window.${uniqueVarName} =`)
