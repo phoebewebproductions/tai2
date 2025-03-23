@@ -29,17 +29,46 @@ export function saveExamResult(examResult) {
     }
   }
   
-  // Función para obtener el historial de exámenes
-  export function getExamHistory() {
-    try {
-      const history = localStorage.getItem("examHistory")
-      return history ? JSON.parse(history) : []
-    } catch (error) {
-      console.error("Error al obtener historial de exámenes:", error)
-      return []
-    }
+// Función para obtener el historial de exámenes
+export function getExamHistory() {
+  try {
+      // Intentar obtener el historial de exámenes del almacenamiento local
+      const storedHistory = localStorage.getItem('examHistory');
+      
+      if (storedHistory) {
+          return JSON.parse(storedHistory);
+      }
+      
+      // Si no hay historial almacenado, devolver un array vacío
+      return [];
+  } catch (error) {
+      console.error('Error al obtener el historial de exámenes:', error);
+      return [];
   }
-  
+}
+
+// Función para guardar un nuevo examen en el historial
+export function saveExamToHistory(examData) {
+  try {
+      // Obtener el historial actual
+      const currentHistory = getExamHistory();
+      
+      // Añadir el nuevo examen al historial
+      currentHistory.push({
+          ...examData,
+          date: new Date().toISOString()
+      });
+      
+      // Guardar el historial actualizado
+      localStorage.setItem('examHistory', JSON.stringify(currentHistory));
+      
+      console.log('Examen guardado en el historial:', examData);
+      return true;
+  } catch (error) {
+      console.error('Error al guardar el examen en el historial:', error);
+      return false;
+  }
+}
   // Función para cargar un examen del historial
   export function loadExamFromHistory(examId) {
     try {
@@ -72,6 +101,51 @@ export function saveExamResult(examResult) {
       return false
     }
   }
+  // Función para calcular estadísticas de exámenes
+export function calculateExamStats() {
+  try {
+      const history = getExamHistory();
+      
+      if (!history || history.length === 0) {
+          return {
+              totalExams: 0,
+              avgScore: 0,
+              passRate: 0,
+              bestScore: 0,
+              worstScore: 0
+          };
+      }
+      
+      // Calcular estadísticas
+      const totalExams = history.length;
+      const totalScore = history.reduce((sum, exam) => sum + exam.score, 0);
+      const avgScore = totalScore / totalExams;
+      
+      const passedExams = history.filter(exam => exam.passed).length;
+      const passRate = (passedExams / totalExams) * 100;
+      
+      const scores = history.map(exam => exam.score);
+      const bestScore = Math.max(...scores);
+      const worstScore = Math.min(...scores);
+      
+      return {
+          totalExams,
+          avgScore,
+          passRate,
+          bestScore,
+          worstScore
+      };
+  } catch (error) {
+      console.error('Error al calcular estadísticas de exámenes:', error);
+      return {
+          totalExams: 0,
+          avgScore: 0,
+          passRate: 0,
+          bestScore: 0,
+          worstScore: 0
+      };
+  }
+}
   
   // Función para actualizar la interfaz del historial de exámenes
   export function updateExamHistoryUI() {

@@ -4,25 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <style>
 
+    <link rel="stylesheet" href="../../css/sync.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/pure-dark-mode.css">
+    <link rel="stylesheet" href="../../css/donations.css">
+
+    <style>
+        /* Ocultar el elemento de argumento por defecto */
+        #argumento {
+            display: none !important;
+        }
     </style>
     <title>Examen de Oposición</title>
     <link rel="icon" href="logo.png">
+    <!-- Asegurarse de que XLSX se cargue antes de los módulos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <!-- Remove the preload link for service-worker.js -->
 </head>
 <body>
-        <header>
-        <h1>TAI 2.0</h1>
-        <h2>Examen oficial</h2>
-        <a href="../index.html"><button class=" volver ">
-            Volver a selección
-        </button></a>
-      
-       
-    </header>
-   
+    <div id="donation-float-button" class="donation-float-button">
+        <div class="donation-panel">
+            <div class="donation-panel-header">
+                <h3>Apoya el Desarrollo</h3>
+            </div>
+            <div class="donation-panel-content">
+                <p>Este sitio web está en fase beta y ha sido desarrollado como parte de mi formación con TAI.</p>
+                <p>Si deseas contribuir al crecimiento y mejora de este sitio, puedes hacerlo mediante una donación.</p>
+                <a href="https://paypal.me/oajreviews?country.x=ES&locale.x=es_ES" class="donate-button-small" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-paypal"></i>
+                    Donar por PayPal
+                </a>
+            </div>
+        </div>
+        <div class="donation-icon">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+    </div>
+    <header id="bloque-header" class="headerPrincipal" >
+        <span class="titulo">
+            <h1>Formación Online</h1>
+            <h2>Examen oficial</h2>
+        </span>
+        
+        <div class="buttonsHeader">
+            <a href="../../index.html" class="volver" aria-label="Volver a selección">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="volver-icon">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    <path d="M10 6L4 12"></path>
+                    <path d="M4 12h7"></path>
+                </svg>
+            </a>
+            
+            <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
+                <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+            </button>
+
+          
+
+        </div>
+    </header>  
    
     <div class="container">
        
@@ -97,17 +139,29 @@
             </div>
             
             
-            <button type="submit">Iniciar Examen</button>
+            <button class="temabtn"type="submit">Iniciar Examen</button>
             
-            <button type="button" id="viewStudyNotesButton">Ver Notas de Estudio</button>
-            <button type="button" id="startRecoveryButton">Iniciar Examen de Recuperación</button>
-            <button type="button" id="viewStatsButton">Ver Estadísticas</button>
+            <button type="button" id="viewStudyNotesButton" style="display:none;">Ver Notas de Estudio</button>
+            <button type="button" id="startRecoveryButton" style="display:none;">Iniciar Examen de Recuperación</button>
+            <button class="temabtn"type="button" id="viewStatsButton">Ver Estadísticas</button>
         </form>
     </div>
     <!---->
     
-
-   
+    <!-- Asegurarse de que los módulos se carguen después de XLSX -->
+    <script>
+        // Verificar que XLSX se haya cargado correctamente
+        window.addEventListener('load', function() {
+            if (typeof XLSX === 'undefined') {
+                console.error('XLSX library not loaded. Check your network connection and try again.');
+                alert('Error: XLSX library not loaded. Please refresh the page and try again.');
+            } else {
+                console.log('XLSX library loaded successfully.');
+            }
+        });
+    </script>
     <script type="module" src="main.js"></script>
+    <script type="module" src="../../js/css-only-dark-mode.js.js"></script>
+    <script  type="module" src="../../js/donations.js"></script>
 </body>
 </html>

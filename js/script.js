@@ -1,7 +1,8 @@
 // Importar funciones de autenticación
 import { checkAuthStatus, logout } from "./auth.js"
-/*import { initializeDarkMode } from "./dark-mode.js"*/
 
+/*import { initializeDarkMode } from "./dark-mode.js"*/
+import { initializeDashboardProgress } from "./dashboard-progress.js" // Importar el nuevo módulo
 // Importar función de sincronización (con manejo de errores)
 let syncUserProgress
 try {
@@ -15,63 +16,6 @@ try {
     return false
   }
 }
-
-/*// Función para aplicar el modo oscuro
-function applyDarkMode(isDark) {
-  const root = document.documentElement
-  if (isDark) {
-    root.classList.add("dark-mode")
-  } else {
-    root.classList.remove("dark-mode")
-  }
-}
-
-// Función para cambiar entre modo claro y oscuro
-function toggleDarkMode() {
-  const root = document.documentElement
-  const isDarkMode = !root.classList.contains("dark-mode")
-  applyDarkMode(isDarkMode)
-  updateDarkModeButton(isDarkMode)
-
-  // Guardar preferencia de modo oscuro específica para el usuario
-  const userAuth = localStorage.getItem("userAuth")
-  if (userAuth) {
-    const userData = JSON.parse(userAuth)
-    localStorage.setItem(`user_${userData.id}_darkMode`, isDarkMode)
-  } else {
-    localStorage.setItem("darkMode", isDarkMode)
-  }
-}
-
-// Función para actualizar el ícono del botón de modo oscuro
-function updateDarkModeButton(isDarkMode) {
-  const darkModeIcon = document.getElementById("darkModeIcon")
-  if (darkModeIcon) {
-    if (isDarkMode) {
-      darkModeIcon.classList.replace("fa-moon", "fa-sun") // Cambia a sol en modo oscuro
-    } else {
-      darkModeIcon.classList.replace("fa-sun", "fa-moon") // Cambia a luna en modo claro
-    }
-  }
-}
-
-// Función para inicializar el modo oscuro basado en la preferencia guardada
-function initializeDarkMode() {
-  let isDarkMode = false
-
-  // Intentar cargar preferencia específica del usuario
-  const userAuth = localStorage.getItem("userAuth")
-  if (userAuth) {
-    const userData = JSON.parse(userAuth)
-    isDarkMode = localStorage.getItem(`user_${userData.id}_darkMode`) === "true"
-  } else {
-    // Fallback a preferencia genérica
-    isDarkMode = localStorage.getItem("darkMode") === "true"
-  }
-
-  applyDarkMode(isDarkMode)
-  updateDarkModeButton(isDarkMode)
-}*/
 
 // Función para mostrar la información del usuario en el dashboard
 function displayUserInfo() {
@@ -229,6 +173,7 @@ function addSyncStyles() {
   document.head.appendChild(styleElement)
 }
 
+
 // Función principal de inicialización
 function initialize() {
   console.log("Inicialización del script comenzada")
@@ -245,6 +190,9 @@ function initialize() {
   // Mostrar información del usuario si estamos en el dashboard
   if (!window.location.pathname.includes("login.html")) {
     displayUserInfo()
+    
+    // Inicializar el módulo de progreso del dashboard
+    initializeDashboardProgress()
   }
 
   // Function to handle "under construction" elements
@@ -265,4 +213,3 @@ if (document.readyState === "loading") {
 } else {
   initialize()
 }
-

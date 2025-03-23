@@ -94,22 +94,34 @@ export function handleUIButtons() {
     };
 }
 
-/**
- * Muestra los resultados del examen.
- */
+// Modificamos solo la función showResults para reflejar el nuevo cálculo de puntuación
+
 export function showResults(total, correct, questions) {
     const formi = document.getElementById('menu-exam-form');
     if (formi) {
         formi.style.display = "none";
     }
-    const percentageTotal = total > 0 ? (correct / total) * 100 : 0;
+    
+    // Calcular estadísticas
+    const correctAnswers = questions.filter(q => q.isCorrect === true).length;
+    const incorrectAnswers = questions.filter(q => q.isCorrect === false).length;
+    const skippedAnswers = questions.filter(q => q.isCorrect === undefined).length;
+    
+    // Calcular puntuación con penalización
+    const rawScore = correctAnswers - (incorrectAnswers / 3);
+    const finalScore = Math.max(0, rawScore);
+    const percentageTotal = (finalScore / total) * 100;
 
     let statsHtml = `
         <h2>Resultados</h2>
         <button class="close-button" onclick="location.reload()">X</button>
         <p>Total de preguntas: ${total}</p>
-        <p>Correctas: ${correct}</p>
+        <p>Correctas: ${correctAnswers}</p>
+        <p>Incorrectas: ${incorrectAnswers}</p>
+        <p>Saltadas: ${skippedAnswers}</p>
+        <p>Puntuación final: ${finalScore.toFixed(2)}</p>
         <p>Porcentaje de aciertos: ${percentageTotal.toFixed(2)}%</p>
+        <p><em>Nota: Cada respuesta incorrecta resta 1/3 del valor de una correcta</em></p>
         <div id="blockScoreDisplay"></div>
     `;
 
@@ -117,29 +129,41 @@ export function showResults(total, correct, questions) {
     questions.forEach(question => {
         const block = question.block;
         if (!blockScores[block]) {
-            blockScores[block] = { total: 0, correct: 0 };
+            blockScores[block] = { total: 0, correct: 0, incorrect: 0, skipped: 0 };
         }
         blockScores[block].total++;
-        if (question.isCorrect) {
+        
+        if (question.isCorrect === true) {
             blockScores[block].correct++;
+        } else if (question.isCorrect === false) {
+            blockScores[block].incorrect++;
+        } else {
+            blockScores[block].skipped++;
         }
     });
 
     // Mostrar resultados por bloque
     statsHtml += `<h3>Resultados por bloque</h3>`;
     for (const [block, data] of Object.entries(blockScores)) {
-        const blockPercentage = data.total > 0 ? (data.correct / data.total) * 100 : 0;
+        // Calcular puntuación del bloque con penalización
+        const blockRawScore = data.correct - (data.incorrect / 3);
+        const blockFinalScore = Math.max(0, blockRawScore);
+        const blockPercentage = data.total > 0 ? (blockFinalScore / data.total) * 100 : 0;
 
         statsHtml += `
             <div class="block-results">
                 <strong>Bloque: ${block}</strong>
+                <p>Correctas: ${data.correct}</p>
+                <p>Incorrectas: ${data.incorrect}</p>
+                <p>Saltadas: ${data.skipped}</p>
+                <p>Puntuación: ${blockFinalScore.toFixed(2)}</p>
                 <p>Porcentaje de aciertos: ${blockPercentage.toFixed(2)}%</p>
             </div>
         `;
     }
 
-    // Mostrar preguntas incorrectas
-    const incorrectQuestions = questions.filter(q => !q.isCorrect);
+    // Mostrar preguntas incorrectas (sin mostrar argumentos)
+    const incorrectQuestions = questions.filter(q => q.isCorrect === false);
     if (incorrectQuestions.length > 0) {
         statsHtml += `<h4>Preguntas incorrectas</h4>`;
         incorrectQuestions.forEach(q => {
@@ -147,7 +171,6 @@ export function showResults(total, correct, questions) {
                 <div class="pregunta-fallada">
                     <p><strong>Pregunta:</strong> ${q.question}</p>
                     <p><strong>Respuesta correcta:</strong> ${q.correctAnswer}</p>
-                    <p><strong>Explicación:</strong> ${q.argument}</p>
                 </div>
             `;
         });
@@ -171,7 +194,6 @@ export function showResults(total, correct, questions) {
             block.style.display = 'block';
             block.style.width = '100%';
             block.style.boxSizing = 'border-box';
-
         });
 
         const preguntasFalladas = statsContainer.querySelectorAll('.pregunta-fallada');
@@ -184,8 +206,6 @@ export function showResults(total, correct, questions) {
             pregunta.style.width = '100%';
             pregunta.style.boxSizing = 'border-box';
             pregunta.style.marginBottom = '10px';
-
-
         });
     }
     
@@ -194,13 +214,22 @@ export function showResults(total, correct, questions) {
         appElement.style.display = 'none';
     }
 
-    // Call saveExamStats only once, here
-    saveExamStats(total, correct, questions, blockScores);
+    // Guardar estadísticas
+    try {
+        // Importar la función saveExamStats
+        import('./stats.js').then(statsModule => {
+            // Guardar estadísticas con los datos calculados
+            statsModule.saveExamStats(total, finalScore, questions, blockScores);
+            console.log('Estadísticas guardadas correctamente');
+        }).catch(error => {
+            console.error('Error al importar el módulo de estadísticas:', error);
+        });
+    } catch (error) {
+        console.error('Error al guardar estadísticas:', error);
+    }
+
     document.body.removeAttribute('data-exam-active');
 }
-// Add this function at the beginning of the file
-
-
 
 // Update other functions in ui.js to use the new showHint function
 // ... (keep other functions unchanged)
@@ -331,3 +360,87 @@ export function initializeUI() {
         startRecoveryExam();
     });
 }
+// Función para convertir checkboxes en botones interactivos
+function enhanceBlockCheckboxes() {
+    // Seleccionar todos los checkboxes de bloque
+    const blockCheckboxes = document.querySelectorAll('#block1, #block2, #block3, #block4');
+    
+    // Para cada checkbox
+    blockCheckboxes.forEach(checkbox => {
+        // Obtener el elemento padre (check-item)
+        const checkItem = checkbox.closest('.check-item');
+        if (!checkItem) return;
+        
+        // Crear el nuevo botón
+        const blockButton = document.createElement('button');
+        blockButton.className = 'block-button';
+        blockButton.type = 'button';
+        
+        // Añadir el icono de checkbox
+        const checkboxIcon = document.createElement('span');
+        checkboxIcon.className = 'checkbox-icon';
+        blockButton.appendChild(checkboxIcon);
+        
+        // Obtener el texto del label
+        const label = checkItem.querySelector('label');
+        const labelText = label ? label.textContent : `Bloque ${checkbox.id.replace('block', '')}`;
+        
+        // Añadir el texto al botón
+        const textSpan = document.createElement('span');
+        textSpan.textContent = labelText;
+        blockButton.appendChild(textSpan);
+        
+        // Actualizar el estado inicial
+        if (checkbox.checked) {
+            blockButton.classList.add('selected');
+        }
+        
+        // Añadir evento de clic
+        blockButton.addEventListener('click', () => {
+            // Cambiar el estado del checkbox
+            checkbox.checked = !checkbox.checked;
+            
+            // Actualizar la clase del botón
+            blockButton.classList.toggle('selected', checkbox.checked);
+            
+            // Disparar un evento de cambio para que cualquier listener existente se active
+            const event = new Event('change', { bubbles: true });
+            checkbox.dispatchEvent(event);
+        });
+        
+        // Reemplazar el contenido del check-item
+        checkItem.innerHTML = '';
+        checkItem.appendChild(checkbox); // Mantener el checkbox original pero oculto
+        checkItem.appendChild(blockButton);
+    });
+}
+
+// Función para mejorar los botones de acción
+function enhanceActionButtons() {
+    // Mejorar el botón de iniciar examen
+    const startButton = document.querySelector('button[onclick="iniciarExamen()"]');
+    if (startButton) {
+        startButton.className = 'action-button gradient-button';
+    }
+    
+    // Mejorar el botón de ver estadísticas
+    const statsButton = document.querySelector('button[onclick="verEstadisticas()"]');
+    if (statsButton) {
+        statsButton.className = 'action-button gradient-button';
+    }
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    enhanceBlockCheckboxes();
+    enhanceActionButtons();
+});
+
+// Asegurarse de que se ejecute también si se carga dinámicamente
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(() => {
+        enhanceBlockCheckboxes();
+        enhanceActionButtons();
+    }, 100);
+}
+

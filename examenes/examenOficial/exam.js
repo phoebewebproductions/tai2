@@ -1,4 +1,3 @@
-import { saveStudyNotes, removeQuestionFromNotes, saveExamStats } from './stats.js';
 import { appState } from './state.js';
 import { showResults } from './ui.js';
 
@@ -9,13 +8,16 @@ export async function loadQuestions(file) {
             throw new Error(`Error al cargar el archivo: ${response.statusText}`);
         }
         const data = await response.arrayBuffer();
-        if (typeof XLSX === 'undefined') {
-            throw new Error('XLSX library not loaded');
+        
+        // Verificar que XLSX esté disponible globalmente
+        if (typeof window.XLSX === 'undefined') {
+            throw new Error('XLSX library not loaded. Make sure the script is included in your HTML.');
         }
-        const workbook = XLSX.read(data, { type: 'array' });
+        
+        const workbook = window.XLSX.read(data, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        appState.questions = XLSX.utils.sheet_to_json(worksheet).map(q => ({
+        appState.questions = window.XLSX.utils.sheet_to_json(worksheet).map(q => ({
             block: q['tema'],
             question: q['enunciado'],
             correctAnswer: q['respuestaCorrecta'],
@@ -24,8 +26,8 @@ export async function loadQuestions(file) {
                 q['respuestaIncorrecta1'],
                 q['respuestaIncorrecta2'],
                 q['respuestaIncorrecta3']
-            ],
-            argument: q['argumento']
+            ]
+            // Eliminamos el argumento de las preguntas
         }));
         console.log("Preguntas cargadas:", appState.questions);
     } catch (error) {
@@ -39,6 +41,7 @@ export function startExam(examLength, selectedBlocks) {
     appState.currentQuestionIndex = 0;
     appState.score = 0;
     appState.incorrectQuestions = [];
+    appState.skippedQuestions = []; // Añadimos array para preguntas saltadas
 
     // Create hint element if it doesn't exist
     let hintElement = document.querySelector('.hint');
@@ -98,6 +101,8 @@ export function showQuestion() {
 
     if (appState.currentQuestionIndex >= appState.questions.length) {
         console.log("Mostrando resultados...");
+        // Calcular puntuación final con penalización
+        calculateFinalScore();
         showResults(appState.totalQuestions, appState.score, appState.questions);
         document.dispatchEvent(new Event('examFinished'));
         return;
@@ -106,49 +111,73 @@ export function showQuestion() {
     displayCurrentQuestion(appState.questions[appState.currentQuestionIndex]);
 }
 
-export function checkAnswer(selectedOption, correctAnswer, argument) {
-    const currentQuestion = appState.questions[appState.currentQuestionIndex];
-  const block = currentQuestion && currentQuestion.block ? currentQuestion.block : 'Unknown';
-  let hintElement = document.querySelector('.hint');
+// Nueva función para calcular la puntuación final con penalización
+function calculateFinalScore() {
+    const correctAnswers = appState.questions.filter(q => q.isCorrect === true).length;
+    const incorrectAnswers = appState.questions.filter(q => q.isCorrect === false).length;
+    const skippedAnswers = appState.questions.filter(q => q.isCorrect === undefined).length;
+    
+    // Cada respuesta correcta vale 1 punto
+    // Cada respuesta incorrecta resta 1/3 de punto
+    // Las preguntas saltadas no suman ni restan
+    const rawScore = correctAnswers - (incorrectAnswers / 3);
+    
+    // Asegurarse de que la puntuación no sea negativa
+    appState.score = Math.max(0, rawScore);
+    
+    console.log(`Puntuación final: ${appState.score.toFixed(2)} (Correctas: ${correctAnswers}, Incorrectas: ${incorrectAnswers}, Saltadas: ${skippedAnswers})`);
+    
+    // Actualizar también las puntuaciones por bloque
+    for (const block in appState.blockScores) {
+        const blockQuestions = appState.questions.filter(q => q.block === block);
+        const blockCorrect = blockQuestions.filter(q => q.isCorrect === true).length;
+        const blockIncorrect = blockQuestions.filter(q => q.isCorrect === false).length;
+        
+        const blockRawScore = blockCorrect - (blockIncorrect / 3);
+        const blockFinalScore = Math.max(0, blockRawScore);
+        const blockTotal = blockQuestions.length;
+        
+        if (blockTotal > 0) {
+            appState.blockScores[block] = (blockFinalScore / blockTotal) * 100;
+        }
+    }
+}
 
-  if (!hintElement) {
+export function checkAnswer(selectedOption, correctAnswer) {
+    const currentQuestion = appState.questions[appState.currentQuestionIndex];
+    const block = currentQuestion && currentQuestion.block ? currentQuestion.block : 'Unknown';
+    
+    // Eliminar el hint anterior si existe
+    let hintElement = document.querySelector('.hint');
+    if (hintElement) {
+        hintElement.remove();
+    }
+    
+    // Crear un nuevo elemento hint
     hintElement = document.createElement('div');
     hintElement.className = 'hint';
     document.body.appendChild(hintElement);
-  }
 
-  hintElement.innerHTML = '';
-  hintElement.style.display = 'flex';
-  hintElement.style.position = 'fixed';
-  hintElement.style.top = '50px';
-  hintElement.style.right = '10px';
-  hintElement.style.zIndex = '200';
-  hintElement.style.justifyContent = 'center';
-  hintElement.style.alignItems = 'center';
-  hintElement.style.width = '60px';
-  hintElement.style.height = '60px';
-  hintElement.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-  hintElement.style.borderRadius = '50%';
-  hintElement.style.fontSize = '40px';
+    // Desactivar todos los botones para evitar múltiples clics
+    const optionButtons = document.querySelectorAll('.option-button');
+    optionButtons.forEach(button => {
+        button.disabled = true;
+    });
 
-  const argumentElement = document.getElementById('argumento');
-  if (argumentElement) {
-    argumentElement.style.display = 'block';
-    argumentElement.innerHTML = argument;
-  }
-
-  if (selectedOption === correctAnswer) {
-    appState.score++;
-    removeQuestionFromNotes(currentQuestion);
-    currentQuestion.isCorrect = true;
-    hintElement.innerHTML = '✔️';
-  } else {
-    appState.incorrectQuestions.push(currentQuestion);
-    saveStudyNotes(currentQuestion);
-    currentQuestion.isCorrect = false;
-    hintElement.innerHTML = '❌';
-  }
-  animateHint(hintElement);
+    // Establecer el contenido del hint según la respuesta
+    if (selectedOption === correctAnswer) {
+        currentQuestion.isCorrect = true;
+        hintElement.innerHTML = '✔️';
+        hintElement.style.color = 'var(--color-secondary)';
+    } else {
+        currentQuestion.isCorrect = false;
+        hintElement.innerHTML = '❌';
+        hintElement.style.color = '#e53e3e';
+    }
+    
+    // Asegurarse de que el hint sea visible
+    hintElement.style.display = 'flex';
+    
     if (appState.totalQuestionsByBlock[block] !== undefined) {
         const correctAnswersByBlock = appState.questions.filter(q => q.block === block && q.isCorrect).length;
         const percentageByBlock = appState.totalQuestionsByBlock[block] > 0 
@@ -157,30 +186,41 @@ export function checkAnswer(selectedOption, correctAnswer, argument) {
         appState.blockScores[block] = percentageByBlock;
     }
 
-    const overallScore = ((appState.score / (appState.currentQuestionIndex + 1)) * 100).toFixed(2);
+    // Mostramos la puntuación actual (sin penalización hasta el final)
+    const correctAnswers = appState.questions.filter(q => q.isCorrect === true).length;
+    const totalAnswered = appState.questions.filter(q => q.isCorrect !== undefined).length;
+    const overallScore = ((correctAnswers / totalAnswered) * 100).toFixed(2);
+    
     const scoreDisplay = document.getElementById('scoreDisplay');
     if (scoreDisplay) {
         scoreDisplay.innerText = `${overallScore}%`;
     }
 
-    const nextButton = document.getElementById('nextButton');
-    if (nextButton) {
-        nextButton.style.display = 'block';
+    // Ocultar el botón de saltar después de responder
+    const skipButton = document.getElementById('skipButton');
+    if (skipButton) {
+        skipButton.style.display = 'none';
     }
-    if (hintElement) {
-        hintElement.style.animation = 'none';
-        void hintElement.offsetWidth; // Trigger reflow
-        hintElement.style.animation = null;
-    }
-    if (hintElement && hintElement.parentNode !== document.querySelector('.app')) {
-        document.querySelector('.app').appendChild(hintElement);
-    }
-    hintElement.classList.remove('animate');
-    void hintElement.offsetWidth; // Trigger reflow
-    hintElement.classList.add('animate');
-
+    
+    // Avanzar automáticamente después de un breve retraso
+    setTimeout(() => {
+        nextQuestion();
+    }, 1500); // 1.5 segundos de retraso para mostrar el feedback
 }
 
+// Función para saltar la pregunta actual
+export function skipQuestion() {
+    const currentQuestion = appState.questions[appState.currentQuestionIndex];
+    currentQuestion.isCorrect = undefined; // Marcamos como no respondida
+    appState.skippedQuestions.push(currentQuestion);
+    
+    const hintElement = document.querySelector('.hint');
+    if (hintElement) {
+        hintElement.style.display = 'none';
+    }
+    
+    nextQuestion();
+}
 
 function animateHint(element) {
     let start;
@@ -210,7 +250,8 @@ function animateHint(element) {
     }
   
     requestAnimationFrame(step);
-  }
+}
+
 export function nextQuestion() {
     const hintElement = document.querySelector('.hint');
     if (hintElement) {
@@ -239,48 +280,10 @@ export function nextQuestion() {
 }
 
 export function startRecoveryExam() {
-    let notes = JSON.parse(localStorage.getItem('studyNotes')) || [];
-    console.log('Notas de estudio cargadas:', notes);
-
-    if (notes.length === 0) {
-        alert('No hay preguntas incorrectas para recuperar.');
-        return;
-    }
-
-    appState.questions = notes.map(note => ({
-        block: 'Recuperación',
-        question: note.question,
-        correctAnswer: note.answer,
-        options: [note.answer, ...(note.incorrectAnswers || [])].filter(Boolean).sort(() => Math.random() - 0.5),
-        argument: note.argument
-    }));
-
-    console.log('Preguntas generadas para el examen de recuperación:', appState.questions);
-
-    if (appState.questions.length === 0) {
-        alert('No se pudieron generar preguntas para el examen de recuperación.');
-        return;
-    }
-
-    appState.currentQuestionIndex = 0;
-    appState.score = 0;
-    appState.totalQuestions = appState.questions.length;
-    appState.incorrectQuestions = [];
-
-    for (const block in appState.blockScores) {
-        appState.blockScores[block] = 100;
-    }
-    for (const block in appState.totalQuestionsByBlock) {
-        appState.totalQuestionsByBlock[block] = 0;
-    }
-
-    initializeQuestionCounts(appState.questions);
-
-    console.log('Examen de recuperación iniciado con preguntas:', appState.questions);
-
-    document.body.setAttribute('data-exam-active', 'true');
-    showQuestion();
-    document.querySelector("#menu-exam-form").style.display = "none";
+    // Eliminamos la funcionalidad de examen de recuperación ya que no queremos
+    // guardar notas de estudio
+    alert('La funcionalidad de examen de recuperación ha sido desactivada.');
+    return;
 }
 
 export function displayCurrentQuestion(question) {
@@ -290,6 +293,22 @@ export function displayCurrentQuestion(question) {
     const argumentoElement = document.getElementById('argumento');
     const nextButton = document.getElementById('nextButton');
     const resultElement = document.getElementById('result');
+    
+    // Asegurarse de que el botón de saltar pregunta existe
+    let skipButton = document.getElementById('skipButton');
+    if (!skipButton) {
+        skipButton = document.createElement('button');
+        skipButton.id = 'skipButton';
+        skipButton.textContent = 'Saltar Pregunta';
+        skipButton.classList.add('skip-button');
+        skipButton.onclick = skipQuestion;
+        
+        // Añadir el botón después del contenedor de respuestas
+        respuestaElement.parentNode.insertBefore(skipButton, respuestaElement.nextSibling);
+    }
+    
+    // Mostrar el botón de saltar
+    skipButton.style.display = 'block';
 
     preguntaElement.textContent = question.question;
     respuestaElement.innerHTML = '';
@@ -301,18 +320,41 @@ export function displayCurrentQuestion(question) {
         button.textContent = option;
         button.classList.add('option-button');
         button.onclick = () => {
-            checkAnswer(option, question.correctAnswer, question.argument);
-            argumentoElement.style.display = 'block';
-            nextButton.style.display = 'block';
+            checkAnswer(option, question.correctAnswer);
+            // Ya no necesitamos mostrar el botón de siguiente
+            // nextButton.style.display = 'block';
+            skipButton.style.display = 'none'; // Ocultar botón de saltar después de responder
         };
         respuestaElement.appendChild(button);
     });
 
     questionsRemainingElement.textContent = appState.totalQuestions - appState.currentQuestionIndex - 1;
 
-    argumentoElement.style.display = 'none';
-    nextButton.style.display = 'none';
+    // Ocultar el elemento de argumento
+    if (argumentoElement) {
+        argumentoElement.style.display = 'none';
+    }
+    
+    // Ocultar el botón de siguiente ya que avanzaremos automáticamente
+    if (nextButton) {
+        nextButton.style.display = 'none';
+    }
+    
     if (resultElement) {
         resultElement.style.display = 'none';
     }
+}
+
+/**
+ * Mezcla aleatoriamente un array.
+ * @param {Array} array - Array a mezclar.
+ * @returns {Array} Array mezclado.
+ */
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
 }

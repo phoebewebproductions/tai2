@@ -6,6 +6,7 @@ export const appState = {
     score: 0,
     totalQuestions: 0,
     incorrectQuestions: [],
+    skippedQuestions: [], // Añadido para seguimiento de preguntas saltadas
     // Puntuaciones por bloque
     blockScores: {
         'Bloque I': 100,

@@ -16,57 +16,62 @@ const localStorageKey = 'studyNotes';
  */
 const statsKey = 'examStats';
 
-
-
-// Función para eliminar una estadística específica
-function deleteStat(index) {
-    let stats = JSON.parse(localStorage.getItem(statsKey)) || [];
-    stats.splice(index, 1); // Eliminar la estadística correspondiente
-    localStorage.setItem(statsKey, JSON.stringify(stats)); // Guardar el nuevo array
-    showAllStats(); // Refrescar la lista de estadísticas
-}
-
-// Función para ocultar todas las estadísticas acumuladas
-function hideAllStats() {
-    document.getElementById('allStatsContainer').style.display = 'none';
-}
-
 // Asegúrate de que cuando llames a saveExamStats, lo hagas con los bloques y las puntuaciones
-export function saveExamStats(total, correct, questions, blockScores) {
+export function saveExamStats(total, finalScore, questions, blockScores) {
     try {
-        let stats = JSON.parse(localStorage.getItem('examStats')) || [];
+        console.log('Guardando estadísticas...');
+        console.log('Total:', total);
+        console.log('Puntuación final:', finalScore);
+        console.log('Bloques:', blockScores);
         
+        // Obtener estadísticas existentes o inicializar un array vacío
+        let stats = [];
+        try {
+            const statsStr = localStorage.getItem(statsKey);
+            stats = statsStr ? JSON.parse(statsStr) : [];
+            if (!Array.isArray(stats)) {
+                console.warn('Las estadísticas guardadas no son un array, inicializando uno nuevo');
+                stats = [];
+            }
+        } catch (e) {
+            console.error('Error al leer estadísticas existentes:', e);
+            stats = [];
+        }
+        
+        // Crear nueva estadística
         const newStat = {
             date: new Date().toISOString(),
-            total,
-            correct,
-            blockScores: Object.fromEntries(
-                Object.entries(blockScores).map(([block, data]) => [
-                    block,
-                    (data.correct / data.total) * 100
-                ])
-            )
+            total: total,
+            correct: finalScore,
+            blockScores: {}
         };
-
-        // Check for duplicates based on date (up to the minute) and exam details
-        const isDuplicate = stats.some(stat => 
-            stat.date.slice(0, 16) === newStat.date.slice(0, 16) &&
-            stat.total === newStat.total &&
-            stat.correct === newStat.correct &&
-            JSON.stringify(stat.blockScores) === JSON.stringify(newStat.blockScores)
-        );
-
-        if (!isDuplicate) {
-            stats.push(newStat);
-            localStorage.setItem('examStats', JSON.stringify(stats));
-            console.log('Estadística guardada:', newStat);
-        } else {
-            console.log('Estadística duplicada, no se guardará:', newStat);
+        
+        // Convertir blockScores al formato esperado
+        for (const [block, data] of Object.entries(blockScores)) {
+            if (typeof data === 'object' && data !== null) {
+                // Si blockScores es un objeto con datos detallados
+                const blockRawScore = data.correct - (data.incorrect / 3);
+                const blockFinalScore = Math.max(0, blockRawScore);
+                const blockPercentage = data.total > 0 ? (blockFinalScore / data.total) * 100 : 0;
+                newStat.blockScores[block] = blockPercentage;
+            } else {
+                // Si blockScores ya contiene porcentajes
+                newStat.blockScores[block] = data;
+            }
         }
+        
+        // Añadir la nueva estadística
+        stats.push(newStat);
+        
+        // Guardar en localStorage
+        localStorage.setItem(statsKey, JSON.stringify(stats));
+        console.log('Estadísticas guardadas correctamente:', newStat);
+        console.log('Total de estadísticas guardadas:', stats.length);
     } catch (error) {
-        console.error('Error saving exam stats:', error);
+        console.error('Error al guardar estadísticas:', error);
     }
 }
+
 export function calculateStatisticsAverages() {
     const stats = JSON.parse(localStorage.getItem(statsKey)) || [];
     
@@ -105,39 +110,31 @@ export function calculateStatisticsAverages() {
 }
 
 // Función para mostrar todas las estadísticas acumuladas
+export function showAllStats() {
+    // Implementación de showAllStats
+    console.log("showAllStats function called");
+}
 
+// Función para eliminar una estadística específica
+export function deleteStat(index) {
+    let stats = JSON.parse(localStorage.getItem(statsKey)) || [];
+    stats.splice(index, 1); // Eliminar la estadística correspondiente
+    localStorage.setItem(statsKey, JSON.stringify(stats)); // Guardar el nuevo array
+    showAllStats(); // Refrescar la lista de estadísticas
+}
 
+// Función para ocultar todas las estadísticas acumuladas
+export function hideAllStats() {
+    document.getElementById('allStatsContainer').style.display = 'none';
+}
 
 /**
  * Guarda las notas de estudio (preguntas incorrectas) en el almacenamiento local.
  * @param {Array} questions - Array de preguntas incorrectas.
  */
 export function saveStudyNotes(question) {
-    let notes = JSON.parse(localStorage.getItem('studyNotes')) || [];
-    
-    // Check if the question already exists in the notes
-    const existingNoteIndex = notes.findIndex(note => note.question === question.question);
-    
-    if (existingNoteIndex !== -1) {
-        // Update existing note
-        notes[existingNoteIndex] = {
-            question: question.question,
-            answer: question.correctAnswer,
-            incorrectAnswers: question.options.filter(option => option !== question.correctAnswer),
-            argument: question.argument
-        };
-    } else {
-        // Add new note
-        notes.push({
-            question: question.question,
-            answer: question.correctAnswer,
-            incorrectAnswers: question.options.filter(option => option !== question.correctAnswer),
-            argument: question.argument
-        });
-    }
-    
-    localStorage.setItem('studyNotes', JSON.stringify(notes));
-    console.log('Nota de estudio guardada:', notes[notes.length - 1]);
+    // Eliminamos esta funcionalidad
+    return;
 }
 
 /**
@@ -145,22 +142,14 @@ export function saveStudyNotes(question) {
  * @param {Object} question - Objeto de la pregunta a eliminar.
  */
 export function removeQuestionFromNotes(question) {
-    let notes = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-    notes = notes.filter(note => note.question !== question.question);
-    localStorage.setItem(localStorageKey, JSON.stringify(notes));
+    // Eliminamos esta funcionalidad
+    return;
 }
 
 /**
  * Migra las notas de estudio existentes para asegurar la estructura correcta.
  */
 export function migrateStudyNotes() {
-    let notes = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-
-    // Migrar cada nota para asegurar que incorrectAnswers exista y sea un array
-    notes = notes.map(note => ({
-        ...note,
-        incorrectAnswers: Array.isArray(note.incorrectAnswers) ? note.incorrectAnswers : []
-    }));
-
-    localStorage.setItem(localStorageKey, JSON.stringify(notes));
+    // Eliminamos esta funcionalidad
+    return;
 }

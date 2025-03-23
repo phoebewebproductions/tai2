@@ -5,159 +5,160 @@
 
 /* Variables de color para modo oscuro */
 .dark-mode:root {
-    --color-primary: #3b82f6;
-    --color-primary-dark: #60a5fa;
-    --color-secondary: #22c55e;
-    --color-secondary-dark: #4ade80;
-    --color-background: #121212;
-    --color-text: #e0e0e0;
-    --color-text-light: #a0a0a0;
-    --color-border: #333333;
-    --color-white: #1e1e1e;
-    --color-overlay: rgba(0, 0, 0, 0.7);
-    --color-correct: #064e3b;
-    --color-incorrect: #7f1d1d;
-    --color-muted: #2a2a2a;
-    --body-bg: #121212;
-    --card-bg: #1e1e1e;
-    --header-bg: rgba(26, 26, 26, 0.9);
-    --stat-item-bg: #333333;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
-  
-    /* Variables adicionales para componentes específicos */
-    --color-warning: #2a2410;
-    --color-warning-dark: #f59e0b;
-    --color-danger: #2a1215;
-    --color-danger-dark: #ef4444;
-    --color-info: #102a2a;
-    --color-info-dark: #06b6d4;
-    --color-success: #0f2a15;
-    --color-success-dark: #10b981;
-    --transition: all 0.3s ease;
-  }
-  
-  /* Estilos base para el modo oscuro */
-  .dark-mode body {
-    background-color: var(--body-bg) !important;
-    color: var(--color-text) !important;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  /* IMPORTANTE: Excluir el header completamente del modo oscuro */
-  /* Esto asegura que el header se vea exactamente igual en modo claro y oscuro */
-  .dark-mode header,
-  .dark-mode header *,
-  .dark-mode #bloque-header,
-  .dark-mode #bloque-header *,
-  .dark-mode .buttonsHeader,
-  .dark-mode .buttonsHeader * {
-    /* Anular cualquier estilo de modo oscuro para estos elementos */
-    background-color: initial !important;
-    color: initial !important;
-    border-color: initial !important;
-    fill: initial !important;
-    stroke: initial !important;
-    box-shadow: initial !important;
-    filter: initial !important;
-    /* Asegurar que no se apliquen transiciones */
-    transition: none !important;
-  }
-  
-  /* Contenedores generales */
-  .dark-mode .container,
-  .dark-mode .teoria,
-  .dark-mode article,
-  .dark-mode section,
-  .dark-mode
-    div:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(.buttonsHeader):not(
-      .sidebar-navigation
-    ):not(.tema-navigation):not(.puntos-container):not([id="bloque-header"]):not(header *) {
-    background-color: inherit;
-    color: var(--color-text);
-  }
-  
-  /* Textos */
-  .dark-mode h1:not(header h1):not(#bloque-header h1),
-  .dark-mode h2:not(header h2):not(#bloque-header h2),
-  .dark-mode h3:not(header h3):not(#bloque-header h3),
-  .dark-mode h4:not(header h4):not(#bloque-header h4),
-  .dark-mode h5:not(header h5):not(#bloque-header h5),
-  .dark-mode h6:not(header h6):not(#bloque-header h6),
-  .dark-mode p:not(header p):not(#bloque-header p),
-  .dark-mode span:not(header span):not(#bloque-header span),
-  .dark-mode
-    div:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(.buttonsHeader):not(header div):not(
-      #bloque-header div
-    ),
-  .dark-mode li:not(header li):not(#bloque-header li),
-  .dark-mode td,
-  .dark-mode th,
-  .dark-mode label:not(header label):not(#bloque-header label),
-  .dark-mode strong:not(header strong):not(#bloque-header strong),
-  .dark-mode caption {
-    color: var(--color-text) !important;
-  }
-  
-  /* Enlaces */
-  .dark-mode
-    a:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(header a):not(#bloque-header a):not(
-      .buttonsHeader a
-    ) {
-    color: var(--color-primary) !important;
-  }
-  
-  /* Bloques de código */
-  .dark-mode code,
-  .dark-mode pre {
-    background-color: #2d2d2d !important;
-    color: #e0e0e0 !important;
-  }
-  
-  /* Tablas */
-  .dark-mode table,
-  .dark-mode .styled-table {
-    background-color: var(--color-white) !important;
-    border-color: var(--color-border) !important;
-  }
-  
-  .dark-mode th {
-    background-color: rgba(59, 130, 246, 0.2) !important;
-    color: var(--color-primary-dark) !important;
-    border-color: var(--color-primary) !important;
-  }
-  
-  .dark-mode td {
-    border-color: var(--color-border) !important;
-  }
-  
-  .dark-mode tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-  
-  .dark-mode tr:hover {
-    background-color: rgba(59, 130, 246, 0.1) !important;
-  }
-  
-  /* Formularios */
-  .dark-mode input:not([type="button"]):not([type="submit"]):not(header input):not(#bloque-header input),
-  .dark-mode textarea:not(header textarea):not(#bloque-header textarea),
-  .dark-mode select:not(header select):not(#bloque-header select) {
-    background-color: var(--color-white) !important;
-    color: var(--color-text) !important;
-    border-color: var(--color-border) !important;
-  }
-  
-  /* Botones (excepto los del sidebar y header) */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #60a5fa;
+  --color-secondary: #22c55e;
+  --color-secondary-dark: #4ade80;
+  --color-background: #121212;
+  --color-text: #e0e0e0;
+  --color-text-light: #a0a0a0;
+  --color-border: #333333;
+  --color-white: #1e1e1e;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-correct: #064e3b;
+  --color-incorrect: #7f1d1d;
+  --color-muted: #2a2a2a;
+  --body-bg: #121212;
+  --card-bg: #1e1e1e;
+  --header-bg: rgba(26, 26, 26, 0.9);
+  --stat-item-bg: #333333;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+
+  /* Variables adicionales para componentes específicos */
+  --color-warning: #2a2410;
+  --color-warning-dark: #f59e0b;
+  --color-danger: #2a1215;
+  --color-danger-dark: #ef4444;
+  --color-info: #102a2a;
+  --color-info-dark: #06b6d4;
+  --color-success: #0f2a15;
+  --color-success-dark: #10b981;
+  --transition: all 0.3s ease;
+}
+
+/* Estilos base para el modo oscuro */
+.dark-mode body {
+  background-color: var(--body-bg) !important;
+  color: var(--color-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* IMPORTANTE: Excluir el header completamente del modo oscuro */
+/* Esto asegura que el header se vea exactamente igual en modo claro y oscuro */
+.dark-mode header,
+.dark-mode header *,
+.dark-mode #bloque-header,
+.dark-mode #bloque-header *,
+.dark-mode .buttonsHeader,
+.dark-mode .buttonsHeader * {
+  /* Anular cualquier estilo de modo oscuro para estos elementos */
+  background-color: initial !important;
+  color: initial !important;
+  border-color: initial !important;
+  fill: initial !important;
+  stroke: initial !important;
+  box-shadow: initial !important;
+  filter: initial !important;
+  /* Asegurar que no se apliquen transiciones */
+  transition: none !important;
+}
+
+/* Contenedores generales */
+.dark-mode .container,
+.dark-mode .teoria,
+.dark-mode article,
+.dark-mode section,
+.dark-mode
+  div:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(.buttonsHeader):not(
+    .sidebar-navigation
+  ):not(.tema-navigation):not(.puntos-container):not([id="bloque-header"]):not(header *):not(.donation-icon):not(
+    .donation-float-button
+  ) {
+  background-color: inherit;
+  color: var(--color-text);
+}
+
+/* Textos */
+.dark-mode h1:not(header h1):not(#bloque-header h1),
+.dark-mode h2:not(header h2):not(#bloque-header h2),
+.dark-mode h3:not(header h3):not(#bloque-header h3):not(.donation-panel-header h3),
+.dark-mode h4:not(header h4):not(#bloque-header h4),
+.dark-mode h5:not(header h5):not(#bloque-header h5),
+.dark-mode h6:not(header h6):not(#bloque-header h6),
+.dark-mode p:not(header p):not(#bloque-header p),
+.dark-mode span:not(header span):not(#bloque-header span),
+.dark-mode
+  div:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(.buttonsHeader):not(header div):not(
+    #bloque-header div
+  ):not(.donation-icon):not(.donation-float-button),
+.dark-mode li:not(header li):not(#bloque-header li),
+.dark-mode td,
+.dark-mode th,
+.dark-mode label:not(header label):not(#bloque-header label),
+.dark-mode strong:not(header strong):not(#bloque-header strong),
+.dark-mode caption {
+  color: var(--color-text) !important;
+}
+
+/* Enlaces */
+.dark-mode
+  a:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(header a):not(#bloque-header a):not(
+    .buttonsHeader a
+  ):not(.donate-button-small) {
+  color: var(--color-primary) !important;
+}
+
+/* Bloques de código */
+.dark-mode code,
+.dark-mode pre {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+
+/* Tablas */
+.dark-mode table,
+.dark-mode .styled-table {
+  background-color: var(--color-white) !important;
+  border-color: var(--color-border) !important;
+}
+
+.dark-mode th {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+  color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.dark-mode td {
+  border-color: var(--color-border) !important;
+}
+
+.dark-mode tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode tr:hover {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Formularios */
+.dark-mode input:not([type="button"]):not([type="submit"]):not(header input):not(#bloque-header input),
+.dark-mode textarea:not(header textarea):not(#bloque-header textarea),
+.dark-mode select:not(header select):not(#bloque-header select) {
+  background-color: var(--color-white) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Botones (excepto los del sidebar y header) */
 /* Update this rule to exclude block and topic selection buttons */
 .dark-mode
   button:not(.punto-btn):not(.completado):not(.disponible):not(.bloqueado):not(#darkModeToggle):not(
     #progress-button
   ):not(#sidebar-toggle):not(header button):not(#bloque-header button):not(.buttonsHeader button):not(
     .block-select-btn
-  ):not(.topic-select-btn):not(.tab-button) {
- 
+  ):not(.topic-select-btn):not(.tab-button):not(.donation-close-btn) {
   background-color: var(--color-primary) !important;
   color: white !important;
   border-color: var(--color-primary-dark) !important;
@@ -204,119 +205,119 @@
   background-color: rgba(59, 130, 246, 0.2) !important;
   border-color: var(--color-primary) !important;
 }
-  
-  /* Tarjetas y destacados */
-  .dark-mode .definition-card,
-  .dark-mode .highlight {
-    background-color: var(--color-white) !important;
-    border-color: var(--color-primary) !important;
-  }
-  
-  .dark-mode .definition-card strong {
-    color: var(--color-primary-dark) !important;
-  }
-  
-  /* Elementos de lista */
-  .dark-mode ul li::before {
-    color: var(--color-secondary) !important;
-  }
-  
-  /* IMPORTANTE: Excluir elementos específicos del modo oscuro */
-  /* Estos elementos mantendrán sus estilos originales */
-  
-  /* Botones del sidebar */
-  .dark-mode .punto-btn,
-  .dark-mode button.punto-btn,
-  .dark-mode .punto-btn.active,
-  .dark-mode .punto-btn.completado,
-  .dark-mode .punto-btn.disponible,
-  .dark-mode .punto-btn.bloqueado {
-    /* Estos elementos mantendrán sus estilos originales gracias al JavaScript */
-  }
-  
-  /* Componentes complejos */
-  .dark-mode .info-card {
-    background-color: var(--color-white) !important;
-    box-shadow: var(--shadow-md) !important;
-  }
-  
-  .dark-mode .card-header {
-    background-color: var(--color-primary) !important;
-    color: white !important;
-  }
-  
-  .dark-mode .card-content {
-    background-color: var(--color-white) !important;
-  }
-  
-  .dark-mode .security-measures li {
-    background-color: var(--color-muted) !important;
-  }
-  
-  .dark-mode .info-item {
-    background-color: var(--color-muted) !important;
-    border-left: 3px solid var(--color-primary) !important;
-  }
-  
-  .dark-mode .alert-card {
-    background-color: var(--color-warning) !important;
-    border-left: 4px solid var(--color-warning-dark) !important;
-  }
-  
-  .dark-mode .alert-card.high-risk {
-    background-color: var(--color-danger) !important;
-    border-left: 4px solid var(--color-danger-dark) !important;
-  }
-  
-  .dark-mode .info-list li {
-    background-color: var(--color-muted) !important;
-  }
-  
-  .dark-mode .info-list li:hover {
-    background-color: rgba(59, 130, 246, 0.1) !important;
-  }
-  
-  /* Iconos */
-  .dark-mode .info-icon,
-  .dark-mode .card-icon,
-  .dark-mode .measure-icon,
-  .dark-mode .alert-icon,
-  .dark-mode .list-icon,
-  .dark-mode .exception-icon,
-  .dark-mode .table-icon,
-  .dark-mode .timeline-icon,
-  .dark-mode .sanction-icon {
-    color: var(--color-primary-dark) !important;
-  }
-  
-  /* Excluir imágenes, videos y canvas del modo oscuro */
-  img,
-  video,
-  canvas {
-    filter: none !important;
-  }
-  
-  /* Transición mejorada para cambios de modo */
-  body:not(header):not(#bloque-header),
-  body *:not(header *):not(#bloque-header *),
-  html {
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.3s ease,
-      border 0.3s ease,
-      outline 0.3s ease,
-      text-shadow 0.3s ease !important;
-  }
-  
-  /* Asegurar que los bordes cambien correctamente */
-  .dark-mode *:not(header *):not(#bloque-header *):not(.punto-btn):not(.buttonsHeader *) {
-    border-color: var(--color-border) !important;
-    outline-color: var(--color-border) !important;
-  }
-  
-  /* Add these rules to your pure-dark-mode.css file */
+
+/* Tarjetas y destacados */
+.dark-mode .definition-card,
+.dark-mode .highlight {
+  background-color: var(--color-white) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.dark-mode .definition-card strong {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Elementos de lista */
+.dark-mode ul li::before {
+  color: var(--color-secondary) !important;
+}
+
+/* IMPORTANTE: Excluir elementos específicos del modo oscuro */
+/* Estos elementos mantendrán sus estilos originales */
+
+/* Botones del sidebar */
+.dark-mode .punto-btn,
+.dark-mode button.punto-btn,
+.dark-mode .punto-btn.active,
+.dark-mode .punto-btn.completado,
+.dark-mode .punto-btn.disponible,
+.dark-mode .punto-btn.bloqueado {
+  /* Estos elementos mantendrán sus estilos originales gracias al JavaScript */
+}
+
+/* Componentes complejos */
+.dark-mode .info-card {
+  background-color: var(--color-white) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.dark-mode .card-header {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+}
+
+.dark-mode .card-content {
+  background-color: var(--color-white) !important;
+}
+
+.dark-mode .security-measures li {
+  background-color: var(--color-muted) !important;
+}
+
+.dark-mode .info-item {
+  background-color: var(--color-muted) !important;
+  border-left: 3px solid var(--color-primary) !important;
+}
+
+.dark-mode .alert-card {
+  background-color: var(--color-warning) !important;
+  border-left: 4px solid var(--color-warning-dark) !important;
+}
+
+.dark-mode .alert-card.high-risk {
+  background-color: var(--color-danger) !important;
+  border-left: 4px solid var(--color-danger-dark) !important;
+}
+
+.dark-mode .info-list li {
+  background-color: var(--color-muted) !important;
+}
+
+.dark-mode .info-list li:hover {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Iconos */
+.dark-mode .info-icon,
+.dark-mode .card-icon,
+.dark-mode .measure-icon,
+.dark-mode .alert-icon,
+.dark-mode .list-icon,
+.dark-mode .exception-icon,
+.dark-mode .table-icon,
+.dark-mode .timeline-icon,
+.dark-mode .sanction-icon {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Excluir imágenes, videos y canvas del modo oscuro */
+img,
+video,
+canvas {
+  filter: none !important;
+}
+
+/* Transición mejorada para cambios de modo */
+body:not(header):not(#bloque-header),
+body *:not(header *):not(#bloque-header *),
+html {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border 0.3s ease,
+    outline 0.3s ease,
+    text-shadow 0.3s ease !important;
+}
+
+/* Asegurar que los bordes cambien correctamente */
+.dark-mode *:not(header *):not(#bloque-header *):not(.punto-btn):not(.buttonsHeader *) {
+  border-color: var(--color-border) !important;
+  outline-color: var(--color-border) !important;
+}
+
+/* Add these rules to your pure-dark-mode.css file */
 
 /* Preserve selected state for block and topic buttons in dark mode */
 .dark-mode .block-select-btn.selected,
@@ -374,3 +375,49 @@
 .dark-mode .chart-bar.not-answered {
   background-color: var(--color-text-light) !important;
 }
+
+/* Excepciones para el botón flotante de donación */
+/* Mantener el estilo original del botón flotante en modo oscuro */
+.dark-mode .donation-float-button {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .donation-icon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)) !important;
+  color: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Mantener el estilo original del botón de cerrar en el panel */
+.dark-mode .donation-close-btn {
+  background: none !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Mantener el estilo original del botón de donación pequeño */
+.dark-mode .donate-button-small {
+  background: linear-gradient(135deg, #0070ba, #1546a0) !important;
+  color: white !important;
+}
+
+/* Asegurar que el panel de donación tenga el estilo oscuro adecuado */
+.dark-mode .donation-panel {
+  background-color: var(--card-bg) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .donation-panel-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)) !important;
+}
+
+.dark-mode .donation-panel-content {
+  color: var(--color-text) !important;
+}
+
+.dark-mode .donation-panel-content p {
+  color: var(--color-text) !important;
+}
+

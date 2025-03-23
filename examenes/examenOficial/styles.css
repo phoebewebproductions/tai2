@@ -13,58 +13,76 @@
     --color-overlay: rgba(59, 130, 246, 0.7);
     --color-correct: #d1fae5;
     --color-incorrect: #fee2e2;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Modo oscuro */
+.dark {
+    --color-background: #121212;
+    --color-text: #e5e5e5;
+    --color-text-light: #a0a0a0;
+    --color-border: #2a2a2a;
+    --color-white: #1e1e1e;
+    --color-correct: #0f3921;
+    --color-incorrect: #4d1f1c;
 }
 
 body, html {
     font-family: 'Inter', sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
+ 
     margin: 0;
     padding: 0;
     min-height: 100vh;
     line-height: 1.5;
 }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+   
+    margin: 0 auto;
+   
+  }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, rgba(0, 0, 0, 0.432) 100%);
+    background-image: url("../../assets/congreso_dip.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -1;
+    filter: blur(8px);
+  }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-   
-
 }
 
+/* Header */
 header {
     position: relative;
-    background-image: url("../assets/tai.png");
+    background-image: url("../../assets/tai.png");
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     color: var(--color-white);
     text-align: center;
-    padding: 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    height: 15vh;
-}
-.volver {
-    background-color: var(--color-white);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-    margin: 1rem 0;
-    cursor: pointer;
-
-    text-align: left;
-    font-size: 1.125rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    z-index: 2;
-    position: relative;
-}
-.volver:hover{
-    background-color: var(--color-text);
-    color: var(--color-white);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
 }
 
 header::before {
@@ -97,187 +115,452 @@ header h2 {
     opacity: 0.9;
 }
 
+.volver {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: var(--transition);
+    z-index: 2;
+    position: relative;
+}
+
+.volver:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+}
+
+/* Contenedores principales */
 .app, #studyNotesContainer, #statsContainer, #allStatsContainer, #menu-exam-form {
     background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
-
-.app-header {
+/* Estructura del examen */
+.app {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
 }
 
-.score {
-    background-color: var(--color-background);
-    border-radius: 15px;
-    padding: 5px 10px;
-    border: 2px solid var(--color-primary);
+/* Barra superior con botón de cerrar */
+.close-bar {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .close-button {
-    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-primary);
     border: none;
-    color: var(--color-text);
-    font-size: 20px;
+    color: var(--color-white);
+    font-size: 18px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    text-align: end;
-    
-
+    transition: var(--transition);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
 }
 
 .close-button:hover {
-    color: var(--color-primary);
+    background-color: var(--color-primary-dark);
+    transform: scale(1.1);
 }
 
-.pregunta {
-    margin-bottom: 20px;
+/* Puntuación y preguntas restantes */
+.exam-status {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px;
+    width: auto;
+    display: inline-block;
 }
-.pregunta-fallada{
+
+.dark .exam-status {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #333;
+}
+
+/* Preguntas y respuestas */
+.pregunta {
+    margin: 20px 15px;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.pregunta h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.pregunta-fallada {
     background-color: var(--color-incorrect);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 .respuesta {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 20px 15px;
 }
 
-.option-button, #nextButton, #menu-exam-form button, .tema-btn, .punto-btn {
+/* Botones de opciones */
+.option-button {
     background-color: var(--color-primary);
     color: var(--color-white);
     border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
+    border-radius: 4px;
+    padding: 15px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
+    transition: var(--transition);
+    font-size: 0.9rem;
     font-weight: 500;
+    text-align: left;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.option-button:hover, #nextButton:hover, #menu-exam-form button:hover, .tema-btn:hover, .punto-btn:hover {
+.option-button:hover {
     background-color: var(--color-primary-dark);
 }
 
-.punto-btn:disabled {
-    background-color: var(--color-border);
-    color: var(--color-text-light);
-    cursor: not-allowed;
+/* Botones de navegación */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 15px;
 }
 
-.punto-btn.disponible, .punto-btn.completado {
-    background-color: var(--color-secondary);
-}
-
-.punto-btn.disponible:hover, .punto-btn.completado:hover {
-    background-color: var(--color-secondary-dark);
-}
-
-#argumento {
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
+.skip-button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+}
+
+.skip-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+#nextButton {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+#nextButton:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Hint (indicador de respuesta correcta/incorrecta) */
+.hint {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 40px;
     z-index: 1000;
+    box-shadow: var(--shadow-md);
+    animation: pulse 0.5s ease-in-out;
 }
 
-.modal-contenido {
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
+.dark .hint {
+    background-color: rgba(30, 30, 30, 0.9);
 }
 
-.respuesta-correcta, .respuesta-incorrecta {
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
+/* Argumento (oculto) */
+#argumento {
+    display: none !important;
 }
 
-.respuesta-correcta {
-    background-color: var(--color-correct);
-}
-
-.respuesta-incorrecta {
-    background-color: var(--color-incorrect);
-}
-
-.progress-visualization {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.progress-item {
-    text-align: center;
-}
-
-.btn-reset-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-secondary);
+/* Estadísticas y resultados */
+.block-results {
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary-dark);
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px;
     color: var(--color-white);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
 }
 
-.btn-reset-float:hover {
-    background-color: var(--color-secondary-dark);
-    transform: scale(1.05);
+.pregunta-fallada {
+    border-radius: 4px;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-incorrect);
+    padding: 15px;
+    display: block;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    margin: 15px;
 }
-.checking,  #menu-exam-form, .app{
+
+/* Formulario de examen */
+#menu-exam-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 15px;
+    padding: 20px;
+    height: auto;
+    min-height: 70vh;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
 }
-.checking{
-flex-direction: row;
-}
-#block1, #block2, #block3, #block4{
-    scale: 2;
 
+#menu-exam-length {
+    height: 50px;
+    font-size: 1.25rem;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+.checking {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Nuevos estilos para los botones de bloque */
+.block-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.block-button:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.block-button.selected {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border-color: transparent;
+}
+
+.block-button.selected:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-dark));
+}
+
+.block-button .checkbox-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+
+.block-button.selected .checkbox-icon {
+    background-color: white;
+    border-color: white;
+}
+
+.block-button.selected .checkbox-icon:after {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Ocultar los checkboxes originales */
+.check-item input[type="checkbox"] {
+    display: none;
+}
+
+/* Botones de acción */
+.action-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.gradient-button {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+
+.gradient-button:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-dark));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Header Buttons */
+.buttonsHeader {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    z-index: 10000;
+}
+
+.header-button,
+#darkModeToggle,
+.volver {
+    background: none;
+    border: none;
+    color: var(--color-white);
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-button:hover,
+#darkModeToggle:hover,
+.volver:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.temabtn {
+    width: 40%;
+    text-align: left;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border: none;
+    color: var(--color-white);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+}
+  
+.temabtn:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-dark));
+    transform: translateY(-2px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.rotate {
+    animation: rotate 0.5s ease-in-out;
+}
+
+@keyframes rotate {
+    0% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(0deg); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
     .container {
-        padding: 10px;
+        padding: 0;
     }
 
     header {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     header h2 {
@@ -285,70 +568,55 @@ flex-direction: row;
     }
 
     .app, #studyNotesContainer, #statsContainer, #allStatsContainer, #menu-exam-form {
-        padding: 15px;
+        width: 100%;
     }
 
-    .option-button, #nextButton, #menu-exam-form button, .tema-btn, .punto-btn {
+    .option-button, #nextButton, .skip-button {
         font-size: 14px;
+        padding: 10px 15px;
     }
+
     .checking {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-        gap: 10px; /* Espacio entre elementos */
-        align-items: center; /* Alinea los elementos verticalmente */
-        justify-items: start; /* Alinea los elementos al inicio horizontalmente */
+        grid-template-columns: 1fr;
     }
     
-    .check-item {
-        display: flex;
-        
-        align-items: center; /* Alinea checkbox y label verticalmente */
-        gap: 8px; /* Espacio entre checkbox y label */
-        padding: 5px;
-        border: 1px solid #ddd; /* Borde ligero para visualización */
-        border-radius: 4px;
-        background-color: #f9f9f9;
-        box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+    .pregunta h2 {
+        font-size: 1rem;
     }
     
-
-}
-#allStatsContainer{
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-#allStatsList{
-    width: 100%;
-}
-
-#menu-exam-length{
-    height: 50px;
-    font-size: xx-large;
-}
-
-
-.checking {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-    gap: 10px; /* Espacio entre elementos */
-    align-items: center; /* Alinea los elementos verticalmente */
-    justify-items: start; /* Alinea los elementos al inicio horizontalmente */
+    #menu-exam-length {
+        font-size: 1rem;
+        height: 40px;
+    }
+    
+    .exam-status {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .pregunta, .respuesta, .navigation-buttons {
+        margin: 10px;
+    }
 }
 
-.check-item {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-   
-    align-items: center; /* Alinea checkbox y label verticalmente */
-    gap: 8px; /* Espacio entre checkbox y label */
-    padding: 5px;
-    border: 1px solid #ddd; /* Borde ligero para visualización */
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
-}
-#menu-exam-form{
-    height: 70vh;
+@media (max-width: 480px) {
+    .checking {
+        gap: 10px;
+    }
+    
+    .block-button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .block-results, .pregunta-fallada {
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
 }
