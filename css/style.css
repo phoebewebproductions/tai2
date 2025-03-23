@@ -125,13 +125,16 @@ header h2 {
 
 /* Header Buttons */
 .buttonsHeader {
-  position: absolute;
+  position: relative;
+  place-self: right;
   top: 1rem;
   right: 1rem;
   display: flex;
   gap: 0.5rem;
-  align-items: center;
-  z-index: 10000;
+  align-items: right;
+  z-index: 100000000;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .header-button,
@@ -625,6 +628,9 @@ main {
 
   .footer-copyright {
     text-align: center;
+  }
+  .buttonsHeader{
+    position: relative;
   }
 }
 
