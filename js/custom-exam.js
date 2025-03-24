@@ -2,6 +2,8 @@ import { cargarTodasLasEstructuras, estructuraGlobal } from "./structureLoader.j
 import CustomExamDisplay from "./custom-exam-display.js"
 import { saveExamResult } from "./exam-history.js"
 import { updateStats, initializeStats } from "./exam-stats.js"
+// Importar el módulo de sincronización
+import { initSyncButton } from "./sync-button.js"
 
 // Función para seleccionar preguntas aleatorias
 function selectRandomQuestions(questions, count) {
@@ -1671,5 +1673,15 @@ class CustomExamGenerator {
 document.addEventListener("DOMContentLoaded", () => {
   // Create the generator and make it globally accessible
   window.customExamGenerator = new CustomExamGenerator()
+})
+
+// Añadir al final del archivo custom-exam.js
+
+
+
+// Inicializar el botón de sincronización cuando el DOM esté cargado
+document.addEventListener("DOMContentLoaded", () => {
+  // Inicializar el botón de sincronización
+  initSyncButton()
 })
 

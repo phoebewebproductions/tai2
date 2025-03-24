@@ -35,6 +35,17 @@ window.handleCredentialResponse = async (response) => {
       // Continuamos aunque haya error, usaremos datos locales
     }
 
+    // Intentar sincronizar datos pendientes si hay
+    try {
+      const { syncPendingData } = await import("./aws-sync.js")
+      if (typeof syncPendingData === "function") {
+        await syncPendingData()
+        console.log("Datos pendientes sincronizados después del login")
+      }
+    } catch (error) {
+      console.error("Error al sincronizar datos pendientes después del login:", error)
+    }
+
     // Redirigir al dashboard
     window.location.href = "index.html"
   } catch (error) {
@@ -56,6 +67,7 @@ function saveUserData(userData, idToken) {
     lastLogin: new Date().toISOString(),
     firstLogin: new Date().toISOString(), // Por defecto, primera vez que inicia sesión
     idToken: idToken, // Guardar el token para autenticación con AWS
+    tokenExpiration: calculateTokenExpiration(idToken), // Añadir expiración del token
   }
 
   if (existingUserData) {
@@ -82,6 +94,63 @@ function saveUserData(userData, idToken) {
   console.log("Datos del usuario guardados:", userInfo)
 }
 
+// Función para calcular la expiración del token
+function calculateTokenExpiration(token) {
+  try {
+    // Decodificar el token
+    const base64Url = token.split(".")[1]
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/")
+    const jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join(""),
+    )
+    const payload = JSON.parse(jsonPayload)
+
+    // Verificar si tiene campo de expiración
+    if (payload.exp) {
+      return new Date(payload.exp * 1000).toISOString()
+    }
+
+    // Si no tiene campo de expiración, establecer una expiración predeterminada (1 hora)
+    return new Date(Date.now() + 3600 * 1000).toISOString()
+  } catch (error) {
+    console.error("Error al calcular expiración del token:", error)
+    // Establecer una expiración predeterminada (1 hora)
+    return new Date(Date.now() + 3600 * 1000).toISOString()
+  }
+}
+
+// Definir funciones de utilidad localmente para evitar problemas de importación
+function getBaseUrl() {
+  const hostname = window.location.hostname
+  if (hostname === "localhost" || hostname === "127.0.0.1") {
+    return window.location.origin // Desarrollo local
+  } else if (hostname.includes("opotai.netlify.app")) {
+    return "https://opotai.netlify.app" // Producción en Netlify
+  } else {
+    // Cualquier otro dominio
+    return window.location.origin
+  }
+}
+
+function buildUrl(path) {
+  // Asegurarse de que el path comience con /
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`
+  return `${getBaseUrl()}${normalizedPath}`
+}
+
+function logPathDebug(original, transformed, source) {
+  console.log(`[PATH DEBUG] ${source}: Original: "${original}" → Transformed: "${transformed}"`)
+}
+
+function getLoginPath() {
+  // Usar una URL absoluta para evitar problemas de rutas relativas
+  return buildUrl("/login.html")
+}
+
 // Función para verificar el estado de autenticación
 export async function checkAuthStatus() {
   const userAuth = localStorage.getItem("userAuth")
@@ -90,8 +159,8 @@ export async function checkAuthStatus() {
   if (window.location.pathname.includes("login.html")) {
     if (userAuth) {
       const userData = JSON.parse(userAuth)
-      if (userData.isAuthenticated) {
-        // Si el usuario ya está autenticado, redirigir al dashboard
+      if (userData.isAuthenticated && !isTokenExpired(userData.idToken)) {
+        // Si el usuario ya está autenticado y el token es válido, redirigir al dashboard
         window.location.href = "index.html"
       }
     }
@@ -100,17 +169,20 @@ export async function checkAuthStatus() {
   else {
     if (!userAuth) {
       // Si el usuario no está autenticado, redirigir a la página de login
-      // Determinar la ruta relativa a la raíz
-      let pathToRoot = ""
-      const pathSegments = window.location.pathname.split("/").filter(Boolean)
+      // Usar una ruta relativa simple
+      const loginPath = "login.html"
 
-      // Si estamos en un subdirectorio, necesitamos navegar hacia arriba
-      if (pathSegments.length > 0) {
-        pathToRoot = "../".repeat(pathSegments.length - 1)
+      console.log("Redirigiendo a:", loginPath)
+      window.location.href = loginPath
+    } else {
+      // Verificar si el token ha expirado
+      const userData = JSON.parse(userAuth)
+      if (isTokenExpired(userData.idToken)) {
+        console.warn("Token expirado, redirigiendo a login...")
+        logout()
+        return
       }
 
-      window.location.href = `${pathToRoot}login.html`
-    } else {
       // Intentar sincronizar datos automáticamente si es necesario
       try {
         const { shouldSyncData } = await import("./user-utils.js")
@@ -129,6 +201,35 @@ export async function checkAuthStatus() {
   }
 }
 
+// Función para verificar si un token JWT está expirado
+function isTokenExpired(token) {
+  try {
+    // Decodificar el token
+    const base64Url = token.split(".")[1]
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/")
+    const jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join(""),
+    )
+    const payload = JSON.parse(jsonPayload)
+
+    // Verificar si tiene campo de expiración
+    if (!payload.exp) {
+      return false
+    }
+
+    // Comparar con la hora actual
+    const now = Math.floor(Date.now() / 1000)
+    return payload.exp < now
+  } catch (error) {
+    console.error("Error al verificar expiración del token:", error)
+    return true // Si hay error, asumir que está expirado
+  }
+}
+
 // Función para cerrar sesión
 export async function logout() {
   try {
@@ -144,20 +245,17 @@ export async function logout() {
     // Eliminar datos de autenticación
     localStorage.removeItem("userAuth")
 
-    // Determinar la ruta relativa a la raíz
-    let pathToRoot = ""
-    const pathSegments = window.location.pathname.split("/").filter(Boolean)
+    // Obtener la ruta correcta a login.html
+    // Usar una ruta relativa simple
+    const loginPath = "login.html"
 
-    // Si estamos en un subdirectorio, necesitamos navegar hacia arriba
-    if (pathSegments.length > 0) {
-      pathToRoot = "../".repeat(pathSegments.length - 1)
-    }
+    console.log("Redirigiendo a:", loginPath)
 
     // Redirigir a la página de login
-    window.location.href = `${pathToRoot}login.html`
+    window.location.href = loginPath
   } catch (error) {
     console.error("Error al cerrar sesión:", error)
-    // Forzar redirección a login en caso de error
+    // Forzar redirección a la raíz como último recurso
     window.location.href = "login.html"
   }
 }
