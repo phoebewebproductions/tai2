@@ -652,3 +652,79 @@ main {
   color: #aecbfa;
 }
 
+/* Estilos para los componentes de progreso circular */
+
+/* Contenedor principal de progreso */
+.progress-summary {
+  padding: 15px;
+  background-color: var(--color-card-bg, #ffffff);
+  border-radius: 0 0 8px 8px;
+}
+
+/* Sección superior con progreso principal */
+.progress-top-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Información de progreso */
+.progress-info {
+  margin-left: 20px;
+  flex: 1;
+}
+
+.progress-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--color-text, #333333);
+}
+
+/* Estadísticas de progreso */
+.progress-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-text, #333333);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-light, #666666);
+}
+
+/* Indicadores de progreso por bloque */
+.block-progress-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: var(--color-text, #333333);
+}
+
+.block-progress-indicators {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Estilos para modo oscuro */
+.dark-mode .progress-label,
+.dark-mode .stat-value,
+.dark-mode .block-progress-title {
+  color: var(--color-text-dark, #e0e0e0);
+}
+
+.dark-mode .stat-label {
+  color: var(--color-text-light-dark, #aaaaaa);
+}
+
