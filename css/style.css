@@ -20,9 +20,14 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
-
+.incio a{
+  border:solid red 3px;
+}
 a {
   text-decoration: none;
+}
+#home-button{
+  display: none;
 }
 
 /* Base Styles */
@@ -53,7 +58,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-background) 0%, rgba(0, 0, 0, 0.432) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, rgba(0, 0, 0, 0.432) 100%);
   background-image: url("../assets/congreso_dip.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -62,104 +67,14 @@ body::before {
   z-index: -1;
   filter: blur(8px);
 }
-
-/* Header Styles */
-header {
-  background-image: url("../assets/tai.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: var(--color-white);
-  padding: 1.5rem 2rem;
-  z-index: 1000;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: fit-content;
-  background-color: var(--color-background);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.titulo h2,
-.titulo h1 {
-  color: var(--color-background);
-  text-align: left;
-}
-
-.headerPrincipal {
-  position: relative;
-  top: 0;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(37, 99, 235, 0.7) 100%);
-  z-index: -1;
-}
-
-.titulo {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-}
-
-header h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 0.5rem 0 0;
-  opacity: 0.9;
-}
-
-/* Header Buttons */
-.buttonsHeader {
-  position: relative;
-  place-self: right;
-  top: 1rem;
-  right: 1rem;
+.titulos{
   display: flex;
-  gap: 0.5rem;
-  align-items: right;
-  z-index: 100000000;
-  width: 100%;
-  justify-content: flex-end;
+  flex-direction: column;
+       width: 50%;height: 50%;
+       background: linear-gradient(100deg, var(--color-primary) 5%, var(--color-secondary) 100%);
+       justify-content: center;align-items: center;border-radius: 20px;
 }
 
-.header-button,
-#darkModeToggle,
-.volver {
-  background: none;
-  border: none;
-  color: var(--color-white);
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-}
-
-.header-button:hover,
-#darkModeToggle:hover,
-.volver:hover {
-  transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
-}
 
 /* Main Content */
 main {
@@ -396,33 +311,9 @@ main {
 }
 
 @media (max-width: 768px) {
-  header {
-    padding: 1rem;
-    height: 20vh;
-  }
 
-  header h1 {
-    font-size: 1.2rem;
-  }
 
-  header h2 {
-    font-size: 0.9rem;
-  }
 
-  .buttonsHeader {
-    top: 0.5rem;
-    right: 0.5rem;
-    gap: 0.25rem;
-  }
-
-  .header-button,
-  #darkModeToggle,
-  .volver {
-    width: 30px;
-    height: 30px;
-    padding: 0.25rem;
-    font-size: 0.9rem;
-  }
 
   #contenido-principali {
     padding: 0.5rem;
@@ -618,6 +509,22 @@ main {
     justify-content: space-between;
     text-align: left;
   }
+  .titulos{
+    display: flex;
+    flex-direction: column;
+         width: 100%;
+         height: 100%;
+         text-align: center;
+        
+         background: linear-gradient(100deg, var(--color-primary) 5%, var(--color-secondary) 100%);
+         justify-content: center;align-items: center;border-radius: 20px;
+  }
+  .titulos  h1{
+    text-align: center;
+    text-justify: auto;
+
+  }
+  
 
   .footer-info,
   .footer-contact,

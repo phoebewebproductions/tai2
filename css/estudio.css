@@ -148,36 +148,36 @@ main {
 /* Botón toggle del sidebar */
 .sidebar-toggle {
   display: none;
-  position: relative;
+  position: fixed; /* Cambiar de relative a fixed */
+  top: 80%; /* Posicionar en la parte inferior */
+  left: 85%; /* Posicionar en la parte derecha */
   z-index: 1000000;
   border-radius: 50%;
   color: var(--color-primary);
-  width: 40px;
-  height: 40px;
-
-  border: none;
+  width: 50px; /* Aumentar ligeramente el tamaño */
+  height: 50px; /* Aumentar ligeramente el tamaño */
+  background-color: var(--color-background); /* Añadir color de fondo */
+  border: 1px solid var(--color-border); /* Añadir borde */
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Mejorar la sombra */
   transition: all 0.3s ease;
   align-items: center;
   justify-content: center;
 }
 
-/* Overlay para cuando el sidebar está activo */
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+/* Añadir efecto hover */
+.sidebar-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar-overlay.active {
-  display: block;
+/* Asegurar que el botón sea visible en modo móvil */
+@media (max-width: 1024px) {
+  .sidebar-toggle {
+    display: flex;
+  }
 }
+
 
 
 
@@ -254,6 +254,7 @@ button:hover {
   .bloque-container {
     grid-template-columns: 1fr;
     height: 100%;
+   
   }
 
   .sidebar-navigation {
@@ -287,9 +288,6 @@ button:hover {
     z-index: 99;
   }
 
-  .sidebar-overlay.active {
-    display: block;
-  }
 
   .sidebar-toggle {
     display: flex;
@@ -310,6 +308,7 @@ button:hover {
   }
   .bloque-container {
     height: 100%;
+    margin-top: -60px;
   }
 
   .content-area {
@@ -526,7 +525,7 @@ button:hover {
   /* Ajustar el contenedor principal */
   .bloque-container {
     height: 100%;
-    margin-top: 0; /* Eliminar margen superior */
+    margin-top: -60px;
     padding-top: 0; /* Usar padding en su lugar */
   }
 }
@@ -543,4 +542,3 @@ button:hover {
     height: 100%;
   }
 }
-

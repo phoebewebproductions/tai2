@@ -347,6 +347,21 @@ export class ExamenManager {
 
           // Update UI elements
           this.actualizarUITrasExamen(bloqueId, currentPointIndex)
+
+          // Cargar automáticamente el siguiente punto desbloqueado
+          const nextPointIndex = currentPointIndex + 1
+          if (nextPointIndex < this.estructuraGlobal[this.bloque].puntosLineales.length) {
+            const nextPoint = this.estructuraGlobal[this.bloque].puntosLineales[nextPointIndex]
+            const nextPointBtn = document.querySelector(`[data-id="${nextPoint.id}"]`)
+            if (nextPointBtn) {
+              // Cerrar el modal primero
+              ocultarModal(this.modalExamen)
+              // Simular clic en el siguiente punto
+              setTimeout(() => {
+                nextPointBtn.click()
+              }, 300)
+            }
+          }
         } else {
           console.log(
             `No se actualizó el progreso. Índice actual (${currentPointIndex}) no es mayor que el guardado (${savedProgress})`,

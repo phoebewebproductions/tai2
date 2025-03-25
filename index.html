@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="css/pure-dark-mode.css">
         <link rel="stylesheet" href="css/donations.css">
+        <link rel="stylesheet" href="css/dynamic-header.css">
 
         
         <!-- AWS SDK v3 (módulos individuales) se cargarán dinámicamente -->
@@ -38,22 +39,7 @@
                 <i class="fa-solid fa-hand-holding-heart"></i>
             </div>
         </div>
-        <header id="bloque-header" class="headerPrincipal" style="width: 100vw;">
-            <span class="titulo">
-                <h1>Formación Online</h1>
-                <h2>TAI</h2>
-            </span>
-            
-            <div class="buttonsHeader">
-               
-                
-                <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
-                    <i id="darkModeIcon" class="fa-solid fa-moon"></i>
-                </button>
-    
-            </div>
-        </header>  
-        
+        <header class="inicio"></header>
         <main id="contenido-principali">
             <div class="dashboard-container">
                 <!-- Panel izquierdo: Tarjeta de bienvenida y exámenes -->
@@ -85,20 +71,7 @@
                         </div>
                     </div>
 
-                    <!-- Sección de exámenes -->
-                    <div class="exams-section">
-                        <h3>Zona de Exámenes</h3>
-                        <div class="exam-buttons">
-                            <a href="examenes/examenportemas/portemas.html" class="exam-btn"><button class="exam-btn temabtn ">
-                                Examen por temas
-                            </button></a>
-                            <a href="examenes/examenOficial/examenOficial.html" class="exam-btn">
-                                <button class="temabtn">
-                                    Examen oficial
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+                  
                 </div>
 
                 <!-- Panel derecho: Zona de estudio -->
@@ -129,6 +102,20 @@
                                 <h2>Sistemas y Comunicaciones</h2>
                             </div>
                         </a>
+                    </div>
+                      <!-- Sección de exámenes -->
+                      <div class="exams-section">
+                        <h3>Zona de Exámenes</h3>
+                        <div class="exam-buttons">
+                            <a href="examenes/examenportemas/portemas.html" class="exam-btn"><button class="exam-btn temabtn ">
+                                Examen por temas
+                            </button></a>
+                            <a href="examenes/examenOficial/examenOficial.html" class="exam-btn">
+                                <button class="temabtn">
+                                    Examen oficial
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,5 +192,9 @@
         <script type="module" src="js/dashboard-progress.js"></script>
         <script type="module" src="js/exam-history.js"></script>
         <script type="module" src="js/donations.js"></script>
+        <link rel="stylesheet" href="css/dashboard-circular.css">
+        <script type="module" src="js/dynamic-header.js"></script>
+<script type="module" src="js/progressButton.js"></script>
+<script type="module" src="js/init-dashboard.js"></script>
     </body>
 </html>

@@ -70,32 +70,6 @@ body::before {
     padding: 20px;
 }
 
-/* Header */
-header {
-    position: relative;
-    background-image: url("../../assets/tai.png");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    color: var(--color-white);
-    text-align: center;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-md);
-    z-index: 1000;
-}
-
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--color-overlay) 0%, rgba(37, 99, 235, 0.7) 100%);
-    z-index: 1;
-}
-
 header h1, header h2 {
     position: relative;
     z-index: 2;
@@ -568,7 +542,7 @@ header h2 {
     }
 
     .app, #studyNotesContainer, #statsContainer, #allStatsContainer, #menu-exam-form {
-        width: 100%;
+        width: 90%;
     }
 
     .option-button, #nextButton, .skip-button {

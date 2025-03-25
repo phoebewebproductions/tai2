@@ -45,22 +45,30 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* IMPORTANTE: Excluir el header completamente del modo oscuro */
-/* Esto asegura que el header se vea exactamente igual en modo claro y oscuro */
+/* Reemplazar la sección de exclusión del header con esta versión mejorada */
+
+/* IMPORTANTE: Excluir COMPLETAMENTE el header y todos sus componentes del modo oscuro */
+/* Esta regla asegura que el header mantenga siempre su estilo original independientemente del modo */
 .dark-mode header,
 .dark-mode header *,
+.dark-mode .dynamic-header,
+.dark-mode .dynamic-header *,
 .dark-mode #bloque-header,
 .dark-mode #bloque-header *,
 .dark-mode .buttonsHeader,
-.dark-mode .buttonsHeader * {
-  /* Anular cualquier estilo de modo oscuro para estos elementos */
-  background-color: initial !important;
-  color: initial !important;
-  border-color: initial !important;
-  fill: initial !important;
-  stroke: initial !important;
-  box-shadow: initial !important;
-  filter: initial !important;
+.dark-mode .buttonsHeader *,
+.dark-mode .header-button,
+.dark-mode .header-button *,
+.dark-mode .hamburger-menu,
+.dark-mode .hamburger-menu *,
+.dark-mode #darkModeToggle,
+.dark-mode #darkModeIcon,
+.dark-mode #progress-button,
+.dark-mode #sync-button,
+.dark-mode #home-button,
+.dark-mode #logout-button {
+  /* Restaurar todos los estilos a sus valores originales */
+
   /* Asegurar que no se apliquen transiciones */
   transition: none !important;
 }
@@ -158,7 +166,7 @@
     #progress-button
   ):not(#sidebar-toggle):not(header button):not(#bloque-header button):not(.buttonsHeader button):not(
     .block-select-btn
-  ):not(.topic-select-btn):not(.tab-button):not(.donation-close-btn) {
+  ):not(.topic-select-btn):not(.tab-button):not(.donation-close-btn):not(.header-button) {
   background-color: var(--color-primary) !important;
   color: white !important;
   border-color: var(--color-primary-dark) !important;
@@ -419,5 +427,10 @@ html {
 
 .dark-mode .donation-panel-content p {
   color: var(--color-text) !important;
+}
+
+.dark-mode .tooltip {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
 }
 

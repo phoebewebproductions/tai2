@@ -113,7 +113,10 @@ function setupButtonsObserver() {
  */
 function preserveHeaderStyles() {
   // Capturar los estilos originales del header antes de aplicar el modo oscuro
-  const header = document.querySelector("header") || document.getElementById("bloque-header")
+  const header =
+    document.querySelector("header") ||
+    document.getElementById("bloque-header") ||
+    document.querySelector(".dynamic-header")
   if (header) {
     // Aplicar !important a todos los estilos computados del header
     const headerStyle = window.getComputedStyle(header)
@@ -152,7 +155,7 @@ function preserveHeaderStyles() {
 
   // Preservar específicamente los estilos de los botones del header
   const headerButtons = document.querySelectorAll(
-    ".buttonsHeader button, .buttonsHeader a, #darkModeToggle, #progress-button, #sidebar-toggle",
+    ".buttonsHeader button, .buttonsHeader a, #darkModeToggle, #progress-button, #sidebar-toggle, .header-button",
   )
   headerButtons.forEach((button) => {
     const style = window.getComputedStyle(button)
@@ -171,11 +174,9 @@ function preserveHeaderStyles() {
  * Activar modo oscuro
  */
 function enableDarkMode() {
-  // Preservar estilos del header antes de aplicar el modo oscuro
-  preserveHeaderStyles()
-
   // Aplicar clase CSS personalizada
   document.documentElement.classList.add("dark-mode")
+  document.body.classList.add("dark-mode")
 
   // Preservar estilos de los botones del sidebar
   preserveSidebarButtonStyles()
@@ -183,13 +184,16 @@ function enableDarkMode() {
   // Actualizar icono
   const darkModeIcon = document.getElementById("darkModeIcon")
   if (darkModeIcon) {
-    darkModeIcon.classList.replace("fa-moon", "fa-sun")
+    darkModeIcon.className = "fa-solid fa-sun"
   }
 
   // Guardar preferencia
   localStorage.setItem("darkMode", "true")
 
   darkModeEnabled = true
+
+  // Disparar un evento personalizado para notificar a otros scripts
+  document.dispatchEvent(new CustomEvent("darkModeChanged", { detail: { isDarkMode: true } }))
 }
 
 /**
@@ -198,17 +202,21 @@ function enableDarkMode() {
 function disableDarkMode() {
   // Quitar clase CSS personalizada
   document.documentElement.classList.remove("dark-mode")
+  document.body.classList.remove("dark-mode")
 
   // Actualizar icono
   const darkModeIcon = document.getElementById("darkModeIcon")
   if (darkModeIcon) {
-    darkModeIcon.classList.replace("fa-sun", "fa-moon")
+    darkModeIcon.className = "fa-solid fa-moon"
   }
 
   // Guardar preferencia
   localStorage.setItem("darkMode", "false")
 
   darkModeEnabled = false
+
+  // Disparar un evento personalizado para notificar a otros scripts
+  document.dispatchEvent(new CustomEvent("darkModeChanged", { detail: { isDarkMode: false } }))
 }
 
 /**
@@ -226,11 +234,14 @@ function toggleDarkMode() {
  * Inicializar modo oscuro
  */
 function initializeDarkMode() {
+  console.log("Inicializando modo oscuro desde css-only-dark-mode.js")
+
   // Cargar preferencia
   const darkModePreference = localStorage.getItem("darkMode") === "true"
 
   // Aplicar modo oscuro si está habilitado
   if (darkModePreference) {
+    console.log("Aplicando modo oscuro según preferencia guardada")
     enableDarkMode()
   }
 
@@ -260,6 +271,15 @@ if (document.readyState === "loading") {
 } else {
   initializeDarkMode()
 }
+
+// También inicializar cuando la ventana esté completamente cargada
+window.addEventListener("load", () => {
+  // Verificar si el modo oscuro debería estar activado
+  if (localStorage.getItem("darkMode") === "true") {
+    // Asegurarse de que el modo oscuro esté aplicado correctamente
+    enableDarkMode()
+  }
+})
 
 // Exportar funciones
 window.enableDarkMode = enableDarkMode

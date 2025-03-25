@@ -1,0 +1,122 @@
+/* Estilos para el dashboard con progreso circular */
+
+/* Tarjeta de bienvenida */
+.welcome-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Encabezado de la tarjeta */
+  .welcome-header {
+    padding: 15px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .welcome-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .last-access {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  /* Contenedor de progreso */
+  .progress-summary {
+    padding: 15px;
+  }
+  
+  /* Sección superior con progreso general */
+  .progress-top-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  /* Información de progreso */
+  .progress-info {
+    margin-left: 20px;
+    flex: 1;
+  }
+  
+  .progress-label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  /* Estadísticas de progreso */
+  .progress-stats {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  /* Título de progreso por bloque */
+  .block-progress-title {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para modo oscuro */
+  .dark-mode .welcome-card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  .dark-mode .welcome-header {
+    border-bottom-color: #333;
+  }
+  
+  .dark-mode .last-access,
+  .dark-mode .stat-label {
+    color: #aaa;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .progress-top-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .progress-info {
+      margin-left: 0;
+      margin-top: 15px;
+      text-align: center;
+      width: 100%;
+    }
+  
+    .progress-stats {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  
+  

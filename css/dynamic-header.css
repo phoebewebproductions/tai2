@@ -1,0 +1,402 @@
+/* Estilos para el header dinámico */
+.inicio a{
+    pointer-events: none;   /* Desactiva todos los eventos del mouse/táctiles */
+    cursor: default;        /* Cambia el cursor a normal en lugar de la manita */
+    text-decoration: none;  /* Opcional: quita el subrayado */
+    color: inherit;         /* Opcional: mantiene el color del texto como el elemento padre */
+    
+}
+.dynamic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(90deg, #22c55e 0%, #0070f3 100%);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: visible;
+    transition: background 0.3s ease;
+  }
+  
+  .dynamic-header * {
+    box-sizing: border-box;
+  }
+  
+  .dynamic-header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Añadir estilos para el enlace del título */
+  .dynamic-header-title a {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s ease;
+  }
+  
+  .dynamic-header-title a:hover {
+    opacity: 0.9;
+  }
+  
+  .dynamic-header-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .dynamic-header-title h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+  
+  .dynamic-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .header-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .header-button i {
+    font-size: 1rem;
+  }
+  
+  .header-button-text {
+    display: none;
+    margin-left: 0.5rem;
+  }
+  
+  /* Menú hamburguesa para móviles */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.5rem;
+    height: 1.2rem;
+    cursor: pointer;
+    z-index: 1010;
+  }
+  
+  .hamburger-menu span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Menú móvil */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1rem 1rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mobile-menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-menu-button i {
+    margin-right: 1rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+  
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  .mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Estilos para modo oscuro */
+  .dark-mode .dynamic-header {
+    background: linear-gradient(90deg, #15803d 0%, #1e40af 100%) !important;
+  }
+  
+  .dark-mode .mobile-menu {
+    background-color: #111111;
+  }
+  
+  /* Media queries para responsive */
+  @media (max-width: 768px) {
+    .dynamic-header-buttons {
+      display: none;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .dynamic-header {
+      padding: 0.5rem 1rem;
+    }
+  
+    .dynamic-header-title h1 {
+      font-size: 1.2rem;
+    }
+  
+    .dynamic-header-title h2 {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .header-button {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  
+    .header-button i {
+      font-size: 0.9rem;
+    }
+  
+    .dynamic-header-title h1 {
+      font-size: 1.3rem;
+    }
+  
+    .dynamic-header-title h2 {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Animación para el botón de sincronización */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotating {
+    animation: rotate 1s linear infinite;
+  }
+  
+  /* Estilos para el botón de progreso */
+  .progress-button {
+    position: relative;
+  }
+  
+  .progress-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    border-top-color: transparent;
+    animation: rotate 1s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .progress-button.loading::after {
+    opacity: 1;
+  }
+  
+  /* Tooltip para los botones */
+  .tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 1020;
+  }
+  
+  .header-button:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Estilos para el contador de sincronizaciones pendientes */
+  .sync-pending-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilos para indicadores de éxito/error */
+  .sync-success {
+    color: #4ade80 !important;
+  }
+  
+  .sync-error {
+    color: #f87171 !important;
+  }
+  
+  /* Corregir problemas de overflow */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Asegurar que el header no tenga margen superior */
+  body > .dynamic-header {
+    margin-top: 0;
+  }
+  
+  /* Asegurar que el modal de progreso no se cierre inesperadamente */
+  #progress-display {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  #progress-display .welcome-card {
+    position: relative;
+    z-index: 10000;
+    pointer-events: auto;
+  }
+  
+  /* Estilos para el botón de cerrar */
+  .cerrar-progreso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 10001;
+  }
+  
+  /* Estilos para modo oscuro */
+  .dark-mode .cerrar-progreso {
+    color: #e0e0e0;
+  }
+  
+  /* Asegurar que el header no afecte al contenido principal */
+  main {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Añadir estilos para la foto de perfil */
+  .profile-pic-container {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+  }
+  
+  .dark-mode .profile-pic {
+    border-color: #333;
+  }
+  
+  

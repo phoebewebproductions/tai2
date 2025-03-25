@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/exam-styles.css">
     <link rel="stylesheet" href="../../css/pure-dark-mode.css">
     <link rel="stylesheet" href="../../css/donations.css">
+    <link rel="stylesheet" href="../../css/dynamic-header.css">
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
@@ -38,38 +39,12 @@
             <i class="fa-solid fa-hand-holding-heart"></i>
         </div>
     </div>
-    <header id="bloque-header">
-        <span class="titulo">
-
-            <h2>Bloque IV</h2>
-        </span>
+    <header >
         
-        <div class="buttonsHeader">
-            <a href="../../index.html" class="volver" aria-label="Volver a selección">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="volver-icon">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    <path d="M10 6L4 12"></path>
-                    <path d="M4 12h7"></path>
-                </svg>
-            </a>
-            
-            <button id="darkModeToggle" aria-label="Alternar Modo Claro/Oscuro" title="Alternar Modo Claro/Oscuro">
-                <i id="darkModeIcon" class="fa-solid fa-moon"></i>
-            </button>
-
-            <button id="progress-button" class="header-button" aria-label="Ver progreso">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="progress-icon">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 6v6l4 2"></path>
-                </svg>
-            </button>
-            <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
     </header>  
-
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <main id="contenido-principal">
         <div class="bloque-container">
             <!-- Panel izquierdo: Navegación de temas -->
@@ -115,6 +90,14 @@
 <script type="module" src="../../js/aws-config.js"></script>
 <script type="module" src="../../js/script.js"></script>
 <!--<script type="module" src="../../js/developer-mode.js"></script>-->
+        <!-- Primero tu sistema de modo oscuro existente -->
+        <script type="module" src="../../js/css-only-dark-mode.js.js"></script>
+
+        <!-- Luego el header dinámico -->
+        <script type="module" src="../../js/dynamic-header.js"></script>
+        
+        <!-- Finalmente el script de integración -->
+        <script type="module" src="../../js/header-dark-mode-integration.js"></script>
 
 
   
