@@ -356,9 +356,19 @@ export class ExamenManager {
             if (nextPointBtn) {
               // Cerrar el modal primero
               ocultarModal(this.modalExamen)
-              // Simular clic en el siguiente punto
+              // Simular clic en el siguiente punto y hacer scroll al principio
               setTimeout(() => {
                 nextPointBtn.click()
+                // Hacer scroll al principio de la página con un pequeño retraso adicional
+                setTimeout(() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  })
+
+                  // Disparar un evento personalizado para que otros scripts sepan que se ha cargado un nuevo punto
+                  document.dispatchEvent(new CustomEvent("puntoLoaded"))
+                }, 300)
               }, 300)
             }
           }

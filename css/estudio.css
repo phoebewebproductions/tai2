@@ -149,8 +149,8 @@ main {
 .sidebar-toggle {
   display: none;
   position: fixed; /* Cambiar de relative a fixed */
-  top: 80%; /* Posicionar en la parte inferior */
-  left: 85%; /* Posicionar en la parte derecha */
+  bottom: 20px; /* Posicionar en la parte inferior */
+  right: 20px; /* Posicionar en la parte derecha */
   z-index: 1000000;
   border-radius: 50%;
   color: var(--color-primary);
@@ -178,8 +178,21 @@ main {
   }
 }
 
+/* Overlay para cuando el sidebar está activo */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
 
-
+.sidebar-overlay.active {
+  display: none;
+}
 
 /* Modal de examen */
 #modal-examen {
@@ -254,7 +267,6 @@ button:hover {
   .bloque-container {
     grid-template-columns: 1fr;
     height: 100%;
-   
   }
 
   .sidebar-navigation {
@@ -288,6 +300,9 @@ button:hover {
     z-index: 99;
   }
 
+  .sidebar-overlay.active {
+    display: none;
+  }
 
   .sidebar-toggle {
     display: flex;
@@ -308,7 +323,6 @@ button:hover {
   }
   .bloque-container {
     height: 100%;
-    margin-top: -60px;
   }
 
   .content-area {
@@ -525,7 +539,7 @@ button:hover {
   /* Ajustar el contenedor principal */
   .bloque-container {
     height: 100%;
-    margin-top: -60px;
+    margin-top: 0; /* Eliminar margen superior */
     padding-top: 0; /* Usar padding en su lugar */
   }
 }

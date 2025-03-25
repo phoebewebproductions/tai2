@@ -3,6 +3,11 @@ import { findId } from './idfinder.js';
 import { iniciarExamen, ocultarModal } from './examLogic.js';
 import { assetUrl } from "./utils.js"
 
+// Mock getCurrentBlockId and updateProgress for testing purposes.
+// In a real application, these would be properly implemented and imported.
+const getCurrentBlockId = () => 1; // Replace with actual implementation if available
+const updateProgress = () => {}; // Replace with actual implementation if available
+
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector("#modal-examen");
     const btncerrar = document.querySelector(".cerrar");
@@ -130,6 +135,20 @@ export function generarEstructuraBloque(estructura) {
                 
                 // Cargar contenido
                 await cargarContenidoPunto(indexTema + 1, indexPunto + 1, punto.id, contentArea);
+                
+                // Cerrar sidebar en móvil
+                if (window.innerWidth <= 1024) {
+                    const sidebar = document.querySelector('.sidebar-navigation');
+                    const overlay = document.querySelector('.sidebar-overlay');
+                    if (sidebar) sidebar.classList.remove('active');
+                    if (overlay) overlay.classList.remove('active');
+                }
+                
+                // Hacer scroll al principio de la página
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
 
             puntosContainer.appendChild(puntoElement);
@@ -154,6 +173,9 @@ export function generarEstructuraBloque(estructura) {
             contentArea
         );
     }
+    
+    // Configurar el cierre del sidebar para los puntos recién creados
+    setupSidebarClosing();
 }
 
 function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura) {
@@ -184,10 +206,29 @@ function cargarPuntosTema(tema, indexTema, puntosContainer, bloqueId, estructura
         `;
 
         const puntoBtn = puntoElement.querySelector('.punto-btn');
-        puntoBtn.addEventListener('click', () => cargarContenidoPunto(indexTema + 1, indexPunto + 1, punto.id, puntoElement));
+        puntoBtn.addEventListener('click', () => {
+            cargarContenidoPunto(indexTema + 1, indexPunto + 1, punto.id, puntoElement);
+            
+            // Cerrar sidebar en móvil
+            if (window.innerWidth <= 1024) {
+                const sidebar = document.querySelector('.sidebar-navigation');
+                const overlay = document.querySelector('.sidebar-overlay');
+                if (sidebar) sidebar.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+            }
+            
+            // Hacer scroll al principio de la página
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         puntosContainer.appendChild(puntoElement);
     });
+    
+    // Configurar el cierre del sidebar para los puntos recién creados
+    setupSidebarClosing();
 }
 
 
@@ -236,6 +277,13 @@ export async function cargarContenidoPunto(tema, punto, id, contentArea) {
           estructuraGlobal,
         )
       })
+      
+      // Hacer scroll al principio de la página después de cargar el contenido
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      
     } catch (error) {
       console.error("Error in cargarContenidoPunto:", error)
     }
@@ -309,17 +357,67 @@ export function actualizarProgresoTrasExamen(bloqueId, puntoCompletadoIndex) {
     });
 }
 
+// Función para configurar el cierre del sidebar
+function setupSidebarClosing() {
+    const sidebar = document.querySelector('.sidebar-navigation');
+    const overlay = document.querySelector('.sidebar-overlay');
+    
+    // Configurar todos los botones de punto para cerrar el sidebar en móvil
+    document.querySelectorAll('.punto-btn').forEach(btn => {
+        // Eliminar event listeners anteriores para evitar duplicados
+        const newBtn = btn.cloneNode(true);
+        if (btn.parentNode) {
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            // Añadir el event listener original (el que carga el contenido)
+            const tema = newBtn.dataset.tema;
+            const punto = newBtn.dataset.punto;
+            const id = newBtn.dataset.id;
+            const contentArea = document.querySelector('#punto-actual');
+            
+            if (tema && punto && id && contentArea) {
+                newBtn.addEventListener('click', async () => {
+                    // Remover clase active de todos los puntos
+                    document.querySelectorAll('.punto-btn').forEach(b => 
+                        b.classList.remove('active'));
+                    
+                    // Añadir clase active al punto actual
+                    newBtn.classList.add('active');
+                    
+                    // Cargar contenido
+                    await cargarContenidoPunto(tema, punto, id, contentArea);
+                    
+                    // Cerrar sidebar en móvil
+                    if (window.innerWidth <= 1024) {
+                        if (sidebar) sidebar.classList.remove('active');
+                        if (overlay) overlay.classList.remove('active');
+                    }
+                    
+                    // Hacer scroll al principio de la página
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+    });
+}
+
 // Añadir al archivo uiGenerator.js o crear un nuevo archivo sidebar.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.querySelector('.sidebar-navigation');
     const content = document.querySelector('.content-area');
-    const overlay = document.createElement('div');
     
-    // Crear overlay para móvil
-    overlay.className = 'sidebar-overlay';
-    document.body.appendChild(overlay);
+    // Crear overlay para móvil si no existe
+    let overlay = document.querySelector('.sidebar-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+    }
 
     if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener('click', () => {
@@ -329,22 +427,26 @@ document.addEventListener('DOMContentLoaded', () => {
             content?.classList.toggle('sidebar-active');
         });
 
-        // Cerrar sidebar al hacer clic en el overlaypunto-contenido
+        // Cerrar sidebar al hacer clic en el overlay
         overlay.addEventListener('click', () => {
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
             content?.classList.remove('sidebar-active');
         });
-
-        // Cerrar sidebar al hacer clic en un punto (en móvil)
-        document.querySelectorAll('.punto-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (window.innerWidth <= 1024) {
-                    sidebar.classList.remove('active');
-                    overlay.classList.remove('active');
-                    content?.classList.remove('sidebar-active');
-                }
-            });
-        });
     }
+    
+    // Configurar el cierre del sidebar para los puntos iniciales
+    setupSidebarClosing();
+    
+    // También configurar cuando se completa un examen
+    document.addEventListener('examCompleted', () => {
+        setTimeout(() => {
+            setupSidebarClosing();
+            // Hacer scroll al principio de la página
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 300);
+    });
 });
