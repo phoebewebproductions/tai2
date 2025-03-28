@@ -56,12 +56,19 @@ function createHeaderContent(headerElement, isHomePage) {
 
   // Crear los botones
   const buttonsContainer = document.createElement("div")
-  buttonsContainer.className = "dynamic-header-buttons"
+  buttonsContainer.className = "dynamic-header-buttons buttonsHeader" // Añadido clase buttonsHeader para el botón de progreso
 
   // Añadir foto de perfil si está disponible
   const userProfilePic = createUserProfilePic()
   if (userProfilePic) {
     buttonsContainer.appendChild(userProfilePic)
+  }
+
+  // Botón de progreso
+  const progressButton = createHeaderButton("progress-button", "fa-chart-pie", "Ver progreso")
+  // Ocultar el botón de progreso en la página de inicio
+  if (isHomePage) {
+    progressButton.style.display = "none"
   }
 
   // Botón de sincronización
@@ -74,6 +81,7 @@ function createHeaderContent(headerElement, isHomePage) {
   const logoutButton = createHeaderButton("logout-button", "fa-sign-out-alt", "Cerrar sesión")
 
   // Añadir botones al contenedor
+  buttonsContainer.appendChild(progressButton)
   buttonsContainer.appendChild(syncButton)
   buttonsContainer.appendChild(darkModeButton)
   buttonsContainer.appendChild(logoutButton)
@@ -229,11 +237,18 @@ function createMobileMenu(isHomePage = false) {
   mobileMenu.className = "mobile-menu"
 
   // Crear los botones del menú móvil
+  const progressButton = createMobileMenuButton("fa-chart-pie", "Ver progreso", "progress-mobile")
+  // Ocultar el botón de progreso en la página de inicio
+  if (isHomePage) {
+    progressButton.style.display = "none"
+  }
+
   const syncButton = createMobileMenuButton("fa-sync", "Sincronizar progreso", "sync-mobile")
   const darkModeButton = createMobileMenuButton("fa-moon", "Alternar modo claro/oscuro", "darkmode-mobile")
   const logoutButton = createMobileMenuButton("fa-sign-out-alt", "Cerrar sesión", "logout-mobile")
 
   // Añadir botones al menú
+  mobileMenu.appendChild(progressButton)
   mobileMenu.appendChild(syncButton)
   mobileMenu.appendChild(darkModeButton)
   mobileMenu.appendChild(logoutButton)
@@ -296,6 +311,14 @@ function initMobileMenu(isHomePage) {
 
 // Función para añadir eventos a los botones del header
 function addButtonEvents() {
+  // Botón de progreso
+  const progressButton = document.getElementById("progress-button")
+  if (progressButton) {
+    progressButton.addEventListener("click", function () {
+      handleProgressClick.call(this)
+    })
+  }
+
   // Botón de sincronización
   const syncButton = document.getElementById("sync-button")
   if (syncButton) {
@@ -356,6 +379,15 @@ function addButtonEvents() {
 
 // Modificar la función addMobileMenuButtonEvents para eliminar el evento del botón de inicio móvil
 function addMobileMenuButtonEvents() {
+  // Botón de progreso móvil
+  const progressButton = document.getElementById("progress-mobile")
+  if (progressButton) {
+    progressButton.addEventListener("click", function () {
+      handleProgressClick.call(this)
+      closeMobileMenu()
+    })
+  }
+
   // Botón de sincronización
   const syncButton = document.getElementById("sync-mobile")
   if (syncButton) {
@@ -404,6 +436,30 @@ function addMobileMenuButtonEvents() {
     logoutButton.addEventListener("click", function () {
       handleLogout.call(this)
     })
+  }
+}
+
+// Manejador para el botón de progreso
+function handleProgressClick() {
+  // Cerrar el menú móvil si está abierto
+  closeMobileMenu()
+
+  // Intentar usar la función global de toggleProgressDisplay
+  if (typeof window.toggleProgressDisplay === "function") {
+    window.toggleProgressDisplay()
+  } else {
+    // Intentar importar la función dinámicamente
+    import("./progressButton.js")
+      .then((module) => {
+        if (typeof module.toggleProgressDisplay === "function") {
+          module.toggleProgressDisplay()
+        } else {
+          console.warn("Función toggleProgressDisplay no encontrada en el módulo")
+        }
+      })
+      .catch((error) => {
+        console.error("Error al importar el módulo de progreso:", error)
+      })
   }
 }
 

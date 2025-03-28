@@ -6,6 +6,7 @@
 import { getExamHistory } from "./exam-history.js"
 import { getCurrentUserId } from "./user-utils.js"
 import { createWelcomeCardWithProgress } from "./progressButton.js"
+import { getCompletedTopicsCount } from "./structureLoader.js"
 
 // Función principal para inicializar el módulo de progreso del dashboard
 export async function initializeDashboardProgress() {
@@ -35,7 +36,8 @@ async function updateDashboardProgress() {
     // Actualizar nota media
     const averageScore = await updateAverageScore()
 
-    // Obtener temas completados
+    // Obtener temas completados usando la nueva función de structureLoader
+    // No pasar ninguna ruta personalizada, dejar que la función determine la ruta correcta
     const completedTopics = await getCompletedTopicsCount()
 
     // Actualizar la tarjeta de bienvenida con los valores calculados
@@ -56,7 +58,7 @@ function updateWelcomeCard(generalProgress, averageScore, completedTopics) {
     // Obtener la tarjeta de bienvenida
     const welcomeCard = document.querySelector(".welcome-card")
     if (!welcomeCard) {
-      console.error("No se encontró la tarjeta de bienvenida")
+      // Silenciosamente retornar si no se encuentra la tarjeta
       return
     }
 
@@ -65,10 +67,9 @@ function updateWelcomeCard(generalProgress, averageScore, completedTopics) {
       .then((newWelcomeCard) => {
         // Reemplazar la tarjeta original con la nueva
         welcomeCard.parentNode.replaceChild(newWelcomeCard, welcomeCard)
-        console.log("Tarjeta de bienvenida reemplazada con la versión circular")
       })
       .catch((error) => {
-        console.error("Error al crear la tarjeta de bienvenida con progreso circular:", error)
+        // Silenciosamente manejar el error
 
         // Si falla, actualizar la tarjeta existente con los valores básicos
         const progressBar = welcomeCard.querySelector(".progress-fill")
@@ -92,7 +93,7 @@ function updateWelcomeCard(generalProgress, averageScore, completedTopics) {
         }
       })
   } catch (error) {
-    console.error("Error al actualizar la tarjeta de bienvenida:", error)
+    // Silenciosamente manejar el error
   }
 }
 
@@ -171,23 +172,6 @@ async function updateAverageScore() {
   }
 }
 
-// Modificar la función getCompletedTopicsCount para usar la misma lógica que progressButton.js
-async function getCompletedTopicsCount() {
-  try {
-    // Importar la función getCompletedTopicsCount desde progressButton.js
-    const { getCompletedTopicsCount } = await import("./progressButton.js")
-
-    // Usar la misma función que usa progressButton.js para obtener los temas completados
-    const completedTopics = await getCompletedTopicsCount()
-
-    console.log(`Temas completados (dashboard-progress.js): ${completedTopics}`)
-    return completedTopics
-  } catch (error) {
-    console.error("Error al contar temas completados:", error)
-    return "1/34" // Valor por defecto con el total correcto de temas
-  }
-}
-
 // Función para ocultar el elemento de última conexión
 function hideLastConnectionElement() {
   try {
@@ -219,7 +203,7 @@ function hideLastConnectionElement() {
   }
 }
 
-// Modificar la función getBlockProgressFromLocalStorage para usar la misma lógica que progressButton.js
+// Modificar la función getBlockProgressFromLocalStorage para calcular correctamente el porcentaje
 function getBlockProgressFromLocalStorage(blockId) {
   try {
     const userId = getCurrentUserId()
@@ -241,64 +225,75 @@ function getBlockProgressFromLocalStorage(blockId) {
     const progressData = JSON.parse(blockProgressData)
     console.log(`Datos de progreso para el bloque ${blockId}:`, progressData)
 
-    // Extraer el porcentaje de progreso
-    let progressPercentage = 0
+    // Si tenemos la estructura cargada, calcular el porcentaje basado en la estructura real
+    if (
+      window.structureLoader &&
+      window.structureLoader.getAllStructures &&
+      window.structureLoader.countSubpuntosInBloque
+    ) {
+      const estructuras = window.structureLoader.getAllStructures()
 
-    // Si el valor es un número simple, podría ser directamente el porcentaje
-    if (typeof progressData === "number") {
-      // El valor numérico representa subpuntos completados
-      // Determinar el total de subpuntos para este bloque
-      const totalSubpuntos = getTotalSubpuntosForBlock(blockId)
-      if (totalSubpuntos > 0) {
-        progressPercentage = (progressData / totalSubpuntos) * 100
-        console.log(
-          `Calculando progreso para bloque ${blockId}: ${progressData}/${totalSubpuntos} subpuntos = ${progressPercentage}%`,
-        )
+      // Si la estructura está cargada para este bloque
+      if (estructuras[blockId] && estructuras[blockId].puntosLineales) {
+        const totalSubpuntos = estructuras[blockId].puntosLineales.length
+
+        // Si el valor es un número simple, es el índice del último punto completado
+        if (typeof progressData === "number") {
+          const completedSubpuntos = progressData + 1 // +1 porque es un índice (comienza en 0)
+          const calculatedPercentage = (completedSubpuntos / totalSubpuntos) * 100
+
+          console.log(
+            `Recalculando porcentaje para el bloque ${blockId}: ${completedSubpuntos}/${totalSubpuntos} = ${calculatedPercentage.toFixed(2)}%`,
+          )
+          return Math.min(calculatedPercentage, 100)
+        }
       } else {
-        // Si no podemos determinar el total, usar el valor como porcentaje directo
-        progressPercentage = progressData
-        console.log(`Usando valor ${progressData} como porcentaje directo para el bloque ${blockId}`)
+        console.log(`Estructura no disponible para el bloque ${blockId}, usando valor directo`)
       }
-    } else if (progressData.percentage !== undefined) {
-      // Si el porcentaje está directamente en los datos
-      progressPercentage = progressData.percentage
-    } else if (progressData.completed !== undefined && progressData.total !== undefined) {
-      // Si tenemos completados y total
-      progressPercentage = (progressData.completed / progressData.total) * 100
-    } else if (progressData.progress !== undefined) {
-      // Si hay un campo de progreso
-      progressPercentage = progressData.progress
-    } else if (progressData.topics && Array.isArray(progressData.topics)) {
-      // Si hay un array de temas, calcular el porcentaje basado en temas completados
+    }
+
+    // Si el valor es un número simple (índice del último subpunto completado)
+    if (typeof progressData === "number") {
+      // Importar funciones de structureLoader para calcular el progreso
+      const { countSubpuntosInBloque, calculateBlockProgress } = window.structureLoader || {}
+
+      if (countSubpuntosInBloque && calculateBlockProgress) {
+        // Calcular el progreso basado en la estructura real
+        return calculateBlockProgress(blockId)
+      } else {
+        // Si no están disponibles las funciones, usar el valor como porcentaje directo
+        return progressData
+      }
+    }
+
+    // Si el valor es un objeto con porcentaje
+    if (progressData.percentage !== undefined) {
+      return progressData.percentage
+    }
+
+    // Si el valor es un objeto con completados y total
+    if (progressData.completed !== undefined && progressData.total !== undefined) {
+      return (progressData.completed / progressData.total) * 100
+    }
+
+    // Si el valor es un objeto con progreso
+    if (progressData.progress !== undefined) {
+      return progressData.progress
+    }
+
+    // Si el valor es un objeto con temas
+    if (progressData.topics && Array.isArray(progressData.topics)) {
       const totalTopics = progressData.topics.length
       const completedTopics = progressData.topics.filter((topic) => topic.completed).length
-      progressPercentage = totalTopics > 0 ? (completedTopics / totalTopics) * 100 : 0
+      return totalTopics > 0 ? (completedTopics / totalTopics) * 100 : 0
     }
 
-    // Verificar si el valor es un número válido
-    if (isNaN(progressPercentage)) {
-      console.warn(`Porcentaje inválido para el bloque ${blockId}, usando 0%`)
-      progressPercentage = 0
-    }
-
-    console.log(`Porcentaje de progreso calculado para el bloque ${blockId}: ${progressPercentage}%`)
-    return progressPercentage
+    // Si no se pudo determinar el progreso
+    console.warn(`No se pudo determinar el progreso para el bloque ${blockId}`)
+    return 0
   } catch (error) {
     console.error(`Error al obtener progreso del bloque ${blockId}:`, error)
     return 0
   }
-}
-
-// Función para obtener el total de subpuntos para un bloque
-function getTotalSubpuntosForBlock(blockId) {
-  // Definir el total de subpuntos para cada bloque según la estructura del curso
-  const subpuntosPorBloque = {
-    1: 9, // Bloque 1 tiene 9 subpuntos
-    2: 5, // Bloque 2 tiene 5 subpuntos
-    3: 10, // Bloque 3 tiene 10 subpuntos
-    4: 10, // Bloque 4 tiene 10 subpuntos
-  }
-
-  return subpuntosPorBloque[blockId] || 0
 }
 

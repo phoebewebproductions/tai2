@@ -1,129 +1,129 @@
 export const preguntas = {
-    "3010101000e": {
-      preguntas: [
-        {
-          id: "3010101001",
-          pregunta: "¿Cuál es el primer paso en el diseño de una base de datos?",
-          opciones: [
-            "Diseño físico",
-            "Diseño lógico",
-            "Representación del problema a través del Modelo de Entidad Relación",
-            "Implementación en un SGBD específico"
-          ],
-          correcta: 2,
-          preguntaId: "3010101001",
-        },
-        {
-          id: "3010101002",
-          pregunta: "¿En qué se puede implementar el modelo conceptual de datos?",
-          opciones: [
-            "Solo en bases de datos relacionales",
-            "Solo en sistemas de archivo simple",
-            "En cualquier base de datos o sistema de archivo simple",
-            "Solo en bases de datos orientadas a objetos"
-          ],
-          correcta: 2,
-          preguntaId: "3010101002",
-        },
-        {
-          id: "3010101003",
-          pregunta: "¿Qué es el diseño lógico de una base de datos?",
-          opciones: [
-            "El proceso de implementación física de la base de datos",
-            "El proceso de trasladar el diseño conceptual a un diseño ajustado al modelo de base de datos elegido",
-            "La representación del problema a través del Modelo de Entidad Relación",
-            "La descripción de las estructuras de almacenamiento"
-          ],
-          correcta: 1,
-          preguntaId: "3010101003",
-        },
-        {
-          id: "3010101004",
-          pregunta: "¿Qué implica el diseño físico de una base de datos?",
-          opciones: [
-            "La creación del esquema conceptual",
-            "La elección del modelo de base de datos",
-            "La descripción de la implementación en memoria secundaria",
-            "La definición de los requisitos de datos"
-          ],
-          correcta: 2,
-          preguntaId: "3010101004",
-        },
-        {
-          id: "3010101005",
-          pregunta: "¿Cuál es el objetivo del diseño conceptual?",
-          opciones: [
-            "Implementar la base de datos en un SGBD específico",
-            "Crear un esquema conceptual consistente con los requisitos y restricciones",
-            "Definir las estructuras de almacenamiento",
-            "Elegir el lenguaje de implementación de la base de datos"
-          ],
-          correcta: 1,
-          preguntaId: "3010101005",
-        },
-        {
-          id: "3010101001",
-          pregunta: "¿Qué modelos específicos se mencionan como destino de la transformación del Modelo de Entidad Relación?",
-          opciones: [
-            "Relacional, orientado a objetos, de objetos-relacional",
-            "Jerárquico, red, relacional, objetos",
-            "Conceptual, lógico, físico",
-            "SQL, NoSQL, NewSQL"
-          ],
-          correcta: 1,
-          preguntaId: "3010101006",
-        },
-        {
-          id: "3010101007",
-          pregunta: "En la etapa de diseño conceptual, ¿qué aspectos NO se consideran?",
-          opciones: [
-            "La estructura de la información",
-            "Los requisitos de datos",
-            "El tipo de base de datos a utilizar",
-            "Las restricciones impuestas por la problemática"
-          ],
-          correcta: 2,
-          preguntaId: "3010101007",
-        },
-        {
-          id: "3010101006",
-          pregunta: "¿Qué es un esquema conceptual?",
-          opciones: [
-            "Una descripción detallada de la implementación física",
-            "Un modelo de datos de bajo nivel",
-            "Una descripción concisa de los requisitos de datos expresada mediante conceptos de alto nivel",
-            "Un conjunto de instrucciones SQL"
-          ],
-          correcta: 2,
-          preguntaId: "3010101008",
-        },
-        {
-          id: "3010101003",
-          pregunta: "¿De qué es independiente el diseño lógico de una base de datos?",
-          opciones: [
-            "Del modelo de datos elegido",
-            "De los requisitos de la organización",
-            "Del SGBD y consideraciones físicas",
-            "De la estructura de la información"
-          ],
-          correcta: 2,
-          preguntaId: "3010101009",
-        },
-        {
-          id: "3010101004",
-          pregunta: "¿Qué debe garantizar el diseño físico de una base de datos?",
-          opciones: [
-            "La independencia del SGBD",
-            "La consistencia con los requisitos",
-            "Un acceso eficiente a los datos",
-            "La abstracción del hardware"
-          ],
-          correcta: 2,
-          preguntaId: "3010101010",
-        }
-      ],
-      minimoParaAprobar: 8,
-    },
+  "3010101000e": {
+    preguntas: [
+      {
+        id: "3010101001",
+        pregunta: "¿Cuál es el primer paso en el diseño de una base de datos?",
+        opciones: [
+          "Diseño físico",
+          "Diseño lógico",
+          "Representación del problema a través del Modelo de Entidad Relación",
+          "Implementación en un SGBD específico"
+        ],
+        correcta: 2,
+        preguntaId: "3010101001",
+      },
+      {
+        id: "3010101002",
+        pregunta: "¿En qué se puede implementar el modelo conceptual de datos?",
+        opciones: [
+          "Solo en bases de datos relacionales",
+          "Solo en sistemas de archivo simple",
+          "En cualquier base de datos o sistema de archivo simple",
+          "Solo en bases de datos orientadas a objetos"
+        ],
+        correcta: 2,
+        preguntaId: "3010101002",
+      },
+      {
+        id: "3010101003",
+        pregunta: "¿Qué es el diseño lógico de una base de datos?",
+        opciones: [
+          "El proceso de implementación física de la base de datos",
+          "El proceso de trasladar el diseño conceptual a un diseño ajustado al modelo de base de datos elegido",
+          "La representación del problema a través del Modelo de Entidad Relación",
+          "La descripción de las estructuras de almacenamiento"
+        ],
+        correcta: 1,
+        preguntaId: "3010101003",
+      },
+      {
+        id: "3010101004",
+        pregunta: "¿Qué implica el diseño físico de una base de datos?",
+        opciones: [
+          "La creación del esquema conceptual",
+          "La elección del modelo de base de datos",
+          "La descripción de la implementación en memoria secundaria",
+          "La definición de los requisitos de datos"
+        ],
+        correcta: 2,
+        preguntaId: "3010101004",
+      },
+      {
+        id: "3010101005",
+        pregunta: "¿Cuál es el objetivo del diseño conceptual?",
+        opciones: [
+          "Implementar la base de datos en un SGBD específico",
+          "Crear un esquema conceptual consistente con los requisitos y restricciones",
+          "Definir las estructuras de almacenamiento",
+          "Elegir el lenguaje de implementación de la base de datos"
+        ],
+        correcta: 1,
+        preguntaId: "3010101005",
+      },
+      {
+        id: "3010101006",
+        pregunta: "¿Qué modelos específicos se mencionan como destino de la transformación del Modelo de Entidad Relación?",
+        opciones: [
+          "Relacional, orientado a objetos, de objetos-relacional",
+          "Jerárquico, red, relacional, objetos",
+          "Conceptual, lógico, físico",
+          "SQL, NoSQL, NewSQL"
+        ],
+        correcta: 1,
+        preguntaId: "3010101006",
+      },
+      {
+        id: "3010101007",
+        pregunta: "En la etapa de diseño conceptual, ¿qué aspectos NO se consideran?",
+        opciones: [
+          "La estructura de la información",
+          "Los requisitos de datos",
+          "El tipo de base de datos a utilizar",
+          "Las restricciones impuestas por la problemática"
+        ],
+        correcta: 2,
+        preguntaId: "3010101007",
+      },
+      {
+        id: "3010101008",
+        pregunta: "¿Qué es un esquema conceptual?",
+        opciones: [
+          "Una descripción detallada de la implementación física",
+          "Un modelo de datos de bajo nivel",
+          "Una descripción concisa de los requisitos de datos expresada mediante conceptos de alto nivel",
+          "Un conjunto de instrucciones SQL"
+        ],
+        correcta: 2,
+        preguntaId: "3010101008",
+      },
+      {
+        id: "3010101009",
+        pregunta: "¿De qué es independiente el diseño lógico de una base de datos?",
+        opciones: [
+          "Del modelo de datos elegido",
+          "De los requisitos de la organización",
+          "Del SGBD y consideraciones físicas",
+          "De la estructura de la información"
+        ],
+        correcta: 2,
+        preguntaId: "3010101009",
+      },
+      {
+        id: "3010101010",
+        pregunta: "¿Qué debe garantizar el diseño físico de una base de datos?",
+        opciones: [
+          "La independencia del SGBD",
+          "La consistencia con los requisitos",
+          "Un acceso eficiente a los datos",
+          "La abstracción del hardware"
+        ],
+        correcta: 2,
+        preguntaId: "3010101010",
+      }
+    ],
+    minimoParaAprobar: 8,
+  },
     "3010102000e": {
     preguntas: [
       {

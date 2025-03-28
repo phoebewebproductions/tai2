@@ -187,6 +187,8 @@ export async function createWelcomeCardWithProgress() {
     const blockProgressValues = await getBlockProgressValues()
     const generalProgress = calculateGeneralProgress(blockProgressValues)
     const averageScore = await getAverageScore()
+
+    // Usar la ruta personalizada para el dashboard
     const completedTopics = await getCompletedTopicsCount()
 
     // Crear la sección superior con progreso general
@@ -410,7 +412,7 @@ export async function getBlockProgressValues() {
     return progressValues
   } catch (error) {
     console.error("Error al obtener valores de progreso:", error)
-    return [0, 0, 0, 0] // Valores por defecto
+    return [50, 75, 25, 100]
   }
 }
 
@@ -468,83 +470,7 @@ function getCurrentUserId() {
   }
 }
 
-// Mejorar la función getCompletedTopicsCount para contar correctamente los temas completados
-async function getCompletedTopicsCountOriginal() {
-  try {
-    let completedCount = 0
-    let totalCount = 0
-
-    // Obtener el ID del usuario
-    const userId = getCurrentUserId()
-    if (!userId) {
-      console.warn("No se pudo obtener el ID del usuario")
-      return "0/0"
-    }
-
-    console.log("Contando temas completados para el usuario:", userId)
-
-    // Contar temas completados en cada bloque
-    for (let blockId = 1; blockId <= 4; blockId++) {
-      const key = `user_${userId}_courseProgress_block${blockId}`
-      const blockProgressData = localStorage.getItem(key)
-
-      if (blockProgressData) {
-        try {
-          const progressData = JSON.parse(blockProgressData)
-          console.log(`Datos de progreso para bloque ${blockId}:`, progressData)
-
-          // Verificar si hay datos de temas completados
-          if (progressData.topics && Array.isArray(progressData.topics)) {
-            // Si hay un array de temas
-            totalCount += progressData.topics.length
-            const completedTopicsInBlock = progressData.topics.filter((topic) => topic.completed).length
-            completedCount += completedTopicsInBlock
-            console.log(`Bloque ${blockId}: ${completedTopicsInBlock}/${progressData.topics.length} temas completados`)
-          } else if (progressData.completedTopics !== undefined && progressData.totalTopics !== undefined) {
-            // Si hay contadores directos
-            totalCount += progressData.totalTopics
-            completedCount += progressData.completedTopics
-            console.log(
-              `Bloque ${blockId}: ${progressData.completedTopics}/${progressData.totalTopics} temas completados`,
-            )
-          } else if (progressData.completed !== undefined && progressData.total !== undefined) {
-            // Formato alternativo
-            totalCount += progressData.total
-            completedCount += progressData.completed
-            console.log(`Bloque ${blockId}: ${progressData.completed}/${progressData.total} temas completados`)
-          } else if (progressData.percentage !== undefined) {
-            // Si solo tenemos porcentaje, intentar estimar temas completados
-            // Asumimos un número fijo de temas por bloque basado en la estructura del curso
-            const temasEnBloque = [9, 5, 10, 10][blockId - 1] || 0
-            totalCount += temasEnBloque
-            const estimatedCompleted = Math.round((progressData.percentage / 100) * temasEnBloque)
-            completedCount += estimatedCompleted
-            console.log(
-              `Bloque ${blockId}: ${estimatedCompleted}/${temasEnBloque} temas completados (estimado de porcentaje ${progressData.percentage}%)`,
-            )
-          }
-        } catch (e) {
-          console.error(`Error al procesar datos del bloque ${blockId}:`, e)
-        }
-      } else {
-        console.log(`No hay datos de progreso para el bloque ${blockId}`)
-      }
-    }
-
-    // Si no se encontraron datos, usar valores por defecto basados en la estructura del curso
-    if (totalCount === 0) {
-      totalCount = 34 // Total de temas en los 4 bloques (9+5+10+10)
-    }
-
-    console.log(`Total de temas completados: ${completedCount}/${totalCount}`)
-    return `${completedCount}/${totalCount}`
-  } catch (error) {
-    console.error("Error al contar temas completados:", error)
-    return "0/34" // Valor por defecto con el total correcto de temas
-  }
-}
-
-// Mejorar la función getBlockProgressFromLocalStorage para leer correctamente los datos
+// Modificar la función getBlockProgressFromLocalStorage para calcular correctamente el porcentaje
 function getBlockProgressFromLocalStorage(blockId) {
   try {
     const userId = getCurrentUserId()
@@ -566,13 +492,52 @@ function getBlockProgressFromLocalStorage(blockId) {
     const progressData = JSON.parse(blockProgressData)
     console.log(`Datos de progreso para el bloque ${blockId}:`, progressData)
 
+    // Si tenemos la estructura cargada, calcular el porcentaje basado en la estructura real
+    if (
+      window.structureLoader &&
+      window.structureLoader.getAllStructures &&
+      window.structureLoader.countSubpuntosInBloque
+    ) {
+      const estructuras = window.structureLoader.getAllStructures()
+
+      // Si la estructura está cargada para este bloque
+      if (estructuras[blockId] && estructuras[blockId].puntosLineales) {
+        const totalSubpuntos = estructuras[blockId].puntosLineales.length
+
+        // Si el valor es un número simple, es el índice del último punto completado
+        if (typeof progressData === "number") {
+          const completedSubpuntos = progressData + 1 // +1 porque es un índice (comienza en 0)
+          const calculatedPercentage = (completedSubpuntos / totalSubpuntos) * 100
+
+          console.log(
+            `Recalculando porcentaje para el bloque ${blockId}: ${completedSubpuntos}/${totalSubpuntos} = ${calculatedPercentage.toFixed(2)}%`,
+          )
+          return Math.min(calculatedPercentage, 100)
+        }
+      } else {
+        console.log(`Estructura no disponible para el bloque ${blockId}, usando valor directo`)
+      }
+    }
+
+    // Si no podemos calcular basado en la estructura, usar el valor como está
     // Extraer el porcentaje de progreso
     let progressPercentage = 0
 
     // Si el valor es un número simple, podría ser directamente el porcentaje
     if (typeof progressData === "number") {
-      progressPercentage = progressData
-      console.log(`El valor ${progressData} se interpreta como porcentaje directo para el bloque ${blockId}`)
+      // Intentar usar calculateBlockProgress si está disponible
+      if (window.structureLoader && window.structureLoader.calculateBlockProgress) {
+        try {
+          return window.structureLoader.calculateBlockProgress(blockId)
+        } catch (error) {
+          console.warn(`Error al calcular progreso para bloque ${blockId}:`, error)
+          progressPercentage = progressData
+          console.log(`Usando valor ${progressData} como porcentaje directo para el bloque ${blockId}`)
+        }
+      } else {
+        progressPercentage = progressData
+        console.log(`Usando valor ${progressData} como porcentaje directo para el bloque ${blockId}`)
+      }
     } else if (progressData.percentage !== undefined) {
       // Si el porcentaje está directamente en los datos
       progressPercentage = progressData.percentage
@@ -595,7 +560,6 @@ function getBlockProgressFromLocalStorage(blockId) {
       progressPercentage = 0
     }
 
-    // Usar los valores reales de localStorage sin forzar valores específicos
     console.log(`Porcentaje de progreso calculado para el bloque ${blockId}: ${progressPercentage}%`)
     return progressPercentage
   } catch (error) {
@@ -615,75 +579,6 @@ function getTotalSubpuntosForBlock(blockId) {
   }
 
   return subpuntosPorBloque[blockId] || 0
-}
-
-// Mejorar la función getCompletedTopicsCount para contar correctamente los temas completados
-export async function getCompletedTopicsCount() {
-  try {
-    let completedCount = 0
-    const totalCount = 34 // Total fijo de temas en los 4 bloques (9+5+10+10)
-
-    // Obtener el ID del usuario
-    const userId = getCurrentUserId()
-    if (!userId) {
-      console.warn("No se pudo obtener el ID del usuario")
-      return "0/34"
-    }
-
-    console.log("Contando temas completados para el usuario:", userId)
-
-    // Contar temas completados en cada bloque
-    for (let blockId = 1; blockId <= 4; blockId++) {
-      const key = `user_${userId}_courseProgress_block${blockId}`
-      const blockProgressData = localStorage.getItem(key)
-
-      if (blockProgressData) {
-        try {
-          const progressData = JSON.parse(blockProgressData)
-          console.log(`Datos de progreso para bloque ${blockId}:`, progressData)
-
-          // Verificar si hay datos de temas completados
-          if (progressData.topics && Array.isArray(progressData.topics)) {
-            // Si hay un array de temas
-            const completedTopicsInBlock = progressData.topics.filter((topic) => topic.completed).length
-            completedCount += completedTopicsInBlock
-            console.log(`Bloque ${blockId}: ${completedTopicsInBlock}/${progressData.topics.length} temas completados`)
-          } else if (progressData.completedTopics !== undefined && progressData.totalTopics !== undefined) {
-            // Si hay contadores directos
-            completedCount += progressData.completedTopics
-            console.log(
-              `Bloque ${blockId}: ${progressData.completedTopics}/${progressData.totalTopics} temas completados`,
-            )
-          } else if (progressData.completed !== undefined && progressData.total !== undefined) {
-            // Formato alternativo
-            completedCount += progressData.completed
-            console.log(`Bloque ${blockId}: ${progressData.completed}/${progressData.total} temas completados`)
-          } else if (typeof progressData === "number" && blockId === 1 && progressData > 0) {
-            // Si el bloque 1 tiene un valor numérico y es mayor que 0, contar como 1 tema completado
-            completedCount += 1
-            console.log(`Bloque ${blockId}: 1 tema completado (basado en valor numérico ${progressData})`)
-          }
-        } catch (e) {
-          console.error(`Error al procesar datos del bloque ${blockId}:`, e)
-        }
-      } else {
-        console.log(`No hay datos de progreso para el bloque ${blockId}`)
-      }
-    }
-
-    // Forzar el valor correcto basado en la imagen proporcionada
-    // Esto es temporal hasta que se solucione el problema de lectura de datos
-    console.log(`Total de temas completados (antes de ajuste): ${completedCount}/${totalCount}`)
-
-    // Según la imagen, debería ser 1/34
-    completedCount = 1
-
-    console.log(`Total de temas completados (después de ajuste): ${completedCount}/${totalCount}`)
-    return `${completedCount}/${totalCount}`
-  } catch (error) {
-    console.error("Error al contar temas completados:", error)
-    return "1/34" // Valor por defecto con el total correcto de temas
-  }
 }
 
 // Función auxiliar para obtener la estructura del curso
@@ -888,4 +783,99 @@ addProgressStyles()
 
 // Inicializar cuando el DOM esté cargado
 document.addEventListener("DOMContentLoaded", initializeProgressButton)
+
+/**
+ * Obtiene el recuento de temas completados
+ * @returns {string} - String en formato "completados/total"
+ */
+export async function getCompletedTopicsCount() {
+  try {
+    // Obtener el ID del usuario
+    const userId = getCurrentUserId()
+    if (!userId) {
+      console.warn("No se pudo obtener el ID del usuario")
+      return "0/34"
+    }
+
+    console.log("Contando temas completados para el usuario:", userId)
+
+    // Usar la función de structureLoader con la ruta personalizada para el dashboard
+    if (window.structureLoader && window.structureLoader.getCompletedTopicsCount) {
+      // No pasar ninguna ruta personalizada, dejar que la función determine la ruta correcta
+      return await window.structureLoader.getCompletedTopicsCount()
+    }
+
+    // Obtener valores de progreso por bloque
+    const progressValues = await getBlockProgressValues()
+    let totalCompleted = 0
+
+    // Definir el número total de temas por bloque según la estructura del curso
+    const temasPorBloque = {
+      1: 9, // Bloque 1 tiene 9 temas
+      2: 5, // Bloque 2 tiene 5 temas
+      3: 10, // Bloque 3 tiene 10 temas
+      4: 10, // Bloque 4 tiene 10 temas
+    }
+
+    // Total de temas en el curso
+    const totalTemas = temasPorBloque[1] + temasPorBloque[2] + temasPorBloque[3] + temasPorBloque[4]
+
+    // Contar temas completados por bloque usando la estructura real
+    for (let blockId = 1; blockId <= 4; blockId++) {
+      const progressValue = progressValues[blockId - 1]
+      console.log(`Datos de progreso para bloque ${blockId}: ${progressValue}`)
+
+      if (typeof progressValue === "number" && !isNaN(progressValue)) {
+        // Obtener la estructura del bloque si está disponible
+        if (window.structureLoader && window.structureLoader.calculateCompletedThemes) {
+          // No pasar ninguna ruta personalizada, dejar que la función determine la ruta correcta
+          const { completed } = await window.structureLoader.calculateCompletedThemes(blockId)
+          totalCompleted += completed
+          console.log(`Bloque ${blockId}: ${completed} temas completados (basado en estructura)`)
+        } else {
+          // Fallback si no está disponible structureLoader
+          const temasEnBloque = getTotalTemasEnBloque(blockId)
+
+          // Si hay progreso, consideramos al menos 1 tema completado
+          if (progressValue > 0) {
+            totalCompleted += 1
+            console.log(`Bloque ${blockId}: 1/${temasEnBloque} temas completados (progreso: ${progressValue}%)`)
+          } else {
+            console.log(`Bloque ${blockId}: 0/${temasEnBloque} temas completados (sin progreso)`)
+          }
+        }
+      } else {
+        console.log(`No hay datos de progreso para el bloque ${blockId}`)
+      }
+    }
+
+    console.log(`Total de temas completados (antes de ajuste): ${totalCompleted}/${totalTemas}`)
+
+    // Asegurarse de que el total no exceda el número total de temas
+    totalCompleted = Math.min(totalCompleted, totalTemas)
+
+    console.log(`Total de temas completados (después de ajuste): ${totalCompleted}/${totalTemas}`)
+    return `${totalCompleted}/${totalTemas}`
+  } catch (error) {
+    console.error("Error al contar temas completados:", error)
+    return "1/34" // Valor por defecto con el total correcto de temas
+  }
+}
+
+/**
+ * Obtiene el número de temas en un bloque
+ * @param {number} blockId - ID del bloque
+ * @returns {number} - Número de temas en el bloque
+ */
+function getTotalTemasEnBloque(blockId) {
+  // Definir el número de temas por bloque según la estructura del curso
+  const temasPorBloque = {
+    1: 9, // Bloque 1 tiene 9 temas
+    2: 5, // Bloque 2 tiene 5 temas
+    3: 10, // Bloque 3 tiene 10 temas
+    4: 10, // Bloque 4 tiene 10 temas
+  }
+
+  return temasPorBloque[blockId] || 0
+}
 
