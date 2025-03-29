@@ -105,7 +105,7 @@ export function toggleProgressDisplay() {
       })
     })
   } else {
-    progressDisplay.style.display = "none"
+    progressDisplay.style.display = "flex"
   }
 }
 
