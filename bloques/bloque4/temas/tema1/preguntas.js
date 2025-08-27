@@ -1988,11 +1988,11 @@ const preguntas = {
             }
         ]
     },
-    "5010503000e": {
+    "4010503000e": {
         minimoParaAprobar: 8,
         preguntas: [
             {
-                id: "5010503001",
+                id: "4010503001",
                 pregunta: "¿Qué tipo de tareas administrativas permite realizar el comando NET de Windows?",
                 opciones: [
                     "Solo tareas relacionadas con la gestión de la red",
@@ -2001,10 +2001,10 @@ const preguntas = {
                     "Solo tareas relacionadas con la gestión de recursos compartidos"
                 ],
                 correcta: 2,
-                preguntaId: "501050301"
+                preguntaId: "401050301"
             },
             {
-                id: "5010503002",
+                id: "4010503002",
                 pregunta: "¿Qué hace el comando NET ACCOUNTS si se usa sin opciones?",
                 opciones: [
                     "Crea una nueva cuenta de usuario",
@@ -2013,10 +2013,10 @@ const preguntas = {
                     "Bloquea todas las cuentas de usuario"
                 ],
                 correcta: 2,
-                preguntaId: "501050302"
+                preguntaId: "401050302"
             },
             {
-                id: "5010503002",
+                id: "4010503002",
                 pregunta: "¿Qué condiciones se requieren para que las opciones usadas con NET ACCOUNTS surtan efecto?",
                 opciones: [
                     "Solo que el servicio NetLogon esté ejecutándose",
@@ -2025,10 +2025,10 @@ const preguntas = {
                     "Que el equipo esté conectado a Internet"
                 ],
                 correcta: 2,
-                preguntaId: "501050303"
+                preguntaId: "401050303"
             },
             {
-                id: "5010503002",
+                id: "4010503002",
                 pregunta: "¿Qué hace la opción /FORCELOGOFF en el comando NET ACCOUNTS?",
                 opciones: [
                     "Fuerza el cierre de sesión de todos los usuarios inmediatamente",
@@ -2037,10 +2037,10 @@ const preguntas = {
                     "Fuerza a los usuarios a cambiar su contraseña"
                 ],
                 correcta: 1,
-                preguntaId: "501050304"
+                preguntaId: "401050304"
             },
             {
-                id: "5010503002",
+                id: "4010503002",
                 pregunta: "¿Cuál es el valor máximo para la opción /UNIQUEPW en el comando NET ACCOUNTS?",
                 opciones: [
                     "10",
@@ -2049,10 +2049,10 @@ const preguntas = {
                     "24"
                 ],
                 correcta: 3,
-                preguntaId: "501050305"
+                preguntaId: "401050305"
             },
             {
-                id: "5010503003",
+                id: "4010503003",
                 pregunta: "¿Qué hace el comando NET COMPUTER?",
                 opciones: [
                     "Muestra información sobre el equipo local",
@@ -2061,10 +2061,10 @@ const preguntas = {
                     "Muestra los equipos conectados a la red"
                 ],
                 correcta: 1,
-                preguntaId: "501050306"
+                preguntaId: "401050306"
             },
             {
-                id: "5010503003",
+                id: "4010503003",
                 pregunta: "¿En qué sistemas está disponible el comando NET COMPUTER según el texto?",
                 opciones: [
                     "En todos los sistemas Windows",
@@ -2073,10 +2073,10 @@ const preguntas = {
                     "Solo en Windows Server 2019"
                 ],
                 correcta: 1,
-                preguntaId: "501050307"
+                preguntaId: "401050307"
             },
             {
-                id: "5010503004",
+                id: "4010503004",
                 pregunta: "¿Qué información muestra el comando NET CONFIG SERVER?",
                 opciones: [
                     "Información sobre los servidores de la red",
@@ -2085,10 +2085,10 @@ const preguntas = {
                     "Información sobre los usuarios conectados al servidor"
                 ],
                 correcta: 1,
-                preguntaId: "501050308"
+                preguntaId: "401050308"
             },
             {
-                id: "5010503005",
+                id: "4010503005",
                 pregunta: "¿Qué hace el comando NET CONTINUE?",
                 opciones: [
                     "Continúa la ejecución de un programa",
@@ -2097,10 +2097,10 @@ const preguntas = {
                     "Continúa la instalación de Windows"
                 ],
                 correcta: 1,
-                preguntaId: "501050309"
+                preguntaId: "401050309"
             },
             {
-                id: "5010503006",
+                id: "4010503006",
                 pregunta: "¿Qué hace el comando NET FILE si se usa sin opciones?",
                 opciones: [
                     "Crea un nuevo archivo",
@@ -2109,10 +2109,10 @@ const preguntas = {
                     "Comparte un archivo en la red"
                 ],
                 correcta: 2,
-                preguntaId: "501050310"
+                preguntaId: "401050310"
             },
             {
-                id: "5010503006",
+                id: "4010503006",
                 pregunta: "¿Qué hace la opción /CLOSE en el comando NET FILE?",
                 opciones: [
                     "Cierra el programa de gestión de archivos",
@@ -2121,10 +2121,10 @@ const preguntas = {
                     "Cierra todos los archivos del sistema"
                 ],
                 correcta: 1,
-                preguntaId: "501050311"
+                preguntaId: "401050311"
             },
             {
-                id: "5010503007",
+                id: "4010503007",
                 pregunta: "¿Qué hace el comando NET GROUP si se usa sin parámetros?",
                 opciones: [
                     "Crea un nuevo grupo",
@@ -2133,10 +2133,10 @@ const preguntas = {
                     "Muestra los usuarios de todos los grupos"
                 ],
                 correcta: 2,
-                preguntaId: "501050312"
+                preguntaId: "401050312"
             },
             {
-                id: "5010503008",
+                id: "4010503008",
                 pregunta: "¿Qué muestra el comando NET HELP SERVICES?",
                 opciones: [
                     "Ayuda sobre todos los comandos NET",
@@ -2145,10 +2145,10 @@ const preguntas = {
                     "Información sobre los servicios en ejecución"
                 ],
                 correcta: 2,
-                preguntaId: "501050313"
+                preguntaId: "401050313"
             },
             {
-                id: "5010503009",
+                id: "4010503009",
                 pregunta: "¿Qué hace el comando NET HELPMSG?",
                 opciones: [
                     "Envía mensajes de ayuda a otros usuarios",
@@ -2157,10 +2157,10 @@ const preguntas = {
                     "Muestra todos los mensajes de error posibles"
                 ],
                 correcta: 1,
-                preguntaId: "501050314"
+                preguntaId: "401050314"
             },
             {
-                id: "5010503010",
+                id: "4010503010",
                 pregunta: "¿Qué hace el comando NET LOCALGROUP si se usa sin opciones?",
                 opciones: [
                     "Crea un nuevo grupo local",
@@ -2169,10 +2169,10 @@ const preguntas = {
                     "Muestra los usuarios de todos los grupos locales"
                 ],
                 correcta: 2,
-                preguntaId: "501050315"
+                preguntaId: "401050315"
             },
             {
-                id: "5010503010",
+                id: "4010503010",
                 pregunta: "¿Qué tipo de nombres pueden agregarse a un grupo local con el comando NET LOCALGROUP?",
                 opciones: [
                     "Solo usuarios locales",
@@ -2181,10 +2181,10 @@ const preguntas = {
                     "Cualquier tipo de usuario o grupo"
                 ],
                 correcta: 2,
-                preguntaId: "501050316"
+                preguntaId: "401050316"
             },
             {
-                id: "5010503011",
+                id: "4010503011",
                 pregunta: "¿Qué hace el comando NET PAUSE?",
                 opciones: [
                     "Pausa la ejecución de un programa",
@@ -2193,10 +2193,10 @@ const preguntas = {
                     "Pausa la instalación de Windows"
                 ],
                 correcta: 1,
-                preguntaId: "501050317"
+                preguntaId: "401050317"
             },
             {
-                id: "5010503012",
+                id: "4010503012",
                 pregunta: "¿Cuál es el estado actual del comando NET SEND según el texto?",
                 opciones: [
                     "Es uno de los comandos más utilizados",
@@ -2205,10 +2205,10 @@ const preguntas = {
                     "Solo está disponible en Windows Server"
                 ],
                 correcta: 2,
-                preguntaId: "501050318"
+                preguntaId: "401050318"
             },
             {
-                id: "5010503013",
+                id: "4010503013",
                 pregunta: "¿Qué hace el comando NET SESSION si se usa sin ninguna opción?",
                 opciones: [
                     "Crea una nueva sesión",
@@ -2217,10 +2217,10 @@ const preguntas = {
                     "Muestra información sobre la sesión actual del usuario"
                 ],
                 correcta: 2,
-                preguntaId: "501050319"
+                preguntaId: "401050319"
             },
             {
-                id: "5010503013",
+                id: "4010503013",
                 pregunta: "¿Qué hace la opción /DELETE en el comando NET SESSION?",
                 opciones: [
                     "Elimina el comando NET SESSION",
@@ -2229,7 +2229,7 @@ const preguntas = {
                     "Elimina el historial de sesiones"
                 ],
                 correcta: 2,
-                preguntaId: "501050320"
+                preguntaId: "401050320"
             }
         ]
     },
