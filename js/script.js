@@ -1,6 +1,7 @@
 // Importar funciones de autenticación
 import { checkAuthStatus, logout } from "./auth.js"
 
+
 /*import { initializeDarkMode } from "./dark-mode.js"*/
 import { initializeDashboardProgress } from "./dashboard-progress.js" // Importar el nuevo módulo
 // Importar función de sincronización (con manejo de errores)
@@ -95,6 +96,7 @@ function displayUserInfo() {
         logoutButton.addEventListener("click", logout)
 
         buttonsHeader.appendChild(logoutButton)
+ 
       }
     }
 
