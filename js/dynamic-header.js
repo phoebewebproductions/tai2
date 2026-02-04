@@ -58,12 +58,6 @@ function createHeaderContent(headerElement, isHomePage) {
   const buttonsContainer = document.createElement("div")
   buttonsContainer.className = "dynamic-header-buttons buttonsHeader" // Añadido clase buttonsHeader para el botón de progreso
 
-  // Añadir foto de perfil si está disponible
-  const userProfilePic = createUserProfilePic()
-  if (userProfilePic) {
-    buttonsContainer.appendChild(userProfilePic)
-  }
-
   // Botón de progreso
   const progressButton = createHeaderButton("progress-button", "fa-chart-pie", "Ver progreso")
   // Ocultar el botón de progreso en la página de inicio
@@ -71,20 +65,16 @@ function createHeaderContent(headerElement, isHomePage) {
     progressButton.style.display = "none"
   }
 
-  // Botón de sincronización
-  const syncButton = createHeaderButton("sync-button", "fa-sync", "Sincronizar progreso")
-
   // Botón de modo oscuro
   const darkModeButton = createHeaderButton("darkModeToggle", "fa-moon", "Alternar modo claro/oscuro")
 
-  // Botón de cerrar sesión
-  const logoutButton = createHeaderButton("logout-button", "fa-sign-out-alt", "Cerrar sesión")
+  // Botón para borrar datos (reemplaza logout)
+  const clearDataButton = createHeaderButton("clear-data-button", "fa-trash-alt", "Borrar datos de progreso")
 
   // Añadir botones al contenedor
   buttonsContainer.appendChild(progressButton)
-  buttonsContainer.appendChild(syncButton)
   buttonsContainer.appendChild(darkModeButton)
-  buttonsContainer.appendChild(logoutButton)
+  buttonsContainer.appendChild(clearDataButton)
 
   // Crear menú hamburguesa para móviles
   const hamburgerMenu = document.createElement("div")
@@ -243,15 +233,13 @@ function createMobileMenu(isHomePage = false) {
     progressButton.style.display = "none"
   }
 
-  const syncButton = createMobileMenuButton("fa-sync", "Sincronizar progreso", "sync-mobile")
   const darkModeButton = createMobileMenuButton("fa-moon", "Alternar modo claro/oscuro", "darkmode-mobile")
-  const logoutButton = createMobileMenuButton("fa-sign-out-alt", "Cerrar sesión", "logout-mobile")
+  const clearDataButton = createMobileMenuButton("fa-trash-alt", "Borrar datos de progreso", "clear-data-mobile")
 
   // Añadir botones al menú
   mobileMenu.appendChild(progressButton)
-  mobileMenu.appendChild(syncButton)
   mobileMenu.appendChild(darkModeButton)
-  mobileMenu.appendChild(logoutButton)
+  mobileMenu.appendChild(clearDataButton)
 
   // Añadir el menú y el overlay al body
   document.body.appendChild(overlay)
@@ -319,11 +307,11 @@ function addButtonEvents() {
     })
   }
 
-  // Botón de sincronización
-  const syncButton = document.getElementById("sync-button")
-  if (syncButton) {
-    syncButton.addEventListener("click", function () {
-      handleSyncClick.call(this)
+  // Botón de borrar datos
+  const clearDataButton = document.getElementById("clear-data-button")
+  if (clearDataButton) {
+    clearDataButton.addEventListener("click", function () {
+      handleClearData.call(this)
     })
   }
 
@@ -368,13 +356,6 @@ function addButtonEvents() {
     })
   }
 
-  // Botón de cerrar sesión
-  const logoutButton = document.getElementById("logout-button")
-  if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-      handleLogout.call(this)
-    })
-  }
 }
 
 // Modificar la función addMobileMenuButtonEvents para eliminar el evento del botón de inicio móvil
@@ -385,14 +366,6 @@ function addMobileMenuButtonEvents() {
     progressButton.addEventListener("click", function () {
       handleProgressClick.call(this)
       closeMobileMenu()
-    })
-  }
-
-  // Botón de sincronización
-  const syncButton = document.getElementById("sync-mobile")
-  if (syncButton) {
-    syncButton.addEventListener("click", function () {
-      handleSyncClick.call(this)
     })
   }
 
@@ -430,11 +403,12 @@ function addMobileMenuButtonEvents() {
     })
   }
 
-  // Botón de cerrar sesión
-  const logoutButton = document.getElementById("logout-mobile")
-  if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-      handleLogout.call(this)
+  // Botón de borrar datos móvil
+  const clearDataMobileButton = document.getElementById("clear-data-mobile")
+  if (clearDataMobileButton) {
+    clearDataMobileButton.addEventListener("click", function () {
+      handleClearData.call(this)
+      closeMobileMenu()
     })
   }
 }
@@ -463,48 +437,31 @@ function handleProgressClick() {
   }
 }
 
-// Manejador para el botón de sincronización
-async function handleSyncClick() {
+// Manejador para el botón de borrar datos
+async function handleClearData() {
   // Cerrar el menú móvil si está abierto
   closeMobileMenu()
 
-  // Añadir clase de rotación
-  this.classList.add("rotating")
-
-  try {
-    // Intentar importar la función de sincronización
-    let syncUserProgress
-
+  if (confirm("¿Estás seguro de que deseas borrar todos tus datos de progreso? Esta acción no se puede deshacer.")) {
     try {
-      const syncModule = await import("./aws-sync.js")
-      syncUserProgress = syncModule.syncUserProgress
-    } catch (error) {
-      console.warn("No se pudo importar el módulo aws-sync.js:", error)
-
-      // Buscar la función en el ámbito global
-      if (typeof window.syncUserProgress === "function") {
-        syncUserProgress = window.syncUserProgress
+      // Limpiar todos los datos de localStorage relacionados con el progreso
+      const keysToRemove = []
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key && (key.includes("user_") || key.includes("courseProgress") || key.includes("examHistory") || key.includes("examResult") || key.includes("local_progress"))) {
+          keysToRemove.push(key)
+        }
       }
+      keysToRemove.forEach(key => localStorage.removeItem(key))
+      localStorage.removeItem("userAuth")
+      
+      console.log("Datos de progreso eliminados")
+      alert("Tus datos han sido eliminados. La página se recargará.")
+      window.location.reload()
+    } catch (error) {
+      console.error("Error al borrar datos:", error)
+      alert("Error al borrar los datos. Por favor, intenta de nuevo.")
     }
-
-    if (typeof syncUserProgress === "function") {
-      const success = await syncUserProgress()
-
-      // Mostrar indicador de éxito o error
-      this.classList.remove("rotating")
-      this.classList.add(success ? "sync-success" : "sync-error")
-
-      // Quitar la clase después de 2 segundos
-      setTimeout(() => {
-        this.classList.remove("sync-success", "sync-error")
-      }, 2000)
-    } else {
-      console.warn("Función de sincronización no disponible")
-      this.classList.remove("rotating")
-    }
-  } catch (error) {
-    console.error("Error al sincronizar:", error)
-    this.classList.remove("rotating")
   }
 }
 
@@ -568,44 +525,6 @@ function navigateToHome() {
     } catch (e) {
       console.error("Todos los intentos fallaron. Usando ruta absoluta básica.")
       window.location.href = "/"
-    }
-  }
-}
-
-// Manejador para el botón de cerrar sesión
-async function handleLogout() {
-  // Cerrar el menú móvil si está abierto
-  closeMobileMenu()
-
-  // Confirmar cierre de sesión
-  if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
-    try {
-      // Buscar la función en el ámbito global
-      if (typeof window.logout === "function") {
-        await window.logout()
-        return
-      }
-
-      // Intentar importar la función de logout
-      try {
-        const authModule = await import("./auth.js")
-
-        if (typeof authModule.logout === "function") {
-          await authModule.logout()
-        } else {
-          console.warn("Función de logout no disponible en el módulo")
-          // Redirigir a la página de login como fallback
-          window.location.href = "login.html"
-        }
-      } catch (error) {
-        console.error("Error al importar el módulo auth.js:", error)
-        // Redirigir a la página de login como fallback
-        window.location.href = "login.html"
-      }
-    } catch (error) {
-      console.error("Error al cerrar sesión:", error)
-      // Redirigir a la página de login como fallback
-      window.location.href = "login.html"
     }
   }
 }

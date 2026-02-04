@@ -1,40 +1,39 @@
-// Utilidades relacionadas con el usuario
+// Utilidades relacionadas con el usuario - Modo Local
 
-// Función para obtener el ID del usuario actual
+// ID de usuario local fijo para modo sin autenticación
+const LOCAL_USER_ID = "local_user"
+
+// Función para obtener el ID del usuario actual (siempre devuelve usuario local)
 export function getCurrentUserId() {
+  // Verificar si existe usuario en localStorage, si no crearlo
   const userAuth = localStorage.getItem("userAuth")
-  if (!userAuth) return null
+  if (!userAuth) {
+    // Crear usuario local automáticamente
+    const localUserData = {
+      id: LOCAL_USER_ID,
+      name: "Usuario Local",
+      isAuthenticated: true,
+      isLocalMode: true,
+      firstLogin: new Date().toISOString(),
+      lastLogin: new Date().toISOString()
+    }
+    localStorage.setItem("userAuth", JSON.stringify(localUserData))
+    return LOCAL_USER_ID
+  }
 
   try {
     const userData = JSON.parse(userAuth)
-    return userData.id // El ID único de Google
+    return userData.id || LOCAL_USER_ID
   } catch (error) {
     console.error("Error al obtener el ID del usuario:", error)
-    return null
+    return LOCAL_USER_ID
   }
 }
 
-// Función para verificar si es necesario sincronizar
+// Función para verificar si es necesario sincronizar (siempre false en modo local)
 export function shouldSyncData() {
-  const userAuth = localStorage.getItem("userAuth")
-  if (!userAuth) return false
-
-  try {
-    const userData = JSON.parse(userAuth)
-
-    // Si nunca se ha sincronizado, debemos sincronizar
-    if (!userData.lastSync) return true
-
-    // Si han pasado más de 5 minutos desde la última sincronización
-    const lastSync = new Date(userData.lastSync)
-    const now = new Date()
-    const diffMinutes = (now - lastSync) / (1000 * 60)
-
-    return diffMinutes > 5
-  } catch (error) {
-    console.error("Error al verificar sincronización:", error)
-    return false
-  }
+  // En modo local, no hay sincronización con la nube
+  return false
 }
 
 // Función para guardar configuraciones personalizadas del usuario
